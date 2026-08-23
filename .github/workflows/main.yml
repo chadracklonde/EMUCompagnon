@@ -36,10 +36,17 @@ jobs:
             cp -r /tmp/scaffold/ios .
             chmod +x android/gradlew
           fi
+          # Force des versions AGP / Kotlin / Gradle compatibles entre elles
+          # et avec le plugin Gradle de Flutter (AGP 9+ casse ce dernier).
           if [ -f android/settings.gradle.kts ]; then
+            sed -i -E 's/(id\("com\.android\.application"\) version ")[^"]*(")/\18.7.2\2/' android/settings.gradle.kts
             sed -i -E 's/(id\("org\.jetbrains\.kotlin\.android"\) version ")[^"]*(")/\12.1.0\2/' android/settings.gradle.kts
           elif [ -f android/settings.gradle ]; then
+            sed -i -E 's/(id "com\.android\.application" version ")[^"]*(")/\18.7.2\2/' android/settings.gradle
             sed -i -E 's/(id "org\.jetbrains\.kotlin\.android" version ")[^"]*(")/\12.1.0\2/' android/settings.gradle
+          fi
+          if [ -f android/gradle/wrapper/gradle-wrapper.properties ]; then
+            sed -i -E "s#distributionUrl=.*#distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip#" android/gradle/wrapper/gradle-wrapper.properties
           fi
 
       - name: Vérifier l'environnement
@@ -107,9 +114,14 @@ jobs:
             chmod +x android/gradlew
           fi
           if [ -f android/settings.gradle.kts ]; then
+            sed -i -E 's/(id\("com\.android\.application"\) version ")[^"]*(")/\18.7.2\2/' android/settings.gradle.kts
             sed -i -E 's/(id\("org\.jetbrains\.kotlin\.android"\) version ")[^"]*(")/\12.1.0\2/' android/settings.gradle.kts
           elif [ -f android/settings.gradle ]; then
+            sed -i -E 's/(id "com\.android\.application" version ")[^"]*(")/\18.7.2\2/' android/settings.gradle
             sed -i -E 's/(id "org\.jetbrains\.kotlin\.android" version ")[^"]*(")/\12.1.0\2/' android/settings.gradle
+          fi
+          if [ -f android/gradle/wrapper/gradle-wrapper.properties ]; then
+            sed -i -E "s#distributionUrl=.*#distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip#" android/gradle/wrapper/gradle-wrapper.properties
           fi
 
       - name: Récupérer les dépendances
