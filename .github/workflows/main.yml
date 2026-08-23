@@ -25,7 +25,6 @@ jobs:
       - name: Installer Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
           channel: 'stable'
           cache: true
 
@@ -35,7 +34,9 @@ jobs:
             flutter create --platforms=android,ios --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/android .
             cp -r /tmp/scaffold/ios .
+            chmod +x android/gradlew
           fi
+          sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "2.1.0"/' android/settings.gradle
 
       - name: Vérifier l'environnement
         run: flutter doctor -v
@@ -90,7 +91,6 @@ jobs:
       - name: Installer Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
           channel: 'stable'
           cache: true
 
@@ -100,7 +100,9 @@ jobs:
             flutter create --platforms=android,ios --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/android .
             cp -r /tmp/scaffold/ios .
+            chmod +x android/gradlew
           fi
+          sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "2.1.0"/' android/settings.gradle
 
       - name: Récupérer les dépendances
         run: flutter pub get
