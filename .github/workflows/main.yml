@@ -36,7 +36,11 @@ jobs:
             cp -r /tmp/scaffold/ios .
             chmod +x android/gradlew
           fi
-          sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "2.1.0"/' android/settings.gradle
+          if [ -f android/settings.gradle.kts ]; then
+            sed -i -E 's/(id\("org\.jetbrains\.kotlin\.android"\) version ")[^"]*(")/\12.1.0\2/' android/settings.gradle.kts
+          elif [ -f android/settings.gradle ]; then
+            sed -i -E 's/(id "org\.jetbrains\.kotlin\.android" version ")[^"]*(")/\12.1.0\2/' android/settings.gradle
+          fi
 
       - name: Vérifier l'environnement
         run: flutter doctor -v
@@ -102,7 +106,11 @@ jobs:
             cp -r /tmp/scaffold/ios .
             chmod +x android/gradlew
           fi
-          sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "2.1.0"/' android/settings.gradle
+          if [ -f android/settings.gradle.kts ]; then
+            sed -i -E 's/(id\("org\.jetbrains\.kotlin\.android"\) version ")[^"]*(")/\12.1.0\2/' android/settings.gradle.kts
+          elif [ -f android/settings.gradle ]; then
+            sed -i -E 's/(id "org\.jetbrains\.kotlin\.android" version ")[^"]*(")/\12.1.0\2/' android/settings.gradle
+          fi
 
       - name: Récupérer les dépendances
         run: flutter pub get
