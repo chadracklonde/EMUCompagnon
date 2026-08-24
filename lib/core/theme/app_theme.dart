@@ -76,4 +76,67 @@ class AppTheme {
       fontFamily: 'Georgia',
     );
   }
+
+  static ThemeData dark() {
+    // Dark surfaces with the same UMC brand accents, adjusted for contrast
+    // and to avoid pure-black eye strain during long reading sessions.
+    const surfaceDark = Color(0xFF161213);
+    const surfaceContainerDark = Color(0xFF221D1E);
+    const redAccent = Color(0xFFFF5C6C); // lightened UMC red for dark bg contrast
+
+    final colorScheme = ColorScheme.dark(
+      primary: const Color(0xFFE08A8F), // lightened burgundy for legibility
+      onPrimary: const Color(0xFF3A0E12),
+      primaryContainer: const Color(0xFF4A1A1F),
+      onPrimaryContainer: const Color(0xFFF5D6D8),
+      secondary: redAccent,
+      onSecondary: const Color(0xFF3A0006),
+      secondaryContainer: const Color(0xFF4A1015),
+      onSecondaryContainer: const Color(0xFFFFD9DC),
+      tertiary: const Color(0xFFD98A8C),
+      onTertiary: const Color(0xFF3A0006),
+      surface: surfaceDark,
+      onSurface: const Color(0xFFEAE1E2),
+      surfaceContainerHighest: surfaceContainerDark,
+      outline: UmcColors.grayLight,
+      outlineVariant: const Color(0xFF4A4547),
+      error: redAccent,
+      onError: const Color(0xFF3A0006),
+    );
+
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: surfaceDark,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFF3A1418),
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: surfaceContainerDark,
+        indicatorColor: const Color(0xFF4A1A1F),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return TextStyle(
+            fontSize: 11,
+            fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
+            color: selected ? const Color(0xFFE08A8F) : UmcColors.grayLight,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return IconThemeData(
+            color: selected ? const Color(0xFFE08A8F) : UmcColors.grayLight,
+          );
+        }),
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: redAccent,
+        foregroundColor: const Color(0xFF3A0006),
+      ),
+      fontFamily: 'Georgia',
+    );
+  }
 }

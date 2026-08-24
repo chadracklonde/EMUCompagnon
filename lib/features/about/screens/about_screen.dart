@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../settings/screens/settings_screen.dart';
 
 /// "À propos" screen crediting the app's developer.
 class AboutScreen extends StatelessWidget {
@@ -27,6 +28,36 @@ class AboutScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
+          Material(
+            color: scheme.secondaryContainer,
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                child: Row(
+                  children: [
+                    Icon(Icons.tune, color: scheme.onSecondaryContainer),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Affichage — thème, taille du texte, interligne',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: scheme.onSecondaryContainer,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: scheme.onSecondaryContainer),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
           Center(
             child: CircleAvatar(
               radius: 44,

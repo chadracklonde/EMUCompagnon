@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/models/hymn.dart';
 import '../../../core/models/bookmark.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../favorites/repository/bookmark_repository.dart';
 
 class HymnDetailScreen extends StatefulWidget {
@@ -47,6 +49,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final hymn = widget.hymn;
+    final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
     return Scaffold(
       appBar: AppBar(
         title: Text('N° ${hymn.number}'),
@@ -86,7 +89,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
             const SizedBox(height: 20),
             Text(
               hymn.lyrics,
-              style: const TextStyle(fontSize: 17, height: 1.6),
+              style: TextStyle(fontSize: 17, height: 1.6 * lineHeightScale),
             ),
           ],
         ),

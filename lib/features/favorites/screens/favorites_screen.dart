@@ -3,7 +3,10 @@ import '../../../core/database/db_helper.dart';
 import '../../../core/models/bookmark.dart';
 import '../../../core/models/verse.dart';
 import '../../../core/models/hymn.dart';
+import '../../../core/models/note.dart';
 import '../repository/bookmark_repository.dart';
+import '../../notes/repository/notes_repository.dart';
+import '../../notes/screens/notes_sheet.dart';
 import '../../bible/screens/chapter_screen.dart';
 import '../../hymns/screens/hymn_detail_screen.dart';
 
@@ -16,17 +19,19 @@ class FavoritesScreen extends StatefulWidget {
 
 class _FavoritesScreenState extends State<FavoritesScreen>
     with SingleTickerProviderStateMixin {
-  final _repo = BookmarkRepository();
+  final _bookmarkRepo = BookmarkRepository();
+  final _notesRepo = NotesRepository();
   late TabController _tabController;
 
   List<_VerseFavorite> _verseFavorites = [];
   List<_HymnFavorite> _hymnFavorites = [];
+  List<_VerseNoteEntry> _verseNotes = [];
   bool _loading = true;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _load();
   }
 
@@ -34,31 +39,30 @@ class _FavoritesScreenState extends State<FavoritesScreen>
     setState(() => _loading = true);
     final db = await DbHelper.database;
 
-    final verseBookmarks = await _repo.listByType(BookmarkType.verse);
+    final verseBookmarks = await _bookmarkRepo.listByType(BookmarkType.verse);
     final verseFavorites = <_VerseFavorite>[];
     for (final b in verseBookmarks) {
-      final rows = await db.query(
-        'bible_verses',
-        where: 'id = ?',
-        whereArgs: [b.refId],
-        limit: 1,
-      );
+      final rows = await db.query('bible_verses', where: 'id = ?', whereArgs: [b.refId], limit: 1);
       if (rows.isNotEmpty) {
         verseFavorites.add(_VerseFavorite(bookmark: b, verse: Verse.fromMap(rows.first)));
       }
     }
 
-    final hymnBookmarks = await _repo.listByType(BookmarkType.hymn);
+    final hymnBookmarks = await _bookmarkRepo.listByType(BookmarkType.hymn);
     final hymnFavorites = <_HymnFavorite>[];
     for (final b in hymnBookmarks) {
-      final rows = await db.query(
-        'hymns',
-        where: 'id = ?',
-        whereArgs: [b.refId],
-        limit: 1,
-      );
+      final rows = await db.query('hymns', where: 'id = ?', whereArgs: [b.refId], limit: 1);
       if (rows.isNotEmpty) {
         hymnFavorites.add(_HymnFavorite(bookmark: b, hymn: Hymn.fromMap(rows.first)));
+      }
+    }
+
+    final notes = await _notesRepo.listAll(BookmarkType.verse);
+    final verseNotes = <_VerseNoteEntry>[];
+    for (final n in notes) {
+      final rows = await db.query('bible_verses', where: 'id = ?', whereArgs: [n.refId], limit: 1);
+      if (rows.isNotEmpty) {
+        verseNotes.add(_VerseNoteEntry(note: n, verse: Verse.fromMap(rows.first)));
       }
     }
 
@@ -66,18 +70,19 @@ class _FavoritesScreenState extends State<FavoritesScreen>
       setState(() {
         _verseFavorites = verseFavorites;
         _hymnFavorites = hymnFavorites;
+        _verseNotes = verseNotes;
         _loading = false;
       });
     }
   }
 
   Future<void> _removeVerse(_VerseFavorite f) async {
-    await _repo.remove(f.bookmark.id);
+    await _bookmarkRepo.remove(f.bookmark.id);
     _load();
   }
 
   Future<void> _removeHymn(_HymnFavorite f) async {
-    await _repo.remove(f.bookmark.id);
+    await _bookmarkRepo.remove(f.bookmark.id);
     _load();
   }
 
@@ -97,6 +102,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
           tabs: [
             Tab(text: 'Versets (${_verseFavorites.length})'),
             Tab(text: 'Cantiques (${_hymnFavorites.length})'),
+            Tab(text: 'Notes (${_verseNotes.length})'),
           ],
         ),
       ),
@@ -116,15 +122,8 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         itemBuilder: (context, index) {
                           final f = _verseFavorites[index];
                           return ListTile(
-                            title: Text(
-                              f.verse.reference,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text(
-                              f.verse.text,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                            title: Text(f.verse.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
+                            subtitle: Text(f.verse.text, maxLines: 2, overflow: TextOverflow.ellipsis),
                             trailing: IconButton(
                               icon: const Icon(Icons.star, color: Colors.amber),
                               onPressed: () => _removeVerse(f),
@@ -134,6 +133,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                                 builder: (_) => ChapterScreen(
                                   book: f.verse.book,
                                   chapter: f.verse.chapter,
+                                  highlightVerse: f.verse.verse,
                                 ),
                               ),
                             ),
@@ -158,10 +158,31 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                               onPressed: () => _removeHymn(f),
                             ),
                             onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => HymnDetailScreen(hymn: f.hymn),
-                              ),
+                              MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: f.hymn)),
                             ),
+                          );
+                        },
+                      ),
+                _verseNotes.isEmpty
+                    ? const _EmptyState(
+                        icon: Icons.sticky_note_2_outlined,
+                        message: 'Aucune note pour l\'instant.\nOuvrez le menu « ⋮ » d\'un verset pour en écrire une.',
+                      )
+                    : ListView.separated(
+                        itemCount: _verseNotes.length,
+                        separatorBuilder: (_, __) => const Divider(height: 1),
+                        itemBuilder: (context, index) {
+                          final e = _verseNotes[index];
+                          return ListTile(
+                            title: Text(e.verse.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
+                            subtitle: Text(e.note.noteText, maxLines: 2, overflow: TextOverflow.ellipsis),
+                            trailing: const Icon(Icons.chevron_right, size: 18),
+                            onTap: () => showNotesSheet(
+                              context,
+                              type: BookmarkType.verse,
+                              refId: e.verse.id,
+                              label: e.verse.reference,
+                            ).then((_) => _load()),
                           );
                         },
                       ),
@@ -183,6 +204,12 @@ class _HymnFavorite {
   _HymnFavorite({required this.bookmark, required this.hymn});
 }
 
+class _VerseNoteEntry {
+  final VerseNote note;
+  final Verse verse;
+  _VerseNoteEntry({required this.note, required this.verse});
+}
+
 class _EmptyState extends StatelessWidget {
   final IconData icon;
   final String message;
@@ -198,11 +225,7 @@ class _EmptyState extends StatelessWidget {
           children: [
             Icon(icon, size: 48, color: Theme.of(context).colorScheme.outline),
             const SizedBox(height: 12),
-            Text(
-              message,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Theme.of(context).colorScheme.outline),
-            ),
+            Text(message, textAlign: TextAlign.center, style: TextStyle(color: Theme.of(context).colorScheme.outline)),
           ],
         ),
       ),

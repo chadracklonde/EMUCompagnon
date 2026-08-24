@@ -28,6 +28,27 @@ class BibleRepository {
     return (rows.first['maxChapter'] as int?) ?? 0;
   }
 
+  /// Picks a deterministic "verse of the day" — same verse all day, changes
+  /// daily, cycles through the whole Bible over the course of a few years.
+  Future<Verse?> getVerseOfTheDay() async {
+    final db = await DbHelper.database;
+    final countResult =
+        await db.rawQuery('SELECT COUNT(*) as c FROM bible_verses');
+    final total = (countResult.first['c'] as int?) ?? 0;
+    if (total == 0) return null;
+    final now = DateTime.now();
+    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+    final offset = dayOfYear % total;
+    final rows = await db.query(
+      'bible_verses',
+      orderBy: 'id ASC',
+      limit: 1,
+      offset: offset,
+    );
+    if (rows.isEmpty) return null;
+    return Verse.fromMap(rows.first);
+  }
+
   Future<List<Verse>> getChapter(String book, int chapter) async {
     final db = await DbHelper.database;
     final rows = await db.query(

@@ -23,12 +23,38 @@ sous l'icône de l'app sur le téléphone, une fois les dossiers natifs génér�
   "Chants de Victoire", 228 entrées de dictionnaire biblique, index FTS5 pour
   la recherche/concordance.
 - Modules actifs : Bible (navigation livre/chapitre + concordance + étoile
-  favoris par verset), Cantiques (liste + recherche + détail + étoile
-  favoris), Dictionnaire biblique (liste alphabétique + recherche),
-  Favoris (onglet dédié, versets et cantiques enregistrés, retrait en un tap),
-  À propos (crédit développeur, contact, liens vers les ressources
-  officielles UMC).
-- Module Liturgie : pas encore construit (en attente du contenu).
+  favoris par verset + verset du jour), Cantiques (liste + recherche +
+  détail + étoile favoris), Liturgie (calendrier liturgique : saison du
+  jour calculée automatiquement, dates mobiles de Pâques/Carême/Pentecôte
+  recalculées chaque année, frise des 6 saisons + 4 jours saints),
+  Dictionnaire biblique (liste alphabétique + recherche), Favoris (onglet
+  dédié, versets et cantiques enregistrés, retrait en un tap), À propos
+  (crédit développeur, contact, liens UMC, accès aux réglages d'affichage).
+- Contenu du calendrier liturgique rédigé indépendamment pour cette app
+  (pas de reproduction d'un texte protégé) ; dates calculées, pas codées
+  en dur, donc toujours justes d'une année sur l'autre.
+- Accessibilité et confort de lecture : mode sombre/clair/système, taille
+  du texte et interligne réglables (persistés localement), références
+  bibliques cliquables dans le dictionnaire et la liturgie (ex. « Jean
+  3.16 » ouvre directement le verset avec surlignage et défilement
+  automatique), copie d'un verset par appui long, versets nettement
+  séparés visuellement (fond, marge, encadré au survol/lien).
+- Recherche globale : un seul champ de recherche interroge simultanément
+  la Bible, les cantiques et le dictionnaire (FTS5 en parallèle sur les
+  trois sources), résultats par onglets.
+- Notes personnelles : en plus des favoris, chaque verset peut recevoir
+  une ou plusieurs notes libres (table `notes`), consultables/éditables
+  depuis le menu « ⋮ » d'un verset ou depuis l'onglet Notes de Favoris.
+- Partage d'un verset comme image : génère une carte visuelle brandée
+  (dégradé bordeaux UMC, texte du verset, référence) et l'envoie au
+  partage natif du système (`share_plus`).
+- Module Liturgie étoffé : en plus du calendrier liturgique, un « Ordre
+  du culte » (structure générale d'un service dominical méthodiste) et
+  une section « Sacrements et rites » (Baptême, Sainte-Cène, Confirmation,
+  Mariage, Funérailles). Contenu rédigé indépendamment (structure et sens
+  général, pas les textes liturgiques officiels protégés — prières, vœux,
+  bénédictions exacts — qui restent à prendre dans le Livre de Culte EMU
+  officiel).
 
 ## Générer un APK automatiquement (GitHub Actions)
 Le fichier `.github/workflows/build.yml` construit l'app automatiquement :
