@@ -22,6 +22,17 @@ sous l'icône de l'app sur le téléphone, une fois les dossiers natifs génér�
 - `assets/db/app_data.db` — Bible Louis Segond 1910 (31 102 versets), 444 cantiques
   "Chants de Victoire", 228 entrées de dictionnaire biblique, index FTS5 pour
   la recherche/concordance.
+## Écran d'accueil (style « missel classique »)
+Un nouvel onglet **Accueil** (premier onglet, icône maison) offre une
+page de lancement au style ornemental — fond parchemin, bordures dorées,
+polices classiques (Google Fonts : Great Vibes en cursive, Playfair
+Display en serif) — tout en gardant le bordeaux officiel UMC comme seule
+couleur de marque (pas de bleu marine). Elle regroupe : sélecteur de
+langue et de thème, recherche globale, verset du jour, accès rapide
+Nouveau/Ancien Testament, Plan de lecture, Liturgie, et une grille
+Cantiques/Dictionnaire/Favoris/À propos. Les 6 onglets existants restent
+inchangés et accessibles normalement dans la barre du bas.
+
 - Modules actifs : Bible (navigation livre/chapitre + concordance + étoile
   favoris par verset + verset du jour), Cantiques (liste + recherche +
   détail + étoile favoris), Liturgie (calendrier liturgique : saison du

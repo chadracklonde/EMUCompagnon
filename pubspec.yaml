@@ -22,6 +22,7 @@ dependencies:
   flutter_local_notifications: ^18.0.1
   timezone: ^0.9.4
   just_audio: ^0.9.42
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

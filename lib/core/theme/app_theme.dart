@@ -18,6 +18,15 @@ class UmcColors {
   // containers/highlights so accents stay visibly tied to the brand red
   // rather than introducing an unrelated hue.
   static const redTint = Color(0xFFFBD9DE);
+
+  // Decorative gold, used for the app icon flame, shared verse cards, and
+  // liturgical color swatches — not an official UMC brand color, but the
+  // app's own established accent for ornamental/classic-style elements.
+  static const gold = Color(0xFFD4A017);
+
+  // Warm parchment/cream tone for the "elegant classic" home screen
+  // background, evoking an old missal/hymnal page.
+  static const parchment = Color(0xFFF7F1E1);
 }
 
 class AppTheme {

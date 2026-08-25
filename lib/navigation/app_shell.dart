@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../features/home/screens/home_screen.dart';
 import '../features/bible/screens/books_screen.dart';
 import '../features/hymns/screens/hymns_screen.dart';
 import '../features/dictionary/screens/dictionary_screen.dart';
@@ -21,6 +22,7 @@ class _AppShellState extends State<AppShell> {
   int _index = 0;
 
   static const _screens = [
+    HomeScreen(),
     BooksScreen(),
     HymnsScreen(),
     LiturgyScreen(),
@@ -41,6 +43,7 @@ class _AppShellState extends State<AppShell> {
         onDestinationSelected: (i) => setState(() => _index = i),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: [
+          const NavigationDestination(icon: Icon(Icons.home), label: 'Accueil'),
           NavigationDestination(icon: const Icon(Icons.menu_book), label: t('nav_bible')),
           NavigationDestination(icon: const Icon(Icons.music_note), label: t('nav_hymns')),
           NavigationDestination(icon: const Icon(Icons.calendar_month), label: t('nav_liturgy')),
