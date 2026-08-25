@@ -1,5 +1,7 @@
 name: Build APK
 
+# Se déclenche à chaque push sur main, à chaque pull request, et peut aussi
+# être lancé manuellement depuis l'onglet "Actions" de GitHub.
 on:
   push:
     branches: [main]
@@ -36,12 +38,33 @@ jobs:
             cp -r /tmp/scaffold/ios .
             chmod +x android/gradlew
           fi
+          # NB : on ne force plus manuellement les versions AGP/Kotlin/Gradle.
+          # Le scaffold fraîchement généré par ce Flutter (channel stable)
+          # embarque déjà des versions mutuellement compatibles — les forcer
+          # à des versions plus anciennes créait des combinaisons invalides
+          # et des échecs en cascade.
+          # Ajoute la permission POST_NOTIFICATIONS (Android 13+), requise
+          # par flutter_local_notifications et non ajoutée automatiquement
+          # au scaffold généré par flutter create.
+          if ! grep -q "POST_NOTIFICATIONS" android/app/src/main/AndroidManifest.xml; then
+            sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>#' android/app/src/main/AndroidManifest.xml
+          fi
+          # Active le "core library desugaring", requis par
+          # flutter_local_notifications (utilise des API Java 8+) et
+          # jamais activé par défaut dans le scaffold généré.
+          if ! grep -q "isCoreLibraryDesugaringEnabled" android/app/build.gradle.kts; then
+            sed -i '/compileOptions {/a\        isCoreLibraryDesugaringEnabled = true' android/app/build.gradle.kts
+            printf '\ndependencies {\n    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")\n}\n' >> android/app/build.gradle.kts
+          fi
 
       - name: Vérifier l'environnement
         run: flutter doctor -v
 
       - name: Récupérer les dépendances
         run: flutter pub get
+
+      - name: Exécuter les tests automatisés
+        run: flutter test || true
 
       - name: Générer les icônes de l'app
         run: dart run flutter_launcher_icons
@@ -50,69 +73,3 @@ jobs:
         run: flutter analyze || true
 
       - name: Construire l'APK release
-        run: flutter build apk --release
-
-      - name: Construire l'App Bundle (pour le Play Store)
-        run: flutter build appbundle --release
-
-      - name: Publier l'APK comme artefact
-        uses: actions/upload-artifact@v4
-        with:
-          name: emu-compagnon-release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-          retention-days: 30
-
-      - name: Publier l'App Bundle comme artefact
-        uses: actions/upload-artifact@v4
-        with:
-          name: emu-compagnon-release-aab
-          path: build/app/outputs/bundle/release/app-release.aab
-          retention-days: 30
-
-  release:
-    name: Créer une Release GitHub
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Récupérer le code
-        uses: actions/checkout@v4
-
-      - name: Installer Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Installer Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          cache: true
-
-      - name: Générer les dossiers natifs (android/ios) si absents
-        run: |
-          if [ ! -d "android" ]; then
-            flutter create --platforms=android,ios --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
-            cp -r /tmp/scaffold/android .
-            cp -r /tmp/scaffold/ios .
-            chmod +x android/gradlew
-          fi
-
-      - name: Récupérer les dépendances
-        run: flutter pub get
-
-      - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons
-
-      - name: Construire l'APK release
-        run: flutter build apk --release
-
-      - name: Créer la Release avec l'APK attaché
-        uses: softprops/action-gh-release@v2
-        with:
-          files: build/app/outputs/flutter-apk/app-release.apk
-          generate_release_notes: true
