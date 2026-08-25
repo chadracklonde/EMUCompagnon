@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/models/verse.dart';
+import '../../../core/models/bible_version.dart';
+import '../../../core/settings/app_settings.dart';
 import '../repository/bible_repository.dart';
 import 'chapter_list_screen.dart';
 import 'chapter_screen.dart';
 import '../../concordance/screens/concordance_screen.dart';
 import '../../search/screens/global_search_screen.dart';
+import '../../../core/services/reading_history_service.dart';
+import '../../reading_plan/screens/reading_plan_screen.dart';
+import '../../../shared/widgets/version_picker.dart';
 
 class BooksScreen extends StatefulWidget {
   const BooksScreen({super.key});
@@ -17,22 +23,67 @@ class _BooksScreenState extends State<BooksScreen> {
   static const _ancienTestament = 39;
   final _repo = BibleRepository();
   Verse? _verseOfTheDay;
+  ({String book, int chapter})? _lastRead;
+  String? _loadedForVersion;
 
   @override
   void initState() {
     super.initState();
-    _repo.getVerseOfTheDay().then((v) {
+    ReadingHistoryService.getLastBibleRead().then((r) {
+      if (mounted) setState(() => _lastRead = r);
+    });
+  }
+
+  void _loadVerseOfDay(String version) {
+    if (_loadedForVersion == version) return;
+    _loadedForVersion = version;
+    _repo.getVerseOfTheDay(version: version).then((v) {
       if (mounted) setState(() => _verseOfTheDay = v);
     });
   }
 
+  Future<void> _pickVersion(AppSettings settings) async {
+    final chosen = await showVersionPicker(context, current: settings.bibleVersion);
+    if (chosen != null) {
+      await settings.setBibleVersion(chosen);
+      _loadedForVersion = null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<AppSettings>();
+    final version = settings.bibleVersion;
+    _loadVerseOfDay(version);
+    final versionInfo = BibleVersions.byCode(version);
     final books = BibleRepository.books;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bible'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Bible'),
+            Text(
+              versionInfo.name,
+              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
+            ),
+          ],
+        ),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.translate),
+            tooltip: 'Version de la Bible',
+            onPressed: () => _pickVersion(settings),
+          ),
+          IconButton(
+            icon: const Icon(Icons.checklist),
+            tooltip: 'Plan de lecture',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReadingPlanScreen()),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.travel_explore),
             tooltip: 'Recherche globale (Bible, Cantiques, Dictionnaire)',
@@ -51,7 +102,8 @@ class _BooksScreenState extends State<BooksScreen> {
       ),
       body: Column(
         children: [
-          if (_verseOfTheDay != null) _VerseOfTheDayCard(verse: _verseOfTheDay!),
+          if (_lastRead != null) _ResumeReadingCard(lastRead: _lastRead!, version: version),
+          if (_verseOfTheDay != null) _VerseOfTheDayCard(verse: _verseOfTheDay!, version: version),
           Expanded(
             child: ListView.builder(
               itemCount: books.length + 2, // +2 for the two section headers
@@ -69,7 +121,7 @@ class _BooksScreenState extends State<BooksScreen> {
                   title: Text(book),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => ChapterListScreen(book: book)),
+                    MaterialPageRoute(builder: (_) => ChapterListScreen(book: book, version: version)),
                   ),
                 );
               },
@@ -81,9 +133,52 @@ class _BooksScreenState extends State<BooksScreen> {
   }
 }
 
+class _ResumeReadingCard extends StatelessWidget {
+  final ({String book, int chapter}) lastRead;
+  final String version;
+  const _ResumeReadingCard({required this.lastRead, required this.version});
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: Material(
+        color: scheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => ChapterScreen(book: lastRead.book, chapter: lastRead.chapter, version: version),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              children: [
+                Icon(Icons.history, color: scheme.primary, size: 20),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'Reprendre la lecture — ${lastRead.book} ${lastRead.chapter}',
+                    style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: scheme.outline),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _VerseOfTheDayCard extends StatelessWidget {
   final Verse verse;
-  const _VerseOfTheDayCard({required this.verse});
+  final String version;
+  const _VerseOfTheDayCard({required this.verse, required this.version});
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +196,7 @@ class _VerseOfTheDayCard extends StatelessWidget {
                 book: verse.book,
                 chapter: verse.chapter,
                 highlightVerse: verse.verse,
+                version: version,
               ),
             ),
           ),

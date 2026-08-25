@@ -4,7 +4,8 @@ import 'chapter_screen.dart';
 
 class ChapterListScreen extends StatefulWidget {
   final String book;
-  const ChapterListScreen({super.key, required this.book});
+  final String version;
+  const ChapterListScreen({super.key, required this.book, this.version = 'LSG1910'});
 
   @override
   State<ChapterListScreen> createState() => _ChapterListScreenState();
@@ -21,7 +22,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   }
 
   Future<void> _load() async {
-    final count = await _repo.chapterCount(widget.book);
+    final count = await _repo.chapterCount(widget.book, version: widget.version);
     if (mounted) setState(() => _chapterCount = count);
   }
 
@@ -48,6 +49,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
                       builder: (_) => ChapterScreen(
                         book: widget.book,
                         chapter: chapter,
+                        version: widget.version,
                       ),
                     ),
                   ),

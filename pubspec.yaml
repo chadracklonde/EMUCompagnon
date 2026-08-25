@@ -1,5 +1,5 @@
 name: emu_compagnon
-description: "EMU Compagnon — Bible, Cantiques, Dictionnaire biblique et Liturgie EMU"
+description: "ÉMU Compagnon — Bible, Cantiques, Dictionnaire biblique et Liturgie EMU"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -17,6 +17,11 @@ dependencies:
   shared_preferences: ^2.2.3
   url_launcher: ^6.3.1
   share_plus: ^12.0.0
+  http: ^1.2.2
+  file_picker: ^8.1.4
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.9.4
+  just_audio: ^0.9.42
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +34,7 @@ flutter:
   assets:
     - assets/db/
     - assets/icons/
+    - assets/images/
 
 # Generates native iOS/Android launcher icons from a single source image.
 # Run once after `flutter pub get`:  dart run flutter_launcher_icons

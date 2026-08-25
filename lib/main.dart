@@ -18,10 +18,10 @@ class EmuCompagnonApp extends StatelessWidget {
       child: Consumer<AppSettings>(
         builder: (context, settings, _) {
           return MaterialApp(
-            title: 'EMU Compagnon',
+            title: 'ÉMU Compagnon',
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.light(),
-            darkTheme: AppTheme.dark(),
+            theme: AppTheme.light(fontFamily: settings.resolvedFontFamily),
+            darkTheme: AppTheme.dark(fontFamily: settings.resolvedFontFamily),
             themeMode: settings.themeMode,
             // Applies the user's text-size preference app-wide, on top of
             // each widget's own font sizes.

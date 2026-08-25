@@ -2,7 +2,9 @@ import '../../../core/database/db_helper.dart';
 import '../../../core/models/verse.dart';
 
 class BibleRepository {
-  /// Canonical 66-book order, used for navigation and sorting.
+  /// Canonical 66-book order, used for navigation and sorting. Shared by
+  /// every Bible version — versification (which book/chapter goes where)
+  /// is assumed consistent across translations of the same 66-book canon.
   static const List<String> books = [
     'Genèse', 'Exode', 'Lévitique', 'Nombres', 'Deutéronome',
     'Josué', 'Juges', 'Ruth', '1 Samuel', '2 Samuel', '1 Rois', '2 Rois',
@@ -19,21 +21,25 @@ class BibleRepository {
     'Jude', 'Révélation',
   ];
 
-  Future<int> chapterCount(String book) async {
+  static const _defaultVersion = 'LSG1910';
+
+  Future<int> chapterCount(String book, {String version = _defaultVersion}) async {
     final db = await DbHelper.database;
     final rows = await db.rawQuery(
-      'SELECT MAX(chapter) as maxChapter FROM bible_verses WHERE book = ?',
-      [book],
+      'SELECT MAX(chapter) as maxChapter FROM bible_verses WHERE book = ? AND version = ?',
+      [book, version],
     );
     return (rows.first['maxChapter'] as int?) ?? 0;
   }
 
   /// Picks a deterministic "verse of the day" — same verse all day, changes
   /// daily, cycles through the whole Bible over the course of a few years.
-  Future<Verse?> getVerseOfTheDay() async {
+  Future<Verse?> getVerseOfTheDay({String version = _defaultVersion}) async {
     final db = await DbHelper.database;
-    final countResult =
-        await db.rawQuery('SELECT COUNT(*) as c FROM bible_verses');
+    final countResult = await db.rawQuery(
+      'SELECT COUNT(*) as c FROM bible_verses WHERE version = ?',
+      [version],
+    );
     final total = (countResult.first['c'] as int?) ?? 0;
     if (total == 0) return null;
     final now = DateTime.now();
@@ -41,6 +47,8 @@ class BibleRepository {
     final offset = dayOfYear % total;
     final rows = await db.query(
       'bible_verses',
+      where: 'version = ?',
+      whereArgs: [version],
       orderBy: 'id ASC',
       limit: 1,
       offset: offset,
@@ -49,41 +57,55 @@ class BibleRepository {
     return Verse.fromMap(rows.first);
   }
 
-  Future<List<Verse>> getChapter(String book, int chapter) async {
+  Future<List<Verse>> getChapter(
+    String book,
+    int chapter, {
+    String version = _defaultVersion,
+  }) async {
     final db = await DbHelper.database;
     final rows = await db.query(
       'bible_verses',
-      where: 'book = ? AND chapter = ?',
-      whereArgs: [book, chapter],
+      where: 'book = ? AND chapter = ? AND version = ?',
+      whereArgs: [book, chapter, version],
       orderBy: 'verse ASC',
     );
     return rows.map((r) => Verse.fromMap(r)).toList();
   }
 
-  Future<Verse?> getVerse(String book, int chapter, int verse) async {
+  Future<Verse?> getVerse(
+    String book,
+    int chapter,
+    int verse, {
+    String version = _defaultVersion,
+  }) async {
     final db = await DbHelper.database;
     final rows = await db.query(
       'bible_verses',
-      where: 'book = ? AND chapter = ? AND verse = ?',
-      whereArgs: [book, chapter, verse],
+      where: 'book = ? AND chapter = ? AND verse = ? AND version = ?',
+      whereArgs: [book, chapter, verse, version],
       limit: 1,
     );
     if (rows.isEmpty) return null;
     return Verse.fromMap(rows.first);
   }
 
-  /// Full-text concordance search across the whole Bible via FTS5.
-  Future<List<Verse>> search(String query, {int limit = 100}) async {
+  /// Full-text concordance search, scoped to a single version so results
+  /// from two languages never mix together.
+  Future<List<Verse>> search(
+    String query, {
+    int limit = 100,
+    String version = _defaultVersion,
+  }) async {
     final db = await DbHelper.database;
     final sanitized = _sanitizeFtsQuery(query);
     if (sanitized.isEmpty) return [];
     final rows = await db.rawQuery('''
       SELECT bible_verses.* FROM bible_verses
       JOIN bible_verses_fts ON bible_verses.id = bible_verses_fts.rowid
-      WHERE bible_verses_fts MATCH ?
+      WHERE bible_verses_fts MATCH ? AND bible_verses.version = ?
       ORDER BY bible_verses.book_num, bible_verses.chapter, bible_verses.verse
       LIMIT ?
-    ''', [sanitized, limit]);
+    ''', [sanitized, version, limit]);
     return rows.map((r) => Verse.fromMap(r)).toList();
   }
 

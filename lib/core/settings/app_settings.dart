@@ -8,14 +8,41 @@ class AppSettings extends ChangeNotifier {
   static const _kThemeMode = 'settings.themeMode'; // 'system' | 'light' | 'dark'
   static const _kTextScale = 'settings.textScale';
   static const _kLineHeightScale = 'settings.lineHeightScale';
+  static const _kFontFamily = 'settings.fontFamily'; // 'system' | 'serif' | 'sansSerif'
+  static const _kLocale = 'settings.locale'; // 'fr' | 'sw'
+  static const _kNotificationsEnabled = 'settings.notificationsEnabled';
+  static const _kNotificationHour = 'settings.notificationHour';
+  static const _kNotificationMinute = 'settings.notificationMinute';
+  static const _kBibleVersion = 'settings.bibleVersion';
 
   ThemeMode _themeMode = ThemeMode.system;
-  double _textScale = 1.0; // multiplier applied on top of base font sizes
-  double _lineHeightScale = 1.0; // multiplier applied on top of base line height
+  double _textScale = 1.0;
+  double _lineHeightScale = 1.0;
+  String _fontFamily = 'system';
+  String _locale = 'fr';
+  bool _notificationsEnabled = false;
+  int _notificationHour = 7;
+  int _notificationMinute = 0;
+  String _bibleVersion = 'LSG1910';
 
   ThemeMode get themeMode => _themeMode;
   double get textScale => _textScale;
   double get lineHeightScale => _lineHeightScale;
+  String get fontFamily => _fontFamily;
+  String get locale => _locale;
+  bool get notificationsEnabled => _notificationsEnabled;
+  int get notificationHour => _notificationHour;
+  int get notificationMinute => _notificationMinute;
+  String get bibleVersion => _bibleVersion;
+
+  /// Maps the stored preference key to an actual Flutter font family string.
+  /// 'serif'/'sans-serif' are generic families Skia resolves via platform
+  /// font matching — no bundled font assets required.
+  String? get resolvedFontFamily => switch (_fontFamily) {
+        'serif' => 'serif',
+        'sansSerif' => 'sans-serif',
+        _ => null, // null = theme default (Roboto-ish on Android, SF on iOS)
+      };
 
   static const double minTextScale = 0.8;
   static const double maxTextScale = 1.6;
@@ -32,6 +59,12 @@ class AppSettings extends ChangeNotifier {
     };
     _textScale = prefs.getDouble(_kTextScale) ?? 1.0;
     _lineHeightScale = prefs.getDouble(_kLineHeightScale) ?? 1.0;
+    _fontFamily = prefs.getString(_kFontFamily) ?? 'system';
+    _locale = prefs.getString(_kLocale) ?? 'fr';
+    _notificationsEnabled = prefs.getBool(_kNotificationsEnabled) ?? false;
+    _notificationHour = prefs.getInt(_kNotificationHour) ?? 7;
+    _notificationMinute = prefs.getInt(_kNotificationMinute) ?? 0;
+    _bibleVersion = prefs.getString(_kBibleVersion) ?? 'LSG1910';
     notifyListeners();
   }
 
@@ -60,9 +93,47 @@ class AppSettings extends ChangeNotifier {
     await prefs.setDouble(_kLineHeightScale, _lineHeightScale);
   }
 
+  Future<void> setFontFamily(String value) async {
+    _fontFamily = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_kFontFamily, value);
+  }
+
+  Future<void> setLocale(String value) async {
+    _locale = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_kLocale, value);
+  }
+
+  Future<void> setNotificationsEnabled(bool value) async {
+    _notificationsEnabled = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_kNotificationsEnabled, value);
+  }
+
+  Future<void> setNotificationTime(int hour, int minute) async {
+    _notificationHour = hour;
+    _notificationMinute = minute;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_kNotificationHour, hour);
+    await prefs.setInt(_kNotificationMinute, minute);
+  }
+
+  Future<void> setBibleVersion(String code) async {
+    _bibleVersion = code;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_kBibleVersion, code);
+  }
+
   Future<void> resetToDefaults() async {
     await setThemeMode(ThemeMode.system);
     await setTextScale(1.0);
     await setLineHeightScale(1.0);
+    await setFontFamily('system');
   }
 }

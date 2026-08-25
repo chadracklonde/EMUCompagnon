@@ -53,7 +53,7 @@ class VerseShareCard extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           Text(
-            'EMU Compagnon',
+            'ÉMU Compagnon',
             style: TextStyle(
               color: Colors.white.withValues(alpha: 0.6),
               fontSize: 13,

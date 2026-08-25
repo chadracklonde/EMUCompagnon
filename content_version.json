@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "db_url": "https://raw.githubusercontent.com/chadracklonde/EMUCompagnon/main/assets/db/app_data.db",
+  "notes": "Incrémente 'version' à chaque nouvelle version de app_data.db poussée dans assets/db/, pour que l'app détecte la mise à jour."
+}

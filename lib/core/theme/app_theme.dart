@@ -21,7 +21,7 @@ class UmcColors {
 }
 
 class AppTheme {
-  static ThemeData light() {
+  static ThemeData light({String? fontFamily}) {
     final colorScheme = ColorScheme.light(
       primary: UmcColors.burgundy,
       onPrimary: Colors.white,
@@ -73,11 +73,11 @@ class AppTheme {
         backgroundColor: UmcColors.redPrimary,
         foregroundColor: Colors.white,
       ),
-      fontFamily: 'Georgia',
+      fontFamily: fontFamily,
     );
   }
 
-  static ThemeData dark() {
+  static ThemeData dark({String? fontFamily}) {
     // Dark surfaces with the same UMC brand accents, adjusted for contrast
     // and to avoid pure-black eye strain during long reading sessions.
     const surfaceDark = Color(0xFF161213);
@@ -136,7 +136,7 @@ class AppTheme {
         backgroundColor: redAccent,
         foregroundColor: const Color(0xFF3A0006),
       ),
-      fontFamily: 'Georgia',
+      fontFamily: fontFamily,
     );
   }
 }

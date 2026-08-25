@@ -1,4 +1,4 @@
-# EMU Compagnon
+# ÉMU Compagnon
 
 Application mobile Flutter pour l'Église Méthodiste Unie : Bible, Cantiques
 « Chants de Victoire », Dictionnaire biblique, et (à venir) Liturgie EMU.
@@ -12,11 +12,11 @@ flutter run
 
 ## Nom d'affichage sur les appareils
 Le nom technique du package est `emu_compagnon` (`pubspec.yaml`). Le nom
-affiché à l'utilisateur, « EMU Compagnon », est déjà réglé dans
+affiché à l'utilisateur, « ÉMU Compagnon », est déjà réglé dans
 `lib/main.dart` (`MaterialApp.title`). Pour que ce nom apparaisse aussi
 sous l'icône de l'app sur le téléphone, une fois les dossiers natifs générés :
-- **Android** : `android/app/src/main/AndroidManifest.xml` → `android:label="EMU Compagnon"`
-- **iOS** : `ios/Runner/Info.plist` → `CFBundleDisplayName` = `EMU Compagnon`
+- **Android** : `android/app/src/main/AndroidManifest.xml` → `android:label="ÉMU Compagnon"`
+- **iOS** : `ios/Runner/Info.plist` → `CFBundleDisplayName` = `ÉMU Compagnon`
 
 ## Contenu inclus
 - `assets/db/app_data.db` — Bible Louis Segond 1910 (31 102 versets), 444 cantiques
@@ -55,6 +55,88 @@ sous l'icône de l'app sur le téléphone, une fois les dossiers natifs génér�
   général, pas les textes liturgiques officiels protégés — prières, vœux,
   bénédictions exacts — qui restent à prendre dans le Livre de Culte EMU
   officiel).
+- Cantiques affichés par couplets/refrain nettement séparés (au lieu d'un
+  seul bloc de texte), avec le refrain mis en valeur visuellement.
+  Références bibliques cliquables dans les paroles.
+- Réglages rapides « Aa » (taille du texte + interligne) accessibles
+  directement depuis les écrans Bible et Cantiques, sans passer par le
+  menu À propos — même préférence partagée et persistée partout.
+- Balayage horizontal pour changer de chapitre biblique, en plus des
+  flèches.
+- « Reprendre la lecture » : la Bible et les Cantiques retiennent le
+  dernier chapitre/cantique consulté et proposent un accès rapide depuis
+  l'écran d'accueil du module.
+
+## Nouveautés — vague 3
+- **Surlignage multicolore** des versets (5 couleurs), distinct du favori
+  ⭐ et du flash temporaire d'arrivée depuis un lien.
+- **Historique de recherche** dans la recherche globale (10 dernières
+  requêtes, chips cliquables, effaçables).
+- **Choix de police** : Système / Serif / Sans-serif, avec aperçu en
+  direct dans les réglages.
+- **Interface en kiswahili** (en plus du français) : navigation et
+  éléments principaux traduits. ⚠️ Traduction rédigée de bonne foi mais
+  **non relue par un locuteur natif** — à faire valider par quelqu'un de
+  la communauté avant publication. Seule l'interface est traduite ; la
+  Bible, les cantiques et le dictionnaire restent en français (leur
+  traduction est un chantier séparé, nécessitant une source certifiée).
+- **Plan de lecture biblique** : un chapitre par jour à travers toute la
+  Bible, progression cochable et persistée, accessible depuis l'écran
+  Bible.
+- **Rappel quotidien** (notification locale) à une heure choisie par
+  l'utilisateur. Le workflow CI a été mis à jour pour injecter la
+  permission Android `POST_NOTIFICATIONS`, absente du scaffold généré
+  par défaut.
+- **Sauvegarde des données personnelles** : export de tous les favoris,
+  notes et surlignages en un fichier JSON partageable, et réimport sur
+  un autre appareil (avec déduplication). Aucun compte, aucun serveur —
+  le fichier reste entre les mains de l'utilisateur.
+- **Mise à jour du contenu sans passer par le store** : l'app peut
+  vérifier `content_version.json` à la racine du dépôt GitHub et, si une
+  version plus récente de `app_data.db` est disponible, la télécharger
+  et la fusionner — **sans jamais toucher aux favoris/notes/surlignages
+  de l'utilisateur** (ils vivent dans le même fichier .db, donc la
+  fusion se fait table par table, pas par écrasement brut). Pour publier
+  une mise à jour de contenu : incrémenter `"version"` dans
+  `content_version.json` et pousser un nouvel `app_data.db`.
+- **Infrastructure audio pour les cantiques**, prête mais **inactive** :
+  un champ `audio_url` (nullable) a été ajouté à chaque cantique, et un
+  lecteur intégré s'affiche automatiquement dès qu'une URL y est
+  renseignée. Aucun des 444 cantiques n'a de mélodie enregistrée
+  aujourd'hui — il faudra sourcer ou enregistrer de vrais fichiers audio
+  pour que cette fonctionnalité devienne visible.
+- **Tests automatisés** (`test/`) pour la logique la plus sensible aux
+  régressions silencieuses : calcul de Pâques (vérifié contre des dates
+  officielles connues), calendrier liturgique (couverture complète de
+  l'année sans trou ni erreur), détection de références bibliques,
+  découpage des cantiques en couplets. Exécutés en CI (`flutter test`),
+  actuellement non bloquants (`|| true`) le temps de confirmer leur
+  stabilité en conditions réelles.
+
+## Multi-versions de la Bible (infrastructure prête, SUV en attente de licence)
+- La Bible n'est **pas encore** disponible en kiswahili dans l'app. La
+  seule version librement réutilisable trouvée (domaine public) est un
+  Nouveau Testament incomplet (il manque Philippiens), pas fiable pour
+  un usage en Église. La version reconnue par les fidèles — la **Swahili
+  Union Version (SUV)** — appartient aux Bible Societies of Tanzania et
+  Kenya : une demande de licence leur a été envoyée.
+- **L'infrastructure est prête à recevoir la SUV dès l'autorisation
+  obtenue**, sans refonte :
+  - La colonne `version` existait déjà dans `bible_verses` (index ajouté
+    pour les performances multi-versions).
+  - `BibleVersion` / `BibleVersions` : registre des versions connues,
+    disponibles ou « à venir ».
+  - `BibleRepository` : toutes les méthodes (`getChapter`, `search`,
+    `chapterCount`, `getVerseOfTheDay`…) acceptent un paramètre `version`
+    (par défaut `LSG1910`, donc rien ne casse pour l'existant).
+  - Sélecteur de version (icône 🌐) sur l'écran Bible, avec la SUV déjà
+    listée mais grisée « Bientôt disponible ».
+  - `ChapterListScreen` et `ChapterScreen` propagent la version choisie
+    de bout en bout.
+- **Pour intégrer la SUV une fois le texte obtenu** : écrire un script
+  d'import (même principe que pour la Louis Segond 1910) insérant les
+  versets avec `version='SUV'`, puis dans `BibleVersion.suv`, passer
+  `available: true`. Aucune autre modification de code n'est nécessaire.
 
 ## Générer un APK automatiquement (GitHub Actions)
 Le fichier `.github/workflows/build.yml` construit l'app automatiquement :

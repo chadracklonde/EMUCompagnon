@@ -57,7 +57,7 @@ class ImageShareService {
       await SharePlus.instance.share(
         ShareParams(
           files: [XFile(file.path)],
-          text: '$text\n— $reference\n\nEMU Compagnon',
+          text: '$text\n— $reference\n\nÉMU Compagnon',
           // iOS (notably iOS 26+) requires a non-zero anchor rect for the
           // share sheet popover, even on iPhone where it's visually unused.
           sharePositionOrigin: const Rect.fromLTWH(0, 0, 1, 1),

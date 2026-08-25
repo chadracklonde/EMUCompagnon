@@ -44,4 +44,36 @@ class DbHelper {
     }
     _db = null;
   }
+
+  /// Merges a freshly downloaded content database (Bible/hymns/dictionary)
+  /// into the live one, WITHOUT touching the user's personal data
+  /// (bookmarks, notes, highlights) — those tables are never referenced
+  /// here, so they survive untouched. Used by the content-update feature.
+  static Future<void> mergeContentUpdate(String newDbPath) async {
+    final db = await database;
+    await db.execute("ATTACH DATABASE '$newDbPath' AS newdb");
+    try {
+      await db.transaction((txn) async {
+        for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
+          await txn.execute('DELETE FROM $table');
+          await txn.execute('INSERT INTO $table SELECT * FROM newdb.$table');
+        }
+        // Rebuild the FTS5 indexes to match the refreshed content.
+        await txn.execute('DELETE FROM bible_verses_fts');
+        await txn.execute(
+          'INSERT INTO bible_verses_fts(rowid, text) SELECT id, text FROM bible_verses',
+        );
+        await txn.execute('DELETE FROM hymns_fts');
+        await txn.execute(
+          'INSERT INTO hymns_fts(rowid, title, lyrics) SELECT id, title, lyrics FROM hymns',
+        );
+        await txn.execute('DELETE FROM dictionary_fts');
+        await txn.execute(
+          'INSERT INTO dictionary_fts(rowid, term, definition) SELECT id, term, definition FROM dictionary_entries',
+        );
+      });
+    } finally {
+      await db.execute('DETACH DATABASE newdb');
+    }
+  }
 }

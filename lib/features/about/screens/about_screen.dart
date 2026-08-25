@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../settings/screens/settings_screen.dart';
+import '../../backup/screens/backup_screen.dart';
+import '../../content_update/screens/content_update_screen.dart';
 
 /// "À propos" screen crediting the app's developer.
 class AboutScreen extends StatelessWidget {
@@ -57,17 +59,74 @@ class AboutScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 10),
+          Material(
+            color: scheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const BackupScreen()),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                child: Row(
+                  children: [
+                    Icon(Icons.backup_outlined, color: scheme.onSurface),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Sauvegarder mes favoris et notes',
+                        style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: scheme.onSurface),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Material(
+            color: scheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const ContentUpdateScreen()),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                child: Row(
+                  children: [
+                    Icon(Icons.cloud_sync_outlined, color: scheme.onSurface),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Mises à jour du contenu',
+                        style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: scheme.onSurface),
+                  ],
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: 24),
           Center(
-            child: CircleAvatar(
-              radius: 44,
-              backgroundColor: scheme.primaryContainer,
-              child: Text(
-                'CL',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: scheme.onPrimaryContainer,
+            child: Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: scheme.primary, width: 2.5),
+              ),
+              padding: const EdgeInsets.all(2),
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/chadrack_londe.jpg',
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -91,14 +150,16 @@ class AboutScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           const Text(
-            "Chadrack Londe est un professionnel de la communication engagé "
-            "au service de l'Église Méthodiste Unie en République Démocratique "
-            "du Congo. Coordinateur Communication pour la Région Épiscopale du "
-            "Congo-Est, il collabore également avec UM News/UMCom, dirige Radio "
-            "Maniema Libertés à Kindu, et met ses compétences techniques au "
-            "service de l'Église et de sa communauté à travers des projets "
-            "comme celui-ci. Fidèle méthodiste uni, il croit au pouvoir de la "
-            "communication pour rapprocher les fidèles de la Parole de Dieu.",
+            "Chadrack Londe coordonne le contenu francophone pour l'Afrique "
+            "au sein de United Methodist Communications (UMCom) et est "
+            "correspondant de UM News, le canal officiel d'information de "
+            "l'Église Méthodiste Unie dans le monde. Basé en République "
+            "Démocratique du Congo, il dirige aussi Radio Maniema Libertés "
+            "à Kindu et met ses compétences techniques au service de "
+            "l'Église et de sa communauté à travers des projets comme "
+            "celui-ci. Fidèle méthodiste uni, il croit au pouvoir de la "
+            "communication pour rapprocher les fidèles de la Parole de "
+            "Dieu.",
             style: TextStyle(fontSize: 16, height: 1.5),
           ),
           const SizedBox(height: 28),
@@ -170,7 +231,7 @@ class AboutScreen extends StatelessWidget {
           const SizedBox(height: 24),
           Center(
             child: Text(
-              'EMU Compagnon — développé avec foi pour l\'Église Méthodiste Unie',
+              'ÉMU Compagnon — développé avec foi pour l\'Église Méthodiste Unie',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12, color: scheme.outline),
             ),
