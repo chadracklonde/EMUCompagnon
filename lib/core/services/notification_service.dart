@@ -37,7 +37,7 @@ class NotificationService {
     final androidImpl =
         _plugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
     final iosImpl =
-        _plugin.resolvePlatformSpecificImplementation<DarwinFlutterLocalNotificationsPlugin>();
+        _plugin.resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>();
 
     bool granted = true;
     if (androidImpl != null) {
@@ -77,6 +77,10 @@ class NotificationService {
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
+      // Required by the flutter_local_notifications version resolved for
+      // this build (older builds of the API still need this even though
+      // newer releases dropped it — kept for compatibility).
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
   }
 
