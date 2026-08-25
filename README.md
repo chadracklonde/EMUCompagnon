@@ -149,6 +149,13 @@ inchangés et accessibles normalement dans la barre du bas.
   versets avec `version='SUV'`, puis dans `BibleVersion.suv`, passer
   `available: true`. Aucune autre modification de code n'est nécessaire.
 
+## Tutoriel de démarrage
+Un tutoriel de 5 écrans s'affiche automatiquement au tout premier
+lancement (état suivi via `SharedPreferences`, jamais réaffiché
+ensuite), pour présenter les 7 onglets de l'app à un nouvel
+utilisateur. Accessible à nouveau à tout moment via « À propos » →
+« Revoir le tutoriel de démarrage ».
+
 ## Générer un APK automatiquement (GitHub Actions)
 Le fichier `.github/workflows/build.yml` construit l'app automatiquement :
 - **À chaque push sur `main`** : compile l'APK et l'AAB, disponibles comme

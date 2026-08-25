@@ -107,7 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           label: 'Nouveau\nTestament',
                           cursive: true,
                           onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const BooksScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => const BooksScreen(filter: TestamentFilter.newTestament),
+                            ),
                           ),
                         ),
                       ),
@@ -117,7 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           label: 'ANCIEN\nTESTAMENT',
                           cursive: false,
                           onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const BooksScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => const BooksScreen(filter: TestamentFilter.oldTestament),
+                            ),
                           ),
                         ),
                       ),
@@ -129,6 +133,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icons.event_note_outlined,
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const ReadingPlanScreen()),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  _WideButton(
+                    label: 'CHANTS DE VICTOIRE',
+                    icon: Icons.music_note_outlined,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const HymnsScreen()),
                     ),
                   ),
                   const SizedBox(height: 14),
@@ -158,13 +170,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisSpacing: 12,
                     childAspectRatio: 2.6,
                     children: [
-                      _SmallButton(
-                        label: 'Cantiques',
-                        icon: Icons.music_note_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const HymnsScreen()),
-                        ),
-                      ),
                       _SmallButton(
                         label: 'Dictionnaire',
                         icon: Icons.auto_stories_outlined,

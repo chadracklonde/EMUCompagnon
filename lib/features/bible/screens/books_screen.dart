@@ -12,8 +12,11 @@ import '../../../core/services/reading_history_service.dart';
 import '../../reading_plan/screens/reading_plan_screen.dart';
 import '../../../shared/widgets/version_picker.dart';
 
+enum TestamentFilter { all, oldTestament, newTestament }
+
 class BooksScreen extends StatefulWidget {
-  const BooksScreen({super.key});
+  final TestamentFilter filter;
+  const BooksScreen({super.key, this.filter = TestamentFilter.all});
 
   @override
   State<BooksScreen> createState() => _BooksScreenState();
@@ -56,7 +59,20 @@ class _BooksScreenState extends State<BooksScreen> {
     final version = settings.bibleVersion;
     _loadVerseOfDay(version);
     final versionInfo = BibleVersions.byCode(version);
-    final books = BibleRepository.books;
+    final allBooks = BibleRepository.books;
+    final isFiltered = widget.filter != TestamentFilter.all;
+
+    final List<String> books = switch (widget.filter) {
+      TestamentFilter.oldTestament => allBooks.sublist(0, _ancienTestament),
+      TestamentFilter.newTestament => allBooks.sublist(_ancienTestament),
+      TestamentFilter.all => allBooks,
+    };
+
+    final appBarTitle = switch (widget.filter) {
+      TestamentFilter.oldTestament => 'Ancien Testament',
+      TestamentFilter.newTestament => 'Nouveau Testament',
+      TestamentFilter.all => 'Bible',
+    };
 
     return Scaffold(
       appBar: AppBar(
@@ -64,7 +80,7 @@ class _BooksScreenState extends State<BooksScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('Bible'),
+            Text(appBarTitle),
             Text(
               versionInfo.name,
               style: const TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
@@ -102,21 +118,25 @@ class _BooksScreenState extends State<BooksScreen> {
       ),
       body: Column(
         children: [
-          if (_lastRead != null) _ResumeReadingCard(lastRead: _lastRead!, version: version),
-          if (_verseOfTheDay != null) _VerseOfTheDayCard(verse: _verseOfTheDay!, version: version),
+          if (!isFiltered && _lastRead != null)
+            _ResumeReadingCard(lastRead: _lastRead!, version: version),
+          if (!isFiltered && _verseOfTheDay != null)
+            _VerseOfTheDayCard(verse: _verseOfTheDay!, version: version),
           Expanded(
             child: ListView.builder(
-              itemCount: books.length + 2, // +2 for the two section headers
+              itemCount: isFiltered ? books.length : books.length + 2,
               itemBuilder: (context, index) {
-                if (index == 0) {
-                  return const _SectionHeader('Ancien Testament');
+                if (!isFiltered) {
+                  if (index == 0) {
+                    return const _SectionHeader('Ancien Testament');
+                  }
+                  if (index == _ancienTestament + 1) {
+                    return const _SectionHeader('Nouveau Testament');
+                  }
                 }
-                if (index == _ancienTestament + 1) {
-                  return const _SectionHeader('Nouveau Testament');
-                }
-                final bookIndex =
-                    index <= _ancienTestament ? index - 1 : index - 2;
-                final book = books[bookIndex];
+                final book = isFiltered
+                    ? books[index]
+                    : books[index <= _ancienTestament ? index - 1 : index - 2];
                 return ListTile(
                   title: Text(book),
                   trailing: const Icon(Icons.chevron_right),

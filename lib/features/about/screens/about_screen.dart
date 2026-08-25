@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../settings/screens/settings_screen.dart';
 import '../../backup/screens/backup_screen.dart';
 import '../../content_update/screens/content_update_screen.dart';
+import '../../onboarding/screens/onboarding_screen.dart';
 
 /// "À propos" screen crediting the app's developer.
 class AboutScreen extends StatelessWidget {
@@ -104,6 +105,33 @@ class AboutScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'Mises à jour du contenu',
+                        style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: scheme.onSurface),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Material(
+            color: scheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const OnboardingScreen()),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                child: Row(
+                  children: [
+                    Icon(Icons.help_outline, color: scheme.onSurface),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Revoir le tutoriel de démarrage',
                         style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
                       ),
                     ),
