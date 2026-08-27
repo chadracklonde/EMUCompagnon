@@ -67,33 +67,41 @@ jobs:
           # package, pas la configuration.
 
       - name: Configurer la signature de production (si les secrets existent)
-        if: ${{ secrets.KEYSTORE_BASE64 != '' }}
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
-          # Sans ceci, chaque run CI signe avec une clé de debug ALÉATOIRE
-          # régénérée à chaque fois (runner neuf à chaque build), donc deux
-          # builds successifs n'ont jamais la même signature — ce qui fait
-          # échouer toute mise à jour sur un store (Play Store, APKPure...)
-          # qui vérifie la cohérence de signature entre versions. Cette
-          # étape signe avec une clé stable et persistante à la place.
-          echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
-          cat > android/key.properties << PROPS
+          # NB : la vérification "si les secrets existent" se fait ICI, en
+          # bash (via [ -n "$KEYSTORE_BASE64" ]), et non via un "if:" YAML
+          # au niveau de l'étape — GitHub Actions refuse la syntaxe
+          # "if: ${{ secrets.X != '' }}" au niveau d'une étape avec l'erreur
+          # "Unrecognized named-value: 'secrets'". Le contexte "secrets"
+          # n'est utilisable qu'à l'intérieur d'un bloc env:/with:, pas
+          # dans une expression if: — solution robuste : le lire depuis la
+          # variable d'environnement à l'intérieur du script.
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            # Sans ceci, chaque run CI signe avec une clé de debug ALÉATOIRE
+            # régénérée à chaque fois (runner neuf à chaque build), donc deux
+            # builds successifs n'ont jamais la même signature — ce qui fait
+            # échouer toute mise à jour sur un store (Play Store, APKPure...)
+            # qui vérifie la cohérence de signature entre versions. Ce bloc
+            # signe avec une clé stable et persistante à la place.
+            echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
+            cat > android/key.properties << PROPS
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEY_PASSWORD
           keyAlias=$KEY_ALIAS
           storeFile=emu-compagnon-release.jks
           PROPS
 
-          sed -i '1i\
+            sed -i '1i\
           import java.util.Properties\
           import java.io.FileInputStream\
           ' android/app/build.gradle.kts
 
-          sed -i '/^android {/i\
+            sed -i '/^android {/i\
           val keystorePropertiesFile = rootProject.file("key.properties")\
           val keystoreProperties = Properties()\
           if (keystorePropertiesFile.exists()) {\
@@ -101,7 +109,7 @@ jobs:
           }\
           ' android/app/build.gradle.kts
 
-          sed -i '/^android {/a\
+            sed -i '/^android {/a\
               signingConfigs {\
                   create("release") {\
                       keyAlias = keystoreProperties["keyAlias"] as String?\
@@ -111,7 +119,10 @@ jobs:
                   }\
               }' android/app/build.gradle.kts
 
-          sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
+            sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
+          else
+            echo "Aucun secret de signature trouvé — build signé avec la clé de debug (normal si les secrets ne sont pas encore configurés)."
+          fi
 
       - name: Vérifier l'environnement
         run: flutter doctor -v
@@ -213,27 +224,30 @@ jobs:
           # package, pas la configuration.
 
       - name: Configurer la signature de production (si les secrets existent)
-        if: ${{ secrets.KEYSTORE_BASE64 != '' }}
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
-          cat > android/key.properties << PROPS
+          # Vérification "si les secrets existent" faite ici, en bash, et
+          # non via un "if:" YAML au niveau de l'étape (GitHub Actions
+          # refuse "secrets" dans une expression if: d'étape).
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
+            cat > android/key.properties << PROPS
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEY_PASSWORD
           keyAlias=$KEY_ALIAS
           storeFile=emu-compagnon-release.jks
           PROPS
 
-          sed -i '1i\
+            sed -i '1i\
           import java.util.Properties\
           import java.io.FileInputStream\
           ' android/app/build.gradle.kts
 
-          sed -i '/^android {/i\
+            sed -i '/^android {/i\
           val keystorePropertiesFile = rootProject.file("key.properties")\
           val keystoreProperties = Properties()\
           if (keystorePropertiesFile.exists()) {\
@@ -241,7 +255,7 @@ jobs:
           }\
           ' android/app/build.gradle.kts
 
-          sed -i '/^android {/a\
+            sed -i '/^android {/a\
               signingConfigs {\
                   create("release") {\
                       keyAlias = keystoreProperties["keyAlias"] as String?\
@@ -251,7 +265,10 @@ jobs:
                   }\
               }' android/app/build.gradle.kts
 
-          sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
+            sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
+          else
+            echo "Aucun secret de signature trouvé — build signé avec la clé de debug."
+          fi
 
       - name: Récupérer les dépendances
         run: flutter pub get
