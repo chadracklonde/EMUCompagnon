@@ -66,6 +66,53 @@ jobs:
           # corriger — la vraie source du problème était la version du
           # package, pas la configuration.
 
+      - name: Configurer la signature de production (si les secrets existent)
+        if: ${{ secrets.KEYSTORE_BASE64 != '' }}
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        run: |
+          # Sans ceci, chaque run CI signe avec une clé de debug ALÉATOIRE
+          # régénérée à chaque fois (runner neuf à chaque build), donc deux
+          # builds successifs n'ont jamais la même signature — ce qui fait
+          # échouer toute mise à jour sur un store (Play Store, APKPure...)
+          # qui vérifie la cohérence de signature entre versions. Cette
+          # étape signe avec une clé stable et persistante à la place.
+          echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
+          cat > android/key.properties << PROPS
+          storePassword=$KEYSTORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=emu-compagnon-release.jks
+          PROPS
+
+          sed -i '1i\
+          import java.util.Properties\
+          import java.io.FileInputStream\
+          ' android/app/build.gradle.kts
+
+          sed -i '/^android {/i\
+          val keystorePropertiesFile = rootProject.file("key.properties")\
+          val keystoreProperties = Properties()\
+          if (keystorePropertiesFile.exists()) {\
+              keystoreProperties.load(FileInputStream(keystorePropertiesFile))\
+          }\
+          ' android/app/build.gradle.kts
+
+          sed -i '/^android {/a\
+              signingConfigs {\
+                  create("release") {\
+                      keyAlias = keystoreProperties["keyAlias"] as String?\
+                      keyPassword = keystoreProperties["keyPassword"] as String?\
+                      storeFile = keystoreProperties["storeFile"]?.let { file(it) }\
+                      storePassword = keystoreProperties["storePassword"] as String?\
+                  }\
+              }' android/app/build.gradle.kts
+
+          sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
+
       - name: Vérifier l'environnement
         run: flutter doctor -v
 
@@ -164,6 +211,47 @@ jobs:
           # qu'aucune configuration Gradle de notre côté ne puisse le
           # corriger — la vraie source du problème était la version du
           # package, pas la configuration.
+
+      - name: Configurer la signature de production (si les secrets existent)
+        if: ${{ secrets.KEYSTORE_BASE64 != '' }}
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > android/app/emu-compagnon-release.jks
+          cat > android/key.properties << PROPS
+          storePassword=$KEYSTORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=emu-compagnon-release.jks
+          PROPS
+
+          sed -i '1i\
+          import java.util.Properties\
+          import java.io.FileInputStream\
+          ' android/app/build.gradle.kts
+
+          sed -i '/^android {/i\
+          val keystorePropertiesFile = rootProject.file("key.properties")\
+          val keystoreProperties = Properties()\
+          if (keystorePropertiesFile.exists()) {\
+              keystoreProperties.load(FileInputStream(keystorePropertiesFile))\
+          }\
+          ' android/app/build.gradle.kts
+
+          sed -i '/^android {/a\
+              signingConfigs {\
+                  create("release") {\
+                      keyAlias = keystoreProperties["keyAlias"] as String?\
+                      keyPassword = keystoreProperties["keyPassword"] as String?\
+                      storeFile = keystoreProperties["storeFile"]?.let { file(it) }\
+                      storePassword = keystoreProperties["storePassword"] as String?\
+                  }\
+              }' android/app/build.gradle.kts
+
+          sed -i 's/signingConfig = signingConfigs.getByName("debug")/signingConfig = signingConfigs.getByName("release")/' android/app/build.gradle.kts
 
       - name: Récupérer les dépendances
         run: flutter pub get
