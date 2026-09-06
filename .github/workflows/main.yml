@@ -33,9 +33,10 @@ jobs:
       - name: Générer les dossiers natifs (android/ios) si absents
         run: |
           if [ ! -d "android" ]; then
-            flutter create --platforms=android,ios --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
+            flutter create --platforms=android,ios,web --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/android .
             cp -r /tmp/scaffold/ios .
+            cp -r /tmp/scaffold/web .
             chmod +x android/gradlew
           fi
           # NB : on ne force plus manuellement les versions AGP/Kotlin/Gradle.
@@ -161,6 +162,103 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
           retention-days: 30
 
+      # --- Version Web ---
+      - name: Installer les binaires SQLite pour le Web
+        run: dart run sqflite_common_ffi_web:setup
+
+      - name: Construire la version Web
+        run: flutter build web --release
+
+      - name: Publier la version Web comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: emu-compagnon-web
+          path: build/web
+          retention-days: 30
+
+  build-windows:
+    name: Build Windows (release)
+    runs-on: windows-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      # shell: bash explicite — windows-latest utilise PowerShell par
+      # défaut, mais Git pour Windows (inclus sur ces runners) fournit
+      # bash.exe, ce qui permet de garder la même syntaxe que les autres
+      # jobs sans tout réécrire en PowerShell.
+      - name: Générer le dossier natif windows/ si absent
+        shell: bash
+        run: |
+          if [ ! -d "windows" ]; then
+            flutter create --platforms=windows --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
+            cp -r /tmp/scaffold/windows .
+          fi
+
+      - name: Récupérer les dépendances
+        run: flutter pub get
+
+      - name: Construire l'app Windows
+        run: flutter build windows --release
+
+      # NB : depuis Flutter 3.15+, le chemin de sortie inclut
+      # l'architecture cible (x64) — build/windows/x64/... et non plus
+      # l'ancien build/windows/runner/... (changement cassant à connaître
+      # si un jour cette étape échoue après une mise à jour de Flutter).
+      - name: Publier l'app Windows comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: emu-compagnon-windows
+          path: build/windows/x64/runner/Release
+          retention-days: 30
+
+  build-macos:
+    name: Build macOS (release)
+    runs-on: macos-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Générer le dossier natif macos/ si absent
+        run: |
+          if [ ! -d "macos" ]; then
+            flutter create --platforms=macos --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
+            cp -r /tmp/scaffold/macos .
+          fi
+
+      - name: Récupérer les dépendances
+        run: flutter pub get
+
+      - name: Construire l'app macOS
+        run: flutter build macos --release
+
+      # Note : cette app n'est pas signée avec un certificat Apple
+      # Developer — utilisable en local/interne, mais macOS Gatekeeper
+      # affichera un avertissement à l'ouverture pour un tiers non averti.
+      # La signature notariée Apple est une démarche séparée, similaire
+      # à ce qu'on a fait pour Android (nécessite un compte payant
+      # Apple Developer, 99$/an).
+      - name: Publier l'app macOS comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: emu-compagnon-macos
+          path: build/macos/Build/Products/Release/*.app
+          retention-days: 30
+
   # Crée automatiquement une Release GitHub avec l'APK attaché
   # quand tu pousses un tag de version, ex. : git tag v1.0.0 && git push --tags
   release:
@@ -190,9 +288,10 @@ jobs:
       - name: Générer les dossiers natifs (android/ios) si absents
         run: |
           if [ ! -d "android" ]; then
-            flutter create --platforms=android,ios --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
+            flutter create --platforms=android,ios,web --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/android .
             cp -r /tmp/scaffold/ios .
+            cp -r /tmp/scaffold/web .
             chmod +x android/gradlew
           fi
           # NB : on ne force plus manuellement les versions AGP/Kotlin/Gradle.
