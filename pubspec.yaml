@@ -12,6 +12,12 @@ dependencies:
   sqflite: ^2.3.3
   sqflite_common_ffi: ^2.3.6
   sqflite_common_ffi_web: ^0.4.2+2
+  # Bundles a real sqlite3 native library for every platform. Without
+  # this, sqflite_common_ffi has no bundled sqlite3.dll on Windows release
+  # builds (the docs are explicit about this — debug mode works by
+  # accident, release mode silently fails to open any database), which
+  # breaks essentially every feature in the app on Windows.
+  sqlite3_flutter_libs: ^0.5.24
   path: ^1.9.0
   path_provider: ^2.1.3
   provider: ^6.1.2
@@ -39,8 +45,8 @@ flutter:
     - assets/icons/
     - assets/images/
 
-# Generates native iOS/Android launcher icons from a single source image.
-# Run once after `flutter pub get`:  dart run flutter_launcher_icons
+# Generates native iOS/Android/Windows/macOS launcher icons from a single
+# source image. Run once after `flutter pub get`:  dart run flutter_launcher_icons
 flutter_launcher_icons:
   android: true
   ios: true
@@ -49,3 +55,10 @@ flutter_launcher_icons:
   adaptive_icon_background: "#7A2426"
   adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
   remove_alpha_ios: true
+  windows:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: "assets/icons/app_icon.png"

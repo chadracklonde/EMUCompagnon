@@ -221,6 +221,19 @@ class DbHelper {
     _db = null;
   }
 
+  /// Exposes a resolved database path/name for a scratch/temporary
+  /// database, for callers outside this file (e.g. the content-update
+  /// feature) that need to write downloaded bytes somewhere before
+  /// merging them — kept here so they never need to import dart:io or
+  /// path_provider themselves just for this.
+  static Future<String> scratchDatabasePath(String fileName) async {
+    if (!_factoryInitialized) {
+      await platform.initializeDatabaseFactory();
+      _factoryInitialized = true;
+    }
+    return platform.getDatabasePath(fileName);
+  }
+
   /// Merges a freshly downloaded content database (Bible/hymns/dictionary)
   /// into the live one, WITHOUT touching the user's personal data
   /// (bookmarks, notes, highlights) — those tables are never referenced

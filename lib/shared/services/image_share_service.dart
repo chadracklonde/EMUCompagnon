@@ -1,13 +1,16 @@
-import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import '../widgets/verse_share_card.dart';
 
-/// Renders a [VerseShareCard] off-screen, captures it as a PNG, writes it
-/// to a temp file, and opens the native share sheet.
+/// Renders a [VerseShareCard] off-screen, captures it as a PNG, and opens
+/// the native share sheet.
+///
+/// Deliberately platform-agnostic (no dart:io, no path_provider): the
+/// captured PNG bytes are handed to share_plus directly via
+/// `XFile.fromData`, which works in memory on every platform including
+/// the web, where there is no real filesystem to write a temp file to.
 class ImageShareService {
   static Future<void> shareVerse(
     BuildContext context, {
@@ -50,13 +53,15 @@ class ImageShareService {
       if (byteData == null) return;
 
       final bytes = byteData.buffer.asUint8List();
-      final tempDir = await getTemporaryDirectory();
-      final file = File('${tempDir.path}/verset_partage.png');
-      await file.writeAsBytes(bytes, flush: true);
+      final file = XFile.fromData(
+        bytes,
+        mimeType: 'image/png',
+        name: 'verset_partage.png',
+      );
 
       await SharePlus.instance.share(
         ShareParams(
-          files: [XFile(file.path)],
+          files: [file],
           text: '$text\n— $reference\n\nÉMU Compagnon',
           // iOS (notably iOS 26+) requires a non-zero anchor rect for the
           // share sheet popover, even on iPhone where it's visually unused.

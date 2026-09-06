@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqflite/sqflite.dart' show databaseFactory;
 import '../../../core/database/db_helper.dart';
 
 /// Lets the app fetch an updated Bible/hymns/dictionary database without
@@ -10,6 +9,13 @@ import '../../../core/database/db_helper.dart';
 /// or expanding the dictionary later. Reads a small JSON manifest hosted
 /// in the project's own GitHub repo (raw.githubusercontent.com), and only
 /// downloads the full database if its version number increased.
+///
+/// Deliberately platform-agnostic (no dart:io): the downloaded bytes are
+/// written via `databaseFactory.writeDatabaseBytes`, the same universal
+/// mechanism DbHelper itself uses, rather than a raw filesystem File —
+/// this is mobile/desktop-only in practice (not exposed on web, see
+/// ContentUpdateScreen), but must still compile cleanly for the web
+/// target since it's part of the same shared app.
 ///
 /// Requires the GitHub repo to be public (raw.githubusercontent.com
 /// cannot serve files from a private repo without extra auth this app
@@ -75,12 +81,11 @@ class ContentUpdateService {
       return "Échec du téléchargement de la mise à jour.";
     }
 
-    final tempDir = await getTemporaryDirectory();
-    final tempFile = File('${tempDir.path}/content_update.db');
-    await tempFile.writeAsBytes(response.bodyBytes, flush: true);
+    final tempPath = await DbHelper.scratchDatabasePath('content_update.db');
+    await databaseFactory.writeDatabaseBytes(tempPath, response.bodyBytes);
 
-    await DbHelper.mergeContentUpdate(tempFile.path);
-    await tempFile.delete();
+    await DbHelper.mergeContentUpdate(tempPath);
+    await databaseFactory.deleteDatabase(tempPath);
 
     await prefs.setInt(_kLocalVersion, remoteVersion);
     return "Contenu mis à jour vers la version $remoteVersion !";

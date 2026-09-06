@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:ui';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:sqflite/sqflite.dart';
@@ -18,6 +16,12 @@ class BackupSummary {
 /// colors) as a plain JSON file — a simple, no-account way to avoid
 /// losing this data when switching phones or reinstalling the app.
 /// Deliberately does NOT touch the Bible/hymns/dictionary content itself.
+///
+/// Deliberately platform-agnostic (no dart:io): the export goes through
+/// `XFile.fromData` (in-memory bytes), and the import reads
+/// `PlatformFile.bytes` (requested via `withData: true`) rather than a
+/// filesystem path — both work identically on mobile, desktop, and web,
+/// where there is no real filesystem to read/write from directly.
 class BackupService {
   static const _formatVersion = 1;
 
@@ -36,18 +40,21 @@ class BackupService {
     };
   }
 
-  /// Writes the backup to a temp file and opens the native share sheet
-  /// so the user can save it to Drive, Files, WhatsApp, email, etc.
+  /// Builds the backup in memory and opens the native share sheet so the
+  /// user can save it to Drive, Files, WhatsApp, email, etc. (or, on the
+  /// web, trigger a browser download).
   Future<void> exportAndShare() async {
     final data = await _buildExportMap();
     final jsonStr = const JsonEncoder.withIndent('  ').convert(data);
-    final tempDir = await getTemporaryDirectory();
     final stamp = DateTime.now().toIso8601String().split('T').first;
-    final file = File('${tempDir.path}/emu_compagnon_sauvegarde_$stamp.json');
-    await file.writeAsBytes(utf8.encode(jsonStr), flush: true);
+    final file = XFile.fromData(
+      utf8.encode(jsonStr),
+      mimeType: 'application/json',
+      name: 'emu_compagnon_sauvegarde_$stamp.json',
+    );
     await SharePlus.instance.share(
       ShareParams(
-        files: [XFile(file.path)],
+        files: [file],
         text: 'Sauvegarde ÉMU Compagnon ($stamp)',
         sharePositionOrigin: const Rect.fromLTWH(0, 0, 1, 1),
       ),
@@ -60,10 +67,11 @@ class BackupService {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
+      withData: true, // always populate .bytes, on every platform
     );
-    if (result == null || result.files.single.path == null) return null;
-    final file = File(result.files.single.path!);
-    final content = await file.readAsString();
+    final bytes = result?.files.single.bytes;
+    if (bytes == null) return null;
+    final content = utf8.decode(bytes);
     return importFromJson(content);
   }
 
