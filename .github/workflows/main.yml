@@ -205,6 +205,9 @@ jobs:
       - name: Récupérer les dépendances
         run: flutter pub get
 
+      - name: Générer les icônes de l'app
+        run: dart run flutter_launcher_icons
+
       - name: Construire l'app Windows
         run: flutter build windows --release
 
@@ -257,6 +260,9 @@ jobs:
 
       - name: Récupérer les dépendances
         run: flutter pub get
+
+      - name: Générer les icônes de l'app
+        run: dart run flutter_launcher_icons
 
       - name: Construire l'app macOS
         run: flutter build macos --release
