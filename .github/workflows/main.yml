@@ -240,6 +240,21 @@ jobs:
             cp -r /tmp/scaffold/macos .
           fi
 
+      # Sans ceci, l'App Sandbox de macOS (activé par défaut par le
+      # scaffold généré) bloque TOUTE requête réseau sortante — ce qui
+      # cassait silencieusement la vérification de mise à jour de
+      # contenu, le téléchargement des polices Google Fonts au premier
+      # lancement, et potentiellement d'autres fonctionnalités réseau.
+      # PlistBuddy (outil natif macOS) est utilisé plutôt que sed, pour
+      # éditer le XML sans risquer de le corrompre.
+      - name: Autoriser les requêtes réseau sortantes (App Sandbox)
+        run: |
+          for f in macos/Runner/DebugProfile.entitlements macos/Runner/Release.entitlements; do
+            if ! /usr/libexec/PlistBuddy -c "Print :com.apple.security.network.client" "$f" &>/dev/null; then
+              /usr/libexec/PlistBuddy -c "Add :com.apple.security.network.client bool true" "$f"
+            fi
+          done
+
       - name: Récupérer les dépendances
         run: flutter pub get
 
