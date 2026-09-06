@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/models/verse.dart';
@@ -89,7 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              child: ListView(
+              child: ReadingWidthConstraint(
+                maxWidth: 640,
+                child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
                 children: [
                   _SearchBar(
@@ -194,6 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ],
+                ),
               ),
             ),
           ],

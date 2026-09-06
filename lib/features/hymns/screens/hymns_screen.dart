@@ -4,6 +4,7 @@ import '../repository/hymns_repository.dart';
 import 'hymn_detail_screen.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
+import '../../../shared/responsive/responsive.dart';
 
 class HymnsScreen extends StatefulWidget {
   const HymnsScreen({super.key});
@@ -18,6 +19,8 @@ class _HymnsScreenState extends State<HymnsScreen> {
   List<Hymn> _hymns = [];
   bool _loading = true;
   ({String number, String title})? _lastRead;
+  // Only meaningful in the wide (master-detail) layout.
+  Hymn? _selectedHymn;
 
   @override
   void initState() {
@@ -53,18 +56,101 @@ class _HymnsScreenState extends State<HymnsScreen> {
     super.dispose();
   }
 
-  Future<void> _openLastHymn() async {
+  Future<void> _openLastHymn(bool isWide) async {
     if (_lastRead == null) return;
     final hymn = await _repo.getByNumber(_lastRead!.number);
-    if (hymn != null && mounted) {
+    if (hymn == null || !mounted) return;
+    if (isWide) {
+      setState(() => _selectedHymn = hymn);
+    } else {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: hymn)),
       );
     }
   }
 
+  void _openHymn(Hymn h, bool isWide) {
+    if (isWide) {
+      setState(() => _selectedHymn = h);
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: h)),
+      );
+    }
+  }
+
+  Widget _buildList(bool isWide) {
+    return Column(
+      children: [
+        if (_lastRead != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+            child: Material(
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(14),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(14),
+                onTap: () => _openLastHymn(isWide),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  child: Row(
+                    children: [
+                      Icon(Icons.history, color: Theme.of(context).colorScheme.primary, size: 20),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          'Reprendre — N° ${_lastRead!.number} ${_lastRead!.title}',
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.outline),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        Padding(
+          padding: const EdgeInsets.all(12),
+          child: TextField(
+            controller: _searchController,
+            decoration: InputDecoration(
+              hintText: 'Numéro, titre ou parole…',
+              prefixIcon: const Icon(Icons.search),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              isDense: true,
+            ),
+            onChanged: _onSearchChanged,
+          ),
+        ),
+        Expanded(
+          child: _loading
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.builder(
+                  itemCount: _hymns.length,
+                  itemBuilder: (context, index) {
+                    final h = _hymns[index];
+                    final selected = isWide && _selectedHymn?.id == h.id;
+                    return ListTile(
+                      selected: selected,
+                      selectedTileColor: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.4),
+                      leading: CircleAvatar(child: Text(h.number)),
+                      title: Text(h.title),
+                      subtitle: h.key != null ? Text('Tonalité : ${h.key}') : null,
+                      onTap: () => _openHymn(h, isWide),
+                    );
+                  },
+                ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isWide = Responsive.isWide(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chants de Victoire'),
@@ -76,70 +162,24 @@ class _HymnsScreenState extends State<HymnsScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          if (_lastRead != null)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-              child: Material(
-                color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                borderRadius: BorderRadius.circular(14),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(14),
-                  onTap: _openLastHymn,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    child: Row(
-                      children: [
-                        Icon(Icons.history, color: Theme.of(context).colorScheme.primary, size: 20),
-                        const SizedBox(width: 10),
-                        Expanded(
+      body: !isWide
+          ? _buildList(false)
+          : Row(
+              children: [
+                SizedBox(width: 380, child: _buildList(true)),
+                const VerticalDivider(width: 1),
+                Expanded(
+                  child: _selectedHymn == null
+                      ? Center(
                           child: Text(
-                            'Reprendre — N° ${_lastRead!.number} ${_lastRead!.title}',
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(fontWeight: FontWeight.w600),
+                            'Sélectionnez un cantique',
+                            style: TextStyle(color: Theme.of(context).colorScheme.outline),
                           ),
-                        ),
-                        Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.outline),
-                      ],
-                    ),
-                  ),
+                        )
+                      : HymnDetailScreen(hymn: _selectedHymn!, showBackButton: false),
                 ),
-              ),
+              ],
             ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: 'Numéro, titre ou parole…',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                isDense: true,
-              ),
-              onChanged: _onSearchChanged,
-            ),
-          ),
-          Expanded(
-            child: _loading
-                ? const Center(child: CircularProgressIndicator())
-                : ListView.builder(
-                    itemCount: _hymns.length,
-                    itemBuilder: (context, index) {
-                      final h = _hymns[index];
-                      return ListTile(
-                        leading: CircleAvatar(child: Text(h.number)),
-                        title: Text(h.title),
-                        subtitle: h.key != null ? Text('Tonalité : ${h.key}') : null,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: h)),
-                        ),
-                      );
-                    },
-                  ),
-          ),
-        ],
-      ),
     );
   }
 }

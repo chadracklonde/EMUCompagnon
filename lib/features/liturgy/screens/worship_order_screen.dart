@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/worship_order_data.dart';
 import '../../../core/settings/app_settings.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 
 class WorshipOrderScreen extends StatelessWidget {
   const WorshipOrderScreen({super.key});
@@ -11,7 +12,8 @@ class WorshipOrderScreen extends StatelessWidget {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
     return Scaffold(
       appBar: AppBar(title: const Text('Ordre du culte')),
-      body: ListView(
+      body: ReadingWidthConstraint(
+        child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Container(
@@ -68,6 +70,7 @@ class WorshipOrderScreen extends StatelessWidget {
             );
           }),
         ],
+        ),
       ),
     );
   }

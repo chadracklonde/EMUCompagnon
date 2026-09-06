@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/services/notification_service.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -50,7 +51,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Affichage')),
-      body: ListView(
+      body: ReadingWidthConstraint(
+        child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Text(
@@ -224,6 +226,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
         ],
+        ),
       ),
     );
   }

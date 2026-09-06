@@ -4,6 +4,7 @@ import '../../settings/screens/settings_screen.dart';
 import '../../backup/screens/backup_screen.dart';
 import '../../content_update/screens/content_update_screen.dart';
 import '../../onboarding/screens/onboarding_screen.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 
 /// "À propos" screen crediting the app's developer.
 class AboutScreen extends StatelessWidget {
@@ -28,7 +29,8 @@ class AboutScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('À propos')),
-      body: ListView(
+      body: ReadingWidthConstraint(
+        child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Material(
@@ -265,6 +267,7 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
         ],
+        ),
       ),
     );
   }

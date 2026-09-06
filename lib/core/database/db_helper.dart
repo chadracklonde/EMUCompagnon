@@ -1,25 +1,29 @@
-import 'dart:io';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
+import 'platform/db_platform.dart' as platform;
 
 /// Handles opening the pre-populated SQLite database bundled as an asset.
 ///
-/// IMPORTANT: the local copy on a device is only ever written once, the
-/// first time the app runs — after that, sqflite just opens whatever file
-/// already exists in the documents directory. If the bundled asset DB is
-/// later updated (new content, new tables, fixed search index...), a
-/// device that already installed an earlier build would silently keep
-/// using its old, stale local copy forever, since "the file already
-/// exists" is the only check made. This caused real bugs during testing
-/// (search returning no results on devices that had installed an earlier
-/// build). [_currentContentVersion] fixes this: it's bumped whenever
-/// assets/db/app_data.db changes in a way that needs to reach existing
-/// installs, and the app compares it against what was last applied on
-/// that device, refreshing content (never personal data) when it's out
-/// of date.
+/// This file is deliberately platform-agnostic: it never imports dart:io
+/// or any web-only package directly. The only two things that genuinely
+/// need different code per platform — which SQLite engine to use, and
+/// what a "database path" even means — live behind platform/db_platform.dart,
+/// which picks the right implementation at COMPILE time so the web build
+/// never has to resolve a dart:io import at all. Everything else here goes
+/// through the universal `databaseFactory`/`Database` API, which works
+/// identically on mobile, desktop, and web once the right engine is set.
+///
+/// IMPORTANT: the local copy on a device/browser is only ever written
+/// once, the first time the app runs — after that, we just open whatever
+/// already exists. If the bundled asset DB is later updated (new content,
+/// fixed search index...), a device that already installed an earlier
+/// build would silently keep using its old, stale local copy forever
+/// without the version check below. [_currentContentVersion] fixes this:
+/// bump it whenever assets/db/app_data.db changes in a way that needs to
+/// reach already-installed devices.
 class DbHelper {
   static Database? _db;
   static const _dbFileName = 'app_data.db';
@@ -29,6 +33,8 @@ class DbHelper {
   static const int _currentContentVersion = 2;
   static const _kLastAppliedVersionPref = 'db.lastAppliedContentVersion';
 
+  static bool _factoryInitialized = false;
+
   static Future<Database> get database async {
     if (_db != null) return _db!;
     _db = await _initDb();
@@ -36,37 +42,52 @@ class DbHelper {
   }
 
   static Future<Database> _initDb() async {
-    final docsDir = await getApplicationDocumentsDirectory();
-    final dbPath = join(docsDir.path, _dbFileName);
-    final exists = await File(dbPath).exists();
-
-    if (!exists) {
-      await _copyAssetDbTo(dbPath);
-      await _setLastAppliedVersion(_currentContentVersion);
-      return openDatabase(dbPath);
+    if (!_factoryInitialized) {
+      await platform.initializeDatabaseFactory();
+      _factoryInitialized = true;
     }
 
-    // A local DB already exists on this device (from a previous install
-    // or an earlier build). Check whether it's up to date with the
-    // content shipped in THIS build, and refresh it if not — without
-    // touching bookmarks/notes/highlights.
-    final db = await openDatabase(dbPath);
+    final dbPath = await platform.getDatabasePath(_dbFileName);
+    final exists = await databaseFactory.databaseExists(dbPath);
+
+    if (!exists) {
+      final bytes = await _loadAssetBytes();
+      await databaseFactory.writeDatabaseBytes(dbPath, bytes);
+      await _setLastAppliedVersion(_currentContentVersion);
+      return databaseFactory.openDatabase(dbPath);
+    }
+
+    // A local DB already exists (previous install, or an earlier build).
+    // Check whether it's up to date with THIS build's content, and
+    // refresh it if not.
+    var db = await databaseFactory.openDatabase(dbPath);
     final lastApplied = await _getLastAppliedVersion();
     if (lastApplied < _currentContentVersion) {
-      await _ensureSchema(db);
-      await _refreshContentFromAsset(db);
+      if (kIsWeb) {
+        // On the web, bookmarks/notes/highlights never live in this
+        // local database (they go to Supabase instead — see Phase 2/3),
+        // so there is no personal data to protect here: a full wipe and
+        // reseed is simple, safe, and always converges to a correct,
+        // fully up-to-date schema.
+        await db.close();
+        final bytes = await _loadAssetBytes();
+        await databaseFactory.writeDatabaseBytes(dbPath, bytes);
+        db = await databaseFactory.openDatabase(dbPath);
+      } else {
+        // Mobile/desktop: bookmarks/notes/highlights DO live in this same
+        // file, so refresh content tables + search indexes surgically,
+        // preserving personal data untouched.
+        await _ensureSchema(db);
+        await _refreshContentFromAsset(db);
+      }
       await _setLastAppliedVersion(_currentContentVersion);
     }
     return db;
   }
 
-  static Future<void> _copyAssetDbTo(String destPath) async {
+  static Future<Uint8List> _loadAssetBytes() async {
     final data = await rootBundle.load('assets/db/$_dbFileName');
-    final bytes = data.buffer.asUint8List(
-      data.offsetInBytes,
-      data.lengthInBytes,
-    );
-    await File(destPath).writeAsBytes(bytes, flush: true);
+    return data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
   }
 
   static Future<int> _getLastAppliedVersion() async {
@@ -81,8 +102,9 @@ class DbHelper {
 
   /// Recreates any table/column/FTS setup that might be missing from an
   /// older local DB (e.g. a device that installed a build from before
-  /// 'notes'/'highlights' existed), so a version bump always converges
-  /// to the same schema regardless of how old the local copy is.
+  /// 'notes'/'highlights' existed), so a version bump always converges to
+  /// the same schema regardless of how old the local copy is.
+  /// (Mobile/desktop only — see the web branch in [_initDb].)
   static Future<void> _ensureSchema(Database db) async {
     await db.execute('''
       CREATE TABLE IF NOT EXISTS notes (
@@ -119,8 +141,6 @@ class DbHelper {
       await db.execute('ALTER TABLE hymns ADD COLUMN audio_url TEXT');
     }
 
-    // FTS5 virtual tables can't use "IF NOT EXISTS" reliably across all
-    // SQLite builds the same way normal tables can, so check first.
     Future<bool> ftsTableExists(String name) async {
       final rows = await db.rawQuery(
         "SELECT name FROM sqlite_master WHERE type='table' AND name = ?",
@@ -157,13 +177,13 @@ class DbHelper {
 
   /// Refreshes Bible/hymns/dictionary content (and their search indexes)
   /// from the freshly bundled asset DB, leaving bookmarks/notes/highlights
-  /// on the device completely untouched.
+  /// on the device completely untouched. (Mobile/desktop only.)
   static Future<void> _refreshContentFromAsset(Database db) async {
-    final tempDir = await getTemporaryDirectory();
-    final tempAssetPath = join(tempDir.path, 'app_data_asset_ref.db');
-    await _copyAssetDbTo(tempAssetPath);
+    final tempPath = await platform.getDatabasePath('app_data_asset_ref.db');
+    final bytes = await _loadAssetBytes();
+    await databaseFactory.writeDatabaseBytes(tempPath, bytes);
 
-    await db.execute("ATTACH DATABASE '$tempAssetPath' AS freshdb");
+    await db.execute("ATTACH DATABASE '$tempPath' AS freshdb");
     try {
       await db.transaction((txn) async {
         for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
@@ -185,26 +205,27 @@ class DbHelper {
       });
     } finally {
       await db.execute('DETACH DATABASE freshdb');
-      final tempFile = File(tempAssetPath);
-      if (await tempFile.exists()) await tempFile.delete();
+      await databaseFactory.deleteDatabase(tempPath);
     }
   }
 
   /// Useful during development if the bundled DB is updated and you want
   /// to force a fresh copy on next launch.
   static Future<void> resetDatabase() async {
-    final docsDir = await getApplicationDocumentsDirectory();
-    final dbPath = join(docsDir.path, _dbFileName);
-    if (await File(dbPath).exists()) {
-      await File(dbPath).delete();
+    if (!_factoryInitialized) {
+      await platform.initializeDatabaseFactory();
+      _factoryInitialized = true;
     }
+    final dbPath = await platform.getDatabasePath(_dbFileName);
+    await databaseFactory.deleteDatabase(dbPath);
     _db = null;
   }
 
   /// Merges a freshly downloaded content database (Bible/hymns/dictionary)
   /// into the live one, WITHOUT touching the user's personal data
   /// (bookmarks, notes, highlights) — those tables are never referenced
-  /// here, so they survive untouched. Used by the content-update feature.
+  /// here, so they survive untouched. Used by the content-update feature
+  /// (mobile/desktop only — not offered on web, see ContentUpdateScreen).
   static Future<void> mergeContentUpdate(String newDbPath) async {
     final db = await database;
     await db.execute("ATTACH DATABASE '$newDbPath' AS newdb");

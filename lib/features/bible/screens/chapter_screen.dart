@@ -14,6 +14,7 @@ import '../../../shared/services/image_share_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../../../shared/widgets/highlight_color_picker.dart';
 import '../../../core/services/reading_history_service.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 
 class ChapterScreen extends StatefulWidget {
   final String book;
@@ -23,6 +24,9 @@ class ChapterScreen extends StatefulWidget {
   /// open — used when arriving from a tapped Bible-reference link. This
   /// is a temporary visual cue, distinct from a persistent color highlight.
   final int? highlightVerse;
+  /// False when embedded as the detail pane of a wide-screen master-detail
+  /// layout — no back button needed there.
+  final bool showBackButton;
 
   const ChapterScreen({
     super.key,
@@ -30,6 +34,7 @@ class ChapterScreen extends StatefulWidget {
     required this.chapter,
     this.version = 'LSG1910',
     this.highlightVerse,
+    this.showBackButton = true,
   });
 
   @override
@@ -208,6 +213,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: widget.showBackButton,
         title: Text('${widget.book} $_chapter'),
         actions: [
           IconButton(
@@ -236,7 +242,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   _goToChapter(-1);
                 }
               },
-              child: ListView.builder(
+              child: ReadingWidthConstraint(
+                child: ListView.builder(
                 controller: _scrollController,
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 itemCount: _verses.length,
@@ -321,6 +328,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                     ),
                   );
                 },
+                ),
               ),
             ),
     );

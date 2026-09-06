@@ -11,10 +11,15 @@ import '../../../shared/widgets/text_settings_popup.dart';
 import '../utils/hymn_stanza_parser.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/hymn_audio_player.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
 
 class HymnDetailScreen extends StatefulWidget {
   final Hymn hymn;
-  const HymnDetailScreen({super.key, required this.hymn});
+  /// False when embedded as the detail pane of a wide-screen master-detail
+  /// layout (no back button needed there — there's nothing to pop back
+  /// from within that pane).
+  final bool showBackButton;
+  const HymnDetailScreen({super.key, required this.hymn, this.showBackButton = true});
 
   @override
   State<HymnDetailScreen> createState() => _HymnDetailScreenState();
@@ -62,6 +67,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: widget.showBackButton,
         title: Text('N° ${hymn.number}'),
         actions: [
           IconButton(
@@ -101,7 +107,8 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: ReadingWidthConstraint(
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -130,6 +137,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
             if (hymn.audioUrl != null) HymnAudioPlayer(audioUrl: hymn.audioUrl!),
             ...stanzas.map((s) => _StanzaBlock(stanza: s, lineHeightScale: lineHeightScale)),
           ],
+          ),
         ),
       ),
     );

@@ -47,6 +47,12 @@ class LiturgicalPeriodDetailScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
+                Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 760),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                 Row(
                   children: [
                     Chip(
@@ -75,6 +81,10 @@ class LiturgicalPeriodDetailScreen extends StatelessWidget {
                 LinkedVerseText(
                   period.description,
                   style: TextStyle(fontSize: 16, height: 1.6 * lineHeightScale),
+                ),
+                      ],
+                    ),
+                  ),
                 ),
               ]),
             ),
