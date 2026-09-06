@@ -47,18 +47,11 @@ flutter:
 
 # Generates native iOS/Android/Windows/macOS launcher icons from a single
 # source image. Run once after `flutter pub get`:  dart run flutter_launcher_icons
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/icons/app_icon.png"
-  min_sdk_android: 21
-  adaptive_icon_background: "#7A2426"
-  adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
-  remove_alpha_ios: true
-  windows:
-    generate: true
-    image_path: "assets/icons/app_icon.png"
-    icon_size: 256
-  macos:
-    generate: true
-    image_path: "assets/icons/app_icon.png"
+# NB : la configuration flutter_launcher_icons ne vit plus ici — elle est
+# scindée en 3 fichiers séparés à la racine du projet
+# (flutter_launcher_icons-android.yaml, -windows.yaml, -macos.yaml),
+# chacun invoqué avec -f dans l'étape CI correspondante. Un seul bloc
+# combiné ici causait un échec systématique sur Windows/macOS : l'outil
+# lit TOUTE la config d'un coup (y compris android: true) et tente
+# d'écrire dans android/app/src/main/AndroidManifest.xml même dans les
+# jobs où ce dossier n'existe jamais.
