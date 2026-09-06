@@ -17,11 +17,6 @@ class NotificationService {
   static bool _initialized = false;
   static const _dailyReminderId = 1001;
 
-  /// Windows requires a fixed, app-specific ID and GUID at init time —
-  /// unlike Android/iOS/macOS, these aren't optional there.
-  static const _windowsAppUserModelId = 'com.emucompagnon.emu_compagnon';
-  static const _windowsGuid = 'a2f6b8e1-2c3d-4e5f-9a1b-6c7d8e9f0a1b';
-
   static Future<void> init() async {
     if (_initialized) return;
     tz_data.initializeTimeZones();
@@ -32,23 +27,21 @@ class NotificationService {
       requestBadgePermission: false,
       requestSoundPermission: false,
     );
-    // Without explicit Windows settings, initialize() silently fails to
-    // wire up the Windows implementation at all — every notification
-    // call afterward becomes a no-op with no error, which is exactly the
-    // kind of "nothing happens, nothing tells you why" bug this app has
-    // run into elsewhere in this project.
-    const windowsInit = WindowsInitializationSettings(
-      appName: 'ÉMU Compagnon',
-      appUserModelId: _windowsAppUserModelId,
-      guid: _windowsGuid,
-    );
-
+    // NB : pas de configuration Windows ici. flutter_local_notifications
+    // 18.0.1 (version figée par ce projet) n'expose ni
+    // WindowsInitializationSettings ni le paramètre windows: sur
+    // InitializationSettings — confirmé par une vraie erreur de
+    // compilation, après qu'une recherche m'a induit en erreur en
+    // décrivant apparemment une version plus récente du package. Les
+    // notifications ne sont donc pas disponibles sur Windows pour
+    // l'instant (limitation acceptée, pas une fonctionnalité cassée en
+    // silence : requestPermission()/scheduleDaily() restent no-op
+    // propres sur cette plateforme grâce aux vérifications null ci-dessous).
     await _plugin.initialize(
       const InitializationSettings(
         android: androidInit,
         iOS: darwinInit,
         macOS: darwinInit,
-        windows: windowsInit,
       ),
     );
     _initialized = true;
