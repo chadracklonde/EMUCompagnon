@@ -135,7 +135,7 @@ jobs:
         run: flutter test || true
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons
+        run: dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml
 
       - name: Analyser le code (non bloquant)
         run: flutter analyze || true
@@ -206,7 +206,7 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons
+        run: dart run flutter_launcher_icons -f flutter_launcher_icons-windows.yaml
 
       - name: Construire l'app Windows
         run: flutter build windows --release
@@ -262,7 +262,7 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons
+        run: dart run flutter_launcher_icons -f flutter_launcher_icons-macos.yaml
 
       - name: Construire l'app macOS
         run: flutter build macos --release
@@ -394,7 +394,7 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons
+        run: dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml
 
       - name: Construire l'APK release
         run: flutter build apk --release
