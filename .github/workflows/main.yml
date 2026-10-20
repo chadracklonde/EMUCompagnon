@@ -135,7 +135,21 @@ jobs:
         run: flutter test || true
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml
+        shell: bash
+        run: |
+          set +e
+          dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml > icon_gen.log 2>&1
+          status=$?
+          cat icon_gen.log
+          if [ $status -ne 0 ]; then
+            {
+              echo '### Diagnostic : erreur de génération des icônes'
+              echo '```'
+              cat icon_gen.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $status
 
       - name: Analyser le code (non bloquant)
         run: flutter analyze || true
@@ -206,7 +220,21 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons -f flutter_launcher_icons-windows.yaml
+        shell: bash
+        run: |
+          set +e
+          dart run flutter_launcher_icons -f flutter_launcher_icons-windows.yaml > icon_gen.log 2>&1
+          status=$?
+          cat icon_gen.log
+          if [ $status -ne 0 ]; then
+            {
+              echo '### Diagnostic : erreur de génération des icônes'
+              echo '```'
+              cat icon_gen.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $status
 
       - name: Construire l'app Windows
         run: flutter build windows --release
@@ -262,7 +290,21 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons -f flutter_launcher_icons-macos.yaml
+        shell: bash
+        run: |
+          set +e
+          dart run flutter_launcher_icons -f flutter_launcher_icons-macos.yaml > icon_gen.log 2>&1
+          status=$?
+          cat icon_gen.log
+          if [ $status -ne 0 ]; then
+            {
+              echo '### Diagnostic : erreur de génération des icônes'
+              echo '```'
+              cat icon_gen.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $status
 
       - name: Construire l'app macOS
         run: flutter build macos --release
@@ -394,7 +436,21 @@ jobs:
         run: flutter pub get
 
       - name: Générer les icônes de l'app
-        run: dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml
+        shell: bash
+        run: |
+          set +e
+          dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml > icon_gen.log 2>&1
+          status=$?
+          cat icon_gen.log
+          if [ $status -ne 0 ]; then
+            {
+              echo '### Diagnostic : erreur de génération des icônes'
+              echo '```'
+              cat icon_gen.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $status
 
       - name: Construire l'APK release
         run: flutter build apk --release

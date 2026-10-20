@@ -38,22 +38,6 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.14.1
 
-# flutter_launcher_icons ^0.14.1 depends on image ^4.2.0, which transitively
-# pulls in archive ^3.4.x. That version of `archive` calls
-# UnmodifiableUint8ListView (lib/src/bzip2/bz2_bit_reader.dart), a Dart
-# core-library symbol that current Dart SDKs no longer resolve, so the
-# process dies with "Method not found: 'UnmodifiableUint8ListView'." —
-# but only lazily, the first time a code path that actually touches that
-# codec runs. That's exactly why `dart run flutter_launcher_icons` built
-# Android icons fine while failing on the Windows/macOS jobs' identical
-# command: each platform's icon generation exercises a different part of
-# the `image`/`archive` pipeline. Pinning a patched 3.x `archive` (the
-# last release before its 4.0.0 API break, which `image` ^4.2.0 isn't
-# written against) is the documented fix —
-# https://github.com/fluttercommunity/flutter_launcher_icons/issues/593.
-dependency_overrides:
-  archive: ^3.6.1
-
 flutter:
   uses-material-design: true
   assets:
