@@ -110,12 +110,25 @@ class BibleRepository {
   }
 
   /// FTS5 special characters must be escaped/quoted for safe user input.
+  ///
+  /// Each word is wrapped in double quotes (treated as a literal token,
+  /// avoiding FTS5 syntax errors from punctuation the user might type)
+  /// AND suffixed with `*` to make it a prefix query. Without the `*`,
+  /// FTS5 MATCH only finds an EXACT token match — since the search field
+  /// searches live as the user types (every keystroke, after a short
+  /// debounce), a query is almost always an incomplete word, so a plain
+  /// MATCH returns nothing until the whole word is typed correctly. This
+  /// was the root cause of "search gives no results": e.g. typing "jesu"
+  /// (on the way to "jesus") matched zero rows, while "jesu*" matches
+  /// every verse containing a word starting with "jesu".
   String _sanitizeFtsQuery(String input) {
     final trimmed = input.trim();
     if (trimmed.isEmpty) return '';
-    // Wrap each word in double quotes to treat as literal tokens, avoiding
-    // FTS5 syntax errors from punctuation the user might type.
-    final words = trimmed.split(RegExp(r'\s+'));
-    return words.map((w) => '"${w.replaceAll('"', '')}"').join(' ');
+    final words = trimmed
+        .split(RegExp(r'\s+'))
+        .map((w) => w.replaceAll('"', ''))
+        .where((w) => w.isNotEmpty);
+    if (words.isEmpty) return '';
+    return words.map((w) => '"$w"*').join(' ');
   }
 }

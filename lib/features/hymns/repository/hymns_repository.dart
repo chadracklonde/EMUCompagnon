@@ -34,10 +34,17 @@ class HymnsRepository {
     return rows.map((r) => Hymn.fromMap(r)).toList();
   }
 
+  /// See the detailed comment in BibleRepository._sanitizeFtsQuery: the
+  /// trailing `*` turns each token into an FTS5 prefix query, which is
+  /// required because the search UI runs live, on every keystroke.
   String _sanitizeFtsQuery(String input) {
     final trimmed = input.trim();
     if (trimmed.isEmpty) return '';
-    final words = trimmed.split(RegExp(r'\s+'));
-    return words.map((w) => '"${w.replaceAll('"', '')}"').join(' ');
+    final words = trimmed
+        .split(RegExp(r'\s+'))
+        .map((w) => w.replaceAll('"', ''))
+        .where((w) => w.isNotEmpty);
+    if (words.isEmpty) return '';
+    return words.map((w) => '"$w"*').join(' ');
   }
 }
