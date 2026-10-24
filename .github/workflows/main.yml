@@ -50,6 +50,19 @@ jobs:
           if ! grep -q "POST_NOTIFICATIONS" android/app/src/main/AndroidManifest.xml; then
             sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>#' android/app/src/main/AndroidManifest.xml
           fi
+          # Ajoute la permission INTERNET. Flutter ne l'ajoute PAS par
+          # défaut au manifeste de release (seulement au manifeste de
+          # debug, pour le VM service) — un développeur doit la déclarer
+          # lui-même. Sans elle, TOUT appel réseau de l'app (vérification
+          # de mise à jour du contenu, téléchargement des polices Google
+          # Fonts au premier lancement, etc.) est bloqué par le système,
+          # ce qui peut faire planter l'app au démarrage si l'erreur n'est
+          # pas interceptée. C'était absent du manifeste de la version
+          # envoyée en production (confirmé en inspectant les permissions
+          # réelles de l'APK buildé par ce workflow).
+          if ! grep -q "android.permission.INTERNET" android/app/src/main/AndroidManifest.xml; then
+            sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.INTERNET"/>#' android/app/src/main/AndroidManifest.xml
+          fi
           # Active le "core library desugaring", requis par
           # flutter_local_notifications (utilise des API Java 8+) et
           # jamais activé par défaut dans le scaffold généré.
@@ -394,6 +407,19 @@ jobs:
           # au scaffold généré par flutter create.
           if ! grep -q "POST_NOTIFICATIONS" android/app/src/main/AndroidManifest.xml; then
             sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>#' android/app/src/main/AndroidManifest.xml
+          fi
+          # Ajoute la permission INTERNET. Flutter ne l'ajoute PAS par
+          # défaut au manifeste de release (seulement au manifeste de
+          # debug, pour le VM service) — un développeur doit la déclarer
+          # lui-même. Sans elle, TOUT appel réseau de l'app (vérification
+          # de mise à jour du contenu, téléchargement des polices Google
+          # Fonts au premier lancement, etc.) est bloqué par le système,
+          # ce qui peut faire planter l'app au démarrage si l'erreur n'est
+          # pas interceptée. C'était absent du manifeste de la version
+          # envoyée en production (confirmé en inspectant les permissions
+          # réelles de l'APK buildé par ce workflow).
+          if ! grep -q "android.permission.INTERNET" android/app/src/main/AndroidManifest.xml; then
+            sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android">#<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    <uses-permission android:name="android.permission.INTERNET"/>#' android/app/src/main/AndroidManifest.xml
           fi
           # Active le "core library desugaring", requis par
           # flutter_local_notifications (utilise des API Java 8+) et
