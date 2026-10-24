@@ -108,7 +108,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       Expanded(
                         child: _TestamentButton(
                           label: 'Nouveau\nTestament',
-                          cursive: true,
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => const BooksScreen(filter: TestamentFilter.newTestament),
@@ -120,7 +119,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       Expanded(
                         child: _TestamentButton(
                           label: 'ANCIEN\nTESTAMENT',
-                          cursive: false,
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => const BooksScreen(filter: TestamentFilter.oldTestament),
@@ -347,8 +345,13 @@ class _VerseOfTheDayCard extends StatelessWidget {
               Text(
                 'Verset du Jour',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.greatVibes(
-                  fontSize: 34,
+                // Même police que les boutons Ancien/Nouveau Testament
+                // (Playfair Display), à la place de la police cursive
+                // (Great Vibes) utilisée auparavant.
+                style: GoogleFonts.playfairDisplay(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1,
                   color: ink,
                 ),
               ),
@@ -377,9 +380,8 @@ class _VerseOfTheDayCard extends StatelessWidget {
 
 class _TestamentButton extends StatelessWidget {
   final String label;
-  final bool cursive;
   final VoidCallback onTap;
-  const _TestamentButton({required this.label, required this.cursive, required this.onTap});
+  const _TestamentButton({required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -404,15 +406,17 @@ class _TestamentButton extends StatelessWidget {
               Text(
                 label,
                 textAlign: TextAlign.center,
-                style: cursive
-                    ? GoogleFonts.greatVibes(fontSize: 24, color: Colors.white, height: 1.1)
-                    : GoogleFonts.playfairDisplay(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1,
-                        color: Colors.white,
-                        height: 1.3,
-                      ),
+                // Même police que le bouton Ancien Testament (Playfair
+                // Display) pour les deux boutons — la police cursive
+                // (Great Vibes) utilisée auparavant pour Nouveau Testament
+                // ne correspondait pas visuellement.
+                style: GoogleFonts.playfairDisplay(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1,
+                  color: Colors.white,
+                  height: 1.3,
+                ),
               ),
             ],
           ),
