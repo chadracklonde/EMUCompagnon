@@ -30,7 +30,7 @@ class DbHelper {
 
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
   /// fixed content/schema that already-installed devices need to receive.
-  static const int _currentContentVersion = 4;
+  static const int _currentContentVersion = 5;
   static const _kLastAppliedVersionPref = 'db.lastAppliedContentVersion';
 
   static bool _factoryInitialized = false;
@@ -134,6 +134,48 @@ class DbHelper {
     await db.execute(
       'CREATE INDEX IF NOT EXISTS idx_verses_version ON bible_verses(version, book_num, chapter, verse)',
     );
+
+    // Tier 2/3 daily-engagement tables (flashcards, journal, evening
+    // examen) — purely personal data, like notes/highlights above, so
+    // they must exist even on an upgrade from an older install and must
+    // never be touched by _refreshContentFromAsset.
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS memory_cards (
+        id INTEGER PRIMARY KEY,
+        book TEXT NOT NULL,
+        chapter INTEGER NOT NULL,
+        verse INTEGER NOT NULL,
+        verse_text TEXT NOT NULL,
+        reference_label TEXT NOT NULL,
+        ease_factor REAL NOT NULL DEFAULT 2.5,
+        interval_days INTEGER NOT NULL DEFAULT 1,
+        repetitions INTEGER NOT NULL DEFAULT 0,
+        due_date TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    ''');
+    await db.execute(
+      'CREATE INDEX IF NOT EXISTS idx_memory_cards_due ON memory_cards(due_date)',
+    );
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS journal_entries (
+        id INTEGER PRIMARY KEY,
+        entry_date TEXT NOT NULL,
+        content TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    ''');
+    await db.execute(
+      'CREATE INDEX IF NOT EXISTS idx_journal_date ON journal_entries(entry_date)',
+    );
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS evening_examen_entries (
+        id INTEGER PRIMARY KEY,
+        entry_date TEXT NOT NULL UNIQUE,
+        answers TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    ''');
 
     final hymnsColumns = await db.rawQuery('PRAGMA table_info(hymns)');
     final hasAudioUrl = hymnsColumns.any((c) => c['name'] == 'audio_url');

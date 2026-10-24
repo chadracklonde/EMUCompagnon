@@ -14,6 +14,7 @@ import '../../../shared/services/image_share_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../../../shared/widgets/highlight_color_picker.dart';
 import '../../../core/services/reading_history_service.dart';
+import '../../memorization/repository/memory_card_repository.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 
 class ChapterScreen extends StatefulWidget {
@@ -45,6 +46,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
   final _repo = BibleRepository();
   final _bookmarkRepo = BookmarkRepository();
   final _highlightRepo = HighlightRepository();
+  final _memoryCardRepo = MemoryCardRepository();
   final _scrollController = ScrollController();
   final Map<int, GlobalKey> _verseKeys = {};
 
@@ -153,6 +155,30 @@ class _ChapterScreenState extends State<ChapterScreen> {
     }
   }
 
+  Future<void> _addToMemorization(Verse v) async {
+    final already = await _memoryCardRepo.isAlreadyAdded(v.book, v.chapter, v.verse);
+    if (already) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Ce verset est déjà dans votre deck de mémorisation.')),
+        );
+      }
+      return;
+    }
+    await _memoryCardRepo.addCard(
+      book: v.book,
+      chapter: v.chapter,
+      verse: v.verse,
+      verseText: v.text,
+      referenceLabel: v.reference,
+    );
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Verset ajouté à la mémorisation.')),
+      );
+    }
+  }
+
   void _showVerseActions(Verse v) {
     showModalBottomSheet(
       context: context,
@@ -189,6 +215,14 @@ class _ChapterScreenState extends State<ChapterScreen> {
               onTap: () {
                 Navigator.pop(context);
                 _shareAsImage(v);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.psychology_outlined),
+              title: const Text('Mémoriser ce verset'),
+              onTap: () {
+                Navigator.pop(context);
+                _addToMemorization(v);
               },
             ),
           ],

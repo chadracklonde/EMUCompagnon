@@ -15,6 +15,10 @@ import '../../about/screens/about_screen.dart';
 import '../../liturgy/screens/liturgy_screen.dart';
 import '../../reading_plan/screens/reading_plan_screen.dart';
 import '../../daily_quiz/screens/daily_quiz_screen.dart';
+import '../../memorization/screens/memorization_screen.dart';
+import '../../journal/screens/journal_screen.dart';
+import '../../evening_examen/screens/evening_examen_screen.dart';
+import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../settings/screens/settings_screen.dart';
 import '../../../core/services/streak_service.dart';
@@ -209,6 +213,34 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icons.info_outline,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(builder: (_) => const AboutScreen()),
+                        ),
+                      ),
+                      _SmallButton(
+                        label: 'Mémorisation',
+                        icon: Icons.psychology_outlined,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const MemorizationScreen()),
+                        ),
+                      ),
+                      _SmallButton(
+                        label: 'Journal de prière',
+                        icon: Icons.menu_book_outlined,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const JournalScreen()),
+                        ),
+                      ),
+                      _SmallButton(
+                        label: 'Examen du soir',
+                        icon: Icons.nights_stay_outlined,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const EveningExamenScreen()),
+                        ),
+                      ),
+                      _SmallButton(
+                        label: 'Défi de la semaine',
+                        icon: Icons.flag_outlined,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const WeeklyChallengeScreen()),
                         ),
                       ),
                     ],
