@@ -151,7 +151,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml > icon_gen.log 2>&1
+          dart run flutter_launcher_icons -f icons-android.yaml > icon_gen.log 2>&1
           status=$?
           cat icon_gen.log
           if [ $status -ne 0 ]; then
@@ -245,7 +245,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          dart run flutter_launcher_icons -f flutter_launcher_icons-windows.yaml > icon_gen.log 2>&1
+          dart run flutter_launcher_icons -f icons-windows.yaml > icon_gen.log 2>&1
           status=$?
           cat icon_gen.log
           if [ $status -ne 0 ]; then
@@ -324,7 +324,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          dart run flutter_launcher_icons -f flutter_launcher_icons-macos.yaml > icon_gen.log 2>&1
+          dart run flutter_launcher_icons -f icons-macos.yaml > icon_gen.log 2>&1
           status=$?
           cat icon_gen.log
           if [ $status -ne 0 ]; then
@@ -492,7 +492,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          dart run flutter_launcher_icons -f flutter_launcher_icons-android.yaml > icon_gen.log 2>&1
+          dart run flutter_launcher_icons -f icons-android.yaml > icon_gen.log 2>&1
           status=$?
           cat icon_gen.log
           if [ $status -ne 0 ]; then

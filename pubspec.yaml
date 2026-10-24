@@ -1,7 +1,7 @@
 name: emu_compagnon
 description: "ÉMU Compagnon — Bible, Cantiques, Dictionnaire biblique et Liturgie EMU"
 publish_to: 'none'
-version: 1.0.0+4
+version: 1.0.0+5
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -49,9 +49,21 @@ flutter:
 # source image. Run once after `flutter pub get`:  dart run flutter_launcher_icons
 # NB : la configuration flutter_launcher_icons ne vit plus ici — elle est
 # scindée en 3 fichiers séparés à la racine du projet
-# (flutter_launcher_icons-android.yaml, -windows.yaml, -macos.yaml),
-# chacun invoqué avec -f dans l'étape CI correspondante. Un seul bloc
-# combiné ici causait un échec systématique sur Windows/macOS : l'outil
-# lit TOUTE la config d'un coup (y compris android: true) et tente
-# d'écrire dans android/app/src/main/AndroidManifest.xml même dans les
-# jobs où ce dossier n'existe jamais.
+# (icons-android.yaml, icons-windows.yaml, icons-macos.yaml), chacun
+# invoqué avec -f dans l'étape CI correspondante.
+#
+# IMPORTANT — ne JAMAIS nommer ces fichiers "flutter_launcher_icons-*.yaml" :
+# dès qu'un fichier matchant ce motif existe à la racine du projet,
+# flutter_launcher_icons (v0.14.x) bascule silencieusement en mode
+# "flavors" et IGNORE complètement le flag -f — il traite alors chaque
+# suffixe ("android", "windows", "macos"...) comme le nom d'un flavor
+# Gradle et écrit les icônes Android dans
+# android/app/src/<flavor>/res/... au lieu de android/app/src/main/res/.
+# Comme notre projet n'a aucun flavor Gradle de ce nom, ces fichiers sont
+# écrits dans un dossier jamais compilé : l'icône par défaut de Flutter
+# dans src/main/res/ n'est jamais remplacée, et l'app shippée garde le
+# logo Flutter générique — bug confirmé en extrayant et inspectant l'APK
+# réellement envoyé sur le Play Store (ic_launcher.png = logo Flutter
+# stock) après que l'étape CI ait pourtant rapporté un succès (exit 0).
+# C'est pourquoi ces fichiers sont nommés "icons-*.yaml" et non
+# "flutter_launcher_icons-*.yaml".
