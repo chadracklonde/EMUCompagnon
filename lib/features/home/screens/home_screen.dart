@@ -14,8 +14,10 @@ import '../../favorites/screens/favorites_screen.dart';
 import '../../about/screens/about_screen.dart';
 import '../../liturgy/screens/liturgy_screen.dart';
 import '../../reading_plan/screens/reading_plan_screen.dart';
+import '../../daily_quiz/screens/daily_quiz_screen.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../settings/screens/settings_screen.dart';
+import '../../../core/services/streak_service.dart';
 import '../widgets/decorative_cross.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,12 +30,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _repo = BibleRepository();
   Verse? _verseOfTheDay;
+  StreakInfo? _streak;
 
   @override
   void initState() {
     super.initState();
     _repo.getVerseOfTheDay().then((v) {
       if (mounted) setState(() => _verseOfTheDay = v);
+    });
+    StreakService.recordVisitToday().then((s) {
+      if (mounted) setState(() => _streak = s);
     });
   }
 
@@ -100,7 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(builder: (_) => const GlobalSearchScreen()),
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
+                  if (_streak != null && _streak!.current > 1)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: _StreakBadge(streak: _streak!, ink: ink),
+                    ),
                   _VerseOfTheDayCard(verse: _verseOfTheDay, ink: ink),
                   const SizedBox(height: 20),
                   Row(
@@ -134,6 +145,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icons.event_note_outlined,
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const ReadingPlanScreen()),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  _WideButton(
+                    label: 'QUIZ DU JOUR',
+                    icon: Icons.quiz_outlined,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const DailyQuizScreen()),
                     ),
                   ),
                   const SizedBox(height: 14),
@@ -304,6 +323,38 @@ class _SearchBar extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _StreakBadge extends StatelessWidget {
+  final StreakInfo streak;
+  final Color ink;
+  const _StreakBadge({required this.streak, required this.ink});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: UmcColors.gold.withValues(alpha: 0.18),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: UmcColors.gold.withValues(alpha: 0.6)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('🔥', style: TextStyle(fontSize: 14)),
+            const SizedBox(width: 6),
+            Text(
+              '${streak.current} jours de suite',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ink),
+            ),
+          ],
         ),
       ),
     );

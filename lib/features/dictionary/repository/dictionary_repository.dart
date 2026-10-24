@@ -8,6 +8,27 @@ class DictionaryRepository {
     return rows.map((r) => DictionaryEntry.fromMap(r)).toList();
   }
 
+  /// All entry ids, cheap to fetch in full (small integers) and used by
+  /// features like the daily quiz to pick a deterministic random sample
+  /// without loading every definition into memory.
+  Future<List<int>> getAllIds() async {
+    final db = await DbHelper.database;
+    final rows = await db.query('dictionary_entries', columns: ['id']);
+    return rows.map((r) => r['id'] as int).toList();
+  }
+
+  Future<List<DictionaryEntry>> getByIds(List<int> ids) async {
+    if (ids.isEmpty) return [];
+    final db = await DbHelper.database;
+    final placeholders = List.filled(ids.length, '?').join(',');
+    final rows = await db.query(
+      'dictionary_entries',
+      where: 'id IN ($placeholders)',
+      whereArgs: ids,
+    );
+    return rows.map((r) => DictionaryEntry.fromMap(r)).toList();
+  }
+
   Future<List<DictionaryEntry>> search(String query, {int limit = 100}) async {
     final db = await DbHelper.database;
     final sanitized = _sanitizeFtsQuery(query);
