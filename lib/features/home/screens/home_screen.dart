@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Expanded(
                         child: _TestamentButton(
-                          label: 'Nouveau\nTestament',
+                          label: 'NOUVEAU\nTESTAMENT',
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => const BooksScreen(filter: TestamentFilter.newTestament),

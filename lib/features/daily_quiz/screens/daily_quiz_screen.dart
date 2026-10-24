@@ -59,7 +59,14 @@ class _DailyQuizScreenState extends State<DailyQuizScreen> {
     } else {
       await DailyQuizService.saveTodayResult(_score, _questions.length);
       if (!mounted) return;
-      setState(() => _alreadyDoneToday = true);
+      // _answered must be reset too: the "done" screen is only shown when
+      // (_alreadyDoneToday && !_answered) — leaving _answered at its
+      // post-last-question value of true kept the result screen from
+      // ever appearing.
+      setState(() {
+        _alreadyDoneToday = true;
+        _answered = false;
+      });
     }
   }
 

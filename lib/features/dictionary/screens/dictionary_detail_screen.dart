@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../../core/models/dictionary_entry.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../shared/bible_reference_parser.dart';
+import '../../../shared/bible_book_abbreviations.dart';
 import '../../../shared/widgets/linked_verse_text.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../bible/screens/chapter_screen.dart';
@@ -61,9 +62,14 @@ class DictionaryDetailScreen extends StatelessWidget {
   }
 
   void _openReference(BuildContext context, String ref) {
-    final matches = BibleReferenceParser.findAll(ref);
-    if (matches.isEmpty) return;
-    final m = matches.first;
+    // Each chip is a single, self-contained reference (not free-flowing
+    // prose), so try the dedicated chip parser first — it understands
+    // both full book names and the French abbreviations ("Gn", "Hé"...)
+    // used by the imported dictionary content. Fall back to the
+    // general-purpose parser just in case.
+    final fallbackMatches = BibleReferenceParser.findAll(ref);
+    final m = parseChipReference(ref) ?? (fallbackMatches.isNotEmpty ? fallbackMatches.first : null);
+    if (m == null) return;
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => ChapterScreen(
