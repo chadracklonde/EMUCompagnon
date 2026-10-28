@@ -47,16 +47,31 @@ class _HymnsScreenState extends State<HymnsScreen> {
   int _searchSeq = 0;
   bool _isSearching = false;
 
+  String? _searchError;
+
   Future<void> _onSearchChanged(String query) async {
     final seq = ++_searchSeq;
     final searching = query.trim().isNotEmpty;
-    final hymns = searching ? await _repo.search(query) : await _repo.getAll();
-    if (!mounted || seq != _searchSeq) return;
-    setState(() {
-      _hymns = hymns;
-      _isSearching = searching;
-      _loading = false;
-    });
+    try {
+      final hymns = searching ? await _repo.search(query) : await _repo.getAll();
+      if (!mounted || seq != _searchSeq) return;
+      setState(() {
+        _hymns = hymns;
+        _isSearching = searching;
+        _searchError = null;
+        _loading = false;
+      });
+    } catch (e) {
+      // Never fail silently (the list would just stay unchanged and look
+      // like "search does nothing"): show what went wrong.
+      if (!mounted || seq != _searchSeq) return;
+      setState(() {
+        _hymns = [];
+        _isSearching = true;
+        _searchError = e.toString();
+        _loading = false;
+      });
+    }
   }
 
   @override
@@ -141,7 +156,9 @@ class _HymnsScreenState extends State<HymnsScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(24),
                         child: Text(
-                          'Aucun cantique trouvé.',
+                          _searchError == null
+                              ? 'Aucun cantique trouvé.'
+                              : 'Recherche indisponible : $_searchError',
                           style: TextStyle(color: Theme.of(context).colorScheme.outline),
                         ),
                       ),
