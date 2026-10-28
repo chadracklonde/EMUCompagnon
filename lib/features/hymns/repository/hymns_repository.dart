@@ -75,59 +75,62 @@ class HymnsRepository {
       return results;
     }
 
-    final tokens = _tokens(trimmed);
+    // Text search, done in memory over the ~450 hymns instead of through
+    // SQLite FTS5: FTS5 is not available in the system SQLite of every
+    // Android version, and when it is missing the query throws and NO
+    // title is ever found. Accent- and case-insensitive, prefix-friendly
+    // ("benis" finds "Bénissons"), every typed word must match.
+    final tokens = _normalize(trimmed).split(' ').where((w) => w.isNotEmpty).toList();
     if (tokens.isEmpty) return [];
-    final ftsTokens = tokens.map((w) => '"$w"*').join(' ');
+    final index = await _loadIndex();
+    final normQuery = tokens.join(' ');
 
-    // 1) Title matches, ranked.
-    final titleRows = await db.rawQuery(
-      '''
-      SELECT hymns.* FROM hymns
-      JOIN hymns_fts ON hymns.id = hymns_fts.rowid
-      WHERE hymns_fts MATCH ?
-    ''',
-      ['title : ($ftsTokens)'],
-    );
-    final titleHymns = titleRows.map((r) => Hymn.fromMap(r)).toList();
-    final normQuery = _normalize(trimmed);
-    int rank(Hymn h) {
-      final t = _normalize(h.title);
-      if (t == normQuery) return 0;
-      if (t.startsWith(normQuery)) return 1;
-      if (t.contains(normQuery)) return 2;
-      return 3;
-    }
+    bool matchesAll(String text) => tokens.every(
+          (t) => text.startsWith(t) || text.contains(' $t'),
+        );
 
-    titleHymns.sort((a, b) {
-      final byRank = rank(a).compareTo(rank(b));
-      return byRank != 0 ? byRank : _compareNumbers(a.number, b.number);
-    });
-
-    final seen = <int>{};
-    final results = <Hymn>[];
-    for (final h in titleHymns) {
-      if (seen.add(h.id)) results.add(h);
-    }
-
-    // 2) Then hymns that only match in the lyrics.
-    if (results.length < limit) {
-      final lyricRows = await db.rawQuery(
-        '''
-        SELECT hymns.* FROM hymns
-        JOIN hymns_fts ON hymns.id = hymns_fts.rowid
-        WHERE hymns_fts MATCH ?
-        LIMIT ?
-      ''',
-        [ftsTokens, limit * 3],
-      );
-      final lyricHymns = lyricRows.map((r) => Hymn.fromMap(r)).toList()
-        ..sort((a, b) => _compareNumbers(a.number, b.number));
-      for (final h in lyricHymns) {
-        if (seen.add(h.id)) results.add(h);
+    final titleHits = <(_IndexedHymn, int)>[];
+    final lyricHits = <_IndexedHymn>[];
+    for (final e in index) {
+      if (matchesAll(e.title)) {
+        final int rank;
+        if (e.title == normQuery) {
+          rank = 0;
+        } else if (e.title.startsWith(normQuery)) {
+          rank = 1;
+        } else if (e.title.contains(normQuery)) {
+          rank = 2;
+        } else {
+          rank = 3;
+        }
+        titleHits.add((e, rank));
+      } else if (matchesAll(e.lyrics)) {
+        lyricHits.add(e);
       }
     }
+    titleHits.sort((a, b) {
+      final byRank = a.$2.compareTo(b.$2);
+      return byRank != 0 ? byRank : _compareNumbers(a.$1.hymn.number, b.$1.hymn.number);
+    });
+    lyricHits.sort((a, b) => _compareNumbers(a.hymn.number, b.hymn.number));
 
+    final results = <Hymn>[
+      for (final h in titleHits) h.$1.hymn,
+      for (final h in lyricHits) h.hymn,
+    ];
     return results.length > limit ? results.sublist(0, limit) : results;
+  }
+
+  static List<_IndexedHymn>? _indexCache;
+
+  Future<List<_IndexedHymn>> _loadIndex() async {
+    final cached = _indexCache;
+    if (cached != null) return cached;
+    final all = await getAll();
+    return _indexCache = [
+      for (final h in all)
+        _IndexedHymn(h, _normalize(h.title), _normalize(h.lyrics)),
+    ];
   }
 
   /// Orders hymn numbers numerically, then by suffix: 9 < 10 < 123a < 123b.
@@ -140,10 +143,14 @@ class HymnsRepository {
   /// Lowercases and strips French accents/punctuation so "Bénissons",
   /// "benissons" and "BÉNISSONS !" compare equal.
   static String _normalize(String input) {
-    const from = 'àâäáãåçéèêëíìîïñóòôöõúùûüýÿœæ';
-    const to = 'aaaaaaceeeeiiiinooooouuuuyyoa';
+    const from = 'àâäáãåçéèêëíìîïñóòôöõúùûüýÿ';
+    const to = 'aaaaaaceeeeiiiinooooouuuuyy';
     final buf = StringBuffer();
-    for (final ch in input.toLowerCase().split('')) {
+    for (final ch in input
+        .toLowerCase()
+        .replaceAll('œ', 'oe')
+        .replaceAll('æ', 'ae')
+        .split('')) {
       final i = from.indexOf(ch);
       buf.write(i >= 0 ? to[i] : ch);
     }
@@ -152,11 +159,11 @@ class HymnsRepository {
         .replaceAll(RegExp(r'[^a-z0-9]+'), ' ')
         .trim();
   }
+}
 
-  /// Splits the query into FTS-safe words (quotes removed).
-  static List<String> _tokens(String input) => input
-      .split(RegExp(r'\s+'))
-      .map((w) => w.replaceAll('"', ''))
-      .where((w) => w.isNotEmpty)
-      .toList();
+class _IndexedHymn {
+  final Hymn hymn;
+  final String title;
+  final String lyrics;
+  _IndexedHymn(this.hymn, this.title, this.lyrics);
 }
