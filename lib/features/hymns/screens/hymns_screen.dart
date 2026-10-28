@@ -41,13 +41,22 @@ class _HymnsScreenState extends State<HymnsScreen> {
     }
   }
 
+  // Incremented on every keystroke so a slow, older query can never
+  // overwrite the results of a newer one (typing "gra" then "grand"
+  // could otherwise end up showing the "gra" results).
+  int _searchSeq = 0;
+  bool _isSearching = false;
+
   Future<void> _onSearchChanged(String query) async {
-    if (query.trim().isEmpty) {
-      _loadAll();
-      return;
-    }
-    final results = await _repo.search(query);
-    if (mounted) setState(() => _hymns = results);
+    final seq = ++_searchSeq;
+    final searching = query.trim().isNotEmpty;
+    final hymns = searching ? await _repo.search(query) : await _repo.getAll();
+    if (!mounted || seq != _searchSeq) return;
+    setState(() {
+      _hymns = hymns;
+      _isSearching = searching;
+      _loading = false;
+    });
   }
 
   @override
@@ -127,7 +136,17 @@ class _HymnsScreenState extends State<HymnsScreen> {
         Expanded(
           child: _loading
               ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
+              : (_isSearching && _hymns.isEmpty)
+                  ? Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Text(
+                          'Aucun cantique trouvé.',
+                          style: TextStyle(color: Theme.of(context).colorScheme.outline),
+                        ),
+                      ),
+                    )
+                  : ListView.builder(
                   itemCount: _hymns.length,
                   itemBuilder: (context, index) {
                     final h = _hymns[index];
