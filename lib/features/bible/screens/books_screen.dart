@@ -40,9 +40,25 @@ class _BooksScreenState extends State<BooksScreen> {
   void _loadVerseOfDay(String version) {
     if (_loadedForVersion == version) return;
     _loadedForVersion = version;
-    _repo.getVerseOfTheDay(version: version).then((v) {
-      if (mounted) setState(() => _verseOfTheDay = v);
-    });
+    _fetchVerseOfDay(version);
+  }
+
+  // Retries a couple of times instead of silently leaving the card empty
+  // when the database isn't ready yet / a first attempt fails.
+  Future<void> _fetchVerseOfDay(String version) async {
+    for (var attempt = 0; attempt < 3; attempt++) {
+      try {
+        final v = await _repo.getVerseOfTheDay(version: version);
+        // Ignore a stale answer if the user switched Bible version meanwhile.
+        if (mounted && _loadedForVersion == version) {
+          setState(() => _verseOfTheDay = v);
+        }
+        return;
+      } catch (_) {
+        await Future<void>.delayed(const Duration(milliseconds: 700));
+        if (!mounted) return;
+      }
+    }
   }
 
   Future<void> _pickVersion(AppSettings settings) async {

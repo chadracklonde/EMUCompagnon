@@ -25,7 +25,18 @@ import 'platform/db_platform.dart' as platform;
 /// bump it whenever assets/db/app_data.db changes in a way that needs to
 /// reach already-installed devices.
 class DbHelper {
-  static Database? _db;
+  /// The in-flight (or finished) initialisation, shared by every caller.
+  ///
+  /// IMPORTANT: this MUST be memoised as a Future, not just as the resulting
+  /// Database. AppShell builds every tab at cold start (IndexedStack), so
+  /// Home, Bible, Hymns, Dictionary... all ask for the database within the
+  /// same few milliseconds. When only the finished Database was cached,
+  /// each of them started its OWN [_initDb]: on a fresh install that meant
+  /// several simultaneous copies of the 20 MB asset onto the same file, and
+  /// on an upgrade several simultaneous content refreshes (ATTACH of the
+  /// same alias, overlapping transactions). One of those callers would then
+  /// fail — silently, e.g. leaving the "Verset du jour" card empty.
+  static Future<Database>? _dbFuture;
   static const _dbFileName = 'app_data.db';
 
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
@@ -35,10 +46,12 @@ class DbHelper {
 
   static bool _factoryInitialized = false;
 
-  static Future<Database> get database async {
-    if (_db != null) return _db!;
-    _db = await _initDb();
-    return _db!;
+  static Future<Database> get database {
+    return _dbFuture ??= _initDb().catchError((Object e, StackTrace s) {
+      // Don't cache a failure forever: let the next caller try again.
+      _dbFuture = null;
+      Error.throwWithStackTrace(e, s);
+    });
   }
 
   static Future<Database> _initDb() async {
@@ -260,7 +273,7 @@ class DbHelper {
     }
     final dbPath = await platform.getDatabasePath(_dbFileName);
     await databaseFactory.deleteDatabase(dbPath);
-    _db = null;
+    _dbFuture = null;
   }
 
   /// Exposes a resolved database path/name for a scratch/temporary

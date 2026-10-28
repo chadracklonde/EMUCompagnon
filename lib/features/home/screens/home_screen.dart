@@ -39,12 +39,26 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _repo.getVerseOfTheDay().then((v) {
-      if (mounted) setState(() => _verseOfTheDay = v);
-    });
+    _loadVerseOfDay();
     StreakService.recordVisitToday().then((s) {
       if (mounted) setState(() => _streak = s);
     });
+  }
+
+  /// Loads the verse of the day, retrying a couple of times. A failure here
+  /// used to be swallowed silently (an un-awaited `.then` with no error
+  /// handler), leaving the card empty for the whole session.
+  Future<void> _loadVerseOfDay() async {
+    for (var attempt = 0; attempt < 3; attempt++) {
+      try {
+        final v = await _repo.getVerseOfTheDay();
+        if (mounted) setState(() => _verseOfTheDay = v);
+        return;
+      } catch (_) {
+        await Future<void>.delayed(const Duration(milliseconds: 700));
+        if (!mounted) return;
+      }
+    }
   }
 
   Future<void> _pickLanguage(AppSettings settings) async {
