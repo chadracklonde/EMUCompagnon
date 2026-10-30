@@ -79,7 +79,7 @@ class AboutScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Sauvegarder mes favoris et notes',
+                        'Sauvegarder mes données (favoris, notes, journal, progression)',
                         style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
                       ),
                     ),

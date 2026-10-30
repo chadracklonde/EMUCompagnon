@@ -24,9 +24,10 @@ const _pages = [
     icon: Icons.home,
     title: 'Accueil',
     description:
-        "Votre page de lancement : le verset du jour, un accès "
-        "rapide à l'Ancien et au Nouveau Testament, au plan de "
-        "lecture, aux cantiques et à la liturgie.",
+        "Votre page de lancement : le verset du jour, le quiz du "
+        "jour, et un accès rapide à l'Ancien et au Nouveau "
+        "Testament, au plan de lecture, aux cantiques et à la "
+        "liturgie.",
   ),
   OnboardingPage(
     icon: Icons.menu_book,
@@ -34,7 +35,8 @@ const _pages = [
     description:
         "Trois onglets pour lire, chercher et approfondir : la "
         "Bible complète avec concordance, le recueil Chants de "
-        "Victoire, et un dictionnaire biblique et méthodiste.",
+        "Victoire (recherche par numéro, titre ou mot), et un "
+        "dictionnaire biblique et méthodiste.",
   ),
   OnboardingPage(
     icon: Icons.calendar_month,
@@ -46,12 +48,32 @@ const _pages = [
         "dans l'onglet Favoris, avec vos notes personnelles.",
   ),
   OnboardingPage(
+    icon: Icons.self_improvement,
+    title: 'Votre vie spirituelle',
+    description:
+        "Depuis l'accueil, dans « Accès rapide » : apprenez des "
+        "versets par cœur avec la Mémorisation, tenez votre Journal "
+        "de prière, faites l'Examen du soir et relevez le Défi de "
+        "la semaine.",
+  ),
+  OnboardingPage(
+    icon: Icons.lock_outline,
+    title: 'Vos données restent chez vous',
+    description:
+        "Favoris, notes, journal et progression sont gardés "
+        "uniquement sur votre téléphone. Pour les conserver ou les "
+        "changer d'appareil, utilisez la sauvegarde dans l'écran "
+        "À propos. C'est aussi là que vous vérifiez les mises à "
+        "jour du contenu.",
+  ),
+  OnboardingPage(
     icon: Icons.tune,
     title: 'À vous de personnaliser',
     description:
         "Mode sombre, taille du texte, langue de l'interface, "
         "rappel de lecture quotidien : tout se règle depuis "
-        "l'écran À propos. Bonne lecture !",
+        "l'écran À propos, rubrique Affichage. Vous pouvez y "
+        "revoir ce tutoriel à tout moment. Bonne lecture !",
   ),
 ];
 
