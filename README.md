@@ -25,8 +25,7 @@ sous l'icône de l'app sur le téléphone, une fois les dossiers natifs génér�
 ## Écran d'accueil (style « missel classique »)
 Un nouvel onglet **Accueil** (premier onglet, icône maison) offre une
 page de lancement au style ornemental — fond parchemin, bordures dorées,
-polices classiques (Google Fonts : Great Vibes en cursive, Playfair
-Display en serif) — tout en gardant le bordeaux officiel UMC comme seule
+police classique (Playfair Display, embarquée dans l’app) — tout en gardant le bordeaux officiel UMC comme seule
 couleur de marque (pas de bleu marine). Elle regroupe : sélecteur de
 langue et de thème, recherche globale, verset du jour, accès rapide
 Nouveau/Ancien Testament, Plan de lecture, Liturgie, et une grille
