@@ -242,6 +242,11 @@ jobs:
             flutter create --platforms=windows --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/windows .
           fi
+          # Titre de la fenêtre et description du .exe : flutter create y met
+          # le nom technique du projet ("emu_compagnon"). Les commandes ne
+          # font rien (sans erreur) si le motif n'existe pas.
+          sed -i 's/L"emu_compagnon"/L"\u00c9MU Compagnon"/' windows/runner/main.cpp || true
+          sed -i 's/"emu_compagnon"/"EMU Compagnon"/' windows/runner/Runner.rc || true
 
       - name: Récupérer les dépendances
         run: flutter pub get
@@ -306,6 +311,11 @@ jobs:
             flutter create --platforms=macos --org com.emucompagnon --project-name emu_compagnon /tmp/scaffold
             cp -r /tmp/scaffold/macos .
           fi
+          # Nom affiché sous l'icône / dans le Finder : "ÉMU Compagnon".
+          # (PRODUCT_NAME n'est pas modifié, pour ne pas changer le nom du
+          # .app attendu par la suite du workflow.)
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ÉMU Compagnon" macos/Runner/Info.plist 2>/dev/null \
+            || /usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string ÉMU Compagnon" macos/Runner/Info.plist
 
       # Sans ceci, l'App Sandbox de macOS (activé par défaut par le
       # scaffold généré) bloque TOUTE requête réseau sortante — ce qui
