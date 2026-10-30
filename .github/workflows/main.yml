@@ -149,8 +149,26 @@ jobs:
       - name: Récupérer les dépendances
         run: flutter pub get
 
-      - name: Exécuter les tests automatisés
-        run: flutter test || true
+      - name: Version de Flutter utilisée
+        run: |
+          flutter --version | head -2
+          echo "::notice title=Flutter::$(flutter --version | head -1) / $(flutter --version | sed -n 3p)"
+
+      - name: Conserver pubspec.lock (versions exactes des dépendances)
+        uses: actions/upload-artifact@v4
+        with:
+          name: pubspec-lock
+          path: pubspec.lock
+
+      - name: Exécuter les tests automatisés (bloquant)
+        shell: bash
+        run: |
+          set +e
+          flutter test --reporter expanded 2>&1 | tee /tmp/test.log
+          code=${PIPESTATUS[0]}
+          out=$(tail -n 25 /tmp/test.log | sed 's/%/%25/g' | tr '\n' '|')
+          echo "::notice title=Résultat flutter test::$out"
+          exit $code
 
       - name: Générer les icônes de l'app
         shell: bash

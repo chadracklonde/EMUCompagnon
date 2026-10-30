@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../core/theme/app_theme.dart';
@@ -192,7 +191,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 28),
                   Text(
                     'ACCÈS RAPIDE',
-                    style: GoogleFonts.playfairDisplay(
+                    style: TextStyle(
+                      fontFamily: 'PlayfairDisplay',
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 2,
@@ -361,7 +361,8 @@ class _SearchBar extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 'RECHERCHE',
-                style: GoogleFonts.playfairDisplay(
+                style: TextStyle(
+                  fontFamily: 'PlayfairDisplay',
                   letterSpacing: 1.5,
                   fontSize: 13,
                   color: UmcColors.burgundy.withValues(alpha: 0.7),
@@ -445,7 +446,8 @@ class _VerseOfTheDayCard extends StatelessWidget {
                 // Même police que les boutons Ancien/Nouveau Testament
                 // (Playfair Display), à la place de la police cursive
                 // (Great Vibes) utilisée auparavant.
-                style: GoogleFonts.playfairDisplay(
+                style: TextStyle(
+                  fontFamily: 'PlayfairDisplay',
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 1,
@@ -507,7 +509,8 @@ class _TestamentButton extends StatelessWidget {
                 // Display) pour les deux boutons — la police cursive
                 // (Great Vibes) utilisée auparavant pour Nouveau Testament
                 // ne correspondait pas visuellement.
-                style: GoogleFonts.playfairDisplay(
+                style: TextStyle(
+                  fontFamily: 'PlayfairDisplay',
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 1,
@@ -550,7 +553,8 @@ class _WideButton extends StatelessWidget {
                 child: Text(
                   label,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.playfairDisplay(
+                  style: TextStyle(
+                    fontFamily: 'PlayfairDisplay',
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1.5,
@@ -596,7 +600,8 @@ class _SmallButton extends StatelessWidget {
                 child: Text(
                   label,
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.playfairDisplay(
+                  style: TextStyle(
+                    fontFamily: 'PlayfairDisplay',
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                     color: UmcColors.burgundy,

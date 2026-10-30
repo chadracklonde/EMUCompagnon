@@ -30,7 +30,6 @@ dependencies:
   flutter_local_notifications: ^18.0.1
   timezone: ^0.9.4
   just_audio: ^0.9.42
-  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +43,13 @@ flutter:
     - assets/db/
     - assets/icons/
     - assets/images/
+    - assets/fonts/PlayfairDisplay-OFL.txt
+  fonts:
+    # Playfair Display (SIL OFL 1.1) embarquée : plus aucun téléchargement
+    # de police au runtime. Police variable (axe de graisse 400-900).
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-VF.ttf
 
 # Generates native iOS/Android/Windows/macOS launcher icons from a single
 # source image. Run once after `flutter pub get`:  dart run flutter_launcher_icons

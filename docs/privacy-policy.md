@@ -44,7 +44,7 @@ en avez conservé une sauvegarde vous-même (voir plus bas).
 
 ## L'application communique-t-elle avec un serveur ?
 
-Trois situations impliquent une connexion réseau :
+Deux situations impliquent une connexion réseau :
 
 1. **Vérification des mises à jour de contenu** : à votre demande
    explicite (bouton « Vérifier les mises à jour » de l'écran
@@ -54,19 +54,14 @@ Trois situations impliquent une connexion réseau :
    envoyée lors de cette vérification — l'application se contente de
    télécharger un fichier public. Comme pour toute connexion à
    un site web, GitHub reçoit l'adresse IP de votre connexion.
-2. **Police de caractères de l'accueil** : l'écran d'accueil utilise la
-   police « Playfair Display », que l'application télécharge
-   automatiquement depuis le service Google Fonts la première fois
-   qu'elle en a besoin, puis conserve sur l'appareil. Cette requête ne
-   contient aucune donnée de l'application, mais Google reçoit, comme
-   tout serveur web, l'adresse IP de votre connexion. Hors connexion,
-   l'application fonctionne normalement et utilise une police de
-   remplacement.
-3. **Partage** : quand vous utilisez le bouton « Partager » (verset en
+2. **Partage** : quand vous utilisez le bouton « Partager » (verset en
    image, sauvegarde de vos données), l'application ouvre le menu de
    partage natif de votre téléphone. Ce que vous choisissez de
    partager, et avec qui, dépend entièrement de vous — l'application
    elle-même n'envoie rien à un serveur.
+
+Les polices de caractères sont intégrées à l'application : aucune
+police n'est téléchargée depuis un service externe.
 
 ## Sauvegarde de vos données
 
@@ -89,8 +84,8 @@ désactiver à tout moment dans les réglages.
 
 - **Notifications** : pour le rappel de lecture quotidien (optionnel,
   désactivable).
-- **Accès à Internet** : pour les deux situations décrites plus haut
-  (mise à jour de contenu à votre demande, police de l'accueil).
+- **Accès à Internet** : uniquement pour la vérification des mises à
+  jour de contenu, à votre demande.
 - **Fichiers** : uniquement pour importer une sauvegarde que vous avez
   vous-même exportée précédemment, ou pour enregistrer les fichiers que
   vous partagez.
@@ -102,8 +97,7 @@ identité n'est demandée.
 
 L'application utilise des composants techniques standards (bibliothèques
 Flutter open source) pour le stockage local, les notifications et le
-partage, ainsi que le service Google Fonts pour une police de
-caractères, comme indiqué plus haut. Aucun outil publicitaire, aucun
+partage. Aucun outil publicitaire, aucun
 outil d'analyse d'audience (analytics) n'est intégré.
 
 ## Enfants
