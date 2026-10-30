@@ -31,9 +31,14 @@ class _BackupScreenState extends State<BackupScreen> {
           builder: (_) => AlertDialog(
             title: const Text('Importation terminée'),
             content: Text(
-              '${summary.bookmarks} favori(s), ${summary.notes} note(s) et '
-              '${summary.highlights} surlignage(s) importé(s).\n\n'
-              'Les éléments déjà présents n\'ont pas été dupliqués.',
+              '${summary.bookmarks} favori(s), ${summary.notes} note(s), '
+              '${summary.highlights} surlignage(s), '
+              '${summary.memoryCards} verset(s) à mémoriser, '
+              '${summary.journalEntries} page(s) de journal et '
+              '${summary.examenEntries} examen(s) du soir importé(s).\n\n'
+              'Votre progression (plan de lecture, série de jours, quiz, défis) '
+              'a été fusionnée sans rien diminuer. Les éléments déjà présents '
+              'n\'ont pas été dupliqués.',
             ),
             actions: [
               TextButton(onPressed: () => Navigator.pop(context), child: const Text('OK')),
@@ -67,11 +72,14 @@ class _BackupScreenState extends State<BackupScreen> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
-              "Tes favoris, notes et surlignages ne sont enregistrés que "
-              "sur cet appareil. Exporte-les régulièrement pour ne rien "
-              "perdre en cas de changement de téléphone ou de "
+              "Tes favoris, notes, surlignages, versets à mémoriser, journal "
+              "de prière, examens du soir et ta progression ne sont "
+              "enregistrés que sur cet appareil. Exporte-les régulièrement "
+              "pour ne rien perdre en cas de changement de téléphone ou de "
               "réinstallation — aucun compte requis, aucune donnée "
-              "envoyée à un serveur : le fichier reste entre tes mains.",
+              "envoyée à un serveur. Attention : ce fichier contient ton "
+              "journal personnel, ne le partage qu'avec des personnes de "
+              "confiance.",
               style: TextStyle(fontSize: 13.5, height: 1.5, color: scheme.onSecondaryContainer),
             ),
           ),
