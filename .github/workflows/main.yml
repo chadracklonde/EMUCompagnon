@@ -44,6 +44,11 @@ jobs:
           # embarque déjà des versions mutuellement compatibles — les forcer
           # à des versions plus anciennes créait des combinaisons invalides
           # et des échecs en cascade.
+          # Nom affiché sous l'icône et dans la liste des applications.
+          # flutter create y met le nom technique du projet
+          # ("emu_compagnon") ; on le remplace par le vrai nom de l'app.
+          sed -i 's/android:label="[^"]*"/android:label="ÉMU Compagnon"/' android/app/src/main/AndroidManifest.xml
+          grep -n 'android:label' android/app/src/main/AndroidManifest.xml
           # Ajoute la permission POST_NOTIFICATIONS (Android 13+), requise
           # par flutter_local_notifications et non ajoutée automatiquement
           # au scaffold généré par flutter create.
@@ -402,6 +407,11 @@ jobs:
           # embarque déjà des versions mutuellement compatibles — les forcer
           # à des versions plus anciennes créait des combinaisons invalides
           # et des échecs en cascade.
+          # Nom affiché sous l'icône et dans la liste des applications.
+          # flutter create y met le nom technique du projet
+          # ("emu_compagnon") ; on le remplace par le vrai nom de l'app.
+          sed -i 's/android:label="[^"]*"/android:label="ÉMU Compagnon"/' android/app/src/main/AndroidManifest.xml
+          grep -n 'android:label' android/app/src/main/AndroidManifest.xml
           # Ajoute la permission POST_NOTIFICATIONS (Android 13+), requise
           # par flutter_local_notifications et non ajoutée automatiquement
           # au scaffold généré par flutter create.
