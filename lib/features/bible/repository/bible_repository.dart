@@ -99,6 +99,17 @@ class BibleRepository {
     final db = await DbHelper.database;
     final sanitized = _sanitizeFtsQuery(query);
     if (sanitized.isEmpty) return [];
+    if (!DbHelper.fts5Available) {
+      // Device without the FTS5 module: plain LIKE on every typed word.
+      final words = query.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
+      final where = words.map((_) => 'text LIKE ?').join(' AND ');
+      final rows = await db.rawQuery(
+        'SELECT * FROM bible_verses WHERE version = ? AND $where '
+        'ORDER BY book_num, chapter, verse LIMIT ?',
+        [version, for (final w in words) '%$w%', limit],
+      );
+      return rows.map((r) => Verse.fromMap(r)).toList();
+    }
     final rows = await db.rawQuery('''
       SELECT bible_verses.* FROM bible_verses
       JOIN bible_verses_fts ON bible_verses.id = bible_verses_fts.rowid

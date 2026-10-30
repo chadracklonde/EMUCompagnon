@@ -33,6 +33,17 @@ class DictionaryRepository {
     final db = await DbHelper.database;
     final sanitized = _sanitizeFtsQuery(query);
     if (sanitized.isEmpty) return [];
+    if (!DbHelper.fts5Available) {
+      // Device without the FTS5 module: plain LIKE on every typed word.
+      final words = query.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
+      final where = words.map((_) => '(term LIKE ? OR definition LIKE ?)').join(' AND ');
+      final args = [for (final w in words) ...['%$w%', '%$w%']];
+      final rows = await db.rawQuery(
+        'SELECT * FROM dictionary_entries WHERE $where ORDER BY term ASC LIMIT ?',
+        [...args, limit],
+      );
+      return rows.map((r) => DictionaryEntry.fromMap(r)).toList();
+    }
     final rows = await db.rawQuery('''
       SELECT dictionary_entries.* FROM dictionary_entries
       JOIN dictionary_fts ON dictionary_entries.id = dictionary_fts.rowid

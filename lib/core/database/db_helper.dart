@@ -39,6 +39,32 @@ class DbHelper {
   static Future<Database>? _dbFuture;
   static const _dbFileName = 'app_data.db';
 
+  static bool _fts5Available = true;
+
+  /// Whether this device's SQLite was built with the FTS5 module.
+  ///
+  /// Android uses the phone's OWN system SQLite through sqflite, and not
+  /// every Android build includes FTS5. Without it, anything touching an
+  /// FTS table fails with "no such module: fts5" — including a plain
+  /// INSERT into bible_verses/hymns/dictionary_entries, because the
+  /// bundled database has AFTER INSERT triggers that feed the FTS tables.
+  /// That made the content refresh (and therefore the whole database)
+  /// fail on such devices. Everything FTS-related is now conditional on
+  /// this flag, and the searches fall back to LIKE (see the repositories).
+  static bool get fts5Available => _fts5Available;
+
+  static Future<bool> _probeFts5(Database db) async {
+    try {
+      await db.execute('CREATE VIRTUAL TABLE temp.emu_fts5_probe USING fts5(x)');
+      await db.execute('DROP TABLE temp.emu_fts5_probe');
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static const _ftsTriggers = ['bible_verses_ai', 'hymns_ai', 'dictionary_ai'];
+
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
   /// fixed content/schema that already-installed devices need to receive.
   static const int _currentContentVersion = 5;
@@ -67,13 +93,16 @@ class DbHelper {
       final bytes = await _loadAssetBytes();
       await databaseFactory.writeDatabaseBytes(dbPath, bytes);
       await _setLastAppliedVersion(_currentContentVersion);
-      return databaseFactory.openDatabase(dbPath);
+      final fresh = await databaseFactory.openDatabase(dbPath);
+      _fts5Available = await _probeFts5(fresh);
+      return fresh;
     }
 
     // A local DB already exists (previous install, or an earlier build).
     // Check whether it's up to date with THIS build's content, and
     // refresh it if not.
     var db = await databaseFactory.openDatabase(dbPath);
+    _fts5Available = await _probeFts5(db);
     final lastApplied = await _getLastAppliedVersion();
     if (lastApplied < _currentContentVersion) {
       if (kIsWeb) {
@@ -204,6 +233,8 @@ class DbHelper {
       return rows.isNotEmpty;
     }
 
+    if (!_fts5Available) return; // no FTS5 on this device: nothing to (re)build.
+
     if (!await ftsTableExists('bible_verses_fts')) {
       await db.execute(
         "CREATE VIRTUAL TABLE bible_verses_fts USING fts5(text, content='bible_verses', content_rowid='id', tokenize='unicode61')",
@@ -241,22 +272,31 @@ class DbHelper {
     await db.execute("ATTACH DATABASE '$tempPath' AS freshdb");
     try {
       await db.transaction((txn) async {
+        if (!_fts5Available) {
+          // The AFTER INSERT triggers would try to write to FTS tables
+          // whose module doesn't exist here and make every INSERT fail.
+          for (final t in _ftsTriggers) {
+            await txn.execute('DROP TRIGGER IF EXISTS $t');
+          }
+        }
         for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
           await txn.execute('DELETE FROM $table');
           await txn.execute('INSERT INTO $table SELECT * FROM freshdb.$table');
         }
-        await txn.execute('DELETE FROM bible_verses_fts');
-        await txn.execute(
-          'INSERT INTO bible_verses_fts(rowid, text) SELECT id, text FROM bible_verses',
-        );
-        await txn.execute('DELETE FROM hymns_fts');
-        await txn.execute(
-          'INSERT INTO hymns_fts(rowid, title, lyrics) SELECT id, title, lyrics FROM hymns',
-        );
-        await txn.execute('DELETE FROM dictionary_fts');
-        await txn.execute(
-          'INSERT INTO dictionary_fts(rowid, term, definition) SELECT id, term, definition FROM dictionary_entries',
-        );
+        if (_fts5Available) {
+          await txn.execute('DELETE FROM bible_verses_fts');
+          await txn.execute(
+            'INSERT INTO bible_verses_fts(rowid, text) SELECT id, text FROM bible_verses',
+          );
+          await txn.execute('DELETE FROM hymns_fts');
+          await txn.execute(
+            'INSERT INTO hymns_fts(rowid, title, lyrics) SELECT id, title, lyrics FROM hymns',
+          );
+          await txn.execute('DELETE FROM dictionary_fts');
+          await txn.execute(
+            'INSERT INTO dictionary_fts(rowid, term, definition) SELECT id, term, definition FROM dictionary_entries',
+          );
+        }
       });
     } finally {
       await db.execute('DETACH DATABASE freshdb');
@@ -299,22 +339,31 @@ class DbHelper {
     await db.execute("ATTACH DATABASE '$newDbPath' AS newdb");
     try {
       await db.transaction((txn) async {
+        if (!_fts5Available) {
+          // The AFTER INSERT triggers would try to write to FTS tables
+          // whose module doesn't exist here and make every INSERT fail.
+          for (final t in _ftsTriggers) {
+            await txn.execute('DROP TRIGGER IF EXISTS $t');
+          }
+        }
         for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
           await txn.execute('DELETE FROM $table');
           await txn.execute('INSERT INTO $table SELECT * FROM newdb.$table');
         }
-        await txn.execute('DELETE FROM bible_verses_fts');
-        await txn.execute(
-          'INSERT INTO bible_verses_fts(rowid, text) SELECT id, text FROM bible_verses',
-        );
-        await txn.execute('DELETE FROM hymns_fts');
-        await txn.execute(
-          'INSERT INTO hymns_fts(rowid, title, lyrics) SELECT id, title, lyrics FROM hymns',
-        );
-        await txn.execute('DELETE FROM dictionary_fts');
-        await txn.execute(
-          'INSERT INTO dictionary_fts(rowid, term, definition) SELECT id, term, definition FROM dictionary_entries',
-        );
+        if (_fts5Available) {
+          await txn.execute('DELETE FROM bible_verses_fts');
+          await txn.execute(
+            'INSERT INTO bible_verses_fts(rowid, text) SELECT id, text FROM bible_verses',
+          );
+          await txn.execute('DELETE FROM hymns_fts');
+          await txn.execute(
+            'INSERT INTO hymns_fts(rowid, title, lyrics) SELECT id, title, lyrics FROM hymns',
+          );
+          await txn.execute('DELETE FROM dictionary_fts');
+          await txn.execute(
+            'INSERT INTO dictionary_fts(rowid, term, definition) SELECT id, term, definition FROM dictionary_entries',
+          );
+        }
       });
     } finally {
       await db.execute('DETACH DATABASE newdb');
