@@ -43,6 +43,7 @@ flutter:
     - assets/db/
     - assets/icons/
     - assets/images/
+    - assets/cantiquest/instrumidi/
     - assets/fonts/PlayfairDisplay-OFL.txt
   fonts:
     # Playfair Display (SIL OFL 1.1) embarquée : plus aucun téléchargement
