@@ -30,6 +30,8 @@ dependencies:
   flutter_local_notifications: ^18.0.1
   timezone: ^0.9.4
   just_audio: ^0.9.42
+  # Synthé SoundFont + lecteur de fichiers MIDI (lecture native Android).
+  flutter_midi_pro: ^4.0.17
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +46,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/cantiquest/instrumidi/
+    - assets/soundfonts/
     - assets/fonts/PlayfairDisplay-OFL.txt
   fonts:
     # Playfair Display (SIL OFL 1.1) embarquée : plus aucun téléchargement
