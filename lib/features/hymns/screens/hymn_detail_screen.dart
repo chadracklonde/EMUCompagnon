@@ -11,6 +11,9 @@ import '../../../shared/widgets/text_settings_popup.dart';
 import '../utils/hymn_stanza_parser.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/hymn_audio_player.dart';
+import '../../../shared/widgets/hymn_midi_player.dart';
+import '../data/hymn_midi_assets.dart';
+import '../services/hymn_midi_service.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 
 class HymnDetailScreen extends StatefulWidget {
@@ -135,6 +138,11 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
             ],
             const SizedBox(height: 16),
             if (hymn.audioUrl != null) HymnAudioPlayer(audioUrl: hymn.audioUrl!),
+            if (HymnMidiService.isSupported && hymnMidiAssetFor(hymn.number) != null)
+              HymnMidiPlayer(
+                key: ValueKey('midi-${hymn.number}'),
+                assetPath: hymnMidiAssetFor(hymn.number)!,
+              ),
             ...stanzas.map((s) => _StanzaBlock(stanza: s, lineHeightScale: lineHeightScale)),
           ],
           ),
