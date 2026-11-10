@@ -270,6 +270,14 @@ class AppTheme {
           return IconThemeData(color: selected ? navSelected : navUnselected);
         }),
       ),
+      tabBarTheme: TabBarThemeData(
+        labelColor: palette.accent,
+        unselectedLabelColor: palette.muted,
+        indicatorColor: palette.accent,
+        dividerColor: palette.border,
+        labelStyle: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w700),
+        unselectedLabelStyle: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w500),
+      ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: palette.card,
         indicatorColor: navIndicator,

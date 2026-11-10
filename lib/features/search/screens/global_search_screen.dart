@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../repository/global_search_repository.dart';
 import '../../bible/screens/chapter_screen.dart';
 import '../../hymns/screens/hymn_detail_screen.dart';
@@ -78,23 +80,26 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
     final r = _results;
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          controller: _controller,
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Rechercher dans toute l\'app…',
-            border: InputBorder.none,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: AppBarSearchField(
+            controller: _controller,
+            hint: "Rechercher dans toute l'app…",
+            onChanged: _onChanged,
           ),
-          onChanged: _onChanged,
         ),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: 'Bible${r != null ? ' (${r.verses.length})' : ''}'),
-            Tab(text: 'Cantiques${r != null ? ' (${r.hymns.length})' : ''}'),
-            Tab(text: 'Dictionnaire${r != null ? ' (${r.dictionaryEntries.length})' : ''}'),
-          ],
-        ),
+        // Tabs only make sense once there are results to split.
+        bottom: r == null || r.isEmpty
+            ? null
+            : TabBar(
+                controller: _tabController,
+                tabs: [
+                  Tab(text: 'Bible (${r.verses.length})'),
+                  Tab(text: 'Cantiques (${r.hymns.length})'),
+                  Tab(text: 'Dictionnaire (${r.dictionaryEntries.length})'),
+                ],
+              ),
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
@@ -105,7 +110,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
                   onClear: _clearHistory,
                 )
               : r.isEmpty
-                  ? const Center(child: Text('Aucun résultat'))
+                  ? const EmptyState(icon: Icons.search_off, message: 'Aucun résultat.')
                   : TabBarView(
                       controller: _tabController,
                       children: [
@@ -127,30 +132,28 @@ class _HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (history.isEmpty) {
-      return const Center(child: Text('Tapez un mot pour chercher partout'));
+      return const EmptyState(
+        icon: Icons.search,
+        message: 'Tapez un mot pour chercher dans la Bible, les cantiques et le dictionnaire.',
+      );
     }
-    return Padding(
-      padding: const EdgeInsets.all(16),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Recherches récentes',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
+              const Expanded(child: SectionTitle('Recherches récentes')),
               TextButton(onPressed: onClear, child: const Text('Effacer')),
             ],
           ),
-          const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: history
                 .map((q) => ActionChip(
-                      avatar: const Icon(Icons.history, size: 16),
+                      avatar: Icon(Icons.history, size: 16, color: AppPalette.of(context).muted),
                       label: Text(q),
                       onPressed: () => onTap(q),
                     ))
@@ -162,6 +165,15 @@ class _HistoryView extends StatelessWidget {
   }
 }
 
+Widget _resultList({required int count, required IndexedWidgetBuilder itemBuilder}) {
+  return ListView.separated(
+    padding: const EdgeInsets.only(top: 4, bottom: 24),
+    itemCount: count,
+    separatorBuilder: (_, __) => const Divider(indent: 20, endIndent: 20),
+    itemBuilder: itemBuilder,
+  );
+}
+
 class _VerseResults extends StatelessWidget {
   final List verses;
   const _VerseResults({required this.verses});
@@ -169,16 +181,17 @@ class _VerseResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (verses.isEmpty) {
-      return const Center(child: Text('Aucun verset trouvé'));
+      return const EmptyState(icon: Icons.menu_book_outlined, message: 'Aucun verset trouvé.');
     }
-    return ListView.separated(
-      itemCount: verses.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: verses.length,
       itemBuilder: (context, i) {
         final v = verses[i];
-        return ListTile(
-          title: Text(v.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
-          subtitle: Text(v.text, maxLines: 2, overflow: TextOverflow.ellipsis),
+        return ResultRow(
+          title: v.reference,
+          subtitle: v.text,
+          subtitleMaxLines: 3,
+          accentTitle: true,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => ChapterScreen(book: v.book, chapter: v.chapter, highlightVerse: v.verse),
           )),
@@ -195,16 +208,15 @@ class _HymnResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (hymns.isEmpty) {
-      return const Center(child: Text('Aucun cantique trouvé'));
+      return const EmptyState(icon: Icons.music_note_outlined, message: 'Aucun cantique trouvé.');
     }
-    return ListView.separated(
-      itemCount: hymns.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: hymns.length,
       itemBuilder: (context, i) {
         final h = hymns[i];
-        return ListTile(
-          leading: CircleAvatar(child: Text(h.number)),
-          title: Text(h.title),
+        return ResultRow(
+          leading: NumberBadge(h.number),
+          title: h.title,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => HymnDetailScreen(hymn: h),
           )),
@@ -221,16 +233,16 @@ class _DictionaryResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (entries.isEmpty) {
-      return const Center(child: Text('Aucune entrée trouvée'));
+      return const EmptyState(icon: Icons.auto_stories_outlined, message: 'Aucune entrée trouvée.');
     }
-    return ListView.separated(
-      itemCount: entries.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: entries.length,
       itemBuilder: (context, i) {
         final e = entries[i];
-        return ListTile(
-          title: Text(e.term, style: const TextStyle(fontWeight: FontWeight.w600)),
-          subtitle: Text(e.definition, maxLines: 1, overflow: TextOverflow.ellipsis),
+        return ResultRow(
+          title: e.term,
+          subtitle: e.definition,
+          subtitleMaxLines: 1,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => DictionaryDetailScreen(entry: e),
           )),

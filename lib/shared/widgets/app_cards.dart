@@ -279,3 +279,181 @@ class InfoNote extends StatelessWidget {
     );
   }
 }
+
+/// Centered icon + message for "nothing here yet" and "no results".
+class EmptyState extends StatelessWidget {
+  final IconData icon;
+  final String message;
+  const EmptyState({super.key, required this.icon, required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: palette.accentSoft,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Icon(icon, color: palette.accent, size: 26),
+            ),
+            const SizedBox(height: 14),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14.5, height: 1.4, color: palette.muted),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Small tinted pill holding a short label such as a hymn number.
+class NumberBadge extends StatelessWidget {
+  final String label;
+  const NumberBadge(this.label, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    return Container(
+      constraints: const BoxConstraints(minWidth: 44, minHeight: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: palette.accentSoft,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: palette.accent),
+      ),
+    );
+  }
+}
+
+/// A plain list line for long, lazily built lists (search results,
+/// dictionary terms): bold title, muted excerpt, optional leading widget.
+class ResultRow extends StatelessWidget {
+  final String title;
+  final String? subtitle;
+  final int subtitleMaxLines;
+  final Widget? leading;
+  final bool selected;
+  final bool accentTitle;
+  final VoidCallback onTap;
+
+  const ResultRow({
+    super.key,
+    required this.title,
+    this.subtitle,
+    this.subtitleMaxLines = 2,
+    this.leading,
+    this.selected = false,
+    this.accentTitle = false,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    return Material(
+      color: selected ? palette.accentSoft : Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 56),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              children: [
+                if (leading != null) ...[leading!, const SizedBox(width: 14)],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: accentTitle ? palette.accent : scheme.onSurface,
+                        ),
+                      ),
+                      if (subtitle != null) ...[
+                        const SizedBox(height: 3),
+                        Text(
+                          subtitle!,
+                          maxLines: subtitleMaxLines,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 13.5,
+                            height: 1.4,
+                            color: accentTitle ? scheme.onSurface : palette.muted,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Search field meant for an [AppBar] title: autofocused, with a clear
+/// button once there is text.
+class AppBarSearchField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hint;
+  final ValueChanged<String> onChanged;
+  const AppBarSearchField({
+    super.key,
+    required this.controller,
+    required this.hint,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<TextEditingValue>(
+      valueListenable: controller,
+      builder: (context, value, _) => TextField(
+        controller: controller,
+        autofocus: true,
+        textInputAction: TextInputAction.search,
+        decoration: InputDecoration(
+          hintText: hint,
+          isDense: true,
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: value.text.isEmpty
+              ? null
+              : IconButton(
+                  tooltip: 'Effacer',
+                  icon: const Icon(Icons.close),
+                  onPressed: () {
+                    controller.clear();
+                    onChanged('');
+                  },
+                ),
+        ),
+        onChanged: onChanged,
+      ),
+    );
+  }
+}
