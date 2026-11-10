@@ -12,6 +12,7 @@ import '../utils/hymn_stanza_parser.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/hymn_audio_player.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../core/theme/app_theme.dart';
 
 class HymnDetailScreen extends StatefulWidget {
   final Hymn hymn;
@@ -97,8 +98,8 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
           if (!_loading)
             IconButton(
               icon: Icon(
-                _isBookmarked ? Icons.star : Icons.star_border,
-                color: _isBookmarked ? Colors.amber : null,
+                _isBookmarked ? Icons.star : Icons.star_outline,
+                color: _isBookmarked ? AppPalette.of(context).accent : null,
               ),
               tooltip: _isBookmarked ? 'Retirer des favoris' : 'Ajouter aux favoris',
               onPressed: _toggle,
@@ -106,37 +107,43 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
         child: ReadingWidthConstraint(
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
                 hymn.title,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-            ),
-            if (hymn.key != null) ...[
-              const SizedBox(height: 4),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Text(
-                  'Tonalité : ${hymn.key}',
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontStyle: FontStyle.italic,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
+                style: TextStyle(
+                  fontSize: 24,
+                  height: 1.25,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: -0.2,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
+              if (hymn.key != null) ...[
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: AppPalette.of(context).accentSoft,
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Text(
+                    'Tonalité : ${hymn.key}',
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                      color: AppPalette.of(context).accent,
+                    ),
+                  ),
+                ),
+              ],
+              const SizedBox(height: 20),
+              if (hymn.audioUrl != null) HymnAudioPlayer(audioUrl: hymn.audioUrl!),
+              ...stanzas.map((s) => _StanzaBlock(stanza: s, lineHeightScale: lineHeightScale)),
             ],
-            const SizedBox(height: 16),
-            if (hymn.audioUrl != null) HymnAudioPlayer(audioUrl: hymn.audioUrl!),
-            ...stanzas.map((s) => _StanzaBlock(stanza: s, lineHeightScale: lineHeightScale)),
-          ],
           ),
         ),
       ),
@@ -144,6 +151,8 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
   }
 }
 
+/// A verse is plain text beside its number; the refrain is set apart in a
+/// soft tinted block so singers find it at a glance.
 class _StanzaBlock extends StatelessWidget {
   final HymnStanza stanza;
   final double lineHeightScale;
@@ -151,38 +160,69 @@ class _StanzaBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-      decoration: BoxDecoration(
-        color: stanza.isRefrain
-            ? scheme.primaryContainer.withValues(alpha: 0.5)
-            : scheme.surfaceContainerHighest.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(10),
-        border: stanza.isRefrain
-            ? Border.all(color: scheme.primary.withValues(alpha: 0.3))
-            : null,
+    final body = LinkedVerseText(
+      stanza.body,
+      style: TextStyle(
+        fontSize: 17.5,
+        height: 1.6 * lineHeightScale,
+        color: scheme.onSurface,
+        fontStyle: stanza.isRefrain ? FontStyle.italic : FontStyle.normal,
       ),
-      child: Column(
+    );
+
+    if (stanza.isRefrain) {
+      return Container(
+        width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 22),
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+        decoration: BoxDecoration(
+          color: palette.accentSoft,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (stanza.label.isNotEmpty) ...[
+              Text(
+                stanza.label.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1,
+                  color: palette.accent,
+                ),
+              ),
+              const SizedBox(height: 6),
+            ],
+            body,
+          ],
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 22),
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (stanza.label.isNotEmpty) ...[
-            Text(
-              stanza.isRefrain ? stanza.label.toUpperCase() : stanza.label,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: stanza.isRefrain ? 12 : 14,
-                letterSpacing: stanza.isRefrain ? 1 : 0,
-                color: scheme.primary,
+          if (stanza.label.isNotEmpty)
+            SizedBox(
+              width: 30,
+              child: Padding(
+                padding: EdgeInsets.only(top: 3 * lineHeightScale),
+                child: Text(
+                  stanza.label,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: palette.accent,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(height: 6),
-          ],
-          LinkedVerseText(
-            stanza.body,
-            style: TextStyle(fontSize: 17, height: 1.5 * lineHeightScale),
-          ),
+          Expanded(child: body),
         ],
       ),
     );

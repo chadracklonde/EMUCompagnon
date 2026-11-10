@@ -41,6 +41,14 @@ void main() {
       expect(stanzas.map((s) => s.body).join(' '), contains('Une autre ligne'));
     });
 
+    test('splits verses whose number is written with an escaped dot', () {
+      final stanzas = HymnStanzaParser.parse(
+        '1. Premier couplet\n\n2\\. Deuxième couplet\n\n3\\. Troisième couplet',
+      );
+      expect(stanzas.map((s) => s.label), ['1', '2', '3']);
+      expect(stanzas[1].body, 'Deuxième couplet');
+    });
+
     test('recognizes Refrain and Chœur as refrain markers too', () {
       const lyrics = "1. Couplet.\n\nRefrain\n\nParoles du refrain.";
       final stanzas = HymnStanzaParser.parse(lyrics);
