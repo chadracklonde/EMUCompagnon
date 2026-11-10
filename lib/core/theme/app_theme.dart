@@ -109,7 +109,7 @@ class AppTheme {
       navSelected: UmcColors.burgundy,
       navUnselected: UmcColors.grayDark,
       navIndicator: UmcColors.redTint,
-      fabBackground: UmcColors.redPrimary,
+      fabBackground: UmcColors.burgundy,
       fabForeground: Colors.white,
     );
   }
@@ -148,8 +148,8 @@ class AppTheme {
       navSelected: const Color(0xFFE08A8F),
       navUnselected: UmcColors.grayLight,
       navIndicator: const Color(0xFF4A1A1F),
-      fabBackground: redAccent,
-      fabForeground: const Color(0xFF3A0006),
+      fabBackground: const Color(0xFFE08A8F),
+      fabForeground: const Color(0xFF3A0E12),
     );
   }
 

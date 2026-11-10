@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../models/quiz_question.dart';
 import '../services/daily_quiz_service.dart';
 
@@ -72,53 +75,65 @@ class _DailyQuizScreenState extends State<DailyQuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-
     return Scaffold(
       appBar: AppBar(title: const Text('Quiz du jour')),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _questions.isEmpty
-              ? const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(24),
-                    child: Text(
-                      'Le quiz du jour n\'est pas disponible pour le moment.',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+              ? const EmptyState(
+                  icon: Icons.quiz_outlined,
+                  message: "Le quiz du jour n'est pas disponible pour le moment.",
                 )
-              : (_alreadyDoneToday && !_answered)
-                  ? _buildDoneState(scheme)
-                  : _buildQuestion(scheme),
+              : ReadingWidthConstraint(
+                  maxWidth: 640,
+                  child: (_alreadyDoneToday && !_answered) ? _buildDoneState() : _buildQuestion(),
+                ),
     );
   }
 
-  Widget _buildDoneState(ColorScheme scheme) {
+  Widget _buildDoneState() {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
     final result = _priorResult ?? DailyQuizResult(score: _score, total: _questions.length);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.emoji_events_outlined, size: 56, color: scheme.primary),
-            const SizedBox(height: 16),
+            Container(
+              width: 72,
+              height: 72,
+              decoration: BoxDecoration(
+                color: palette.accentSoft,
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Icon(Icons.emoji_events_outlined, size: 36, color: palette.accent),
+            ),
+            const SizedBox(height: 20),
             Text(
-              'Quiz déjà fait aujourd\'hui',
-              style: Theme.of(context).textTheme.titleLarge,
+              '${result.score} / ${result.total}',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w700,
+                color: scheme.onSurface,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "Quiz d'aujourd'hui terminé",
               textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
+                color: scheme.onSurface,
+              ),
             ),
             const SizedBox(height: 8),
             Text(
-              'Score : ${result.score} / ${result.total}',
-              style: TextStyle(fontSize: 16, color: scheme.outline),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Reviens demain pour un nouveau quiz.',
-              style: TextStyle(fontSize: 13, color: scheme.outline),
+              'Revenez demain pour un nouveau quiz.',
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14, color: palette.muted),
             ),
           ],
         ),
@@ -126,88 +141,118 @@ class _DailyQuizScreenState extends State<DailyQuizScreen> {
     );
   }
 
-  Widget _buildQuestion(ColorScheme scheme) {
+  Widget _buildQuestion() {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    // Right/wrong keep their conventional green/red, always doubled by an icon.
+    final success = isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32);
+    final failure = scheme.error;
     final question = _questions[_current];
     final progress = (_current + 1) / _questions.length;
 
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: LinearProgressIndicator(
-              value: progress,
-              minHeight: 6,
-              backgroundColor: scheme.surfaceContainerHighest,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              'Question ${_current + 1} / ${_questions.length}',
-              style: TextStyle(fontSize: 12, color: scheme.outline),
-            ),
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+          child: Row(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: progress,
+                    minHeight: 6,
+                    backgroundColor: palette.field,
+                    color: palette.accent,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text(
+                '${_current + 1} / ${_questions.length}',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: palette.muted,
+                ),
+              ),
+            ],
           ),
         ),
         Expanded(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Quelle est la définition de :',
-                  style: TextStyle(fontSize: 13, color: scheme.outline),
+                  'Quelle est la définition de',
+                  style: TextStyle(fontSize: 14, color: palette.muted),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   question.term,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: scheme.primary,
-                      ),
+                  style: TextStyle(
+                    fontSize: 26,
+                    height: 1.2,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.2,
+                    color: scheme.onSurface,
+                  ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 22),
                 ...List.generate(question.options.length, (i) {
                   final isCorrect = i == question.correctOptionIndex;
                   final isSelected = i == _selectedOption;
-                  Color? bg;
-                  Color? border = scheme.outlineVariant;
-                  if (_answered) {
-                    if (isCorrect) {
-                      bg = Colors.green.withValues(alpha: 0.15);
-                      border = Colors.green;
-                    } else if (isSelected) {
-                      bg = Colors.red.withValues(alpha: 0.12);
-                      border = Colors.red;
-                    }
+                  Color background = palette.card;
+                  Color border = palette.border;
+                  IconData? icon;
+                  Color? iconColor;
+                  if (_answered && isCorrect) {
+                    background = success.withValues(alpha: 0.12);
+                    border = success;
+                    icon = Icons.check_circle;
+                    iconColor = success;
+                  } else if (_answered && isSelected) {
+                    background = failure.withValues(alpha: 0.10);
+                    border = failure;
+                    icon = Icons.cancel;
+                    iconColor = failure;
                   }
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Material(
-                      color: bg ?? scheme.surfaceContainerLow,
-                      borderRadius: BorderRadius.circular(10),
+                      color: background,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        side: BorderSide(color: border, width: _answered && icon != null ? 1.5 : 1),
+                      ),
+                      clipBehavior: Clip.antiAlias,
                       child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        onTap: () => _selectOption(i),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: border),
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(child: Text(question.options[i])),
-                              if (_answered && isCorrect)
-                                const Icon(Icons.check_circle, color: Colors.green, size: 20),
-                              if (_answered && isSelected && !isCorrect)
-                                const Icon(Icons.cancel, color: Colors.red, size: 20),
-                            ],
+                        onTap: _answered ? null : () => _selectOption(i),
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 56),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    question.options[i],
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      height: 1.4,
+                                      color: scheme.onSurface,
+                                    ),
+                                  ),
+                                ),
+                                if (icon != null) ...[
+                                  const SizedBox(width: 10),
+                                  Icon(icon, color: iconColor, size: 22),
+                                ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -219,13 +264,16 @@ class _DailyQuizScreenState extends State<DailyQuizScreen> {
           ),
         ),
         if (_answered)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-            child: SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: _next,
-                child: Text(_current + 1 < _questions.length ? 'Suivant' : 'Terminer'),
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+              child: SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: _next,
+                  child: Text(_current + 1 < _questions.length ? 'Suivant' : 'Terminer'),
+                ),
               ),
             ),
           ),

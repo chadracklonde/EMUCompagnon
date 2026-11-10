@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../services/reading_plan_service.dart';
 import '../../bible/screens/chapter_screen.dart';
 
@@ -13,6 +16,8 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
   List<PlanDay> _plan = [];
   Set<int> _completed = {};
   bool _loading = true;
+  final _scrollController = ScrollController();
+  bool _scrolledToNext = false;
 
   @override
   void initState() {
@@ -51,26 +56,54 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
         content: const Text('Toute la progression sera effacée.'),
         actions: [
           TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Annuler')),
-          TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('Réinitialiser')),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.error),
+            child: const Text('Réinitialiser'),
+          ),
         ],
       ),
     );
     if (confirmed == true) {
       await ReadingPlanService.resetProgress();
+      _scrolledToNext = false;
       _load();
     }
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _openChapter(PlanDay day) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ChapterScreen(book: day.book, chapter: day.chapter),
+    ));
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     final total = _plan.length;
     final done = _completed.length;
     final progress = total == 0 ? 0.0 : done / total;
-    final nextDay = _plan.firstWhere(
-      (d) => !_completed.contains(d.index),
-      orElse: () => _plan.isNotEmpty ? _plan.last : const PlanDay(index: 0, book: '', chapter: 0),
-    );
+    final nextIndex = _plan.indexWhere((d) => !_completed.contains(d.index));
+    final nextDay = nextIndex == -1 ? null : _plan[nextIndex];
+    // Uniform row height (grows with the text-size setting) so the list
+    // can open directly on the next chapter to read.
+    final rowExtent = 36 + MediaQuery.textScalerOf(context).scale(28);
+
+    if (!_loading && !_scrolledToNext && nextIndex > 2) {
+      _scrolledToNext = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_scrollController.hasClients) {
+          _scrollController.jumpTo((nextIndex - 2) * rowExtent);
+        }
+      });
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -81,98 +114,175 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
             tooltip: 'Réinitialiser',
             onPressed: _resetConfirm,
           ),
+          const SizedBox(width: 4),
         ],
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Un chapitre par jour, de Genèse à Apocalypse.',
-                        style: TextStyle(fontSize: 13),
-                      ),
-                      const SizedBox(height: 8),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(6),
-                        child: LinearProgressIndicator(
-                          value: progress,
-                          minHeight: 8,
-                          backgroundColor: scheme.surfaceContainerHighest,
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text('$done / $total chapitres lus (${(progress * 100).round()} %)',
-                          style: TextStyle(fontSize: 12, color: scheme.outline)),
-                      if (done < total) ...[
-                        const SizedBox(height: 12),
-                        Material(
-                          color: scheme.primaryContainer,
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => ChapterScreen(book: nextDay.book, chapter: nextDay.chapter),
-                            )),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                              child: Row(
+          : ReadingWidthConstraint(
+              maxWidth: 640,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+                    child: AppCard(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Un chapitre par jour, de Genèse à Apocalypse.',
+                              style: TextStyle(fontSize: 13.5, color: palette.muted),
+                            ),
+                            const SizedBox(height: 12),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '${(progress * 100).round()} %',
+                                  style: TextStyle(
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.w700,
+                                    color: scheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 4),
+                                  child: Text(
+                                    '$done sur $total chapitres lus',
+                                    style: TextStyle(fontSize: 13, color: palette.muted),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: LinearProgressIndicator(
+                                value: progress,
+                                minHeight: 6,
+                                backgroundColor: palette.field,
+                                color: palette.accent,
+                              ),
+                            ),
+                            const SizedBox(height: 14),
+                            if (nextDay != null)
+                              SizedBox(
+                                width: double.infinity,
+                                child: FilledButton.icon(
+                                  onPressed: () => _openChapter(nextDay),
+                                  icon: const Icon(Icons.menu_book_outlined),
+                                  label: Text('Continuer — ${nextDay.book} ${nextDay.chapter}'),
+                                ),
+                              )
+                            else
+                              Row(
                                 children: [
-                                  Icon(Icons.play_circle_outline, color: scheme.onPrimaryContainer),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(
-                                      'Continuer — ${nextDay.book} ${nextDay.chapter}',
-                                      style: TextStyle(fontWeight: FontWeight.bold, color: scheme.onPrimaryContainer),
+                                  Icon(Icons.check_circle, color: palette.accent),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Plan terminé — bravo !',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: palette.accent,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
+                          ],
                         ),
-                      ] else
-                        Padding(
-                          padding: const EdgeInsets.only(top: 12),
-                          child: Text('🎉 Plan terminé — bravo !', style: TextStyle(color: scheme.primary, fontWeight: FontWeight.bold)),
-                        ),
-                    ],
+                      ),
+                    ),
                   ),
-                ),
-                const Divider(height: 1),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: _plan.length,
-                    itemBuilder: (context, i) {
-                      final day = _plan[i];
-                      final isDone = _completed.contains(day.index);
-                      return CheckboxListTile(
-                        value: isDone,
-                        onChanged: (_) => _toggle(day),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        title: Text(
-                          'Jour ${day.index + 1} — ${day.book} ${day.chapter}',
-                          style: TextStyle(
-                            decoration: isDone ? TextDecoration.lineThrough : null,
-                            color: isDone ? scheme.outline : null,
-                          ),
-                        ),
-                        secondary: IconButton(
-                          icon: const Icon(Icons.chevron_right),
-                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                            builder: (_) => ChapterScreen(book: day.book, chapter: day.chapter),
-                          )),
-                        ),
-                      );
-                    },
+                  Expanded(
+                    child: ListView.builder(
+                      controller: _scrollController,
+                      padding: const EdgeInsets.only(bottom: 24),
+                      itemExtent: rowExtent,
+                      itemCount: _plan.length,
+                      itemBuilder: (context, i) {
+                        final day = _plan[i];
+                        return _PlanRow(
+                          day: day,
+                          isDone: _completed.contains(day.index),
+                          isNext: i == nextIndex,
+                          onToggle: () => _toggle(day),
+                          onOpen: () => _openChapter(day),
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
+    );
+  }
+}
+
+class _PlanRow extends StatelessWidget {
+  final PlanDay day;
+  final bool isDone;
+  final bool isNext;
+  final VoidCallback onToggle;
+  final VoidCallback onOpen;
+  const _PlanRow({
+    required this.day,
+    required this.isDone,
+    required this.isNext,
+    required this.onToggle,
+    required this.onOpen,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    return Material(
+      color: isNext ? palette.accentSoft : Colors.transparent,
+      child: InkWell(
+        onTap: onOpen,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8, right: 12),
+          child: Row(
+            children: [
+              Checkbox(
+                value: isDone,
+                onChanged: (_) => onToggle(),
+                shape: const CircleBorder(),
+                semanticLabel: 'Jour ${day.index + 1} lu',
+              ),
+              const SizedBox(width: 4),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Jour ${day.index + 1}',
+                      maxLines: 1,
+                      style: TextStyle(fontSize: 12, color: palette.muted),
+                    ),
+                    Text(
+                      '${day.book} ${day.chapter}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        decoration: isDone ? TextDecoration.lineThrough : null,
+                        color: isDone ? palette.muted : scheme.onSurface,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right, color: palette.muted, size: 22),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
