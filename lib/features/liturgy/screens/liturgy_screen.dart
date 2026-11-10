@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'liturgical_calendar_screen.dart';
-import 'worship_order_screen.dart';
-import 'sacraments_screen.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../services/liturgical_calendar_service.dart';
+import '../widgets/season_card.dart';
+import 'liturgical_calendar_screen.dart';
+import 'liturgical_period_detail_screen.dart';
+import 'sacraments_screen.dart';
+import 'worship_order_screen.dart';
 
 class LiturgyScreen extends StatelessWidget {
   const LiturgyScreen({super.key});
@@ -10,76 +14,44 @@ class LiturgyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (current, _) = LiturgicalCalendarService.currentSeason();
-    final color = Color(current.period.colorHex);
+    void open(Widget screen) =>
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
 
     return Scaffold(
       appBar: AppBar(title: const Text('Liturgie')),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _HubCard(
-            icon: Icons.calendar_month,
-            iconColor: color,
-            title: 'Calendrier liturgique',
-            subtitle: 'Saison du jour : ${current.period.name}',
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const LiturgicalCalendarScreen()),
+      body: ReadingWidthConstraint(
+        maxWidth: 640,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+          children: [
+            SeasonCard(
+              instance: current,
+              onTap: () => open(LiturgicalPeriodDetailScreen(instance: current)),
             ),
-          ),
-          _HubCard(
-            icon: Icons.checklist_rtl,
-            iconColor: Theme.of(context).colorScheme.primary,
-            title: 'Ordre du culte',
-            subtitle: 'Déroulement habituel d\'un service dominical',
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const WorshipOrderScreen()),
-            ),
-          ),
-          _HubCard(
-            icon: Icons.water_drop_outlined,
-            iconColor: Theme.of(context).colorScheme.primary,
-            title: 'Sacrements et rites',
-            subtitle: 'Baptême, Sainte-Cène, mariage, funérailles…',
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SacramentsScreen()),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _HubCard extends StatelessWidget {
-  final IconData icon;
-  final Color iconColor;
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
-  const _HubCard({
-    required this.icon,
-    required this.iconColor,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        leading: CircleAvatar(
-          radius: 24,
-          backgroundColor: iconColor.withValues(alpha: 0.15),
-          child: Icon(icon, color: iconColor),
+            const SizedBox(height: 24),
+            const SectionTitle('Explorer'),
+            AppRowGroup(rows: [
+              AppRow(
+                icon: Icons.calendar_month_outlined,
+                title: 'Calendrier liturgique',
+                subtitle: "Les saisons et jours saints de l'année",
+                onTap: () => open(const LiturgicalCalendarScreen()),
+              ),
+              AppRow(
+                icon: Icons.checklist_rtl,
+                title: 'Ordre du culte',
+                subtitle: "Déroulement habituel d'un service dominical",
+                onTap: () => open(const WorshipOrderScreen()),
+              ),
+              AppRow(
+                icon: Icons.water_drop_outlined,
+                title: 'Sacrements et rites',
+                subtitle: 'Baptême, Sainte-Cène, mariage, funérailles…',
+                onTap: () => open(const SacramentsScreen()),
+              ),
+            ]),
+          ],
         ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: onTap,
       ),
     );
   }

@@ -243,3 +243,39 @@ class AppRowGroup extends StatelessWidget {
     );
   }
 }
+
+/// A quiet explanatory note (context, disclaimer) set apart from content.
+class InfoNote extends StatelessWidget {
+  final String text;
+  final double lineHeightScale;
+  const InfoNote(this.text, {super.key, this.lineHeightScale = 1});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: palette.field,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.info_outline, size: 18, color: palette.muted),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 13.5,
+                height: 1.5 * lineHeightScale,
+                color: palette.muted,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

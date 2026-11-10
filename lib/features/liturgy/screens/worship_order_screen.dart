@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/worship_order_data.dart';
 import '../../../core/settings/app_settings.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 
 class WorshipOrderScreen extends StatelessWidget {
   const WorshipOrderScreen({super.key});
@@ -10,66 +12,85 @@ class WorshipOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final steps = WorshipOrderData.steps;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Ordre du culte')),
       body: ReadingWidthConstraint(
         child: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Container(
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondaryContainer,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Text(
-              WorshipOrderData.introNote,
-              style: TextStyle(
-                fontSize: 13.5,
-                height: 1.5 * lineHeightScale,
-                color: Theme.of(context).colorScheme.onSecondaryContainer,
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          ...WorshipOrderData.steps.asMap().entries.map((entry) {
-            final index = entry.key;
-            final step = entry.value;
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    child: Text(
-                      '${index + 1}',
-                      style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
+          children: [
+            InfoNote(WorshipOrderData.introNote, lineHeightScale: lineHeightScale),
+            const SizedBox(height: 24),
+            for (var i = 0; i < steps.length; i++)
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // Numbered badge with a line running down to the next step.
+                    Column(
                       children: [
-                        Text(
-                          step.title,
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        Container(
+                          width: 32,
+                          height: 32,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: palette.accentSoft,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            '${i + 1}',
+                            style: TextStyle(
+                              fontSize: 13.5,
+                              fontWeight: FontWeight.w700,
+                              color: palette.accent,
+                            ),
+                          ),
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          step.description,
-                          style: TextStyle(fontSize: 14.5, height: 1.5 * lineHeightScale),
-                        ),
+                        if (i < steps.length - 1)
+                          Expanded(
+                            child: Container(
+                              width: 2,
+                              margin: const EdgeInsets.symmetric(vertical: 4),
+                              color: palette.border,
+                            ),
+                          ),
                       ],
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 5, bottom: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              steps[i].title,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: scheme.onSurface,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              steps[i].description,
+                              style: TextStyle(
+                                fontSize: 15,
+                                height: 1.5 * lineHeightScale,
+                                color: scheme.onSurface,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            );
-          }),
-        ],
+          ],
         ),
       ),
     );
