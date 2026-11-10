@@ -47,7 +47,10 @@ class AppCard extends StatelessWidget {
       color: palette.card,
       shape: shape,
       clipBehavior: Clip.antiAlias,
-      child: onTap == null ? child : InkWell(onTap: onTap, child: child),
+      // Announced as a button by screen readers when the whole card is tappable.
+      child: onTap == null
+          ? child
+          : Semantics(button: true, child: InkWell(onTap: onTap, child: child)),
     );
   }
 }
@@ -164,7 +167,9 @@ class AppRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
-    return InkWell(
+    return Semantics(
+      button: true,
+      child: InkWell(
       onTap: onTap,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 60),
@@ -226,6 +231,7 @@ class AppRow extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
@@ -380,7 +386,10 @@ class ResultRow extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     return Material(
       color: selected ? palette.accentSoft : Colors.transparent,
-      child: InkWell(
+      child: Semantics(
+        button: true,
+        selected: selected,
+        child: InkWell(
         onTap: onTap,
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 56),
@@ -422,6 +431,7 @@ class ResultRow extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       ),
     );

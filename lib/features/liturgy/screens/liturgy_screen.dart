@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../services/liturgical_calendar_service.dart';
@@ -18,7 +21,9 @@ class LiturgyScreen extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Liturgie')),
+      appBar: AppBar(
+        title: Text(AppStrings.t('nav_liturgy', context.watch<AppSettings>().locale)),
+      ),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(

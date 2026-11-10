@@ -361,7 +361,10 @@ class _ChapterScreenState extends State<ChapterScreen> {
                       ),
                       child: Material(
                         type: MaterialType.transparency,
-                        child: InkWell(
+                        child: Semantics(
+                          onTapHint: 'ouvrir les actions du verset',
+                          onLongPressHint: 'copier le verset',
+                          child: InkWell(
                           borderRadius: BorderRadius.circular(10),
                           onTap: () => _showVerseActions(v),
                           onLongPress: () => _copyVerse(v),
@@ -405,6 +408,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                               ),
                             ),
                           ),
+                        ),
                         ),
                       ),
                     );
