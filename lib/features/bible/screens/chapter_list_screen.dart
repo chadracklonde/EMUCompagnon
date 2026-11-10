@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../repository/bible_repository.dart';
 import 'chapter_screen.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/responsive.dart';
 
 class ChapterListScreen extends StatefulWidget {
@@ -49,11 +50,11 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     return _chapterCount == null
         ? const Center(child: CircularProgressIndicator())
         : GridView.builder(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: isWide ? 4 : 5,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
             ),
             itemCount: _chapterCount,
             itemBuilder: (context, index) {
@@ -109,16 +110,24 @@ class _ChapterTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final palette = AppPalette.of(context);
     return Material(
-      color: selected ? scheme.primary : scheme.secondaryContainer,
-      borderRadius: BorderRadius.circular(8),
+      color: selected ? palette.accent : palette.card,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: selected ? palette.accent : palette.border),
+      ),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
-        borderRadius: BorderRadius.circular(8),
         onTap: onTap,
         child: Center(
           child: Text(
             '$chapter',
-            style: TextStyle(fontSize: 16, color: selected ? scheme.onPrimary : null),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: selected ? scheme.onPrimary : scheme.onSurface,
+            ),
           ),
         ),
       ),

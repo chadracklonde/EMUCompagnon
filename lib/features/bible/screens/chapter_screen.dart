@@ -16,6 +16,7 @@ import '../../../shared/widgets/highlight_color_picker.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../memorization/repository/memory_card_repository.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../core/theme/app_theme.dart';
 
 class ChapterScreen extends StatefulWidget {
   final String book;
@@ -55,6 +56,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
   Map<int, String> _highlightColors = {}; // verse.id -> hex color
   bool _loading = true;
   late int _chapter;
+  int? _chapterCount;
   int? _flashedVerseNumber;
 
   @override
@@ -77,6 +79,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final bookmarks = await _bookmarkRepo.listByType(BookmarkType.verse);
     final bookmarkedIds = bookmarks.map((b) => b.refId).toSet();
     final highlightColors = await _highlightRepo.getAllColorsFor(BookmarkType.verse);
+    final chapterCount =
+        _chapterCount ?? await _repo.chapterCount(widget.book, version: widget.version);
     _verseKeys
       ..clear()
       ..addEntries(verses.map((v) => MapEntry(v.verse, GlobalKey())));
@@ -89,6 +93,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             .map((v) => v.id)
             .toSet();
         _highlightColors = highlightColors;
+        _chapterCount = chapterCount;
         _loading = false;
       });
       if (_flashedVerseNumber != null) {
@@ -185,6 +190,27 @@ class _ChapterScreenState extends State<ChapterScreen> {
       builder: (_) => SafeArea(
         child: Wrap(
           children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
+              child: Text(
+                v.reference,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                _bookmarkedVerseIds.contains(v.id) ? Icons.star : Icons.star_outline,
+              ),
+              title: Text(
+                _bookmarkedVerseIds.contains(v.id)
+                    ? 'Retirer des favoris'
+                    : 'Ajouter aux favoris',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                _toggleBookmark(v);
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.border_color_outlined),
               title: const Text('Surligner'),
@@ -231,19 +257,28 @@ class _ChapterScreenState extends State<ChapterScreen> {
     );
   }
 
-  void _goToChapter(int delta) async {
+  Future<void> _goToChapter(int delta) async {
     final target = _chapter + delta;
     if (target < 1) return;
-    final maxChapter = await _repo.chapterCount(widget.book, version: widget.version);
-    if (target > maxChapter) return;
+    final maxChapter =
+        _chapterCount ?? await _repo.chapterCount(widget.book, version: widget.version);
+    if (target > maxChapter || !mounted) return;
     _flashedVerseNumber = null;
     setState(() => _chapter = target);
-    _load();
+    await _load();
+    // The list is rebuilt after loading: go back to the top once it is laid out.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) _scrollController.jumpTo(0);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final hasPrevious = _chapter > 1;
+    final hasNext = _chapterCount != null && _chapter < _chapterCount!;
 
     return Scaffold(
       appBar: AppBar(
@@ -257,12 +292,15 @@ class _ChapterScreenState extends State<ChapterScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.chevron_left),
-            onPressed: () => _goToChapter(-1),
+            tooltip: 'Chapitre précédent',
+            onPressed: hasPrevious ? () => _goToChapter(-1) : null,
           ),
           IconButton(
             icon: const Icon(Icons.chevron_right),
-            onPressed: () => _goToChapter(1),
+            tooltip: 'Chapitre suivant',
+            onPressed: hasNext ? () => _goToChapter(1) : null,
           ),
+          const SizedBox(width: 4),
         ],
       ),
       body: _loading
@@ -278,93 +316,137 @@ class _ChapterScreenState extends State<ChapterScreen> {
               },
               child: ReadingWidthConstraint(
                 child: ListView.builder(
-                controller: _scrollController,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                itemCount: _verses.length,
-                itemBuilder: (context, index) {
-                  final v = _verses[index];
-                  final isBookmarked = _bookmarkedVerseIds.contains(v.id);
-                  final isFlashed = _flashedVerseNumber == v.verse;
-                  final highlightHex = _highlightColors[v.id];
+                  controller: _scrollController,
+                  padding: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+                  // One extra item: the previous/next chapter buttons.
+                  itemCount: _verses.length + 1,
+                  itemBuilder: (context, index) {
+                    if (index == _verses.length) {
+                      return _ChapterNav(
+                        onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
+                        onNext: hasNext ? () => _goToChapter(1) : null,
+                      );
+                    }
+                    final v = _verses[index];
+                    final isBookmarked = _bookmarkedVerseIds.contains(v.id);
+                    final isFlashed = _flashedVerseNumber == v.verse;
+                    final highlightHex = _highlightColors[v.id];
 
-                  Color backgroundColor;
-                  if (isFlashed) {
-                    backgroundColor = Theme.of(context).colorScheme.primaryContainer;
-                  } else if (highlightHex != null) {
-                    backgroundColor = HighlightColors.colorFor(highlightHex).withValues(alpha: 0.55);
-                  } else {
-                    backgroundColor = Theme.of(context)
-                        .colorScheme
-                        .surfaceContainerHighest
-                        .withValues(alpha: 0.35);
-                  }
+                    // Plain running text: a verse only gets a background
+                    // when it is highlighted or briefly flashed.
+                    final Color backgroundColor;
+                    if (isFlashed) {
+                      backgroundColor = palette.accentSoft;
+                    } else if (highlightHex != null) {
+                      backgroundColor =
+                          HighlightColors.colorFor(highlightHex).withValues(alpha: 0.55);
+                    } else {
+                      backgroundColor = Colors.transparent;
+                    }
+                    final textColor = highlightHex != null && !isFlashed
+                        ? Colors.black87
+                        : scheme.onSurface;
 
-                  return AnimatedContainer(
-                    key: _verseKeys[v.verse],
-                    duration: const Duration(milliseconds: 400),
-                    margin: const EdgeInsets.only(bottom: 10),
-                    padding: const EdgeInsets.fromLTRB(12, 10, 4, 10),
-                    decoration: BoxDecoration(
-                      color: backgroundColor,
-                      borderRadius: BorderRadius.circular(10),
-                      border: isFlashed
-                          ? Border.all(color: Theme.of(context).colorScheme.primary, width: 1.5)
-                          : null,
-                    ),
-                    child: GestureDetector(
-                      onLongPress: () => _copyVerse(v),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: RichText(
-                              text: TextSpan(
-                                style: DefaultTextStyle.of(context).style.copyWith(
-                                      fontSize: 17,
-                                      height: 1.5 * lineHeightScale,
-                                      color: highlightHex != null ? Colors.black87 : null,
-                                    ),
+                    return AnimatedContainer(
+                      key: _verseKeys[v.verse],
+                      duration: const Duration(milliseconds: 400),
+                      margin: const EdgeInsets.only(bottom: 2),
+                      decoration: BoxDecoration(
+                        color: backgroundColor,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: isFlashed ? palette.accent : Colors.transparent,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(10),
+                          onTap: () => _showVerseActions(v),
+                          onLongPress: () => _copyVerse(v),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                            child: Text.rich(
+                              TextSpan(
+                                style: TextStyle(
+                                  fontSize: 17.5,
+                                  height: 1.6 * lineHeightScale,
+                                  color: textColor,
+                                ),
                                 children: [
                                   TextSpan(
-                                    text: '${v.verse}  ',
+                                    text: '${v.verse}\u00A0\u00A0',
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: highlightHex != null
+                                      fontSize: 12.5,
+                                      fontWeight: FontWeight.w700,
+                                      color: highlightHex != null && !isFlashed
                                           ? Colors.black87
-                                          : Theme.of(context).colorScheme.primary,
+                                          : palette.accent,
                                     ),
                                   ),
                                   TextSpan(text: v.text),
+                                  if (isBookmarked)
+                                    WidgetSpan(
+                                      alignment: PlaceholderAlignment.middle,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 6),
+                                        child: Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: highlightHex != null && !isFlashed
+                                              ? Colors.black87
+                                              : palette.accent,
+                                          semanticLabel: 'Favori',
+                                        ),
+                                      ),
+                                    ),
                                 ],
                               ),
                             ),
                           ),
-                          IconButton(
-                            icon: Icon(
-                              isBookmarked ? Icons.star : Icons.star_border,
-                              color: isBookmarked
-                                  ? Colors.amber
-                                  : Theme.of(context).colorScheme.outline,
-                              size: 20,
-                            ),
-                            onPressed: () => _toggleBookmark(v),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.more_vert,
-                              color: Theme.of(context).colorScheme.outline,
-                              size: 20,
-                            ),
-                            onPressed: () => _showVerseActions(v),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
                 ),
               ),
             ),
+    );
+  }
+}
+
+/// Previous / next chapter buttons shown after the last verse, so the
+/// reader does not have to reach back up to the app bar.
+class _ChapterNav extends StatelessWidget {
+  final VoidCallback? onPrevious;
+  final VoidCallback? onNext;
+  const _ChapterNav({required this.onPrevious, required this.onNext});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 24, 8, 0),
+      child: Row(
+        children: [
+          Expanded(
+            child: OutlinedButton.icon(
+              onPressed: onPrevious,
+              icon: const Icon(Icons.chevron_left),
+              label: const Text('Précédent'),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: FilledButton.icon(
+              onPressed: onNext,
+              iconAlignment: IconAlignment.end,
+              icon: const Icon(Icons.chevron_right),
+              label: const Text('Suivant'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
