@@ -6,6 +6,9 @@ import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../about/screens/about_screen.dart';
+import '../../backup/screens/backup_screen.dart';
+import '../../content_update/screens/content_update_screen.dart';
+import '../../onboarding/screens/onboarding_screen.dart';
 import '../../daily_quiz/screens/daily_quiz_screen.dart';
 import '../../dictionary/screens/dictionary_screen.dart';
 import '../../evening_examen/screens/evening_examen_screen.dart';
@@ -98,6 +101,22 @@ class MoreScreen extends StatelessWidget {
                 icon: Icons.settings_outlined,
                 title: t('settings'),
                 onTap: () => open(const SettingsScreen()),
+              ),
+              AppRow(
+                icon: Icons.backup_outlined,
+                title: t('backup'),
+                subtitle: t('backup_subtitle'),
+                onTap: () => open(const BackupScreen()),
+              ),
+              AppRow(
+                icon: Icons.cloud_sync_outlined,
+                title: t('content_updates'),
+                onTap: () => open(const ContentUpdateScreen()),
+              ),
+              AppRow(
+                icon: Icons.help_outline,
+                title: t('tutorial'),
+                onTap: () => open(const OnboardingScreen()),
               ),
               AppRow(
                 icon: Icons.info_outline,

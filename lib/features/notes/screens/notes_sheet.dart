@@ -156,7 +156,6 @@ class _NotesSheetState extends State<_NotesSheet> {
               hintText: _editingId != null
                   ? 'Modifier la note…'
                   : 'Écrire une note personnelle…',
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               isDense: true,
             ),
           ),

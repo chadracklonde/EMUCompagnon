@@ -144,6 +144,10 @@ class AppRow extends StatelessWidget {
 
   /// 0..1 — draws a thin progress bar under the subtitle when set.
   final double? progress;
+
+  /// Icon at the end of the line; a chevron unless told otherwise (for
+  /// example "open in browser" for external links).
+  final IconData trailingIcon;
   final VoidCallback onTap;
 
   const AppRow({
@@ -152,6 +156,7 @@ class AppRow extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.progress,
+    this.trailingIcon = Icons.chevron_right,
     required this.onTap,
   });
 
@@ -213,7 +218,11 @@ class AppRow extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Icon(Icons.chevron_right, color: palette.muted, size: 22),
+              Icon(
+                trailingIcon,
+                color: palette.muted,
+                size: trailingIcon == Icons.chevron_right ? 22 : 18,
+              ),
             ],
           ),
         ),
@@ -348,6 +357,7 @@ class ResultRow extends StatelessWidget {
   final String? subtitle;
   final int subtitleMaxLines;
   final Widget? leading;
+  final Widget? trailing;
   final bool selected;
   final bool accentTitle;
   final VoidCallback onTap;
@@ -358,6 +368,7 @@ class ResultRow extends StatelessWidget {
     this.subtitle,
     this.subtitleMaxLines = 2,
     this.leading,
+    this.trailing,
     this.selected = false,
     this.accentTitle = false,
     required this.onTap,
@@ -407,6 +418,7 @@ class ResultRow extends StatelessWidget {
                     ],
                   ),
                 ),
+                if (trailing != null) ...[const SizedBox(width: 4), trailing!],
               ],
             ),
           ),

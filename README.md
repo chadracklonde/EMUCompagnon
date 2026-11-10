@@ -33,7 +33,8 @@ de lecture, quiz du jour) et « Vie spirituelle » (mémorisation, journal
 de prière, examen du soir, défi de la semaine).
 
 La barre du bas compte 5 onglets : Accueil, Bible, Cantiques, Liturgie,
-Plus. Dictionnaire, Favoris, Réglages et À propos sont sous **Plus**.
+Plus. Dictionnaire, Favoris, recherche, vie spirituelle, Réglages,
+Sauvegarde, Mises à jour du contenu, tutoriel et À propos sont sous **Plus**.
 Les briques visuelles partagées sont dans `lib/shared/widgets/app_cards.dart`
 et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
 
@@ -75,7 +76,7 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   Références bibliques cliquables dans les paroles.
 - Réglages rapides « Aa » (taille du texte + interligne) accessibles
   directement depuis les écrans Bible et Cantiques, sans passer par le
-  menu À propos — même préférence partagée et persistée partout.
+  menu Réglages — même préférence partagée et persistée partout.
 - Balayage horizontal pour changer de chapitre biblique, en plus des
   flèches.
 - « Reprendre la lecture » : la Bible et les Cantiques retiennent le
@@ -154,11 +155,11 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   `available: true`. Aucune autre modification de code n'est nécessaire.
 
 ## Tutoriel de démarrage
-Un tutoriel de 5 écrans s'affiche automatiquement au tout premier
+Un tutoriel de 7 écrans s'affiche automatiquement au tout premier
 lancement (état suivi via `SharedPreferences`, jamais réaffiché
-ensuite), pour présenter les 7 onglets de l'app à un nouvel
-utilisateur. Accessible à nouveau à tout moment via « À propos » →
-« Revoir le tutoriel de démarrage ».
+ensuite), pour présenter l'application à un nouvel
+utilisateur. Accessible à nouveau à tout moment via l'onglet « Plus » →
+« Revoir le tutoriel ».
 
 ## Générer un APK automatiquement (GitHub Actions)
 Le fichier `.github/workflows/build.yml` construit l'app automatiquement :

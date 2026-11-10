@@ -69,6 +69,10 @@ class AppStrings {
       'evening_examen': 'Examen du soir',
       'weekly_challenge': 'Défi de la semaine',
       'dictionary_full': 'Dictionnaire biblique',
+      'backup': 'Sauvegarde de mes données',
+      'backup_subtitle': 'Favoris, notes, journal, progression',
+      'content_updates': 'Mises à jour du contenu',
+      'tutorial': 'Revoir le tutoriel',
     },
     'sw': {
       'nav_bible': 'Biblia',
@@ -125,6 +129,10 @@ class AppStrings {
       'evening_examen': 'Tafakari ya jioni',
       'weekly_challenge': 'Changamoto ya wiki',
       'dictionary_full': 'Kamusi ya Biblia',
+      'backup': 'Hifadhi ya data yangu',
+      'backup_subtitle': 'Vipendwa, vidokezo, shajara, maendeleo',
+      'content_updates': 'Masasisho ya maudhui',
+      'tutorial': 'Tazama mafunzo tena',
     },
   };
 

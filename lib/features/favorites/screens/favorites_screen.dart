@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../core/database/db_helper.dart';
 import '../../../core/models/bookmark.dart';
 import '../../../core/models/verse.dart';
@@ -112,22 +114,21 @@ class _FavoritesScreenState extends State<FavoritesScreen>
               controller: _tabController,
               children: [
                 _verseFavorites.isEmpty
-                    ? const _EmptyState(
-                        icon: Icons.menu_book,
-                        message: 'Aucun verset en favori.\nAppuyez sur l\'étoile à côté d\'un verset pour l\'ajouter.',
+                    ? const EmptyState(
+                        icon: Icons.menu_book_outlined,
+                        message: 'Aucun verset en favori.\nTouchez un verset dans la Bible, '
+                            'puis « Ajouter aux favoris ».',
                       )
-                    : ListView.separated(
-                        itemCount: _verseFavorites.length,
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                    : _list(
+                        count: _verseFavorites.length,
                         itemBuilder: (context, index) {
                           final f = _verseFavorites[index];
-                          return ListTile(
-                            title: Text(f.verse.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
-                            subtitle: Text(f.verse.text, maxLines: 2, overflow: TextOverflow.ellipsis),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.star, color: Colors.amber),
-                              onPressed: () => _removeVerse(f),
-                            ),
+                          return ResultRow(
+                            title: f.verse.reference,
+                            subtitle: f.verse.text,
+                            subtitleMaxLines: 3,
+                            accentTitle: true,
+                            trailing: _removeButton(context, () => _removeVerse(f)),
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (_) => ChapterScreen(
@@ -141,22 +142,19 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         },
                       ),
                 _hymnFavorites.isEmpty
-                    ? const _EmptyState(
-                        icon: Icons.music_note,
-                        message: 'Aucun cantique en favori.\nAppuyez sur l\'étoile en haut d\'un cantique pour l\'ajouter.',
+                    ? const EmptyState(
+                        icon: Icons.music_note_outlined,
+                        message: "Aucun cantique en favori.\nTouchez l'étoile en haut d'un "
+                            "cantique pour l'ajouter.",
                       )
-                    : ListView.separated(
-                        itemCount: _hymnFavorites.length,
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                    : _list(
+                        count: _hymnFavorites.length,
                         itemBuilder: (context, index) {
                           final f = _hymnFavorites[index];
-                          return ListTile(
-                            leading: CircleAvatar(child: Text(f.hymn.number)),
-                            title: Text(f.hymn.title),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.star, color: Colors.amber),
-                              onPressed: () => _removeHymn(f),
-                            ),
+                          return ResultRow(
+                            leading: NumberBadge(f.hymn.number),
+                            title: f.hymn.title,
+                            trailing: _removeButton(context, () => _removeHymn(f)),
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: f.hymn)),
                             ),
@@ -164,19 +162,25 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         },
                       ),
                 _verseNotes.isEmpty
-                    ? const _EmptyState(
+                    ? const EmptyState(
                         icon: Icons.sticky_note_2_outlined,
-                        message: 'Aucune note pour l\'instant.\nOuvrez le menu « ⋮ » d\'un verset pour en écrire une.',
+                        message: "Aucune note pour l'instant.\nTouchez un verset dans la Bible, "
+                            'puis « Ajouter une note ».',
                       )
-                    : ListView.separated(
-                        itemCount: _verseNotes.length,
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                    : _list(
+                        count: _verseNotes.length,
                         itemBuilder: (context, index) {
                           final e = _verseNotes[index];
-                          return ListTile(
-                            title: Text(e.verse.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
-                            subtitle: Text(e.note.noteText, maxLines: 2, overflow: TextOverflow.ellipsis),
-                            trailing: const Icon(Icons.chevron_right, size: 18),
+                          return ResultRow(
+                            title: e.verse.reference,
+                            subtitle: e.note.noteText,
+                            subtitleMaxLines: 3,
+                            accentTitle: true,
+                            trailing: Icon(
+                              Icons.chevron_right,
+                              color: AppPalette.of(context).muted,
+                              size: 22,
+                            ),
                             onTap: () => showNotesSheet(
                               context,
                               type: BookmarkType.verse,
@@ -188,6 +192,23 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                       ),
               ],
             ),
+    );
+  }
+
+  Widget _list({required int count, required IndexedWidgetBuilder itemBuilder}) {
+    return ListView.separated(
+      padding: const EdgeInsets.only(top: 4, bottom: 24),
+      itemCount: count,
+      separatorBuilder: (_, __) => const Divider(indent: 20, endIndent: 20),
+      itemBuilder: itemBuilder,
+    );
+  }
+
+  Widget _removeButton(BuildContext context, VoidCallback onPressed) {
+    return IconButton(
+      tooltip: 'Retirer des favoris',
+      icon: Icon(Icons.star, color: AppPalette.of(context).accent),
+      onPressed: onPressed,
     );
   }
 }
@@ -208,27 +229,4 @@ class _VerseNoteEntry {
   final VerseNote note;
   final Verse verse;
   _VerseNoteEntry({required this.note, required this.verse});
-}
-
-class _EmptyState extends StatelessWidget {
-  final IconData icon;
-  final String message;
-  const _EmptyState({required this.icon, required this.message});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 48, color: Theme.of(context).colorScheme.outline),
-            const SizedBox(height: 12),
-            Text(message, textAlign: TextAlign.center, style: TextStyle(color: Theme.of(context).colorScheme.outline)),
-          ],
-        ),
-      ),
-    );
-  }
 }
