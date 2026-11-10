@@ -26,13 +26,28 @@ class AppShell extends StatefulWidget {
 class _AppShellState extends State<AppShell> {
   int _index = 0;
 
-  static const _screens = [
-    HomeScreen(),
-    BooksScreen(),
-    HymnsScreen(),
-    LiturgyScreen(),
-    MoreScreen(),
+  /// Tells the home tab it is being shown again, so it reloads its live
+  /// cards (reading plan, quiz, favourite star).
+  final _homeShown = ValueNotifier<int>(0);
+
+  late final _screens = [
+    HomeScreen(refresh: _homeShown),
+    const BooksScreen(),
+    const HymnsScreen(),
+    const LiturgyScreen(),
+    const MoreScreen(),
   ];
+
+  void _select(int index) {
+    setState(() => _index = index);
+    if (index == 0) _homeShown.value++;
+  }
+
+  @override
+  void dispose() {
+    _homeShown.dispose();
+    super.dispose();
+  }
 
   // (outlined icon, filled icon when selected, label key)
   static const _destinations = [
@@ -59,7 +74,7 @@ class _AppShellState extends State<AppShell> {
           ),
           child: NavigationBar(
             selectedIndex: _index,
-            onDestinationSelected: (i) => setState(() => _index = i),
+            onDestinationSelected: _select,
             labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
             destinations: [
               for (final (icon, selectedIcon, key) in _destinations)
@@ -79,7 +94,7 @@ class _AppShellState extends State<AppShell> {
         children: [
           NavigationRail(
             selectedIndex: _index,
-            onDestinationSelected: (i) => setState(() => _index = i),
+            onDestinationSelected: _select,
             labelType: NavigationRailLabelType.all,
             destinations: [
               for (final (icon, selectedIcon, key) in _destinations)

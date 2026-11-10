@@ -45,6 +45,8 @@ class BackupService {
   // ReadingPlanService, StreakService, DailyQuizService and
   // WeeklyChallengeService (their constants are private).
   static const _kReadingPlan = 'readingPlan.completedIndices';
+  static const _kPlanDuration = 'readingPlan.durationDays';
+  static const _kPlanBaseline = 'readingPlan.baselineIndices';
   static const _kStreakLast = 'streak.lastActiveDate';
   static const _kStreakCurrent = 'streak.current';
   static const _kStreakLongest = 'streak.longest';
@@ -83,6 +85,8 @@ class BackupService {
       'evening_examen_entries': examen,
       'progress': {
         'reading_plan': prefs.getString(_kReadingPlan),
+        'reading_plan_duration': prefs.getInt(_kPlanDuration),
+        'reading_plan_baseline': prefs.getString(_kPlanBaseline),
         'streak': {
           'last_date': prefs.getString(_kStreakLast),
           'current': prefs.getInt(_kStreakCurrent) ?? 0,
@@ -314,6 +318,15 @@ class BackupService {
       _str(progress['reading_plan']),
     );
     if (plan != null) await prefs.setString(_kReadingPlan, plan);
+
+    // The chosen plan duration travels with the backup, but never
+    // replaces a duration already chosen on this device.
+    final duration = progress['reading_plan_duration'];
+    if (duration is int && duration >= 1 && prefs.getInt(_kPlanDuration) == null) {
+      await prefs.setInt(_kPlanDuration, duration);
+      final baseline = _str(progress['reading_plan_baseline']);
+      if (baseline != null) await prefs.setString(_kPlanBaseline, baseline);
+    }
 
     final s = progress['streak'];
     if (s is Map) {

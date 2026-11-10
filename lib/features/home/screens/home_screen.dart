@@ -33,7 +33,11 @@ import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
 /// "Aujourd'hui" shows live state (reading-plan progress, today's quiz)
 /// instead of bare shortcuts.
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  /// Fires when the home tab is shown again. The tab stays alive behind
+  /// the others, so without it "Aujourd'hui" would keep showing the state
+  /// from before the user read a chapter or changed their plan elsewhere.
+  final Listenable? refresh;
+  const HomeScreen({super.key, this.refresh});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -49,10 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   StreakInfo? _streak;
   LiturgicalPeriodInstance? _season;
 
-  PlanDay? _planNext;
-  int _planDone = 0;
-  int _planTotal = 0;
-  bool _planLoaded = false;
+  ReadingPlan? _plan;
   DailyQuizResult? _quizResult;
 
   @override
@@ -66,9 +67,21 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     _loadVerseOfDay();
     _loadToday();
+    widget.refresh?.addListener(_onShownAgain);
     StreakService.recordVisitToday().then((s) {
       if (mounted) setState(() => _streak = s);
     });
+  }
+
+  void _onShownAgain() {
+    _loadToday();
+    _refreshFavorite();
+  }
+
+  @override
+  void dispose() {
+    widget.refresh?.removeListener(_onShownAgain);
+    super.dispose();
   }
 
   /// Loads the verse of the day, retrying a couple of times. A failure here
@@ -117,16 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
       if (mounted) setState(() => _quizResult = quiz);
     } catch (_) {}
     try {
-      final plan = await ReadingPlanService.getFullPlan();
-      final completed = await ReadingPlanService.getCompleted();
-      final next = await ReadingPlanService.getNextDay();
-      if (!mounted) return;
-      setState(() {
-        _planTotal = plan.length;
-        _planDone = completed.length;
-        _planNext = next;
-        _planLoaded = true;
-      });
+      final plan = await ReadingPlanService.getPlan();
+      if (mounted) setState(() => _plan = plan);
     } catch (_) {}
   }
 
@@ -180,15 +185,19 @@ class _HomeScreenState extends State<HomeScreen> {
     final verse = _verseOfTheDay;
     final season = _season;
 
+    final plan = _plan;
+    final planNext = plan?.nextDay;
     final String? planSubtitle;
-    if (!_planLoaded) {
+    if (plan == null) {
       planSubtitle = null;
-    } else if (_planNext == null) {
+    } else if (planNext == null) {
       planSubtitle = t('reading_plan_done');
     } else {
-      planSubtitle =
-          '${tf('reading_plan_next', {'ref': '${_planNext!.book} ${_planNext!.chapter}'})}'
-          '\n${tf('reading_plan_progress', {'done': _planDone, 'total': _planTotal})}';
+      planSubtitle = '${tf('reading_plan_next', {'ref': planNext.label})}'
+          '\n${tf('reading_plan_progress', {
+                'done': plan.readChapters,
+                'total': plan.totalChapters,
+              })}';
     }
 
     return Scaffold(
@@ -304,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: Icons.event_note_outlined,
                   title: t('reading_plan'),
                   subtitle: planSubtitle,
-                  progress: _planLoaded && _planTotal > 0 ? _planDone / _planTotal : null,
+                  progress: plan?.progress,
                   onTap: () => _open(const ReadingPlanScreen()),
                 ),
               ),

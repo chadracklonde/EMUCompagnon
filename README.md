@@ -32,6 +32,13 @@ Liturgie avec la saison en cours), « Aujourd'hui » (progression du plan
 de lecture, quiz du jour) et « Vie spirituelle » (mémorisation, journal
 de prière, examen du soir, défi de la semaine).
 
+Le **plan de lecture** a une durée au choix : une semaine, un mois, trois
+mois, six mois, un an, ou un nombre de jours libre. L'application répartit
+la Bible sur cette durée en équilibrant les journées par nombre de versets
+et en coupant toujours en fin de chapitre (`ReadingPlanBuilder.split`).
+Changer de durée conserve ce qui est déjà lu et ne répartit que le reste.
+Sans choix, le plan reste d'un chapitre par jour (1 189 jours).
+
 La barre du bas compte 5 onglets : Accueil, Bible, Cantiques, Liturgie,
 Plus. Dictionnaire, Favoris, recherche, vie spirituelle, Réglages,
 Sauvegarde, Mises à jour du contenu, tutoriel et À propos sont sous **Plus**.
