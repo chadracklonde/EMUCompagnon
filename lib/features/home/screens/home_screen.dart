@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../shared/responsive/reading_width_constraint.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../../core/settings/app_settings.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/models/bookmark.dart';
 import '../../../core/models/verse.dart';
+import '../../../core/services/streak_service.dart';
+import '../../../core/settings/app_settings.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/services/image_share_service.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../../bible/screens/books_screen.dart';
 import '../../bible/screens/chapter_screen.dart';
-import '../../hymns/screens/hymns_screen.dart';
-import '../../dictionary/screens/dictionary_screen.dart';
-import '../../favorites/screens/favorites_screen.dart';
-import '../../about/screens/about_screen.dart';
-import '../../liturgy/screens/liturgy_screen.dart';
-import '../../reading_plan/screens/reading_plan_screen.dart';
 import '../../daily_quiz/screens/daily_quiz_screen.dart';
-import '../../memorization/screens/memorization_screen.dart';
-import '../../journal/screens/journal_screen.dart';
+import '../../daily_quiz/services/daily_quiz_service.dart';
 import '../../evening_examen/screens/evening_examen_screen.dart';
-import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
+import '../../favorites/repository/bookmark_repository.dart';
+import '../../hymns/screens/hymns_screen.dart';
+import '../../journal/screens/journal_screen.dart';
+import '../../liturgy/models/liturgical_period.dart';
+import '../../liturgy/screens/liturgy_screen.dart';
+import '../../liturgy/services/liturgical_calendar_service.dart';
+import '../../memorization/screens/memorization_screen.dart';
+import '../../reading_plan/screens/reading_plan_screen.dart';
+import '../../reading_plan/services/reading_plan_service.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../settings/screens/settings_screen.dart';
-import '../../../core/services/streak_service.dart';
-import '../widgets/decorative_cross.dart';
+import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
 
+/// Home tab, "clair et aéré" look: greeting and date, search, the verse of
+/// the day as the one filled burgundy card, then plain bordered tiles.
+/// "Aujourd'hui" shows live state (reading-plan progress, today's quiz)
+/// instead of bare shortcuts.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -32,13 +41,31 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _repo = BibleRepository();
+  final _bookmarks = BookmarkRepository();
+
   Verse? _verseOfTheDay;
+  bool _verseFailed = false;
+  bool _verseIsFavorite = false;
   StreakInfo? _streak;
+  LiturgicalPeriodInstance? _season;
+
+  PlanDay? _planNext;
+  int _planDone = 0;
+  int _planTotal = 0;
+  bool _planLoaded = false;
+  DailyQuizResult? _quizResult;
 
   @override
   void initState() {
     super.initState();
+    try {
+      _season = LiturgicalCalendarService.currentSeason().$1;
+    } catch (_) {
+      // The season is a nicety on this screen; the tile falls back to a
+      // generic subtitle.
+    }
     _loadVerseOfDay();
+    _loadToday();
     StreakService.recordVisitToday().then((s) {
       if (mounted) setState(() => _streak = s);
     });
@@ -51,13 +78,63 @@ class _HomeScreenState extends State<HomeScreen> {
     for (var attempt = 0; attempt < 3; attempt++) {
       try {
         final v = await _repo.getVerseOfTheDay();
-        if (mounted) setState(() => _verseOfTheDay = v);
+        if (!mounted) return;
+        setState(() {
+          _verseOfTheDay = v;
+          _verseFailed = v == null;
+        });
+        _refreshFavorite();
         return;
       } catch (_) {
         await Future<void>.delayed(const Duration(milliseconds: 700));
         if (!mounted) return;
       }
     }
+    if (mounted) setState(() => _verseFailed = true);
+  }
+
+  Future<void> _refreshFavorite() async {
+    final verse = _verseOfTheDay;
+    if (verse == null) return;
+    try {
+      final fav = await _bookmarks.isBookmarked(BookmarkType.verse, verse.id);
+      if (mounted) setState(() => _verseIsFavorite = fav);
+    } catch (_) {}
+  }
+
+  Future<void> _toggleFavorite() async {
+    final verse = _verseOfTheDay;
+    if (verse == null) return;
+    final fav = await _bookmarks.toggle(BookmarkType.verse, verse.id);
+    if (mounted) setState(() => _verseIsFavorite = fav);
+  }
+
+  /// Reading-plan progress and today's quiz result. Called again each time
+  /// the user comes back from a pushed screen, since either may have changed.
+  Future<void> _loadToday() async {
+    try {
+      final quiz = await DailyQuizService.getTodayResult();
+      if (mounted) setState(() => _quizResult = quiz);
+    } catch (_) {}
+    try {
+      final plan = await ReadingPlanService.getFullPlan();
+      final completed = await ReadingPlanService.getCompleted();
+      final next = await ReadingPlanService.getNextDay();
+      if (!mounted) return;
+      setState(() {
+        _planTotal = plan.length;
+        _planDone = completed.length;
+        _planNext = next;
+        _planLoaded = true;
+      });
+    } catch (_) {}
+  }
+
+  Future<void> _open(Widget screen) async {
+    await Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+    if (!mounted) return;
+    _loadToday();
+    _refreshFavorite();
   }
 
   Future<void> _pickLanguage(AppSettings settings) async {
@@ -87,197 +164,214 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _toggleTheme(AppSettings settings) {
-    settings.setThemeMode(
-      settings.themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
-    );
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    settings.setThemeMode(isDark ? ThemeMode.light : ThemeMode.dark);
   }
 
   @override
   Widget build(BuildContext context) {
     final settings = context.watch<AppSettings>();
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final parchment = isDark ? const Color(0xFF241E1A) : UmcColors.parchment;
-    final ink = isDark ? const Color(0xFFEDE3CC) : UmcColors.burgundy;
+    final locale = settings.locale;
+    String t(String key) => AppStrings.t(key, locale);
+    String tf(String key, Map<String, Object> values) =>
+        AppStrings.tf(key, locale, values);
+
+    final palette = AppPalette.of(context);
+    final verse = _verseOfTheDay;
+    final season = _season;
+
+    final String? planSubtitle;
+    if (!_planLoaded) {
+      planSubtitle = null;
+    } else if (_planNext == null) {
+      planSubtitle = t('reading_plan_done');
+    } else {
+      planSubtitle =
+          '${tf('reading_plan_next', {'ref': '${_planNext!.book} ${_planNext!.chapter}'})}'
+          '\n${tf('reading_plan_progress', {'done': _planDone, 'total': _planTotal})}';
+    }
 
     return Scaffold(
-      backgroundColor: parchment,
+      backgroundColor: palette.background,
       body: SafeArea(
-        child: Column(
-          children: [
-            _TopBar(
-              locale: settings.locale,
-              onLanguageTap: () => _pickLanguage(settings),
-              onThemeTap: () => _toggleTheme(settings),
-              onSettingsTap: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+        child: ReadingWidthConstraint(
+          maxWidth: 640,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+            children: [
+              _Header(
+                greeting: t(DateTime.now().hour < 18 ? 'greeting_day' : 'greeting_evening'),
+                date: AppStrings.longDate(DateTime.now(), locale),
+                streakLabel: _streak != null && _streak!.current > 1
+                    ? tf('streak_days', {'n': _streak!.current})
+                    : null,
+                languageTooltip: t('language'),
+                themeTooltip: t('theme_toggle'),
+                settingsTooltip: t('settings'),
+                onLanguageTap: () => _pickLanguage(settings),
+                onThemeTap: () => _toggleTheme(settings),
+                onSettingsTap: () => _open(const SettingsScreen()),
               ),
-            ),
-            Expanded(
-              child: ReadingWidthConstraint(
-                maxWidth: 640,
-                child: ListView(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
-                children: [
-                  _SearchBar(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const GlobalSearchScreen()),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  if (_streak != null && _streak!.current > 1)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: _StreakBadge(streak: _streak!, ink: ink),
-                    ),
-                  _VerseOfTheDayCard(verse: _verseOfTheDay, ink: ink),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _TestamentButton(
-                          label: 'NOUVEAU\nTESTAMENT',
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => const BooksScreen(filter: TestamentFilter.newTestament),
-                            ),
-                          ),
+              const SizedBox(height: 14),
+              _SearchField(
+                label: t('search_everywhere'),
+                onTap: () => _open(const GlobalSearchScreen()),
+              ),
+              const SizedBox(height: 16),
+              _VerseOfTheDayCard(
+                title: t('verse_of_the_day'),
+                verse: verse,
+                failedMessage: _verseFailed ? t('verse_unavailable') : null,
+                isFavorite: _verseIsFavorite,
+                favoriteTooltip: t(_verseIsFavorite ? 'favorite_remove' : 'favorite_add'),
+                shareTooltip: t('share'),
+                onTap: verse == null
+                    ? null
+                    : () => _open(ChapterScreen(
+                          book: verse.book,
+                          chapter: verse.chapter,
+                          highlightVerse: verse.verse,
+                        )),
+                onFavorite: _toggleFavorite,
+                onShare: verse == null
+                    ? null
+                    : () => ImageShareService.shareVerse(
+                          context,
+                          reference: verse.reference,
+                          text: verse.text,
                         ),
-                      ),
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: _TestamentButton(
-                          label: 'ANCIEN\nTESTAMENT',
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => const BooksScreen(filter: TestamentFilter.oldTestament),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 14),
-                  _WideButton(
-                    label: 'PLAN DE LECTURE',
-                    icon: Icons.event_note_outlined,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const ReadingPlanScreen()),
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  _WideButton(
-                    label: 'QUIZ DU JOUR',
-                    icon: Icons.quiz_outlined,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const DailyQuizScreen()),
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  _WideButton(
-                    label: 'CHANTS DE VICTOIRE',
-                    icon: Icons.music_note_outlined,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const HymnsScreen()),
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  _WideButton(
-                    label: 'LITURGIE',
-                    icon: Icons.menu_book_outlined,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const LiturgyScreen()),
-                    ),
-                  ),
-                  const SizedBox(height: 28),
-                  Text(
-                    'ACCÈS RAPIDE',
-                    style: TextStyle(
-                      fontFamily: 'PlayfairDisplay',
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 2,
-                      color: ink.withValues(alpha: 0.6),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 12,
-                    childAspectRatio: 2.6,
-                    children: [
-                      _SmallButton(
-                        label: 'Dictionnaire',
-                        icon: Icons.auto_stories_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const DictionaryScreen()),
-                        ),
-                      ),
-                      _SmallButton(
-                        label: 'Favoris',
-                        icon: Icons.star_border,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const FavoritesScreen()),
-                        ),
-                      ),
-                      _SmallButton(
-                        label: 'À propos',
-                        icon: Icons.info_outline,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const AboutScreen()),
-                        ),
-                      ),
-                      _SmallButton(
-                        label: 'Mémorisation',
-                        icon: Icons.psychology_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const MemorizationScreen()),
-                        ),
-                      ),
-                      _SmallButton(
-                        label: 'Journal de prière',
+              ),
+              const SizedBox(height: 24),
+              SectionTitle(t('section_read_sing')),
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: AppTile(
                         icon: Icons.menu_book_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const JournalScreen()),
+                        title: t('old_testament'),
+                        subtitle: tf('books_count', {'n': 39}),
+                        onTap: () => _open(
+                          const BooksScreen(filter: TestamentFilter.oldTestament),
                         ),
                       ),
-                      _SmallButton(
-                        label: 'Examen du soir',
-                        icon: Icons.nights_stay_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const EveningExamenScreen()),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: AppTile(
+                        icon: Icons.menu_book_outlined,
+                        title: t('new_testament'),
+                        subtitle: tf('books_count', {'n': 27}),
+                        onTap: () => _open(
+                          const BooksScreen(filter: TestamentFilter.newTestament),
                         ),
                       ),
-                      _SmallButton(
-                        label: 'Défi de la semaine',
-                        icon: Icons.flag_outlined,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const WeeklyChallengeScreen()),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 12),
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: AppTile(
+                        icon: Icons.music_note_outlined,
+                        title: 'Chants de Victoire',
+                        subtitle: t('hymnal_subtitle'),
+                        onTap: () => _open(const HymnsScreen()),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: AppTile(
+                        icon: Icons.calendar_month_outlined,
+                        title: t('nav_liturgy'),
+                        subtitle: season?.period.name ?? t('liturgy_subtitle'),
+                        subtitleDot: season == null ? null : Color(season.period.colorHex),
+                        onTap: () => _open(const LiturgyScreen()),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              SectionTitle(t('section_today')),
+              AppCard(
+                child: AppRow(
+                  icon: Icons.event_note_outlined,
+                  title: t('reading_plan'),
+                  subtitle: planSubtitle,
+                  progress: _planLoaded && _planTotal > 0 ? _planDone / _planTotal : null,
+                  onTap: () => _open(const ReadingPlanScreen()),
+                ),
+              ),
+              const SizedBox(height: 10),
+              AppCard(
+                child: AppRow(
+                  icon: Icons.quiz_outlined,
+                  title: t('daily_quiz'),
+                  subtitle: _quizResult == null
+                      ? tf('daily_quiz_questions', {'n': DailyQuizService.questionsPerDay})
+                      : tf('daily_quiz_done', {
+                          'score': _quizResult!.score,
+                          'total': _quizResult!.total,
+                        }),
+                  onTap: () => _open(const DailyQuizScreen()),
+                ),
+              ),
+              const SizedBox(height: 24),
+              SectionTitle(t('section_spiritual_life')),
+              AppRowGroup(rows: [
+                AppRow(
+                  icon: Icons.psychology_outlined,
+                  title: t('memorization'),
+                  onTap: () => _open(const MemorizationScreen()),
+                ),
+                AppRow(
+                  icon: Icons.edit_note_outlined,
+                  title: t('prayer_journal'),
+                  onTap: () => _open(const JournalScreen()),
+                ),
+                AppRow(
+                  icon: Icons.nights_stay_outlined,
+                  title: t('evening_examen'),
+                  onTap: () => _open(const EveningExamenScreen()),
+                ),
+                AppRow(
+                  icon: Icons.flag_outlined,
+                  title: t('weekly_challenge'),
+                  onTap: () => _open(const WeeklyChallengeScreen()),
+                ),
+              ]),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class _TopBar extends StatelessWidget {
-  final String locale;
+class _Header extends StatelessWidget {
+  final String greeting;
+  final String date;
+  final String? streakLabel;
+  final String languageTooltip;
+  final String themeTooltip;
+  final String settingsTooltip;
   final VoidCallback onLanguageTap;
   final VoidCallback onThemeTap;
   final VoidCallback onSettingsTap;
 
-  const _TopBar({
-    required this.locale,
+  const _Header({
+    required this.greeting,
+    required this.date,
+    required this.streakLabel,
+    required this.languageTooltip,
+    required this.themeTooltip,
+    required this.settingsTooltip,
     required this.onLanguageTap,
     required this.onThemeTap,
     required this.onSettingsTap,
@@ -285,123 +379,117 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      color: UmcColors.burgundy,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        children: [
-          InkWell(
-            onTap: onLanguageTap,
-            borderRadius: BorderRadius.circular(6),
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                greeting,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: -0.2,
+                  color: scheme.onSurface,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(date, style: TextStyle(fontSize: 13, color: palette.muted)),
+              if (streakLabel != null) ...[
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: palette.accentSoft,
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.local_fire_department_outlined,
+                          size: 16, color: palette.accent),
+                      const SizedBox(width: 5),
+                      Text(
+                        streakLabel!,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: palette.accent,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+        IconButton(
+          tooltip: languageTooltip,
+          onPressed: onLanguageTap,
+          color: scheme.onSurface,
+          icon: const Icon(Icons.language),
+        ),
+        IconButton(
+          tooltip: themeTooltip,
+          onPressed: onThemeTap,
+          color: scheme.onSurface,
+          icon: Icon(isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined),
+        ),
+        IconButton(
+          tooltip: settingsTooltip,
+          onPressed: onSettingsTap,
+          color: scheme.onSurface,
+          icon: const Icon(Icons.settings_outlined),
+        ),
+      ],
+    );
+  }
+}
+
+/// Looks like a text field but only opens the global search screen.
+class _SearchField extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+  const _SearchField({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
+    return Semantics(
+      button: true,
+      child: Material(
+        color: palette.field,
+        borderRadius: BorderRadius.circular(14),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               child: Row(
                 children: [
-                  const Icon(Icons.public, color: Colors.white, size: 20),
-                  const SizedBox(width: 4),
-                  Text(
-                    locale.toUpperCase(),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
+                  Icon(Icons.search, color: palette.muted, size: 22),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 15, color: palette.muted),
+                    ),
                   ),
-                  const Icon(Icons.arrow_drop_down, color: Colors.white, size: 18),
                 ],
               ),
             ),
           ),
-          const Spacer(),
-          InkWell(
-            onTap: onThemeTap,
-            borderRadius: BorderRadius.circular(20),
-            child: Padding(
-              padding: const EdgeInsets.all(6),
-              child: Icon(
-                isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
-                color: Colors.white,
-                size: 22,
-              ),
-            ),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: onSettingsTap,
-            borderRadius: BorderRadius.circular(20),
-            child: const Padding(
-              padding: EdgeInsets.all(6),
-              child: Icon(Icons.settings_outlined, color: Colors.white, size: 22),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SearchBar extends StatelessWidget {
-  final VoidCallback onTap;
-  const _SearchBar({required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white.withValues(alpha: 0.6),
-      borderRadius: BorderRadius.circular(10),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(10),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: UmcColors.gold.withValues(alpha: 0.6)),
-          ),
-          child: Row(
-            children: [
-              Icon(Icons.search, color: UmcColors.burgundy.withValues(alpha: 0.7)),
-              const SizedBox(width: 10),
-              Text(
-                'RECHERCHE',
-                style: TextStyle(
-                  fontFamily: 'PlayfairDisplay',
-                  letterSpacing: 1.5,
-                  fontSize: 13,
-                  color: UmcColors.burgundy.withValues(alpha: 0.7),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _StreakBadge extends StatelessWidget {
-  final StreakInfo streak;
-  final Color ink;
-  const _StreakBadge({required this.streak, required this.ink});
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        decoration: BoxDecoration(
-          color: UmcColors.gold.withValues(alpha: 0.18),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: UmcColors.gold.withValues(alpha: 0.6)),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('🔥', style: TextStyle(fontSize: 14)),
-            const SizedBox(width: 6),
-            Text(
-              '${streak.current} jours de suite',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ink),
-            ),
-          ],
         ),
       ),
     );
@@ -409,114 +497,106 @@ class _StreakBadge extends StatelessWidget {
 }
 
 class _VerseOfTheDayCard extends StatelessWidget {
+  final String title;
   final Verse? verse;
-  final Color ink;
-  const _VerseOfTheDayCard({required this.verse, required this.ink});
+  final String? failedMessage;
+  final bool isFavorite;
+  final String favoriteTooltip;
+  final String shareTooltip;
+  final VoidCallback? onTap;
+  final VoidCallback onFavorite;
+  final VoidCallback? onShare;
+
+  const _VerseOfTheDayCard({
+    required this.title,
+    required this.verse,
+    required this.failedMessage,
+    required this.isFavorite,
+    required this.favoriteTooltip,
+    required this.shareTooltip,
+    required this.onTap,
+    required this.onFavorite,
+    required this.onShare,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: verse == null
-          ? null
-          : () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => ChapterScreen(
-                  book: verse!.book,
-                  chapter: verse!.chapter,
-                  highlightVerse: verse!.verse,
-                ),
-              )),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          border: Border.all(color: UmcColors.gold, width: 1.4),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 26, horizontal: 20),
-          decoration: BoxDecoration(
-            border: Border.all(color: UmcColors.gold.withValues(alpha: 0.6), width: 1),
-            borderRadius: BorderRadius.circular(2),
-          ),
+    final verse = this.verse;
+    return Material(
+      color: AppPalette.hero,
+      borderRadius: BorderRadius.circular(22),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 8, 8),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Verset du Jour',
-                textAlign: TextAlign.center,
-                // Même police que les boutons Ancien/Nouveau Testament
-                // (Playfair Display), à la place de la police cursive
-                // (Great Vibes) utilisée auparavant.
-                style: TextStyle(
-                  fontFamily: 'PlayfairDisplay',
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
+                title.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: 1,
-                  color: ink,
+                  color: AppPalette.onHeroMuted,
                 ),
               ),
-              if (verse != null) ...[
-                const SizedBox(height: 14),
-                Text(
-                  verse!.text,
-                  textAlign: TextAlign.center,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 14, height: 1.5, color: ink.withValues(alpha: 0.85)),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  verse!.reference,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: UmcColors.gold),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _TestamentButton extends StatelessWidget {
-  final String label;
-  final VoidCallback onTap;
-  const _TestamentButton({required this.label, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: UmcColors.burgundy,
-      borderRadius: BorderRadius.circular(18),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(18),
-        onTap: onTap,
-        child: Container(
-          height: 130,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: UmcColors.gold, width: 1.4),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DecorativeCross(size: 30, color: UmcColors.gold),
               const SizedBox(height: 10),
-              Text(
-                label,
-                textAlign: TextAlign.center,
-                // Même police que le bouton Ancien Testament (Playfair
-                // Display) pour les deux boutons — la police cursive
-                // (Great Vibes) utilisée auparavant pour Nouveau Testament
-                // ne correspondait pas visuellement.
-                style: TextStyle(
-                  fontFamily: 'PlayfairDisplay',
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1,
-                  color: Colors.white,
-                  height: 1.3,
-                ),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: verse != null
+                    ? Text(
+                        verse.text,
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontFamily: 'PlayfairDisplay',
+                          fontSize: 20,
+                          height: 1.4,
+                          color: AppPalette.onHero,
+                        ),
+                      )
+                    : failedMessage != null
+                        ? Text(
+                            failedMessage!,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              height: 1.4,
+                              color: AppPalette.onHeroMuted,
+                            ),
+                          )
+                        : const _VersePlaceholder(),
+              ),
+              const SizedBox(height: 6),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      verse?.reference ?? '',
+                      style: const TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w600,
+                        color: AppPalette.onHero,
+                      ),
+                    ),
+                  ),
+                  if (verse != null) ...[
+                    IconButton(
+                      tooltip: favoriteTooltip,
+                      onPressed: onFavorite,
+                      color: AppPalette.onHero,
+                      icon: Icon(isFavorite ? Icons.star : Icons.star_outline),
+                    ),
+                    IconButton(
+                      tooltip: shareTooltip,
+                      onPressed: onShare,
+                      color: AppPalette.onHero,
+                      icon: const Icon(Icons.ios_share),
+                    ),
+                  ] else
+                    const SizedBox(height: 48),
+                ],
               ),
             ],
           ),
@@ -526,92 +606,26 @@ class _TestamentButton extends StatelessWidget {
   }
 }
 
-class _WideButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final VoidCallback onTap;
-  const _WideButton({required this.label, required this.icon, required this.onTap});
+/// Two soft bars standing in for the verse while it loads, so the card
+/// keeps its height instead of jumping when the text arrives.
+class _VersePlaceholder extends StatelessWidget {
+  const _VersePlaceholder();
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: UmcColors.burgundy,
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: UmcColors.gold, width: 1.4),
+    Widget bar(double widthFactor) => FractionallySizedBox(
+          widthFactor: widthFactor,
+          child: Container(
+            height: 16,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.16),
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
-          child: Row(
-            children: [
-              Icon(icon, color: UmcColors.gold, size: 24),
-              Expanded(
-                child: Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'PlayfairDisplay',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 1.5,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 24), // balances the leading icon width
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _SmallButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final VoidCallback onTap;
-  const _SmallButton({required this.label, required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white.withValues(alpha: 0.55),
-      borderRadius: BorderRadius.circular(12),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(12),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: UmcColors.gold.withValues(alpha: 0.7)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: UmcColors.burgundy, size: 18),
-              const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  label,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: 'PlayfairDisplay',
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: UmcColors.burgundy,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+        );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [bar(1), const SizedBox(height: 12), bar(0.7)],
     );
   }
 }

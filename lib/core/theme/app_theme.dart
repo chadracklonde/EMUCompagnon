@@ -29,6 +29,57 @@ class UmcColors {
   static const parchment = Color(0xFFF7F1E1);
 }
 
+/// Neutral surfaces of the "clair et aéré" look (cards on a soft
+/// background), resolved for the current brightness. Brand accents still
+/// come from the [ColorScheme] (`primary`, `onSurface`…).
+class AppPalette {
+  final Color background;
+  final Color card;
+  final Color border;
+  final Color field;
+  final Color muted;
+  final Color accent;
+  final Color accentSoft;
+
+  const AppPalette._({
+    required this.background,
+    required this.card,
+    required this.border,
+    required this.field,
+    required this.muted,
+    required this.accent,
+    required this.accentSoft,
+  });
+
+  /// Filled "hero" card (verse of the day): same burgundy in both modes.
+  static const hero = UmcColors.burgundy;
+  static const onHero = Colors.white;
+  static const onHeroMuted = Color(0xFFF3C9CC);
+
+  static const _light = AppPalette._(
+    background: Color(0xFFFAF9F7),
+    card: Colors.white,
+    border: Color(0xFFE8E4E0),
+    field: Color(0xFFF0EEEB),
+    muted: Color(0xFF6B6466),
+    accent: UmcColors.burgundy,
+    accentSoft: Color(0xFFF7E9EA),
+  );
+
+  static const _dark = AppPalette._(
+    background: Color(0xFF161213),
+    card: Color(0xFF221D1E),
+    border: Color(0xFF362F31),
+    field: Color(0xFF2A2425),
+    muted: Color(0xFFB9B1B3),
+    accent: Color(0xFFE08A8F),
+    accentSoft: Color(0xFF3A1F22),
+  );
+
+  static AppPalette of(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark ? _dark : _light;
+}
+
 class AppTheme {
   static ThemeData light({String? fontFamily}) {
     final colorScheme = ColorScheme.light(
@@ -62,6 +113,9 @@ class AppTheme {
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        height: 68,
         indicatorColor: UmcColors.redTint,
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
@@ -125,6 +179,9 @@ class AppTheme {
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: surfaceContainerDark,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        height: 68,
         indicatorColor: const Color(0xFF4A1A1F),
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
