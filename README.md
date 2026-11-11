@@ -93,6 +93,14 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   général, pas les textes liturgiques officiels protégés — prières, vœux,
   bénédictions exacts — qui restent à prendre dans le Livre de Culte EMU
   officiel).
+- « Prières et textes » (onglet Liturgie) : le Notre Père (Matthieu
+  6.9-13, LSG 1910), le Credo social et sa litanie, les 25 Articles de
+  religion, la Confession de foi, les Règles générales, les vœux des
+  membres et la mission de l'Église. Page de lecture avec sommaire pour
+  les textes longs, réglage du texte et partage. Les textes tirés du
+  Livre de Discipline 2020/2024 viennent d'une traduction automatique
+  corrigée à la main : ils sont à relire, et se corrigent dans le seul
+  fichier `lib/features/church_texts/data/church_texts_data.dart`.
 - Cantiques affichés par couplets/refrain nettement séparés (au lieu d'un
   seul bloc de texte), avec le refrain mis en valeur visuellement.
   Références bibliques cliquables dans les paroles.

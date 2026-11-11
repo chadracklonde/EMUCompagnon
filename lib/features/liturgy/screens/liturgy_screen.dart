@@ -4,6 +4,7 @@ import '../../../core/l10n/app_strings.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
+import '../../church_texts/screens/church_texts_screen.dart';
 import '../services/liturgical_calendar_service.dart';
 import '../widgets/season_card.dart';
 import 'liturgical_calendar_screen.dart';
@@ -53,6 +54,12 @@ class LiturgyScreen extends StatelessWidget {
                 title: 'Sacrements et rites',
                 subtitle: 'Baptême, Sainte-Cène, mariage, funérailles…',
                 onTap: () => open(const SacramentsScreen()),
+              ),
+              AppRow(
+                icon: Icons.auto_stories_outlined,
+                title: 'Prières et textes',
+                subtitle: 'Notre Père, Credo social, Articles de religion…',
+                onTap: () => open(const ChurchTextsScreen()),
               ),
             ]),
           ],
