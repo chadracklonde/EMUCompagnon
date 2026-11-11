@@ -51,4 +51,10 @@ PY
     exit 0
   fi
 fi
+# The other widgets (declared in widgets.json). Failing here must not break the build.
+if command -v python3 >/dev/null 2>&1 && python3 "$HERE/generate.py" "$ANDROID" "$PKG"; then
+  echo "Widgets supplémentaires installés."
+else
+  echo "Widgets supplémentaires ignorés : génération impossible."
+fi
 echo "Widget Verset du jour installé (paquet $PKG)."

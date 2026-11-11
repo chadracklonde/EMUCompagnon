@@ -113,12 +113,22 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
 - « Culte du dimanche » (accueil et onglet Liturgie) : le dimanche
   concerné, sa saison, la liste de cantiques choisie, les prières dites
   ensemble et le déroulement du culte sur un seul écran.
-- Widget Android « Verset du jour » : l'application écrit à l'avance les
-  versets des 14 prochains jours (`WidgetSyncService`) et le widget
-  affiche celui du jour ; un appui ouvre l'application. Les fichiers
-  natifs sont dans `native/android/`, copiés dans `android/` par la CI
-  (`install_widget.sh`, qui saute le widget plutôt que de faire échouer
-  le build).
+- Widgets Android (23 types, à ajouter depuis l'écran d'accueil du
+  téléphone) : Verset du jour, Lecture du jour, Saison liturgique, Couleur
+  du jour, Prochain dimanche, Compte à rebours, Calendrier liturgique,
+  Cantiques du culte, Série de jours, Semaine de lecture, Verset à
+  mémoriser, Raccourcis, Prière épinglée, Cantique du jour, Reprendre la
+  Bible, Reprendre le cantique, Mes favoris, Défi de la semaine, Quiz du
+  jour, Examen du soir, Écrire une prière, Mot du jour et Recherche. Un
+  appui ouvre l'écran concerné (`WidgetRouter`). L'application écrit ce
+  que chacun affiche (`WidgetSyncService`, 14 jours d'avance pour ceux qui
+  changent chaque jour) au démarrage et quand on la quitte, puis demande
+  leur rafraîchissement. Le journal, l'examen et les notes n'affichent
+  jamais leur contenu. Les widgets se déclarent dans
+  `native/android/widgets.json` (4 modèles d'affichage : carte, semaine,
+  liste, raccourcis) ; `generate.py` produit le code natif que la CI copie
+  dans `android/` (`install_widget.sh`, qui saute les widgets plutôt que
+  de faire échouer le build).
 - Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
   Cantiques, Culte du dimanche.
 - Rappel de sauvegarde sur l'accueil si des données personnelles n'ont

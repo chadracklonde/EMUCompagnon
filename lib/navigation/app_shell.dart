@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quick_actions/quick_actions.dart';
 import '../core/services/widget_sync_service.dart';
-import '../features/search/screens/global_search_screen.dart';
-import '../features/worship/screens/worship_screen.dart';
+import 'widget_router.dart';
 import 'package:provider/provider.dart';
 import '../features/home/screens/home_screen.dart';
 import '../features/bible/screens/books_screen.dart';
@@ -29,7 +28,7 @@ class AppShell extends StatefulWidget {
   State<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends State<AppShell> {
+class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   int _index = 0;
 
   /// Tells the home tab it is being shown again, so it reloads its live
@@ -50,8 +49,16 @@ class _AppShellState extends State<AppShell> {
     // The reminder text names the next portion of the reading plan: bring
     // it up to date each time the app starts.
     ReadingReminder.sync();
+    WidgetsBinding.instance.addObserver(this);
     _setUpShortcuts();
     WidgetSyncService.sync();
+  }
+
+  /// Leaving the app is when the home-screen widgets are brought up to date
+  /// with what was just done (chapters read, quiz taken, favourites…).
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) WidgetSyncService.sync();
   }
 
   /// Shortcuts offered by a long press on the app icon (Android and iOS).
@@ -74,19 +81,9 @@ class _AppShellState extends State<AppShell> {
     }
   }
 
-  void _onShortcut(String type) {
+  void _onShortcut(String route) {
     if (!mounted) return;
-    void push(Widget screen) =>
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
-    switch (type) {
-      case 'search':
-        push(const GlobalSearchScreen());
-      case 'hymns':
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        _select(2);
-      case 'worship':
-        push(const WorshipScreen());
-    }
+    WidgetRouter.open(context, route, selectTab: _select);
   }
 
   void _select(int index) {
@@ -96,6 +93,7 @@ class _AppShellState extends State<AppShell> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _homeShown.dispose();
     super.dispose();
   }
