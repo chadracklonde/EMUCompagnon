@@ -4,6 +4,7 @@ import '../../../shared/widgets/app_cards.dart';
 import 'package:provider/provider.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/services/notification_service.dart';
+import '../../reading_plan/services/reading_reminder.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -25,14 +26,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         }
         return;
       }
-      await NotificationService.scheduleDaily(
-        hour: settings.notificationHour,
-        minute: settings.notificationMinute,
-      );
+      await settings.setNotificationsEnabled(true);
+      await ReadingReminder.sync();
     } else {
       await NotificationService.cancelDaily();
+      await settings.setNotificationsEnabled(false);
     }
-    await settings.setNotificationsEnabled(enable);
   }
 
   Future<void> _pickTime(AppSettings settings) async {
@@ -42,9 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
     if (picked == null) return;
     await settings.setNotificationTime(picked.hour, picked.minute);
-    if (settings.notificationsEnabled) {
-      await NotificationService.scheduleDaily(hour: picked.hour, minute: picked.minute);
-    }
+    await ReadingReminder.sync();
   }
 
   @override
@@ -230,7 +227,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text(
-                      "Une notification à l'heure choisie pour vous inviter à votre lecture.",
+                      "Une notification à l'heure choisie, qui annonce la lecture du jour "
+                      'de votre plan.',
                       style: TextStyle(fontSize: 13, color: palette.muted),
                     ),
                     value: settings.notificationsEnabled,

@@ -5,6 +5,7 @@ import '../features/bible/screens/books_screen.dart';
 import '../features/hymns/screens/hymns_screen.dart';
 import '../features/liturgy/screens/liturgy_screen.dart';
 import '../features/more/screens/more_screen.dart';
+import '../features/reading_plan/services/reading_reminder.dart';
 import '../core/settings/app_settings.dart';
 import '../core/l10n/app_strings.dart';
 import '../core/theme/app_theme.dart';
@@ -37,6 +38,14 @@ class _AppShellState extends State<AppShell> {
     const LiturgyScreen(),
     const MoreScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    // The reminder text names the next portion of the reading plan: bring
+    // it up to date each time the app starts.
+    ReadingReminder.sync();
+  }
 
   void _select(int index) {
     setState(() => _index = index);

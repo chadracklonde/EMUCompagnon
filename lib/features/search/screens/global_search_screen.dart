@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../../shared/bible_quick_reference.dart';
+import '../../../shared/bible_reference_parser.dart';
+import '../../bible/repository/bible_repository.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../repository/global_search_repository.dart';
@@ -22,6 +25,8 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
   late final TabController _tabController;
   Timer? _debounce;
   GlobalSearchResults? _results;
+  // Set when what is typed is itself a Bible reference ("Jean 3.16").
+  BibleReferenceMatch? _reference;
   bool _loading = false;
   List<String> _history = [];
 
@@ -42,7 +47,31 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
     super.dispose();
   }
 
+  /// Offers to jump straight to a passage when the query is a reference
+  /// to a chapter that exists.
+  Future<void> _updateReference(String query) async {
+    final match = BibleQuickReference.parse(query);
+    if (match == null) {
+      if (_reference != null) setState(() => _reference = null);
+      return;
+    }
+    final chapters = await BibleRepository().chapterCount(match.book);
+    if (!mounted || _controller.text != query) return;
+    setState(() => _reference = match.chapter <= chapters ? match : null);
+  }
+
+  void _openReference(BibleReferenceMatch match) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ChapterScreen(
+        book: match.book,
+        chapter: match.chapter,
+        highlightVerse: match.verse,
+      ),
+    ));
+  }
+
   void _onChanged(String query) {
+    _updateReference(query);
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 350), () => _search(query));
   }
@@ -67,6 +96,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
 
   void _searchFromHistory(String query) {
     _controller.text = query;
+    _updateReference(query);
     _search(query);
   }
 
@@ -78,6 +108,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
   @override
   Widget build(BuildContext context) {
     final r = _results;
+    final reference = _reference;
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
@@ -85,7 +116,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
           padding: const EdgeInsets.only(right: 16),
           child: AppBarSearchField(
             controller: _controller,
-            hint: "Rechercher dans toute l'app…",
+            hint: 'Mot, cantique ou référence (Jean 3.16)…',
             onChanged: _onChanged,
           ),
         ),
@@ -101,24 +132,50 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
                 ],
               ),
       ),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : r == null
-              ? _HistoryView(
-                  history: _history,
-                  onTap: _searchFromHistory,
-                  onClear: _clearHistory,
-                )
-              : r.isEmpty
-                  ? const EmptyState(icon: Icons.search_off, message: 'Aucun résultat.')
-                  : TabBarView(
-                      controller: _tabController,
-                      children: [
-                        _VerseResults(verses: r.verses),
-                        _HymnResults(hymns: r.hymns),
-                        _DictionaryResults(entries: r.dictionaryEntries),
-                      ],
-                    ),
+      body: Column(
+        children: [
+          if (reference != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
+              child: AppCard(
+                child: AppRow(
+                  icon: Icons.menu_book_outlined,
+                  title: 'Aller à ${reference.book} ${reference.chapter}'
+                      '${reference.verse == null ? '' : '.${reference.verse}'}',
+                  subtitle: 'Ouvrir ce passage de la Bible',
+                  onTap: () => _openReference(reference),
+                ),
+              ),
+            ),
+          Expanded(
+            child: _loading
+                ? const Center(child: CircularProgressIndicator())
+                : r == null
+                    ? _HistoryView(
+                        history: _history,
+                        onTap: _searchFromHistory,
+                        onClear: _clearHistory,
+                      )
+                    : r.isEmpty
+                        // A reference rarely matches as plain text: the card
+                        // above is the answer, so no "no result" message.
+                        ? (reference != null
+                            ? const SizedBox.shrink()
+                            : const EmptyState(
+                                icon: Icons.search_off,
+                                message: 'Aucun résultat.',
+                              ))
+                        : TabBarView(
+                            controller: _tabController,
+                            children: [
+                              _VerseResults(verses: r.verses),
+                              _HymnResults(hymns: r.hymns),
+                              _DictionaryResults(entries: r.dictionaryEntries),
+                            ],
+                          ),
+          ),
+        ],
+      ),
     );
   }
 }

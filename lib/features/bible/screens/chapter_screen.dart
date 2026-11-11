@@ -17,15 +17,18 @@ import '../../../core/services/reading_history_service.dart';
 import '../../memorization/repository/memory_card_repository.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../reading_plan/services/reading_plan_service.dart';
 
 class ChapterScreen extends StatefulWidget {
   final String book;
   final int chapter;
   final String version;
+
   /// If set, the screen scrolls to and briefly flashes this verse on
   /// open — used when arriving from a tapped Bible-reference link. This
   /// is a temporary visual cue, distinct from a persistent color highlight.
   final int? highlightVerse;
+
   /// False when embedded as the detail pane of a wide-screen master-detail
   /// layout — no back button needed there.
   final bool showBackButton;
@@ -57,6 +60,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
   bool _loading = true;
   late int _chapter;
   int? _chapterCount;
+  // Position of this chapter in the reading plan, and whether it is read.
+  int? _planIndex;
+  bool _isRead = false;
   int? _flashedVerseNumber;
 
   @override
@@ -81,6 +87,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final highlightColors = await _highlightRepo.getAllColorsFor(BookmarkType.verse);
     final chapterCount =
         _chapterCount ?? await _repo.chapterCount(widget.book, version: widget.version);
+    int? planIndex;
+    var isRead = false;
+    try {
+      planIndex = await ReadingPlanService.indexOf(widget.book, _chapter);
+      if (planIndex != null) {
+        isRead = (await ReadingPlanService.getCompleted()).contains(planIndex);
+      }
+    } catch (_) {
+      // The "read" button is a convenience: reading works without it.
+    }
     _verseKeys
       ..clear()
       ..addEntries(verses.map((v) => MapEntry(v.verse, GlobalKey())));
@@ -88,12 +104,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
     if (mounted) {
       setState(() {
         _verses = verses;
-        _bookmarkedVerseIds = verses
-            .where((v) => bookmarkedIds.contains(v.id))
-            .map((v) => v.id)
-            .toSet();
+        _bookmarkedVerseIds =
+            verses.where((v) => bookmarkedIds.contains(v.id)).map((v) => v.id).toSet();
         _highlightColors = highlightColors;
         _chapterCount = chapterCount;
+        _planIndex = planIndex;
+        _isRead = isRead;
         _loading = false;
       });
       if (_flashedVerseNumber != null) {
@@ -102,20 +118,46 @@ class _ChapterScreenState extends State<ChapterScreen> {
     }
   }
 
-  void _scrollToFlashed() {
-    final key = _verseKeys[_flashedVerseNumber];
-    final ctx = key?.currentContext;
+  /// Brings the verse to highlight into view.
+  ///
+  /// The list builds its verses lazily, so a verse far down the chapter
+  /// has no widget yet and cannot be scrolled to directly: step towards
+  /// it a screen at a time until it exists, then settle on it.
+  void _scrollToFlashed({int attempt = 0}) {
+    if (!mounted) return;
+    final target = _flashedVerseNumber;
+    if (target == null) return;
+    if (attempt == 0) {
+      Timer(const Duration(seconds: 4), () {
+        if (mounted) setState(() => _flashedVerseNumber = null);
+      });
+    }
+
+    final ctx = _verseKeys[target]?.currentContext;
     if (ctx != null) {
       Scrollable.ensureVisible(
         ctx,
-        duration: const Duration(milliseconds: 400),
+        duration: Duration(milliseconds: attempt == 0 ? 400 : 200),
         curve: Curves.easeInOut,
         alignment: 0.3,
       );
+      return;
     }
-    Timer(const Duration(seconds: 3), () {
-      if (mounted) setState(() => _flashedVerseNumber = null);
-    });
+    if (attempt >= 60 || !_scrollController.hasClients) return;
+
+    // Which verses exist right now tells us which way to go.
+    final built = _verseKeys.entries
+        .where((e) => e.value.currentContext != null)
+        .map((e) => e.key)
+        .toList();
+    final position = _scrollController.position;
+    final forward = built.isEmpty || target > built.reduce((a, b) => a > b ? a : b);
+    final step = position.viewportDimension * 0.9;
+    final next = (position.pixels + (forward ? step : -step))
+        .clamp(position.minScrollExtent, position.maxScrollExtent);
+    if (next == position.pixels) return; // nowhere left to go
+    _scrollController.jumpTo(next);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToFlashed(attempt: attempt + 1));
   }
 
   Future<void> _toggleBookmark(Verse v) async {
@@ -202,9 +244,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 _bookmarkedVerseIds.contains(v.id) ? Icons.star : Icons.star_outline,
               ),
               title: Text(
-                _bookmarkedVerseIds.contains(v.id)
-                    ? 'Retirer des favoris'
-                    : 'Ajouter aux favoris',
+                _bookmarkedVerseIds.contains(v.id) ? 'Retirer des favoris' : 'Ajouter aux favoris',
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -255,6 +295,26 @@ class _ChapterScreenState extends State<ChapterScreen> {
         ),
       ),
     );
+  }
+
+  /// Ticks (or unticks) this chapter in the reading plan.
+  Future<void> _toggleRead() async {
+    final index = _planIndex;
+    if (index == null) return;
+    final nowRead = !_isRead;
+    await ReadingPlanService.setChapterRead(index, nowRead);
+    if (!mounted) return;
+    setState(() => _isRead = nowRead);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        duration: const Duration(seconds: 2),
+        content: Text(
+          nowRead
+              ? '${widget.book} $_chapter marqué comme lu dans le plan de lecture.'
+              : '${widget.book} $_chapter n\'est plus marqué comme lu.',
+        ),
+      ));
   }
 
   Future<void> _goToChapter(int delta) async {
@@ -323,6 +383,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   itemBuilder: (context, index) {
                     if (index == _verses.length) {
                       return _ChapterNav(
+                        isRead: _isRead,
+                        onToggleRead: _planIndex == null ? null : _toggleRead,
                         onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
                         onNext: hasNext ? () => _goToChapter(1) : null,
                       );
@@ -343,9 +405,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
                     } else {
                       backgroundColor = Colors.transparent;
                     }
-                    final textColor = highlightHex != null && !isFlashed
-                        ? Colors.black87
-                        : scheme.onSurface;
+                    final textColor =
+                        highlightHex != null && !isFlashed ? Colors.black87 : scheme.onSurface;
 
                     return AnimatedContainer(
                       key: _verseKeys[v.verse],
@@ -365,50 +426,50 @@ class _ChapterScreenState extends State<ChapterScreen> {
                           onTapHint: 'ouvrir les actions du verset',
                           onLongPressHint: 'copier le verset',
                           child: InkWell(
-                          borderRadius: BorderRadius.circular(10),
-                          onTap: () => _showVerseActions(v),
-                          onLongPress: () => _copyVerse(v),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                            child: Text.rich(
-                              TextSpan(
-                                style: TextStyle(
-                                  fontSize: 17.5,
-                                  height: 1.6 * lineHeightScale,
-                                  color: textColor,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: '${v.verse}\u00A0\u00A0',
-                                    style: TextStyle(
-                                      fontSize: 12.5,
-                                      fontWeight: FontWeight.w700,
-                                      color: highlightHex != null && !isFlashed
-                                          ? Colors.black87
-                                          : palette.accent,
-                                    ),
+                            borderRadius: BorderRadius.circular(10),
+                            onTap: () => _showVerseActions(v),
+                            onLongPress: () => _copyVerse(v),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                              child: Text.rich(
+                                TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 17.5,
+                                    height: 1.6 * lineHeightScale,
+                                    color: textColor,
                                   ),
-                                  TextSpan(text: v.text),
-                                  if (isBookmarked)
-                                    WidgetSpan(
-                                      alignment: PlaceholderAlignment.middle,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 6),
-                                        child: Icon(
-                                          Icons.star,
-                                          size: 16,
-                                          color: highlightHex != null && !isFlashed
-                                              ? Colors.black87
-                                              : palette.accent,
-                                          semanticLabel: 'Favori',
-                                        ),
+                                  children: [
+                                    TextSpan(
+                                      text: '${v.verse}\u00A0\u00A0',
+                                      style: TextStyle(
+                                        fontSize: 12.5,
+                                        fontWeight: FontWeight.w700,
+                                        color: highlightHex != null && !isFlashed
+                                            ? Colors.black87
+                                            : palette.accent,
                                       ),
                                     ),
-                                ],
+                                    TextSpan(text: v.text),
+                                    if (isBookmarked)
+                                      WidgetSpan(
+                                        alignment: PlaceholderAlignment.middle,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 6),
+                                          child: Icon(
+                                            Icons.star,
+                                            size: 16,
+                                            color: highlightHex != null && !isFlashed
+                                                ? Colors.black87
+                                                : palette.accent,
+                                            semanticLabel: 'Favori',
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
                         ),
                       ),
                     );
@@ -420,37 +481,72 @@ class _ChapterScreenState extends State<ChapterScreen> {
   }
 }
 
-/// Previous / next chapter buttons shown after the last verse, so the
-/// reader does not have to reach back up to the app bar.
+/// Shown after the last verse: mark the chapter as read in the reading
+/// plan, then previous / next chapter — so the reader never has to leave
+/// the text to keep their plan up to date.
 class _ChapterNav extends StatelessWidget {
+  final bool isRead;
+
+  /// Null when the chapter is not part of the plan (button hidden).
+  final VoidCallback? onToggleRead;
   final VoidCallback? onPrevious;
   final VoidCallback? onNext;
-  const _ChapterNav({required this.onPrevious, required this.onNext});
+  const _ChapterNav({
+    required this.isRead,
+    required this.onToggleRead,
+    required this.onPrevious,
+    required this.onNext,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 24, 8, 0),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: OutlinedButton.icon(
-              onPressed: onPrevious,
-              icon: const Icon(Icons.chevron_left),
-              label: const Text('Précédent'),
+          if (onToggleRead != null) ...[
+            SizedBox(
+              width: double.infinity,
+              child: isRead
+                  ? OutlinedButton.icon(
+                      onPressed: onToggleRead,
+                      icon: const Icon(Icons.check_circle),
+                      label: const Text('Chapitre lu'),
+                    )
+                  : FilledButton.tonalIcon(
+                      onPressed: onToggleRead,
+                      icon: const Icon(Icons.check_circle_outline),
+                      label: const Text('Marquer comme lu'),
+                    ),
             ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: FilledButton.icon(
-              onPressed: onNext,
-              iconAlignment: IconAlignment.end,
-              icon: const Icon(Icons.chevron_right),
-              label: const Text('Suivant'),
-            ),
-          ),
+            const SizedBox(height: 12),
+          ],
+          _buildArrows(),
         ],
       ),
+    );
+  }
+
+  Widget _buildArrows() {
+    return Row(
+      children: [
+        Expanded(
+          child: OutlinedButton.icon(
+            onPressed: onPrevious,
+            icon: const Icon(Icons.chevron_left),
+            label: const Text('Précédent'),
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: FilledButton.icon(
+            onPressed: onNext,
+            iconAlignment: IconAlignment.end,
+            icon: const Icon(Icons.chevron_right),
+            label: const Text('Suivant'),
+          ),
+        ),
+      ],
     );
   }
 }

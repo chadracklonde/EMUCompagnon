@@ -1,6 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/database/db_helper.dart';
 import 'reading_plan_builder.dart';
+import 'reading_reminder.dart';
 
 export 'reading_plan_builder.dart';
 
@@ -129,12 +130,23 @@ class ReadingPlanService {
     final completed = _decode(prefs.getString(_kCompletedIndices));
     await prefs.setInt(_kDurationDays, days);
     await prefs.setString(_kBaselineIndices, completed.join(','));
+    await ReadingReminder.sync();
+  }
+
+  /// Position of [book] [chapter] in the whole Bible, or null if unknown.
+  static Future<int?> indexOf(String book, int chapter) async {
+    final chapters = await getChapters();
+    for (final c in chapters) {
+      if (c.book == book && c.chapter == chapter) return c.index;
+    }
+    return null;
   }
 
   static Future<void> setChapterRead(int index, bool read) async {
     final completed = await getCompleted();
     read ? completed.add(index) : completed.remove(index);
     await _saveCompleted(completed);
+    await ReadingReminder.sync();
   }
 
   static Future<void> setDayRead(ReadingDay day, bool read) async {
@@ -142,6 +154,7 @@ class ReadingPlanService {
     final indices = day.chapters.map((c) => c.index);
     read ? completed.addAll(indices) : completed.removeAll(indices);
     await _saveCompleted(completed);
+    await ReadingReminder.sync();
   }
 
   /// Clears all progress. The chosen duration is kept and now applies to
@@ -150,5 +163,6 @@ class ReadingPlanService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_kCompletedIndices);
     await prefs.remove(_kBaselineIndices);
+    await ReadingReminder.sync();
   }
 }

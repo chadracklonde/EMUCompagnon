@@ -63,6 +63,8 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
   Future<void> _openDay(ReadingDay day) async {
     if (day.chapters.length == 1) {
       await _openChapter(day.chapters.first);
+      // The chapter may have been marked as read from its last line.
+      await _load();
       return;
     }
     await showModalBottomSheet<void>(

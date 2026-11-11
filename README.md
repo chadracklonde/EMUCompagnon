@@ -39,6 +39,14 @@ et en coupant toujours en fin de chapitre (`ReadingPlanBuilder.split`).
 Changer de durée conserve ce qui est déjà lu et ne répartit que le reste.
 Sans choix, le plan reste d'un chapitre par jour (1 189 jours).
 
+Trois raccourcis accompagnent la lecture :
+- en fin de chapitre, « Marquer comme lu » coche le chapitre dans le plan ;
+- dans la recherche, taper une référence (« Jean 3.16 », « jn 3 16 »,
+  « ps 23 ») propose d'ouvrir directement le passage
+  (`BibleQuickReference`) ;
+- le rappel quotidien annonce la lecture du jour du plan (`ReadingReminder`),
+  mise à jour à chaque ouverture de l'application.
+
 La barre du bas compte 5 onglets : Accueil, Bible, Cantiques, Liturgie,
 Plus. Dictionnaire, Favoris, recherche, vie spirituelle, Réglages,
 Sauvegarde, Mises à jour du contenu, tutoriel et À propos sont sous **Plus**.
