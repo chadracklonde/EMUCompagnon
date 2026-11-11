@@ -182,8 +182,11 @@ Flutter (suffisant pour des tests entre proches, pas pour le Play Store —
 voir la section signature plus bas si besoin).
 
 ## Icône de l'application
-Le logo (croix et flamme, sur fond bordeaux #731932) est déjà dans
-`assets/icons/` et configuré dans `pubspec.yaml` via `flutter_launcher_icons`.
+Le logo (Bible ouverte, flamme et croix, sur fond bordeaux #762021) est dans
+`assets/icons/` : `app_icon.png` (icône complète) et `app_icon_foreground.png`
+(symbole seul sur fond transparent, pour les icônes adaptatives Android). Il
+est configuré dans `icons-android.yaml`, `icons-windows.yaml` et
+`icons-macos.yaml` via `flutter_launcher_icons`.
 Pour générer les icônes natives iOS/Android à partir de ce fichier unique :
 ```
 flutter pub get
