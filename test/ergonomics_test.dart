@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:emu_compagnon/core/models/verse.dart';
+import 'package:emu_compagnon/core/services/widget_sync_service.dart';
 import 'package:emu_compagnon/features/backup/services/backup_service.dart';
 import 'package:emu_compagnon/features/church_texts/data/church_texts_data.dart';
 import 'package:emu_compagnon/features/church_texts/models/church_text.dart';
@@ -10,7 +14,8 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('one section of a text', () {
     const text = ChurchTextsData.articlesOfReligion;
-    final second = text.blocks.indexWhere((b) => b.text.startsWith('Article II '));
+    final second =
+        text.blocks.indexWhere((b) => b.text.startsWith('Article II '));
 
     test('a paragraph belongs to the article above it', () {
       expect(text.sectionTitleOf(second + 1), text.blocks[second].text);
@@ -70,7 +75,8 @@ void main() {
 
   test('the mission quotes are tappable references', () {
     final refs = [
-      for (final b in ChurchTextsData.mission.blocks) ...BibleReferenceParser.findAll(b.text),
+      for (final b in ChurchTextsData.mission.blocks)
+        ...BibleReferenceParser.findAll(b.text),
     ];
     expect(refs.map((r) => '${r.book} ${r.chapter}.${r.verse}'),
         containsAll(['Matthieu 28.19', 'Matthieu 22.37']));
@@ -78,10 +84,14 @@ void main() {
 
   test('the service day is today on a Sunday, else the coming Sunday', () {
     // 8 November 2026 is a Sunday.
-    expect(WorshipService.serviceDay(DateTime(2026, 11, 8, 9)), DateTime(2026, 11, 8));
-    expect(WorshipService.serviceDay(DateTime(2026, 11, 9)), DateTime(2026, 11, 15));
-    expect(WorshipService.serviceDay(DateTime(2026, 11, 14, 23)), DateTime(2026, 11, 15));
-    expect(WorshipService.serviceDay(DateTime(2026, 12, 28)), DateTime(2027, 1, 3));
+    expect(WorshipService.serviceDay(DateTime(2026, 11, 8, 9)),
+        DateTime(2026, 11, 8));
+    expect(WorshipService.serviceDay(DateTime(2026, 11, 9)),
+        DateTime(2026, 11, 15));
+    expect(WorshipService.serviceDay(DateTime(2026, 11, 14, 23)),
+        DateTime(2026, 11, 15));
+    expect(WorshipService.serviceDay(DateTime(2026, 12, 28)),
+        DateTime(2027, 1, 3));
   });
 
   test('pinned texts merge without duplicates', () {
@@ -98,19 +108,41 @@ void main() {
     });
     test('not after a recent export or a recent "later"', () {
       expect(
-        BackupService.reminderDue(itemCount: 3, now: now, lastExport: DateTime(2026, 11, 1)),
+        BackupService.reminderDue(
+            itemCount: 3, now: now, lastExport: DateTime(2026, 11, 1)),
         isFalse,
       );
       expect(
-        BackupService.reminderDue(itemCount: 3, now: now, snoozedAt: DateTime(2026, 10, 20)),
+        BackupService.reminderDue(
+            itemCount: 3, now: now, snoozedAt: DateTime(2026, 10, 20)),
         isFalse,
       );
     });
     test('due again a month after the last export', () {
       expect(
-        BackupService.reminderDue(itemCount: 3, now: now, lastExport: DateTime(2026, 9, 1)),
+        BackupService.reminderDue(
+            itemCount: 3, now: now, lastExport: DateTime(2026, 9, 1)),
         isTrue,
       );
+    });
+  });
+
+  group('widget data', () {
+    test('one entry per day, keyed by date', () {
+      final json = jsonDecode(WidgetSyncService.encode({
+        DateTime(2026, 11, 9): Verse(
+          id: 1,
+          version: 'LSG1910',
+          book: 'Jean',
+          bookNum: 43,
+          chapter: 3,
+          verse: 16,
+          text: '  Car Dieu a tant aimé le monde. ',
+        ),
+      })) as Map<String, dynamic>;
+      expect(json.keys, ['2026-11-09']);
+      expect(json['2026-11-09'],
+          {'t': 'Car Dieu a tant aimé le monde.', 'r': 'Jean 3.16'});
     });
   });
 }

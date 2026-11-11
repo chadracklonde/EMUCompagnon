@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quick_actions/quick_actions.dart';
+import '../core/services/widget_sync_service.dart';
 import '../features/search/screens/global_search_screen.dart';
 import '../features/worship/screens/worship_screen.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +51,7 @@ class _AppShellState extends State<AppShell> {
     // it up to date each time the app starts.
     ReadingReminder.sync();
     _setUpShortcuts();
+    WidgetSyncService.sync();
   }
 
   /// Shortcuts offered by a long press on the app icon (Android and iOS).

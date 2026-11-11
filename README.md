@@ -113,6 +113,12 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
 - « Culte du dimanche » (accueil et onglet Liturgie) : le dimanche
   concerné, sa saison, la liste de cantiques choisie, les prières dites
   ensemble et le déroulement du culte sur un seul écran.
+- Widget Android « Verset du jour » : l'application écrit à l'avance les
+  versets des 14 prochains jours (`WidgetSyncService`) et le widget
+  affiche celui du jour ; un appui ouvre l'application. Les fichiers
+  natifs sont dans `native/android/`, copiés dans `android/` par la CI
+  (`install_widget.sh`, qui saute le widget plutôt que de faire échouer
+  le build).
 - Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
   Cantiques, Culte du dimanche.
 - Rappel de sauvegarde sur l'accueil si des données personnelles n'ont

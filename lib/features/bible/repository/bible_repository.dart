@@ -34,7 +34,7 @@ class BibleRepository {
 
   /// Picks a deterministic "verse of the day" — same verse all day, changes
   /// daily, cycles through the whole Bible over the course of a few years.
-  Future<Verse?> getVerseOfTheDay({String version = _defaultVersion}) async {
+  Future<Verse?> getVerseOfTheDay({String version = _defaultVersion, DateTime? date}) async {
     final db = await DbHelper.database;
     final countResult = await db.rawQuery(
       'SELECT COUNT(*) as c FROM bible_verses WHERE version = ?',
@@ -42,8 +42,10 @@ class BibleRepository {
     );
     final total = (countResult.first['c'] as int?) ?? 0;
     if (total == 0) return null;
-    final now = DateTime.now();
-    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+    final now = date ?? DateTime.now();
+    final dayOfYear = DateTime(now.year, now.month, now.day)
+        .difference(DateTime(now.year, 1, 1))
+        .inDays;
     final offset = dayOfYear % total;
     final rows = await db.query(
       'bible_verses',
