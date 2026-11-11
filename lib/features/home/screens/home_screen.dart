@@ -27,6 +27,14 @@ import '../../reading_plan/services/reading_plan_service.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../settings/screens/settings_screen.dart';
 import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
+import '../../church_texts/data/church_texts_data.dart';
+import '../../church_texts/models/church_text.dart';
+import '../../church_texts/screens/church_text_screen.dart';
+import '../../church_texts/screens/church_texts_screen.dart';
+import '../../church_texts/services/church_text_prefs.dart';
+import '../../worship/screens/worship_screen.dart';
+import '../../backup/screens/backup_screen.dart';
+import '../../backup/services/backup_service.dart';
 
 /// Home tab, "clair et aéré" look: greeting and date, search, the verse of
 /// the day as the one filled burgundy card, then plain bordered tiles.
@@ -55,6 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   ReadingPlan? _plan;
   DailyQuizResult? _quizResult;
+
+  /// Prayers and texts pinned from their reading page.
+  List<ChurchText> _pinnedTexts = [];
+
+  /// Personal data exists and has not been exported for a month.
+  bool _backupDue = false;
 
   @override
   void initState() {
@@ -133,6 +147,15 @@ class _HomeScreenState extends State<HomeScreen> {
       final plan = await ReadingPlanService.getPlan();
       if (mounted) setState(() => _plan = plan);
     } catch (_) {}
+    final backupDue = await BackupService().shouldRemind();
+    if (mounted) setState(() => _backupDue = backupDue);
+    final pinned = await ChurchTextPrefs.pinned();
+    if (mounted) {
+      setState(() => _pinnedTexts = [
+            for (final id in pinned)
+              if (ChurchTextsData.byId(id) != null) ChurchTextsData.byId(id)!,
+          ]);
+    }
   }
 
   Future<void> _open(Widget screen) async {
@@ -250,6 +273,52 @@ class _HomeScreenState extends State<HomeScreen> {
                           text: verse.text,
                         ),
               ),
+              if (_backupDue) ...[
+                const SizedBox(height: 16),
+                AppCard(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 14, 8, 6),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Pensez à sauvegarder vos données',
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(height: 4),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Text(
+                            'Vos notes, favoris et surlignages ne sont enregistrés que '
+                            'sur ce téléphone. Exportez-les pour ne pas les perdre.',
+                            style: TextStyle(
+                              fontSize: 13.5,
+                              height: 1.4,
+                              color: AppPalette.of(context).muted,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () async {
+                                setState(() => _backupDue = false);
+                                await BackupService.snoozeReminder();
+                              },
+                              child: const Text('Plus tard'),
+                            ),
+                            TextButton(
+                              onPressed: () => _open(const BackupScreen()),
+                              child: const Text('Sauvegarder'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
               const SizedBox(height: 24),
               SectionTitle(t('section_read_sing')),
               IntrinsicHeight(
@@ -306,6 +375,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              const SizedBox(height: 12),
+              AppCard(
+                child: AppRow(
+                  icon: Icons.church_outlined,
+                  title: t('worship_sunday'),
+                  subtitle: t('worship_sunday_subtitle'),
+                  onTap: () => _open(const WorshipScreen()),
+                ),
+              ),
+              const SizedBox(height: 24),
+              SectionTitle(t('prayers_texts')),
+              AppRowGroup(rows: [
+                for (final text in _pinnedTexts)
+                  AppRow(
+                    icon: churchTextIcon(text.icon),
+                    title: text.title,
+                    subtitle: text.subtitle,
+                    onTap: () => _open(ChurchTextScreen(text: text)),
+                  ),
+                AppRow(
+                  icon: Icons.auto_stories_outlined,
+                  title: _pinnedTexts.isEmpty ? t('prayers_texts') : t('prayers_texts_all'),
+                  subtitle: _pinnedTexts.isEmpty
+                      ? 'Notre Père, Credo social, Articles de religion…'
+                      : null,
+                  onTap: () => _open(const ChurchTextsScreen()),
+                ),
+              ]),
               const SizedBox(height: 24),
               SectionTitle(t('section_today')),
               AppCard(

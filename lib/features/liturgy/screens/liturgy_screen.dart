@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../worship/screens/worship_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../core/l10n/app_strings.dart';
 import '../../../core/settings/app_settings.dart';
@@ -33,6 +34,15 @@ class LiturgyScreen extends StatelessWidget {
             SeasonCard(
               instance: current,
               onTap: () => open(LiturgicalPeriodDetailScreen(instance: current)),
+            ),
+            const SizedBox(height: 12),
+            AppCard(
+              child: AppRow(
+                icon: Icons.church_outlined,
+                title: 'Culte du dimanche',
+                subtitle: 'Cantiques, prières et déroulement du culte',
+                onTap: () => open(const WorshipScreen()),
+              ),
             ),
             const SizedBox(height: 24),
             const SectionTitle('Explorer'),

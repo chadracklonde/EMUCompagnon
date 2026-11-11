@@ -5,9 +5,18 @@ import '../../../shared/bible_reference_parser.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
+import '../repository/content_search.dart';
 import '../repository/global_search_repository.dart';
+import '../../church_texts/data/church_texts_data.dart';
+import '../../church_texts/screens/church_text_screen.dart';
+import '../../liturgy/data/sacraments_data.dart';
+import '../../liturgy/screens/liturgical_calendar_screen.dart';
+import '../../liturgy/screens/liturgical_period_detail_screen.dart';
+import '../../liturgy/screens/sacraments_screen.dart';
+import '../../liturgy/screens/worship_order_screen.dart';
+import '../../liturgy/services/liturgical_calendar_service.dart';
 import '../../bible/screens/chapter_screen.dart';
-import '../../hymns/screens/hymn_detail_screen.dart';
+import '../../hymns/screens/hymn_pager_screen.dart';
 import '../../dictionary/screens/dictionary_detail_screen.dart';
 import '../../../core/services/search_history_service.dart';
 
@@ -33,7 +42,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
     SearchHistoryService.get().then((h) {
       if (mounted) setState(() => _history = h);
     });
@@ -125,10 +134,13 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
             ? null
             : TabBar(
                 controller: _tabController,
+                isScrollable: true,
+                tabAlignment: TabAlignment.start,
                 tabs: [
                   Tab(text: 'Bible (${r.verses.length})'),
                   Tab(text: 'Cantiques (${r.hymns.length})'),
                   Tab(text: 'Dictionnaire (${r.dictionaryEntries.length})'),
+                  Tab(text: 'Liturgie et textes (${r.texts.length})'),
                 ],
               ),
       ),
@@ -171,6 +183,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
                               _VerseResults(verses: r.verses),
                               _HymnResults(hymns: r.hymns),
                               _DictionaryResults(entries: r.dictionaryEntries),
+                              _TextResults(hits: r.texts),
                             ],
                           ),
           ),
@@ -191,7 +204,7 @@ class _HistoryView extends StatelessWidget {
     if (history.isEmpty) {
       return const EmptyState(
         icon: Icons.search,
-        message: 'Tapez un mot pour chercher dans la Bible, les cantiques et le dictionnaire.',
+        message: 'Tapez un mot pour chercher dans la Bible, les cantiques, le dictionnaire, la liturgie et les textes de l\'Église.',
       );
     }
     return SingleChildScrollView(
@@ -275,7 +288,7 @@ class _HymnResults extends StatelessWidget {
           leading: NumberBadge(h.number),
           title: h.title,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => HymnDetailScreen(hymn: h),
+            builder: (_) => HymnPagerScreen(hymn: h),
           )),
         );
       },
@@ -303,6 +316,55 @@ class _DictionaryResults extends StatelessWidget {
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => DictionaryDetailScreen(entry: e),
           )),
+        );
+      },
+    );
+  }
+}
+
+class _TextResults extends StatelessWidget {
+  final List<ContentHit> hits;
+  const _TextResults({required this.hits});
+
+  Widget _screenFor(ContentHit hit) {
+    switch (hit.kind) {
+      case ContentHitKind.churchText:
+        final text = ChurchTextsData.byId(hit.id!)!;
+        return ChurchTextScreen(text: text, initialHeading: hit.headingIndex);
+      case ContentHitKind.worshipOrder:
+        return const WorshipOrderScreen();
+      case ContentHitKind.sacrament:
+        return SacramentDetailScreen(sacrament: SacramentsData.byId(hit.id!));
+      case ContentHitKind.liturgicalPeriod:
+        final year = LiturgicalCalendarService.churchYearStartFor(DateTime.now());
+        for (final instance in LiturgicalCalendarService.periodsForChurchYear(year)) {
+          if (instance.period.id == hit.id) {
+            return LiturgicalPeriodDetailScreen(instance: instance);
+          }
+        }
+        return const LiturgicalCalendarScreen();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (hits.isEmpty) {
+      return const EmptyState(
+        icon: Icons.auto_stories_outlined,
+        message: 'Rien trouvé dans la liturgie ni dans les textes.',
+      );
+    }
+    return _resultList(
+      count: hits.length,
+      itemBuilder: (context, i) {
+        final hit = hits[i];
+        return ResultRow(
+          title: hit.title,
+          subtitle: '${hit.location} — ${hit.excerpt}',
+          subtitleMaxLines: 2,
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => _screenFor(hit)),
+          ),
         );
       },
     );

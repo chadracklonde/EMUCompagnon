@@ -20,6 +20,13 @@ class ChurchTextsData {
     ChurchTextGroup('Vivre en disciple', [generalRules, membershipVows, mission]),
   ];
 
+  static ChurchText? byId(String id) {
+    for (final t in all) {
+      if (t.id == id) return t;
+    }
+    return null;
+  }
+
   static List<ChurchText> get all => [for (final g in groups) ...g.texts];
 
   static const lordsPrayer = ChurchText(
@@ -1006,9 +1013,9 @@ class ChurchTextsData {
         'l\'Église sa mission : « Allez, faites de toutes les nations des '
         'disciples, les baptisant au nom du Père, du Fils et du Saint '
         'Esprit, et enseignez-leur à observer tout ce que je vous ai '
-        'prescrit » (28.19-20), et « Tu aimeras le Seigneur, ton Dieu, de '
+        'prescrit » (Matthieu 28.19-20), et « Tu aimeras le Seigneur, ton Dieu, de '
         'tout ton cœur, de toute ton âme, et de toute ta pensée. […] Tu '
-        'aimeras ton prochain comme toi-même » (22.37, 39).',
+        'aimeras ton prochain comme toi-même » (Matthieu 22.37, 39).',
       ),
       TextBlock.p(
         'Cette mission est notre réponse, portée par la grâce, au règne '

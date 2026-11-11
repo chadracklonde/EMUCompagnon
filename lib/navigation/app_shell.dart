@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:quick_actions/quick_actions.dart';
+import '../features/search/screens/global_search_screen.dart';
+import '../features/worship/screens/worship_screen.dart';
 import 'package:provider/provider.dart';
 import '../features/home/screens/home_screen.dart';
 import '../features/bible/screens/books_screen.dart';
@@ -45,6 +49,42 @@ class _AppShellState extends State<AppShell> {
     // The reminder text names the next portion of the reading plan: bring
     // it up to date each time the app starts.
     ReadingReminder.sync();
+    _setUpShortcuts();
+  }
+
+  /// Shortcuts offered by a long press on the app icon (Android and iOS).
+  Future<void> _setUpShortcuts() async {
+    if (kIsWeb ||
+        (defaultTargetPlatform != TargetPlatform.android &&
+            defaultTargetPlatform != TargetPlatform.iOS)) {
+      return;
+    }
+    try {
+      const actions = QuickActions();
+      await actions.initialize(_onShortcut);
+      await actions.setShortcutItems(const [
+        ShortcutItem(type: 'search', localizedTitle: 'Rechercher'),
+        ShortcutItem(type: 'hymns', localizedTitle: 'Cantiques'),
+        ShortcutItem(type: 'worship', localizedTitle: 'Culte du dimanche'),
+      ]);
+    } catch (_) {
+      // Shortcuts are a convenience: the app works the same without them.
+    }
+  }
+
+  void _onShortcut(String type) {
+    if (!mounted) return;
+    void push(Widget screen) =>
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+    switch (type) {
+      case 'search':
+        push(const GlobalSearchScreen());
+      case 'hymns':
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        _select(2);
+      case 'worship':
+        push(const WorshipScreen());
+    }
   }
 
   void _select(int index) {

@@ -63,6 +63,52 @@ class ChurchText {
           if (b.kind == TextBlockKind.heading) b.text,
       ];
 
+  /// The blocks of the section [blockIndex] belongs to: from the heading
+  /// above it to the next heading. A text without headings is one section.
+  List<TextBlock> sectionOf(int blockIndex) {
+    var start = blockIndex;
+    while (start > 0 && blocks[start].kind != TextBlockKind.heading) {
+      start--;
+    }
+    var end = blockIndex + 1;
+    while (end < blocks.length && blocks[end].kind != TextBlockKind.heading) {
+      end++;
+    }
+    return blocks.sublist(start, end);
+  }
+
+  /// Title of the section [blockIndex] belongs to, or null before the
+  /// first heading.
+  String? sectionTitleOf(int blockIndex) {
+    final first = sectionOf(blockIndex).first;
+    return first.kind == TextBlockKind.heading ? first.text : null;
+  }
+
+  /// One section as plain lines, for sharing a single article.
+  String sectionPlainText(int blockIndex) {
+    final buffer = StringBuffer();
+    for (final b in sectionOf(blockIndex)) {
+      buffer.writeln(_plainLine(b));
+      if (b.kind == TextBlockKind.heading) buffer.writeln();
+    }
+    buffer
+      ..writeln()
+      ..writeln('— $title')
+      ..writeln()
+      ..write('ÉMU Compagnon');
+    return buffer.toString();
+  }
+
+  static String _plainLine(TextBlock b) => switch (b.kind) {
+        TextBlockKind.item => '• ${b.text}',
+        TextBlockKind.note => '(${b.text})',
+        _ => b.text,
+      };
+
+  /// Everything a search looks into, as one string.
+  String get searchableText =>
+      [title, subtitle, for (final b in blocks) b.text].join('\n');
+
   /// The text as plain lines, for sharing.
   String toPlainText() {
     final buffer = StringBuffer()

@@ -215,6 +215,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ]),
+            const SizedBox(height: 10),
+            AppCard(
+              child: SwitchListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                title: const Text(
+                  "Garder l'écran allumé",
+                  style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(
+                  "Le téléphone ne se met pas en veille pendant la lecture d'un "
+                  "cantique, d'un chapitre ou d'une liturgie.",
+                  style: TextStyle(fontSize: 13, color: palette.muted),
+                ),
+                value: settings.keepScreenOn,
+                onChanged: settings.setKeepScreenOn,
+              ),
+            ),
             const SizedBox(height: 24),
             const SectionTitle('Rappel quotidien'),
             AppCard(

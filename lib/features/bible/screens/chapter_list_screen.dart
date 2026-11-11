@@ -123,6 +123,7 @@ class _ChapterTile extends StatelessWidget {
         child: Center(
           child: Text(
             '$chapter',
+            semanticsLabel: 'Chapitre $chapter',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,

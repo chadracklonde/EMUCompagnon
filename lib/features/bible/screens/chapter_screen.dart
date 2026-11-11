@@ -1,3 +1,4 @@
+import '../../../shared/widgets/keep_awake.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -352,7 +353,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final hasPrevious = _chapter > 1;
     final hasNext = _chapterCount != null && _chapter < _chapterCount!;
 
-    return Scaffold(
+    return KeepAwake(child: Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: widget.showBackButton,
         title: Text('${widget.book} $_chapter'),
@@ -489,7 +490,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 ),
               ),
             ),
-    );
+    ));
   }
 }
 

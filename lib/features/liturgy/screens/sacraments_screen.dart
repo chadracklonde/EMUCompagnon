@@ -1,3 +1,4 @@
+import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/sacraments_data.dart';
@@ -61,7 +62,7 @@ class SacramentDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
-    return Scaffold(
+    return KeepAwake(child: Scaffold(
       appBar: AppBar(title: const Text('Sacrements et rites')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
@@ -107,6 +108,6 @@ class SacramentDetailScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }

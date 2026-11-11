@@ -14,6 +14,7 @@ class AppSettings extends ChangeNotifier {
   static const _kNotificationHour = 'settings.notificationHour';
   static const _kNotificationMinute = 'settings.notificationMinute';
   static const _kBibleVersion = 'settings.bibleVersion';
+  static const _kKeepScreenOn = 'settings.keepScreenOn';
 
   ThemeMode _themeMode = ThemeMode.system;
   double _textScale = 1.0;
@@ -24,6 +25,7 @@ class AppSettings extends ChangeNotifier {
   int _notificationHour = 7;
   int _notificationMinute = 0;
   String _bibleVersion = 'LSG1910';
+  bool _keepScreenOn = true;
 
   ThemeMode get themeMode => _themeMode;
   double get textScale => _textScale;
@@ -34,6 +36,9 @@ class AppSettings extends ChangeNotifier {
   int get notificationHour => _notificationHour;
   int get notificationMinute => _notificationMinute;
   String get bibleVersion => _bibleVersion;
+
+  /// Whether reading screens keep the phone from going to sleep.
+  bool get keepScreenOn => _keepScreenOn;
 
   /// Maps the stored preference key to an actual Flutter font family string.
   /// 'serif'/'sans-serif' are generic families Skia resolves via platform
@@ -65,6 +70,7 @@ class AppSettings extends ChangeNotifier {
     _notificationHour = prefs.getInt(_kNotificationHour) ?? 7;
     _notificationMinute = prefs.getInt(_kNotificationMinute) ?? 0;
     _bibleVersion = prefs.getString(_kBibleVersion) ?? 'LSG1910';
+    _keepScreenOn = prefs.getBool(_kKeepScreenOn) ?? true;
     notifyListeners();
   }
 
@@ -128,6 +134,13 @@ class AppSettings extends ChangeNotifier {
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kBibleVersion, code);
+  }
+
+  Future<void> setKeepScreenOn(bool value) async {
+    _keepScreenOn = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_kKeepScreenOn, value);
   }
 
   Future<void> resetToDefaults() async {

@@ -1,3 +1,4 @@
+import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/hymn.dart';
@@ -25,11 +26,16 @@ class HymnDetailScreen extends StatefulWidget {
 
   /// Shown under the hymn — the previous / next bar when singing through a list.
   final Widget? bottomBar;
+
+  /// False when a parent (the swipeable pager) records "last hymn read"
+  /// itself: a neighbouring page is built as soon as a swipe starts.
+  final bool recordHistory;
   const HymnDetailScreen({
     super.key,
     required this.hymn,
     this.showBackButton = true,
     this.bottomBar,
+    this.recordHistory = true,
   });
 
   @override
@@ -44,7 +50,9 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
   @override
   void initState() {
     super.initState();
-    ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title);
+    if (widget.recordHistory) {
+      ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title);
+    }
     _load();
   }
 
@@ -76,7 +84,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
     final stanzas = HymnStanzaParser.parse(hymn.lyrics);
 
-    return Scaffold(
+    return KeepAwake(child: Scaffold(
       bottomNavigationBar: widget.bottomBar,
       appBar: AppBar(
         automaticallyImplyLeading: widget.showBackButton,
@@ -206,7 +214,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
           ),
         ),
       ),
-    );
+    ));
   }
 }
 

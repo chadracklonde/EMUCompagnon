@@ -22,7 +22,13 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
               children: HighlightColors.palette.entries.map((entry) {
                 final hex = HighlightColors.hexFor(entry.value);
                 final isSelected = current == hex;
-                return GestureDetector(
+                return Semantics(
+                  button: true,
+                  selected: isSelected,
+                  label: 'Surligner en ${entry.key}',
+                  excludeSemantics: true,
+                  onTap: () => Navigator.pop(context, hex),
+                  child: GestureDetector(
                   onTap: () => Navigator.pop(context, hex),
                   child: Column(
                     children: [
@@ -44,6 +50,7 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
                       Text(entry.key, style: const TextStyle(fontSize: 11)),
                     ],
                   ),
+                ),
                 );
               }).toList(),
             ),

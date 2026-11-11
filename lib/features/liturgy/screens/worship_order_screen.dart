@@ -1,3 +1,4 @@
+import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/worship_order_data.dart';
@@ -16,7 +17,7 @@ class WorshipOrderScreen extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final steps = WorshipOrderData.steps;
 
-    return Scaffold(
+    return KeepAwake(child: Scaffold(
       appBar: AppBar(title: const Text('Ordre du culte')),
       body: ReadingWidthConstraint(
         child: ListView(
@@ -93,6 +94,6 @@ class WorshipOrderScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

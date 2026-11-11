@@ -249,7 +249,14 @@ class _DailyQuizScreenState extends State<DailyQuizScreen> {
                                 ),
                                 if (icon != null) ...[
                                   const SizedBox(width: 10),
-                                  Icon(icon, color: iconColor, size: 22),
+                                  Icon(
+                                    icon,
+                                    color: iconColor,
+                                    size: 22,
+                                    semanticLabel: icon == Icons.check_circle
+                                        ? 'Bonne réponse'
+                                        : 'Mauvaise réponse',
+                                  ),
                                 ],
                               ],
                             ),

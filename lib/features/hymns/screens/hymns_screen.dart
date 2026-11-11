@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../repository/hymns_repository.dart';
 import 'hymn_detail_screen.dart';
+import 'hymn_pager_screen.dart';
 import '../../hymn_lists/screens/hymn_lists_screen.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
@@ -42,7 +43,7 @@ class _HymnsScreenState extends State<HymnsScreen> {
   /// tab stays alive in the shell, so it would otherwise go stale).
   Future<void> _push(Hymn hymn) async {
     await Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: hymn)),
+      MaterialPageRoute(builder: (_) => HymnPagerScreen(hymn: hymn)),
     );
     if (mounted) _loadLastRead();
   }

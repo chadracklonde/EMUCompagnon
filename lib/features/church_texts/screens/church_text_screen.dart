@@ -1,17 +1,25 @@
+import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/services/text_share_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
+import '../../../shared/widgets/linked_verse_text.dart';
 import '../models/church_text.dart';
+import '../services/church_text_prefs.dart';
 import 'church_texts_screen.dart';
 
 /// Reading page of one prayer or text.
 class ChurchTextScreen extends StatefulWidget {
   final ChurchText text;
-  const ChurchTextScreen({super.key, required this.text});
+
+  /// Heading to open at (a search result); otherwise reading resumes
+  /// where it stopped.
+  final int? initialHeading;
+  const ChurchTextScreen({super.key, required this.text, this.initialHeading});
 
   @override
   State<ChurchTextScreen> createState() => _ChurchTextScreenState();
@@ -26,8 +34,111 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
   /// Texts with only a few sections do not need a table of contents.
   bool get _hasContents => _headingKeys.length >= 4;
 
+  final _scroll = ScrollController();
+  bool _pinned = false;
+  bool _showToTop = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(_onScroll);
+    ChurchTextPrefs.isPinned(widget.text.id).then((p) {
+      if (mounted) setState(() => _pinned = p);
+    });
+    final heading = widget.initialHeading;
+    if (heading != null && heading < _headingKeys.length) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final target = _headingKeys[heading].currentContext;
+        if (target != null && target.mounted) Scrollable.ensureVisible(target);
+      });
+      return;
+    }
+    // Long texts reopen where reading stopped.
+    ChurchTextPrefs.position(widget.text.id).then((offset) {
+      if (offset <= 0 || !mounted) return;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!_scroll.hasClients) return;
+        _scroll.jumpTo(offset.clamp(0, _scroll.position.maxScrollExtent));
+      });
+    });
+  }
+
+  void _onScroll() {
+    final show = _scroll.offset > 600;
+    if (show != _showToTop) setState(() => _showToTop = show);
+  }
+
+  @override
+  void dispose() {
+    if (_scroll.hasClients) {
+      ChurchTextPrefs.savePosition(widget.text.id, _scroll.offset);
+    }
+    _scroll.dispose();
+    super.dispose();
+  }
+
   void _share() =>
       TextShareService.share(widget.text.toPlainText(), subject: widget.text.title);
+
+  Future<void> _togglePin() async {
+    final pinned = await ChurchTextPrefs.toggle(widget.text.id);
+    if (!mounted) return;
+    setState(() => _pinned = pinned);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(pinned ? "Épinglé sur l'accueil" : "Retiré de l'accueil"),
+      ));
+  }
+
+  /// Long press on a passage: share or copy only its section (one
+  /// article), not the whole text.
+  Future<void> _openSectionActions(int blockIndex) async {
+    final text = widget.text;
+    final title = text.sectionTitleOf(blockIndex) ?? text.title;
+    final content = text.headings.isEmpty
+        ? text.toPlainText()
+        : text.sectionPlainText(blockIndex);
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheetContext) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: Text(
+                title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.share_outlined),
+              title: const Text('Partager ce passage'),
+              onTap: () {
+                Navigator.of(sheetContext).pop();
+                TextShareService.share(content, subject: title);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.copy_outlined),
+              title: const Text('Copier ce passage'),
+              onTap: () async {
+                Navigator.of(sheetContext).pop();
+                await Clipboard.setData(ClipboardData(text: content));
+                if (!mounted) return;
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(const SnackBar(content: Text('Passage copié')));
+              },
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
 
   Future<void> _openContents() async {
     final headings = widget.text.headings;
@@ -69,12 +180,21 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
 
     var headingIndex = 0;
     final body = <Widget>[];
-    for (final block in text.blocks) {
+    for (var i = 0; i < text.blocks.length; i++) {
+      final block = text.blocks[i];
       final key = block.kind == TextBlockKind.heading ? _headingKeys[headingIndex++] : null;
-      body.add(_Block(key: key, block: block, lineHeight: lineHeight));
+      // The speaker is named once per turn, not on every line.
+      final previous = i == 0 ? null : text.blocks[i - 1].kind;
+      body.add(_Block(
+        key: key,
+        block: block,
+        lineHeight: lineHeight,
+        showSpeaker: previous != block.kind,
+        onLongPress: () => _openSectionActions(i),
+      ));
     }
 
-    return Scaffold(
+    return KeepAwake(child: Scaffold(
       appBar: AppBar(
         actions: [
           if (_hasContents)
@@ -84,18 +204,58 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
               onPressed: _openContents,
             ),
           IconButton(
-            tooltip: 'Taille du texte',
-            icon: const Icon(Icons.text_fields),
-            onPressed: () => showTextSettingsPopup(context),
+            tooltip: _pinned ? "Retirer de l'accueil" : "Épingler sur l'accueil",
+            icon: Icon(
+              _pinned ? Icons.push_pin : Icons.push_pin_outlined,
+              color: _pinned ? palette.accent : null,
+            ),
+            onPressed: _togglePin,
           ),
-          IconButton(
-            tooltip: 'Partager',
-            icon: const Icon(Icons.share_outlined),
-            onPressed: _share,
+          PopupMenuButton<String>(
+            tooltip: "Plus d'actions",
+            onSelected: (value) {
+              switch (value) {
+                case 'size':
+                  showTextSettingsPopup(context);
+                case 'share':
+                  _share();
+              }
+            },
+            itemBuilder: (_) => const [
+              PopupMenuItem(
+                value: 'size',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.text_fields),
+                  title: Text('Taille du texte'),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'share',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.share_outlined),
+                  title: Text('Partager tout le texte'),
+                ),
+              ),
+            ],
           ),
+          const SizedBox(width: 4),
         ],
       ),
+      floatingActionButton: _showToTop
+          ? FloatingActionButton.small(
+              tooltip: 'Revenir en haut',
+              onPressed: () => _scroll.animateTo(
+                0,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeOut,
+              ),
+              child: const Icon(Icons.arrow_upward),
+            )
+          : null,
       body: SingleChildScrollView(
+        controller: _scroll,
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 48),
         child: ReadingWidthConstraint(
           child: Column(
@@ -128,25 +288,66 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
               const SizedBox(height: 28),
               Divider(color: palette.border),
               const SizedBox(height: 12),
-              Text(
+              LinkedVerseText(
                 text.source,
                 style: TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
               ),
+              if (text.headings.isNotEmpty) ...[
+                const SizedBox(height: 10),
+                Text(
+                  'Appui long sur un passage pour le partager ou le copier seul.',
+                  style: TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
+                ),
+              ],
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 }
 
 class _Block extends StatelessWidget {
   final TextBlock block;
   final double lineHeight;
-  const _Block({super.key, required this.block, required this.lineHeight});
+
+  /// Whether a responsive line names who says it.
+  final bool showSpeaker;
+  final VoidCallback onLongPress;
+  const _Block({
+    super.key,
+    required this.block,
+    required this.lineHeight,
+    required this.showSpeaker,
+    required this.onLongPress,
+  });
 
   @override
   Widget build(BuildContext context) {
+    return Semantics(
+      onLongPressHint: 'partager ou copier ce passage',
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onLongPress: onLongPress,
+        child: SizedBox(width: double.infinity, child: _content(context)),
+      ),
+    );
+  }
+
+  Widget _speaker(BuildContext context, String name) => Padding(
+        padding: const EdgeInsets.only(bottom: 2),
+        child: Text(
+          name.toUpperCase(),
+          style: TextStyle(
+            fontSize: 11.5,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1,
+            color: AppPalette.of(context).muted,
+          ),
+        ),
+      );
+
+  Widget _content(BuildContext context) {
     final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     final bodyStyle = TextStyle(
@@ -159,28 +360,47 @@ class _Block extends StatelessWidget {
       case TextBlockKind.heading:
         return Padding(
           padding: const EdgeInsets.only(top: 28),
-          child: Text(
-            block.text,
-            style: TextStyle(
-              fontSize: 17.5,
-              height: 1.3,
-              fontWeight: FontWeight.w700,
-              color: palette.accent,
+          child: Semantics(
+            header: true,
+            child: Text(
+              block.text,
+              style: TextStyle(
+                fontSize: 17.5,
+                height: 1.3,
+                fontWeight: FontWeight.w700,
+                color: palette.accent,
+              ),
             ),
           ),
         );
       case TextBlockKind.paragraph:
+        return Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: LinkedVerseText(block.text, style: bodyStyle),
+        );
       case TextBlockKind.leader:
         return Padding(
           padding: const EdgeInsets.only(top: 12),
-          child: Text(block.text, style: bodyStyle),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (showSpeaker) _speaker(context, 'Officiant'),
+              LinkedVerseText(block.text, style: bodyStyle),
+            ],
+          ),
         );
       case TextBlockKind.people:
         return Padding(
           padding: const EdgeInsets.only(top: 8, bottom: 6),
-          child: Text(
-            block.text,
-            style: bodyStyle.copyWith(fontWeight: FontWeight.w700, color: palette.accent),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (showSpeaker) _speaker(context, 'Assemblée'),
+              LinkedVerseText(
+                block.text,
+                style: bodyStyle.copyWith(fontWeight: FontWeight.w700, color: palette.accent),
+              ),
+            ],
           ),
         );
       case TextBlockKind.item:
@@ -197,7 +417,7 @@ class _Block extends StatelessWidget {
                   decoration: BoxDecoration(color: palette.accent, shape: BoxShape.circle),
                 ),
               ),
-              Expanded(child: Text(block.text, style: bodyStyle)),
+              Expanded(child: LinkedVerseText(block.text, style: bodyStyle)),
             ],
           ),
         );

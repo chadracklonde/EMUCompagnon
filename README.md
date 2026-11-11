@@ -104,6 +104,19 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   Livre de Discipline 2020/2024 viennent d'une traduction automatique
   corrigée à la main : ils sont à relire, et se corrigent dans le seul
   fichier `lib/features/church_texts/data/church_texts_data.dart`.
+- Confort d'usage : écran gardé allumé pendant la lecture (réglable dans
+  les Réglages) ; glissement d'un cantique au suivant ; recherche
+  générale étendue à la liturgie et aux textes de l'Église ; sur une page
+  de texte, appui long pour partager ou copier un seul article,
+  épinglage sur l'accueil, reprise de lecture, références bibliques
+  cliquables, indication « Officiant / Assemblée » dans les litanies.
+- « Culte du dimanche » (accueil et onglet Liturgie) : le dimanche
+  concerné, sa saison, la liste de cantiques choisie, les prières dites
+  ensemble et le déroulement du culte sur un seul écran.
+- Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
+  Cantiques, Culte du dimanche.
+- Rappel de sauvegarde sur l'accueil si des données personnelles n'ont
+  pas été exportées depuis 30 jours (« Plus tard » le repousse).
 - Cantiques affichés par couplets/refrain nettement séparés (au lieu d'un
   seul bloc de texte), avec le refrain mis en valeur visuellement.
   Références bibliques cliquables dans les paroles.
