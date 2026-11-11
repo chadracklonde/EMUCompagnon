@@ -11,6 +11,7 @@ import '../../favorites/repository/bookmark_repository.dart';
 import '../../highlights/repository/highlight_repository.dart';
 import '../../notes/screens/notes_sheet.dart';
 import '../../../shared/services/image_share_service.dart';
+import '../../../shared/services/text_share_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../../../shared/widgets/highlight_color_picker.dart';
 import '../../../core/services/reading_history_service.dart';
@@ -273,6 +274,17 @@ class _ChapterScreenState extends State<ChapterScreen> {
               onTap: () {
                 Navigator.pop(context);
                 _openNotes(v);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.share_outlined),
+              title: const Text('Partager le texte'),
+              onTap: () {
+                Navigator.pop(context);
+                TextShareService.share(
+                  TextShareService.verseText(reference: v.reference, text: v.text),
+                  subject: v.reference,
+                );
               },
             ),
             ListTile(

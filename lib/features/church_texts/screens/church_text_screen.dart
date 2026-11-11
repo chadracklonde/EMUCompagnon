@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/services/text_share_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../models/church_text.dart';
 import 'church_texts_screen.dart';
@@ -26,15 +26,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
   /// Texts with only a few sections do not need a table of contents.
   bool get _hasContents => _headingKeys.length >= 4;
 
-  void _share() {
-    SharePlus.instance.share(
-      ShareParams(
-        text: widget.text.toPlainText(),
-        subject: widget.text.title,
-        sharePositionOrigin: const Rect.fromLTWH(0, 0, 1, 1),
-      ),
-    );
-  }
+  void _share() =>
+      TextShareService.share(widget.text.toPlainText(), subject: widget.text.title);
 
   Future<void> _openContents() async {
     final headings = widget.text.headings;

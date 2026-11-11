@@ -6,6 +6,7 @@ import '../../../core/settings/app_settings.dart';
 import '../../favorites/repository/bookmark_repository.dart';
 import '../../notes/screens/notes_sheet.dart';
 import '../../../shared/services/image_share_service.dart';
+import '../../../shared/services/text_share_service.dart';
 import '../../../shared/widgets/linked_verse_text.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../utils/hymn_stanza_parser.dart';
@@ -109,6 +110,15 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                     refId: hymn.id,
                     label: '${hymn.number} — ${hymn.title}',
                   );
+                case 'share_text':
+                  TextShareService.share(
+                    TextShareService.hymnText(
+                      number: '${hymn.number}',
+                      title: hymn.title,
+                      stanzas: stanzas,
+                    ),
+                    subject: '${hymn.number} — ${hymn.title}',
+                  );
                 case 'share':
                   ImageShareService.shareVerse(
                     context,
@@ -132,6 +142,14 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                   contentPadding: EdgeInsets.zero,
                   leading: Icon(Icons.sticky_note_2_outlined),
                   title: Text('Notes'),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'share_text',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.share_outlined),
+                  title: Text('Partager le texte'),
                 ),
               ),
               PopupMenuItem(

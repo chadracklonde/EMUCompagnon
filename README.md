@@ -93,6 +93,9 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   général, pas les textes liturgiques officiels protégés — prières, vœux,
   bénédictions exacts — qui restent à prendre dans le Livre de Culte EMU
   officiel).
+- Partage du texte : un verset (avec sa référence) ou un cantique
+  entier (strophes et refrain) s'envoie en texte simple vers WhatsApp,
+  SMS, etc., en plus du partage comme image (`TextShareService`).
 - « Prières et textes » (onglet Liturgie) : le Notre Père (Matthieu
   6.9-13, LSG 1910), le Credo social et sa litanie, les 25 Articles de
   religion, la Confession de foi, les Règles générales, les vœux des
