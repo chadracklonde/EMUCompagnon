@@ -19,6 +19,7 @@ import '../../memorization/screens/memorization_screen.dart';
 import '../../reading_plan/screens/reading_plan_screen.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../settings/screens/settings_screen.dart';
+import 'widgets_screen.dart';
 import '../../weekly_challenge/screens/weekly_challenge_screen.dart';
 
 /// Fifth tab ("Plus"): everything that is not one of the four main
@@ -107,6 +108,12 @@ class MoreScreen extends StatelessWidget {
                 icon: Icons.settings_outlined,
                 title: t('settings'),
                 onTap: () => open(const SettingsScreen()),
+              ),
+              AppRow(
+                icon: Icons.widgets_outlined,
+                title: t('widgets_title'),
+                subtitle: t('widgets_subtitle'),
+                onTap: () => open(const WidgetsScreen()),
               ),
               AppRow(
                 icon: Icons.backup_outlined,

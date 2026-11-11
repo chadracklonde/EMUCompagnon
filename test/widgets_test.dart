@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:emu_compagnon/core/services/widget_catalog.dart';
 import 'package:emu_compagnon/core/services/widget_data.dart';
 import 'package:emu_compagnon/features/bible/screens/chapter_screen.dart';
 import 'package:emu_compagnon/features/church_texts/screens/church_text_screen.dart';
@@ -139,6 +140,20 @@ void main() {
       for (final w in widgets) {
         final route = (w['defaults'] as Map)['r'] as String;
         expect(plain, contains(route), reason: w['key']);
+      }
+    });
+
+    test('the catalog on the Widgets screen matches the declarations', () {
+      final byKey = {for (final w in WidgetCatalog.all) w.key: w};
+      expect(byKey.length, widgets.length + 1, reason: 'declared widgets + the verse widget');
+      for (final w in widgets) {
+        final info = byKey[w['key']];
+        expect(info, isNotNull, reason: w['key']);
+        expect(info!.label, w['label'], reason: w['key']);
+        expect(info.description, w['desc'], reason: w['key']);
+      }
+      for (final w in WidgetCatalog.all) {
+        expect(WidgetCatalog.families, contains(w.family), reason: w.key);
       }
     });
 

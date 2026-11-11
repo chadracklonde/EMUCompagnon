@@ -52,6 +52,30 @@ class WidgetSyncService {
           dateKey(e.key): {'t': e.value.text.trim(), 'r': e.value.reference},
       });
 
+  /// How many widget types this build of the app contains, or null when the
+  /// native side does not answer (not Android, or a build without widgets).
+  static Future<int?> installedCount() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return null;
+    try {
+      return await _channel.invokeMethod<int>('count');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Asks the phone to place widget [key] on the home screen. False when the
+  /// phone or its launcher cannot do it from an app.
+  static Future<bool> pin(String key) async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return false;
+    // The widget should open already filled.
+    await sync();
+    try {
+      return await _channel.invokeMethod<bool>('pin', {'key': key}) ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
   static bool _syncing = false;
 
   static Future<void> sync() async {

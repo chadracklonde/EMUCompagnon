@@ -80,6 +80,12 @@ kt.append("    val providers: List<Class<*>> = listOf(")
 for c in classes:
     kt.append(f"        {c}::class.java,")
 kt.append("    )")
+kt.append("")
+kt.append("    val byKey: Map<String, Class<*>> = mapOf(")
+kt.append('        "verse" to VerseWidgetProvider::class.java,')
+for w in widgets:
+    kt.append(f'        "{w["key"]}" to {w["cls"]}::class.java,')
+kt.append("    )")
 kt.append("}")
 kt.append("")
 

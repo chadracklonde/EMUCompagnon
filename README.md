@@ -129,6 +129,9 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   liste, raccourcis) ; `generate.py` produit le code natif que la CI copie
   dans `android/` (`install_widget.sh`, qui saute les widgets plutôt que
   de faire échouer le build).
+  L'écran Plus › Widgets les liste et propose « Ajouter » pour chacun
+  (demande de placement faite au téléphone) ; il indique aussi si la
+  version installée contient les widgets.
 - Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
   Cantiques, Culte du dimanche.
 - Rappel de sauvegarde sur l'accueil si des données personnelles n'ont
