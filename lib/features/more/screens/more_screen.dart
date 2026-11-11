@@ -13,6 +13,7 @@ import '../../daily_quiz/screens/daily_quiz_screen.dart';
 import '../../dictionary/screens/dictionary_screen.dart';
 import '../../evening_examen/screens/evening_examen_screen.dart';
 import '../../favorites/screens/favorites_screen.dart';
+import '../../hymn_lists/screens/hymn_lists_screen.dart';
 import '../../journal/screens/journal_screen.dart';
 import '../../memorization/screens/memorization_screen.dart';
 import '../../reading_plan/screens/reading_plan_screen.dart';
@@ -48,6 +49,11 @@ class MoreScreen extends StatelessWidget {
                 icon: Icons.auto_stories_outlined,
                 title: t('dictionary_full'),
                 onTap: () => open(const DictionaryScreen()),
+              ),
+              AppRow(
+                icon: Icons.queue_music,
+                title: t('hymn_lists'),
+                onTap: () => open(const HymnListsScreen()),
               ),
               AppRow(
                 icon: Icons.star_outline,

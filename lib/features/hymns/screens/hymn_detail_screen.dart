@@ -13,6 +13,7 @@ import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/hymn_audio_player.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../hymn_lists/widgets/list_dialogs.dart';
 
 class HymnDetailScreen extends StatefulWidget {
   final Hymn hymn;
@@ -20,7 +21,15 @@ class HymnDetailScreen extends StatefulWidget {
   /// layout (no back button needed there — there's nothing to pop back
   /// from within that pane).
   final bool showBackButton;
-  const HymnDetailScreen({super.key, required this.hymn, this.showBackButton = true});
+
+  /// Shown under the hymn — the previous / next bar when singing through a list.
+  final Widget? bottomBar;
+  const HymnDetailScreen({
+    super.key,
+    required this.hymn,
+    this.showBackButton = true,
+    this.bottomBar,
+  });
 
   @override
   State<HymnDetailScreen> createState() => _HymnDetailScreenState();
@@ -67,6 +76,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
     final stanzas = HymnStanzaParser.parse(hymn.lyrics);
 
     return Scaffold(
+      bottomNavigationBar: widget.bottomBar,
       appBar: AppBar(
         automaticallyImplyLeading: widget.showBackButton,
         title: Text('N° ${hymn.number}'),
@@ -75,25 +85,6 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
             icon: const Icon(Icons.text_fields),
             tooltip: 'Taille du texte',
             onPressed: () => showTextSettingsPopup(context),
-          ),
-          IconButton(
-            icon: const Icon(Icons.image_outlined),
-            tooltip: 'Partager comme image',
-            onPressed: () => ImageShareService.shareVerse(
-              context,
-              reference: '${hymn.number} — ${hymn.title}',
-              text: stanzas.isNotEmpty ? stanzas.first.body : hymn.title,
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.sticky_note_2_outlined),
-            tooltip: 'Notes',
-            onPressed: () => showNotesSheet(
-              context,
-              type: BookmarkType.hymn,
-              refId: hymn.id,
-              label: '${hymn.number} — ${hymn.title}',
-            ),
           ),
           if (!_loading)
             IconButton(
@@ -104,6 +95,56 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
               tooltip: _isBookmarked ? 'Retirer des favoris' : 'Ajouter aux favoris',
               onPressed: _toggle,
             ),
+          // Less frequent actions, kept out of the bar so it stays readable.
+          PopupMenuButton<String>(
+            tooltip: 'Plus d\'actions',
+            onSelected: (value) {
+              switch (value) {
+                case 'list':
+                  showAddToListSheet(context, number: hymn.number, title: hymn.title);
+                case 'notes':
+                  showNotesSheet(
+                    context,
+                    type: BookmarkType.hymn,
+                    refId: hymn.id,
+                    label: '${hymn.number} — ${hymn.title}',
+                  );
+                case 'share':
+                  ImageShareService.shareVerse(
+                    context,
+                    reference: '${hymn.number} — ${hymn.title}',
+                    text: stanzas.isNotEmpty ? stanzas.first.body : hymn.title,
+                  );
+              }
+            },
+            itemBuilder: (_) => const [
+              PopupMenuItem(
+                value: 'list',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.playlist_add),
+                  title: Text('Ajouter à une liste'),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'notes',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.sticky_note_2_outlined),
+                  title: Text('Notes'),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'share',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.image_outlined),
+                  title: Text('Partager comme image'),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(width: 4),
         ],
       ),
       body: SingleChildScrollView(

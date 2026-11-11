@@ -47,6 +47,13 @@ Trois raccourcis accompagnent la lecture :
 - le rappel quotidien annonce la lecture du jour du plan (`ReadingReminder`),
   mise à jour à chaque ouverture de l'application.
 
+Les **listes de cantiques** (onglet Cantiques, icône de liste, ou onglet
+Plus) servent à préparer le programme d'un culte : on crée une liste, on y
+coche des cantiques, on les ordonne en les faisant glisser, puis
+« Commencer » les enchaîne avec Précédent / Suivant. Un cantique s'ajoute
+aussi à une liste depuis son menu « ⋮ ». Les listes sont enregistrées sur
+l'appareil (`HymnListService`) et incluses dans la sauvegarde.
+
 La barre du bas compte 5 onglets : Accueil, Bible, Cantiques, Liturgie,
 Plus. Dictionnaire, Favoris, recherche, vie spirituelle, Réglages,
 Sauvegarde, Mises à jour du contenu, tutoriel et À propos sont sous **Plus**.

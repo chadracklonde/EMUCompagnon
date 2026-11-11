@@ -1,3 +1,4 @@
+import '../../hymn_lists/services/hymn_list_service.dart';
 import 'dart:convert';
 import 'dart:ui';
 import 'package:share_plus/share_plus.dart';
@@ -87,6 +88,7 @@ class BackupService {
         'reading_plan': prefs.getString(_kReadingPlan),
         'reading_plan_duration': prefs.getInt(_kPlanDuration),
         'reading_plan_baseline': prefs.getString(_kPlanBaseline),
+        'hymn_lists': prefs.getString(HymnListService.storageKey),
         'streak': {
           'last_date': prefs.getString(_kStreakLast),
           'current': prefs.getInt(_kStreakCurrent) ?? 0,
@@ -326,6 +328,16 @@ class BackupService {
       await prefs.setInt(_kPlanDuration, duration);
       final baseline = _str(progress['reading_plan_baseline']);
       if (baseline != null) await prefs.setString(_kPlanBaseline, baseline);
+    }
+
+    // Hymn lists: lists only the backup has are added; local ones are kept.
+    final incomingLists = HymnListCodec.decode(_str(progress['hymn_lists']));
+    if (incomingLists.isNotEmpty) {
+      final localLists = HymnListCodec.decode(prefs.getString(HymnListService.storageKey));
+      await prefs.setString(
+        HymnListService.storageKey,
+        HymnListCodec.encode(HymnListCodec.merge(localLists, incomingLists)),
+      );
     }
 
     final s = progress['streak'];

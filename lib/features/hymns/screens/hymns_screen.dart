@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../repository/hymns_repository.dart';
 import 'hymn_detail_screen.dart';
+import '../../hymn_lists/screens/hymn_lists_screen.dart';
 import '../../../core/services/reading_history_service.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../../../shared/responsive/responsive.dart';
@@ -185,6 +186,13 @@ class _HymnsScreenState extends State<HymnsScreen> {
       appBar: AppBar(
         title: const Text('Chants de Victoire'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.queue_music),
+            tooltip: 'Listes de cantiques',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const HymnListsScreen()),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.text_fields),
             tooltip: 'Taille du texte',
