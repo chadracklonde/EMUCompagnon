@@ -94,7 +94,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Sainte-Cène (si célébrée)',
-      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving'],
+      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving', 'bow_great_thanksgiving_seasons'],
       description:
           "Lorsque la Cène est célébrée — traditionnellement au moins une "
           "fois par mois dans les Églises Méthodistes Unies — la Grande "
