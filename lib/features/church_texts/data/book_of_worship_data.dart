@@ -1680,5 +1680,41 @@ class BookOfWorshipData {
     ],
   );
 
-  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving, greetingsPrayers, waysOfPraying, biblesChildren, covenantRenewal, leadersInstallation];
+  static const classLeaders = ChurchText(
+    id: 'bow_class_leaders',
+    title: 'Mise en fonction de responsables de classe',
+    subtitle: 'Engagements des responsables de classe et de l’assemblée, prière',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Commissioning of Class Leaders” by David Lowes Watson Copyright © 1992 by UMPH. Altered 2013 by the Discipleship Ministries to reflect the possibility of such a service being held at a district, conference, or episcopal area level. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-commissioning-of-class-leaders',
+    blocks: [
+      TextBlock.note('Ce rite est destiné à la mise en fonction publique de responsables de classe, après leur nomination par une conférence de la circonscription ou de l’assemblée. Il peut être dirigé par le pasteur de l’assemblée, par le surintendant de district ou par l’évêque de la région. En réponse à la Parole, ou à un autre moment approprié dans un culte de l’assemblée, le pasteur invite le ou les nouveaux responsables de classe à s’avancer.'),
+      TextBlock.note('Le pasteur à l’assemblée :'),
+      TextBlock.leader('Chers amis, / la charge de responsable de classe est l’une des contributions les plus importantes / que le méthodisme mondial a apportées / à la direction pastorale de la sainte Église du Christ.'),
+      TextBlock.leader('Dans les Règles générales de 1743, / John Wesley décrivait les sociétés méthodistes / comme des groupes d’hommes et de femmes qui, / « ayant la forme de la piété et en recherchant la puissance », / se réunissaient pour prier, / pour recevoir la parole d’exhortation, / et « pour veiller les uns sur les autres dans l’amour, / afin de s’aider mutuellement à travailler à leur salut ». / À cette fin, les sociétés étaient divisées en petits groupes, appelés classes, / chacun avec un responsable désigné / « pour conseiller, reprendre, consoler ou exhorter, selon les besoins ».'),
+      TextBlock.leader('Les responsables de classe d’aujourd’hui poursuivent cette tradition. / Dans la Discipline fondatrice de notre Église, ils sont décrits comme des personnes / « non seulement d’un jugement sûr, mais vraiment dévouées à Dieu », / prêtes à aider les autres membres de l’assemblée / « à grandir dans la connaissance et l’amour de Dieu ».'),
+      TextBlock.note('Le président aux responsables de classe :'),
+      TextBlock.leader('Acceptez-vous la charge de responsable de classe / dans cette assemblée de l’Église méthodiste unie ?'),
+      TextBlock.people('Je l’accepte.'),
+      TextBlock.leader('Exercerez-vous cette charge / en aidant les autres membres de l’assemblée / à vivre la règle générale du disciple : / témoigner de Jésus-Christ dans le monde et suivre son enseignement / par des actes de compassion, de justice, de culte et de piété, / sous la conduite du Saint-Esprit ?'),
+      TextBlock.people('Je le ferai.'),
+      TextBlock.leader('Aiderez-vous les autres membres de l’assemblée / à répondre de leur vie de disciples, / non pas en les jugeant, mais en veillant sur eux dans l’amour ?'),
+      TextBlock.people('Je le ferai.'),
+      TextBlock.leader('Vous réunirez-vous chaque semaine, en alliance avec d’autres animés du même esprit / et du même but, / pour répondre de votre propre vie de disciple ?'),
+      TextBlock.people('Je le ferai.'),
+      TextBlock.note('Le président à l’assemblée :'),
+      TextBlock.leader('Confirmez-vous l’appel de ces hommes et de ces femmes comme responsables de classe / dans cette assemblée de l’Église méthodiste unie ?'),
+      TextBlock.people('Nous le confirmons.'),
+      TextBlock.leader('Les reconnaîtrez-vous comme vos guides dans la vie de disciple / et accueillerez-vous leurs conseils quand ils veillent sur vous dans l’amour ?'),
+      TextBlock.people('Nous le ferons.'),
+      TextBlock.note('Le président aux responsables de classe :'),
+      TextBlock.leader('Vous êtes ici établis responsables de classe / dans cette assemblée de l’Église méthodiste unie'),
+      TextBlock.leader('(ou, si plusieurs assemblées sont représentées, / dans l’assemblée de l’Église méthodiste unie / dont vous êtes membres professants).'),
+      TextBlock.leader('Prions.'),
+      TextBlock.leader('Dieu de toute grâce, / bénis ton serviteur (tes serviteurs) / à qui nous confions maintenant la charge de responsable de classe. / Accorde-leur une sagesse tempérée par ton amour, / et un courage tempéré par ta justice, / afin que Jésus-Christ soit honoré et servi / par tous dans cette assemblée, / pour l’avancement de ton règne qui vient, sur la terre comme au ciel, / par le même Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('On peut alors chanter « Forth in Thy Name, O Lord » (UMH 438).'),
+    ],
+  );
+
+  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving, greetingsPrayers, waysOfPraying, biblesChildren, covenantRenewal, leadersInstallation, classLeaders];
 }
