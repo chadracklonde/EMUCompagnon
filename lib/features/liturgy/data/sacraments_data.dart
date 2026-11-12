@@ -41,7 +41,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'bapteme',
       name: 'Le Baptême',
-      textIds: ['bow_baptismal_covenant_1'],
+      textIds: ['bow_baptism_bcp'],
       subtitle: 'Sacrement d\'initiation chrétienne',
       icon: IconRef.baptism,
       description:
@@ -83,7 +83,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'confirmation',
       name: 'La Confirmation',
-      textIds: ['bow_baptismal_covenant_1'],
+      textIds: ['bow_baptism_bcp'],
       subtitle: 'Profession publique de la foi',
       icon: IconRef.confirmation,
       description:

@@ -15,10 +15,24 @@ void main() {
     expect(all, isNotEmpty);
     for (final t in all) {
       expect(t.id, startsWith('bow_'), reason: t.id);
+      if (t.id == 'bow_baptism_bcp') continue; // public domain, checked below
       expect(t.source, contains('The United Methodist Publishing House'), reason: t.id);
       expect(t.source, contains('Mention de droit d\'auteur'), reason: t.id);
       expect(t.sourceUrl, startsWith('https://www.umcdiscipleship.org/book-of-worship/'), reason: t.id);
     }
+  });
+
+  test('the baptism text is the public-domain one, not the UMC text that forbids alteration', () {
+    final ids = all.map((t) => t.id);
+    expect(ids, contains('bow_baptism_bcp'));
+    expect(ids, isNot(contains('bow_baptismal_covenant_1')));
+    final bcp = BookOfWorshipData.baptismBcp;
+    expect(bcp.source, contains('domaine public'));
+    expect(bcp.source, contains('Book of Common Prayer'));
+    expect(bcp.source, contains('Il n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie'));
+    // The sacraments of baptism and confirmation point at it.
+    final linked = SacramentsData.items.expand((s) => s.textIds);
+    expect(linked, contains('bow_baptism_bcp'));
   });
 
   test('the statement is the page\'s own, word for word', () {
