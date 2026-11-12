@@ -2146,5 +2146,129 @@ class BookOfWorshipData {
     ],
   );
 
-  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving, greetingsPrayers, waysOfPraying, biblesChildren, covenantRenewal, leadersInstallation, classLeaders, christianMarriage2, greatThanksgivingSeasons, holyThursday, palmSunday, easterVigil, tenebrae];
+  static const healing2 = ChurchText(
+    id: 'bow_healing_2',
+    title: 'Culte de guérison II',
+    subtitle: 'Une forme brève, pour la maison, l’hôpital ou un groupe de prière',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « A Service of Healing II © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-healing-ii',
+    blocks: [
+      TextBlock.note('Ce culte peut être employé en privé ou dans un culte communautaire. Il peut avoir lieu dans une église, à la maison, à l’hôpital ou à une réunion d’un groupe de prière. On peut l’adapter à des besoins particuliers en choisissant les parties appropriées, ici et dans les ressources complémentaires. Les cantiques proposés dans le Culte de guérison I conviennent aussi.'),
+      TextBlock.heading('SALUTATION ET PRÉPARATION'),
+      TextBlock.heading('LECTURE DES ÉCRITURES'),
+      TextBlock.note('Voir les lectures suggérées dans le Culte de guérison I. On peut ajouter des commentaires sur les lectures, au besoin.'),
+      TextBlock.heading('CONFESSION ET PARDON'),
+      TextBlock.note('Si cela paraît approprié, on peut inviter les personnes présentes à partager tout ce qui les gêne dans leur relation avec Dieu, par l’une des invitations suivantes ou une autre invitation appropriée :'),
+      TextBlock.leader('[Prénom], l’Écriture nous dit de porter les fardeaux les uns des autres / et d’accomplir ainsi la loi du Christ. / En tant que ta sœur (ton frère) en Christ, je te demande maintenant : / es-tu en paix avec Dieu, / ou y a-t-il quelque chose dans ta vie / qui te donne le sentiment d’être séparé(e) de Dieu / et de ne pas être pleinement la personne que Dieu t’appelle à être ?'),
+      TextBlock.leader('[Prénom], l’Écriture nous dit de ne pas nous inquiéter pour notre vie / ni pour demain. / Y a-t-il des inquiétudes qui te donnent le sentiment d’être éloigné(e) / de la paix que Dieu promet ?'),
+      TextBlock.note('Il peut y avoir du silence, de la réflexion ou un partage personnel. On peut employer une confession et un pardon, ou un psaume approprié.'),
+      TextBlock.heading('[SAINTE-CÈNE]'),
+      TextBlock.note('Le pasteur peut donner la Sainte-Cène en employant le Culte de la Parole et de la Table V.'),
+      TextBlock.heading('PRIÈRES POUR LA GUÉRISON ET LA PLÉNITUDE, AVEC ONCTION ET / OU IMPOSITION DES MAINS'),
+      TextBlock.note('S’il y a onction d’huile, un responsable trempe le pouce dans l’huile et trace le signe de la croix sur le front de la personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader('[Prénom], je t’oins d’huile / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
+      TextBlock.note('S’il y a imposition des mains, un responsable, que d’autres peuvent rejoindre, pose les mains sur la tête de chaque personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader('[Prénom], je pose (nous posons) les mains sur toi / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
+      TextBlock.heading('PRIÈRES D’INTERCESSION'),
+      TextBlock.note('L’une des prières pour des intentions particulières, ou une autre prière appropriée.'),
+      TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
+      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.heading('BÉNÉDICTION'),
+    ],
+  );
+
+  static const ministryIllness = ChurchText(
+    id: 'bow_ministry_illness',
+    title: 'Accompagnement des personnes gravement malades',
+    subtitle: 'Prière et lectures pour une maladie mettant la vie en danger',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons with Life-threatening Illness” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-with-life-threatening-illness',
+    blocks: [
+      TextBlock.heading('PRIÈRE'),
+      TextBlock.leader('Seigneur Jésus-Christ, / nous venons à toi en partageant la souffrance que tu as endurée. / Donne-nous la patience en ce temps, / afin que, pendant que nous et [Prénom] vivons dans la douleur, la déception et la frustration, / nous comprenions que la souffrance fait partie de la vie, / une part de la vie que tu connais intimement. / Touche [Prénom] dans son épreuve, / tiens-le (la) tendrement dans tes bras pleins d’amour, / et fais-lui savoir que tu prends soin de lui (d’elle). / Renouvelle notre esprit, / même quand notre corps n’est pas renouvelé, / afin que nous soyons toujours prêts à demeurer dans ta maison éternelle, / par notre foi en toi, Seigneur Jésus, / toi qui es mort et qui es vivant pour les siècles des siècles. Amen.'),
+      TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
+      TextBlock.leader('Ecclésiaste 3.1-11a — il y a un temps pour toute chose\nEsaïe 25.6-10 — Dieu engloutira la mort\nPsaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
+      TextBlock.note('On peut chanter des cantiques connus et aimés, ou ceux qui sont proposés sous « Cantique de guérison », pour ou avec des personnes atteintes d’une maladie mettant leur vie en danger.'),
+      TextBlock.note('Voir aussi les ressources de l’accompagnement des mourants.'),
+    ],
+  );
+
+  static const ministryComa = ChurchText(
+    id: 'bow_ministry_coma',
+    title: 'Accompagnement des personnes dans le coma',
+    subtitle: 'Lectures et cantiques pour celles qui ne peuvent communiquer',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Ministry with Persons in Coma or Unable to Communicate Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-in-coma-or-unable-to-communicate',
+    blocks: [
+      TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
+      TextBlock.leader('Psaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nEsaïe 61.1-3 — l’Esprit du Seigneur\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
+      TextBlock.note('On peut lire l’Écriture et chanter des cantiques connus et aimés à des personnes dans le coma ou incapables de communiquer. Certaines familles trouveront aussi réconfortant d’organiser le temps passé auprès d’un proche qui ne peut communiquer autour d’un simple office de prière du matin ou du soir.'),
+    ],
+  );
+
+  static const ministryDivorce = ChurchText(
+    id: 'bow_ministry_divorce',
+    title: 'Accompagnement des personnes qui divorcent',
+    subtitle: 'Prière et lectures pour la fin d’un mariage',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons Going through Divorce” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-going-through-divorce',
+    blocks: [
+      TextBlock.heading('PRIÈRE'),
+      TextBlock.leader('Dieu d’amour et de compréhension infinis, / répands ton Esprit guérisseur sur [Prénom], / pendant qu’il (elle) réfléchit à l’échec (la fin) de son mariage / et prend un nouveau départ. / Là où il y a blessure ou amertume, / accorde la guérison des souvenirs / et la capacité de laisser derrière lui (elle) ce qui est passé. / Là où des sentiments de désespoir ou d’inutilité l’envahissent, / nourris l’esprit d’espérance et de confiance : / par ta grâce, demain peut être meilleur qu’hier. / Là où il (elle) regarde en lui-même (elle-même) et découvre des fautes / qui ont contribué à la destruction du mariage / et ont blessé d’autres personnes, / accorde le pardon pour ce qui est passé / et la croissance dans tout ce qui fait la vie nouvelle. / [Guéris [prénoms des enfants], et aide-nous à leur apporter ta guérison.] / Nous prions pour [les autres membres de] la famille et les amis, / pour la guérison de leurs blessures et l’acceptation des réalités nouvelles. / Tout cela, nous te le demandons au nom de celui / qui nous libère de l’esclavage du passé et fait toutes choses nouvelles, / Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
+      TextBlock.leader('Philippiens 3.12-16 — je cours vers le but\nLuc 7.36-50 — Jésus pardonne à une femme de la ville\nLuc 13.10-17 — Jésus guérit une femme courbée\nLuc 18.35-43 — Jésus guérit un mendiant aveugle'),
+      TextBlock.note('Les cantiques proposés sous « Cantique de guérison » conviennent.'),
+    ],
+  );
+
+  static const farewellPastor = ChurchText(
+    id: 'bow_farewell_pastor',
+    title: 'Adieu à un pasteur ou à un diacre',
+    subtitle: 'Rite de départ ou de retraite : remerciements, pardon et prière',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to a Pastor or Deacon,” Copyright © 1992 UMPH, alt. 2015 (to include deacon in full connection) by Discipleship Ministries. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-a-pastor-or-deacon',
+    blocks: [
+      TextBlock.note('Ce rite peut être employé dans un culte, le dernier dimanche avant qu’un pasteur ou un diacre rejoigne une autre assemblée ou prenne sa retraite, ou lors d’un culte spécial. Il peut être adapté en un rite d’adieu à un membre du personnel de l’église autre que le pasteur.'),
+      TextBlock.note('En réponse à la Parole, le responsable laïc ou un autre responsable désigné s’avance et annonce que le moment est venu de dire adieu au pasteur ou au diacre. Une ou plusieurs personnes peuvent rappeler avec reconnaissance son ministère. On peut offrir un cadeau ou un symbole, avec des paroles de remerciement appropriées. Une étole peut être laissée pour être revêtue par le prochain pasteur ou diacre (voir « Rite de célébration d’une nomination »). Le pasteur et l’assemblée peuvent se libérer mutuellement par ces paroles ou d’autres semblables.'),
+      TextBlock.leader('Je vous remercie, membres et amis de l’Église méthodiste unie de [Nom], / de l’amour et du soutien que vous m’avez montrés / pendant que j’ai exercé mon ministère parmi vous. / Je suis reconnaissant de la manière dont ma direction a été accueillie. / Je demande pardon pour les erreurs que j’ai commises. / En partant, j’emporte avec moi tout ce que j’ai appris ici.'),
+      TextBlock.people('Nous recevons votre reconnaissance, nous vous offrons notre pardon / et nous acceptons que vous partiez maintenant exercer votre ministère ailleurs (prendre votre retraite). / Nous vous exprimons notre gratitude pour le temps passé parmi nous. / Nous vous demandons pardon pour nos erreurs. / Votre influence sur notre foi et notre fidélité / ne partira pas avec vous.'),
+      TextBlock.leader('J’accepte votre reconnaissance et votre pardon, et je vous pardonne, / confiant que notre temps ensemble et notre séparation / sont agréables à Dieu. / Je vous libère de vous tourner vers moi et de dépendre de moi. / Je vous encourage à poursuivre le ministère ici / et je prierai pour vous et pour votre nouveau pasteur (diacre).'),
+      TextBlock.note('Le pasteur peut prier spontanément, ou le pasteur et l’assemblée peuvent dire ensemble la prière suivante :'),
+      TextBlock.leader('Prions.'),
+      TextBlock.people('Dieu éternel, dont l’amour fidèle pour nous va d’éternité en éternité, / nous te rendons grâce pour les souvenirs précieux / et nous nous confions les uns les autres à tes soins en prenant de nouvelles directions. / Garde-nous un dans ton amour pour toujours, par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('On peut chanter un cantique.'),
+    ],
+  );
+
+  static const farewellMembers = ChurchText(
+    id: 'bow_farewell_members',
+    title: 'Adieu à des membres de l’église',
+    subtitle: 'Rite pour une personne ou une famille qui déménage',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to Church Members.” Copyright © 1992 UMPH. Prayer by E. Hawkins (England, 1789). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-church-members',
+    blocks: [
+      TextBlock.note('Ce rite est un adieu public à un membre ou à une famille de l’église qui déménage dans une autre localité.'),
+      TextBlock.note('Dans tout culte de l’assemblée, en réponse à la Parole ou à un autre moment convenable, le pasteur invite à s’avancer la ou les personnes qui déménagent, pour les reconnaître. Elles font face à l’assemblée. Le pasteur peut brièvement rappeler ce que ces personnes ont apporté à l’assemblée, puis poursuivre ce rite.'),
+      TextBlock.note('Le pasteur :'),
+      TextBlock.leader('L’Église est une famille. / Unis par la reconnaissance commune de Jésus-Christ comme notre Sauveur, / nous sommes tous frères et sœurs. / Et, pour un temps, [nom de l’assemblée] est notre maison.'),
+      TextBlock.leader('Comme toute famille humaine, / notre famille d’Église se forme et se reforme avec le temps : / des membres naissent, d’autres meurent, / des membres sont adoptés dans notre famille, / et d’autres quittent notre assemblée pour une nouvelle maison, dans un autre lieu.'),
+      TextBlock.leader('Pendant un temps, [Prénom(s)] a (ont) vécu avec nous. / Nous avons partagé les bons et les mauvais moments, / nous avons partagé nos joies et nos peines, / nous avons allégé les lourds fardeaux les uns des autres. / Ensemble nous avons ri et pleuré, / ensemble nous avons adoré et loué Dieu, / ensemble nous avons vécu.'),
+      TextBlock.note('L’assemblée :'),
+      TextBlock.people('Nous sommes tristes de votre départ, / mais nous nous réjouissons avec vous à l’approche de cette nouvelle étape de votre vie. / Votre amour et votre soutien nous manqueront, / mais nous savons que vous apporterez beaucoup à la vie / de ceux qui seront votre nouvelle famille d’Église, / comme vous avez beaucoup apporté à la nôtre.'),
+      TextBlock.note('L’assemblée et le pasteur :'),
+      TextBlock.people('Nous prierons pour vous et pour toute la famille de Dieu.'),
+      TextBlock.note('Le pasteur :'),
+      TextBlock.leader('Prions. / Ô Dieu, tu es la force et le protecteur de ton peuple. / Nous remettons humblement entre tes mains [Prénom(s)] de cette assemblée, / qui est (sont) sur le point de nous quitter. / Garde et protège-le (la, les), Seigneur, / en pleine santé et en sécurité, de corps et d’âme, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader('Allez dans la paix du Christ. Nos prières vous accompagnent. Amen.'),
+      TextBlock.note('On peut chanter un cantique ou une réponse.'),
+    ],
+  );
+
+  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving, greetingsPrayers, waysOfPraying, biblesChildren, covenantRenewal, leadersInstallation, classLeaders, christianMarriage2, greatThanksgivingSeasons, holyThursday, palmSunday, easterVigil, tenebrae, healing2, ministryIllness, ministryComa, ministryDivorce, farewellPastor, farewellMembers];
 }
