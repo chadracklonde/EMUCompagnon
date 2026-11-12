@@ -144,8 +144,12 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
 - Livre de culte méthodiste uni : 39 textes (modèle de base, ordre du
   culte dominical, repas d'amour, louange du matin et du soir, mercredi des Cendres, dimanche des Rameaux, jeudi saint, Vendredi saint, veillée pascale, Ténèbres, cultes de guérison I et II, accompagnement des personnes malades ou qui divorcent, adieux, accompagnement des mourants, bénédiction d'une maison, naissance, salutations et prières d'ouverture, renouvellement de l'alliance, installation et mise en fonction de responsables, litanie, Dix commandements, confession, Grande action de
   grâce, bénédictions, Parole et Table I, mise en terre, Alliance
-  baptismale I, mariage, mort et résurrection), traduits par DeepL puis
-  corrigés à la main. Chaque texte donne la mention de droit d'auteur de la
+  baptismale, mariage, mort et résurrection), traduits par DeepL puis
+  corrigés à la main. Exception : le texte du baptême est l'Alliance
+  baptismale du Livre de prière commune de l'Église épiscopale (1979, domaine
+  public), car la page du texte méthodiste uni interdit toute modification
+  sans autorisation écrite ; ce dernier reste désactivé dans
+  `tools/book_of_worship/disabled/`. Chaque texte donne la mention de droit d'auteur de la
   page d'origine et un lien vers l'original anglais. Sources dans
   `tools/book_of_worship/` (`texts/*.json`, `generate.py` produit
   `book_of_worship_data.dart`). Traduction à relire.
