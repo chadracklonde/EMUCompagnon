@@ -61,7 +61,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'sainte_cene',
       name: 'La Sainte-Cène',
-      textIds: ['bow_brief_great_thanksgiving', 'bow_basic_pattern'],
+      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving', 'bow_basic_pattern'],
       subtitle: 'Communion, Eucharistie',
       icon: IconRef.communion,
       description:
@@ -109,6 +109,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'funerailles',
       name: 'Le Service funèbre',
+      textIds: ['bow_committal'],
       subtitle: 'Culte d\'action de grâces pour une vie',
       icon: IconRef.funeral,
       description:
