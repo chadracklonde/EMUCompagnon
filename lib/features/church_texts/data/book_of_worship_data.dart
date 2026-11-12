@@ -121,6 +121,26 @@ class BookOfWorshipData {
       TextBlock.p('Ô Dieu de shalom,\nnous avons élevé des murs pour nous protéger de nos ennemis,\nmais ces murs nous empêchent aussi de recevoir ton amour.\nAbats ces murs.\nAide-nous à comprendre que le chemin vers ton cœur\npasse par la réconciliation de nos cœurs avec nos ennemis.\nBénis-les et bénis-nous,\nafin que nous grandissions dans l’amour les uns pour les autres et pour toi ;\npar Jésus-Christ. Amen.'),
       TextBlock.note('Michael J. O’Donnell (États-Unis, XXe siècle).'),
     ],
+    sw: ChurchText(
+      id: 'bow_confession_of_sin',
+      title: 'Maombi ya toba',
+      subtitle: 'Maombi sita kwa ajili ya wakati wa toba',
+      icon: ChurchTextIcon.confession,
+      source: 'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Confessions of Sin by Michael J. O’Donnell Copyright © 1992 UMPH. Confession of Sin by Maria Steward, Public Domain. » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
+      sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/confession-of-sin',
+      blocks: [
+        TextBlock.p('Ee Mungu mwenyezi na mwenye rehema,\nTunajua kwamba tunapomkosea mtu, ni Wewe tunayekosea.\nTunakiri kwamba mara nyingi tumeruhusu kivuli cha chuki\nkitie giza roho zetu na kuficha nuru machoni petu, ambayo hayakuwa yakiitafuta.\nTumewasemesha maneno yasiyo ya fadhili na ya kuumiza ndugu zetu\nwalipokosa kufikia matarajio yetu.\nTuwezeshe kugundua upya cheche ya upendo ambayo bado inawaka ndani yetu,\nupendo ambao umetuonyesha hata tulipokukatisha tamaa.\nChochea mkaa wa upendo huu hadi upate moto upya\nkatika mioto ya upendo, amani na upatanisho.\nTusamehe dhambi zetu\nna utusaidie kuwasamehe wale waliotukosea.\nTuongoze katika uzima mpya kupitia Mwanao Yesu Kristo,\naliyekufa kwa ajili ya dhambi za wote. Amina.'),
+        TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
+        TextBlock.p('Ee Bwana Mungu,\nwalinzi wa Sayuni walipaza sauti, \'Amani, amani\',\nwakati hakukuwa na amani.\nKwa nini umetunyima kwa muda mrefu\nkazi ya Roho wako Mtakatifu?\nKwa nini umeifanya migumu mioyo yetu?\nNi kwa sababu tumekuheshimu kwa midomo yetu,\nhuku mioyo yetu ikiwa mbali nawe.\n\nTurudie, ee Bwana Mungu,\nna usamehe uovu huu wa watumishi wako.\nUangazie uso wako juu yetu, nasi tutaokolewa.\nUtutembelee kwa wokovu wako.\nInua wana na binti wa Abrahamu na Sara,\nna utujalie\nmtikisiko mkuu wa mifupa mikavu\nna mkusanyiko mkuu wa roho.\n\nTujalie, tunaomba,\nufalme wa Bwana wetu Yesu Kristo ujengwe;\nili mataifa yote, makabila yote, ndimi zote na watu wote\nwaletwe katika ujuzi wa kweli,\nna kwamba hatimaye tukusanyike kuzunguka kiti chako cha enzi\nkuadhimisha sifa zako pamoja. Amina.'),
+        TextBlock.note('Maria Stewart (Mmarekani mweusi, Marekani, karne ya 19), imebadilishwa.'),
+        TextBlock.p('Mungu mwenyezi mwenye upendo,\nkupitia Mwanao, Yesu Kristo,\numeupatanisha ulimwengu nawe.\nTusaidie sasa tupatanishwe sisi kwa sisi,\nili tupate kuishi tena katika joto la upendo wako.\nTuhamasishe kwa Roho wako Mtakatifu\ntuweke kando vazi la kiburi na tuvae Kristo,\nili tusamehe na kusamehewa;\nkwa njia ya Yesu Kristo Bwana wetu. Amina.'),
+        TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
+        TextBlock.p('Tunasita, Ee Mwanzilishi wa upendo,\nkuweka kando huzuni yetu, hasira zetu, na kukata tamaa kwetu.\nTuponye kwa mguso wako mpole,\nili tusafishwe kutoka kwa kila wazo lisilo safi,\nkila mpango wa kisasi, kila tumaini la kulipiza kisasi.\nTufumbue macho yetu kwa nguvu ya upendo,\niliyofunuliwa kwetu katika dhabihu isiyo na ubinafsi\nya Mwanao, Mwokozi wetu, Yesu Kristo. Amina.'),
+        TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
+        TextBlock.p('Ee Mungu wa shalom,\ntumejenga kuta kujikinga na maadui zetu,\nlakini kuta hizi pia zinatuzuia kupokea upendo wako.\nVunja kuta hizi.\nTusaidie kuelewa kwamba njia ya kufikia moyo wako\niko katika kupatanisha mioyo yetu na maadui zetu.\nWabariki wao na utubariki sisi,\nili tuweze kukua katika upendo kwa kila mmoja na kwako;\nkwa njia ya Yesu Kristo. Amina.'),
+        TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
+      ],
+    ),
   );
 
   static const briefGreatThanksgiving = ChurchText(
@@ -167,6 +187,31 @@ class BookOfWorshipData {
       TextBlock.p('Accorde-nous, ô Seigneur,\nde croire dans notre cœur ce que nous avons dit de nos lèvres,\net de mettre en pratique dans notre vie ce que nous croyons dans notre cœur ;\npar Jésus-Christ, notre Seigneur. Amen.'),
       TextBlock.note('John Hunter (Écosse, XIXe siècle), adapté.'),
     ],
+    sw: ChurchText(
+      id: 'bow_blessings_closing',
+      title: 'Baraka na sala ya kufunga',
+      subtitle: 'Kwa ajili ya kutumwa mwishoni mwa ibada',
+      icon: ChurchTextIcon.prayer,
+      source: 'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Public Domain (Blessings; Closing Prayer) » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
+      sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/blessings',
+      blocks: [
+        TextBlock.heading('Baraka'),
+        TextBlock.p('Bwana akubariki, na kukulinda;\nBwana akuangazie uso wake, na kukufadhili;\nBwana akuelekeze uso wake, na kukupa amani. Amina.'),
+        TextBlock.note('Hesabu 6:24-26'),
+        TextBlock.p('Mungu wa tumaini awajaze furaha yote na amani yote katika kuamini,\nili mpate kujawa na tumaini kwa nguvu ya Roho Mtakatifu. Amina.'),
+        TextBlock.note('Warumi 15:13'),
+        TextBlock.p('Mbele yetu, yote yamebarikiwa; nyuma yetu, yote yamebarikiwa;\nchini ya miguu yetu, yote yamebarikiwa; juu yetu, yote yamebarikiwa;\npande zote zetu, yote yamebarikiwa, tunapoanza safari yetu na Kristo.\nManeno yetu yamebarikiwa tunapoanza safari yetu kuelekea kwa Mungu.\nPamoja na uzuri mbele yetu, pamoja na uzuri nyuma yetu,\npamoja na uzuri chini ya miguu yetu, pamoja na uzuri juu yetu,\npamoja na uzuri pande zote zetu, tunaanza safari yetu kuelekea mahali patakatifu kweli. Amina.'),
+        TextBlock.note('Sala ya jadi ya Wanavajo, imebadilishwa.'),
+        TextBlock.p('Njia ikuinuke kukutana nawe,\nupepo uwe nyuma yako daima,\njua likupatie uso wako joto kwa miale yake,\nmvua inyeshe taratibu katika mashamba yako,\nna hadi tutakapokutana tena,\nMungu akushike kwenye kiganja chake. Amina.'),
+        TextBlock.note('Sala ya jadi ya Kigaeli.'),
+        TextBlock.heading('Baraka ya Sarum'),
+        TextBlock.p('Mungu awe akilini mwako na katika ufahamu wako.\nMungu awe machoni pako na katika mtazamo wako.\nMungu awe kinywani mwako na katika maneno yako.\nMungu awe moyoni mwako na katika mawazo yako.\nMungu awe mwishoni mwako na katika safari yako.'),
+        TextBlock.note('Ibada ya Sarum (Uingereza, karne ya 13), imebadilishwa.'),
+        TextBlock.heading('Sala ya kufunga'),
+        TextBlock.p('Tujalie, Ee Bwana,\nkuamini mioyoni mwetu yale tuliyoyasema kwa midomo yetu,\nna kutenda katika maisha yetu yale tunayoyaamini mioyoni mwetu;\nkwa njia ya Yesu Kristo, Bwana wetu. Amina.'),
+        TextBlock.note('John Hunter (Uskoti, karne ya 19), imebadilishwa.'),
+      ],
+    ),
   );
 
   static const wordAndTable1 = ChurchText(

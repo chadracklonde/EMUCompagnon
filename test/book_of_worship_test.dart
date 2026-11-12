@@ -29,6 +29,34 @@ void main() {
     expect(BookOfWorshipData.confessionOfSin.source, contains('Michael J. O’Donnell Copyright © 1992 UMPH'));
   });
 
+  test('Swahili versions follow the French blocks and keep the page\'s copyright statement', () {
+    final withSw = all.where((t) => t.sw != null).toList();
+    expect(withSw.map((t) => t.id), containsAll(['bow_confession_of_sin', 'bow_blessings_closing']));
+    for (final t in withSw) {
+      final sw = t.sw!;
+      expect(sw.id, t.id);
+      expect(sw.blocks.length, t.blocks.length, reason: t.id);
+      for (var i = 0; i < t.blocks.length; i++) {
+        expect(sw.blocks[i].kind, t.blocks[i].kind, reason: '${t.id} #$i');
+        expect(sw.blocks[i].text.trim(), isNotEmpty, reason: '${t.id} #$i');
+      }
+      expect(sw.source, contains('haijakaguliwa'), reason: t.id);
+      final statement = RegExp('« (.*) »').firstMatch(t.source)!.group(1)!;
+      expect(sw.source, contains(statement), reason: t.id);
+      expect(sw.sourceUrl, t.sourceUrl);
+    }
+  });
+
+  test('localized() falls back to French when there is no Swahili version', () {
+    final basic = BookOfWorshipData.basicPattern;
+    expect(basic.sw, isNull);
+    expect(basic.localized('sw'), same(basic));
+    expect(basic.localized('fr'), same(basic));
+    final confession = BookOfWorshipData.confessionOfSin;
+    expect(confession.localized('fr'), same(confession));
+    expect(confession.localized('sw').title, 'Maombi ya toba');
+  });
+
   test('texts are in the app and their ids are unique', () {
     final ids = ChurchTextsData.all.map((t) => t.id).toList();
     expect(ids.toSet().length, ids.length);

@@ -72,6 +72,28 @@ for slug in slugs:
     for kind, text in d["blocks"]:
         lines.append(f"      TextBlock.{KIND[kind]}({q(text)}),")
     lines.append("    ],")
+    sw_path = os.path.join(here, "texts_sw", slug + ".json")
+    if os.path.exists(sw_path):
+        sw = json.load(open(sw_path, encoding="utf-8"))
+        assert [k for k, _ in sw["blocks"]] == [k for k, _ in d["blocks"]], slug + ": les blocs swahili doivent suivre ceux du français"
+        sw_source = (
+            "The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. "
+            f"Taarifa ya hakimiliki ya ukurasa wa asili: « {d['copyright']} » "
+            "Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; "
+            "haijakaguliwa na mzungumzaji wa Kiswahili)."
+        )
+        lines.append("    sw: ChurchText(")
+        lines.append(f"      id: {q('bow_' + slug)},")
+        lines.append(f"      title: {q(sw['title'])},")
+        lines.append(f"      subtitle: {q(sw['subtitle'])},")
+        lines.append(f"      icon: ChurchTextIcon.{d['icon']},")
+        lines.append(f"      source: {q(sw_source)},")
+        lines.append(f"      sourceUrl: {q(d['url'])},")
+        lines.append("      blocks: [")
+        for kind, text in sw["blocks"]:
+            lines.append(f"        TextBlock.{KIND[kind]}({q(text)}),")
+        lines.append("      ],")
+        lines.append("    ),")
     lines.append("  );")
     lines.append("")
 lines.append("  static const all = <ChurchText>[" + ", ".join(camel(s) for s in slugs) + "];")

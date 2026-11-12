@@ -51,6 +51,13 @@ class ChurchText {
 
   final List<TextBlock> blocks;
 
+  /// Swahili version of the same text (same blocks, same order), when it exists.
+  final ChurchText? sw;
+
+  /// The text in the language of the app: the Swahili version for 'sw' when
+  /// there is one, otherwise the French text.
+  ChurchText localized(String locale) => (locale == 'sw' ? sw : null) ?? this;
+
   const ChurchText({
     required this.id,
     required this.title,
@@ -59,6 +66,7 @@ class ChurchText {
     required this.source,
     this.sourceUrl,
     required this.blocks,
+    this.sw,
   });
 
   /// Section headings, in order — the table of contents of long texts.

@@ -78,8 +78,12 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
     super.dispose();
   }
 
+  /// The text in the language of the app (Swahili when a version exists).
+  ChurchText _localized(BuildContext context) =>
+      widget.text.localized(context.read<AppSettings>().locale);
+
   void _share() =>
-      TextShareService.share(widget.text.toPlainText(), subject: widget.text.title);
+      TextShareService.share(_localized(context).toPlainText(), subject: _localized(context).title);
 
   Future<void> _togglePin() async {
     final pinned = await ChurchTextPrefs.toggle(widget.text.id);
@@ -95,7 +99,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
   /// Long press on a passage: share or copy only its section (one
   /// article), not the whole text.
   Future<void> _openSectionActions(int blockIndex) async {
-    final text = widget.text;
+    final text = _localized(context);
     final title = text.sectionTitleOf(blockIndex) ?? text.title;
     final content = text.headings.isEmpty
         ? text.toPlainText()
@@ -142,7 +146,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
   }
 
   Future<void> _openContents() async {
-    final headings = widget.text.headings;
+    final headings = _localized(context).headings;
     final index = await showModalBottomSheet<int>(
       context: context,
       isScrollControlled: true,
@@ -174,7 +178,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final text = widget.text;
+    final text = _localized(context);
     final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     final lineHeight = context.watch<AppSettings>().lineHeightScale;
