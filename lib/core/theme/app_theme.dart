@@ -9,6 +9,10 @@ class UmcColors {
   static const redDark = Color(0xFFAF292E);    // Pantone 1805
   static const burgundy = Color(0xFF7A2426);   // Pantone 1815
 
+  /// The app's own accent, the red of its icon (a little more vivid than the
+  /// official burgundy). Contrast with white is 8.9:1.
+  static const appBurgundy = Color(0xFF8F1D26);
+
   // Neutrals
   static const black = Color(0xFF000000);      // Primary black
   static const grayDark = Color(0xFF575A5D);   // Pantone 425
@@ -52,7 +56,7 @@ class AppPalette {
   });
 
   /// Filled "hero" card (verse of the day): same burgundy in both modes.
-  static const hero = UmcColors.burgundy;
+  static const hero = UmcColors.appBurgundy;
   static const onHero = Colors.white;
   static const onHeroMuted = Color(0xFFF3C9CC);
 
@@ -62,7 +66,7 @@ class AppPalette {
     border: Color(0xFFE8E4E0),
     field: Color(0xFFF0EEEB),
     muted: Color(0xFF6B6466),
-    accent: UmcColors.burgundy,
+    accent: UmcColors.appBurgundy,
     accentSoft: Color(0xFFF7E9EA),
   );
 
@@ -83,10 +87,10 @@ class AppPalette {
 class AppTheme {
   static ThemeData light({String? fontFamily}) {
     final colorScheme = ColorScheme.light(
-      primary: UmcColors.burgundy,
+      primary: UmcColors.appBurgundy,
       onPrimary: Colors.white,
       primaryContainer: UmcColors.redTint,
-      onPrimaryContainer: UmcColors.burgundy,
+      onPrimaryContainer: UmcColors.appBurgundy,
       secondary: UmcColors.redPrimary,
       onSecondary: Colors.white,
       secondaryContainer: UmcColors.redTint,
@@ -106,10 +110,10 @@ class AppTheme {
       colorScheme: colorScheme,
       palette: AppPalette._light,
       fontFamily: fontFamily,
-      navSelected: UmcColors.burgundy,
+      navSelected: UmcColors.appBurgundy,
       navUnselected: UmcColors.grayDark,
       navIndicator: UmcColors.redTint,
-      fabBackground: UmcColors.burgundy,
+      fabBackground: UmcColors.appBurgundy,
       fabForeground: Colors.white,
     );
   }
