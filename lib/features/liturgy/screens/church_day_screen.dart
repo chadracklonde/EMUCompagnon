@@ -46,6 +46,9 @@ List<String> _textIdsFor(ChurchDay day) {
       return const ['bow_holy_thursday', 'bow_great_thanksgiving_seasons'];
     case 'good-friday':
       return const ['bow_good_friday'];
+    case 'holy-saturday':
+    case 'easter':
+      return const ['bow_easter_vigil'];
     default:
       return const [];
   }
