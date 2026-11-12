@@ -27,7 +27,6 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
   bool _reviewing = false;
   int _reviewIndex = 0;
   bool _revealed = false;
-  int _reviewedCount = 0;
 
   @override
   void initState() {
@@ -52,14 +51,12 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
       _reviewing = true;
       _reviewIndex = 0;
       _revealed = false;
-      _reviewedCount = 0;
     });
   }
 
   Future<void> _grade(RecallQuality quality) async {
     final card = _dueToday[_reviewIndex];
     await _repo.grade(card, quality);
-    _reviewedCount++;
     if (_reviewIndex + 1 < _dueToday.length) {
       setState(() {
         _reviewIndex++;
@@ -94,7 +91,8 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
               ValueListenableBuilder<String>(
                 valueListenable: bookNotifier,
                 builder: (_, value, __) => DropdownButtonFormField<String>(
-                  value: value,
+                  key: ValueKey(value),
+                  initialValue: value,
                   isExpanded: true,
                   decoration: const InputDecoration(labelText: 'Livre'),
                   items: BibleRepository.books

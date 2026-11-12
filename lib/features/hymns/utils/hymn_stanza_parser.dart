@@ -35,7 +35,7 @@ class HymnStanzaParser {
     void flush() {
       if (currentLabel != null && currentBody.isNotEmpty) {
         stanzas.add(HymnStanza(
-          label: currentLabel!,
+          label: currentLabel,
           body: currentBody.toString().trim(),
           isRefrain: currentIsRefrain,
         ));
