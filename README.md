@@ -141,6 +141,14 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   recherche de date, et les dimanches spéciaux de la Discipline (¶ 262 à
   265) que l'on peut masquer. Vérifié contre le tableau « Calendar for
   dating Easter » du Livre de culte (2013 à 2020) et des dates connues.
+- Livre de culte méthodiste uni : 11 textes (modèle de base, ordre du
+  culte dominical, litanie, Dix commandements, confession, Grande action de
+  grâce, bénédictions, Parole et Table I, mise en terre, Alliance
+  baptismale I, mariage, mort et résurrection), traduits par DeepL puis
+  corrigés à la main. Chaque texte donne la mention de droit d'auteur de la
+  page d'origine et un lien vers l'original anglais. Sources dans
+  `tools/book_of_worship/` (`texts/*.json`, `generate.py` produit
+  `book_of_worship_data.dart`). Traduction à relire.
 - Verset du jour : tiré d'une liste de 134 versets de réconfort et de
   courage (`ComfortVerses`), dans un ordre qui paraît aléatoire, sans
   répétition avant d'avoir parcouru toute la liste ; le même partout un
