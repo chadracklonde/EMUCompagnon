@@ -41,6 +41,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'bapteme',
       name: 'Le Baptême',
+      textIds: ['bow_baptismal_covenant_1'],
       subtitle: 'Sacrement d\'initiation chrétienne',
       icon: IconRef.baptism,
       description:
@@ -82,6 +83,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'confirmation',
       name: 'La Confirmation',
+      textIds: ['bow_baptismal_covenant_1'],
       subtitle: 'Profession publique de la foi',
       icon: IconRef.confirmation,
       description:
@@ -96,6 +98,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'mariage',
       name: 'Le Mariage',
+      textIds: ['bow_christian_marriage_1'],
       subtitle: 'Célébration de l\'union',
       icon: IconRef.marriage,
       description:
