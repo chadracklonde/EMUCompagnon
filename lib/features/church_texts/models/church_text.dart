@@ -46,6 +46,9 @@ class ChurchText {
   /// Where the text comes from, shown under it.
   final String source;
 
+  /// Page of the original (when it is online), offered under the text.
+  final String? sourceUrl;
+
   final List<TextBlock> blocks;
 
   const ChurchText({
@@ -54,6 +57,7 @@ class ChurchText {
     required this.subtitle,
     required this.icon,
     required this.source,
+    this.sourceUrl,
     required this.blocks,
   });
 

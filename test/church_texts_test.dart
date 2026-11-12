@@ -5,9 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   final texts = ChurchTextsData.all;
 
-  test('eight texts, each with a unique id and some content', () {
-    expect(texts, hasLength(8));
-    expect(texts.map((t) => t.id).toSet(), hasLength(8));
+  test('the eight texts of the Discipline plus the Book of Worship extracts, each with a unique id and some content', () {
+    final own = texts.where((t) => !t.id.startsWith('bow_')).toList();
+    expect(own, hasLength(8));
+    expect(texts.map((t) => t.id).toSet(), hasLength(texts.length));
     for (final t in texts) {
       expect(t.blocks, isNotEmpty, reason: t.id);
       expect(t.source, isNotEmpty, reason: t.id);

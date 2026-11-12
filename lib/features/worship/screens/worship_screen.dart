@@ -9,6 +9,7 @@ import '../../../shared/widgets/keep_awake.dart';
 import '../../church_texts/data/church_texts_data.dart';
 import '../../church_texts/models/church_text.dart';
 import '../../church_texts/screens/church_text_screen.dart';
+import '../../church_texts/widgets/church_text_links.dart';
 import '../../church_texts/screens/church_texts_screen.dart';
 import '../../church_texts/services/church_text_prefs.dart';
 import '../../hymn_lists/screens/hymn_list_player_screen.dart';
@@ -345,6 +346,7 @@ class _WorshipScreenState extends State<WorshipScreen> {
                                 color: scheme.onSurface,
                               ),
                             ),
+                            ChurchTextLinks(textIds: WorshipOrderData.steps[i].textIds),
                           ],
                         ),
                     ],

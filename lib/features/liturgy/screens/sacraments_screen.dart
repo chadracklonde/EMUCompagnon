@@ -1,4 +1,5 @@
 import '../../../shared/widgets/keep_awake.dart';
+import '../../church_texts/widgets/church_text_links.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/sacraments_data.dart';
@@ -104,6 +105,15 @@ class SacramentDetailScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
+              if (sacrament.textIds.isNotEmpty) ...[
+                const SizedBox(height: 20),
+                Text('Textes du Livre de culte',
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).colorScheme.onSurface)),
+                ChurchTextLinks(textIds: sacrament.textIds),
+              ],
             ],
           ),
         ),

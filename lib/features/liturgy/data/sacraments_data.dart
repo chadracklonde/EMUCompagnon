@@ -5,12 +5,16 @@ class SacramentInfo {
   final String description;
   final IconRef icon;
 
+  /// Texts of the Book of Worship for this rite (ids of [ChurchTextsData]).
+  final List<String> textIds;
+
   const SacramentInfo({
     required this.id,
     required this.name,
     required this.subtitle,
     required this.description,
     required this.icon,
+    this.textIds = const [],
   });
 }
 
@@ -57,6 +61,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'sainte_cene',
       name: 'La Sainte-Cène',
+      textIds: ['bow_brief_great_thanksgiving', 'bow_basic_pattern'],
       subtitle: 'Communion, Eucharistie',
       icon: IconRef.communion,
       description:

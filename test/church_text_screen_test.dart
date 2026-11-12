@@ -17,7 +17,8 @@ void main() {
   testWidgets('every text opens from the list', (tester) async {
     for (final text in ChurchTextsData.all) {
       await tester.pumpWidget(_app(const ChurchTextsScreen()));
-      await tester.ensureVisible(find.text(text.title));
+      // The list is lazy: scroll down to the row.
+      await tester.scrollUntilVisible(find.text(text.title), 300, scrollable: find.byType(Scrollable).first);
       await tester.pumpAndSettle();
       await tester.tap(find.text(text.title));
       await tester.pumpAndSettle();

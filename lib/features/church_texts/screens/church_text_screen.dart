@@ -2,6 +2,7 @@ import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -292,6 +293,15 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                 text.source,
                 style: TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
               ),
+              if (text.sourceUrl != null)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    icon: const Icon(Icons.open_in_new, size: 18),
+                    label: const Text("Voir l'original (en anglais)"),
+                    onPressed: () => launchUrl(Uri.parse(text.sourceUrl!), mode: LaunchMode.externalApplication),
+                  ),
+                ),
               if (text.headings.isNotEmpty) ...[
                 const SizedBox(height: 10),
                 Text(

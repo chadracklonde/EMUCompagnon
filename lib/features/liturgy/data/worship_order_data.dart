@@ -2,7 +2,11 @@ class WorshipStep {
   final String title;
   final String description;
 
-  const WorshipStep({required this.title, required this.description});
+  /// Texts of the Book of Worship used at this moment (ids of
+  /// [ChurchTextsData]), offered under the step.
+  final List<String> textIds;
+
+  const WorshipStep({required this.title, required this.description, this.textIds = const []});
 }
 
 /// General structure of a Sunday service as typically practiced in United
@@ -47,6 +51,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Prière de confession et pardon',
+      textIds: ['bow_confession_of_sin', 'bow_ten_commandments'],
       description:
           "Un temps de repentance collective, suivi de l'assurance du "
           "pardon offert en Christ — souvent accompagné d'un signe de "
@@ -87,6 +92,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Sainte-Cène (si célébrée)',
+      textIds: ['bow_brief_great_thanksgiving'],
       description:
           "Lorsque la Cène est célébrée — traditionnellement au moins une "
           "fois par mois dans les Églises Méthodistes Unies — la Grande "
@@ -95,6 +101,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Prières d\'intercession',
+      textIds: ['bow_litany_church_world'],
       description:
           "La communauté prie pour l'Église, le monde, les malades et "
           "ceux qui souffrent, et pour ses propres besoins.",
@@ -107,6 +114,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Bénédiction et envoi',
+      textIds: ['bow_blessings_closing'],
       description:
           "Le pasteur bénit l'assemblée et l'envoie vivre sa foi dans le "
           "monde jusqu'au prochain rassemblement.",

@@ -1,4 +1,5 @@
 import '../models/church_text.dart';
+import 'book_of_worship_data.dart';
 
 /// Prayers and texts of The United Methodist Church shown under
 /// "Prières et textes".
@@ -18,6 +19,7 @@ class ChurchTextsData {
     ChurchTextGroup('Prières', [lordsPrayer, socialCreed, socialCreedLitany]),
     ChurchTextGroup('Ce que nous croyons', [articlesOfReligion, confessionOfFaith]),
     ChurchTextGroup('Vivre en disciple', [generalRules, membershipVows, mission]),
+    ChurchTextGroup('Livre de culte (extraits)', BookOfWorshipData.all),
   ];
 
   static ChurchText? byId(String id) {
