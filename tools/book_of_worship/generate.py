@@ -34,7 +34,7 @@ def camel(slug):
 order = [
     "basic_pattern", "litany_church_world", "ten_commandments", "confession_of_sin",
     "brief_great_thanksgiving", "blessings_closing", "word_and_table_1", "committal",
-    "baptismal_covenant_1", "christian_marriage_1", "death_and_resurrection", "sunday_order", "love_feast", "morning_praise", "evening_praise", "ash_wednesday", "good_friday", "healing_1", "ministry_dying", "ministry_after_death", "blessing_home", "birth_thanksgiving", "greetings_prayers", "ways_of_praying", "bibles_children", "covenant_renewal", "leaders_installation", "class_leaders", "christian_marriage_2", "great_thanksgiving_seasons", "holy_thursday", "palm_sunday", "easter_vigil",
+    "baptismal_covenant_1", "christian_marriage_1", "death_and_resurrection", "sunday_order", "love_feast", "morning_praise", "evening_praise", "ash_wednesday", "good_friday", "healing_1", "ministry_dying", "ministry_after_death", "blessing_home", "birth_thanksgiving", "greetings_prayers", "ways_of_praying", "bibles_children", "covenant_renewal", "leaders_installation", "class_leaders", "christian_marriage_2", "great_thanksgiving_seasons", "holy_thursday", "palm_sunday", "easter_vigil", "tenebrae",
 ]
 files = {os.path.basename(f)[:-5]: f for f in glob.glob(os.path.join(here, "texts", "*.json"))}
 slugs = [s for s in order if s in files] + sorted(s for s in files if s not in order)
