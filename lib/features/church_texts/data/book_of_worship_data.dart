@@ -1335,5 +1335,111 @@ class BookOfWorshipData {
     ],
   );
 
-  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1];
+  static const ministryDying = ChurchText(
+    id: 'bow_ministry_dying',
+    title: 'Accompagnement des mourants',
+    subtitle: 'Sainte-Cène, prières de recommandation et paroles à l’heure de la mort',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with the Dying” Prayers 1 and 3 alt. from The Book of Common Prayer (The Episcopal Church, 1979). Public domain. Prayer 2 Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-the-dying',
+    blocks: [
+      TextBlock.note('Lorsque la mort approche, il faut prévenir le pasteur afin que le ministère de l’Église puisse s’exercer.'),
+      TextBlock.note('La Sainte-Cène peut être donnée, en employant le Culte de la Parole et de la Table V ou en adaptant le Culte de la Parole et de la Table IV.'),
+      TextBlock.note('L’Alliance baptismale peut être réaffirmée, en reprenant les parties appropriées de l’Alliance baptismale I.'),
+      TextBlock.note('Le pasteur, rejoint par d’autres dans la mesure de leurs possibilités, peut prier le Notre Père ou le Psaumes 23.'),
+      TextBlock.note('Voir aussi les ressources pour l’accompagnement des personnes atteintes d’une maladie mettant la vie en danger.'),
+      TextBlock.note('Le pasteur peut prier l’une ou plusieurs des prières suivantes :'),
+      TextBlock.leader('Seigneur Jésus-Christ, délivre ton enfant [Prénom] de tout mal / et libère-le (la) de tout lien, / afin qu’il (elle) repose avec tous tes saints / dans la joie de ta demeure éternelle, pour les siècles des siècles. Amen.'),
+      TextBlock.note('Lorsqu’on débranche un système de maintien en vie :'),
+      TextBlock.leader('Ô Dieu, tu es l’Alpha et l’Oméga, le commencement et la fin. / Tu as soufflé en nous le souffle de vie / et tu as veillé sur nous tous nos jours. / Maintenant, à l’heure de la mort, nous te rendons [Prénom], / confiants dans ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note('Une recommandation à l’heure de la mort, le pasteur posant la main sur la tête de la personne mourante :'),
+      TextBlock.leader('Pars en paix, frère (sœur) [Prénom] : / au nom de Dieu le Père, qui t’a créé(e) ; / au nom du Christ, qui t’a racheté(e) ; / au nom du Saint-Esprit, qui te sanctifie. / Repose en paix et demeure pour toujours auprès du Seigneur.'),
+    ],
+  );
+
+  static const ministryAfterDeath = ChurchText(
+    id: 'bow_ministry_after_death',
+    title: 'Accompagnement juste après un décès',
+    subtitle: 'Prières pour les proches endeuillés, y compris après la mort d’un enfant',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry Immediately Following Death” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-immediately-following-death',
+    blocks: [
+      TextBlock.note('Pour accompagner les proches endeuillés immédiatement après un décès, le pasteur peut prier spontanément, prier une ou plusieurs des prières de recommandation, ou prier ainsi :'),
+      TextBlock.leader('Des profondeurs, nous crions vers toi, Seigneur. Écoute notre voix. / Nous t’attendons, ô Dieu. Notre âme t’attend. / Donne-nous maintenant ta parole d’espérance. / Nous savons que ton amour est fidèle, toujours là quand nous en avons besoin. / Fais-nous sentir ta présence maintenant, dans notre tristesse. / Aide-nous à regarder vers demain pour voir une espérance au-delà du chagrin, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('Après la mort d’un enfant :'),
+      TextBlock.leader('Dieu d’amour, comme ton Fils Jésus a pris les enfants dans ses bras / et les a bénis, / donne-nous la grâce de confier [Prénom] à ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note('Après la naissance d’un enfant mort-né ou la mort d’un nouveau-né :'),
+      TextBlock.leader('Dieu de miséricorde, tu nous fortifies par ta puissance et ta sagesse. / Sois favorable à [Prénom] (et à [Prénom]) dans leur (son) deuil, / et entoure-les (la) de ton amour qui ne faiblit pas, / afin qu’ils (elle) ne soient pas accablés par leur (sa) perte, / mais qu’ils (elle) aient confiance en ta bonté / et le courage d’affronter les jours à venir, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('Voir aussi le Culte de mort et de résurrection pour un enfant mort-né et les prières du Culte d’espérance après la perte d’une grossesse.'),
+    ],
+  );
+
+  static const blessingHome = ChurchText(
+    id: 'bow_blessing_home',
+    title: 'Bénédiction d’une maison',
+    subtitle: 'Consécration d’un foyer ou d’un presbytère, avec gestes symboliques',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for the Blessing of a Home: Copyright © 1984 by Abingdon Press; Copyright © 1992 UMPH. Greeting © 1964, 1965 by Board of Publication of The Methodist Church, Inc.; renewal Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-for-the-blessing-of-a-home',
+    blocks: [
+      TextBlock.heading('RASSEMBLEMENT'),
+      TextBlock.note('La famille et les amis se rassemblent à l’intérieur ou à l’extérieur de la maison.'),
+      TextBlock.heading('SALUTATION'),
+      TextBlock.note('Le responsable s’adresse à la famille et aux amis :'),
+      TextBlock.leader('Jésus a dit : « Voici, je me tiens à la porte, et je frappe. / Si quelqu’un entend ma voix et ouvre la porte, j’entrerai chez lui. » (APOCALYPSE 3.20)'),
+      TextBlock.leader('Chers amis, / nous sommes rassemblés pour demander la bénédiction de Dieu sur cette maison, / qui, par la grâce de Dieu et le travail des hommes, a été préparée. / Cette maison n’est pas seulement un logement, / elle est pour nous le symbole de l’amour de Dieu / et de notre vie ensemble comme famille du Christ. / Rendons donc louange et action de grâce / pour la bonté, la miséricorde et notre communion, / en nous offrant comme serviteurs de Dieu / et comme sœurs et frères qui s’aiment les uns les autres.'),
+      TextBlock.heading('PRIÈRE D’OUVERTURE'),
+      TextBlock.leader('Prions.'),
+      TextBlock.leader('Dieu tout-puissant et éternel, / accorde à cette maison la grâce de ta présence, / afin qu’on sache que tu habites cette demeure / et que tu protèges cette famille, / par Jésus-Christ notre Seigneur, qui, avec toi et le Saint-Esprit, / vit et règne, seul Dieu, pour les siècles des siècles. Amen.'),
+      TextBlock.heading('LECTURE DES ÉCRITURES'),
+      TextBlock.leader('Lectures suggérées :\nJosué 24.14-15 — moi et ma maison, nous servirons l’Éternel\n1 Jean 4.11-21 — celui qui demeure dans l’amour demeure en Dieu\nActes 2.43-47 — jour après jour… ils rompaient le pain dans les maisons\nEphésiens 3.14-21 — toute famille tient son nom de Dieu\nMatthieu 6.25-33 — ne vous inquiétez pas pour votre vie\nMatthieu 7.24-27 — la maison bâtie sur le roc\nJean 14.1-3 — il y a plusieurs demeures dans la maison de mon Père'),
+      TextBlock.heading('CONSÉCRATION DE LA MAISON'),
+      TextBlock.leader('Au nom du Père, du Fils et du Saint-Esprit'),
+      TextBlock.note('(au nom du Dieu saint et trine),'),
+      TextBlock.leader('nous consacrons cette maison, / en confiant à l’amour et aux soins de Dieu tous ceux (celui, celle) qui y habitent (habite).'),
+      TextBlock.people('Amen.'),
+      TextBlock.leader('Prions. / Dieu éternel, bénis cette maison. / Que ton amour repose sur elle et que ta présence promise s’y manifeste. / Que les membres de cette famille ([Prénoms]) / grandissent dans la grâce et dans la connaissance de notre Seigneur Jésus-Christ. / Apprends-leur (lui, lui) à aimer comme tu nous as aimés, / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
+      TextBlock.heading('CONSÉCRATION D’UN PRESBYTÈRE'),
+      TextBlock.note('Ce texte peut remplacer la Consécration de la maison ci-dessus.'),
+      TextBlock.leader('Au nom du Père, du Fils et du Saint-Esprit'),
+      TextBlock.note('(au nom du Dieu saint et trine),'),
+      TextBlock.leader('nous consacrons cette maison pour les pasteurs (ministres diaconaux) / et leurs familles / de l’Église méthodiste unie de [Nom]. Amen.'),
+      TextBlock.leader('Prions. / Bénis cette maison, pour assurer le confort familial de ceux que Dieu a appelés / et que l’évêque a nommés pour servir cette assemblée. / Que ceux qui y résident / ressentent l’amour et le soutien de cette assemblée / comme des personnes très particulières dans cette famille de Dieu. / Aide-nous à nous aimer les uns les autres comme tu nous as aimés / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur.'),
+      TextBlock.people('Amen.'),
+      TextBlock.note('Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
+      TextBlock.heading('GESTES SYMBOLIQUES'),
+      TextBlock.note('À ce moment, des gestes symboliques peuvent convenir : la remise d’un cadeau, comme une croix, un tableau ou un autre objet, ou la plantation d’un arbre ou d’un arbuste. Ces gestes peuvent être accompagnés de bénédictions appropriées.'),
+      TextBlock.heading('SAINTE-CÈNE'),
+      TextBlock.note('Il convient de réunir l’assemblée pour une célébration de la Sainte-Cène en famille, présidée par le pasteur, en prenant la table à manger comme table du Seigneur, avec peut-être du pain cuit dans le four de la nouvelle maison.'),
+      TextBlock.heading('BÉNÉDICTION'),
+    ],
+  );
+
+  static const birthThanksgiving = ChurchText(
+    id: 'bow_birth_thanksgiving',
+    title: 'Action de grâce pour une naissance ou une adoption',
+    subtitle: 'Présentation d’un enfant à l’assemblée, prière pour une naissance heureuse',
+    icon: ChurchTextIcon.prayer,
+    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Prayer of Thanksgiving for the Adoption of a Child” Copyright © 1992, UMPH. “For a safe delivery” from The Book of Common Prayer (The Episcopal Church, 1979), alt., Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-thanksgiving-for-the-birth-or-adoption-of-a-child',
+    blocks: [
+      TextBlock.note('Après la naissance ou l’adoption d’un enfant, les parents, avec d’autres membres de la famille, peuvent présenter l’enfant au cours d’un culte, afin qu’il soit accueilli par l’assemblée et que l’on rende grâce à Dieu. Tout ou partie de cet ordre peut être inclus dans n’importe quel culte de l’assemblée.'),
+      TextBlock.note('L’action de grâce pour la naissance ou l’adoption d’un enfant peut aussi être offerte à Dieu à l’hôpital ou à la maison, en employant les parties de cet ordre qui conviennent.'),
+      TextBlock.leader('Il faut bien faire comprendre aux participants que ce geste n’est ni l’équivalent ni le substitut du saint baptême, mais qu’il a une histoire et une signification tout à fait différentes. Ce geste convient (1) avant la présentation de l’enfant pour le baptême, ou (2) si l’enfant a été baptisé ailleurs et est présenté pour la première fois dans l’assemblée où il sera nourri dans la foi.'),
+      TextBlock.note('Bien que cet ordre ne soit pas normalement le thème d’un culte entier, on peut, si on le désire, lire l’une ou plusieurs des Écritures suivantes ou les chanter en acte de louange et d’action de grâce :'),
+      TextBlock.leader('Deutéronome 6.4-9 — enseigne-les avec soin à tes enfants\nDeutéronome 31.12-13 — afin que les enfants entendent et apprennent\n1 Samuel 1.9-11, 19b-20, 26-28 — la naissance de Samuel, prêté à l’Éternel\nPsaumes 8 — Éternel, notre Seigneur, que ton nom est magnifique\nGalates 4.4-7 — nous sommes enfants adoptifs de Dieu\nMatthieu 18.1-5 — les plus grands sont humbles comme des enfants\nMarc 10.13-16 — Jésus bénit les enfants\nLuc 1.47-55 — le cantique de Marie\nLuc 2.22-40 — la présentation de Jésus au temple'),
+      TextBlock.note('En réponse à la Parole, ou à un autre moment approprié dans un culte public, le pasteur invite ceux qui présentent des enfants à s’avancer, puis poursuit ainsi :'),
+      TextBlock.heading('PRÉSENTATION ET APPEL À L’ACTION DE GRÂCE'),
+      TextBlock.note('Il peut y avoir des gestes informels et spontanés de présentation et d’action de grâce, et / ou ce qui suit :'),
+      TextBlock.leader('Frères et sœurs en Christ, / la naissance (l’adoption) d’un enfant est un événement joyeux et solennel / dans la vie d’une famille. / C’est aussi une occasion de se réjouir dans la famille de l’Église. / Je vous invite donc à vous joindre à [Prénom du parent] [et à [Prénom du parent]] / pour rendre grâce à Dieu, dont nous sommes tous les enfants, / du don de [Prénom de l’enfant], qui devient leur fils (fille), / et, avec [Prénom(s) du frère ou de la sœur], d’un nouveau frère (d’une nouvelle sœur).'),
+      TextBlock.heading('PRIÈRE D’ACTION DE GRÂCE ET D’INTERCESSION'),
+      TextBlock.note('Pour un accouchement heureux'),
+      TextBlock.leader('Dieu de grâce, nous te rendons humblement et de tout cœur grâce / d’avoir préservé, dans la douleur et l’angoisse de l’accouchement, / ta servante [Prénom de la mère] / et d’avoir soutenu ton serviteur (tes serviteurs) [Prénoms du père ou d’autres membres de la famille]. / Elle désire (ils désirent) maintenant t’offrir / ses (leurs) louanges et ses (leurs) actions de grâce. / Accorde-lui (leur) dans ta miséricorde, avec ton aide, / de vivre fidèlement selon ta volonté dans cette vie / et de participer finalement à la gloire éternelle dans la vie à venir, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note('On peut chanter un cantique ou une réponse et donner une bénédiction.'),
+    ],
+  );
+
+  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismalCovenant1, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving];
 }

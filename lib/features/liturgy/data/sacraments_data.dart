@@ -112,7 +112,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'funerailles',
       name: 'Le Service funèbre',
-      textIds: ['bow_death_and_resurrection', 'bow_committal'],
+      textIds: ['bow_death_and_resurrection', 'bow_committal', 'bow_ministry_dying', 'bow_ministry_after_death'],
       subtitle: 'Culte d\'action de grâces pour une vie',
       icon: IconRef.funeral,
       description:
