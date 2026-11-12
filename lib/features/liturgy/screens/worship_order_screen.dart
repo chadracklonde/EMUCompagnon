@@ -39,6 +39,17 @@ class WorshipOrderScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 10),
+            AppCard(
+              child: AppRow(
+                icon: churchTextIcon(BookOfWorshipData.sundayOrder.icon),
+                title: BookOfWorshipData.sundayOrder.title,
+                subtitle: BookOfWorshipData.sundayOrder.subtitle,
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => ChurchTextScreen(text: BookOfWorshipData.sundayOrder)),
+                ),
+              ),
+            ),
             const SizedBox(height: 24),
             for (var i = 0; i < steps.length; i++)
               IntrinsicHeight(
