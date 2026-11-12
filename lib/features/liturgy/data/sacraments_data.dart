@@ -98,7 +98,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'mariage',
       name: 'Le Mariage',
-      textIds: ['bow_christian_marriage_1'],
+      textIds: ['bow_christian_marriage_1', 'bow_christian_marriage_2'],
       subtitle: 'Célébration de l\'union',
       icon: IconRef.marriage,
       description:

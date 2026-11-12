@@ -141,7 +141,7 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   recherche de date, et les dimanches spéciaux de la Discipline (¶ 262 à
   265) que l'on peut masquer. Vérifié contre le tableau « Calendar for
   dating Easter » du Livre de culte (2013 à 2020) et des dates connues.
-- Livre de culte méthodiste uni : 27 textes (modèle de base, ordre du
+- Livre de culte méthodiste uni : 28 textes (modèle de base, ordre du
   culte dominical, repas d'amour, louange du matin et du soir, mercredi des Cendres, Vendredi saint, culte de guérison, accompagnement des mourants, bénédiction d'une maison, naissance, salutations et prières d'ouverture, renouvellement de l'alliance, installation et mise en fonction de responsables, litanie, Dix commandements, confession, Grande action de
   grâce, bénédictions, Parole et Table I, mise en terre, Alliance
   baptismale I, mariage, mort et résurrection), traduits par DeepL puis
