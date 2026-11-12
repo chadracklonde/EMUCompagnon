@@ -69,6 +69,15 @@ void main() {
     expect(find.textContaining('Discipline ¶ 263.3'), findsOneWidget);
   });
 
+  testWidgets('Ash Wednesday and Good Friday link to their services', (tester) async {
+    for (final entry in {'ash-wednesday': 'Culte du mercredi des Cendres', 'good-friday': 'Culte du Vendredi saint'}.entries) {
+      final day = ChurchCalendar.churchYear(2026).firstWhere((d) => d.id == entry.key);
+      await tester.pumpWidget(_app(ChurchDayScreen(day: day)));
+      expect(find.text('Pour célébrer ce jour'), findsOneWidget);
+      expect(find.text(entry.value), findsOneWidget);
+    }
+  });
+
   test('long dates in French', () {
     expect(frenchLongDate(DateTime(2027, 3, 28)), 'dimanche 28 mars 2027');
     expect(frenchLongDate(DateTime(2026, 12, 25)), 'vendredi 25 décembre 2026');

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../church_texts/widgets/church_text_links.dart';
 import '../services/church_calendar.dart';
 
 const _months = [
@@ -31,6 +32,18 @@ class ChurchColorDot extends StatelessWidget {
         border: Border.all(color: AppPalette.of(context).border),
       ),
     );
+  }
+}
+
+/// Book of Worship services that go with a day (ids of the church texts).
+List<String> _textIdsFor(ChurchDay day) {
+  switch (day.id) {
+    case 'ash-wednesday':
+      return const ['bow_ash_wednesday'];
+    case 'good-friday':
+      return const ['bow_good_friday'];
+    default:
+      return const [];
   }
 }
 
@@ -88,6 +101,11 @@ class ChurchDayScreen extends StatelessWidget {
             if (day.note != null) ...[
               const SizedBox(height: 22),
               Text(day.note!, style: TextStyle(fontSize: 16, height: 1.55 * lineHeight, color: scheme.onSurface)),
+            ],
+            if (_textIdsFor(day).isNotEmpty) ...[
+              const SizedBox(height: 22),
+              Text('Pour célébrer ce jour', style: TextStyle(fontSize: 13.5, color: palette.muted)),
+              ChurchTextLinks(textIds: _textIdsFor(day)),
             ],
             if (day.rule != null) ...[
               const SizedBox(height: 22),
