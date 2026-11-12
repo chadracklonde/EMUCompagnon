@@ -132,6 +132,15 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   L'écran Plus › Widgets les liste et propose « Ajouter » pour chacun
   (demande de placement faite au téléphone) ; il indique aussi si la
   version installée contient les widgets.
+- Calendrier liturgique calculé pour n'importe quelle année (1583 à 2999),
+  sans rien stocker par année (`ChurchCalendar`) : la date de Pâques
+  (calcul grégorien) fixe le mercredi des Cendres, la Semaine sainte,
+  l'Ascension et la Pentecôte, et l'Avent ouvre le cycle. Navigation
+  d'année en année, année lectionnaire (A, B, C), tous les dimanches
+  nommés (« 3e dimanche de l'Avent »), les fêtes, les couleurs, une
+  recherche de date, et les dimanches spéciaux de la Discipline (¶ 262 à
+  265) que l'on peut masquer. Vérifié contre le tableau « Calendar for
+  dating Easter » du Livre de culte (2013 à 2020) et des dates connues.
 - Verset du jour : tiré d'une liste de 134 versets de réconfort et de
   courage (`ComfortVerses`), dans un ordre qui paraît aléatoire, sans
   répétition avant d'avoir parcouru toute la liste ; le même partout un

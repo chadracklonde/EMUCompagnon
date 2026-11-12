@@ -17,6 +17,7 @@ import '../../hymn_lists/services/hymn_list_service.dart';
 import '../../hymns/repository/hymns_repository.dart';
 import '../../liturgy/data/worship_order_data.dart';
 import '../../liturgy/models/liturgical_period.dart';
+import '../../liturgy/services/church_calendar.dart';
 import '../../liturgy/screens/liturgical_period_detail_screen.dart';
 import '../../liturgy/services/liturgical_calendar_service.dart';
 import '../../liturgy/widgets/season_card.dart';
@@ -41,6 +42,9 @@ class _WorshipScreenState extends State<WorshipScreen> {
   final _repo = HymnsRepository();
   late final DateTime _day = WorshipService.serviceDay(DateTime.now());
   LiturgicalPeriodInstance? _season;
+
+  /// The Sunday of the Christian year (and the special Sundays) of the service day.
+  late final List<ChurchDay> _sundayEntries = ChurchCalendar.daysOn(_day);
   LiturgicalPeriodInstance? _holyDay;
 
   List<HymnList> _lists = [];
@@ -197,6 +201,19 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   ),
                 ),
               ),
+              if (_sundayEntries.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                Text(
+                  _sundayEntries.first.name,
+                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.w600, color: palette.accent),
+                ),
+                for (final special in _sundayEntries.where((e) => e.isSpecial))
+                  Padding(
+                    padding: const EdgeInsets.only(top: 2),
+                    child: Text('Dimanche spécial : ${special.name}',
+                        style: TextStyle(fontSize: 13.5, color: palette.muted)),
+                  ),
+              ],
               if (season != null) ...[
                 const SizedBox(height: 16),
                 SeasonCard(

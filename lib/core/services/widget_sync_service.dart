@@ -13,6 +13,7 @@ import '../../features/hymn_lists/services/hymn_list_service.dart';
 import '../../features/hymns/repository/hymns_repository.dart';
 import '../../features/hymns/utils/hymn_stanza_parser.dart';
 import '../../features/liturgy/models/liturgical_period.dart';
+import '../../features/liturgy/services/church_calendar.dart';
 import '../../features/liturgy/services/liturgical_calendar_service.dart';
 import '../../features/memorization/repository/memory_card_repository.dart';
 import '../../features/reading_plan/services/reading_plan_service.dart';
@@ -169,13 +170,15 @@ class WidgetSyncService {
 
     await _put(out, 'next_sunday', () async => WidgetData.daily(today, days, (day) {
           final sunday = WorshipService.serviceDay(day);
-          final s = seasonOn(sunday);
-          if (s == null) return {'t': WidgetData.longDate(sunday)};
+          final entries = ChurchCalendar.daysOn(sunday);
+          if (entries.isEmpty) return {'t': WidgetData.longDate(sunday)};
+          final main = entries.first;
+          final specials = entries.where((e) => e.isSpecial).map((e) => e.name).toList();
           return {
             't': WidgetData.longDate(sunday),
-            'b': s.period.name,
-            'f': 'Couleur : ${s.period.colorName}',
-            'c': s.period.colorHex,
+            'b': [main.name, ...specials].join(' · '),
+            'f': 'Couleur : ${main.color.name}',
+            'c': main.color.hex,
           };
         }));
 
