@@ -1,5 +1,6 @@
 import '../../../core/database/db_helper.dart';
 import '../../../core/models/verse.dart';
+import '../data/comfort_verses.dart';
 
 class BibleRepository {
   /// Canonical 66-book order, used for navigation and sorting. Shared by
@@ -34,26 +35,50 @@ class BibleRepository {
 
   /// Picks a deterministic "verse of the day" — same verse all day, changes
   /// daily, cycles through the whole Bible over the course of a few years.
+  /// The verse of the day: one of the verses of comfort and encouragement
+  /// ([ComfortVerses]), a different one each day in an order that looks
+  /// random. If that verse is not in the chosen version, the day's verse is
+  /// taken from the whole text instead.
   Future<Verse?> getVerseOfTheDay({String version = _defaultVersion, DateTime? date}) async {
     final db = await DbHelper.database;
+    final day = date ?? DateTime.now();
+
+    final pick = ComfortVerses.all[ComfortVerses.indexFor(day)];
+    final picked = await db.query(
+      'bible_verses',
+      where: 'version = ? AND book = ? AND chapter = ? AND verse = ?',
+      whereArgs: [version, pick.book, pick.chapter, pick.verse],
+      limit: 1,
+    );
+    if (picked.isNotEmpty) {
+      final verse = Verse.fromMap(picked.first);
+      return Verse(
+        id: verse.id,
+        book: verse.book,
+        bookNum: verse.bookNum,
+        chapter: verse.chapter,
+        verse: verse.verse,
+        text: ComfortVerses.cleanText(verse.book, verse.text),
+        version: verse.version,
+      );
+    }
+
     final countResult = await db.rawQuery(
       'SELECT COUNT(*) as c FROM bible_verses WHERE version = ?',
       [version],
     );
     final total = (countResult.first['c'] as int?) ?? 0;
     if (total == 0) return null;
-    final now = date ?? DateTime.now();
-    final dayOfYear = DateTime(now.year, now.month, now.day)
-        .difference(DateTime(now.year, 1, 1))
+    final dayOfYear = DateTime(day.year, day.month, day.day)
+        .difference(DateTime(day.year, 1, 1))
         .inDays;
-    final offset = dayOfYear % total;
     final rows = await db.query(
       'bible_verses',
       where: 'version = ?',
       whereArgs: [version],
       orderBy: 'id ASC',
       limit: 1,
-      offset: offset,
+      offset: dayOfYear % total,
     );
     if (rows.isEmpty) return null;
     return Verse.fromMap(rows.first);

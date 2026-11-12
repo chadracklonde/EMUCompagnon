@@ -132,6 +132,11 @@ et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
   L'écran Plus › Widgets les liste et propose « Ajouter » pour chacun
   (demande de placement faite au téléphone) ; il indique aussi si la
   version installée contient les widgets.
+- Verset du jour : tiré d'une liste de 134 versets de réconfort et de
+  courage (`ComfortVerses`), dans un ordre qui paraît aléatoire, sans
+  répétition avant d'avoir parcouru toute la liste ; le même partout un
+  jour donné (accueil et widget). Le texte vient de la base ; les marques
+  de numérotation de certains Psaumes sont retirées à l'affichage.
 - Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
   Cantiques, Culte du dimanche.
 - Rappel de sauvegarde sur l'accueil si des données personnelles n'ont

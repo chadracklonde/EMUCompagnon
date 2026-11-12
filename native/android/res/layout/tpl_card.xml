@@ -6,7 +6,7 @@
     android:background="@drawable/widget_bg_light"
     android:orientation="horizontal">
 
-    <View
+    <ImageView
         android:id="@+id/w_stripe"
         android:layout_width="5dp"
         android:layout_height="match_parent"

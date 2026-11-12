@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:emu_compagnon/core/services/widget_catalog.dart';
+import 'package:emu_compagnon/features/bible/data/comfort_verses.dart';
 import 'package:emu_compagnon/core/services/widget_data.dart';
 import 'package:emu_compagnon/features/bible/screens/chapter_screen.dart';
 import 'package:emu_compagnon/features/church_texts/screens/church_text_screen.dart';
@@ -113,6 +114,84 @@ void main() {
       expect(WidgetRouter.isDuplicate('quiz', t), isFalse);
       expect(WidgetRouter.isDuplicate('quiz', t.add(const Duration(milliseconds: 500))), isTrue);
       expect(WidgetRouter.isDuplicate('quiz', t.add(const Duration(seconds: 10))), isFalse);
+    });
+  });
+
+  group('verse of the day', () {
+    test('a different verse every day, none repeated within a cycle', () {
+      final n = ComfortVerses.all.length;
+      // A cycle is n days counted from 1 January 2024.
+      for (final cycle in [0, 7, 11]) {
+        final seen = <int>{};
+        for (var i = 0; i < n; i++) {
+          seen.add(ComfortVerses.indexFor(DateTime(2024, 1, 1 + cycle * n + i)));
+        }
+        expect(seen.length, n, reason: 'cycle $cycle');
+      }
+    });
+
+    test('never the same verse two days in a row, across cycles too', () {
+      final n = ComfortVerses.all.length;
+      var previous = ComfortVerses.indexFor(DateTime(2026, 1, 1));
+      for (var i = 1; i < n * 4; i++) {
+        final current = ComfortVerses.indexFor(DateTime(2026, 1, 1 + i));
+        expect(current, isNot(previous), reason: 'day $i');
+        previous = current;
+      }
+    });
+
+    test('the order is not the order of the list', () {
+      final picks = [for (var i = 0; i < 10; i++) ComfortVerses.indexFor(DateTime(2026, 5, 1 + i))];
+      final consecutive = [for (var i = 1; i < picks.length; i++) picks[i] - picks[i - 1] == 1].where((b) => b).length;
+      expect(consecutive, lessThan(4));
+    });
+
+    test('the same day always gives the same verse', () {
+      expect(ComfortVerses.indexFor(DateTime(2026, 11, 12, 6)), ComfortVerses.indexFor(DateTime(2026, 11, 12, 23)));
+    });
+
+    test('the list has no duplicates', () {
+      final keys = {for (final v in ComfortVerses.all) '${v.book} ${v.chapter}.${v.verse}'};
+      expect(keys.length, ComfortVerses.all.length);
+    });
+
+    test('Psalm numbering marks, inscriptions and "Pause" are removed', () {
+      expect(ComfortVerses.cleanText('Psaumes', "(34 :6) Quand on tourne vers lui les regards, on est rayonnant de joie,"),
+          'Quand on tourne vers lui les regards, on est rayonnant de joie,');
+      expect(ComfortVerses.cleanText('Psaumes', "Cantique de David. L'Éternel est mon berger : je ne manquerai de rien."),
+          "L'Éternel est mon berger : je ne manquerai de rien.");
+      expect(ComfortVerses.cleanText('Psaumes', "De David. L'Éternel est ma lumière et mon salut."),
+          "L'Éternel est ma lumière et mon salut.");
+      expect(ComfortVerses.cleanText('Psaumes', "(46 :12) L'Éternel des armées est avec nous. -Pause."),
+          "L'Éternel des armées est avec nous.");
+    });
+
+    test('other books are left alone, even when they start like an inscription', () {
+      const text = 'Cantique des cantiques de Salomon. Il est beau.';
+      expect(ComfortVerses.cleanText('Cantique', text), text);
+    });
+  });
+
+  group('widget layouts', () {
+    // The only views a RemoteViews (a widget) may inflate; anything else,
+    // a plain <View> included, makes Android show "Impossible de charger
+    // le widget".
+    const allowed = {
+      'FrameLayout', 'LinearLayout', 'RelativeLayout', 'GridLayout', 'AbsoluteLayout',
+      'AnalogClock', 'Button', 'Chronometer', 'ImageButton', 'ImageView', 'ProgressBar',
+      'TextClock', 'TextView', 'ViewFlipper', 'ListView', 'GridView', 'StackView',
+      'AdapterViewFlipper', 'ViewStub',
+    };
+
+    test('only use views a widget may inflate', () {
+      final layouts = Directory('native/android/res/layout').listSync().whereType<File>();
+      expect(layouts, isNotEmpty);
+      for (final file in layouts) {
+        final tags = RegExp(r'<([A-Za-z][A-Za-z0-9.]*)').allMatches(file.readAsStringSync());
+        for (final m in tags) {
+          expect(allowed, contains(m.group(1)), reason: '${file.path}: <${m.group(1)}>');
+        }
+      }
     });
   });
 
