@@ -62,7 +62,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'sainte_cene',
       name: 'La Sainte-Cène',
-      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving', 'bow_basic_pattern'],
+      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving', 'bow_basic_pattern', 'bow_love_feast'],
       subtitle: 'Communion, Eucharistie',
       icon: IconRef.communion,
       description:
