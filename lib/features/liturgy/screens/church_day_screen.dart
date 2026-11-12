@@ -40,6 +40,10 @@ List<String> _textIdsFor(ChurchDay day) {
   switch (day.id) {
     case 'ash-wednesday':
       return const ['bow_ash_wednesday'];
+    case 'palm-sunday':
+      return const ['bow_palm_sunday'];
+    case 'holy-thursday':
+      return const ['bow_holy_thursday', 'bow_great_thanksgiving_seasons'];
     case 'good-friday':
       return const ['bow_good_friday'];
     default:

@@ -70,7 +70,7 @@ void main() {
   });
 
   testWidgets('Ash Wednesday and Good Friday link to their services', (tester) async {
-    for (final entry in {'ash-wednesday': 'Culte du mercredi des Cendres', 'good-friday': 'Culte du Vendredi saint'}.entries) {
+    for (final entry in {'ash-wednesday': 'Culte du mercredi des Cendres', 'good-friday': 'Culte du Vendredi saint', 'palm-sunday': 'Culte du dimanche de la Passion / des Rameaux', 'holy-thursday': 'Culte du jeudi saint (soir)'}.entries) {
       final day = ChurchCalendar.churchYear(2026).firstWhere((d) => d.id == entry.key);
       await tester.pumpWidget(_app(ChurchDayScreen(day: day)));
       expect(find.text('Pour célébrer ce jour'), findsOneWidget);
