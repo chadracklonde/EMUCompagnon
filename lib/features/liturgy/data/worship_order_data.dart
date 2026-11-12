@@ -6,7 +6,10 @@ class WorshipStep {
   /// [ChurchTextsData]), offered under the step.
   final List<String> textIds;
 
-  const WorshipStep({required this.title, required this.description, this.textIds = const []});
+  const WorshipStep(
+      {required this.title,
+      required this.description,
+      this.textIds = const []});
 }
 
 /// General structure of a Sunday service as typically practiced in United
@@ -32,8 +35,8 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Appel au culte',
-      description:
-          "Une parole d'ouverture, souvent tirée des Psaumes, invite "
+      textIds: ['bow_greetings_prayers'],
+      description: "Une parole d'ouverture, souvent tirée des Psaumes, invite "
           "l'assemblée à tourner son cœur vers Dieu et marque le début "
           "du temps de culte.",
     ),
@@ -45,15 +48,14 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Prière d\'invocation',
-      description:
-          "Le culte est confié à Dieu ; on demande la présence et la "
+      textIds: ['bow_greetings_prayers', 'bow_ways_of_praying'],
+      description: "Le culte est confié à Dieu ; on demande la présence et la "
           "conduite du Saint-Esprit pour le temps qui s'ouvre.",
     ),
     WorshipStep(
       title: 'Prière de confession et pardon',
       textIds: ['bow_confession_of_sin', 'bow_ten_commandments'],
-      description:
-          "Un temps de repentance collective, suivi de l'assurance du "
+      description: "Un temps de repentance collective, suivi de l'assurance du "
           "pardon offert en Christ — souvent accompagné d'un signe de "
           "paix échangé entre les fidèles.",
     ),
@@ -78,6 +80,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Réponse à la Parole',
+      textIds: ['bow_bibles_children'],
       description:
           "Par un cantique, un temps de silence ou une invitation à la "
           "consécration, l'assemblée répond à ce qui vient d'être "
@@ -85,8 +88,7 @@ class WorshipOrderData {
     ),
     WorshipStep(
       title: 'Offrande',
-      description:
-          "La communauté apporte ses dons en signe de gratitude et de "
+      description: "La communauté apporte ses dons en signe de gratitude et de "
           "participation à la mission de l'Église, souvent accompagnée "
           "d'un chant ou d'une prière de dédicace.",
     ),
@@ -102,14 +104,12 @@ class WorshipOrderData {
     WorshipStep(
       title: 'Prières d\'intercession',
       textIds: ['bow_litany_church_world'],
-      description:
-          "La communauté prie pour l'Église, le monde, les malades et "
+      description: "La communauté prie pour l'Église, le monde, les malades et "
           "ceux qui souffrent, et pour ses propres besoins.",
     ),
     WorshipStep(
       title: 'Cantique d\'envoi',
-      description:
-          "Un dernier chant accompagne la communauté vers l'envoi en "
+      description: "Un dernier chant accompagne la communauté vers l'envoi en "
           "mission.",
     ),
     WorshipStep(
