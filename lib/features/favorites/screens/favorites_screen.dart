@@ -1,3 +1,4 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -154,7 +155,10 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                           return ResultRow(
                             leading: NumberBadge(f.hymn.number),
                             title: f.hymn.title,
-                            trailing: _removeButton(context, () => _removeHymn(f)),
+                            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+                              if (f.hymn.audioUrl != null) const HymnAudioMark(),
+                              _removeButton(context, () => _removeHymn(f)),
+                            ]),
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(builder: (_) => HymnDetailScreen(hymn: f.hymn)),
                             ),

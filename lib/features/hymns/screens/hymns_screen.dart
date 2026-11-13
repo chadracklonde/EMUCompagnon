@@ -1,3 +1,4 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../repository/hymns_repository.dart';
@@ -284,6 +285,7 @@ class _HymnRow extends StatelessWidget {
                     ],
                   ),
                 ),
+                if (hymn.audioUrl != null) const HymnAudioMark(),
               ],
             ),
           ),

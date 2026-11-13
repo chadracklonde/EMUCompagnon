@@ -1,3 +1,4 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../../../core/theme/app_theme.dart';
@@ -262,6 +263,7 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                                         ),
                                       ),
                                     ),
+                                    if (hymn.audioUrl != null) const HymnAudioMark(),
                                     IconButton(
                                       tooltip: 'Retirer de la liste',
                                       icon: Icon(Icons.close, color: palette.muted),

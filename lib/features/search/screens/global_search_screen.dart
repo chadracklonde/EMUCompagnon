@@ -1,3 +1,4 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -293,6 +294,7 @@ class _HymnResults extends StatelessWidget {
         return ResultRow(
           leading: NumberBadge(h.number),
           title: h.title,
+          trailing: h.audioUrl != null ? const HymnAudioMark() : null,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => HymnPagerScreen(hymn: h),
           )),

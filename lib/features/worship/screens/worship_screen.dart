@@ -1,3 +1,4 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/hymn.dart';
@@ -297,6 +298,7 @@ class _WorshipScreenState extends State<WorshipScreen> {
                         ResultRow(
                           leading: NumberBadge(_hymns[i].number),
                           title: _hymns[i].title,
+                          trailing: _hymns[i].audioUrl != null ? const HymnAudioMark() : null,
                           onTap: () => _sing(i),
                         ),
                       ],
