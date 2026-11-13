@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
+import '../../core/l10n/app_strings.dart';
+import '../../core/settings/app_settings.dart';
 import '../../core/theme/app_theme.dart';
+
+/// Où se trouvent les enregistrements des cantiques (fichiers du dépôt,
+/// dossier `hymn_audio/`). La base ne garde que le chemin relatif
+/// (`hymn_audio/6.m4a`) : changer [baseUrl] suffit à déplacer les fichiers.
+class HymnAudio {
+  /// Adresse du dépôt où sont publiés les fichiers. À passer sur `main`
+  /// quand la branche de travail est fusionnée.
+  static const baseUrl =
+      'https://raw.githubusercontent.com/chadracklonde/EMUCompagnon/claude/magical-turing-k431w4/';
+
+  /// Adresse complète : une adresse déjà complète est gardée telle quelle.
+  static String resolve(String audioUrl) =>
+      audioUrl.startsWith('http://') || audioUrl.startsWith('https://')
+          ? audioUrl
+          : '$baseUrl$audioUrl';
+}
 
 /// Compact play/pause/progress bar for a hymn's recorded melody.
 /// Only ever instantiated when [audioUrl] is non-null — see HymnDetailScreen.
@@ -25,9 +44,9 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
 
   Future<void> _init() async {
     try {
-      await _player.setUrl(widget.audioUrl);
+      await _player.setUrl(HymnAudio.resolve(widget.audioUrl));
     } catch (e) {
-      _error = "Impossible de charger l'audio.";
+      _error = AppStrings.t('audio_error', context.read<AppSettings>().locale);
     } finally {
       if (mounted) setState(() => _loading = false);
     }
@@ -86,7 +105,7 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
             builder: (context, snapshot) {
               final playing = snapshot.data?.playing ?? false;
               return IconButton.filled(
-                tooltip: playing ? 'Pause' : 'Écouter',
+                tooltip: AppStrings.t(playing ? 'pause' : 'listen', context.read<AppSettings>().locale),
                 icon: Icon(playing ? Icons.pause : Icons.play_arrow),
                 onPressed: () => playing ? _player.pause() : _player.play(),
               );
