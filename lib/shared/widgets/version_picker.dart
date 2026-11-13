@@ -26,7 +26,9 @@ Future<String?> showVersionPicker(BuildContext context, {required String current
                         : Theme.of(context).colorScheme.outline,
                   ),
                   title: Text(v.name),
-                  subtitle: Text(v.available ? v.language : (v.note ?? 'Bientôt disponible')),
+                  subtitle: Text(v.available
+                      ? (v.note == null ? v.language : '${v.language} · ${v.note}')
+                      : (v.note ?? 'Bientôt disponible')),
                   trailing: v.available ? null : const Chip(label: Text('Bientôt', style: TextStyle(fontSize: 11))),
                   onTap: v.available ? () => Navigator.pop(context, v.code) : null,
                 )),
