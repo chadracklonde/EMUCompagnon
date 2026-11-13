@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../shared/bible_quick_reference.dart';
 import '../../../shared/bible_reference_parser.dart';
 import '../../bible/repository/bible_repository.dart';
@@ -126,7 +129,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
           padding: const EdgeInsets.only(right: 16),
           child: AppBarSearchField(
             controller: _controller,
-            hint: 'Mot, cantique ou référence (Jean 3.16)…',
+            hint: AppStrings.t('search_hint', context.watch<AppSettings>().locale),
             onChanged: _onChanged,
           ),
         ),
@@ -153,9 +156,11 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
               child: AppCard(
                 child: AppRow(
                   icon: Icons.menu_book_outlined,
-                  title: 'Aller à ${context.bookName(reference.book)} ${reference.chapter}'
-                      '${reference.verse == null ? '' : '.${reference.verse}'}',
-                  subtitle: 'Ouvrir ce passage de la Bible',
+                  title: AppStrings.tf('go_to', context.read<AppSettings>().locale, {
+                    'ref': '${context.bookName(reference.book)} ${reference.chapter}'
+                        '${reference.verse == null ? '' : '.${reference.verse}'}',
+                  }),
+                  subtitle: AppStrings.t('open_passage', context.read<AppSettings>().locale),
                   onTap: () => _openReference(reference),
                 ),
               ),

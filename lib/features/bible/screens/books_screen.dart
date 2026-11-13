@@ -108,17 +108,17 @@ class _BooksScreenState extends State<BooksScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.translate),
-            tooltip: 'Version de la Bible',
+            tooltip: t('bible_version'),
             onPressed: () => _pickVersion(settings),
           ),
           IconButton(
             icon: const Icon(Icons.manage_search),
-            tooltip: 'Concordance',
+            tooltip: t('concordance'),
             onPressed: () => _open(const ConcordanceScreen()),
           ),
           IconButton(
             icon: const Icon(Icons.search),
-            tooltip: 'Recherche globale (Bible, Cantiques, Dictionnaire)',
+            tooltip: t('global_search_tip'),
             onPressed: () => _open(const GlobalSearchScreen()),
           ),
           const SizedBox(width: 4),

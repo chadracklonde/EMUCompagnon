@@ -67,7 +67,7 @@ class DbHelper {
 
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
   /// fixed content/schema that already-installed devices need to receive.
-  static const int _currentContentVersion = 5;
+  static const int _currentContentVersion = 6;
   static const _kLastAppliedVersionPref = 'db.lastAppliedContentVersion';
 
   static bool _factoryInitialized = false;

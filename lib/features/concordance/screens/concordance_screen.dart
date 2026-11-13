@@ -1,3 +1,6 @@
+import '../../../core/settings/app_settings.dart';
+import '../../../core/l10n/app_strings.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -51,6 +54,8 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<AppSettings>().locale;
+    String t(String key) => AppStrings.t(key, locale);
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
@@ -58,7 +63,7 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
           padding: const EdgeInsets.only(right: 16),
           child: AppBarSearchField(
             controller: _controller,
-            hint: 'Mot ou expression…',
+            hint: t('concordance_hint'),
             onChanged: _onChanged,
           ),
         ),
@@ -69,8 +74,8 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
               ? EmptyState(
                   icon: _controller.text.trim().isEmpty ? Icons.manage_search : Icons.search_off,
                   message: _controller.text.trim().isEmpty
-                      ? 'Concordance : tapez un mot pour le chercher dans toute la Bible.'
-                      : 'Aucun résultat.',
+                      ? t('concordance_empty')
+                      : t('no_results'),
                 )
               : ListView.separated(
                   padding: const EdgeInsets.only(top: 4, bottom: 24),
@@ -85,8 +90,8 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
                         padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
                         child: Text(
                           _results.length == 1
-                              ? '1 verset'
-                              : '${_results.length} versets',
+                              ? t('verse_one')
+                              : AppStrings.tf('verses_n', context.read<AppSettings>().locale, {'n': _results.length}),
                           style: TextStyle(
                             fontSize: 12.5,
                             fontWeight: FontWeight.w600,

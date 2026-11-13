@@ -1,3 +1,4 @@
+import '../../../core/l10n/app_strings.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ import '../../../shared/bible_book_names.dart';
 class ChapterScreen extends StatefulWidget {
   final String book;
   final int chapter;
-  final String version;
+  /// Null : la version choisie dans les réglages (qui suit la langue).
+  final String? version;
 
   /// If set, the screen scrolls to and briefly flashes this verse on
   /// open — used when arriving from a tapped Bible-reference link. This
@@ -40,7 +42,7 @@ class ChapterScreen extends StatefulWidget {
     super.key,
     required this.book,
     required this.chapter,
-    this.version = 'LSG1910',
+    this.version,
     this.highlightVerse,
     this.showBackButton = true,
   });
@@ -67,6 +69,26 @@ class _ChapterScreenState extends State<ChapterScreen> {
   int? _planIndex;
   bool _isRead = false;
   int? _flashedVerseNumber;
+  String? _shownVersion;
+
+  String get _ver => widget.version ?? BibleRepository.activeVersion;
+  String _t(String key, [Map<String, Object> values = const {}]) =>
+      AppStrings.tf(key, context.read<AppSettings>().locale, values);
+  String _ref(Verse v) => BibleBookNames.displayReference(v.reference,
+      locale: context.read<AppSettings>().locale, version: _ver);
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // La langue (donc la version de la Bible) a changé pendant la lecture.
+    final v = widget.version ?? Provider.of<AppSettings>(context).bibleVersion;
+    if (_shownVersion != null && _shownVersion != v) {
+      _shownVersion = v;
+      _chapterCount = null;
+      _load();
+    }
+    _shownVersion ??= v;
+  }
 
   @override
   void initState() {
@@ -84,12 +106,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
 
   Future<void> _load() async {
     setState(() => _loading = true);
-    final verses = await _repo.getChapter(widget.book, _chapter, version: widget.version);
+    final verses = await _repo.getChapter(widget.book, _chapter, version: _ver);
     final bookmarks = await _bookmarkRepo.listByType(BookmarkType.verse);
     final bookmarkedIds = bookmarks.map((b) => b.refId).toSet();
     final highlightColors = await _highlightRepo.getAllColorsFor(BookmarkType.verse);
     final chapterCount =
-        _chapterCount ?? await _repo.chapterCount(widget.book, version: widget.version);
+        _chapterCount ?? await _repo.chapterCount(widget.book, version: _ver);
     int? planIndex;
     var isRead = false;
     try {
@@ -179,18 +201,18 @@ class _ChapterScreenState extends State<ChapterScreen> {
   }
 
   void _copyVerse(Verse v) {
-    Clipboard.setData(ClipboardData(text: '${v.text}\n— ${v.reference}'));
+    Clipboard.setData(ClipboardData(text: '${v.text}\n— ${_ref(v)}'));
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('${v.reference} copié'), duration: const Duration(seconds: 2)),
+      SnackBar(content: Text(_t('ref_copied', {'ref': _ref(v)})), duration: const Duration(seconds: 2)),
     );
   }
 
   void _openNotes(Verse v) {
-    showNotesSheet(context, type: BookmarkType.verse, refId: v.id, label: v.reference);
+    showNotesSheet(context, type: BookmarkType.verse, refId: v.id, label: _ref(v));
   }
 
   Future<void> _shareAsImage(Verse v) async {
-    await ImageShareService.shareVerse(context, reference: v.reference, text: v.text);
+    await ImageShareService.shareVerse(context, reference: _ref(v), text: v.text);
   }
 
   Future<void> _pickHighlight(Verse v) async {
@@ -210,7 +232,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     if (already) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Ce verset est déjà dans votre deck de mémorisation.')),
+          SnackBar(content: Text(_t('verse_already_memo'))),
         );
       }
       return;
@@ -224,7 +246,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     );
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Verset ajouté à la mémorisation.')),
+        SnackBar(content: Text(_t('verse_added_memo'))),
       );
     }
   }
@@ -238,7 +260,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
               child: Text(
-                v.reference,
+                _ref(v),
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
               ),
             ),
@@ -247,7 +269,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 _bookmarkedVerseIds.contains(v.id) ? Icons.star : Icons.star_outline,
               ),
               title: Text(
-                _bookmarkedVerseIds.contains(v.id) ? 'Retirer des favoris' : 'Ajouter aux favoris',
+                _t(_bookmarkedVerseIds.contains(v.id) ? 'favorite_remove' : 'favorite_add'),
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -256,7 +278,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.border_color_outlined),
-              title: const Text('Surligner'),
+              title: Text(_t('highlight')),
               onTap: () {
                 Navigator.pop(context);
                 _pickHighlight(v);
@@ -264,7 +286,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.copy),
-              title: const Text('Copier le texte'),
+              title: Text(_t('copy_text')),
               onTap: () {
                 Navigator.pop(context);
                 _copyVerse(v);
@@ -272,7 +294,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.sticky_note_2_outlined),
-              title: const Text('Ajouter une note'),
+              title: Text(_t('add_note')),
               onTap: () {
                 Navigator.pop(context);
                 _openNotes(v);
@@ -280,18 +302,18 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.share_outlined),
-              title: const Text('Partager le texte'),
+              title: Text(_t('share_text')),
               onTap: () {
                 Navigator.pop(context);
                 TextShareService.share(
-                  TextShareService.verseText(reference: v.reference, text: v.text),
-                  subject: v.reference,
+                  TextShareService.verseText(reference: _ref(v), text: v.text),
+                  subject: _ref(v),
                 );
               },
             ),
             ListTile(
               leading: const Icon(Icons.image_outlined),
-              title: const Text('Partager comme image'),
+              title: Text(_t('share_image')),
               onTap: () {
                 Navigator.pop(context);
                 _shareAsImage(v);
@@ -299,7 +321,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.psychology_outlined),
-              title: const Text('Mémoriser ce verset'),
+              title: Text(_t('memorize_verse')),
               onTap: () {
                 Navigator.pop(context);
                 _addToMemorization(v);
@@ -325,8 +347,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
         duration: const Duration(seconds: 2),
         content: Text(
           nowRead
-              ? '${context.bookName(widget.book, version: widget.version)} $_chapter marqué comme lu dans le plan de lecture.'
-              : '${context.bookName(widget.book, version: widget.version)} $_chapter n\'est plus marqué comme lu.',
+              ? _t('ref_marked_read', {'ref': '${context.bookName(widget.book, version: _ver)} $_chapter'})
+              : _t('ref_unmarked_read', {'ref': '${context.bookName(widget.book, version: _ver)} $_chapter'}),
         ),
       ));
   }
@@ -335,7 +357,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final target = _chapter + delta;
     if (target < 1) return;
     final maxChapter =
-        _chapterCount ?? await _repo.chapterCount(widget.book, version: widget.version);
+        _chapterCount ?? await _repo.chapterCount(widget.book, version: _ver);
     if (target > maxChapter || !mounted) return;
     _flashedVerseNumber = null;
     setState(() => _chapter = target);
@@ -357,21 +379,21 @@ class _ChapterScreenState extends State<ChapterScreen> {
     return KeepAwake(child: Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: widget.showBackButton,
-        title: Text('${context.bookName(widget.book, version: widget.version)} $_chapter'),
+        title: Text('${context.bookName(widget.book, version: _ver)} $_chapter'),
         actions: [
           IconButton(
             icon: const Icon(Icons.text_fields),
-            tooltip: 'Taille du texte',
+            tooltip: _t('text_size'),
             onPressed: () => showTextSettingsPopup(context),
           ),
           IconButton(
             icon: const Icon(Icons.chevron_left),
-            tooltip: 'Chapitre précédent',
+            tooltip: _t('prev_chapter'),
             onPressed: hasPrevious ? () => _goToChapter(-1) : null,
           ),
           IconButton(
             icon: const Icon(Icons.chevron_right),
-            tooltip: 'Chapitre suivant',
+            tooltip: _t('next_chapter'),
             onPressed: hasNext ? () => _goToChapter(1) : null,
           ),
           const SizedBox(width: 4),
@@ -514,6 +536,8 @@ class _ChapterNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<AppSettings>().locale;
+    String t(String key) => AppStrings.t(key, locale);
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 24, 8, 0),
       child: Column(
@@ -525,30 +549,30 @@ class _ChapterNav extends StatelessWidget {
                   ? OutlinedButton.icon(
                       onPressed: onToggleRead,
                       icon: const Icon(Icons.check_circle),
-                      label: const Text('Chapitre lu'),
+                      label: Text(t('chapter_read')),
                     )
                   : FilledButton.tonalIcon(
                       onPressed: onToggleRead,
                       icon: const Icon(Icons.check_circle_outline),
-                      label: const Text('Marquer comme lu'),
+                      label: Text(t('mark_read')),
                     ),
             ),
             const SizedBox(height: 12),
           ],
-          _buildArrows(),
+          _buildArrows(t),
         ],
       ),
     );
   }
 
-  Widget _buildArrows() {
+  Widget _buildArrows(String Function(String) t) {
     return Row(
       children: [
         Expanded(
           child: OutlinedButton.icon(
             onPressed: onPrevious,
             icon: const Icon(Icons.chevron_left),
-            label: const Text('Précédent'),
+            label: Text(t('previous')),
           ),
         ),
         const SizedBox(width: 12),
@@ -557,7 +581,7 @@ class _ChapterNav extends StatelessWidget {
             onPressed: onNext,
             iconAlignment: IconAlignment.end,
             icon: const Icon(Icons.chevron_right),
-            label: const Text('Suivant'),
+            label: Text(t('next')),
           ),
         ),
       ],

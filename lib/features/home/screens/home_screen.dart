@@ -88,6 +88,17 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String? _shownVersion;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Le verset du jour suit la langue : on le recharge quand elle change.
+    final v = Provider.of<AppSettings>(context).bibleVersion;
+    if (_shownVersion != null && _shownVersion != v) _loadVerseOfDay();
+    _shownVersion = v;
+  }
+
   void _onShownAgain() {
     _loadToday();
     _refreshFavorite();

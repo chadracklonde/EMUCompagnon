@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/settings/app_settings.dart';
 import '../repository/bible_repository.dart';
 import 'chapter_screen.dart';
 import '../../../core/theme/app_theme.dart';
@@ -7,8 +10,9 @@ import '../../../shared/bible_book_names.dart';
 
 class ChapterListScreen extends StatefulWidget {
   final String book;
-  final String version;
-  const ChapterListScreen({super.key, required this.book, this.version = 'LSG1910'});
+  /// Null : la version choisie dans les réglages (qui suit la langue).
+  final String? version;
+  const ChapterListScreen({super.key, required this.book, this.version});
 
   @override
   State<ChapterListScreen> createState() => _ChapterListScreenState();
@@ -17,6 +21,20 @@ class ChapterListScreen extends StatefulWidget {
 class _ChapterListScreenState extends State<ChapterListScreen> {
   final _repo = BibleRepository();
   int? _chapterCount;
+  String? _shownVersion;
+
+  String get _ver => widget.version ?? BibleRepository.activeVersion;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final v = widget.version ?? Provider.of<AppSettings>(context).bibleVersion;
+    if (_shownVersion != null && _shownVersion != v) {
+      _shownVersion = v;
+      _load();
+    }
+    _shownVersion ??= v;
+  }
   // Only meaningful in the wide (master-detail) layout.
   int? _selectedChapter;
 
@@ -27,7 +45,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   }
 
   Future<void> _load() async {
-    final count = await _repo.chapterCount(widget.book, version: widget.version);
+    final count = await _repo.chapterCount(widget.book, version: _ver);
     if (mounted) setState(() => _chapterCount = count);
   }
 
@@ -40,7 +58,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
           builder: (_) => ChapterScreen(
             book: widget.book,
             chapter: chapter,
-            version: widget.version,
+            version: _ver,
           ),
         ),
       );
@@ -74,7 +92,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     final isWide = Responsive.isWide(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(context.bookName(widget.book, version: widget.version))),
+      appBar: AppBar(title: Text(context.bookName(widget.book, version: _ver))),
       body: !isWide
           ? _buildGrid(false)
           : Row(
@@ -85,14 +103,14 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
                   child: _selectedChapter == null
                       ? Center(
                           child: Text(
-                            'Sélectionnez un chapitre',
+                            AppStrings.t('select_chapter', context.read<AppSettings>().locale),
                             style: TextStyle(color: Theme.of(context).colorScheme.outline),
                           ),
                         )
                       : ChapterScreen(
                           book: widget.book,
                           chapter: _selectedChapter!,
-                          version: widget.version,
+                          version: _ver,
                           showBackButton: false,
                         ),
                 ),
@@ -124,7 +142,7 @@ class _ChapterTile extends StatelessWidget {
         child: Center(
           child: Text(
             '$chapter',
-            semanticsLabel: 'Chapitre $chapter',
+            semanticsLabel: AppStrings.tf('chapter_n', context.read<AppSettings>().locale, {'n': chapter}),
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
