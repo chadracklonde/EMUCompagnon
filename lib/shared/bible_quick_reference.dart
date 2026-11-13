@@ -1,5 +1,6 @@
 import '../features/bible/repository/bible_repository.dart';
 import 'bible_book_abbreviations.dart';
+import 'bible_book_names.dart';
 import 'bible_reference_parser.dart';
 
 /// Understands a Bible reference as a person types it in a search box:
@@ -40,6 +41,9 @@ class BibleQuickReference {
 
   static final Map<String, String> _byName = {
     for (final book in BibleRepository.books) _fold(book): book,
+    // Noms swahilis (« Yohana 3:16 », « Zaburi 23 »).
+    for (var i = 0; i < BibleBookNames.sw.length; i++)
+      _fold(BibleBookNames.sw[i]): BibleRepository.books[i],
     for (final alias in _aliases.entries)
       if (BibleRepository.books.contains(alias.value)) _fold(alias.key): alias.value,
   };

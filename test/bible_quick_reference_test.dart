@@ -17,6 +17,15 @@ void main() {
       expect(parse('  Psaumes 23  '), ('Psaumes', 23, null));
     });
 
+    test('comprend les noms swahilis des livres', () {
+      expect(parse('Yohana 3:16'), ('Jean', 3, 16));
+      expect(parse('zaburi 23'), ('Psaumes', 23, null));
+      expect(parse('Mwanzo 1'), ('Genèse', 1, null));
+      expect(parse('1 Wakorintho 13.4'), ('1 Corinthiens', 13, 4));
+      expect(parse('Ufunuo 21'), ('Révélation', 21, null));
+      expect(parse('Mathayo 5.3'), ('Matthieu', 5, 3));
+    });
+
     test('ignores case and accents', () {
       expect(parse('jean 3.16'), ('Jean', 3, 16));
       expect(parse('GENESE 1'), ('Genèse', 1, null));
