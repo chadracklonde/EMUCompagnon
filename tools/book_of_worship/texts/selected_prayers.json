@@ -1,0 +1,191 @@
+{
+ "slug": "selected_prayers",
+ "title": "Prières choisies",
+ "subtitle": "Susanna Wesley, saint Thomas d’Aquin, saint Patrick, saint François, prières pour la direction, la sagesse, la sécurité et l’Église",
+ "url": "https://www.umcdiscipleship.org/book-of-worship/prayers-in-umh",
+ "icon": "prayer",
+ "source": "Prières du Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House, pages de umcdiscipleship.org : « A Prayer of Susanna Wesley », « A Prayer of Saint Thomas Aquinas », « A Prayer of Saint Patrick », « For Guidance », « For Wisdom », « For Safety », « For Creation », « For the Church ». Mention de droit d'auteur des pages : « Public Domain » (prières de Susanna Wesley, Thomas d'Aquin, Patrick, James Martineau, saint François d'Assise, Walter Rauschenbusch et du Livre de prière commune, 1928). Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).",
+ "copyright": "Public Domain",
+ "blocks": [
+  [
+   "N",
+   "Prières anciennes ou classiques, du domaine public, que le Livre de culte propose à côté de ses services. Les auteurs et les dates sont donnés sous chaque prière."
+  ],
+  [
+   "H",
+   "Prière de Susanna Wesley"
+  ],
+  [
+   "P",
+   "Toi, Seigneur, tu nous as appelés à veiller et à prier. / C’est pourquoi, quel que soit le péché contre lequel nous prions, / fais que nous veillions soigneusement contre lui, / et que nous ayons ainsi des raisons d’espérer que nos prières seront exaucées. / Pour accomplir ce devoir comme il faut, / accorde-nous la grâce de garder un caractère sobre et égal, / et la sincérité de prier pour demander ton aide. Amen."
+  ],
+  [
+   "N",
+   "Susanna Wesley (Angleterre, XVIIIe siècle), adaptée."
+  ],
+  [
+   "H",
+   "Prière de saint Thomas d’Aquin"
+  ],
+  [
+   "P",
+   "Donne-nous, Seigneur, / des cœurs fermes, qu’aucune pensée indigne ne puisse entraîner vers le bas, / des cœurs invaincus, qu’aucune épreuve ne puisse épuiser, / des cœurs droits, qu’aucun dessein indigne ne puisse détourner. / Accorde-nous aussi, Seigneur notre Dieu, / l’intelligence pour te connaître, le zèle pour te chercher, la sagesse pour te trouver, / et une fidélité qui puisse enfin t’embrasser, / par Jésus-Christ notre Seigneur. Amen."
+  ],
+  [
+   "N",
+   "Saint Thomas d’Aquin (Italie, XIIIe siècle), adaptée."
+  ],
+  [
+   "H",
+   "Prière de saint Patrick"
+  ],
+  [
+   "P",
+   "Que le Christ soit avec nous, le Christ devant nous, le Christ derrière nous, / le Christ en nous, le Christ sous nous, le Christ au-dessus de nous, / le Christ à notre droite, le Christ à notre gauche, / le Christ là où nous nous couchons, le Christ là où nous nous asseyons, le Christ là où nous nous levons, / le Christ dans le cœur de tous ceux qui pensent à nous, / le Christ dans tous les yeux qui nous voient, / le Christ dans toutes les oreilles qui nous entendent. / Le salut vient du Seigneur, / le salut vient du Christ. / Que ton salut, Seigneur, soit toujours avec nous."
+  ],
+  [
+   "N",
+   "Saint Patrick (Irlande, Ve siècle), adaptée."
+  ],
+  [
+   "H",
+   "Pour la direction"
+  ],
+  [
+   "P",
+   "Dieu éternel, de qui dépend notre vie / et qui nous as confié notre travail, / nous te confions nos soucis. / Nous te rendons grâce d’être tes enfants et de ce que tu nous as assurés / que, tant que nous cherchons ta volonté, tu auras égard à nos besoins. / Remplis-nous de la compassion pour les peines des autres / qui vient de l’oubli des nôtres, / de la charité de ceux qui connaissent leur propre indignité, / et de l’heureuse espérance des enfants de l’éternité. / Et à toi, le Commencement et la Fin, / Seigneur des vivants, Refuge des mourants, / soient rendus grâce et louange pour toujours. Amen."
+  ],
+  [
+   "N",
+   "James Martineau (Angleterre, XIXe siècle), adaptée."
+  ],
+  [
+   "H",
+   "Pour la sagesse"
+  ],
+  [
+   "P",
+   "Sagesse d’en haut, / par toi les humbles sont conduits dans le jugement, / et la lumière se lève dans les ténèbres pour les justes. / Accorde-nous, dans tous nos doutes et nos incertitudes, / la grâce de demander ce que tu veux que nous fassions, / afin que nous soyons gardés de tout faux choix, / que dans ta lumière nous voyions la lumière, / et que nous ne trébuchions pas sur ton chemin droit, / par Jésus-Christ notre Sauveur. Amen."
+  ],
+  [
+   "N",
+   "Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 595."
+  ],
+  [
+   "H",
+   "Pour la sécurité"
+  ],
+  [
+   "P",
+   "Dieu tout-puissant et miséricordieux, / dans ta bonté généreuse, garde-nous de tout ce qui peut nous nuire, / afin que, prêts de corps et d’âme, / nous accomplissions avec joie ce que tu nous commandes, / par Jésus-Christ notre Sauveur. Amen."
+  ],
+  [
+   "N",
+   "Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 217."
+  ],
+  [
+   "H",
+   "Pour la création : cantique des créatures"
+  ],
+  [
+   "N",
+   "Prière de saint François d’Assise pour toutes les créatures. L’assemblée peut répondre après chaque strophe : « Loué soit notre Seigneur. »"
+  ],
+  [
+   "L",
+   "Seigneur Dieu très haut, tout-puissant et bon, / à toi appartiennent la louange, la gloire, l’honneur et toute bénédiction. / Pour notre frère le soleil, qui est notre jour et nous apporte la lumière, / qui est beau et rayonnant d’une très grande splendeur :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour notre sœur la lune, et pour les étoiles, / que tu as placées, claires et belles, dans le ciel :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour notre frère le vent, / pour l’air et les nuages, le calme et tous les temps :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour notre sœur l’eau, qui nous sert, humble, précieuse et chaste :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour notre frère le feu, par qui tu éclaires la nuit, / beau, joyeux, très puissant et fort :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour notre mère la terre, qui nous soutient et nous nourrit, / et produit des fruits variés, / des fleurs de toutes les couleurs, et l’herbe :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Pour tous ceux qui se pardonnent les uns aux autres par amour pour toi, / et qui supportent la faiblesse et l’épreuve :"
+  ],
+  [
+   "R",
+   "Loué soit notre Seigneur."
+  ],
+  [
+   "L",
+   "Heureux ceux qui endureront dans la paix, / marchant selon ta très sainte volonté, / car toi, Très-Haut, tu leur donneras une couronne."
+  ],
+  [
+   "R",
+   "Louez et bénissez le Seigneur, / rendez grâce à Dieu, / et servez Dieu avec une grande humilité. Amen."
+  ],
+  [
+   "N",
+   "Saint François d’Assise (Italie, XIIe siècle), adapté."
+  ],
+  [
+   "H",
+   "Pour l’Église"
+  ],
+  [
+   "P",
+   "Dieu de grâce, nous prions pour ta sainte Église universelle : / veuille la remplir de toute vérité, dans toute paix. / Là où elle est corrompue, purifie-la ; / là où elle est dans l’erreur, conduis-la ; / là où quelque chose va mal, réforme-la ; / là où elle est dans le vrai, affermis-la ; / là où elle manque de quelque chose, pourvois-y ; / là où elle est divisée, réunis-la ; / par celui qui est mort et ressuscité, / et qui vit toujours pour intercéder pour nous, / Jésus-Christ, ton Fils, notre Seigneur. Amen."
+  ],
+  [
+   "N",
+   "Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 37."
+  ],
+  [
+   "P",
+   "Père de toute miséricorde, / envoie tes bénédictions célestes sur ton Église, / afin que tous ses membres demeurent ensemble dans l’unité et l’amour. / Éloigne de nous tout entêtement et toute discorde. / Revêts tes pasteurs de justice, / et rends-les capables d’accomplir fidèlement leur ministère, / de ramener les exclus et de chercher ceux qui sont perdus. / Et accorde-nous de recevoir ainsi leur ministère, / et d’user de tes moyens de grâce, / afin que dans toutes nos paroles et tous nos actes / nous cherchions ta gloire et l’avancement de ton règne, / par Jésus-Christ notre Seigneur. Amen."
+  ],
+  [
+   "N",
+   "Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 547."
+  ],
+  [
+   "P",
+   "Dieu de tous les temps et de tous les lieux, / nous prions pour ton Église, / qui se trouve aujourd’hui au milieu des perplexités d’un ordre qui change, / face à face avec de nouvelles tâches. / Baptise-la de nouveau dans l’Esprit de Jésus qui donne la vie. / Accorde-lui une grande attention au devoir, / une compassion plus prompte envers la souffrance, / et une loyauté entière à ta volonté. / Aide-la à proclamer avec hardiesse la venue de ton règne. / Mets sur ses lèvres l’ancien évangile de son Seigneur. / Remplis-la du mépris des prophètes pour la tyrannie, / et d’une tendresse semblable à celle du Christ pour les accablés et les opprimés. / Invite-la à cesser de chercher sa propre vie, de peur de la perdre. / Rends-la vaillante pour donner sa vie à l’humanité, / afin que, comme son Seigneur crucifié, / elle monte par le chemin de la croix vers une gloire plus haute, / par le même Jésus-Christ notre Seigneur. Amen."
+  ],
+  [
+   "N",
+   "Walter Rauschenbusch (États-Unis, XXe siècle), adaptée."
+  ]
+ ]
+}
