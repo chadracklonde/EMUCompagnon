@@ -55,5 +55,12 @@ void main() {
       expect(stanzas.last.isRefrain, true);
       expect(stanzas.last.label, 'Refrain');
     });
+
+    test('reconnaît Solo comme marqueur de refrain', () {
+      const lyrics = "1. Couplet.\n\nSolo\n\nParoles du solo.\n\n2. Autre couplet.";
+      final stanzas = HymnStanzaParser.parse(lyrics);
+      expect(stanzas.map((s) => s.label), ['1', 'Solo', '2']);
+      expect(stanzas[1].isRefrain, true);
+    });
   });
 }

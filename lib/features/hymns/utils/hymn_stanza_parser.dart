@@ -17,7 +17,7 @@ class HymnStanzaParser {
   // the previous stanza.
   static final RegExp _numberedMarker = RegExp(r'^(\d+)\\?\.\s*(.*)$');
   static final RegExp _refrainMarker =
-      RegExp(r'^(Cœur|Choeur|Chœur|Refrain)\s*:?\s*(.*)$', caseSensitive: false);
+      RegExp(r'^(Cœur|Choeur|Chœur|Refrain|Solo)\s*:?\s*(.*)$', caseSensitive: false);
   static final RegExp _keyLine = RegExp(r'^\(.+\)$');
 
   static List<HymnStanza> parse(String lyrics) {
