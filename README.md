@@ -19,18 +19,46 @@ sous l'icône de l'app sur le téléphone, une fois les dossiers natifs génér�
 - **iOS** : `ios/Runner/Info.plist` → `CFBundleDisplayName` = `ÉMU Compagnon`
 
 ## Contenu inclus
-- `assets/db/app_data.db` — Bible Louis Segond 1910 (31 102 versets), 444 cantiques
+- `assets/db/app_data.db` — Bible Louis Segond 1910 et Bible swahilie SCV (Biblia Takatifu Wazi, CC BY-SA 4.0, © Biblica, 2018 ; 31 102 versets chacune), 444 cantiques
   "Chants de Victoire", 228 entrées de dictionnaire biblique, index FTS5 pour
   la recherche/concordance.
-## Écran d'accueil (style « missel classique »)
-Un nouvel onglet **Accueil** (premier onglet, icône maison) offre une
-page de lancement au style ornemental — fond parchemin, bordures dorées,
-police classique (Playfair Display, embarquée dans l’app) — tout en gardant le bordeaux officiel UMC comme seule
-couleur de marque (pas de bleu marine). Elle regroupe : sélecteur de
-langue et de thème, recherche globale, verset du jour, accès rapide
-Nouveau/Ancien Testament, Plan de lecture, Liturgie, et une grille
-Cantiques/Dictionnaire/Favoris/À propos. Les 6 onglets existants restent
-inchangés et accessibles normalement dans la barre du bas.
+## Écran d'accueil (style « clair et aéré »)
+L'onglet **Accueil** suit un style moderne et épuré : fond clair neutre,
+cartes blanches à bord fin, et le bordeaux officiel UMC comme seule
+couleur de marque. Le verset du jour est la seule carte pleine (bordeaux,
+texte en Playfair Display), avec favori et partage. Viennent ensuite :
+« Lire et chanter » (Ancien/Nouveau Testament, Chants de Victoire,
+Liturgie avec la saison en cours), « Aujourd'hui » (progression du plan
+de lecture, quiz du jour) et « Vie spirituelle » (mémorisation, journal
+de prière, examen du soir, défi de la semaine).
+
+Le **plan de lecture** a une durée au choix : une semaine, un mois, trois
+mois, six mois, un an, ou un nombre de jours libre. L'application répartit
+la Bible sur cette durée en équilibrant les journées par nombre de versets
+et en coupant toujours en fin de chapitre (`ReadingPlanBuilder.split`).
+Changer de durée conserve ce qui est déjà lu et ne répartit que le reste.
+Sans choix, le plan reste d'un chapitre par jour (1 189 jours).
+
+Trois raccourcis accompagnent la lecture :
+- en fin de chapitre, « Marquer comme lu » coche le chapitre dans le plan ;
+- dans la recherche, taper une référence (« Jean 3.16 », « jn 3 16 »,
+  « ps 23 ») propose d'ouvrir directement le passage
+  (`BibleQuickReference`) ;
+- le rappel quotidien annonce la lecture du jour du plan (`ReadingReminder`),
+  mise à jour à chaque ouverture de l'application.
+
+Les **listes de cantiques** (onglet Cantiques, icône de liste, ou onglet
+Plus) servent à préparer le programme d'un culte : on crée une liste, on y
+coche des cantiques, on les ordonne en les faisant glisser, puis
+« Commencer » les enchaîne avec Précédent / Suivant. Un cantique s'ajoute
+aussi à une liste depuis son menu « ⋮ ». Les listes sont enregistrées sur
+l'appareil (`HymnListService`) et incluses dans la sauvegarde.
+
+La barre du bas compte 5 onglets : Accueil, Bible, Cantiques, Liturgie,
+Plus. Dictionnaire, Favoris, recherche, vie spirituelle, Réglages,
+Sauvegarde, Mises à jour du contenu, tutoriel et À propos sont sous **Plus**.
+Les briques visuelles partagées sont dans `lib/shared/widgets/app_cards.dart`
+et les couleurs neutres dans `AppPalette` (`lib/core/theme/app_theme.dart`).
 
 - Modules actifs : Bible (navigation livre/chapitre + concordance + étoile
   favoris par verset + verset du jour), Cantiques (liste + recherche +
@@ -65,12 +93,81 @@ inchangés et accessibles normalement dans la barre du bas.
   général, pas les textes liturgiques officiels protégés — prières, vœux,
   bénédictions exacts — qui restent à prendre dans le Livre de Culte EMU
   officiel).
+- Partage du texte : un verset (avec sa référence) ou un cantique
+  entier (strophes et refrain) s'envoie en texte simple vers WhatsApp,
+  SMS, etc., en plus du partage comme image (`TextShareService`).
+- « Prières et textes » (onglet Liturgie) : le Notre Père (Matthieu
+  6.9-13, LSG 1910), le Credo social et sa litanie, les 25 Articles de
+  religion, la Confession de foi, les Règles générales, les vœux des
+  membres et la mission de l'Église. Page de lecture avec sommaire pour
+  les textes longs, réglage du texte et partage. Les textes tirés du
+  Livre de Discipline 2020/2024 viennent d'une traduction automatique
+  corrigée à la main : ils sont à relire, et se corrigent dans le seul
+  fichier `lib/features/church_texts/data/church_texts_data.dart`.
+- Confort d'usage : écran gardé allumé pendant la lecture (réglable dans
+  les Réglages) ; glissement d'un cantique au suivant ; recherche
+  générale étendue à la liturgie et aux textes de l'Église ; sur une page
+  de texte, appui long pour partager ou copier un seul article,
+  épinglage sur l'accueil, reprise de lecture, références bibliques
+  cliquables, indication « Officiant / Assemblée » dans les litanies.
+- « Culte du dimanche » (accueil et onglet Liturgie) : le dimanche
+  concerné, sa saison, la liste de cantiques choisie, les prières dites
+  ensemble et le déroulement du culte sur un seul écran.
+- Widgets Android (23 types, à ajouter depuis l'écran d'accueil du
+  téléphone) : Verset du jour, Lecture du jour, Saison liturgique, Couleur
+  du jour, Prochain dimanche, Compte à rebours, Calendrier liturgique,
+  Cantiques du culte, Série de jours, Semaine de lecture, Verset à
+  mémoriser, Raccourcis, Prière épinglée, Cantique du jour, Reprendre la
+  Bible, Reprendre le cantique, Mes favoris, Défi de la semaine, Quiz du
+  jour, Examen du soir, Écrire une prière, Mot du jour et Recherche. Un
+  appui ouvre l'écran concerné (`WidgetRouter`). L'application écrit ce
+  que chacun affiche (`WidgetSyncService`, 14 jours d'avance pour ceux qui
+  changent chaque jour) au démarrage et quand on la quitte, puis demande
+  leur rafraîchissement. Le journal, l'examen et les notes n'affichent
+  jamais leur contenu. Les widgets se déclarent dans
+  `native/android/widgets.json` (4 modèles d'affichage : carte, semaine,
+  liste, raccourcis) ; `generate.py` produit le code natif que la CI copie
+  dans `android/` (`install_widget.sh`, qui saute les widgets plutôt que
+  de faire échouer le build).
+  L'écran Plus › Widgets les liste et propose « Ajouter » pour chacun
+  (demande de placement faite au téléphone) ; il indique aussi si la
+  version installée contient les widgets.
+- Calendrier liturgique calculé pour n'importe quelle année (1583 à 2999),
+  sans rien stocker par année (`ChurchCalendar`) : la date de Pâques
+  (calcul grégorien) fixe le mercredi des Cendres, la Semaine sainte,
+  l'Ascension et la Pentecôte, et l'Avent ouvre le cycle. Navigation
+  d'année en année, année lectionnaire (A, B, C), tous les dimanches
+  nommés (« 3e dimanche de l'Avent »), les fêtes, les couleurs, une
+  recherche de date, et les dimanches spéciaux de la Discipline (¶ 262 à
+  265) que l'on peut masquer. Vérifié contre le tableau « Calendar for
+  dating Easter » du Livre de culte (2013 à 2020) et des dates connues.
+- Livre de culte méthodiste uni : 44 textes (modèle de base, ordre du
+  culte dominical, repas d'amour, louange du matin et du soir, mercredi des Cendres, dimanche des Rameaux, jeudi saint, Vendredi saint, veillée pascale, Ténèbres, cultes de guérison I et II, accompagnement des personnes malades ou qui divorcent, adieux, accompagnement des mourants, bénédiction d'une maison, naissance, salutations et prières d'ouverture, renouvellement de l'alliance, installation et mise en fonction de responsables, célébration d'une nomination, reconnaissance d'une personne ordonnée, prières choisies, consécration d'un édifice d'église, litanie, Dix commandements, confession, Grande action de
+  grâce, bénédictions, Parole et Table I, mise en terre, Alliance
+  baptismale, mariage, mort et résurrection), traduits par DeepL puis
+  corrigés à la main. Exception : le texte du baptême est l'Alliance
+  baptismale du Livre de prière commune de l'Église épiscopale (1979, domaine
+  public), car la page du texte méthodiste uni interdit toute modification
+  sans autorisation écrite ; ce dernier reste désactivé dans
+  `tools/book_of_worship/disabled/`. Chaque texte donne la mention de droit d'auteur de la
+  page d'origine et un lien vers l'original anglais. Sources dans
+  `tools/book_of_worship/` (`texts/*.json`, `generate.py` produit
+  `book_of_worship_data.dart`). Traduction à relire.
+- Verset du jour : tiré d'une liste de 134 versets de réconfort et de
+  courage (`ComfortVerses`), dans un ordre qui paraît aléatoire, sans
+  répétition avant d'avoir parcouru toute la liste ; le même partout un
+  jour donné (accueil et widget). Le texte vient de la base ; les marques
+  de numérotation de certains Psaumes sont retirées à l'affichage.
+- Raccourcis de l'icône (appui long, Android et iOS) : Rechercher,
+  Cantiques, Culte du dimanche.
+- Rappel de sauvegarde sur l'accueil si des données personnelles n'ont
+  pas été exportées depuis 30 jours (« Plus tard » le repousse).
 - Cantiques affichés par couplets/refrain nettement séparés (au lieu d'un
   seul bloc de texte), avec le refrain mis en valeur visuellement.
   Références bibliques cliquables dans les paroles.
 - Réglages rapides « Aa » (taille du texte + interligne) accessibles
   directement depuis les écrans Bible et Cantiques, sans passer par le
-  menu À propos — même préférence partagée et persistée partout.
+  menu Réglages — même préférence partagée et persistée partout.
 - Balayage horizontal pour changer de chapitre biblique, en plus des
   flèches.
 - « Reprendre la lecture » : la Bible et les Cantiques retiennent le
@@ -149,11 +246,11 @@ inchangés et accessibles normalement dans la barre du bas.
   `available: true`. Aucune autre modification de code n'est nécessaire.
 
 ## Tutoriel de démarrage
-Un tutoriel de 5 écrans s'affiche automatiquement au tout premier
+Un tutoriel de 7 écrans s'affiche automatiquement au tout premier
 lancement (état suivi via `SharedPreferences`, jamais réaffiché
-ensuite), pour présenter les 7 onglets de l'app à un nouvel
-utilisateur. Accessible à nouveau à tout moment via « À propos » →
-« Revoir le tutoriel de démarrage ».
+ensuite), pour présenter l'application à un nouvel
+utilisateur. Accessible à nouveau à tout moment via l'onglet « Plus » →
+« Revoir le tutoriel ».
 
 ## Générer un APK automatiquement (GitHub Actions)
 Le fichier `.github/workflows/build.yml` construit l'app automatiquement :

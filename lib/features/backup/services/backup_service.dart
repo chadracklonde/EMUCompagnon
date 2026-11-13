@@ -1,3 +1,6 @@
+import '../../hymn_lists/services/hymn_list_service.dart';
+import '../../church_texts/services/church_text_prefs.dart';
+import '../../worship/services/worship_service.dart';
 import 'dart:convert';
 import 'dart:ui';
 import 'package:share_plus/share_plus.dart';
@@ -45,6 +48,8 @@ class BackupService {
   // ReadingPlanService, StreakService, DailyQuizService and
   // WeeklyChallengeService (their constants are private).
   static const _kReadingPlan = 'readingPlan.completedIndices';
+  static const _kPlanDuration = 'readingPlan.durationDays';
+  static const _kPlanBaseline = 'readingPlan.baselineIndices';
   static const _kStreakLast = 'streak.lastActiveDate';
   static const _kStreakCurrent = 'streak.current';
   static const _kStreakLongest = 'streak.longest';
@@ -83,6 +88,11 @@ class BackupService {
       'evening_examen_entries': examen,
       'progress': {
         'reading_plan': prefs.getString(_kReadingPlan),
+        'reading_plan_duration': prefs.getInt(_kPlanDuration),
+        'reading_plan_baseline': prefs.getString(_kPlanBaseline),
+        'hymn_lists': prefs.getString(HymnListService.storageKey),
+        'pinned_texts': prefs.getStringList(ChurchTextPrefs.pinnedKey),
+        'worship_list': prefs.getString(WorshipService.listKey),
         'streak': {
           'last_date': prefs.getString(_kStreakLast),
           'current': prefs.getInt(_kStreakCurrent) ?? 0,
@@ -99,6 +109,7 @@ class BackupService {
   /// web, trigger a browser download).
   Future<void> exportAndShare() async {
     final data = await _buildExportMap();
+    final prefs = await SharedPreferences.getInstance();
     final jsonStr = const JsonEncoder.withIndent('  ').convert(data);
     final stamp = DateTime.now().toIso8601String().split('T').first;
     final file = XFile.fromData(
@@ -113,6 +124,65 @@ class BackupService {
         sharePositionOrigin: const Rect.fromLTWH(0, 0, 1, 1),
       ),
     );
+    await prefs.setString(_kLastExport, DateTime.now().toIso8601String());
+  }
+
+  static const _kLastExport = 'backup.lastExportAt';
+  static const _kReminderSnooze = 'backup.reminderSnoozedAt';
+
+  /// How long personal data may go without an export before a reminder.
+  static const reminderAfterDays = 30;
+
+  /// When the data was last exported from this device, if ever.
+  static Future<DateTime?> lastExport() async {
+    final prefs = await SharedPreferences.getInstance();
+    return DateTime.tryParse(prefs.getString(_kLastExport) ?? '');
+  }
+
+  /// Whether a reminder is due: [itemCount] personal items exist, and
+  /// neither an export nor a "later" happened in the last
+  /// [reminderAfterDays] days.
+  static bool reminderDue({
+    required int itemCount,
+    required DateTime now,
+    DateTime? lastExport,
+    DateTime? snoozedAt,
+  }) {
+    if (itemCount <= 0) return false;
+    bool recent(DateTime? d) => d != null && now.difference(d).inDays < reminderAfterDays;
+    return !recent(lastExport) && !recent(snoozedAt);
+  }
+
+  /// Whether the home screen should suggest exporting the personal data.
+  Future<bool> shouldRemind() async {
+    try {
+      final db = await DbHelper.database;
+      var count = 0;
+      for (final table in const [
+        'bookmarks',
+        'notes',
+        'highlights',
+        'memory_cards',
+        'journal_entries',
+        'evening_examen_entries',
+      ]) {
+        count += Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM $table')) ?? 0;
+      }
+      final prefs = await SharedPreferences.getInstance();
+      return reminderDue(
+        itemCount: count,
+        now: DateTime.now(),
+        lastExport: DateTime.tryParse(prefs.getString(_kLastExport) ?? ''),
+        snoozedAt: DateTime.tryParse(prefs.getString(_kReminderSnooze) ?? ''),
+      );
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<void> snoozeReminder() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_kReminderSnooze, DateTime.now().toIso8601String());
   }
 
   /// Lets the user pick a previously exported .json file and imports it.
@@ -314,6 +384,42 @@ class BackupService {
       _str(progress['reading_plan']),
     );
     if (plan != null) await prefs.setString(_kReadingPlan, plan);
+
+    // The chosen plan duration travels with the backup, but never
+    // replaces a duration already chosen on this device.
+    final duration = progress['reading_plan_duration'];
+    if (duration is int && duration >= 1 && prefs.getInt(_kPlanDuration) == null) {
+      await prefs.setInt(_kPlanDuration, duration);
+      final baseline = _str(progress['reading_plan_baseline']);
+      if (baseline != null) await prefs.setString(_kPlanBaseline, baseline);
+    }
+
+    // Hymn lists: lists only the backup has are added; local ones are kept.
+    final incomingLists = HymnListCodec.decode(_str(progress['hymn_lists']));
+    if (incomingLists.isNotEmpty) {
+      final localLists = HymnListCodec.decode(prefs.getString(HymnListService.storageKey));
+      await prefs.setString(
+        HymnListService.storageKey,
+        HymnListCodec.encode(HymnListCodec.merge(localLists, incomingLists)),
+      );
+    }
+
+    // Pinned texts are added to the local ones; the worship list is only
+    // restored when none is chosen here.
+    final incomingPinned = progress['pinned_texts'];
+    if (incomingPinned is List) {
+      await prefs.setStringList(
+        ChurchTextPrefs.pinnedKey,
+        ChurchTextPrefs.merge(
+          prefs.getStringList(ChurchTextPrefs.pinnedKey) ?? const [],
+          incomingPinned.whereType<String>().toList(),
+        ),
+      );
+    }
+    final worshipList = _str(progress['worship_list']);
+    if (worshipList != null && prefs.getString(WorshipService.listKey) == null) {
+      await prefs.setString(WorshipService.listKey, worshipList);
+    }
 
     final s = progress['streak'];
     if (s is Map) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../core/models/dictionary_entry.dart';
 import '../repository/dictionary_repository.dart';
 import 'dictionary_detail_screen.dart';
@@ -64,14 +65,12 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
           child: TextField(
             controller: _searchController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Rechercher un terme…',
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-              isDense: true,
+              prefixIcon: Icon(Icons.search),
             ),
             onChanged: _onSearchChanged,
           ),
@@ -79,24 +78,23 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
         Expanded(
           child: _loading
               ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
-                  itemCount: _entries.length,
-                  itemBuilder: (context, index) {
-                    final e = _entries[index];
-                    final selected = isWide && _selectedEntry?.id == e.id;
-                    return ListTile(
-                      selected: selected,
-                      selectedTileColor: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.4),
-                      title: Text(e.term, style: const TextStyle(fontWeight: FontWeight.w600)),
-                      subtitle: Text(
-                        e.definition,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      onTap: () => _openEntry(e, isWide),
-                    );
-                  },
-                ),
+              : _entries.isEmpty
+                  ? const EmptyState(icon: Icons.search_off, message: 'Aucun terme trouvé.')
+                  : ListView.separated(
+                      padding: const EdgeInsets.only(bottom: 24),
+                      itemCount: _entries.length,
+                      separatorBuilder: (_, __) => const Divider(indent: 20, endIndent: 20),
+                      itemBuilder: (context, index) {
+                        final e = _entries[index];
+                        return ResultRow(
+                          title: e.term,
+                          subtitle: e.definition,
+                          subtitleMaxLines: 1,
+                          selected: isWide && _selectedEntry?.id == e.id,
+                          onTap: () => _openEntry(e, isWide),
+                        );
+                      },
+                    ),
         ),
       ],
     );

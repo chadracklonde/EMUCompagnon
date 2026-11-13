@@ -1,0 +1,406 @@
+{
+ "slug": "word_and_table_1",
+ "title": "Service de la Parole et de la Table I",
+ "subtitle": "Le culte avec la Sainte-Cène, de l’entrée à l’envoi",
+ "url": "https://www.umcdiscipleship.org/book-of-worship/a-service-of-word-and-table-i-and-introductions-to-the-other-forms",
+ "copyright": "“A Service of Word and Table I,” Copyright © 1972, The Methodist Publishing House; Copyright © 1980, 1985, 1989, 1992 UMPH.",
+ "icon": "prayer",
+ "blocks": [
+  [
+   "H",
+   "Entrée"
+  ],
+  [
+   "H",
+   "Rassemblement"
+  ],
+  [
+   "H",
+   "Salutation"
+  ],
+  [
+   "L",
+   "Que la grâce du Seigneur Jésus-Christ soit avec vous."
+  ],
+  [
+   "R",
+   "Et avec vous."
+  ],
+  [
+   "L",
+   "Le Christ ressuscité est avec nous."
+  ],
+  [
+   "R",
+   "Louez le Seigneur !"
+  ],
+  [
+   "H",
+   "Cantique de louange"
+  ],
+  [
+   "H",
+   "Prière d’ouverture"
+  ],
+  [
+   "N",
+   "On dit la prière suivante, ou une prière du jour :"
+  ],
+  [
+   "R",
+   "Dieu tout-puissant,\nà toi tous les cœurs sont ouverts, tous les désirs connus,\net rien ne t’est caché.\nPurifie les pensées de nos cœurs\npar l’inspiration de ton Esprit saint,\nafin que nous t’aimions parfaitement\net que nous glorifiions dignement ton saint nom,\npar le Christ notre Seigneur. Amen."
+  ],
+  [
+   "H",
+   "Acte de louange"
+  ],
+  [
+   "H",
+   "Proclamation et réponse"
+  ],
+  [
+   "H",
+   "Prière d’illumination"
+  ],
+  [
+   "R",
+   "Seigneur, ouvre nos cœurs et nos esprits\npar la puissance de ton Esprit saint,\nafin que, tandis que les Écritures sont lues\net que ta Parole est proclamée,\nnous entendions avec joie ce que tu nous dis aujourd’hui. Amen."
+  ],
+  [
+   "H",
+   "Lecture de l’Écriture"
+  ],
+  [
+   "H",
+   "Psaume"
+  ],
+  [
+   "H",
+   "Lecture de l’Écriture"
+  ],
+  [
+   "H",
+   "Cantique ou chant"
+  ],
+  [
+   "H",
+   "Lecture de l’Évangile"
+  ],
+  [
+   "H",
+   "Prédication"
+  ],
+  [
+   "H",
+   "Réponse à la Parole"
+  ],
+  [
+   "R",
+   "Je crois en Dieu, le Père tout-puissant,\ncréateur du ciel et de la terre.\nJe crois en Jésus-Christ, son Fils unique, notre Seigneur,\nqui a été conçu du Saint-Esprit,\nest né de la vierge Marie,\na souffert sous Ponce Pilate,\na été crucifié, est mort et a été enseveli ;\nest descendu au séjour des morts.\nLe troisième jour, il est ressuscité des morts,\nil est monté au ciel,\nil est assis à la droite du Père,\net il viendra juger les vivants et les morts.\nJe crois au Saint-Esprit,\nà la sainte Église universelle (catholique),\nà la communion des saints,\nau pardon des péchés,\nà la résurrection du corps\net à la vie éternelle. Amen."
+  ],
+  [
+   "N",
+   "Symbole des apôtres, dans sa forme traditionnelle."
+  ],
+  [
+   "H",
+   "Intentions et prières"
+  ],
+  [
+   "L",
+   "De brèves intercessions, demandes et actions de grâce peuvent être dites par l’officiant ou spontanément par les membres de l’assemblée. À chacune, tous peuvent répondre ensemble, par exemple : « Seigneur, exauce notre prière. »"
+  ],
+  [
+   "N",
+   "Ou bien on peut dire une litanie d’intercession et de supplication."
+  ],
+  [
+   "N",
+   "Ou bien on peut dire une prière pastorale."
+  ],
+  [
+   "H",
+   "Invitation"
+  ],
+  [
+   "N",
+   "Le pasteur se tient derrière la table du Seigneur."
+  ],
+  [
+   "L",
+   "Le Christ notre Seigneur invite à sa table tous ceux qui l’aiment,\nqui se repentent sincèrement de leur péché\net cherchent à vivre en paix les uns avec les autres.\nC’est pourquoi, confessons notre péché devant Dieu et les uns devant les autres."
+  ],
+  [
+   "H",
+   "Confession et pardon"
+  ],
+  [
+   "R",
+   "Dieu miséricordieux,\nnous confessons que nous ne t’avons pas aimé de tout notre cœur.\nNous n’avons pas su être une Église obéissante.\nNous n’avons pas fait ta volonté,\nnous avons enfreint ta loi,\nnous nous sommes rebellés contre ton amour,\nnous n’avons pas aimé nos prochains,\net nous n’avons pas entendu le cri de ceux qui sont dans le besoin.\nPardonne-nous, nous t’en prions.\nLibère-nous pour que nous t’obéissions avec joie,\npar Jésus-Christ notre Seigneur. Amen."
+  ],
+  [
+   "N",
+   "Tous prient en silence."
+  ],
+  [
+   "N",
+   "L’officiant à l’assemblée :"
+  ],
+  [
+   "L",
+   "Écoutez la bonne nouvelle :\nLe Christ est mort pour nous alors que nous étions encore pécheurs ;\ncela prouve l’amour de Dieu envers nous.\nAu nom de Jésus-Christ, vous êtes pardonnés !"
+  ],
+  [
+   "N",
+   "L’assemblée à l’officiant :"
+  ],
+  [
+   "R",
+   "Au nom de Jésus-Christ, vous êtes pardonné !"
+  ],
+  [
+   "N",
+   "L’officiant et l’assemblée :"
+  ],
+  [
+   "R",
+   "Gloire à Dieu. Amen."
+  ],
+  [
+   "H",
+   "La paix"
+  ],
+  [
+   "L",
+   "Offrons-nous les uns aux autres des signes de réconciliation et d’amour."
+  ],
+  [
+   "N",
+   "Tous, y compris le pasteur, échangent des signes et des paroles de la paix de Dieu."
+  ],
+  [
+   "H",
+   "Offrande"
+  ],
+  [
+   "L",
+   "Pardonnés et réconciliés,\noffrons-nous nous-mêmes et nos dons à Dieu."
+  ],
+  [
+   "N",
+   "Un cantique, un psaume ou un chant de chorale peut être chanté pendant la réception de l’offrande."
+  ],
+  [
+   "N",
+   "Le pain et le vin sont apportés à la table du Seigneur par des représentants de l’assemblée avec les autres dons, ou découverts s’ils s’y trouvent déjà."
+  ],
+  [
+   "N",
+   "Un cantique, une doxologie ou une autre réponse peut être chanté pendant la présentation des dons."
+  ],
+  [
+   "N",
+   "Si l’on utilise une autre grande action de grâce que celle qui suit, le service se déroule selon l’ordre et les indications du Service de la Parole et de la Table III. Sinon, il se poursuit ainsi :"
+  ],
+  [
+   "H",
+   "Action de grâce et communion"
+  ],
+  [
+   "H",
+   "Prendre le pain et la coupe"
+  ],
+  [
+   "N",
+   "Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, depuis ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas."
+  ],
+  [
+   "H",
+   "La grande action de grâce"
+  ],
+  [
+   "N",
+   "On peut utiliser l’une des mises en musique ; le pasteur emploie le texte suivant :"
+  ],
+  [
+   "L",
+   "Que le Seigneur soit avec vous."
+  ],
+  [
+   "R",
+   "Et avec vous."
+  ],
+  [
+   "L",
+   "Élevons nos cœurs."
+  ],
+  [
+   "N",
+   "Le pasteur peut lever les mains et les garder levées."
+  ],
+  [
+   "R",
+   "Nous les élevons vers le Seigneur."
+  ],
+  [
+   "L",
+   "Rendons grâce au Seigneur notre Dieu."
+  ],
+  [
+   "R",
+   "Il est juste de lui rendre grâce et de le louer."
+  ],
+  [
+   "L",
+   "Il est juste, bon et joyeux\nde te rendre grâce toujours et partout,\nPère tout-puissant, créateur du ciel et de la terre.\nTu nous as formés à ton image\net tu as insufflé en nous le souffle de vie.\nQuand nous nous sommes détournés de toi et que notre amour a failli,\nton amour est resté fidèle.\nTu nous as délivrés de la captivité,\ntu as fait alliance pour être notre Dieu souverain\net tu nous as parlé par les prophètes.\nC’est pourquoi,\navec ton peuple sur la terre\net toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :"
+  ],
+  [
+   "N",
+   "Le pasteur peut baisser les mains."
+  ],
+  [
+   "R",
+   "Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire.\nHosanna au plus haut des cieux.\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux."
+  ],
+  [
+   "N",
+   "Le pasteur peut lever les mains."
+  ],
+  [
+   "L",
+   "Tu es saint, et béni soit ton Fils Jésus-Christ.\nTon Esprit l’a oint\npour annoncer la bonne nouvelle aux pauvres,\npour proclamer la délivrance aux captifs\net le recouvrement de la vue aux aveugles,\npour renvoyer libres les opprimés,\net pour annoncer que le temps était venu\noù tu sauverais ton peuple.\nIl a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance\npar l’eau et l’Esprit.\nLorsque le Seigneur Jésus est monté au ciel,\nil a promis d’être toujours avec nous,\npar la puissance de ta Parole et de ton Esprit saint."
+  ],
+  [
+   "N",
+   "Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever."
+  ],
+  [
+   "L",
+   "La nuit où il s’est livré pour nous,\nil prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »"
+  ],
+  [
+   "N",
+   "Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever."
+  ],
+  [
+   "L",
+   "Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude\npour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez,\nen mémoire de moi. »"
+  ],
+  [
+   "N",
+   "Le pasteur peut lever les mains."
+  ],
+  [
+   "L",
+   "C’est pourquoi,\nen souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi."
+  ],
+  [
+   "R",
+   "Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra."
+  ],
+  [
+   "N",
+   "Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe."
+  ],
+  [
+   "L",
+   "Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ,\nrachetés par son sang."
+  ],
+  [
+   "N",
+   "Le pasteur peut lever les mains."
+  ],
+  [
+   "L",
+   "Par ton Esprit, fais de nous un seul avec le Christ,\nun seul les uns avec les autres,\net un seul dans le ministère auprès du monde entier,\njusqu’à ce que le Christ vienne dans sa victoire définitive\net que nous prenions place à son banquet céleste."
+  ],
+  [
+   "L",
+   "Par ton Fils Jésus-Christ,\navec le Saint-Esprit, dans ta sainte Église,\nà toi, Père tout-puissant, tout honneur et toute gloire,\nmaintenant et pour toujours. Amen."
+  ],
+  [
+   "H",
+   "Le Notre Père"
+  ],
+  [
+   "N",
+   "Le pasteur peut tendre les mains en signe d’invitation."
+  ],
+  [
+   "L",
+   "Et maintenant, avec la confiance des enfants de Dieu, prions :"
+  ],
+  [
+   "N",
+   "Le pasteur peut lever les mains."
+  ],
+  [
+   "R",
+   "Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !"
+  ],
+  [
+   "H",
+   "La fraction du pain"
+  ],
+  [
+   "N",
+   "Le pasteur, toujours debout derrière la table du Seigneur et face à l’assemblée, rompt le pain en silence, ou en disant :"
+  ],
+  [
+   "L",
+   "Puisqu’il y a un seul pain,\nnous, qui sommes nombreux, nous sommes un seul corps, car nous participons tous à ce pain unique.\nLe pain que nous rompons est une communion au corps du Christ."
+  ],
+  [
+   "N",
+   "Le pasteur lève la coupe en silence, ou en disant :"
+  ],
+  [
+   "L",
+   "La coupe pour laquelle nous rendons grâce est une communion au sang du Christ."
+  ],
+  [
+   "H",
+   "Le don du pain et de la coupe"
+  ],
+  [
+   "N",
+   "Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :"
+  ],
+  [
+   "L",
+   "Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen."
+  ],
+  [
+   "N",
+   "Quand tous ont communié, la table du Seigneur est remise en ordre."
+  ],
+  [
+   "N",
+   "La prière suivante est ensuite dite par le pasteur ou par tous :"
+  ],
+  [
+   "R",
+   "Dieu éternel, nous te rendons grâce pour ce saint mystère\ndans lequel tu t’es donné à nous.\nFais que nous allions dans le monde\nfortifiés par ton Esprit,\npour nous donner aux autres,\nau nom de Jésus-Christ notre Seigneur. Amen."
+  ],
+  [
+   "H",
+   "Envoi"
+  ],
+  [
+   "H",
+   "Cantique ou chant"
+  ],
+  [
+   "H",
+   "Envoi avec bénédiction"
+  ],
+  [
+   "L",
+   "Allez en paix.\nQue la grâce du Seigneur Jésus-Christ,\nl’amour de Dieu\net la communion du Saint-Esprit\nsoient avec vous tous. Amen."
+  ],
+  [
+   "H",
+   "Départ"
+  ]
+ ]
+}

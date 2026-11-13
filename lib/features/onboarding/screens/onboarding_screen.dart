@@ -12,7 +12,7 @@ class OnboardingPage {
 
 const _pages = [
   OnboardingPage(
-    icon: Icons.church,
+    icon: Icons.church_outlined,
     title: 'Bienvenue sur ÉMU Compagnon',
     description:
         "Votre compagnon de foi au quotidien : Bible, cantiques, "
@@ -21,37 +21,38 @@ const _pages = [
         "commencer.",
   ),
   OnboardingPage(
-    icon: Icons.home,
+    icon: Icons.home_outlined,
     title: 'Accueil',
     description:
-        "Votre page de lancement : le verset du jour, le quiz du "
-        "jour, et un accès rapide à l'Ancien et au Nouveau "
-        "Testament, au plan de lecture, aux cantiques et à la "
-        "liturgie.",
+        "Votre page de lancement : le verset du jour, la "
+        "progression de votre plan de lecture, le quiz du jour, et "
+        "un accès rapide à l'Ancien et au Nouveau Testament, aux "
+        "cantiques et à la liturgie.",
   ),
   OnboardingPage(
-    icon: Icons.menu_book,
+    icon: Icons.menu_book_outlined,
     title: 'Bible, Cantiques, Dictionnaire',
     description:
-        "Trois onglets pour lire, chercher et approfondir : la "
-        "Bible complète avec concordance, le recueil Chants de "
-        "Victoire (recherche par numéro, titre ou mot), et un "
-        "dictionnaire biblique et méthodiste.",
+        "Pour lire, chercher et approfondir : la Bible complète "
+        "avec concordance et le recueil Chants de Victoire "
+        "(recherche par numéro, titre ou mot) dans leurs onglets, "
+        "et un dictionnaire biblique et méthodiste dans l'onglet "
+        "Plus.",
   ),
   OnboardingPage(
-    icon: Icons.calendar_month,
+    icon: Icons.calendar_month_outlined,
     title: 'Liturgie et Favoris',
     description:
         "Le calendrier liturgique, l'ordre du culte et les "
-        "sacrements dans l'onglet Liturgie. Marquez vos versets et "
-        "cantiques préférés d'un tap sur l'étoile — retrouvez-les "
-        "dans l'onglet Favoris, avec vos notes personnelles.",
+        "sacrements dans l'onglet Liturgie. Touchez un verset pour "
+        "l'ajouter aux favoris, le surligner ou y écrire une note — "
+        "retrouvez le tout dans Plus, rubrique Favoris.",
   ),
   OnboardingPage(
     icon: Icons.self_improvement,
     title: 'Votre vie spirituelle',
     description:
-        "Depuis l'accueil, dans « Accès rapide » : apprenez des "
+        "Depuis l'accueil, dans « Vie spirituelle » : apprenez des "
         "versets par cœur avec la Mémorisation, tenez votre Journal "
         "de prière, faites l'Examen du soir et relevez le Défi de "
         "la semaine.",
@@ -62,18 +63,18 @@ const _pages = [
     description:
         "Favoris, notes, journal et progression sont gardés "
         "uniquement sur votre téléphone. Pour les conserver ou les "
-        "changer d'appareil, utilisez la sauvegarde dans l'écran "
-        "À propos. C'est aussi là que vous vérifiez les mises à "
-        "jour du contenu.",
+        "changer d'appareil, utilisez la sauvegarde dans l'onglet "
+        "Plus. C'est aussi là que vous vérifiez les mises à jour "
+        "du contenu.",
   ),
   OnboardingPage(
     icon: Icons.tune,
     title: 'À vous de personnaliser',
     description:
         "Mode sombre, taille du texte, langue de l'interface, "
-        "rappel de lecture quotidien : tout se règle depuis "
-        "l'écran À propos, rubrique Affichage. Vous pouvez y "
-        "revoir ce tutoriel à tout moment. Bonne lecture !",
+        "rappel de lecture quotidien : tout se règle dans l'onglet "
+        "Plus, rubrique Réglages. Vous pouvez y revoir ce tutoriel "
+        "à tout moment. Bonne lecture !",
   ),
 ];
 
@@ -122,101 +123,103 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     final isLast = _index == _pages.length - 1;
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: UmcColors.burgundy,
+      backgroundColor: palette.background,
       body: SafeArea(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: TextButton(
-                onPressed: _finish,
-                child: const Text('Passer', style: TextStyle(color: Colors.white70)),
-              ),
-            ),
-            Expanded(
-              child: PageView.builder(
-                controller: _controller,
-                itemCount: _pages.length,
-                onPageChanged: (i) => setState(() => _index = i),
-                itemBuilder: (context, i) {
-                  final page = _pages[i];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 96,
-                          height: 96,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: UmcColors.gold, width: 2),
-                          ),
-                          child: Icon(page.icon, color: UmcColors.gold, size: 44),
-                        ),
-                        const SizedBox(height: 32),
-                        Text(
-                          page.title,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          page.description,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 15,
-                            height: 1.5,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(_pages.length, (i) {
-                final active = i == _index;
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: active ? 20 : 7,
-                  height: 7,
-                  decoration: BoxDecoration(
-                    color: active ? UmcColors.gold : Colors.white30,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                );
-              }),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(24),
-              child: SizedBox(
-                width: double.infinity,
-                child: FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: UmcColors.gold,
-                    foregroundColor: UmcColors.burgundy,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                  ),
-                  onPressed: _next,
-                  child: Text(
-                    isLast ? 'Commencer' : 'Suivant',
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 560),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4, right: 8),
+                    child: TextButton(onPressed: _finish, child: const Text('Passer')),
                   ),
                 ),
-              ),
+                Expanded(
+                  child: PageView.builder(
+                    controller: _controller,
+                    itemCount: _pages.length,
+                    onPageChanged: (i) => setState(() => _index = i),
+                    itemBuilder: (context, i) {
+                      final page = _pages[i];
+                      return Center(
+                        child: SingleChildScrollView(
+                          padding: const EdgeInsets.symmetric(horizontal: 32),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width: 96,
+                                height: 96,
+                                decoration: BoxDecoration(
+                                  color: palette.accentSoft,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Icon(page.icon, color: palette.accent, size: 44),
+                              ),
+                              const SizedBox(height: 32),
+                              Text(
+                                page.title,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  height: 1.25,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: -0.2,
+                                  color: scheme.onSurface,
+                                ),
+                              ),
+                              const SizedBox(height: 14),
+                              Text(
+                                page.description,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 15.5, height: 1.55, color: palette.muted),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Semantics(
+                  label: 'Écran ${_index + 1} sur ${_pages.length}',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(_pages.length, (i) {
+                      final active = i == _index;
+                      return AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        width: active ? 20 : 7,
+                        height: 7,
+                        decoration: BoxDecoration(
+                          color: active ? palette.accent : palette.border,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: FilledButton(
+                      onPressed: _next,
+                      child: Text(isLast ? 'Commencer' : 'Suivant'),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

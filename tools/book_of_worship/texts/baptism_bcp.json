@@ -1,0 +1,207 @@
+{
+ "slug": "baptism_bcp",
+ "title": "Alliance baptismale (tradition épiscopale)",
+ "subtitle": "Questions de l’Alliance baptismale, prières pour les candidats et action de grâce sur l’eau — domaine public",
+ "url": "https://justus.anglican.org/resources/bcp/baptism.pdf",
+ "icon": "vows",
+ "source": "Livre de prière commune de l’Église épiscopale (The Book of Common Prayer, The Episcopal Church, 1979), « Holy Baptism », pages 303 à 307. Ce texte est du domaine public. Il n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie. Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).",
+ "copyright": "Public Domain",
+ "blocks": [
+  [
+   "N",
+   "Ce texte vient du Livre de prière commune de l’Église épiscopale (États-Unis, 1979), qui est du domaine public. Ce n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie : il appartient à la tradition épiscopale (anglicane), très proche pour le fond. Il est proposé ici en attendant l’autorisation de reproduire et de traduire le texte méthodiste uni."
+  ],
+  [
+   "H",
+   "ALLIANCE BAPTISMALE"
+  ],
+  [
+   "N",
+   "Le célébrant dit :"
+  ],
+  [
+   "L",
+   "Unissons-nous à ceux qui s’engagent envers le Christ et renouvelons notre propre alliance baptismale."
+  ],
+  [
+   "L",
+   "Croyez-vous en Dieu le Père ?"
+  ],
+  [
+   "R",
+   "Je crois en Dieu, le Père tout-puissant, / créateur du ciel et de la terre."
+  ],
+  [
+   "L",
+   "Croyez-vous en Jésus-Christ, le Fils de Dieu ?"
+  ],
+  [
+   "R",
+   "Je crois en Jésus-Christ, son Fils unique, notre Seigneur, / qui a été conçu du Saint-Esprit, / est né de la vierge Marie, / a souffert sous Ponce Pilate, / a été crucifié, est mort et a été enseveli ; / est descendu au séjour des morts. / Le troisième jour, il est ressuscité des morts, / il est monté au ciel, / il est assis à la droite du Père, / et il viendra juger les vivants et les morts."
+  ],
+  [
+   "L",
+   "Croyez-vous en Dieu le Saint-Esprit ?"
+  ],
+  [
+   "R",
+   "Je crois au Saint-Esprit, / à la sainte Église universelle (catholique), / à la communion des saints, / au pardon des péchés, / à la résurrection du corps / et à la vie éternelle."
+  ],
+  [
+   "L",
+   "Voulez-vous persévérer dans l’enseignement des apôtres, dans la communion fraternelle, dans la fraction du pain et dans les prières ?"
+  ],
+  [
+   "R",
+   "Je le veux, avec l’aide de Dieu."
+  ],
+  [
+   "L",
+   "Voulez-vous persévérer à résister au mal et, chaque fois que vous tomberez dans le péché, vous repentir et revenir au Seigneur ?"
+  ],
+  [
+   "R",
+   "Je le veux, avec l’aide de Dieu."
+  ],
+  [
+   "L",
+   "Voulez-vous annoncer par la parole et par l’exemple la Bonne Nouvelle de Dieu en Jésus-Christ ?"
+  ],
+  [
+   "R",
+   "Je le veux, avec l’aide de Dieu."
+  ],
+  [
+   "L",
+   "Voulez-vous chercher et servir le Christ en toute personne, en aimant votre prochain comme vous-même ?"
+  ],
+  [
+   "R",
+   "Je le veux, avec l’aide de Dieu."
+  ],
+  [
+   "L",
+   "Voulez-vous travailler pour la justice et la paix entre tous les peuples, et respecter la dignité de tout être humain ?"
+  ],
+  [
+   "R",
+   "Je le veux, avec l’aide de Dieu."
+  ],
+  [
+   "H",
+   "PRIÈRES POUR LES CANDIDATS"
+  ],
+  [
+   "L",
+   "Prions maintenant pour ceux qui vont recevoir le sacrement de la nouvelle naissance [et pour celles (celui) qui ont renouvelé leur engagement envers le Christ]."
+  ],
+  [
+   "L",
+   "Délivre-les, Seigneur, du chemin du péché et de la mort."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Ouvre leur cœur à ta grâce et à ta vérité."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Remplis-les de ton Esprit saint, qui donne la vie."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Garde-les dans la foi et la communion de ta sainte Église."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Apprends-leur à aimer les autres par la puissance de l’Esprit."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Envoie-les dans le monde pour témoigner de ton amour."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Conduis-les à la plénitude de ta paix et de ta gloire."
+  ],
+  [
+   "R",
+   "Seigneur, exauce notre prière."
+  ],
+  [
+   "L",
+   "Accorde, Seigneur, que tous ceux qui sont baptisés dans la mort de Jésus-Christ, ton Fils, vivent dans la puissance de sa résurrection et attendent son retour dans la gloire ; lui qui vit et règne maintenant et pour les siècles des siècles. Amen."
+  ],
+  [
+   "H",
+   "ACTION DE GRÂCE SUR L’EAU"
+  ],
+  [
+   "L",
+   "Le Seigneur soit avec vous."
+  ],
+  [
+   "R",
+   "Et avec vous aussi."
+  ],
+  [
+   "L",
+   "Rendons grâce au Seigneur notre Dieu."
+  ],
+  [
+   "R",
+   "Cela est digne et juste."
+  ],
+  [
+   "L",
+   "Nous te rendons grâce, Dieu tout-puissant, pour le don de l’eau. Au commencement de la création, le Saint-Esprit se mouvait au-dessus d’elle. Par elle tu as conduit les enfants d’Israël hors de leur servitude en Égypte vers la terre promise. En elle ton Fils Jésus a reçu le baptême de Jean et a été oint du Saint-Esprit comme Messie, le Christ, pour nous conduire, par sa mort et sa résurrection, de l’esclavage du péché à la vie éternelle."
+  ],
+  [
+   "L",
+   "Nous te rendons grâce, Père, pour l’eau du baptême. En elle nous sommes ensevelis avec le Christ dans sa mort. Par elle nous avons part à sa résurrection. Par elle nous renaissons du Saint-Esprit. C’est pourquoi, dans une joyeuse obéissance à ton Fils, nous accueillons dans sa communion ceux qui viennent à lui avec foi, en les baptisant au nom du Père, du Fils et du Saint-Esprit."
+  ],
+  [
+   "N",
+   "Aux paroles suivantes, le célébrant touche l’eau."
+  ],
+  [
+   "L",
+   "Sanctifie maintenant cette eau, nous t’en prions, par la puissance de ton Saint-Esprit, afin que ceux qui sont ici purifiés du péché et nés de nouveau demeurent à jamais dans la vie ressuscitée de Jésus-Christ notre Sauveur. À lui, à toi et au Saint-Esprit, tout honneur et toute gloire, maintenant et pour toujours. Amen."
+  ],
+  [
+   "H",
+   "LE BAPTÊME"
+  ],
+  [
+   "N",
+   "Chaque candidat est présenté par son nom ; le célébrant le plonge dans l’eau ou verse de l’eau sur lui, en disant :"
+  ],
+  [
+   "L",
+   "[Prénom], je te baptise au nom du Père, du Fils et du Saint-Esprit. Amen."
+  ]
+ ]
+}

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../core/services/weekly_challenge_service.dart';
 
 /// Shows this week's spiritual-practice challenge and lets the user mark
@@ -36,6 +39,7 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     final challenge = WeeklyChallengeService.getCurrentChallenge();
 
@@ -43,55 +47,75 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
       appBar: AppBar(title: const Text('Défi de la semaine')),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          : ReadingWidthConstraint(
+              maxWidth: 640,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
                 children: [
-                  Material(
-                    color: scheme.primaryContainer,
-                    borderRadius: BorderRadius.circular(16),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(Icons.flag_outlined, color: scheme.onPrimaryContainer, size: 32),
-                          const SizedBox(height: 12),
-                          Text(
-                            'Cette semaine',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
-                              letterSpacing: 1,
-                              color: scheme.onPrimaryContainer.withValues(alpha: 0.7),
-                            ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: AppPalette.hero,
+                      borderRadius: BorderRadius.circular(22),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.flag_outlined, color: AppPalette.onHero, size: 28),
+                        const SizedBox(height: 14),
+                        const Text(
+                          'CETTE SEMAINE',
+                          style: TextStyle(
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                            color: AppPalette.onHeroMuted,
                           ),
-                          const SizedBox(height: 6),
-                          Text(
-                            challenge,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: scheme.onPrimaryContainer,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          challenge,
+                          style: const TextStyle(
+                            fontFamily: 'PlayfairDisplay',
+                            fontSize: 20,
+                            height: 1.4,
+                            color: AppPalette.onHero,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  AppCard(
+                    onTap: () => _toggle(!_done),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(6, 6, 16, 6),
+                      child: Row(
+                        children: [
+                          Checkbox(
+                            value: _done,
+                            onChanged: (v) => _toggle(v ?? false),
+                            shape: const CircleBorder(),
+                          ),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              "J'ai relevé ce défi cette semaine",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: scheme.onSurface,
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  CheckboxListTile(
-                    contentPadding: EdgeInsets.zero,
-                    controlAffinity: ListTileControlAffinity.leading,
-                    value: _done,
-                    onChanged: (v) => _toggle(v ?? false),
-                    title: const Text('J\'ai relevé ce défi cette semaine'),
-                  ),
-                  const Spacer(),
+                  const SizedBox(height: 16),
                   Text(
                     'Un nouveau défi arrive chaque semaine.',
-                    style: TextStyle(fontSize: 12, color: scheme.outline),
+                    style: TextStyle(fontSize: 13, color: palette.muted),
                   ),
                 ],
               ),

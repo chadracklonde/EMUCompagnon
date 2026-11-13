@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg_light"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/w_s0"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/widget_pill"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#7A2426"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/w_s1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/widget_pill"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#7A2426"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/w_s2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/widget_pill"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#7A2426"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/w_s3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/widget_pill"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#7A2426"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+</LinearLayout>

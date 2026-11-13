@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/models/verse.dart';
 import '../../../core/models/bible_version.dart';
 import '../../../core/settings/app_settings.dart';
 import '../repository/bible_repository.dart';
@@ -9,8 +8,12 @@ import 'chapter_screen.dart';
 import '../../concordance/screens/concordance_screen.dart';
 import '../../search/screens/global_search_screen.dart';
 import '../../../core/services/reading_history_service.dart';
-import '../../reading_plan/screens/reading_plan_screen.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../shared/widgets/version_picker.dart';
+import '../../../shared/bible_book_names.dart';
 
 enum TestamentFilter { all, oldTestament, newTestament }
 
@@ -24,48 +27,31 @@ class BooksScreen extends StatefulWidget {
 
 class _BooksScreenState extends State<BooksScreen> {
   static const _ancienTestament = 39;
-  final _repo = BibleRepository();
-  Verse? _verseOfTheDay;
   ({String book, int chapter})? _lastRead;
-  String? _loadedForVersion;
 
   @override
   void initState() {
     super.initState();
+    _loadLastRead();
+  }
+
+  void _loadLastRead() {
     ReadingHistoryService.getLastBibleRead().then((r) {
       if (mounted) setState(() => _lastRead = r);
     });
   }
 
-  void _loadVerseOfDay(String version) {
-    if (_loadedForVersion == version) return;
-    _loadedForVersion = version;
-    _fetchVerseOfDay(version);
-  }
-
-  // Retries a couple of times instead of silently leaving the card empty
-  // when the database isn't ready yet / a first attempt fails.
-  Future<void> _fetchVerseOfDay(String version) async {
-    for (var attempt = 0; attempt < 3; attempt++) {
-      try {
-        final v = await _repo.getVerseOfTheDay(version: version);
-        // Ignore a stale answer if the user switched Bible version meanwhile.
-        if (mounted && _loadedForVersion == version) {
-          setState(() => _verseOfTheDay = v);
-        }
-        return;
-      } catch (_) {
-        await Future<void>.delayed(const Duration(milliseconds: 700));
-        if (!mounted) return;
-      }
-    }
+  /// Pushes [screen], then refreshes "Reprendre la lecture" — this tab
+  /// stays alive in the shell, so its state would otherwise go stale.
+  Future<void> _open(Widget screen) async {
+    await Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+    if (mounted) _loadLastRead();
   }
 
   Future<void> _pickVersion(AppSettings settings) async {
     final chosen = await showVersionPicker(context, current: settings.bibleVersion);
     if (chosen != null) {
       await settings.setBibleVersion(chosen);
-      _loadedForVersion = null;
     }
   }
 
@@ -73,22 +59,34 @@ class _BooksScreenState extends State<BooksScreen> {
   Widget build(BuildContext context) {
     final settings = context.watch<AppSettings>();
     final version = settings.bibleVersion;
-    _loadVerseOfDay(version);
+    final locale = settings.locale;
+    String t(String key) => AppStrings.t(key, locale);
     final versionInfo = BibleVersions.byCode(version);
     final allBooks = BibleRepository.books;
-    final isFiltered = widget.filter != TestamentFilter.all;
+    final palette = AppPalette.of(context);
 
-    final List<String> books = switch (widget.filter) {
-      TestamentFilter.oldTestament => allBooks.sublist(0, _ancienTestament),
-      TestamentFilter.newTestament => allBooks.sublist(_ancienTestament),
-      TestamentFilter.all => allBooks,
-    };
+    final oldTestament = allBooks.sublist(0, _ancienTestament);
+    final newTestament = allBooks.sublist(_ancienTestament);
 
     final appBarTitle = switch (widget.filter) {
-      TestamentFilter.oldTestament => 'Ancien Testament',
-      TestamentFilter.newTestament => 'Nouveau Testament',
-      TestamentFilter.all => 'Bible',
+      TestamentFilter.oldTestament => t('old_testament'),
+      TestamentFilter.newTestament => t('new_testament'),
+      TestamentFilter.all => t('nav_bible'),
     };
+
+    Widget bookGroup(List<String> books) => AppCard(
+          child: Column(
+            children: [
+              for (var i = 0; i < books.length; i++) ...[
+                if (i > 0) Divider(indent: 16, color: palette.border),
+                _BookRow(
+                  book: books[i],
+                  onTap: () => _open(ChapterListScreen(book: books[i], version: version)),
+                ),
+              ],
+            ],
+          ),
+        );
 
     return Scaffold(
       appBar: AppBar(
@@ -99,207 +97,99 @@ class _BooksScreenState extends State<BooksScreen> {
             Text(appBarTitle),
             Text(
               versionInfo.name,
-              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.normal),
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+                color: palette.muted,
+              ),
             ),
           ],
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.translate),
-            tooltip: 'Version de la Bible',
+            tooltip: t('bible_version'),
             onPressed: () => _pickVersion(settings),
           ),
           IconButton(
-            icon: const Icon(Icons.checklist),
-            tooltip: 'Plan de lecture',
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReadingPlanScreen()),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.travel_explore),
-            tooltip: 'Recherche globale (Bible, Cantiques, Dictionnaire)',
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const GlobalSearchScreen()),
-            ),
+            icon: const Icon(Icons.manage_search),
+            tooltip: t('concordance'),
+            onPressed: () => _open(const ConcordanceScreen()),
           ),
           IconButton(
             icon: const Icon(Icons.search),
-            tooltip: 'Concordance',
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ConcordanceScreen()),
-            ),
+            tooltip: t('global_search_tip'),
+            onPressed: () => _open(const GlobalSearchScreen()),
           ),
+          const SizedBox(width: 4),
         ],
       ),
-      body: Column(
-        children: [
-          if (!isFiltered && _lastRead != null)
-            _ResumeReadingCard(lastRead: _lastRead!, version: version),
-          if (!isFiltered && _verseOfTheDay != null)
-            _VerseOfTheDayCard(verse: _verseOfTheDay!, version: version),
-          Expanded(
-            child: ListView.builder(
-              itemCount: isFiltered ? books.length : books.length + 2,
-              itemBuilder: (context, index) {
-                if (!isFiltered) {
-                  if (index == 0) {
-                    return const _SectionHeader('Ancien Testament');
-                  }
-                  if (index == _ancienTestament + 1) {
-                    return const _SectionHeader('Nouveau Testament');
-                  }
-                }
-                final book = isFiltered
-                    ? books[index]
-                    : books[index <= _ancienTestament ? index - 1 : index - 2];
-                return ListTile(
-                  title: Text(book),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => ChapterListScreen(book: book, version: version)),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ResumeReadingCard extends StatelessWidget {
-  final ({String book, int chapter}) lastRead;
-  final String version;
-  const _ResumeReadingCard({required this.lastRead, required this.version});
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-      child: Material(
-        color: scheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(14),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => ChapterScreen(book: lastRead.book, chapter: lastRead.chapter, version: version),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Row(
-              children: [
-                Icon(Icons.history, color: scheme.primary, size: 20),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    'Reprendre la lecture — ${lastRead.book} ${lastRead.chapter}',
-                    style: TextStyle(fontWeight: FontWeight.w600, color: scheme.onSurface),
-                  ),
+      body: ReadingWidthConstraint(
+        maxWidth: 640,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+          children: [
+            if (widget.filter == TestamentFilter.all && _lastRead != null) ...[
+              AppCard(
+                child: AppRow(
+                  icon: Icons.history,
+                  title: t('resume_reading'),
+                  subtitle: '${context.bookName(_lastRead!.book)} ${_lastRead!.chapter}',
+                  onTap: () => _open(ChapterScreen(
+                    book: _lastRead!.book,
+                    chapter: _lastRead!.chapter,
+                    version: version,
+                  )),
                 ),
-                Icon(Icons.chevron_right, color: scheme.outline),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _VerseOfTheDayCard extends StatelessWidget {
-  final Verse verse;
-  final String version;
-  const _VerseOfTheDayCard({required this.verse, required this.version});
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-      child: Material(
-        color: scheme.primaryContainer,
-        borderRadius: BorderRadius.circular(14),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => ChapterScreen(
-                book: verse.book,
-                chapter: verse.chapter,
-                highlightVerse: verse.verse,
-                version: version,
               ),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.wb_sunny_outlined, size: 16, color: scheme.onPrimaryContainer),
-                    const SizedBox(width: 6),
-                    Text(
-                      'VERSET DU JOUR',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
-                        color: scheme.onPrimaryContainer.withValues(alpha: 0.75),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  verse.text,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 15,
-                    height: 1.4,
-                    color: scheme.onPrimaryContainer,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  verse.reference,
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: scheme.onPrimaryContainer.withValues(alpha: 0.85),
-                  ),
-                ),
-              ],
-            ),
-          ),
+              const SizedBox(height: 24),
+            ],
+            if (widget.filter != TestamentFilter.newTestament) ...[
+              if (widget.filter == TestamentFilter.all) SectionTitle(t('old_testament')),
+              bookGroup(oldTestament),
+            ],
+            if (widget.filter == TestamentFilter.all) const SizedBox(height: 24),
+            if (widget.filter != TestamentFilter.oldTestament) ...[
+              if (widget.filter == TestamentFilter.all) SectionTitle(t('new_testament')),
+              bookGroup(newTestament),
+            ],
+          ],
         ),
       ),
     );
   }
 }
 
-class _SectionHeader extends StatelessWidget {
-  final String title;
-  const _SectionHeader(this.title);
+class _BookRow extends StatelessWidget {
+  final String book;
+  final VoidCallback onTap;
+  const _BookRow({required this.book, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: Theme.of(context).colorScheme.surfaceContainerHighest,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+    final palette = AppPalette.of(context);
+    return InkWell(
+      onTap: onTap,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 52),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  context.bookName(book),
+                  style: TextStyle(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
+              ),
+              Icon(Icons.chevron_right, color: palette.muted, size: 22),
+            ],
+          ),
+        ),
       ),
     );
   }

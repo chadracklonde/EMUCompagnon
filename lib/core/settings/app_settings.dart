@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../features/bible/repository/bible_repository.dart';
+import '../models/bible_version.dart';
+
 /// Holds user-adjustable display preferences and persists them locally.
 /// Wrapped around the app via [ChangeNotifierProvider] in main.dart, so any
 /// widget can read/watch it with `context.watch<AppSettings>()`.
@@ -14,6 +17,7 @@ class AppSettings extends ChangeNotifier {
   static const _kNotificationHour = 'settings.notificationHour';
   static const _kNotificationMinute = 'settings.notificationMinute';
   static const _kBibleVersion = 'settings.bibleVersion';
+  static const _kKeepScreenOn = 'settings.keepScreenOn';
 
   ThemeMode _themeMode = ThemeMode.system;
   double _textScale = 1.0;
@@ -24,6 +28,7 @@ class AppSettings extends ChangeNotifier {
   int _notificationHour = 7;
   int _notificationMinute = 0;
   String _bibleVersion = 'LSG1910';
+  bool _keepScreenOn = true;
 
   ThemeMode get themeMode => _themeMode;
   double get textScale => _textScale;
@@ -34,6 +39,9 @@ class AppSettings extends ChangeNotifier {
   int get notificationHour => _notificationHour;
   int get notificationMinute => _notificationMinute;
   String get bibleVersion => _bibleVersion;
+
+  /// Whether reading screens keep the phone from going to sleep.
+  bool get keepScreenOn => _keepScreenOn;
 
   /// Maps the stored preference key to an actual Flutter font family string.
   /// 'serif'/'sans-serif' are generic families Skia resolves via platform
@@ -65,6 +73,13 @@ class AppSettings extends ChangeNotifier {
     _notificationHour = prefs.getInt(_kNotificationHour) ?? 7;
     _notificationMinute = prefs.getInt(_kNotificationMinute) ?? 0;
     _bibleVersion = prefs.getString(_kBibleVersion) ?? 'LSG1910';
+    // Le swahili choisi à l'un des deux endroits vaut pour les deux.
+    if (_locale == 'sw' || _bibleVersion == 'SCV') {
+      _locale = 'sw';
+      _bibleVersion = 'SCV';
+    }
+    BibleRepository.activeVersion = _bibleVersion;
+    _keepScreenOn = prefs.getBool(_kKeepScreenOn) ?? true;
     notifyListeners();
   }
 
@@ -100,11 +115,17 @@ class AppSettings extends ChangeNotifier {
     await prefs.setString(_kFontFamily, value);
   }
 
+  /// Langue de l'application. La Bible suit : swahili → Biblia Takatifu
+  /// Wazi (SCV), français → Louis Segond 1910. Un seul choix de langue pour
+  /// l'interface, les noms de livres et le texte biblique.
   Future<void> setLocale(String value) async {
     _locale = value;
+    _bibleVersion = value == 'sw' ? BibleVersions.scv.code : BibleVersions.lsg1910.code;
+    BibleRepository.activeVersion = _bibleVersion;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_kLocale, value);
+    await prefs.setString(_kLocale, _locale);
+    await prefs.setString(_kBibleVersion, _bibleVersion);
   }
 
   Future<void> setNotificationsEnabled(bool value) async {
@@ -123,11 +144,23 @@ class AppSettings extends ChangeNotifier {
     await prefs.setInt(_kNotificationMinute, minute);
   }
 
+  /// Version de la Bible. L'application suit : choisir la Bible swahilie
+  /// met aussi l'interface en swahili, et inversement (voir [setLocale]).
   Future<void> setBibleVersion(String code) async {
     _bibleVersion = code;
+    _locale = code == BibleVersions.scv.code ? 'sw' : 'fr';
+    BibleRepository.activeVersion = _bibleVersion;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_kBibleVersion, code);
+    await prefs.setString(_kBibleVersion, _bibleVersion);
+    await prefs.setString(_kLocale, _locale);
+  }
+
+  Future<void> setKeepScreenOn(bool value) async {
+    _keepScreenOn = value;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_kKeepScreenOn, value);
   }
 
   Future<void> resetToDefaults() async {

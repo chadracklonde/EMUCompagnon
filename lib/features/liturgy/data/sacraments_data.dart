@@ -5,12 +5,16 @@ class SacramentInfo {
   final String description;
   final IconRef icon;
 
+  /// Texts of the Book of Worship for this rite (ids of [ChurchTextsData]).
+  final List<String> textIds;
+
   const SacramentInfo({
     required this.id,
     required this.name,
     required this.subtitle,
     required this.description,
     required this.icon,
+    this.textIds = const [],
   });
 }
 
@@ -37,6 +41,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'bapteme',
       name: 'Le Baptême',
+      textIds: ['bow_baptism_bcp'],
       subtitle: 'Sacrement d\'initiation chrétienne',
       icon: IconRef.baptism,
       description:
@@ -57,6 +62,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'sainte_cene',
       name: 'La Sainte-Cène',
+      textIds: ['bow_word_and_table_1', 'bow_brief_great_thanksgiving', 'bow_great_thanksgiving_seasons', 'bow_basic_pattern', 'bow_love_feast'],
       subtitle: 'Communion, Eucharistie',
       icon: IconRef.communion,
       description:
@@ -77,6 +83,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'confirmation',
       name: 'La Confirmation',
+      textIds: ['bow_baptism_bcp'],
       subtitle: 'Profession publique de la foi',
       icon: IconRef.confirmation,
       description:
@@ -91,6 +98,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'mariage',
       name: 'Le Mariage',
+      textIds: ['bow_christian_marriage_1', 'bow_christian_marriage_2'],
       subtitle: 'Célébration de l\'union',
       icon: IconRef.marriage,
       description:
@@ -104,6 +112,7 @@ class SacramentsData {
     SacramentInfo(
       id: 'funerailles',
       name: 'Le Service funèbre',
+      textIds: ['bow_death_and_resurrection', 'bow_committal', 'bow_ministry_dying', 'bow_ministry_after_death', 'bow_ministry_illness', 'bow_ministry_coma'],
       subtitle: 'Culte d\'action de grâces pour une vie',
       icon: IconRef.funeral,
       description:

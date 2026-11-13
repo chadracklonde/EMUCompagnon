@@ -41,11 +41,26 @@ void main() {
       expect(stanzas.map((s) => s.body).join(' '), contains('Une autre ligne'));
     });
 
+    test('splits verses whose number is written with an escaped dot', () {
+      final stanzas = HymnStanzaParser.parse(
+        '1. Premier couplet\n\n2\\. Deuxième couplet\n\n3\\. Troisième couplet',
+      );
+      expect(stanzas.map((s) => s.label), ['1', '2', '3']);
+      expect(stanzas[1].body, 'Deuxième couplet');
+    });
+
     test('recognizes Refrain and Chœur as refrain markers too', () {
       const lyrics = "1. Couplet.\n\nRefrain\n\nParoles du refrain.";
       final stanzas = HymnStanzaParser.parse(lyrics);
       expect(stanzas.last.isRefrain, true);
       expect(stanzas.last.label, 'Refrain');
+    });
+
+    test('reconnaît Solo comme marqueur de refrain', () {
+      const lyrics = "1. Couplet.\n\nSolo\n\nParoles du solo.\n\n2. Autre couplet.";
+      final stanzas = HymnStanzaParser.parse(lyrics);
+      expect(stanzas.map((s) => s.label), ['1', 'Solo', '2']);
+      expect(stanzas[1].isRefrain, true);
     });
   });
 }

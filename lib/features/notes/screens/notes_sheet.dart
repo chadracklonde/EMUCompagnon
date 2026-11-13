@@ -135,10 +135,12 @@ class _NotesSheetState extends State<_NotesSheet> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
+                          tooltip: 'Modifier la note',
                           icon: const Icon(Icons.edit_outlined, size: 18),
                           onPressed: () => _startEdit(n),
                         ),
                         IconButton(
+                          tooltip: 'Supprimer la note',
                           icon: const Icon(Icons.delete_outline, size: 18),
                           onPressed: () => _delete(n),
                         ),
@@ -156,7 +158,6 @@ class _NotesSheetState extends State<_NotesSheet> {
               hintText: _editingId != null
                   ? 'Modifier la note…'
                   : 'Écrire une note personnelle…',
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               isDense: true,
             ),
           ),

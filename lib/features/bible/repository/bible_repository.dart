@@ -1,5 +1,6 @@
 import '../../../core/database/db_helper.dart';
 import '../../../core/models/verse.dart';
+import '../data/comfort_verses.dart';
 
 class BibleRepository {
   /// Canonical 66-book order, used for navigation and sorting. Shared by
@@ -21,37 +22,69 @@ class BibleRepository {
     'Jude', 'Révélation',
   ];
 
-  static const _defaultVersion = 'LSG1910';
+  /// Version de la Bible choisie par la personne (voir `AppSettings`) : toutes
+  /// les lectures, recherches et versets du jour qui ne précisent pas de
+  /// version utilisent celle-ci, pour que le choix de la langue se répercute
+  /// partout.
+  static String activeVersion = 'LSG1910';
 
-  Future<int> chapterCount(String book, {String version = _defaultVersion}) async {
+  Future<int> chapterCount(String book, {String? version}) async {
+    final ver = version ?? activeVersion;
     final db = await DbHelper.database;
     final rows = await db.rawQuery(
       'SELECT MAX(chapter) as maxChapter FROM bible_verses WHERE book = ? AND version = ?',
-      [book, version],
+      [book, ver],
     );
     return (rows.first['maxChapter'] as int?) ?? 0;
   }
 
   /// Picks a deterministic "verse of the day" — same verse all day, changes
   /// daily, cycles through the whole Bible over the course of a few years.
-  Future<Verse?> getVerseOfTheDay({String version = _defaultVersion}) async {
+  /// The verse of the day: one of the verses of comfort and encouragement
+  /// ([ComfortVerses]), a different one each day in an order that looks
+  /// random. If that verse is not in the chosen version, the day's verse is
+  /// taken from the whole text instead.
+  Future<Verse?> getVerseOfTheDay({String? version, DateTime? date}) async {
+    final ver = version ?? activeVersion;
     final db = await DbHelper.database;
+    final day = date ?? DateTime.now();
+
+    final pick = ComfortVerses.all[ComfortVerses.indexFor(day)];
+    final picked = await db.query(
+      'bible_verses',
+      where: 'version = ? AND book = ? AND chapter = ? AND verse = ?',
+      whereArgs: [ver, pick.book, pick.chapter, pick.verse],
+      limit: 1,
+    );
+    if (picked.isNotEmpty) {
+      final verse = Verse.fromMap(picked.first);
+      return Verse(
+        id: verse.id,
+        book: verse.book,
+        bookNum: verse.bookNum,
+        chapter: verse.chapter,
+        verse: verse.verse,
+        text: ComfortVerses.cleanText(verse.book, verse.text),
+        version: verse.version,
+      );
+    }
+
     final countResult = await db.rawQuery(
       'SELECT COUNT(*) as c FROM bible_verses WHERE version = ?',
-      [version],
+      [ver],
     );
     final total = (countResult.first['c'] as int?) ?? 0;
     if (total == 0) return null;
-    final now = DateTime.now();
-    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
-    final offset = dayOfYear % total;
+    final dayOfYear = DateTime(day.year, day.month, day.day)
+        .difference(DateTime(day.year, 1, 1))
+        .inDays;
     final rows = await db.query(
       'bible_verses',
       where: 'version = ?',
-      whereArgs: [version],
+      whereArgs: [ver],
       orderBy: 'id ASC',
       limit: 1,
-      offset: offset,
+      offset: dayOfYear % total,
     );
     if (rows.isEmpty) return null;
     return Verse.fromMap(rows.first);
@@ -60,13 +93,14 @@ class BibleRepository {
   Future<List<Verse>> getChapter(
     String book,
     int chapter, {
-    String version = _defaultVersion,
+    String? version,
   }) async {
+    final ver = version ?? activeVersion;
     final db = await DbHelper.database;
     final rows = await db.query(
       'bible_verses',
       where: 'book = ? AND chapter = ? AND version = ?',
-      whereArgs: [book, chapter, version],
+      whereArgs: [book, chapter, ver],
       orderBy: 'verse ASC',
     );
     return rows.map((r) => Verse.fromMap(r)).toList();
@@ -76,13 +110,14 @@ class BibleRepository {
     String book,
     int chapter,
     int verse, {
-    String version = _defaultVersion,
+    String? version,
   }) async {
+    final ver = version ?? activeVersion;
     final db = await DbHelper.database;
     final rows = await db.query(
       'bible_verses',
       where: 'book = ? AND chapter = ? AND verse = ? AND version = ?',
-      whereArgs: [book, chapter, verse, version],
+      whereArgs: [book, chapter, verse, ver],
       limit: 1,
     );
     if (rows.isEmpty) return null;
@@ -94,8 +129,9 @@ class BibleRepository {
   Future<List<Verse>> search(
     String query, {
     int limit = 100,
-    String version = _defaultVersion,
+    String? version,
   }) async {
+    final ver = version ?? activeVersion;
     final db = await DbHelper.database;
     final sanitized = _sanitizeFtsQuery(query);
     if (sanitized.isEmpty) return [];
@@ -106,7 +142,7 @@ class BibleRepository {
       final rows = await db.rawQuery(
         'SELECT * FROM bible_verses WHERE version = ? AND $where '
         'ORDER BY book_num, chapter, verse LIMIT ?',
-        [version, for (final w in words) '%$w%', limit],
+        [ver, for (final w in words) '%$w%', limit],
       );
       return rows.map((r) => Verse.fromMap(r)).toList();
     }
@@ -116,7 +152,7 @@ class BibleRepository {
       WHERE bible_verses_fts MATCH ? AND bible_verses.version = ?
       ORDER BY bible_verses.book_num, bible_verses.chapter, bible_verses.verse
       LIMIT ?
-    ''', [sanitized, version, limit]);
+    ''', [sanitized, ver, limit]);
     return rows.map((r) => Verse.fromMap(r)).toList();
   }
 

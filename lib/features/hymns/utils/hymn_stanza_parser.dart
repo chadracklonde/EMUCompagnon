@@ -12,9 +12,12 @@ class HymnStanza {
 /// isn't lyrics at all (a lone musical key like "(mi bémol)") is kept as
 /// a separate leading fragment, not a stanza.
 class HymnStanzaParser {
-  static final RegExp _numberedMarker = RegExp(r'^(\d+)\.\s*(.*)$');
+  // The optional backslash covers lyrics stored as "2\. …" (a Markdown
+  // escape left in the source data), which would otherwise stay glued to
+  // the previous stanza.
+  static final RegExp _numberedMarker = RegExp(r'^(\d+)\\?\.\s*(.*)$');
   static final RegExp _refrainMarker =
-      RegExp(r'^(Cœur|Choeur|Chœur|Refrain)\s*:?\s*(.*)$', caseSensitive: false);
+      RegExp(r'^(Cœur|Choeur|Chœur|Refrain|Solo)\s*:?\s*(.*)$', caseSensitive: false);
   static final RegExp _keyLine = RegExp(r'^\(.+\)$');
 
   static List<HymnStanza> parse(String lyrics) {
@@ -32,7 +35,7 @@ class HymnStanzaParser {
     void flush() {
       if (currentLabel != null && currentBody.isNotEmpty) {
         stanzas.add(HymnStanza(
-          label: currentLabel!,
+          label: currentLabel,
           body: currentBody.toString().trim(),
           isRefrain: currentIsRefrain,
         ));

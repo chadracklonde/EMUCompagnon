@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../core/models/journal_entry.dart';
 import '../repository/journal_repository.dart';
 
@@ -38,10 +41,10 @@ class _JournalScreenState extends State<JournalScreen> {
       isScrollControlled: true,
       builder: (sheetContext) => Padding(
         padding: EdgeInsets.only(
-          left: 16,
-          right: 16,
-          top: 16,
-          bottom: MediaQuery.of(sheetContext).viewInsets.bottom + 16,
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: MediaQuery.of(sheetContext).viewInsets.bottom + 20,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -59,7 +62,6 @@ class _JournalScreenState extends State<JournalScreen> {
               decoration: const InputDecoration(
                 hintText: 'Pour quoi êtes-vous reconnaissant aujourd\'hui ? '
                     'Quelle est votre prière ?',
-                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 12),
@@ -87,53 +89,103 @@ class _JournalScreenState extends State<JournalScreen> {
   }
 
   Future<void> _delete(JournalEntry entry) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Supprimer cette entrée ?'),
+        content: const Text('Elle sera définitivement effacée de votre journal.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: const Text('Annuler'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            style: TextButton.styleFrom(
+              foregroundColor: Theme.of(dialogContext).colorScheme.error,
+            ),
+            child: const Text('Supprimer'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
     await _repo.remove(entry.id);
     await _load();
   }
 
   @override
   Widget build(BuildContext context) {
+    final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: const Text('Journal de prière')),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _openEditor(),
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.edit_outlined),
+        label: const Text('Nouvelle entrée'),
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _entries.isEmpty
-              ? Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Text(
-                      'Aucune entrée pour l\'instant. Touchez + pour noter une prière ou un motif de reconnaissance.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: scheme.outline),
-                    ),
-                  ),
+              ? const EmptyState(
+                  icon: Icons.edit_note_outlined,
+                  message: "Aucune entrée pour l'instant. Notez une prière ou un "
+                      'motif de reconnaissance avec « Nouvelle entrée ».',
                 )
-              : ListView.builder(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 80),
-                  itemCount: _entries.length,
-                  itemBuilder: (context, i) {
-                    final entry = _entries[i];
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 10),
-                      child: ListTile(
+              : ReadingWidthConstraint(
+                  maxWidth: 640,
+                  child: ListView.separated(
+                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 96),
+                    itemCount: _entries.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 10),
+                    itemBuilder: (context, i) {
+                      final entry = _entries[i];
+                      return AppCard(
                         onTap: () => _openEditor(existing: entry),
-                        title: Text(entry.content, maxLines: 4, overflow: TextOverflow.ellipsis),
-                        subtitle: Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Text(entry.entryDate, style: TextStyle(fontSize: 12, color: scheme.outline)),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 6, 4, 14),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      entry.entryDate,
+                                      style: TextStyle(
+                                        fontSize: 12.5,
+                                        fontWeight: FontWeight.w600,
+                                        color: palette.accent,
+                                      ),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    tooltip: 'Supprimer',
+                                    icon: Icon(Icons.delete_outline, color: palette.muted),
+                                    onPressed: () => _delete(entry),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 12),
+                                child: Text(
+                                  entry.content,
+                                  maxLines: 5,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    height: 1.5,
+                                    color: scheme.onSurface,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete_outline),
-                          onPressed: () => _delete(entry),
-                        ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
     );
   }

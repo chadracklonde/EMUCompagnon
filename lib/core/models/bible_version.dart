@@ -35,11 +35,19 @@ class BibleVersions {
     note: 'En attente d\'autorisation des Bible Societies of Tanzania/Kenya',
   );
 
+  static const scv = BibleVersion(
+    code: 'SCV',
+    name: 'Biblia Takatifu Wazi (Swahili Contemporary Version)',
+    language: 'Kiswahili',
+    available: true,
+    note: 'CC BY-SA 4.0, © Biblica, Inc., 2018 ; édition Aionian (AionianBible.org)',
+  );
+
   /// All versions the app knows about, available or not. The UI filters
   /// or grays out unavailable ones as appropriate.
-  static const all = [lsg1910, suv];
+  static const all = [lsg1910, scv, suv];
 
-  static const availableVersions = [lsg1910];
+  static const availableVersions = [lsg1910, scv];
 
   static BibleVersion byCode(String code) =>
       all.firstWhere((v) => v.code == code, orElse: () => lsg1910);
