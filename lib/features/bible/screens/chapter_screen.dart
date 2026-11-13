@@ -20,6 +20,7 @@ import '../../memorization/repository/memory_card_repository.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../reading_plan/services/reading_plan_service.dart';
+import '../../../shared/bible_book_names.dart';
 
 class ChapterScreen extends StatefulWidget {
   final String book;
@@ -324,8 +325,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
         duration: const Duration(seconds: 2),
         content: Text(
           nowRead
-              ? '${widget.book} $_chapter marqué comme lu dans le plan de lecture.'
-              : '${widget.book} $_chapter n\'est plus marqué comme lu.',
+              ? '${context.bookName(widget.book, version: widget.version)} $_chapter marqué comme lu dans le plan de lecture.'
+              : '${context.bookName(widget.book, version: widget.version)} $_chapter n\'est plus marqué comme lu.',
         ),
       ));
   }
@@ -356,7 +357,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     return KeepAwake(child: Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: widget.showBackButton,
-        title: Text('${widget.book} $_chapter'),
+        title: Text('${context.bookName(widget.book, version: widget.version)} $_chapter'),
         actions: [
           IconButton(
             icon: const Icon(Icons.text_fields),

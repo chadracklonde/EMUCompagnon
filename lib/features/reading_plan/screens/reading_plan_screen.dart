@@ -5,6 +5,7 @@ import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../bible/screens/chapter_screen.dart';
 import '../services/reading_plan_service.dart';
+import '../../../shared/bible_book_names.dart';
 
 /// "45 min", "1 h 05", "10 h 35" — reading time for a number of verses.
 String formatReadingTime(int verses) {
@@ -450,12 +451,12 @@ class _DaySheetState extends State<_DaySheet> {
                             value: isRead,
                             onChanged: (_) => _toggle(chapter),
                             shape: const CircleBorder(),
-                            semanticLabel: '${chapter.book} ${chapter.chapter} lu',
+                            semanticLabel: '${context.bookName(chapter.book)} ${chapter.chapter} lu',
                           ),
                           const SizedBox(width: 4),
                           Expanded(
                             child: Text(
-                              '${chapter.book} ${chapter.chapter}',
+                              '${context.bookName(chapter.book)} ${chapter.chapter}',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,

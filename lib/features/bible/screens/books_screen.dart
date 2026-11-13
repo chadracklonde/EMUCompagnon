@@ -13,6 +13,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../../shared/widgets/version_picker.dart';
+import '../../../shared/bible_book_names.dart';
 
 enum TestamentFilter { all, oldTestament, newTestament }
 
@@ -133,7 +134,7 @@ class _BooksScreenState extends State<BooksScreen> {
                 child: AppRow(
                   icon: Icons.history,
                   title: t('resume_reading'),
-                  subtitle: '${_lastRead!.book} ${_lastRead!.chapter}',
+                  subtitle: '${context.bookName(_lastRead!.book)} ${_lastRead!.chapter}',
                   onTap: () => _open(ChapterScreen(
                     book: _lastRead!.book,
                     chapter: _lastRead!.chapter,
@@ -177,7 +178,7 @@ class _BookRow extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  book,
+                  context.bookName(book),
                   style: TextStyle(
                     fontSize: 15.5,
                     fontWeight: FontWeight.w500,

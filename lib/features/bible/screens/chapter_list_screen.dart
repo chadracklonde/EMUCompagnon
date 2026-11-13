@@ -3,6 +3,7 @@ import '../repository/bible_repository.dart';
 import 'chapter_screen.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/responsive.dart';
+import '../../../shared/bible_book_names.dart';
 
 class ChapterListScreen extends StatefulWidget {
   final String book;
@@ -73,7 +74,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     final isWide = Responsive.isWide(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.book)),
+      appBar: AppBar(title: Text(context.bookName(widget.book, version: widget.version))),
       body: !isWide
           ? _buildGrid(false)
           : Row(

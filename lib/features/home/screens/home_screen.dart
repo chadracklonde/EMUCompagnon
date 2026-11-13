@@ -35,6 +35,7 @@ import '../../church_texts/services/church_text_prefs.dart';
 import '../../worship/screens/worship_screen.dart';
 import '../../backup/screens/backup_screen.dart';
 import '../../backup/services/backup_service.dart';
+import '../../../shared/bible_book_names.dart';
 
 /// Home tab, "clair et aéré" look: greeting and date, search, the verse of
 /// the day as the one filled burgundy card, then plain bordered tiles.
@@ -269,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? null
                     : () => ImageShareService.shareVerse(
                           context,
-                          reference: verse.reference,
+                          reference: context.bookReference(verse.reference),
                           text: verse.text,
                         ),
               ),
@@ -679,7 +680,7 @@ class _VerseOfTheDayCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      verse?.reference ?? '',
+                      context.bookReference(verse?.reference ?? ''),
                       style: const TextStyle(
                         fontSize: 13.5,
                         fontWeight: FontWeight.w600,

@@ -5,6 +5,7 @@ import 'dart:async';
 import '../../../core/models/verse.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../../bible/screens/chapter_screen.dart';
+import '../../../shared/bible_book_names.dart';
 
 /// Full-text concordance search across the whole Bible.
 class ConcordanceScreen extends StatefulWidget {
@@ -96,7 +97,7 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
                     }
                     final v = _results[index - 1];
                     return ResultRow(
-                      title: v.reference,
+                      title: context.bookReference(v.reference),
                       subtitle: v.text,
                       subtitleMaxLines: 3,
                       accentTitle: true,

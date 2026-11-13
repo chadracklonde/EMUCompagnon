@@ -19,6 +19,7 @@ import '../../bible/screens/chapter_screen.dart';
 import '../../hymns/screens/hymn_pager_screen.dart';
 import '../../dictionary/screens/dictionary_detail_screen.dart';
 import '../../../core/services/search_history_service.dart';
+import '../../../shared/bible_book_names.dart';
 
 class GlobalSearchScreen extends StatefulWidget {
   const GlobalSearchScreen({super.key});
@@ -152,7 +153,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
               child: AppCard(
                 child: AppRow(
                   icon: Icons.menu_book_outlined,
-                  title: 'Aller à ${reference.book} ${reference.chapter}'
+                  title: 'Aller à ${context.bookName(reference.book)} ${reference.chapter}'
                       '${reference.verse == null ? '' : '.${reference.verse}'}',
                   subtitle: 'Ouvrir ce passage de la Bible',
                   onTap: () => _openReference(reference),
@@ -258,7 +259,7 @@ class _VerseResults extends StatelessWidget {
       itemBuilder: (context, i) {
         final v = verses[i];
         return ResultRow(
-          title: v.reference,
+          title: context.bookReference(v.reference),
           subtitle: v.text,
           subtitleMaxLines: 3,
           accentTitle: true,
