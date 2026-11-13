@@ -74,4 +74,22 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Le schéma de base du culte'), findsWidgets);
   });
+
+  testWidgets('the list can be searched, and clearing the search brings the groups back', (tester) async {
+    await tester.pumpWidget(_app(const ChurchTextsScreen()));
+    expect(find.text('Ce que nous croyons'), findsWidgets);
+
+    await tester.enterText(find.byType(TextField), 'mariage');
+    await tester.pumpAndSettle();
+    expect(find.text('Culte de mariage chrétien II'), findsOneWidget);
+    expect(find.text('Le Notre Père'), findsNothing);
+
+    await tester.enterText(find.byType(TextField), 'zzzz');
+    await tester.pumpAndSettle();
+    expect(find.text('Aucun texte ne correspond.'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Effacer'));
+    await tester.pumpAndSettle();
+    expect(find.text('Le Notre Père'), findsWidgets);
+  });
 }

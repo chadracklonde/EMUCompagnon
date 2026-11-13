@@ -13,13 +13,72 @@ import 'book_of_worship_data.dart';
 ///    plainly wrong. They are to be proofread by the project owner — keep
 ///    any correction here, in this one file.
 class ChurchTextsData {
-  static const _discipline = 'Livre de Discipline de l\'Église Méthodiste Unie, 2020/2024';
+  static const _discipline =
+      'Livre de Discipline de l\'Église Méthodiste Unie, 2020/2024';
 
   static const List<ChurchTextGroup> groups = [
     ChurchTextGroup('Prières', [lordsPrayer, socialCreed, socialCreedLitany]),
-    ChurchTextGroup('Ce que nous croyons', [articlesOfReligion, confessionOfFaith]),
-    ChurchTextGroup('Vivre en disciple', [generalRules, membershipVows, mission]),
-    ChurchTextGroup('Livre de culte (extraits)', BookOfWorshipData.all),
+    ChurchTextGroup(
+        'Ce que nous croyons', [articlesOfReligion, confessionOfFaith]),
+    ChurchTextGroup(
+        'Vivre en disciple', [generalRules, membershipVows, mission]),
+    ChurchTextGroup('Livre de culte : culte du dimanche', [
+      BookOfWorshipData.basicPattern,
+      BookOfWorshipData.sundayOrder,
+      BookOfWorshipData.greetingsPrayers,
+      BookOfWorshipData.waysOfPraying,
+      BookOfWorshipData.litanyChurchWorld,
+      BookOfWorshipData.tenCommandments,
+      BookOfWorshipData.confessionOfSin,
+      BookOfWorshipData.blessingsClosing,
+      BookOfWorshipData.morningPraise,
+      BookOfWorshipData.eveningPraise,
+      BookOfWorshipData.covenantRenewal,
+      BookOfWorshipData.loveFeast,
+    ]),
+    ChurchTextGroup('Livre de culte : Sainte-Cène et baptême', [
+      BookOfWorshipData.wordAndTable1,
+      BookOfWorshipData.briefGreatThanksgiving,
+      BookOfWorshipData.greatThanksgivingSeasons,
+      BookOfWorshipData.baptismBcp,
+      BookOfWorshipData.biblesChildren,
+    ]),
+    ChurchTextGroup('Livre de culte : mariage, naissance et maison', [
+      BookOfWorshipData.christianMarriage1,
+      BookOfWorshipData.christianMarriage2,
+      BookOfWorshipData.birthThanksgiving,
+      BookOfWorshipData.blessingHome,
+    ]),
+    ChurchTextGroup('Livre de culte : maladie et deuil', [
+      BookOfWorshipData.healing1,
+      BookOfWorshipData.healing2,
+      BookOfWorshipData.ministryIllness,
+      BookOfWorshipData.ministryComa,
+      BookOfWorshipData.ministryDivorce,
+      BookOfWorshipData.ministryDying,
+      BookOfWorshipData.ministryAfterDeath,
+      BookOfWorshipData.deathAndResurrection,
+      BookOfWorshipData.committal,
+    ]),
+    ChurchTextGroup('Livre de culte : Semaine sainte et temps de l’année', [
+      BookOfWorshipData.ashWednesday,
+      BookOfWorshipData.palmSunday,
+      BookOfWorshipData.holyThursday,
+      BookOfWorshipData.goodFriday,
+      BookOfWorshipData.tenebrae,
+      BookOfWorshipData.easterVigil,
+    ]),
+    ChurchTextGroup('Livre de culte : services de l’Église', [
+      BookOfWorshipData.leadersInstallation,
+      BookOfWorshipData.classLeaders,
+      BookOfWorshipData.appointment,
+      BookOfWorshipData.recognitionOrdained,
+      BookOfWorshipData.farewellPastor,
+      BookOfWorshipData.farewellMembers,
+      BookOfWorshipData.consecrationBuilding,
+    ]),
+    ChurchTextGroup('Livre de culte : prières choisies',
+        [BookOfWorshipData.selectedPrayers]),
   ];
 
   static ChurchText? byId(String id) {
@@ -47,7 +106,8 @@ class ChurchTextsData {
         'pardonne-nous nos offenses, comme nous aussi nous pardonnons à '
         'ceux qui nous ont offensés ;',
       ),
-      TextBlock.p('ne nous induis pas en tentation, mais délivre-nous du malin.'),
+      TextBlock.p(
+          'ne nous induis pas en tentation, mais délivre-nous du malin.'),
       TextBlock.p(
         'Car c\'est à toi qu\'appartiennent, dans tous les siècles, le '
         'règne, la puissance et la gloire.',
@@ -61,7 +121,8 @@ class ChurchTextsData {
     title: 'Le Credo social',
     subtitle: 'Notre foi vécue dans le monde',
     icon: ChurchTextIcon.creed,
-    source: 'Credo social de l\'Église Méthodiste Unie (Livre de Discipline, ¶ 164)',
+    source:
+        'Credo social de l\'Église Méthodiste Unie (Livre de Discipline, ¶ 164)',
     blocks: [
       TextBlock.p(
         'Nous croyons en Dieu, le créateur du monde, et en Jésus-Christ, le '
@@ -183,7 +244,8 @@ class ChurchTextsData {
         'personnes, d\'une même substance, d\'une même puissance et d\'une '
         'même éternité : le Père, le Fils et le Saint-Esprit.',
       ),
-      TextBlock.heading('Article II — Du Verbe, ou Fils de Dieu, qui s\'est fait homme'),
+      TextBlock.heading(
+          'Article II — Du Verbe, ou Fils de Dieu, qui s\'est fait homme'),
       TextBlock.p(
         'Le Fils, qui est le Verbe du Père, le Dieu véritable et éternel, '
         'd\'une seule substance avec le Père, a pris la nature humaine dans '
@@ -209,7 +271,8 @@ class ChurchTextsData {
         'substance, d\'une seule majesté et d\'une seule gloire avec le '
         'Père et le Fils, Dieu véritable et éternel.',
       ),
-      TextBlock.heading('Article V — De la suffisance des Saintes Écritures pour le salut'),
+      TextBlock.heading(
+          'Article V — De la suffisance des Saintes Écritures pour le salut'),
       TextBlock.p(
         'L\'Écriture sainte contient tout ce qui est nécessaire au salut ; '
         'de sorte que tout ce qui n\'y est pas lu, ou qui ne peut être '
@@ -429,7 +492,8 @@ class ChurchTextsData {
         'leur propre jugement, comme ils l\'estimeront le plus favorable à '
         'la piété.',
       ),
-      TextBlock.heading('Article XXII — Des rites et des cérémonies des Églises'),
+      TextBlock.heading(
+          'Article XXII — Des rites et des cérémonies des Églises'),
       TextBlock.p(
         'Il n\'est pas nécessaire que les rites et les cérémonies soient '
         'partout les mêmes ou exactement semblables ; car ils ont toujours '
@@ -449,7 +513,8 @@ class ChurchTextsData {
         'des rites et des cérémonies, pourvu que tout se fasse pour '
         'l\'édification.',
       ),
-      TextBlock.heading('Article XXIII — Des dirigeants des États-Unis d\'Amérique'),
+      TextBlock.heading(
+          'Article XXIII — Des dirigeants des États-Unis d\'Amérique'),
       TextBlock.p(
         'Le Président, le Congrès, les assemblées générales, les '
         'gouverneurs et les conseils d\'État, en tant que délégués du '
@@ -766,7 +831,8 @@ class ChurchTextsData {
         'Texte de 1808, écrit par John Wesley en 1743 pour les premières '
         'sociétés méthodistes. Son langage est celui de son époque.',
       ),
-      TextBlock.heading('Nature, but et règles générales de nos sociétés unies'),
+      TextBlock.heading(
+          'Nature, but et règles générales de nos sociétés unies'),
       TextBlock.p(
         'Vers la fin de l\'année 1739, huit ou dix personnes vinrent '
         'trouver M. Wesley à Londres. Elles semblaient profondément '
@@ -838,19 +904,23 @@ class ChurchTextsData {
         'l\'ivrognerie : acheter ou vendre des boissons fortes, ou en '
         'boire, sauf en cas d\'extrême nécessité ;',
       ),
-      TextBlock.item('posséder des esclaves ; acheter ou vendre des esclaves ;'),
+      TextBlock.item(
+          'posséder des esclaves ; acheter ou vendre des esclaves ;'),
       TextBlock.item(
         'se battre, se quereller, se disputer ; faire un procès à son '
         'frère ; rendre le mal pour le mal, ou l\'injure pour l\'injure ; '
         'marchander longuement en achetant ou en vendant ;',
       ),
-      TextBlock.item('acheter ou vendre des marchandises qui n\'ont pas payé les droits ;'),
-      TextBlock.item('prêter ou emprunter à usure, c\'est-à-dire à un intérêt illicite ;'),
+      TextBlock.item(
+          'acheter ou vendre des marchandises qui n\'ont pas payé les droits ;'),
+      TextBlock.item(
+          'prêter ou emprunter à usure, c\'est-à-dire à un intérêt illicite ;'),
       TextBlock.item(
         'tenir des conversations sans charité ou sans profit ; en '
         'particulier, dire du mal des magistrats ou des ministres ;',
       ),
-      TextBlock.item('faire aux autres ce que nous ne voudrions pas qu\'ils nous fassent ;'),
+      TextBlock.item(
+          'faire aux autres ce que nous ne voudrions pas qu\'ils nous fassent ;'),
       TextBlock.item(
         'faire ce que nous savons ne pas être pour la gloire de Dieu, '
         'comme : porter de l\'or et des vêtements coûteux ;',

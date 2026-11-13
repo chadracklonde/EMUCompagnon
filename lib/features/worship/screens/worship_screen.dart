@@ -6,6 +6,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../../shared/widgets/keep_awake.dart';
+import '../../church_texts/data/book_of_worship_data.dart';
 import '../../church_texts/data/church_texts_data.dart';
 import '../../church_texts/models/church_text.dart';
 import '../../church_texts/screens/church_text_screen.dart';
@@ -36,8 +37,19 @@ class WorshipScreen extends StatefulWidget {
 
 class _WorshipScreenState extends State<WorshipScreen> {
   static const _months = [
-    '', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-    'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+    '',
+    'janvier',
+    'février',
+    'mars',
+    'avril',
+    'mai',
+    'juin',
+    'juillet',
+    'août',
+    'septembre',
+    'octobre',
+    'novembre',
+    'décembre',
   ];
 
   final _repo = HymnsRepository();
@@ -162,7 +174,8 @@ class _WorshipScreenState extends State<WorshipScreen> {
   void _sing(int index) {
     final list = _list;
     if (list == null) return;
-    _open(HymnListPlayerScreen(listName: list.name, hymns: _hymns, initialIndex: index));
+    _open(HymnListPlayerScreen(
+        listName: list.name, hymns: _hymns, initialIndex: index));
   }
 
   @override
@@ -171,8 +184,9 @@ class _WorshipScreenState extends State<WorshipScreen> {
     final scheme = Theme.of(context).colorScheme;
     final lineHeight = context.watch<AppSettings>().lineHeightScale;
     final today = DateTime.now();
-    final isToday =
-        _day.year == today.year && _day.month == today.month && _day.day == today.day;
+    final isToday = _day.year == today.year &&
+        _day.month == today.month &&
+        _day.day == today.day;
     final season = _holyDay ?? _season;
     final list = _list;
 
@@ -206,7 +220,10 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 const SizedBox(height: 8),
                 Text(
                   _sundayEntries.first.name,
-                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.w600, color: palette.accent),
+                  style: TextStyle(
+                      fontSize: 15.5,
+                      fontWeight: FontWeight.w600,
+                      color: palette.accent),
                 ),
                 for (final special in _sundayEntries.where((e) => e.isSpecial))
                   Padding(
@@ -219,7 +236,8 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 const SizedBox(height: 16),
                 SeasonCard(
                   instance: season,
-                  onTap: () => _open(LiturgicalPeriodDetailScreen(instance: season)),
+                  onTap: () =>
+                      _open(LiturgicalPeriodDetailScreen(instance: season)),
                 ),
               ],
               const SizedBox(height: 24),
@@ -227,7 +245,8 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 children: [
                   const Expanded(child: SectionTitle('Cantiques du culte')),
                   if (_lists.isNotEmpty)
-                    TextButton(onPressed: _chooseList, child: const Text('Changer')),
+                    TextButton(
+                        onPressed: _chooseList, child: const Text('Changer')),
                 ],
               ),
               if (_loading)
@@ -269,7 +288,12 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   child: Column(
                     children: [
                       for (var i = 0; i < _hymns.length; i++) ...[
-                        if (i > 0) Divider(height: 1, indent: 16, endIndent: 16, color: palette.border),
+                        if (i > 0)
+                          Divider(
+                              height: 1,
+                              indent: 16,
+                              endIndent: 16,
+                              color: palette.border),
                         ResultRow(
                           leading: NumberBadge(_hymns[i].number),
                           title: _hymns[i].title,
@@ -303,17 +327,37 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 ),
               ]),
               const SizedBox(height: 24),
+              const SectionTitle('Pour préparer le culte'),
+              AppRowGroup(rows: [
+                for (final text in [
+                  BookOfWorshipData.sundayOrder,
+                  BookOfWorshipData.greetingsPrayers,
+                  BookOfWorshipData.confessionOfSin,
+                  BookOfWorshipData.blessingsClosing,
+                  BookOfWorshipData.litanyChurchWorld,
+                ])
+                  AppRow(
+                    icon: churchTextIcon(text.icon),
+                    title: text.title,
+                    subtitle: text.subtitle,
+                    onTap: () => _open(ChurchTextScreen(text: text)),
+                  ),
+              ]),
+              const SizedBox(height: 24),
               const SectionTitle('Déroulement du culte'),
               AppCard(
                 child: Theme(
                   // No divider lines around the expanded step.
-                  data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                  data: Theme.of(context)
+                      .copyWith(dividerColor: Colors.transparent),
                   child: Column(
                     children: [
                       for (var i = 0; i < WorshipOrderData.steps.length; i++)
                         ExpansionTile(
-                          tilePadding: const EdgeInsets.symmetric(horizontal: 16),
-                          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+                          tilePadding:
+                              const EdgeInsets.symmetric(horizontal: 16),
+                          childrenPadding:
+                              const EdgeInsets.fromLTRB(16, 0, 16, 14),
                           expandedCrossAxisAlignment: CrossAxisAlignment.start,
                           expandedAlignment: Alignment.centerLeft,
                           leading: Container(
@@ -335,7 +379,8 @@ class _WorshipScreenState extends State<WorshipScreen> {
                           ),
                           title: Text(
                             WorshipOrderData.steps[i].title,
-                            style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w600),
+                            style: const TextStyle(
+                                fontSize: 15.5, fontWeight: FontWeight.w600),
                           ),
                           children: [
                             Text(
@@ -346,7 +391,8 @@ class _WorshipScreenState extends State<WorshipScreen> {
                                 color: scheme.onSurface,
                               ),
                             ),
-                            ChurchTextLinks(textIds: WorshipOrderData.steps[i].textIds),
+                            ChurchTextLinks(
+                                textIds: WorshipOrderData.steps[i].textIds),
                           ],
                         ),
                     ],

@@ -13,35 +13,52 @@ class BookOfWorshipData {
   static const basicPattern = ChurchText(
     id: 'bow_basic_pattern',
     title: 'Le schéma de base du culte',
-    subtitle: 'Entrée, proclamation et réponse, action de grâce et communion, envoi',
+    subtitle:
+        'Entrée, proclamation et réponse, action de grâce et communion, envoi',
     icon: ChurchTextIcon.rules,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Basic Pattern of Worship,” Copyright © 1992 UMPH » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/the-basic-pattern-of-worship',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Basic Pattern of Worship,” Copyright © 1992 UMPH » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/the-basic-pattern-of-worship',
     blocks: [
       TextBlock.heading('Introduction'),
-      TextBlock.p('Le schéma de base du culte trouve ses racines dans les Écritures ainsi que dans notre héritage et notre expérience méthodistes unis. Il exprime l’intégrité biblique, historique et théologique du culte chrétien et constitue le fondement de tous les services généraux de l’Église. Ce schéma de base sert à guider ceux qui préparent le culte et à aider les congrégations à comprendre la structure et le contenu fondamentaux de notre culte. Bien qu’il ne s’agisse pas d’un ordre de culte, divers ordres de culte peuvent s’en inspirer. Il révèle que derrière la diversité du culte méthodiste uni se cache une unité fondamentale.'),
-      TextBlock.p('Notre culte, tant dans sa diversité que dans son unité, est une rencontre avec le Dieu vivant par le Christ ressuscité, dans la puissance du Saint-Esprit. Lorsque le peuple de Dieu se rassemble, l’Esprit est libre de le conduire à adorer de diverses manières, selon ses besoins. Nous nous réjouissons que les congrégations, qu’elles soient grandes ou petites, situées dans différentes régions, au sein de différentes communautés, de composition raciale et ethnique variée, et dotées de traditions locales propres, puissent chacune célébrer le culte d’une manière qui permette à chacun de s’y sentir chez soi.'),
-      TextBlock.p('L’Esprit est également la source de l’unité et de la vérité. Les enseignements des Écritures donnent à notre culte un schéma fondamental qui a fait ses preuves au fil des siècles, qui confère à l’Église Méthodiste Unie son identité et nous relie à l’Église universelle. Ce schéma remonte au culte tel que Jésus et ses premiers disciples le connaissaient : les offices à la synagogue et le culte familial juif autour de la table. Il s’est enrichi au fil de l’expérience et des traditions des communautés chrétiennes depuis deux mille ans.'),
-      TextBlock.p('L’entrée, la proclamation et la réponse — souvent appelées « service de la Parole » ou « service de la prédication » — constituent une adaptation chrétienne de l’ancien culte de la synagogue.'),
-      TextBlock.p('L’action de grâce et la communion, communément appelées « Cène du Seigneur » ou « Sainte Communion », constituent une adaptation chrétienne du culte juif pratiqué autour de la table familiale — tel que Jésus et ses disciples le vivaient lorsqu’ils prenaient leurs repas ensemble au cours de son ministère de prédication et d’enseignement, tel que Jésus l’a transformé lorsqu’il a institué la Cène du Seigneur la veille de sa mort, et tel que ses disciples l’ont vécu en rompant le pain avec leur Seigneur ressuscité (Luc 24.30-35 ; Jean 21.13).'),
-      TextBlock.p('Après le jour de la Pentecôte, lorsque les premiers chrétiens se mirent à prêcher et à enseigner, ils continuèrent à prendre part au culte à la synagogue partout où ils se rendaient (Actes 9.2ss, 20 ; 13.5, 13ss, 44ss ; 14.1 ; 17.1ss, 10ss, 17ss ; 18.4, 19, 26 ; 19.8 ; 22.19 ; 24.12 ; 26.11) et à rompre le pain lors d’un repas sacré au sein de leurs propres rassemblements (Actes 2.42, 46).'),
-      TextBlock.p('Comme leur prédication et leur enseignement sur Jésus avaient entraîné une rupture entre l’Église et la synagogue, les chrétiens célébraient un office adapté de celui de la synagogue et rompaient le pain lorsqu’ils se réunissaient le premier jour de la semaine. Un tel culte réunissant la Parole et la Table est décrit en Actes 20.7ss. Il s’agissait apparemment d’un schéma déjà accepté à l’époque où Luc rédigea le récit d’Emmaüs en Luc 24.13-35, qui dépeint la réunion d’un culte synagogal transformé et d’un repas sacré transformé, et indique aux lecteurs qu’ils peuvent reconnaître le Christ ressuscité dans l’expérience de la Parole et de la Table.'),
-      TextBlock.p('Le récit d’Emmaüs peut être utilisé aujourd’hui dans la prédication et l’enseignement du schéma de base du culte. Tout comme, le premier jour de la semaine, le Christ ressuscité s’est joint aux deux disciples, de même, par la puissance du Saint-Esprit, le Christ ressuscité et monté au ciel se joint à nous lorsque nous nous réunissons. Tout comme les disciples lui ont confié leur chagrin et, ce faisant, ont ouvert leur cœur à ce que Jésus allait leur dire, de même nous lui confions tout ce qui nous tient à cœur et nous nous ouvrons ainsi à la Parole. Tout comme Jésus leur a « ouvert les Écritures » et a fait brûler leurs cœurs, de même nous entendons les Écritures s’ouvrir à nous et, dans la ferveur de nos cœurs, nous louons Dieu. Tout comme ils ont été confrontés à une décision et ont réagi en invitant Jésus à rester avec eux, nous pouvons faire de même. Tout comme ils se sont joints au Christ ressuscité autour de la table, nous le pouvons également. Tout comme Jésus a pris, béni, rompu et donné le pain, exactement comme les disciples l’avaient vu faire trois jours auparavant, de même, au nom du Christ ressuscité, nous accomplissons ces quatre gestes avec le pain et la coupe. Tout comme il « s’est fait connaître à eux à la fraction du pain », le Christ ressuscité et monté au ciel peut se faire connaître à nous dans la Sainte Communion. Tout comme il a disparu et a envoyé les disciples dans le monde avec foi et joie, il nous envoie à notre tour dans le monde. Et tout comme ces disciples ont trouvé le Christ lorsqu’ils sont arrivés à Jérusalem plus tard dans la soirée, nous pouvons trouver le Christ à nos côtés où que nous allions.'),
-      TextBlock.p('Depuis l’époque du Nouveau Testament, ce schéma fondamental a connu une longue histoire d’évolution. Parfois, il a été occulté et dénaturé, et parfois il a été redécouvert et renouvelé. Le renouveau wesleyen a perpétué cette importance accordée à la Parole et à la Table, en portant l’Évangile dans le monde par la prédication, le chant et la célébration du repas sacré. Aujourd’hui, l’Église Méthodiste Unie se réapproprie son héritage biblique et historique, alors que nous cherchons, à travers ce schéma de base, à adorer Dieu « en esprit et en vérité ».'),
+      TextBlock.p(
+          'Le schéma de base du culte trouve ses racines dans les Écritures ainsi que dans notre héritage et notre expérience méthodistes unis. Il exprime l’intégrité biblique, historique et théologique du culte chrétien et constitue le fondement de tous les services généraux de l’Église. Ce schéma de base sert à guider ceux qui préparent le culte et à aider les congrégations à comprendre la structure et le contenu fondamentaux de notre culte. Bien qu’il ne s’agisse pas d’un ordre de culte, divers ordres de culte peuvent s’en inspirer. Il révèle que derrière la diversité du culte méthodiste uni se cache une unité fondamentale.'),
+      TextBlock.p(
+          'Notre culte, tant dans sa diversité que dans son unité, est une rencontre avec le Dieu vivant par le Christ ressuscité, dans la puissance du Saint-Esprit. Lorsque le peuple de Dieu se rassemble, l’Esprit est libre de le conduire à adorer de diverses manières, selon ses besoins. Nous nous réjouissons que les congrégations, qu’elles soient grandes ou petites, situées dans différentes régions, au sein de différentes communautés, de composition raciale et ethnique variée, et dotées de traditions locales propres, puissent chacune célébrer le culte d’une manière qui permette à chacun de s’y sentir chez soi.'),
+      TextBlock.p(
+          'L’Esprit est également la source de l’unité et de la vérité. Les enseignements des Écritures donnent à notre culte un schéma fondamental qui a fait ses preuves au fil des siècles, qui confère à l’Église Méthodiste Unie son identité et nous relie à l’Église universelle. Ce schéma remonte au culte tel que Jésus et ses premiers disciples le connaissaient : les offices à la synagogue et le culte familial juif autour de la table. Il s’est enrichi au fil de l’expérience et des traditions des communautés chrétiennes depuis deux mille ans.'),
+      TextBlock.p(
+          'L’entrée, la proclamation et la réponse — souvent appelées « service de la Parole » ou « service de la prédication » — constituent une adaptation chrétienne de l’ancien culte de la synagogue.'),
+      TextBlock.p(
+          'L’action de grâce et la communion, communément appelées « Cène du Seigneur » ou « Sainte Communion », constituent une adaptation chrétienne du culte juif pratiqué autour de la table familiale — tel que Jésus et ses disciples le vivaient lorsqu’ils prenaient leurs repas ensemble au cours de son ministère de prédication et d’enseignement, tel que Jésus l’a transformé lorsqu’il a institué la Cène du Seigneur la veille de sa mort, et tel que ses disciples l’ont vécu en rompant le pain avec leur Seigneur ressuscité (Luc 24.30-35 ; Jean 21.13).'),
+      TextBlock.p(
+          'Après le jour de la Pentecôte, lorsque les premiers chrétiens se mirent à prêcher et à enseigner, ils continuèrent à prendre part au culte à la synagogue partout où ils se rendaient (Actes 9.2ss, 20 ; 13.5, 13ss, 44ss ; 14.1 ; 17.1ss, 10ss, 17ss ; 18.4, 19, 26 ; 19.8 ; 22.19 ; 24.12 ; 26.11) et à rompre le pain lors d’un repas sacré au sein de leurs propres rassemblements (Actes 2.42, 46).'),
+      TextBlock.p(
+          'Comme leur prédication et leur enseignement sur Jésus avaient entraîné une rupture entre l’Église et la synagogue, les chrétiens célébraient un office adapté de celui de la synagogue et rompaient le pain lorsqu’ils se réunissaient le premier jour de la semaine. Un tel culte réunissant la Parole et la Table est décrit en Actes 20.7ss. Il s’agissait apparemment d’un schéma déjà accepté à l’époque où Luc rédigea le récit d’Emmaüs en Luc 24.13-35, qui dépeint la réunion d’un culte synagogal transformé et d’un repas sacré transformé, et indique aux lecteurs qu’ils peuvent reconnaître le Christ ressuscité dans l’expérience de la Parole et de la Table.'),
+      TextBlock.p(
+          'Le récit d’Emmaüs peut être utilisé aujourd’hui dans la prédication et l’enseignement du schéma de base du culte. Tout comme, le premier jour de la semaine, le Christ ressuscité s’est joint aux deux disciples, de même, par la puissance du Saint-Esprit, le Christ ressuscité et monté au ciel se joint à nous lorsque nous nous réunissons. Tout comme les disciples lui ont confié leur chagrin et, ce faisant, ont ouvert leur cœur à ce que Jésus allait leur dire, de même nous lui confions tout ce qui nous tient à cœur et nous nous ouvrons ainsi à la Parole. Tout comme Jésus leur a « ouvert les Écritures » et a fait brûler leurs cœurs, de même nous entendons les Écritures s’ouvrir à nous et, dans la ferveur de nos cœurs, nous louons Dieu. Tout comme ils ont été confrontés à une décision et ont réagi en invitant Jésus à rester avec eux, nous pouvons faire de même. Tout comme ils se sont joints au Christ ressuscité autour de la table, nous le pouvons également. Tout comme Jésus a pris, béni, rompu et donné le pain, exactement comme les disciples l’avaient vu faire trois jours auparavant, de même, au nom du Christ ressuscité, nous accomplissons ces quatre gestes avec le pain et la coupe. Tout comme il « s’est fait connaître à eux à la fraction du pain », le Christ ressuscité et monté au ciel peut se faire connaître à nous dans la Sainte Communion. Tout comme il a disparu et a envoyé les disciples dans le monde avec foi et joie, il nous envoie à notre tour dans le monde. Et tout comme ces disciples ont trouvé le Christ lorsqu’ils sont arrivés à Jérusalem plus tard dans la soirée, nous pouvons trouver le Christ à nos côtés où que nous allions.'),
+      TextBlock.p(
+          'Depuis l’époque du Nouveau Testament, ce schéma fondamental a connu une longue histoire d’évolution. Parfois, il a été occulté et dénaturé, et parfois il a été redécouvert et renouvelé. Le renouveau wesleyen a perpétué cette importance accordée à la Parole et à la Table, en portant l’Évangile dans le monde par la prédication, le chant et la célébration du repas sacré. Aujourd’hui, l’Église Méthodiste Unie se réapproprie son héritage biblique et historique, alors que nous cherchons, à travers ce schéma de base, à adorer Dieu « en esprit et en vérité ».'),
       TextBlock.heading('Le schéma de base du culte'),
       TextBlock.heading('Entrée'),
-      TextBlock.p('Le peuple se rassemble au nom du Seigneur. Il peut y avoir des salutations, de la musique et des chants, des prières et des louanges.'),
+      TextBlock.p(
+          'Le peuple se rassemble au nom du Seigneur. Il peut y avoir des salutations, de la musique et des chants, des prières et des louanges.'),
       TextBlock.heading('Proclamation et réponse'),
-      TextBlock.p('Les Écritures sont ouvertes au peuple par la lecture de passages, la prédication, le témoignage, la musique ou d’autres formes d’art et de communication. Des psaumes, des chants de chorale et des cantiques peuvent être intercalés. Les réponses à la Parole de Dieu prennent la forme d’actes d’engagement et de foi, avec des offrandes de préoccupations, de prières, de dons et de services rendus au monde et les uns aux autres.'),
+      TextBlock.p(
+          'Les Écritures sont ouvertes au peuple par la lecture de passages, la prédication, le témoignage, la musique ou d’autres formes d’art et de communication. Des psaumes, des chants de chorale et des cantiques peuvent être intercalés. Les réponses à la Parole de Dieu prennent la forme d’actes d’engagement et de foi, avec des offrandes de préoccupations, de prières, de dons et de services rendus au monde et les uns aux autres.'),
       TextBlock.heading('Action de grâce et communion'),
-      TextBlock.p('Lors des cultes avec la Cène, les gestes de Jésus dans la chambre haute sont reproduits :'),
+      TextBlock.p(
+          'Lors des cultes avec la Cène, les gestes de Jésus dans la chambre haute sont reproduits :'),
       TextBlock.item('prendre le pain et la coupe ;'),
       TextBlock.item('rendre grâce pour le pain et la coupe ;'),
       TextBlock.item('rompre le pain ;'),
       TextBlock.item('donner le pain et la coupe.'),
-      TextBlock.p('Lors des cultes sans Cène, on rend grâce pour les œuvres puissantes de Dieu accomplies en Jésus-Christ.'),
+      TextBlock.p(
+          'Lors des cultes sans Cène, on rend grâce pour les œuvres puissantes de Dieu accomplies en Jésus-Christ.'),
       TextBlock.heading('Envoi'),
-      TextBlock.p('Le peuple est envoyé en ministère avec la bénédiction du Seigneur.'),
+      TextBlock.p(
+          'Le peuple est envoyé en ministère avec la bénédiction du Seigneur.'),
     ],
   );
 
@@ -50,37 +67,47 @@ class BookOfWorshipData {
     title: 'Litanie pour l’Église et pour le monde',
     subtitle: 'Prière d’intercession à répons',
     icon: ChurchTextIcon.litany,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « None. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-litany-for-the-church-and-for-the-world',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « None. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-litany-for-the-church-and-for-the-world',
     blocks: [
       TextBlock.leader('Prions pour l’Église et pour le monde.'),
-      TextBlock.leader('Dieu tout-puissant, accorde que tous ceux qui confessent ton nom\nsoient unis dans ta vérité,\nvivent ensemble dans ton amour\net révèlent ta gloire au monde.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, accorde que tous ceux qui confessent ton nom\nsoient unis dans ta vérité,\nvivent ensemble dans ton amour\net révèlent ta gloire au monde.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Conduis les habitants de ce pays et de toutes les nations\nsur les chemins de la justice et de la paix,\nafin que nous nous respections les uns les autres\net que nous œuvrions pour le bien commun.'),
+      TextBlock.leader(
+          'Conduis les habitants de ce pays et de toutes les nations\nsur les chemins de la justice et de la paix,\nafin que nous nous respections les uns les autres\net que nous œuvrions pour le bien commun.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Donne-nous à tous le respect de la terre, ta propre création,\nafin que nous usions de ses ressources avec justesse,\nau service des autres, pour ton honneur et ta gloire.'),
+      TextBlock.leader(
+          'Donne-nous à tous le respect de la terre, ta propre création,\nafin que nous usions de ses ressources avec justesse,\nau service des autres, pour ton honneur et ta gloire.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Bénis tous ceux dont la vie est étroitement liée à la nôtre,\naccorde-nous de servir le Christ en eux\net de nous aimer les uns les autres comme le Christ nous aime.'),
+      TextBlock.leader(
+          'Bénis tous ceux dont la vie est étroitement liée à la nôtre,\naccorde-nous de servir le Christ en eux\net de nous aimer les uns les autres comme le Christ nous aime.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Console et guéris tous ceux qui souffrent dans leur corps, leur intelligence ou leur esprit ;\ndonne-leur courage et espérance dans leurs épreuves\net fais-leur connaître la joie de ton salut.'),
+      TextBlock.leader(
+          'Console et guéris tous ceux qui souffrent dans leur corps, leur intelligence ou leur esprit ;\ndonne-leur courage et espérance dans leurs épreuves\net fais-leur connaître la joie de ton salut.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Nous confions à ta miséricorde tous ceux qui sont morts,\nafin que ta volonté s’accomplisse pour eux ;\net nous te prions de nous faire partager avec tous tes saints\nton royaume éternel.'),
+      TextBlock.leader(
+          'Nous confions à ta miséricorde tous ceux qui sont morts,\nafin que ta volonté s’accomplisse pour eux ;\net nous te prions de nous faire partager avec tous tes saints\nton royaume éternel.'),
       TextBlock.leader('Seigneur, dans ta miséricorde,'),
       TextBlock.people('écoute notre prière.'),
       TextBlock.note('Prière silencieuse.'),
-      TextBlock.leader('Nous t’offrons ces prières par Jésus-Christ, notre Seigneur.'),
+      TextBlock.leader(
+          'Nous t’offrons ces prières par Jésus-Christ, notre Seigneur.'),
       TextBlock.people('Amen.'),
-      TextBlock.note('D’après The Book of Common Prayer (États-Unis, 1979), pp. 388-389, adapté.'),
+      TextBlock.note(
+          'D’après The Book of Common Prayer (États-Unis, 1979), pp. 388-389, adapté.'),
     ],
   );
 
@@ -89,16 +116,22 @@ class BookOfWorshipData {
     title: 'Les Dix Commandements',
     subtitle: 'Lecture responsive',
     icon: ChurchTextIcon.rules,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « None » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/the-ten-commandments',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « None » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/the-ten-commandments',
     blocks: [
-      TextBlock.leader('Dieu a parlé depuis la montagne et a dit :\n« Je suis le Seigneur, ton Dieu,\ncelui qui t’a fait sortir du pays d’Égypte, de la maison de servitude ;\ntu n’auras pas d’autres dieux devant moi. »'),
+      TextBlock.leader(
+          'Dieu a parlé depuis la montagne et a dit :\n« Je suis le Seigneur, ton Dieu,\ncelui qui t’a fait sortir du pays d’Égypte, de la maison de servitude ;\ntu n’auras pas d’autres dieux devant moi. »'),
       TextBlock.people('Dieu tout-puissant, inscris ta loi dans nos cœurs.'),
-      TextBlock.leader('« Tu ne te feras pas d’idole.\nTu ne prononceras pas le nom du Seigneur, ton Dieu, en vain.\nSouviens-toi du jour du sabbat pour le sanctifier. »'),
+      TextBlock.leader(
+          '« Tu ne te feras pas d’idole.\nTu ne prononceras pas le nom du Seigneur, ton Dieu, en vain.\nSouviens-toi du jour du sabbat pour le sanctifier. »'),
       TextBlock.people('Dieu tout-puissant, inscris ta loi dans nos cœurs.'),
-      TextBlock.leader('« Honore ton père et ta mère.\nTu ne tueras pas.\nTu ne commettras pas d’adultère.\nTu ne voleras pas.\nTu ne porteras pas de faux témoignage.\nTu ne convoiteras pas… rien de ce qui appartient à ton prochain. »'),
+      TextBlock.leader(
+          '« Honore ton père et ta mère.\nTu ne tueras pas.\nTu ne commettras pas d’adultère.\nTu ne voleras pas.\nTu ne porteras pas de faux témoignage.\nTu ne convoiteras pas… rien de ce qui appartient à ton prochain. »'),
       TextBlock.people('Dieu tout-puissant, inscris ta loi dans nos cœurs.'),
-      TextBlock.note('Exode 20.1-17, abrégé ; réponse tirée de The Book of Common Prayer (États-Unis, 1979), p. 350.'),
+      TextBlock.note(
+          'Exode 20.1-17, abrégé ; réponse tirée de The Book of Common Prayer (États-Unis, 1979), p. 350.'),
     ],
   );
 
@@ -107,18 +140,26 @@ class BookOfWorshipData {
     title: 'Prières de confession du péché',
     subtitle: 'Six prières pour le temps de confession',
     icon: ChurchTextIcon.confession,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Confessions of Sin by Michael J. O’Donnell Copyright © 1992 UMPH. Confession of Sin by Maria Steward, Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/confession-of-sin',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Confessions of Sin by Michael J. O’Donnell Copyright © 1992 UMPH. Confession of Sin by Maria Steward, Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/confession-of-sin',
     blocks: [
-      TextBlock.p('Dieu tout-puissant et miséricordieux,\nnous savons que lorsque nous offensons quelqu’un, c’est toi que nous offensons.\nNous reconnaissons avoir souvent laissé l’ombre de la haine\nassombrir nos âmes et cacher la lumière à nos yeux qui ne la cherchaient pas.\nNous avons dit des paroles désagréables et blessantes à nos frères et à nos sœurs\nquand ils n’étaient pas à la hauteur de nos attentes.\nFais que nous retrouvions l’étincelle d’amour qui brûle toujours en nous,\nl’amour que tu nous as montré même lorsque nous t’avons déçu.\nAttise les braises de cet amour jusqu’à ce qu’il flambe de nouveau\nen flammes d’amour, de paix et de réconciliation.\nPardonne-nous nos péchés\net aide-nous à pardonner à ceux qui ont péché contre nous.\nConduis-nous vers une vie nouvelle par ton Fils Jésus-Christ,\nqui est mort pour les péchés de tous. Amen.'),
+      TextBlock.p(
+          'Dieu tout-puissant et miséricordieux,\nnous savons que lorsque nous offensons quelqu’un, c’est toi que nous offensons.\nNous reconnaissons avoir souvent laissé l’ombre de la haine\nassombrir nos âmes et cacher la lumière à nos yeux qui ne la cherchaient pas.\nNous avons dit des paroles désagréables et blessantes à nos frères et à nos sœurs\nquand ils n’étaient pas à la hauteur de nos attentes.\nFais que nous retrouvions l’étincelle d’amour qui brûle toujours en nous,\nl’amour que tu nous as montré même lorsque nous t’avons déçu.\nAttise les braises de cet amour jusqu’à ce qu’il flambe de nouveau\nen flammes d’amour, de paix et de réconciliation.\nPardonne-nous nos péchés\net aide-nous à pardonner à ceux qui ont péché contre nous.\nConduis-nous vers une vie nouvelle par ton Fils Jésus-Christ,\nqui est mort pour les péchés de tous. Amen.'),
       TextBlock.note('Michael J. O’Donnell (États-Unis, XXe siècle).'),
-      TextBlock.p('Ô Seigneur Dieu,\nles sentinelles de Sion ont crié « paix, paix »,\nalors qu’il n’y avait pas de paix.\nPourquoi nous as-tu si longtemps privés\nde l’action de ton Saint-Esprit ?\nPourquoi as-tu endurci nos cœurs ?\nC’est que nous t’avons honoré de nos lèvres,\nalors que nos cœurs étaient loin de toi.\n\nReviens vers nous, ô Seigneur Dieu,\net pardonne cette iniquité de tes serviteurs.\nFais rayonner ton visage sur nous, et nous serons sauvés.\nVisite-nous par ton salut.\nSuscite des fils et des filles d’Abraham et de Sarah,\net accorde qu’il y ait parmi nous\nun grand ébranlement d’ossements desséchés\net un grand rassemblement d’âmes.\n\nDaigne accorder\nque le royaume de notre Seigneur Jésus-Christ soit édifié ;\nque toutes les nations, toutes les tribus, toutes les langues et tous les peuples\nsoient amenés à la connaissance de la vérité,\net que nous nous retrouvions enfin autour de ton trône\npour célébrer ensemble tes louanges. Amen.'),
-      TextBlock.note('Maria Stewart (afro-américaine, États-Unis, XIXe siècle), adapté.'),
-      TextBlock.p('Dieu tout-puissant et plein d’amour,\npar ton Fils Jésus-Christ\ntu as réconcilié le monde avec toi.\nAide-nous maintenant à nous réconcilier les uns avec les autres,\nafin que nous vivions de nouveau dans la chaleur de ton amour.\nInspire-nous par ton Esprit saint\nà déposer le manteau de l’orgueil et à revêtir le Christ,\nafin que nous pardonnions et soyons pardonnés ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Ô Seigneur Dieu,\nles sentinelles de Sion ont crié « paix, paix »,\nalors qu’il n’y avait pas de paix.\nPourquoi nous as-tu si longtemps privés\nde l’action de ton Saint-Esprit ?\nPourquoi as-tu endurci nos cœurs ?\nC’est que nous t’avons honoré de nos lèvres,\nalors que nos cœurs étaient loin de toi.\n\nReviens vers nous, ô Seigneur Dieu,\net pardonne cette iniquité de tes serviteurs.\nFais rayonner ton visage sur nous, et nous serons sauvés.\nVisite-nous par ton salut.\nSuscite des fils et des filles d’Abraham et de Sarah,\net accorde qu’il y ait parmi nous\nun grand ébranlement d’ossements desséchés\net un grand rassemblement d’âmes.\n\nDaigne accorder\nque le royaume de notre Seigneur Jésus-Christ soit édifié ;\nque toutes les nations, toutes les tribus, toutes les langues et tous les peuples\nsoient amenés à la connaissance de la vérité,\net que nous nous retrouvions enfin autour de ton trône\npour célébrer ensemble tes louanges. Amen.'),
+      TextBlock.note(
+          'Maria Stewart (afro-américaine, États-Unis, XIXe siècle), adapté.'),
+      TextBlock.p(
+          'Dieu tout-puissant et plein d’amour,\npar ton Fils Jésus-Christ\ntu as réconcilié le monde avec toi.\nAide-nous maintenant à nous réconcilier les uns avec les autres,\nafin que nous vivions de nouveau dans la chaleur de ton amour.\nInspire-nous par ton Esprit saint\nà déposer le manteau de l’orgueil et à revêtir le Christ,\nafin que nous pardonnions et soyons pardonnés ;\npar Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Michael J. O’Donnell (États-Unis, XXe siècle).'),
-      TextBlock.p('Nous sommes réticents, ô Auteur de l’amour,\nà mettre de côté notre peine, notre colère, notre déception.\nGuéris-nous par ton toucher plein de tendresse,\nafin que nous soyons purifiés de toute pensée impure,\nde tout projet de vengeance, de tout espoir de représailles.\nOuvre nos yeux à la puissance de l’amour,\nqui nous a été montré dans le sacrifice désintéressé\nde ton Fils, notre Sauveur, Jésus-Christ. Amen.'),
+      TextBlock.p(
+          'Nous sommes réticents, ô Auteur de l’amour,\nà mettre de côté notre peine, notre colère, notre déception.\nGuéris-nous par ton toucher plein de tendresse,\nafin que nous soyons purifiés de toute pensée impure,\nde tout projet de vengeance, de tout espoir de représailles.\nOuvre nos yeux à la puissance de l’amour,\nqui nous a été montré dans le sacrifice désintéressé\nde ton Fils, notre Sauveur, Jésus-Christ. Amen.'),
       TextBlock.note('Michael J. O’Donnell (États-Unis, XXe siècle).'),
-      TextBlock.p('Ô Dieu de shalom,\nnous avons élevé des murs pour nous protéger de nos ennemis,\nmais ces murs nous empêchent aussi de recevoir ton amour.\nAbats ces murs.\nAide-nous à comprendre que le chemin vers ton cœur\npasse par la réconciliation de nos cœurs avec nos ennemis.\nBénis-les et bénis-nous,\nafin que nous grandissions dans l’amour les uns pour les autres et pour toi ;\npar Jésus-Christ. Amen.'),
+      TextBlock.p(
+          'Ô Dieu de shalom,\nnous avons élevé des murs pour nous protéger de nos ennemis,\nmais ces murs nous empêchent aussi de recevoir ton amour.\nAbats ces murs.\nAide-nous à comprendre que le chemin vers ton cœur\npasse par la réconciliation de nos cœurs avec nos ennemis.\nBénis-les et bénis-nous,\nafin que nous grandissions dans l’amour les uns pour les autres et pour toi ;\npar Jésus-Christ. Amen.'),
       TextBlock.note('Michael J. O’Donnell (États-Unis, XXe siècle).'),
     ],
     sw: ChurchText(
@@ -126,18 +167,26 @@ class BookOfWorshipData {
       title: 'Maombi ya toba',
       subtitle: 'Maombi sita kwa ajili ya wakati wa toba',
       icon: ChurchTextIcon.confession,
-      source: 'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Confessions of Sin by Michael J. O’Donnell Copyright © 1992 UMPH. Confession of Sin by Maria Steward, Public Domain. » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
-      sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/confession-of-sin',
+      source:
+          'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Confessions of Sin by Michael J. O’Donnell Copyright © 1992 UMPH. Confession of Sin by Maria Steward, Public Domain. » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
+      sourceUrl:
+          'https://www.umcdiscipleship.org/book-of-worship/confession-of-sin',
       blocks: [
-        TextBlock.p('Ee Mungu mwenyezi na mwenye rehema,\nTunajua kwamba tunapomkosea mtu, ni Wewe tunayekosea.\nTunakiri kwamba mara nyingi tumeruhusu kivuli cha chuki\nkitie giza roho zetu na kuficha nuru machoni petu, ambayo hayakuwa yakiitafuta.\nTumewasemesha maneno yasiyo ya fadhili na ya kuumiza ndugu zetu\nwalipokosa kufikia matarajio yetu.\nTuwezeshe kugundua upya cheche ya upendo ambayo bado inawaka ndani yetu,\nupendo ambao umetuonyesha hata tulipokukatisha tamaa.\nChochea mkaa wa upendo huu hadi upate moto upya\nkatika mioto ya upendo, amani na upatanisho.\nTusamehe dhambi zetu\nna utusaidie kuwasamehe wale waliotukosea.\nTuongoze katika uzima mpya kupitia Mwanao Yesu Kristo,\naliyekufa kwa ajili ya dhambi za wote. Amina.'),
+        TextBlock.p(
+            'Ee Mungu mwenyezi na mwenye rehema,\nTunajua kwamba tunapomkosea mtu, ni Wewe tunayekosea.\nTunakiri kwamba mara nyingi tumeruhusu kivuli cha chuki\nkitie giza roho zetu na kuficha nuru machoni petu, ambayo hayakuwa yakiitafuta.\nTumewasemesha maneno yasiyo ya fadhili na ya kuumiza ndugu zetu\nwalipokosa kufikia matarajio yetu.\nTuwezeshe kugundua upya cheche ya upendo ambayo bado inawaka ndani yetu,\nupendo ambao umetuonyesha hata tulipokukatisha tamaa.\nChochea mkaa wa upendo huu hadi upate moto upya\nkatika mioto ya upendo, amani na upatanisho.\nTusamehe dhambi zetu\nna utusaidie kuwasamehe wale waliotukosea.\nTuongoze katika uzima mpya kupitia Mwanao Yesu Kristo,\naliyekufa kwa ajili ya dhambi za wote. Amina.'),
         TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
-        TextBlock.p('Ee Bwana Mungu,\nwalinzi wa Sayuni walipaza sauti, \'Amani, amani\',\nwakati hakukuwa na amani.\nKwa nini umetunyima kwa muda mrefu\nkazi ya Roho wako Mtakatifu?\nKwa nini umeifanya migumu mioyo yetu?\nNi kwa sababu tumekuheshimu kwa midomo yetu,\nhuku mioyo yetu ikiwa mbali nawe.\n\nTurudie, ee Bwana Mungu,\nna usamehe uovu huu wa watumishi wako.\nUangazie uso wako juu yetu, nasi tutaokolewa.\nUtutembelee kwa wokovu wako.\nInua wana na binti wa Abrahamu na Sara,\nna utujalie\nmtikisiko mkuu wa mifupa mikavu\nna mkusanyiko mkuu wa roho.\n\nTujalie, tunaomba,\nufalme wa Bwana wetu Yesu Kristo ujengwe;\nili mataifa yote, makabila yote, ndimi zote na watu wote\nwaletwe katika ujuzi wa kweli,\nna kwamba hatimaye tukusanyike kuzunguka kiti chako cha enzi\nkuadhimisha sifa zako pamoja. Amina.'),
-        TextBlock.note('Maria Stewart (Mmarekani mweusi, Marekani, karne ya 19), imebadilishwa.'),
-        TextBlock.p('Mungu mwenyezi mwenye upendo,\nkupitia Mwanao, Yesu Kristo,\numeupatanisha ulimwengu nawe.\nTusaidie sasa tupatanishwe sisi kwa sisi,\nili tupate kuishi tena katika joto la upendo wako.\nTuhamasishe kwa Roho wako Mtakatifu\ntuweke kando vazi la kiburi na tuvae Kristo,\nili tusamehe na kusamehewa;\nkwa njia ya Yesu Kristo Bwana wetu. Amina.'),
+        TextBlock.p(
+            'Ee Bwana Mungu,\nwalinzi wa Sayuni walipaza sauti, \'Amani, amani\',\nwakati hakukuwa na amani.\nKwa nini umetunyima kwa muda mrefu\nkazi ya Roho wako Mtakatifu?\nKwa nini umeifanya migumu mioyo yetu?\nNi kwa sababu tumekuheshimu kwa midomo yetu,\nhuku mioyo yetu ikiwa mbali nawe.\n\nTurudie, ee Bwana Mungu,\nna usamehe uovu huu wa watumishi wako.\nUangazie uso wako juu yetu, nasi tutaokolewa.\nUtutembelee kwa wokovu wako.\nInua wana na binti wa Abrahamu na Sara,\nna utujalie\nmtikisiko mkuu wa mifupa mikavu\nna mkusanyiko mkuu wa roho.\n\nTujalie, tunaomba,\nufalme wa Bwana wetu Yesu Kristo ujengwe;\nili mataifa yote, makabila yote, ndimi zote na watu wote\nwaletwe katika ujuzi wa kweli,\nna kwamba hatimaye tukusanyike kuzunguka kiti chako cha enzi\nkuadhimisha sifa zako pamoja. Amina.'),
+        TextBlock.note(
+            'Maria Stewart (Mmarekani mweusi, Marekani, karne ya 19), imebadilishwa.'),
+        TextBlock.p(
+            'Mungu mwenyezi mwenye upendo,\nkupitia Mwanao, Yesu Kristo,\numeupatanisha ulimwengu nawe.\nTusaidie sasa tupatanishwe sisi kwa sisi,\nili tupate kuishi tena katika joto la upendo wako.\nTuhamasishe kwa Roho wako Mtakatifu\ntuweke kando vazi la kiburi na tuvae Kristo,\nili tusamehe na kusamehewa;\nkwa njia ya Yesu Kristo Bwana wetu. Amina.'),
         TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
-        TextBlock.p('Tunasita, Ee Mwanzilishi wa upendo,\nkuweka kando huzuni yetu, hasira zetu, na kukata tamaa kwetu.\nTuponye kwa mguso wako mpole,\nili tusafishwe kutoka kwa kila wazo lisilo safi,\nkila mpango wa kisasi, kila tumaini la kulipiza kisasi.\nTufumbue macho yetu kwa nguvu ya upendo,\niliyofunuliwa kwetu katika dhabihu isiyo na ubinafsi\nya Mwanao, Mwokozi wetu, Yesu Kristo. Amina.'),
+        TextBlock.p(
+            'Tunasita, Ee Mwanzilishi wa upendo,\nkuweka kando huzuni yetu, hasira zetu, na kukata tamaa kwetu.\nTuponye kwa mguso wako mpole,\nili tusafishwe kutoka kwa kila wazo lisilo safi,\nkila mpango wa kisasi, kila tumaini la kulipiza kisasi.\nTufumbue macho yetu kwa nguvu ya upendo,\niliyofunuliwa kwetu katika dhabihu isiyo na ubinafsi\nya Mwanao, Mwokozi wetu, Yesu Kristo. Amina.'),
         TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
-        TextBlock.p('Ee Mungu wa shalom,\ntumejenga kuta kujikinga na maadui zetu,\nlakini kuta hizi pia zinatuzuia kupokea upendo wako.\nVunja kuta hizi.\nTusaidie kuelewa kwamba njia ya kufikia moyo wako\niko katika kupatanisha mioyo yetu na maadui zetu.\nWabariki wao na utubariki sisi,\nili tuweze kukua katika upendo kwa kila mmoja na kwako;\nkwa njia ya Yesu Kristo. Amina.'),
+        TextBlock.p(
+            'Ee Mungu wa shalom,\ntumejenga kuta kujikinga na maadui zetu,\nlakini kuta hizi pia zinatuzuia kupokea upendo wako.\nVunja kuta hizi.\nTusaidie kuelewa kwamba njia ya kufikia moyo wako\niko katika kupatanisha mioyo yetu na maadui zetu.\nWabariki wao na utubariki sisi,\nili tuweze kukua katika upendo kwa kila mmoja na kwako;\nkwa njia ya Yesu Kristo. Amina.'),
         TextBlock.note('Michael J. O\'Donnell (Marekani, karne ya ishirini).'),
       ],
     ),
@@ -148,17 +197,26 @@ class BookOfWorshipData {
     title: 'Brève grande action de grâce',
     subtitle: 'Prière eucharistique pour tout usage',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Brief Great Thanksgiving for General Use” Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1985, 1987, 1989, 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-brief-great-thanksgiving-for-general-use',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Brief Great Thanksgiving for General Use” Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1985, 1987, 1989, 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-brief-great-thanksgiving-for-general-use',
     blocks: [
-      TextBlock.note('Ce texte peut être utilisé par le pasteur, soit dans un culte avec la communauté, soit auprès de personnes malades ou retenues chez elles, comme solution de remplacement du texte plus long. Comme il ne demande pas la participation de l’assemblée à voix haute, son emploi devrait se limiter aux situations où l’assemblée aurait du mal à y participer.'),
+      TextBlock.note(
+          'Ce texte peut être utilisé par le pasteur, soit dans un culte avec la communauté, soit auprès de personnes malades ou retenues chez elles, comme solution de remplacement du texte plus long. Comme il ne demande pas la participation de l’assemblée à voix haute, son emploi devrait se limiter aux situations où l’assemblée aurait du mal à y participer.'),
       TextBlock.leader('Élevez vos cœurs et rendez grâce à Dieu.'),
-      TextBlock.p('Béni sois-tu, ô Dieu, toi qui, par ta Parole et ton Esprit saint,\nas créé toutes choses et les as jugées bonnes.\nEn Jésus-Christ, ta Parole s’est faite chair et a habité parmi nous.\nPar la souffrance et la mort de Jésus,\ntu as pris sur toi notre péché et notre mort\net tu as détruit leur pouvoir pour toujours.\nTu as ressuscité d’entre les morts ce même Jésus, qui règne maintenant avec toi dans la gloire,\net tu as répandu sur nous ton Esprit saint,\nfaisant de nous le peuple de ta nouvelle alliance.'),
-      TextBlock.p('La nuit précédant sa mort,\nJésus prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
-      TextBlock.p('Le repas terminé, Jésus prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nrépandu pour vous et pour la multitude en rémission des péchés.\nFaites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
-      TextBlock.p('C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous.'),
-      TextBlock.p('Répands ton Esprit saint sur nous, rassemblés ici, et sur ces dons,\nafin qu’en rompant ce pain et en buvant ce vin\nnous reconnaissions la présence du Christ vivant\net soyons renouvelés comme corps du Christ pour le monde,\nrachetés par le sang du Christ,\njusqu’à ce que le Christ vienne dans sa victoire définitive\net que nous soyons à ta table pour toujours.'),
-      TextBlock.p('Par le Christ, avec le Christ, dans le Christ, dans l’unité du Saint-Esprit,\nà toi, Dieu tout-puissant, tout honneur et toute gloire, maintenant et pour toujours.'),
+      TextBlock.p(
+          'Béni sois-tu, ô Dieu, toi qui, par ta Parole et ton Esprit saint,\nas créé toutes choses et les as jugées bonnes.\nEn Jésus-Christ, ta Parole s’est faite chair et a habité parmi nous.\nPar la souffrance et la mort de Jésus,\ntu as pris sur toi notre péché et notre mort\net tu as détruit leur pouvoir pour toujours.\nTu as ressuscité d’entre les morts ce même Jésus, qui règne maintenant avec toi dans la gloire,\net tu as répandu sur nous ton Esprit saint,\nfaisant de nous le peuple de ta nouvelle alliance.'),
+      TextBlock.p(
+          'La nuit précédant sa mort,\nJésus prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
+      TextBlock.p(
+          'Le repas terminé, Jésus prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nrépandu pour vous et pour la multitude en rémission des péchés.\nFaites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
+      TextBlock.p(
+          'C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous.'),
+      TextBlock.p(
+          'Répands ton Esprit saint sur nous, rassemblés ici, et sur ces dons,\nafin qu’en rompant ce pain et en buvant ce vin\nnous reconnaissions la présence du Christ vivant\net soyons renouvelés comme corps du Christ pour le monde,\nrachetés par le sang du Christ,\njusqu’à ce que le Christ vienne dans sa victoire définitive\net que nous soyons à ta table pour toujours.'),
+      TextBlock.p(
+          'Par le Christ, avec le Christ, dans le Christ, dans l’unité du Saint-Esprit,\nà toi, Dieu tout-puissant, tout honneur et toute gloire, maintenant et pour toujours.'),
       TextBlock.people('Amen.'),
     ],
   );
@@ -168,23 +226,30 @@ class BookOfWorshipData {
     title: 'Bénédictions et prière de clôture',
     subtitle: 'Pour l’envoi à la fin du culte',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Public Domain (Blessings; Closing Prayer) » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Public Domain (Blessings; Closing Prayer) » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
     sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/blessings',
     blocks: [
       TextBlock.heading('Bénédictions'),
-      TextBlock.p('Que le Seigneur vous bénisse et vous garde ;\nque le Seigneur fasse rayonner son visage sur vous et vous accorde sa grâce ;\nque le Seigneur tourne son regard vers vous et vous donne la paix. Amen.'),
+      TextBlock.p(
+          'Que le Seigneur vous bénisse et vous garde ;\nque le Seigneur fasse rayonner son visage sur vous et vous accorde sa grâce ;\nque le Seigneur tourne son regard vers vous et vous donne la paix. Amen.'),
       TextBlock.note('Nombres 6.24-26'),
-      TextBlock.p('Que le Dieu de l’espérance vous comble de toute joie et de toute paix dans la foi,\nafin que vous abondiez en espérance par la puissance du Saint-Esprit. Amen.'),
+      TextBlock.p(
+          'Que le Dieu de l’espérance vous comble de toute joie et de toute paix dans la foi,\nafin que vous abondiez en espérance par la puissance du Saint-Esprit. Amen.'),
       TextBlock.note('Romains 15.13'),
-      TextBlock.p('Devant nous, tout est béni ; derrière nous, tout est béni ;\nsous nos pieds, tout est béni ; au-dessus de nous, tout est béni ;\ntout autour de nous, tout est béni, alors que nous nous mettons en route avec le Christ.\nNos paroles sont bénies alors que nous nous mettons en route vers Dieu.\nAvec la beauté devant nous, avec la beauté derrière nous,\navec la beauté sous nos pieds, avec la beauté au-dessus de nous,\navec la beauté tout autour de nous, nous nous mettons en route vers un lieu véritablement saint. Amen.'),
+      TextBlock.p(
+          'Devant nous, tout est béni ; derrière nous, tout est béni ;\nsous nos pieds, tout est béni ; au-dessus de nous, tout est béni ;\ntout autour de nous, tout est béni, alors que nous nous mettons en route avec le Christ.\nNos paroles sont bénies alors que nous nous mettons en route vers Dieu.\nAvec la beauté devant nous, avec la beauté derrière nous,\navec la beauté sous nos pieds, avec la beauté au-dessus de nous,\navec la beauté tout autour de nous, nous nous mettons en route vers un lieu véritablement saint. Amen.'),
       TextBlock.note('Prière traditionnelle navajo, adaptée.'),
-      TextBlock.p('Que la route s’élève pour venir à votre rencontre,\nque le vent soit toujours dans votre dos,\nque le soleil réchauffe votre visage de ses rayons,\nque la pluie tombe doucement sur vos champs,\net jusqu’à ce que nous nous revoyions,\nque Dieu vous garde dans la paume de sa main. Amen.'),
+      TextBlock.p(
+          'Que la route s’élève pour venir à votre rencontre,\nque le vent soit toujours dans votre dos,\nque le soleil réchauffe votre visage de ses rayons,\nque la pluie tombe doucement sur vos champs,\net jusqu’à ce que nous nous revoyions,\nque Dieu vous garde dans la paume de sa main. Amen.'),
       TextBlock.note('Prière traditionnelle gaélique.'),
       TextBlock.heading('Bénédiction de Sarum'),
-      TextBlock.p('Que Dieu soit dans votre esprit et dans votre intelligence.\nQue Dieu soit dans vos yeux et dans votre regard.\nQue Dieu soit dans votre bouche et dans vos paroles.\nQue Dieu soit dans votre cœur et dans vos pensées.\nQue Dieu soit à votre fin et à votre départ.'),
+      TextBlock.p(
+          'Que Dieu soit dans votre esprit et dans votre intelligence.\nQue Dieu soit dans vos yeux et dans votre regard.\nQue Dieu soit dans votre bouche et dans vos paroles.\nQue Dieu soit dans votre cœur et dans vos pensées.\nQue Dieu soit à votre fin et à votre départ.'),
       TextBlock.note('Liturgie de Sarum (Angleterre, XIIIe siècle), adaptée.'),
       TextBlock.heading('Prière de clôture'),
-      TextBlock.p('Accorde-nous, ô Seigneur,\nde croire dans notre cœur ce que nous avons dit de nos lèvres,\net de mettre en pratique dans notre vie ce que nous croyons dans notre cœur ;\npar Jésus-Christ, notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Accorde-nous, ô Seigneur,\nde croire dans notre cœur ce que nous avons dit de nos lèvres,\net de mettre en pratique dans notre vie ce que nous croyons dans notre cœur ;\npar Jésus-Christ, notre Seigneur. Amen.'),
       TextBlock.note('John Hunter (Écosse, XIXe siècle), adapté.'),
     ],
     sw: ChurchText(
@@ -192,23 +257,31 @@ class BookOfWorshipData {
       title: 'Baraka na sala ya kufunga',
       subtitle: 'Kwa ajili ya kutumwa mwishoni mwa ibada',
       icon: ChurchTextIcon.prayer,
-      source: 'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Public Domain (Blessings; Closing Prayer) » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
+      source:
+          'The United Methodist Book of Worship (1992), mali ya The United Methodist Publishing House. Taarifa ya hakimiliki ya ukurasa wa asili: « Public Domain (Blessings; Closing Prayer) » Tafsiri ya Kiswahili: ÉMU Compagnon (tafsiri ya kompyuta ya DeepL kutoka Kifaransa, ya majaribio; haijakaguliwa na mzungumzaji wa Kiswahili).',
       sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/blessings',
       blocks: [
         TextBlock.heading('Baraka'),
-        TextBlock.p('Bwana akubariki, na kukulinda;\nBwana akuangazie uso wake, na kukufadhili;\nBwana akuelekeze uso wake, na kukupa amani. Amina.'),
+        TextBlock.p(
+            'Bwana akubariki, na kukulinda;\nBwana akuangazie uso wake, na kukufadhili;\nBwana akuelekeze uso wake, na kukupa amani. Amina.'),
         TextBlock.note('Hesabu 6:24-26'),
-        TextBlock.p('Mungu wa tumaini awajaze furaha yote na amani yote katika kuamini,\nili mpate kujawa na tumaini kwa nguvu ya Roho Mtakatifu. Amina.'),
+        TextBlock.p(
+            'Mungu wa tumaini awajaze furaha yote na amani yote katika kuamini,\nili mpate kujawa na tumaini kwa nguvu ya Roho Mtakatifu. Amina.'),
         TextBlock.note('Warumi 15:13'),
-        TextBlock.p('Mbele yetu, yote yamebarikiwa; nyuma yetu, yote yamebarikiwa;\nchini ya miguu yetu, yote yamebarikiwa; juu yetu, yote yamebarikiwa;\npande zote zetu, yote yamebarikiwa, tunapoanza safari yetu na Kristo.\nManeno yetu yamebarikiwa tunapoanza safari yetu kuelekea kwa Mungu.\nPamoja na uzuri mbele yetu, pamoja na uzuri nyuma yetu,\npamoja na uzuri chini ya miguu yetu, pamoja na uzuri juu yetu,\npamoja na uzuri pande zote zetu, tunaanza safari yetu kuelekea mahali patakatifu kweli. Amina.'),
+        TextBlock.p(
+            'Mbele yetu, yote yamebarikiwa; nyuma yetu, yote yamebarikiwa;\nchini ya miguu yetu, yote yamebarikiwa; juu yetu, yote yamebarikiwa;\npande zote zetu, yote yamebarikiwa, tunapoanza safari yetu na Kristo.\nManeno yetu yamebarikiwa tunapoanza safari yetu kuelekea kwa Mungu.\nPamoja na uzuri mbele yetu, pamoja na uzuri nyuma yetu,\npamoja na uzuri chini ya miguu yetu, pamoja na uzuri juu yetu,\npamoja na uzuri pande zote zetu, tunaanza safari yetu kuelekea mahali patakatifu kweli. Amina.'),
         TextBlock.note('Sala ya jadi ya Wanavajo, imebadilishwa.'),
-        TextBlock.p('Njia ikuinuke kukutana nawe,\nupepo uwe nyuma yako daima,\njua likupatie uso wako joto kwa miale yake,\nmvua inyeshe taratibu katika mashamba yako,\nna hadi tutakapokutana tena,\nMungu akushike kwenye kiganja chake. Amina.'),
+        TextBlock.p(
+            'Njia ikuinuke kukutana nawe,\nupepo uwe nyuma yako daima,\njua likupatie uso wako joto kwa miale yake,\nmvua inyeshe taratibu katika mashamba yako,\nna hadi tutakapokutana tena,\nMungu akushike kwenye kiganja chake. Amina.'),
         TextBlock.note('Sala ya jadi ya Kigaeli.'),
         TextBlock.heading('Baraka ya Sarum'),
-        TextBlock.p('Mungu awe akilini mwako na katika ufahamu wako.\nMungu awe machoni pako na katika mtazamo wako.\nMungu awe kinywani mwako na katika maneno yako.\nMungu awe moyoni mwako na katika mawazo yako.\nMungu awe mwishoni mwako na katika safari yako.'),
-        TextBlock.note('Ibada ya Sarum (Uingereza, karne ya 13), imebadilishwa.'),
+        TextBlock.p(
+            'Mungu awe akilini mwako na katika ufahamu wako.\nMungu awe machoni pako na katika mtazamo wako.\nMungu awe kinywani mwako na katika maneno yako.\nMungu awe moyoni mwako na katika mawazo yako.\nMungu awe mwishoni mwako na katika safari yako.'),
+        TextBlock.note(
+            'Ibada ya Sarum (Uingereza, karne ya 13), imebadilishwa.'),
         TextBlock.heading('Sala ya kufunga'),
-        TextBlock.p('Tujalie, Ee Bwana,\nkuamini mioyoni mwetu yale tuliyoyasema kwa midomo yetu,\nna kutenda katika maisha yetu yale tunayoyaamini mioyoni mwetu;\nkwa njia ya Yesu Kristo, Bwana wetu. Amina.'),
+        TextBlock.p(
+            'Tujalie, Ee Bwana,\nkuamini mioyoni mwetu yale tuliyoyasema kwa midomo yetu,\nna kutenda katika maisha yetu yale tunayoyaamini mioyoni mwetu;\nkwa njia ya Yesu Kristo, Bwana wetu. Amina.'),
         TextBlock.note('John Hunter (Uskoti, karne ya 19), imebadilishwa.'),
       ],
     ),
@@ -219,8 +292,10 @@ class BookOfWorshipData {
     title: 'Service de la Parole et de la Table I',
     subtitle: 'Le culte avec la Sainte-Cène, de l’entrée à l’envoi',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Word and Table I,” Copyright © 1972, The Methodist Publishing House; Copyright © 1980, 1985, 1989, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-word-and-table-i-and-introductions-to-the-other-forms',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Word and Table I,” Copyright © 1972, The Methodist Publishing House; Copyright © 1980, 1985, 1989, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-word-and-table-i-and-introductions-to-the-other-forms',
     blocks: [
       TextBlock.heading('Entrée'),
       TextBlock.heading('Rassemblement'),
@@ -232,11 +307,13 @@ class BookOfWorshipData {
       TextBlock.heading('Cantique de louange'),
       TextBlock.heading('Prière d’ouverture'),
       TextBlock.note('On dit la prière suivante, ou une prière du jour :'),
-      TextBlock.people('Dieu tout-puissant,\nà toi tous les cœurs sont ouverts, tous les désirs connus,\net rien ne t’est caché.\nPurifie les pensées de nos cœurs\npar l’inspiration de ton Esprit saint,\nafin que nous t’aimions parfaitement\net que nous glorifiions dignement ton saint nom,\npar le Christ notre Seigneur. Amen.'),
+      TextBlock.people(
+          'Dieu tout-puissant,\nà toi tous les cœurs sont ouverts, tous les désirs connus,\net rien ne t’est caché.\nPurifie les pensées de nos cœurs\npar l’inspiration de ton Esprit saint,\nafin que nous t’aimions parfaitement\net que nous glorifiions dignement ton saint nom,\npar le Christ notre Seigneur. Amen.'),
       TextBlock.heading('Acte de louange'),
       TextBlock.heading('Proclamation et réponse'),
       TextBlock.heading('Prière d’illumination'),
-      TextBlock.people('Seigneur, ouvre nos cœurs et nos esprits\npar la puissance de ton Esprit saint,\nafin que, tandis que les Écritures sont lues\net que ta Parole est proclamée,\nnous entendions avec joie ce que tu nous dis aujourd’hui. Amen.'),
+      TextBlock.people(
+          'Seigneur, ouvre nos cœurs et nos esprits\npar la puissance de ton Esprit saint,\nafin que, tandis que les Écritures sont lues\net que ta Parole est proclamée,\nnous entendions avec joie ce que tu nous dis aujourd’hui. Amen.'),
       TextBlock.heading('Lecture de l’Écriture'),
       TextBlock.heading('Psaume'),
       TextBlock.heading('Lecture de l’Écriture'),
@@ -244,38 +321,53 @@ class BookOfWorshipData {
       TextBlock.heading('Lecture de l’Évangile'),
       TextBlock.heading('Prédication'),
       TextBlock.heading('Réponse à la Parole'),
-      TextBlock.people('Je crois en Dieu, le Père tout-puissant,\ncréateur du ciel et de la terre.\nJe crois en Jésus-Christ, son Fils unique, notre Seigneur,\nqui a été conçu du Saint-Esprit,\nest né de la vierge Marie,\na souffert sous Ponce Pilate,\na été crucifié, est mort et a été enseveli ;\nest descendu au séjour des morts.\nLe troisième jour, il est ressuscité des morts,\nil est monté au ciel,\nil est assis à la droite du Père,\net il viendra juger les vivants et les morts.\nJe crois au Saint-Esprit,\nà la sainte Église universelle (catholique),\nà la communion des saints,\nau pardon des péchés,\nà la résurrection du corps\net à la vie éternelle. Amen.'),
+      TextBlock.people(
+          'Je crois en Dieu, le Père tout-puissant,\ncréateur du ciel et de la terre.\nJe crois en Jésus-Christ, son Fils unique, notre Seigneur,\nqui a été conçu du Saint-Esprit,\nest né de la vierge Marie,\na souffert sous Ponce Pilate,\na été crucifié, est mort et a été enseveli ;\nest descendu au séjour des morts.\nLe troisième jour, il est ressuscité des morts,\nil est monté au ciel,\nil est assis à la droite du Père,\net il viendra juger les vivants et les morts.\nJe crois au Saint-Esprit,\nà la sainte Église universelle (catholique),\nà la communion des saints,\nau pardon des péchés,\nà la résurrection du corps\net à la vie éternelle. Amen.'),
       TextBlock.note('Symbole des apôtres, dans sa forme traditionnelle.'),
       TextBlock.heading('Intentions et prières'),
-      TextBlock.leader('De brèves intercessions, demandes et actions de grâce peuvent être dites par l’officiant ou spontanément par les membres de l’assemblée. À chacune, tous peuvent répondre ensemble, par exemple : « Seigneur, exauce notre prière. »'),
-      TextBlock.note('Ou bien on peut dire une litanie d’intercession et de supplication.'),
+      TextBlock.leader(
+          'De brèves intercessions, demandes et actions de grâce peuvent être dites par l’officiant ou spontanément par les membres de l’assemblée. À chacune, tous peuvent répondre ensemble, par exemple : « Seigneur, exauce notre prière. »'),
+      TextBlock.note(
+          'Ou bien on peut dire une litanie d’intercession et de supplication.'),
       TextBlock.note('Ou bien on peut dire une prière pastorale.'),
       TextBlock.heading('Invitation'),
       TextBlock.note('Le pasteur se tient derrière la table du Seigneur.'),
-      TextBlock.leader('Le Christ notre Seigneur invite à sa table tous ceux qui l’aiment,\nqui se repentent sincèrement de leur péché\net cherchent à vivre en paix les uns avec les autres.\nC’est pourquoi, confessons notre péché devant Dieu et les uns devant les autres.'),
+      TextBlock.leader(
+          'Le Christ notre Seigneur invite à sa table tous ceux qui l’aiment,\nqui se repentent sincèrement de leur péché\net cherchent à vivre en paix les uns avec les autres.\nC’est pourquoi, confessons notre péché devant Dieu et les uns devant les autres.'),
       TextBlock.heading('Confession et pardon'),
-      TextBlock.people('Dieu miséricordieux,\nnous confessons que nous ne t’avons pas aimé de tout notre cœur.\nNous n’avons pas su être une Église obéissante.\nNous n’avons pas fait ta volonté,\nnous avons enfreint ta loi,\nnous nous sommes rebellés contre ton amour,\nnous n’avons pas aimé nos prochains,\net nous n’avons pas entendu le cri de ceux qui sont dans le besoin.\nPardonne-nous, nous t’en prions.\nLibère-nous pour que nous t’obéissions avec joie,\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.people(
+          'Dieu miséricordieux,\nnous confessons que nous ne t’avons pas aimé de tout notre cœur.\nNous n’avons pas su être une Église obéissante.\nNous n’avons pas fait ta volonté,\nnous avons enfreint ta loi,\nnous nous sommes rebellés contre ton amour,\nnous n’avons pas aimé nos prochains,\net nous n’avons pas entendu le cri de ceux qui sont dans le besoin.\nPardonne-nous, nous t’en prions.\nLibère-nous pour que nous t’obéissions avec joie,\npar Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Tous prient en silence.'),
       TextBlock.note('L’officiant à l’assemblée :'),
-      TextBlock.leader('Écoutez la bonne nouvelle :\nLe Christ est mort pour nous alors que nous étions encore pécheurs ;\ncela prouve l’amour de Dieu envers nous.\nAu nom de Jésus-Christ, vous êtes pardonnés !'),
+      TextBlock.leader(
+          'Écoutez la bonne nouvelle :\nLe Christ est mort pour nous alors que nous étions encore pécheurs ;\ncela prouve l’amour de Dieu envers nous.\nAu nom de Jésus-Christ, vous êtes pardonnés !'),
       TextBlock.note('L’assemblée à l’officiant :'),
       TextBlock.people('Au nom de Jésus-Christ, vous êtes pardonné !'),
       TextBlock.note('L’officiant et l’assemblée :'),
       TextBlock.people('Gloire à Dieu. Amen.'),
       TextBlock.heading('La paix'),
-      TextBlock.leader('Offrons-nous les uns aux autres des signes de réconciliation et d’amour.'),
-      TextBlock.note('Tous, y compris le pasteur, échangent des signes et des paroles de la paix de Dieu.'),
+      TextBlock.leader(
+          'Offrons-nous les uns aux autres des signes de réconciliation et d’amour.'),
+      TextBlock.note(
+          'Tous, y compris le pasteur, échangent des signes et des paroles de la paix de Dieu.'),
       TextBlock.heading('Offrande'),
-      TextBlock.leader('Pardonnés et réconciliés,\noffrons-nous nous-mêmes et nos dons à Dieu.'),
-      TextBlock.note('Un cantique, un psaume ou un chant de chorale peut être chanté pendant la réception de l’offrande.'),
-      TextBlock.note('Le pain et le vin sont apportés à la table du Seigneur par des représentants de l’assemblée avec les autres dons, ou découverts s’ils s’y trouvent déjà.'),
-      TextBlock.note('Un cantique, une doxologie ou une autre réponse peut être chanté pendant la présentation des dons.'),
-      TextBlock.note('Si l’on utilise une autre grande action de grâce que celle qui suit, le service se déroule selon l’ordre et les indications du Service de la Parole et de la Table III. Sinon, il se poursuit ainsi :'),
+      TextBlock.leader(
+          'Pardonnés et réconciliés,\noffrons-nous nous-mêmes et nos dons à Dieu.'),
+      TextBlock.note(
+          'Un cantique, un psaume ou un chant de chorale peut être chanté pendant la réception de l’offrande.'),
+      TextBlock.note(
+          'Le pain et le vin sont apportés à la table du Seigneur par des représentants de l’assemblée avec les autres dons, ou découverts s’ils s’y trouvent déjà.'),
+      TextBlock.note(
+          'Un cantique, une doxologie ou une autre réponse peut être chanté pendant la présentation des dons.'),
+      TextBlock.note(
+          'Si l’on utilise une autre grande action de grâce que celle qui suit, le service se déroule selon l’ordre et les indications du Service de la Parole et de la Table III. Sinon, il se poursuit ainsi :'),
       TextBlock.heading('Action de grâce et communion'),
       TextBlock.heading('Prendre le pain et la coupe'),
-      TextBlock.note('Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, depuis ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
+      TextBlock.note(
+          'Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, depuis ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
       TextBlock.heading('La grande action de grâce'),
-      TextBlock.note('On peut utiliser l’une des mises en musique ; le pasteur emploie le texte suivant :'),
+      TextBlock.note(
+          'On peut utiliser l’une des mises en musique ; le pasteur emploie le texte suivant :'),
       TextBlock.leader('Que le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous.'),
       TextBlock.leader('Élevons nos cœurs.'),
@@ -283,43 +375,67 @@ class BookOfWorshipData {
       TextBlock.people('Nous les élevons vers le Seigneur.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Il est juste de lui rendre grâce et de le louer.'),
-      TextBlock.leader('Il est juste, bon et joyeux\nde te rendre grâce toujours et partout,\nPère tout-puissant, créateur du ciel et de la terre.\nTu nous as formés à ton image\net tu as insufflé en nous le souffle de vie.\nQuand nous nous sommes détournés de toi et que notre amour a failli,\nton amour est resté fidèle.\nTu nous as délivrés de la captivité,\ntu as fait alliance pour être notre Dieu souverain\net tu nous as parlé par les prophètes.\nC’est pourquoi,\navec ton peuple sur la terre\net toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux\nde te rendre grâce toujours et partout,\nPère tout-puissant, créateur du ciel et de la terre.\nTu nous as formés à ton image\net tu as insufflé en nous le souffle de vie.\nQuand nous nous sommes détournés de toi et que notre amour a failli,\nton amour est resté fidèle.\nTu nous as délivrés de la captivité,\ntu as fait alliance pour être notre Dieu souverain\net tu nous as parlé par les prophètes.\nC’est pourquoi,\navec ton peuple sur la terre\net toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
       TextBlock.note('Le pasteur peut baisser les mains.'),
-      TextBlock.people('Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire.\nHosanna au plus haut des cieux.\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux.'),
+      TextBlock.people(
+          'Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire.\nHosanna au plus haut des cieux.\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux.'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ.\nTon Esprit l’a oint\npour annoncer la bonne nouvelle aux pauvres,\npour proclamer la délivrance aux captifs\net le recouvrement de la vue aux aveugles,\npour renvoyer libres les opprimés,\net pour annoncer que le temps était venu\noù tu sauverais ton peuple.\nIl a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance\npar l’eau et l’Esprit.\nLorsque le Seigneur Jésus est monté au ciel,\nil a promis d’être toujours avec nous,\npar la puissance de ta Parole et de ton Esprit saint.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
-      TextBlock.leader('La nuit où il s’est livré pour nous,\nil prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
-      TextBlock.leader('Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude\npour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez,\nen mémoire de moi. »'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ.\nTon Esprit l’a oint\npour annoncer la bonne nouvelle aux pauvres,\npour proclamer la délivrance aux captifs\net le recouvrement de la vue aux aveugles,\npour renvoyer libres les opprimés,\net pour annoncer que le temps était venu\noù tu sauverais ton peuple.\nIl a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance\npar l’eau et l’Esprit.\nLorsque le Seigneur Jésus est monté au ciel,\nil a promis d’être toujours avec nous,\npar la puissance de ta Parole et de ton Esprit saint.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
+      TextBlock.leader(
+          'La nuit où il s’est livré pour nous,\nil prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
+      TextBlock.leader(
+          'Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude\npour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez,\nen mémoire de moi. »'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('C’est pourquoi,\nen souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi.'),
-      TextBlock.people('Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ,\nrachetés par son sang.'),
+      TextBlock.leader(
+          'C’est pourquoi,\nen souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi.'),
+      TextBlock.people(
+          'Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ,\nrachetés par son sang.'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Par ton Esprit, fais de nous un seul avec le Christ,\nun seul les uns avec les autres,\net un seul dans le ministère auprès du monde entier,\njusqu’à ce que le Christ vienne dans sa victoire définitive\net que nous prenions place à son banquet céleste.'),
-      TextBlock.leader('Par ton Fils Jésus-Christ,\navec le Saint-Esprit, dans ta sainte Église,\nà toi, Père tout-puissant, tout honneur et toute gloire,\nmaintenant et pour toujours. Amen.'),
+      TextBlock.leader(
+          'Par ton Esprit, fais de nous un seul avec le Christ,\nun seul les uns avec les autres,\net un seul dans le ministère auprès du monde entier,\njusqu’à ce que le Christ vienne dans sa victoire définitive\net que nous prenions place à son banquet céleste.'),
+      TextBlock.leader(
+          'Par ton Fils Jésus-Christ,\navec le Saint-Esprit, dans ta sainte Église,\nà toi, Père tout-puissant, tout honneur et toute gloire,\nmaintenant et pour toujours. Amen.'),
       TextBlock.heading('Le Notre Père'),
       TextBlock.note('Le pasteur peut tendre les mains en signe d’invitation.'),
-      TextBlock.leader('Et maintenant, avec la confiance des enfants de Dieu, prions :'),
+      TextBlock.leader(
+          'Et maintenant, avec la confiance des enfants de Dieu, prions :'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.people('Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
+      TextBlock.people(
+          'Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
       TextBlock.heading('La fraction du pain'),
-      TextBlock.note('Le pasteur, toujours debout derrière la table du Seigneur et face à l’assemblée, rompt le pain en silence, ou en disant :'),
-      TextBlock.leader('Puisqu’il y a un seul pain,\nnous, qui sommes nombreux, nous sommes un seul corps, car nous participons tous à ce pain unique.\nLe pain que nous rompons est une communion au corps du Christ.'),
+      TextBlock.note(
+          'Le pasteur, toujours debout derrière la table du Seigneur et face à l’assemblée, rompt le pain en silence, ou en disant :'),
+      TextBlock.leader(
+          'Puisqu’il y a un seul pain,\nnous, qui sommes nombreux, nous sommes un seul corps, car nous participons tous à ce pain unique.\nLe pain que nous rompons est une communion au corps du Christ.'),
       TextBlock.note('Le pasteur lève la coupe en silence, ou en disant :'),
-      TextBlock.leader('La coupe pour laquelle nous rendons grâce est une communion au sang du Christ.'),
+      TextBlock.leader(
+          'La coupe pour laquelle nous rendons grâce est une communion au sang du Christ.'),
       TextBlock.heading('Le don du pain et de la coupe'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
-      TextBlock.leader('Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
-      TextBlock.note('Quand tous ont communié, la table du Seigneur est remise en ordre.'),
-      TextBlock.note('La prière suivante est ensuite dite par le pasteur ou par tous :'),
-      TextBlock.people('Dieu éternel, nous te rendons grâce pour ce saint mystère\ndans lequel tu t’es donné à nous.\nFais que nous allions dans le monde\nfortifiés par ton Esprit,\npour nous donner aux autres,\nau nom de Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
+      TextBlock.leader(
+          'Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
+      TextBlock.note(
+          'Quand tous ont communié, la table du Seigneur est remise en ordre.'),
+      TextBlock.note(
+          'La prière suivante est ensuite dite par le pasteur ou par tous :'),
+      TextBlock.people(
+          'Dieu éternel, nous te rendons grâce pour ce saint mystère\ndans lequel tu t’es donné à nous.\nFais que nous allions dans le monde\nfortifiés par ton Esprit,\npour nous donner aux autres,\nau nom de Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('Envoi'),
       TextBlock.heading('Cantique ou chant'),
       TextBlock.heading('Envoi avec bénédiction'),
-      TextBlock.leader('Allez en paix.\nQue la grâce du Seigneur Jésus-Christ,\nl’amour de Dieu\net la communion du Saint-Esprit\nsoient avec vous tous. Amen.'),
+      TextBlock.leader(
+          'Allez en paix.\nQue la grâce du Seigneur Jésus-Christ,\nl’amour de Dieu\net la communion du Saint-Esprit\nsoient avec vous tous. Amen.'),
       TextBlock.heading('Départ'),
     ],
   );
@@ -329,46 +445,72 @@ class BookOfWorshipData {
     title: 'Service de mise en terre',
     subtitle: 'Pour l’inhumation ou la mise en terre des cendres',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Committal” Copyright © 1979, 1985, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-committal',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Committal” Copyright © 1979, 1985, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-committal',
     blocks: [
-      TextBlock.note('Cet ordre de service est destiné principalement à l’inhumation en terre. Il peut toutefois être adapté à la crémation ou à la mise en terre des cendres, à l’inhumation hors sol ou en mer, ou encore au don du corps à des fins médicales.'),
-      TextBlock.note('Si la famille demande que des rites militaires, fraternels ou autres s’ajoutent au service de mise en terre, le pasteur doit les approuver et planifier soigneusement leur enchaînement avec ce service, afin que celui-ci ne soit pas interrompu.'),
+      TextBlock.note(
+          'Cet ordre de service est destiné principalement à l’inhumation en terre. Il peut toutefois être adapté à la crémation ou à la mise en terre des cendres, à l’inhumation hors sol ou en mer, ou encore au don du corps à des fins médicales.'),
+      TextBlock.note(
+          'Si la famille demande que des rites militaires, fraternels ou autres s’ajoutent au service de mise en terre, le pasteur doit les approuver et planifier soigneusement leur enchaînement avec ce service, afin que celui-ci ne soit pas interrompu.'),
       TextBlock.note('Le pasteur préside.'),
-      TextBlock.note('Des prières et des lectures adaptées à un service pour un enfant ou un jeune, ou à d’autres circonstances particulières, peuvent être utilisées à la place de celles qui suivent.'),
-      TextBlock.note('Lorsque l’assemblée est rassemblée, on dit l’une ou plusieurs des paroles suivantes :'),
-      TextBlock.p('Au milieu de la vie, nous sommes dans la mort ;\nde qui chercher le secours ?'),
+      TextBlock.note(
+          'Des prières et des lectures adaptées à un service pour un enfant ou un jeune, ou à d’autres circonstances particulières, peuvent être utilisées à la place de celles qui suivent.'),
+      TextBlock.note(
+          'Lorsque l’assemblée est rassemblée, on dit l’une ou plusieurs des paroles suivantes :'),
+      TextBlock.p(
+          'Au milieu de la vie, nous sommes dans la mort ;\nde qui chercher le secours ?'),
       TextBlock.note('Texte du IXe siècle.'),
-      TextBlock.p('Notre secours est dans le nom du Seigneur,\nqui a fait les cieux et la terre.'),
+      TextBlock.p(
+          'Notre secours est dans le nom du Seigneur,\nqui a fait les cieux et la terre.'),
       TextBlock.note('Psaumes 124.8'),
-      TextBlock.p('Dieu, qui a ressuscité le Christ d’entre les morts,\ndonnera aussi la vie à vos corps mortels\npar son Esprit qui habite en vous.'),
+      TextBlock.p(
+          'Dieu, qui a ressuscité le Christ d’entre les morts,\ndonnera aussi la vie à vos corps mortels\npar son Esprit qui habite en vous.'),
       TextBlock.note('Romains 8.11, adapté.'),
-      TextBlock.p('Écoutez, je vais vous révéler un mystère !\nNous ne mourrons pas tous, mais nous serons tous transformés.\nCar ce corps périssable doit revêtir l’impérissabilité,\net ce corps mortel doit revêtir l’immortalité.\nAlors s’accomplira la parole qui est écrite :\n« La mort a été engloutie dans la victoire. »\n« Où est, ô mort, ta victoire ? Où est, ô mort, ton aiguillon ? »\nMais rendons grâce à Dieu,\nqui nous donne la victoire par notre Seigneur Jésus-Christ.'),
+      TextBlock.p(
+          'Écoutez, je vais vous révéler un mystère !\nNous ne mourrons pas tous, mais nous serons tous transformés.\nCar ce corps périssable doit revêtir l’impérissabilité,\net ce corps mortel doit revêtir l’immortalité.\nAlors s’accomplira la parole qui est écrite :\n« La mort a été engloutie dans la victoire. »\n« Où est, ô mort, ta victoire ? Où est, ô mort, ton aiguillon ? »\nMais rendons grâce à Dieu,\nqui nous donne la victoire par notre Seigneur Jésus-Christ.'),
       TextBlock.note('1 Corinthiens 15.51, 53, 54b-55, 57'),
-      TextBlock.p('C’est pourquoi mon cœur se réjouit, et mon âme exulte ;\nmon corps aussi demeure en sécurité.\nToi, [Seigneur], tu me fais connaître le sentier de la vie ;\nen ta présence il y a plénitude de joie,\nà ta droite, des délices pour toujours.'),
+      TextBlock.p(
+          'C’est pourquoi mon cœur se réjouit, et mon âme exulte ;\nmon corps aussi demeure en sécurité.\nToi, [Seigneur], tu me fais connaître le sentier de la vie ;\nen ta présence il y a plénitude de joie,\nà ta droite, des délices pour toujours.'),
       TextBlock.note('Psaumes 16.9, 11'),
       TextBlock.note('On dit la prière suivante :'),
-      TextBlock.p('Prions.\nÔ Dieu, tu as ordonné ce monde merveilleux\net tu connais toutes choses sur la terre et dans les cieux.\nDonne-nous une foi telle que, de jour comme de nuit,\nà tout moment et en tout lieu,\nnous puissions, sans crainte, nous confier,\nnous et ceux qui nous sont chers,\nà ton amour qui ne faillit jamais,\ndans cette vie et dans la vie à venir. Amen.'),
-      TextBlock.note('On peut lire l’un des passages suivants, ou d’autres passages de l’Écriture :'),
-      TextBlock.p('Béni soit Dieu, le Père de notre Seigneur Jésus-Christ !\nPar sa grande miséricorde, nous avons été régénérés pour une espérance vivante,\npar la résurrection de Jésus-Christ d’entre les morts,\npour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir,\nconservé dans les cieux pour vous.\nVous vous en réjouissez, bien que vous deviez maintenant, pour un peu de temps, subir des épreuves,\nafin que l’authenticité de votre foi soit reconnue\nlors de la révélation de Jésus-Christ.\nSans l’avoir vu, vous l’aimez ;\nbien que vous ne le voyiez pas maintenant,\nvous croyez en lui et vous vous réjouissez d’une joie ineffable et glorieuse.\nVous recueillez le fruit de votre foi : le salut de vos âmes.'),
+      TextBlock.p(
+          'Prions.\nÔ Dieu, tu as ordonné ce monde merveilleux\net tu connais toutes choses sur la terre et dans les cieux.\nDonne-nous une foi telle que, de jour comme de nuit,\nà tout moment et en tout lieu,\nnous puissions, sans crainte, nous confier,\nnous et ceux qui nous sont chers,\nà ton amour qui ne faillit jamais,\ndans cette vie et dans la vie à venir. Amen.'),
+      TextBlock.note(
+          'On peut lire l’un des passages suivants, ou d’autres passages de l’Écriture :'),
+      TextBlock.p(
+          'Béni soit Dieu, le Père de notre Seigneur Jésus-Christ !\nPar sa grande miséricorde, nous avons été régénérés pour une espérance vivante,\npar la résurrection de Jésus-Christ d’entre les morts,\npour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir,\nconservé dans les cieux pour vous.\nVous vous en réjouissez, bien que vous deviez maintenant, pour un peu de temps, subir des épreuves,\nafin que l’authenticité de votre foi soit reconnue\nlors de la révélation de Jésus-Christ.\nSans l’avoir vu, vous l’aimez ;\nbien que vous ne le voyiez pas maintenant,\nvous croyez en lui et vous vous réjouissez d’une joie ineffable et glorieuse.\nVous recueillez le fruit de votre foi : le salut de vos âmes.'),
       TextBlock.note('D’après 1 Pierre 1.3-9'),
-      TextBlock.p('Jésus a dit : « En vérité, en vérité, je vous le dis,\nsi le grain de blé ne tombe pas en terre et ne meurt pas,\nil reste seul ;\nmais s’il meurt, il porte beaucoup de fruit.\nCelui qui aime sa vie la perd,\net celui qui hait sa vie dans ce monde\nla conservera pour la vie éternelle.\nSi quelqu’un me sert, qu’il me suive,\net là où je suis, là aussi sera mon serviteur.\nSi quelqu’un me sert, le Père l’honorera. »'),
+      TextBlock.p(
+          'Jésus a dit : « En vérité, en vérité, je vous le dis,\nsi le grain de blé ne tombe pas en terre et ne meurt pas,\nil reste seul ;\nmais s’il meurt, il porte beaucoup de fruit.\nCelui qui aime sa vie la perd,\net celui qui hait sa vie dans ce monde\nla conservera pour la vie éternelle.\nSi quelqu’un me sert, qu’il me suive,\net là où je suis, là aussi sera mon serviteur.\nSi quelqu’un me sert, le Père l’honorera. »'),
       TextBlock.note('Jean 12.24-26'),
-      TextBlock.note('Debout à la tête du cercueil, tourné vers lui (de préférence en jetant de la terre dessus lorsqu’il est descendu dans la tombe), le pasteur dit :'),
-      TextBlock.p('Dieu tout-puissant,\nnous remettons entre tes mains ton fils / ta fille Nom,\ndans l’espérance sûre et certaine de la résurrection pour la vie éternelle,\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.p('Nous confions ce corps à la terre\n(aux éléments, à son lieu de repos),\nla terre à la terre, les cendres aux cendres, la poussière à la poussière.'),
+      TextBlock.note(
+          'Debout à la tête du cercueil, tourné vers lui (de préférence en jetant de la terre dessus lorsqu’il est descendu dans la tombe), le pasteur dit :'),
+      TextBlock.p(
+          'Dieu tout-puissant,\nnous remettons entre tes mains ton fils / ta fille Nom,\ndans l’espérance sûre et certaine de la résurrection pour la vie éternelle,\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Nous confions ce corps à la terre\n(aux éléments, à son lieu de repos),\nla terre à la terre, les cendres aux cendres, la poussière à la poussière.'),
       TextBlock.note('Formule traditionnelle.'),
-      TextBlock.p('Heureux les morts qui meurent dans le Seigneur.\nOui, dit l’Esprit, ils se reposent de leurs travaux,\ncar leurs œuvres les suivent.'),
+      TextBlock.p(
+          'Heureux les morts qui meurent dans le Seigneur.\nOui, dit l’Esprit, ils se reposent de leurs travaux,\ncar leurs œuvres les suivent.'),
       TextBlock.note('Révélation 14.13, adapté.'),
-      TextBlock.note('On dit une ou plusieurs des prières suivantes, ou d’autres prières :'),
-      TextBlock.p('Dieu de grâce,\nnous te remercions pour ceux que nous aimons et que nous ne voyons plus.\nAccueille dans tes bras ton serviteur / ta servante Nom,\net accorde-lui, grandissant dans la connaissance et l’amour de toi,\nd’aller de force en force\nau service de ton royaume céleste ;\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.p('Dieu tout-puissant,\nregarde avec compassion la peine de tes serviteurs, pour lesquels nous prions.\nAu milieu de ce qu’ils ne comprennent pas, aide-les à se confier en ta protection.\nBénis-les et garde-les.\nFais luire ta face sur eux, et donne-leur la paix. Amen.'),
-      TextBlock.p('Ô Seigneur, soutiens-nous tout au long de cette journée de notre vie agitée,\njusqu’à ce que les ombres s’allongent et que vienne le soir,\nque le monde affairé fasse silence,\nque la fièvre de la vie retombe et que notre travail soit achevé.\nAlors, dans ta miséricorde, accorde-nous un abri sûr,\nun repos saint et, enfin, la paix ;\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.p('Dieu éternel, tu nous as fait partager la vie de Nom.\nAvant d’être à nous, il / elle est à toi.\nPour tout ce que Nom nous a donné et qui a fait de nous ce que nous sommes,\npour ce qui de lui / d’elle vit et grandit en chacun de nous,\net pour sa vie qui, dans ton amour, ne finira jamais,\nnous te rendons grâce.\nAlors que nous remettons maintenant Nom entre tes bras,\nconsole-nous dans notre solitude,\nfortifie-nous dans notre faiblesse,\net donne-nous le courage d’affronter l’avenir sans crainte.\nRapproche les uns des autres ceux d’entre nous qui demeurent en cette vie,\nrends-nous fidèles à nous servir les uns les autres,\net fais-nous connaître cette paix et cette joie qui sont la vie éternelle ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On dit une ou plusieurs des prières suivantes, ou d’autres prières :'),
+      TextBlock.p(
+          'Dieu de grâce,\nnous te remercions pour ceux que nous aimons et que nous ne voyons plus.\nAccueille dans tes bras ton serviteur / ta servante Nom,\net accorde-lui, grandissant dans la connaissance et l’amour de toi,\nd’aller de force en force\nau service de ton royaume céleste ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Dieu tout-puissant,\nregarde avec compassion la peine de tes serviteurs, pour lesquels nous prions.\nAu milieu de ce qu’ils ne comprennent pas, aide-les à se confier en ta protection.\nBénis-les et garde-les.\nFais luire ta face sur eux, et donne-leur la paix. Amen.'),
+      TextBlock.p(
+          'Ô Seigneur, soutiens-nous tout au long de cette journée de notre vie agitée,\njusqu’à ce que les ombres s’allongent et que vienne le soir,\nque le monde affairé fasse silence,\nque la fièvre de la vie retombe et que notre travail soit achevé.\nAlors, dans ta miséricorde, accorde-nous un abri sûr,\nun repos saint et, enfin, la paix ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Dieu éternel, tu nous as fait partager la vie de Nom.\nAvant d’être à nous, il / elle est à toi.\nPour tout ce que Nom nous a donné et qui a fait de nous ce que nous sommes,\npour ce qui de lui / d’elle vit et grandit en chacun de nous,\net pour sa vie qui, dans ton amour, ne finira jamais,\nnous te rendons grâce.\nAlors que nous remettons maintenant Nom entre tes bras,\nconsole-nous dans notre solitude,\nfortifie-nous dans notre faiblesse,\net donne-nous le courage d’affronter l’avenir sans crainte.\nRapproche les uns des autres ceux d’entre nous qui demeurent en cette vie,\nrends-nous fidèles à nous servir les uns les autres,\net fais-nous connaître cette paix et cette joie qui sont la vie éternelle ;\npar Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('On peut ensuite dire le Notre Père.'),
       TextBlock.note('On peut chanter un cantique.'),
-      TextBlock.note('Le pasteur envoie l’assemblée avec la bénédiction suivante, ou une autre :'),
-      TextBlock.p('À celui qui peut vous garder de toute chute\net vous faire paraître sans tache\ndevant sa gloire, dans la joie,\nau seul Dieu, notre Sauveur, par Jésus-Christ notre Seigneur,\nsoient gloire, majesté, force et puissance,\navant tous les temps, maintenant et pour toujours. Amen.'),
+      TextBlock.note(
+          'Le pasteur envoie l’assemblée avec la bénédiction suivante, ou une autre :'),
+      TextBlock.p(
+          'À celui qui peut vous garder de toute chute\net vous faire paraître sans tache\ndevant sa gloire, dans la joie,\nau seul Dieu, notre Sauveur, par Jésus-Christ notre Seigneur,\nsoient gloire, majesté, force et puissance,\navant tous les temps, maintenant et pour toujours. Amen.'),
       TextBlock.note('Jude 24-25, adapté.'),
     ],
   );
@@ -376,60 +518,83 @@ class BookOfWorshipData {
   static const baptismBcp = ChurchText(
     id: 'bow_baptism_bcp',
     title: 'Alliance baptismale (tradition épiscopale)',
-    subtitle: 'Questions de l’Alliance baptismale, prières pour les candidats et action de grâce sur l’eau — domaine public',
+    subtitle:
+        'Questions de l’Alliance baptismale, prières pour les candidats et action de grâce sur l’eau — domaine public',
     icon: ChurchTextIcon.vows,
-    source: 'Livre de prière commune de l’Église épiscopale (The Book of Common Prayer, The Episcopal Church, 1979), « Holy Baptism », pages 303 à 307. Ce texte est du domaine public. Il n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie. Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    source:
+        'Livre de prière commune de l’Église épiscopale (The Book of Common Prayer, The Episcopal Church, 1979), « Holy Baptism », pages 303 à 307. Ce texte est du domaine public. Il n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie. Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
     sourceUrl: 'https://justus.anglican.org/resources/bcp/baptism.pdf',
     blocks: [
-      TextBlock.note('Ce texte vient du Livre de prière commune de l’Église épiscopale (États-Unis, 1979), qui est du domaine public. Ce n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie : il appartient à la tradition épiscopale (anglicane), très proche pour le fond. Il est proposé ici en attendant l’autorisation de reproduire et de traduire le texte méthodiste uni.'),
+      TextBlock.note(
+          'Ce texte vient du Livre de prière commune de l’Église épiscopale (États-Unis, 1979), qui est du domaine public. Ce n’est pas le texte de l’Alliance baptismale de l’Église méthodiste unie : il appartient à la tradition épiscopale (anglicane), très proche pour le fond. Il est proposé ici en attendant l’autorisation de reproduire et de traduire le texte méthodiste uni.'),
       TextBlock.heading('ALLIANCE BAPTISMALE'),
       TextBlock.note('Le célébrant dit :'),
-      TextBlock.leader('Unissons-nous à ceux qui s’engagent envers le Christ et renouvelons notre propre alliance baptismale.'),
+      TextBlock.leader(
+          'Unissons-nous à ceux qui s’engagent envers le Christ et renouvelons notre propre alliance baptismale.'),
       TextBlock.leader('Croyez-vous en Dieu le Père ?'),
-      TextBlock.people('Je crois en Dieu, le Père tout-puissant, / créateur du ciel et de la terre.'),
+      TextBlock.people(
+          'Je crois en Dieu, le Père tout-puissant, / créateur du ciel et de la terre.'),
       TextBlock.leader('Croyez-vous en Jésus-Christ, le Fils de Dieu ?'),
-      TextBlock.people('Je crois en Jésus-Christ, son Fils unique, notre Seigneur, / qui a été conçu du Saint-Esprit, / est né de la vierge Marie, / a souffert sous Ponce Pilate, / a été crucifié, est mort et a été enseveli ; / est descendu au séjour des morts. / Le troisième jour, il est ressuscité des morts, / il est monté au ciel, / il est assis à la droite du Père, / et il viendra juger les vivants et les morts.'),
+      TextBlock.people(
+          'Je crois en Jésus-Christ, son Fils unique, notre Seigneur, / qui a été conçu du Saint-Esprit, / est né de la vierge Marie, / a souffert sous Ponce Pilate, / a été crucifié, est mort et a été enseveli ; / est descendu au séjour des morts. / Le troisième jour, il est ressuscité des morts, / il est monté au ciel, / il est assis à la droite du Père, / et il viendra juger les vivants et les morts.'),
       TextBlock.leader('Croyez-vous en Dieu le Saint-Esprit ?'),
-      TextBlock.people('Je crois au Saint-Esprit, / à la sainte Église universelle (catholique), / à la communion des saints, / au pardon des péchés, / à la résurrection du corps / et à la vie éternelle.'),
-      TextBlock.leader('Voulez-vous persévérer dans l’enseignement des apôtres, dans la communion fraternelle, dans la fraction du pain et dans les prières ?'),
+      TextBlock.people(
+          'Je crois au Saint-Esprit, / à la sainte Église universelle (catholique), / à la communion des saints, / au pardon des péchés, / à la résurrection du corps / et à la vie éternelle.'),
+      TextBlock.leader(
+          'Voulez-vous persévérer dans l’enseignement des apôtres, dans la communion fraternelle, dans la fraction du pain et dans les prières ?'),
       TextBlock.people('Je le veux, avec l’aide de Dieu.'),
-      TextBlock.leader('Voulez-vous persévérer à résister au mal et, chaque fois que vous tomberez dans le péché, vous repentir et revenir au Seigneur ?'),
+      TextBlock.leader(
+          'Voulez-vous persévérer à résister au mal et, chaque fois que vous tomberez dans le péché, vous repentir et revenir au Seigneur ?'),
       TextBlock.people('Je le veux, avec l’aide de Dieu.'),
-      TextBlock.leader('Voulez-vous annoncer par la parole et par l’exemple la Bonne Nouvelle de Dieu en Jésus-Christ ?'),
+      TextBlock.leader(
+          'Voulez-vous annoncer par la parole et par l’exemple la Bonne Nouvelle de Dieu en Jésus-Christ ?'),
       TextBlock.people('Je le veux, avec l’aide de Dieu.'),
-      TextBlock.leader('Voulez-vous chercher et servir le Christ en toute personne, en aimant votre prochain comme vous-même ?'),
+      TextBlock.leader(
+          'Voulez-vous chercher et servir le Christ en toute personne, en aimant votre prochain comme vous-même ?'),
       TextBlock.people('Je le veux, avec l’aide de Dieu.'),
-      TextBlock.leader('Voulez-vous travailler pour la justice et la paix entre tous les peuples, et respecter la dignité de tout être humain ?'),
+      TextBlock.leader(
+          'Voulez-vous travailler pour la justice et la paix entre tous les peuples, et respecter la dignité de tout être humain ?'),
       TextBlock.people('Je le veux, avec l’aide de Dieu.'),
       TextBlock.heading('PRIÈRES POUR LES CANDIDATS'),
-      TextBlock.leader('Prions maintenant pour ceux qui vont recevoir le sacrement de la nouvelle naissance [et pour celles (celui) qui ont renouvelé leur engagement envers le Christ].'),
-      TextBlock.leader('Délivre-les, Seigneur, du chemin du péché et de la mort.'),
+      TextBlock.leader(
+          'Prions maintenant pour ceux qui vont recevoir le sacrement de la nouvelle naissance [et pour celles (celui) qui ont renouvelé leur engagement envers le Christ].'),
+      TextBlock.leader(
+          'Délivre-les, Seigneur, du chemin du péché et de la mort.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
       TextBlock.leader('Ouvre leur cœur à ta grâce et à ta vérité.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
       TextBlock.leader('Remplis-les de ton Esprit saint, qui donne la vie.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
-      TextBlock.leader('Garde-les dans la foi et la communion de ta sainte Église.'),
+      TextBlock.leader(
+          'Garde-les dans la foi et la communion de ta sainte Église.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
-      TextBlock.leader('Apprends-leur à aimer les autres par la puissance de l’Esprit.'),
+      TextBlock.leader(
+          'Apprends-leur à aimer les autres par la puissance de l’Esprit.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
       TextBlock.leader('Envoie-les dans le monde pour témoigner de ton amour.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
-      TextBlock.leader('Conduis-les à la plénitude de ta paix et de ta gloire.'),
+      TextBlock.leader(
+          'Conduis-les à la plénitude de ta paix et de ta gloire.'),
       TextBlock.people('Seigneur, exauce notre prière.'),
-      TextBlock.leader('Accorde, Seigneur, que tous ceux qui sont baptisés dans la mort de Jésus-Christ, ton Fils, vivent dans la puissance de sa résurrection et attendent son retour dans la gloire ; lui qui vit et règne maintenant et pour les siècles des siècles. Amen.'),
+      TextBlock.leader(
+          'Accorde, Seigneur, que tous ceux qui sont baptisés dans la mort de Jésus-Christ, ton Fils, vivent dans la puissance de sa résurrection et attendent son retour dans la gloire ; lui qui vit et règne maintenant et pour les siècles des siècles. Amen.'),
       TextBlock.heading('ACTION DE GRÂCE SUR L’EAU'),
       TextBlock.leader('Le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous aussi.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Cela est digne et juste.'),
-      TextBlock.leader('Nous te rendons grâce, Dieu tout-puissant, pour le don de l’eau. Au commencement de la création, le Saint-Esprit se mouvait au-dessus d’elle. Par elle tu as conduit les enfants d’Israël hors de leur servitude en Égypte vers la terre promise. En elle ton Fils Jésus a reçu le baptême de Jean et a été oint du Saint-Esprit comme Messie, le Christ, pour nous conduire, par sa mort et sa résurrection, de l’esclavage du péché à la vie éternelle.'),
-      TextBlock.leader('Nous te rendons grâce, Père, pour l’eau du baptême. En elle nous sommes ensevelis avec le Christ dans sa mort. Par elle nous avons part à sa résurrection. Par elle nous renaissons du Saint-Esprit. C’est pourquoi, dans une joyeuse obéissance à ton Fils, nous accueillons dans sa communion ceux qui viennent à lui avec foi, en les baptisant au nom du Père, du Fils et du Saint-Esprit.'),
+      TextBlock.leader(
+          'Nous te rendons grâce, Dieu tout-puissant, pour le don de l’eau. Au commencement de la création, le Saint-Esprit se mouvait au-dessus d’elle. Par elle tu as conduit les enfants d’Israël hors de leur servitude en Égypte vers la terre promise. En elle ton Fils Jésus a reçu le baptême de Jean et a été oint du Saint-Esprit comme Messie, le Christ, pour nous conduire, par sa mort et sa résurrection, de l’esclavage du péché à la vie éternelle.'),
+      TextBlock.leader(
+          'Nous te rendons grâce, Père, pour l’eau du baptême. En elle nous sommes ensevelis avec le Christ dans sa mort. Par elle nous avons part à sa résurrection. Par elle nous renaissons du Saint-Esprit. C’est pourquoi, dans une joyeuse obéissance à ton Fils, nous accueillons dans sa communion ceux qui viennent à lui avec foi, en les baptisant au nom du Père, du Fils et du Saint-Esprit.'),
       TextBlock.note('Aux paroles suivantes, le célébrant touche l’eau.'),
-      TextBlock.leader('Sanctifie maintenant cette eau, nous t’en prions, par la puissance de ton Saint-Esprit, afin que ceux qui sont ici purifiés du péché et nés de nouveau demeurent à jamais dans la vie ressuscitée de Jésus-Christ notre Sauveur. À lui, à toi et au Saint-Esprit, tout honneur et toute gloire, maintenant et pour toujours. Amen.'),
+      TextBlock.leader(
+          'Sanctifie maintenant cette eau, nous t’en prions, par la puissance de ton Saint-Esprit, afin que ceux qui sont ici purifiés du péché et nés de nouveau demeurent à jamais dans la vie ressuscitée de Jésus-Christ notre Sauveur. À lui, à toi et au Saint-Esprit, tout honneur et toute gloire, maintenant et pour toujours. Amen.'),
       TextBlock.heading('LE BAPTÊME'),
-      TextBlock.note('Chaque candidat est présenté par son nom ; le célébrant le plonge dans l’eau ou verse de l’eau sur lui, en disant :'),
-      TextBlock.leader('[Prénom], je te baptise au nom du Père, du Fils et du Saint-Esprit. Amen.'),
+      TextBlock.note(
+          'Chaque candidat est présenté par son nom ; le célébrant le plonge dans l’eau ou verse de l’eau sur lui, en disant :'),
+      TextBlock.leader(
+          '[Prénom], je te baptise au nom du Père, du Fils et du Saint-Esprit. Amen.'),
     ],
   );
 
@@ -438,72 +603,103 @@ class BookOfWorshipData {
     title: 'Service de mariage chrétien I',
     subtitle: 'De l’entrée à l’envoi, avec ou sans Sainte-Cène',
     icon: ChurchTextIcon.vows,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Christian Marriage 1, Copyright © 1979, 1980, 1985, 1989, 1992 UMPH. Intercessory Prayer and Blessing and Exchange of Rings, Copyright © 1964, 1965 Board of Publication of the Methodist Church, Inc.; Copyright © 1979, 1985, 1989, 1992 UMPH; renewal Copyright © 1992 UMPH. Thanksgiving and Communion, Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1981, 1985, 1987, 1989, 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-christian-marriage-i',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Christian Marriage 1, Copyright © 1979, 1980, 1985, 1989, 1992 UMPH. Intercessory Prayer and Blessing and Exchange of Rings, Copyright © 1964, 1965 Board of Publication of the Methodist Church, Inc.; Copyright © 1979, 1985, 1989, 1992 UMPH; renewal Copyright © 1992 UMPH. Thanksgiving and Communion, Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1981, 1985, 1987, 1989, 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-christian-marriage-i',
     blocks: [
-      TextBlock.note('Ce service de mariage chrétien est destiné aux couples qui souhaitent célébrer leur union dans un culte chrétien, dont la structure est parallèle à celle du culte du dimanche et comprend la proclamation de la Parole, avec prière et louange. Le mariage chrétien est proclamé comme une alliance sacrée qui reflète l’alliance baptismale. Tout dans ce service est conçu pour témoigner qu’il s’agit d’un mariage chrétien.'),
-      TextBlock.note('Les paroles comme les gestes reflètent constamment la conviction que, dans le mariage chrétien, le mari et la femme sont des partenaires égaux et qu’ils s’engagent dans le mariage de leur plein gré.'),
-      TextBlock.note('Les personnes présentes sont considérées comme une assemblée active plutôt que comme de simples témoins passifs. Elles donnent leur bénédiction au couple et au mariage, et se joignent à la prière et à la louange. Il est tout à fait approprié que l’assemblée chante des cantiques et participe à d’autres actes de culte.'),
-      TextBlock.note('La Sainte Cène peut être célébrée ou non. Si elle l’est, il est essentiel d’en faire comprendre clairement la signification. Plus précisément : (1) Le rite du mariage est inclus dans un service de la Parole et de la Table. (2) Non seulement les époux, mais toute l’assemblée, sont invités à communier. Notre tradition est d’inviter tous les chrétiens à la table du Seigneur. (3) Il ne doit y avoir aucune pression susceptible de mettre mal à l’aise ceux qui, pour quelque raison que ce soit, choisissent de ne pas communier.'),
-      TextBlock.note('La décision de célébrer le mariage relève du droit et de la responsabilité du pasteur, conformément aux lois de l’État et à celles de l’Église Méthodiste Unie. Tous les préparatifs doivent être approuvés par le pasteur. Le « conseil approprié aux parties concernées » que le pasteur doit donner avant le mariage, selon le Livre de Discipline de l’Église Méthodiste Unie, doit comprendre, en plus de la préparation au mariage, l’examen et la préparation du service avec les futurs époux, et l’information sur les règles ou directives établies par la congrégation concernant, par exemple, les décorations, la photographie et les enregistrements audio ou vidéo. Tout rôle de direction assumé par un autre membre du clergé doit l’être à l’invitation du pasteur de l’église où a lieu le service. L’organiste ou la personne responsable de la musique doit être consulté(e) et collaborer avec le couple pour tous les choix musicaux.'),
-      TextBlock.note('Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au service, à la discrétion du pasteur.'),
-      TextBlock.note('Les enfants de l’homme ou de la femme, les autres membres de la famille et les amis peuvent assumer divers rôles dans le service, selon leur âge et leurs capacités. Ils peuvent, par exemple, faire partie du cortège nuptial, participer à la réponse des familles et de l’assemblée, lire des passages de l’Écriture, chanter ou jouer de la musique, ou apporter un témoignage dans leurs propres mots.'),
+      TextBlock.note(
+          'Ce service de mariage chrétien est destiné aux couples qui souhaitent célébrer leur union dans un culte chrétien, dont la structure est parallèle à celle du culte du dimanche et comprend la proclamation de la Parole, avec prière et louange. Le mariage chrétien est proclamé comme une alliance sacrée qui reflète l’alliance baptismale. Tout dans ce service est conçu pour témoigner qu’il s’agit d’un mariage chrétien.'),
+      TextBlock.note(
+          'Les paroles comme les gestes reflètent constamment la conviction que, dans le mariage chrétien, le mari et la femme sont des partenaires égaux et qu’ils s’engagent dans le mariage de leur plein gré.'),
+      TextBlock.note(
+          'Les personnes présentes sont considérées comme une assemblée active plutôt que comme de simples témoins passifs. Elles donnent leur bénédiction au couple et au mariage, et se joignent à la prière et à la louange. Il est tout à fait approprié que l’assemblée chante des cantiques et participe à d’autres actes de culte.'),
+      TextBlock.note(
+          'La Sainte Cène peut être célébrée ou non. Si elle l’est, il est essentiel d’en faire comprendre clairement la signification. Plus précisément : (1) Le rite du mariage est inclus dans un service de la Parole et de la Table. (2) Non seulement les époux, mais toute l’assemblée, sont invités à communier. Notre tradition est d’inviter tous les chrétiens à la table du Seigneur. (3) Il ne doit y avoir aucune pression susceptible de mettre mal à l’aise ceux qui, pour quelque raison que ce soit, choisissent de ne pas communier.'),
+      TextBlock.note(
+          'La décision de célébrer le mariage relève du droit et de la responsabilité du pasteur, conformément aux lois de l’État et à celles de l’Église Méthodiste Unie. Tous les préparatifs doivent être approuvés par le pasteur. Le « conseil approprié aux parties concernées » que le pasteur doit donner avant le mariage, selon le Livre de Discipline de l’Église Méthodiste Unie, doit comprendre, en plus de la préparation au mariage, l’examen et la préparation du service avec les futurs époux, et l’information sur les règles ou directives établies par la congrégation concernant, par exemple, les décorations, la photographie et les enregistrements audio ou vidéo. Tout rôle de direction assumé par un autre membre du clergé doit l’être à l’invitation du pasteur de l’église où a lieu le service. L’organiste ou la personne responsable de la musique doit être consulté(e) et collaborer avec le couple pour tous les choix musicaux.'),
+      TextBlock.note(
+          'Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au service, à la discrétion du pasteur.'),
+      TextBlock.note(
+          'Les enfants de l’homme ou de la femme, les autres membres de la famille et les amis peuvent assumer divers rôles dans le service, selon leur âge et leurs capacités. Ils peuvent, par exemple, faire partie du cortège nuptial, participer à la réponse des familles et de l’assemblée, lire des passages de l’Écriture, chanter ou jouer de la musique, ou apporter un témoignage dans leurs propres mots.'),
       TextBlock.heading('Entrée'),
       TextBlock.heading('Rassemblement'),
-      TextBlock.note('Pendant que l’assemblée se rassemble, on peut offrir de la musique instrumentale ou vocale.'),
-      TextBlock.note('Ici et tout au long du service, l’emploi d’une musique adaptée au culte chrétien est vivement encouragé.'),
-      TextBlock.note('Pendant l’entrée du cortège nuptial, on peut jouer de la musique instrumentale ou chanter un cantique, un psaume ou un chant de chorale. L’assemblée peut être invitée à se lever.'),
-      TextBlock.note('La mariée et le marié, entrant séparément ou ensemble, s’avancent alors avec les membres du cortège nuptial. Ils peuvent être accompagnés par des représentants de leurs familles jusqu’à l’avant de l’église, ou jusqu’à la réponse des familles, moment où leurs accompagnateurs prennent place.'),
+      TextBlock.note(
+          'Pendant que l’assemblée se rassemble, on peut offrir de la musique instrumentale ou vocale.'),
+      TextBlock.note(
+          'Ici et tout au long du service, l’emploi d’une musique adaptée au culte chrétien est vivement encouragé.'),
+      TextBlock.note(
+          'Pendant l’entrée du cortège nuptial, on peut jouer de la musique instrumentale ou chanter un cantique, un psaume ou un chant de chorale. L’assemblée peut être invitée à se lever.'),
+      TextBlock.note(
+          'La mariée et le marié, entrant séparément ou ensemble, s’avancent alors avec les membres du cortège nuptial. Ils peuvent être accompagnés par des représentants de leurs familles jusqu’à l’avant de l’église, ou jusqu’à la réponse des familles, moment où leurs accompagnateurs prennent place.'),
       TextBlock.heading('Salutation'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Chers amis, nous sommes rassemblés devant Dieu\npour être témoins de l’union de [Nom] et [Nom] dans le mariage chrétien et la bénir.\nL’alliance du mariage a été établie par Dieu,\nqui nous a créés homme et femme l’un pour l’autre.\nPar sa présence et sa puissance,\nJésus a honoré de sa présence des noces à Cana de Galilée,\net, par son amour qui se donne,\nil nous a laissé l’exemple de l’amour entre mari et femme.\n[Nom] et [Nom] viennent se donner l’un à l’autre\ndans cette alliance sacrée.'),
+      TextBlock.leader(
+          'Chers amis, nous sommes rassemblés devant Dieu\npour être témoins de l’union de [Nom] et [Nom] dans le mariage chrétien et la bénir.\nL’alliance du mariage a été établie par Dieu,\nqui nous a créés homme et femme l’un pour l’autre.\nPar sa présence et sa puissance,\nJésus a honoré de sa présence des noces à Cana de Galilée,\net, par son amour qui se donne,\nil nous a laissé l’exemple de l’amour entre mari et femme.\n[Nom] et [Nom] viennent se donner l’un à l’autre\ndans cette alliance sacrée.'),
       TextBlock.heading('Déclaration d’intention'),
       TextBlock.heading('Déclaration de l’homme et de la femme'),
       TextBlock.note('Le pasteur à ceux qui vont se marier :'),
-      TextBlock.leader('Je vous demande maintenant, en présence de Dieu et de cette assemblée,\nde déclarer votre intention\nde vous unir l’un à l’autre\npar la grâce de Jésus-Christ,\nqui vous appelle à l’union avec lui,\ncomme vous l’avez reconnu lors de votre baptême.'),
+      TextBlock.leader(
+          'Je vous demande maintenant, en présence de Dieu et de cette assemblée,\nde déclarer votre intention\nde vous unir l’un à l’autre\npar la grâce de Jésus-Christ,\nqui vous appelle à l’union avec lui,\ncomme vous l’avez reconnu lors de votre baptême.'),
       TextBlock.note('Le pasteur à la femme :'),
-      TextBlock.leader('[Nom], voulez-vous prendre [Nom] pour époux,\npour vivre ensemble dans le saint mariage ?\nL’aimerez-vous, le réconforterez-vous, l’honorerez-vous et le garderez-vous,\ndans la maladie comme dans la santé,\net, renonçant à toute autre, lui serez-vous fidèle\naussi longtemps que vous vivrez tous deux ?'),
+      TextBlock.leader(
+          '[Nom], voulez-vous prendre [Nom] pour époux,\npour vivre ensemble dans le saint mariage ?\nL’aimerez-vous, le réconforterez-vous, l’honorerez-vous et le garderez-vous,\ndans la maladie comme dans la santé,\net, renonçant à toute autre, lui serez-vous fidèle\naussi longtemps que vous vivrez tous deux ?'),
       TextBlock.people('La femme : Oui, je le veux.'),
       TextBlock.note('Le pasteur à l’homme :'),
-      TextBlock.leader('[Nom], voulez-vous prendre [Nom] pour épouse,\npour vivre ensemble dans le saint mariage ?\nL’aimerez-vous, la réconforterez-vous, l’honorerez-vous et la garderez-vous,\ndans la maladie comme dans la santé,\net, renonçant à toute autre, lui serez-vous fidèle\naussi longtemps que vous vivrez tous deux ?'),
+      TextBlock.leader(
+          '[Nom], voulez-vous prendre [Nom] pour épouse,\npour vivre ensemble dans le saint mariage ?\nL’aimerez-vous, la réconforterez-vous, l’honorerez-vous et la garderez-vous,\ndans la maladie comme dans la santé,\net, renonçant à toute autre, lui serez-vous fidèle\naussi longtemps que vous vivrez tous deux ?'),
       TextBlock.people('L’homme : Oui, je le veux.'),
       TextBlock.heading('Réponse des familles et de l’assemblée'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Le mariage de [Nom] et [Nom] unit leurs familles\net en crée une nouvelle.\nIls demandent votre bénédiction.'),
-      TextBlock.note('Les parents et d’autres représentants des familles peuvent répondre de l’une des manières suivantes :'),
-      TextBlock.people('Nous nous réjouissons de votre union\net prions Dieu de vous bénir.'),
+      TextBlock.leader(
+          'Le mariage de [Nom] et [Nom] unit leurs familles\net en crée une nouvelle.\nIls demandent votre bénédiction.'),
+      TextBlock.note(
+          'Les parents et d’autres représentants des familles peuvent répondre de l’une des manières suivantes :'),
+      TextBlock.people(
+          'Nous nous réjouissons de votre union\net prions Dieu de vous bénir.'),
       TextBlock.note('ou, en réponse à la question du pasteur :'),
-      TextBlock.leader('Vous qui représentez leurs familles,\nvous réjouissez-vous de leur union\net priez-vous Dieu de les bénir ?'),
+      TextBlock.leader(
+          'Vous qui représentez leurs familles,\nvous réjouissez-vous de leur union\net priez-vous Dieu de les bénir ?'),
       TextBlock.people('Nous le faisons.'),
-      TextBlock.note('ou bien les enfants du couple peuvent répéter ces paroles, ou des paroles semblables, que le pasteur leur souffle ligne par ligne :'),
-      TextBlock.people('Nous vous aimons tous les deux.\nNous bénissons votre mariage.\nEnsemble, nous serons une famille.'),
-      TextBlock.note('Si la femme et l’homme ont été accompagnés par des représentants de leurs familles, ceux-ci, ayant béni le mariage au nom de leurs familles, peuvent prendre place.'),
+      TextBlock.note(
+          'ou bien les enfants du couple peuvent répéter ces paroles, ou des paroles semblables, que le pasteur leur souffle ligne par ligne :'),
+      TextBlock.people(
+          'Nous vous aimons tous les deux.\nNous bénissons votre mariage.\nEnsemble, nous serons une famille.'),
+      TextBlock.note(
+          'Si la femme et l’homme ont été accompagnés par des représentants de leurs familles, ceux-ci, ayant béni le mariage au nom de leurs familles, peuvent prendre place.'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Voulez-vous tous, par la grâce de Dieu,\nfaire tout ce qui est en votre pouvoir\npour soutenir ces deux personnes dans leur mariage et prendre soin d’elles ?'),
+      TextBlock.leader(
+          'Voulez-vous tous, par la grâce de Dieu,\nfaire tout ce qui est en votre pouvoir\npour soutenir ces deux personnes dans leur mariage et prendre soin d’elles ?'),
       TextBlock.people('L’assemblée : Nous le voulons.'),
       TextBlock.heading('Prière'),
       TextBlock.leader('Que le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous.'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu de tous les peuples,\ntu es la vraie lumière qui éclaire tout être humain.\nTu nous montres le chemin, la vérité et la vie.\nTu nous aimes même quand nous te désobéissons.\nTu nous soutiens par ton Esprit saint.\nNous nous réjouissons de ta vie au cœur de nos vies.\nNous te louons pour ta présence parmi nous,\net tout particulièrement dans cet acte d’alliance solennel ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu de tous les peuples,\ntu es la vraie lumière qui éclaire tout être humain.\nTu nous montres le chemin, la vérité et la vie.\nTu nous aimes même quand nous te désobéissons.\nTu nous soutiens par ton Esprit saint.\nNous nous réjouissons de ta vie au cœur de nos vies.\nNous te louons pour ta présence parmi nous,\net tout particulièrement dans cet acte d’alliance solennel ;\npar Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('Proclamation et réponse'),
-      TextBlock.note('Un cantique, un psaume, un chant de chorale ou une autre musique peut être offert avant ou après les lectures. L’assemblée peut être invitée à se lever.'),
+      TextBlock.note(
+          'Un cantique, un psaume, un chant de chorale ou une autre musique peut être offert avant ou après les lectures. L’assemblée peut être invitée à se lever.'),
       TextBlock.note('Lectures bibliques suggérées'),
-      TextBlock.item('Genèse 1.26-28, 31a — La création de l’homme et de la femme'),
-      TextBlock.item('Cantique 2.10-14, 16a ; 8.6-7 — L’amour est fort comme la mort.'),
+      TextBlock.item(
+          'Genèse 1.26-28, 31a — La création de l’homme et de la femme'),
+      TextBlock.item(
+          'Cantique 2.10-14, 16a ; 8.6-7 — L’amour est fort comme la mort.'),
       TextBlock.item('Esaïe 43.1-7 — Tu as du prix aux yeux de Dieu.'),
       TextBlock.item('Esaïe 55.10-13 — Vous sortirez dans la joie.'),
       TextBlock.item('Esaïe 61.10 – 62.3 — Réjouissez-vous dans le Seigneur.'),
       TextBlock.item('Esaïe 63.7-9 — L’amour fidèle du Seigneur'),
       TextBlock.item('Romains 12.1-2, 9-18 — La vie du chrétien'),
       TextBlock.item('1 Corinthiens 13 — Le plus grand, c’est l’amour.'),
-      TextBlock.item('2 Corinthiens 5.14-17 — En Christ, nous sommes une création nouvelle.'),
+      TextBlock.item(
+          '2 Corinthiens 5.14-17 — En Christ, nous sommes une création nouvelle.'),
       TextBlock.item('Ephésiens 2.4-10 — L’amour de Dieu pour nous'),
       TextBlock.item('Ephésiens 4.1-6 — Appelés à une seule espérance'),
       TextBlock.item('Ephésiens 4.25 – 5.2 — Membres les uns des autres'),
       TextBlock.item('Philippiens 2.1-2 — L’esprit du Christ'),
       TextBlock.item('Philippiens 4.4-9 — Réjouissez-vous dans le Seigneur.'),
-      TextBlock.item('Colossiens 3.12-17 — Vivez dans l’amour et la reconnaissance.'),
+      TextBlock.item(
+          'Colossiens 3.12-17 — Vivez dans l’amour et la reconnaissance.'),
       TextBlock.item('1 Jean 3.18-24 — Aimez-vous les uns les autres.'),
       TextBlock.item('1 Jean 4.7-16 — Dieu est amour.'),
       TextBlock.item('Révélation 19.1, 5-9a — Le festin des noces de l’Agneau'),
@@ -516,53 +712,86 @@ class BookOfWorshipData {
       TextBlock.item('Jean 15.9-17 — Demeurez dans l’amour du Christ.'),
       TextBlock.heading('Sermon ou autre témoignage sur le mariage chrétien'),
       TextBlock.heading('Prière d’intercession'),
-      TextBlock.note('On peut faire une prière spontanée, ou bien la prière suivante peut être dite par le pasteur ou par tous :'),
-      TextBlock.leader('Dieu éternel, Créateur et Conservateur de toute vie,\nAuteur du salut, Source de toute grâce :\nbénis et sanctifie par ton Esprit saint\n[Nom] et [Nom], qui viennent maintenant s’unir par le mariage.\nAccorde-leur de se donner leurs vœux\ndans la force de ton amour fidèle.\nPermets-leur de grandir dans l’amour et dans la paix\navec toi et l’un avec l’autre tous leurs jours,\nafin qu’ils s’ouvrent\naux autres et au monde, avec sollicitude et dans le service ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On peut faire une prière spontanée, ou bien la prière suivante peut être dite par le pasteur ou par tous :'),
+      TextBlock.leader(
+          'Dieu éternel, Créateur et Conservateur de toute vie,\nAuteur du salut, Source de toute grâce :\nbénis et sanctifie par ton Esprit saint\n[Nom] et [Nom], qui viennent maintenant s’unir par le mariage.\nAccorde-leur de se donner leurs vœux\ndans la force de ton amour fidèle.\nPermets-leur de grandir dans l’amour et dans la paix\navec toi et l’un avec l’autre tous leurs jours,\nafin qu’ils s’ouvrent\naux autres et au monde, avec sollicitude et dans le service ;\npar Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('Le mariage'),
       TextBlock.heading('Échange des vœux'),
-      TextBlock.note('La femme et l’homme se font face, les mains jointes. Le pasteur peut les guider ligne par ligne.'),
+      TextBlock.note(
+          'La femme et l’homme se font face, les mains jointes. Le pasteur peut les guider ligne par ligne.'),
       TextBlock.note('L’homme à la femme :'),
-      TextBlock.leader('Au nom de Dieu,\nmoi, [Nom], je te prends, [Nom], pour épouse,\npour t’avoir et te garder\ndès aujourd’hui,\npour le meilleur et pour le pire,\ndans la richesse et dans la pauvreté,\ndans la maladie et dans la santé,\npour t’aimer et te chérir,\njusqu’à ce que la mort nous sépare.\nC’est mon vœu solennel.'),
+      TextBlock.leader(
+          'Au nom de Dieu,\nmoi, [Nom], je te prends, [Nom], pour épouse,\npour t’avoir et te garder\ndès aujourd’hui,\npour le meilleur et pour le pire,\ndans la richesse et dans la pauvreté,\ndans la maladie et dans la santé,\npour t’aimer et te chérir,\njusqu’à ce que la mort nous sépare.\nC’est mon vœu solennel.'),
       TextBlock.note('La femme à l’homme :'),
-      TextBlock.leader('Au nom de Dieu,\nmoi, [Nom], je te prends, [Nom], pour époux,\npour t’avoir et te garder,\npour le meilleur et pour le pire,\ndans la richesse et dans la pauvreté,\ndans la maladie et dans la santé,\npour t’aimer et te chérir,\njusqu’à ce que la mort nous sépare.\nC’est mon vœu solennel.'),
-      TextBlock.note('À la place des vœux ci-dessus, on peut employer l’une des formules suivantes :'),
-      TextBlock.leader('Je te prends, [Nom], pour épouse (époux),\net je promets devant Dieu et devant toutes les personnes ici présentes\nd’être ton mari (ta femme) aimant(e) et fidèle\naussi longtemps que nous vivrons tous deux.\nJe te servirai avec tendresse et respect,\net je t’encouragerai à développer les dons que Dieu a mis en toi.'),
-      TextBlock.leader('[Nom], au nom de Dieu,\nje te prends pour époux (épouse) dès maintenant,\npour m’unir à toi et partager tout ce qui viendra,\npour donner et recevoir,\npour parler et écouter,\npour inspirer et répondre,\net, dans toute notre vie ensemble,\npour te rester loyal(e) de tout mon être,\naussi longtemps que nous vivrons tous deux.'),
+      TextBlock.leader(
+          'Au nom de Dieu,\nmoi, [Nom], je te prends, [Nom], pour époux,\npour t’avoir et te garder,\npour le meilleur et pour le pire,\ndans la richesse et dans la pauvreté,\ndans la maladie et dans la santé,\npour t’aimer et te chérir,\njusqu’à ce que la mort nous sépare.\nC’est mon vœu solennel.'),
+      TextBlock.note(
+          'À la place des vœux ci-dessus, on peut employer l’une des formules suivantes :'),
+      TextBlock.leader(
+          'Je te prends, [Nom], pour épouse (époux),\net je promets devant Dieu et devant toutes les personnes ici présentes\nd’être ton mari (ta femme) aimant(e) et fidèle\naussi longtemps que nous vivrons tous deux.\nJe te servirai avec tendresse et respect,\net je t’encouragerai à développer les dons que Dieu a mis en toi.'),
+      TextBlock.leader(
+          '[Nom], au nom de Dieu,\nje te prends pour époux (épouse) dès maintenant,\npour m’unir à toi et partager tout ce qui viendra,\npour donner et recevoir,\npour parler et écouter,\npour inspirer et répondre,\net, dans toute notre vie ensemble,\npour te rester loyal(e) de tout mon être,\naussi longtemps que nous vivrons tous deux.'),
       TextBlock.heading('Bénédiction et échange des alliances'),
-      TextBlock.note('L’échange des alliances est facultatif. D’autres symboles concrets peuvent être remis en plus des alliances, ou à leur place.'),
-      TextBlock.note('Le pasteur, prenant les alliances, peut dire l’une des paroles suivantes :'),
-      TextBlock.leader('Ces alliances (ces symboles)\nsont le signe extérieur et visible\nd’une grâce intérieure et spirituelle,\nqui nous représente l’union\nentre Jésus-Christ et son Église.'),
+      TextBlock.note(
+          'L’échange des alliances est facultatif. D’autres symboles concrets peuvent être remis en plus des alliances, ou à leur place.'),
+      TextBlock.note(
+          'Le pasteur, prenant les alliances, peut dire l’une des paroles suivantes :'),
+      TextBlock.leader(
+          'Ces alliances (ces symboles)\nsont le signe extérieur et visible\nd’une grâce intérieure et spirituelle,\nqui nous représente l’union\nentre Jésus-Christ et son Église.'),
       TextBlock.heading('Ou'),
-      TextBlock.leader('Ces alliances (ces symboles)\nsont le signe extérieur et visible\nd’une grâce intérieure et spirituelle,\nqui annonce à tous l’union de [Nom] et [Nom] dans le saint mariage.'),
-      TextBlock.note('Le pasteur peut bénir la remise des alliances ou d’autres symboles du mariage :'),
-      TextBlock.leader('Bénis, Seigneur, la remise de ces alliances (ces symboles),\nafin que ceux qui les porteront vivent dans ta paix\net demeurent dans ta faveur\ntous les jours de leur vie ;\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('En passant l’alliance au troisième doigt de la main gauche de la personne qui la reçoit, celui ou celle qui la donne peut dire (guidé ligne par ligne par le pasteur) :'),
-      TextBlock.leader('[Nom], je te donne cette alliance\ncomme signe de mon engagement,\net, de tout ce que je suis\net de tout ce que j’ai,\nje t’honore ;\nau nom du Père,\net du Fils,\net du Saint-Esprit.'),
-      TextBlock.note('Si l’on utilise une bougie de l’unité, les deux bougies latérales, qui représentent le mari et la femme, sont allumées en premier, habituellement pendant l’entrée, et la bougie centrale, qui représente le mariage, est allumée à ce moment ou plus tard dans le service. Les bougies latérales ne sont pas éteintes, car le mari et la femme gardent chacun leur identité personnelle.'),
+      TextBlock.leader(
+          'Ces alliances (ces symboles)\nsont le signe extérieur et visible\nd’une grâce intérieure et spirituelle,\nqui annonce à tous l’union de [Nom] et [Nom] dans le saint mariage.'),
+      TextBlock.note(
+          'Le pasteur peut bénir la remise des alliances ou d’autres symboles du mariage :'),
+      TextBlock.leader(
+          'Bénis, Seigneur, la remise de ces alliances (ces symboles),\nafin que ceux qui les porteront vivent dans ta paix\net demeurent dans ta faveur\ntous les jours de leur vie ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'En passant l’alliance au troisième doigt de la main gauche de la personne qui la reçoit, celui ou celle qui la donne peut dire (guidé ligne par ligne par le pasteur) :'),
+      TextBlock.leader(
+          '[Nom], je te donne cette alliance\ncomme signe de mon engagement,\net, de tout ce que je suis\net de tout ce que j’ai,\nje t’honore ;\nau nom du Père,\net du Fils,\net du Saint-Esprit.'),
+      TextBlock.note(
+          'Si l’on utilise une bougie de l’unité, les deux bougies latérales, qui représentent le mari et la femme, sont allumées en premier, habituellement pendant l’entrée, et la bougie centrale, qui représente le mariage, est allumée à ce moment ou plus tard dans le service. Les bougies latérales ne sont pas éteintes, car le mari et la femme gardent chacun leur identité personnelle.'),
       TextBlock.heading('Déclaration du mariage'),
-      TextBlock.note('La femme et l’homme se donnent la main. Le pasteur peut poser une main sur leurs mains jointes.'),
+      TextBlock.note(
+          'La femme et l’homme se donnent la main. Le pasteur peut poser une main sur leurs mains jointes.'),
       TextBlock.note('Le pasteur au mari et à la femme :'),
-      TextBlock.leader('Vous avez déclaré votre consentement et prononcé vos vœux\ndevant Dieu et cette assemblée.\nQue Dieu confirme votre alliance\net vous comble tous deux de sa grâce.'),
+      TextBlock.leader(
+          'Vous avez déclaré votre consentement et prononcé vos vœux\ndevant Dieu et cette assemblée.\nQue Dieu confirme votre alliance\net vous comble tous deux de sa grâce.'),
       TextBlock.note('Le couple peut se tourner vers l’assemblée.'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Maintenant que [Nom] et [Nom]\nse sont donnés l’un à l’autre par des vœux solennels,\nen joignant leurs mains\n[et en se remettant et recevant des alliances,]'),
-      TextBlock.leader('je vous annonce qu’ils sont mari et femme,\nau nom du Père,\net du Fils,\net du Saint-Esprit.'),
+      TextBlock.leader(
+          'Maintenant que [Nom] et [Nom]\nse sont donnés l’un à l’autre par des vœux solennels,\nen joignant leurs mains\n[et en se remettant et recevant des alliances,]'),
+      TextBlock.leader(
+          'je vous annonce qu’ils sont mari et femme,\nau nom du Père,\net du Fils,\net du Saint-Esprit.'),
       TextBlock.leader('Ce que Dieu a uni,\nque personne ne le sépare. Amen.'),
-      TextBlock.note('L’assemblée peut être invitée à se lever, et l’on peut chanter une doxologie ou un autre cantique.'),
-      TextBlock.note('On peut faire des prières d’intercession pour l’Église et pour le monde.'),
+      TextBlock.note(
+          'L’assemblée peut être invitée à se lever, et l’on peut chanter une doxologie ou un autre cantique.'),
+      TextBlock.note(
+          'On peut faire des prières d’intercession pour l’Église et pour le monde.'),
       TextBlock.heading('Bénédiction du mariage'),
-      TextBlock.note('Le mari et la femme peuvent s’agenouiller pendant que le pasteur prie :'),
-      TextBlock.leader('Ô Dieu,\ntu as tellement consacré\nl’alliance du mariage chrétien\nqu’elle représente\nl’alliance entre le Christ et son Église.'),
-      TextBlock.leader('Envoie donc ta bénédiction sur [Nom] et [Nom],\nafin qu’ils gardent fidèlement leur alliance de mariage\net grandissent ensemble dans l’amour et la piété,\nde sorte que leur foyer soit un havre de bénédiction et de paix ;\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Si la Sainte Cène est célébrée, le service se poursuit par l’action de grâce et la communion, plus bas. Si elle n’est pas célébrée, le service se poursuit par la prière d’action de grâce suivante :'),
-      TextBlock.leader('Dieu de toute bonté,\nnous te rendons grâce pour ton amour plein de tendresse\nqui a fait de nous un peuple de l’alliance\npar notre Sauveur Jésus-Christ,\net pour avoir consacré en son nom\nl’alliance de mariage de [Nom] et [Nom].'),
-      TextBlock.leader('Accorde que leur amour l’un pour l’autre\nreflète l’amour du Christ pour nous\net grandisse de force en force\ntandis qu’ils te servent fidèlement dans le monde.'),
+      TextBlock.note(
+          'Le mari et la femme peuvent s’agenouiller pendant que le pasteur prie :'),
+      TextBlock.leader(
+          'Ô Dieu,\ntu as tellement consacré\nl’alliance du mariage chrétien\nqu’elle représente\nl’alliance entre le Christ et son Église.'),
+      TextBlock.leader(
+          'Envoie donc ta bénédiction sur [Nom] et [Nom],\nafin qu’ils gardent fidèlement leur alliance de mariage\net grandissent ensemble dans l’amour et la piété,\nde sorte que leur foyer soit un havre de bénédiction et de paix ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Si la Sainte Cène est célébrée, le service se poursuit par l’action de grâce et la communion, plus bas. Si elle n’est pas célébrée, le service se poursuit par la prière d’action de grâce suivante :'),
+      TextBlock.leader(
+          'Dieu de toute bonté,\nnous te rendons grâce pour ton amour plein de tendresse\nqui a fait de nous un peuple de l’alliance\npar notre Sauveur Jésus-Christ,\net pour avoir consacré en son nom\nl’alliance de mariage de [Nom] et [Nom].'),
+      TextBlock.leader(
+          'Accorde que leur amour l’un pour l’autre\nreflète l’amour du Christ pour nous\net grandisse de force en force\ntandis qu’ils te servent fidèlement dans le monde.'),
       TextBlock.leader('Défends-les contre tout ennemi.'),
       TextBlock.leader('Conduis-les vers la pleine paix.'),
-      TextBlock.leader('Que leur amour l’un pour l’autre\nsoit un sceau sur leurs cœurs,\nun manteau sur leurs épaules\net une couronne sur leurs têtes.'),
-      TextBlock.leader('Bénis-les\ndans leur travail et dans leur vie commune ;\ndans leur sommeil et dans leur éveil ;\ndans leurs joies et dans leurs peines ;\ndans leur vie et dans leur mort.'),
-      TextBlock.leader('Enfin, par ta grâce,\nconduis-les, et nous tous avec eux, à la table\noù tes saints festoient pour toujours\ndans ta demeure céleste ;'),
-      TextBlock.leader('par Jésus-Christ notre Seigneur,\nqui, avec toi et le Saint-Esprit,\nvit et règne,\nun seul Dieu, pour les siècles des siècles. Amen.'),
+      TextBlock.leader(
+          'Que leur amour l’un pour l’autre\nsoit un sceau sur leurs cœurs,\nun manteau sur leurs épaules\net une couronne sur leurs têtes.'),
+      TextBlock.leader(
+          'Bénis-les\ndans leur travail et dans leur vie commune ;\ndans leur sommeil et dans leur éveil ;\ndans leurs joies et dans leurs peines ;\ndans leur vie et dans leur mort.'),
+      TextBlock.leader(
+          'Enfin, par ta grâce,\nconduis-les, et nous tous avec eux, à la table\noù tes saints festoient pour toujours\ndans ta demeure céleste ;'),
+      TextBlock.leader(
+          'par Jésus-Christ notre Seigneur,\nqui, avec toi et le Saint-Esprit,\nvit et règne,\nun seul Dieu, pour les siècles des siècles. Amen.'),
       TextBlock.note('Tous disent le Notre Père.'),
       TextBlock.note('La femme et l’homme peuvent rester à genoux.'),
       TextBlock.note('Envoi avec bénédiction.'),
@@ -570,8 +799,10 @@ class BookOfWorshipData {
       TextBlock.heading('Prendre le pain et la coupe'),
       TextBlock.note('Le pasteur à l’assemblée :'),
       TextBlock.leader('Offrons-nous nous-mêmes et nos dons à Dieu.'),
-      TextBlock.note('Ici, le mari et la femme, ou des enfants de mariages précédents, ou des représentants de l’assemblée peuvent apporter le pain et le vin à la table du Seigneur.'),
-      TextBlock.note('Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, de ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
+      TextBlock.note(
+          'Ici, le mari et la femme, ou des enfants de mariages précédents, ou des représentants de l’assemblée peuvent apporter le pain et le vin à la table du Seigneur.'),
+      TextBlock.note(
+          'Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, de ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
       TextBlock.heading('La grande action de grâce'),
       TextBlock.leader('Que le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous.'),
@@ -580,54 +811,83 @@ class BookOfWorshipData {
       TextBlock.people('Nous les élevons vers le Seigneur.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Il est juste de lui rendre grâce et de le louer.'),
-      TextBlock.leader('Il est juste, bon et joyeux\nde te rendre grâce toujours et partout,\nPère tout-puissant (Dieu tout-puissant), créateur du ciel et de la terre.\nTu nous as formés à ton image, homme et femme tu nous as créés.\nTu nous as fait le don du mariage, afin que nous nous accomplissions l’un l’autre.'),
-      TextBlock.leader('C’est pourquoi,\navec ton peuple sur la terre et toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux\nde te rendre grâce toujours et partout,\nPère tout-puissant (Dieu tout-puissant), créateur du ciel et de la terre.\nTu nous as formés à ton image, homme et femme tu nous as créés.\nTu nous as fait le don du mariage, afin que nous nous accomplissions l’un l’autre.'),
+      TextBlock.leader(
+          'C’est pourquoi,\navec ton peuple sur la terre et toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
       TextBlock.note('Le pasteur peut baisser les mains.'),
-      TextBlock.people('Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire.\nHosanna au plus haut des cieux.\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux.'),
+      TextBlock.people(
+          'Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire.\nHosanna au plus haut des cieux.\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux.'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance\npar l’eau et l’Esprit,\nd’où découle l’amour d’alliance du mari et de la femme.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
-      TextBlock.leader('La nuit où il s’est livré pour nous,\nil prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
-      TextBlock.leader('Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude\npour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez,\nen mémoire de moi. »'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance\npar l’eau et l’Esprit,\nd’où découle l’amour d’alliance du mari et de la femme.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
+      TextBlock.leader(
+          'La nuit où il s’est livré pour nous,\nil prit du pain, te rendit grâce, le rompit,\nle donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
+      TextBlock.leader(
+          'Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ;\nceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude\npour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez,\nen mémoire de moi. »'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('C’est pourquoi,\nen souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi :'),
-      TextBlock.people('Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ,\nrachetés par son sang.'),
-      TextBlock.note('Le pasteur peut étendre les mains sur le mari et la femme.'),
-      TextBlock.leader('Par ce même Esprit, bénis [Nom] et [Nom],\nafin que leur amour l’un pour l’autre\nreflète l’amour du Christ pour nous\net grandisse de force en force\ntandis qu’ils te servent fidèlement dans le monde.\nDéfends-les contre tout ennemi.\nConduis-les vers la pleine paix.\nQue leur amour l’un pour l’autre\nsoit un sceau sur leurs cœurs,\nun manteau sur leurs épaules\net une couronne sur leurs têtes.\nBénis-les\ndans leur travail et dans leur vie commune ;\ndans leur sommeil et dans leur éveil ;\ndans leurs joies et dans leurs peines ;\ndans leur vie et dans leur mort.\nEnfin, par ta grâce,\nconduis-les, et nous tous avec eux, à la table\noù tes saints festoient pour toujours dans ta demeure céleste.'),
+      TextBlock.leader(
+          'C’est pourquoi,\nen souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce,\ncomme un sacrifice saint et vivant,\nen union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi :'),
+      TextBlock.people(
+          'Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ,\nrachetés par son sang.'),
+      TextBlock.note(
+          'Le pasteur peut étendre les mains sur le mari et la femme.'),
+      TextBlock.leader(
+          'Par ce même Esprit, bénis [Nom] et [Nom],\nafin que leur amour l’un pour l’autre\nreflète l’amour du Christ pour nous\net grandisse de force en force\ntandis qu’ils te servent fidèlement dans le monde.\nDéfends-les contre tout ennemi.\nConduis-les vers la pleine paix.\nQue leur amour l’un pour l’autre\nsoit un sceau sur leurs cœurs,\nun manteau sur leurs épaules\net une couronne sur leurs têtes.\nBénis-les\ndans leur travail et dans leur vie commune ;\ndans leur sommeil et dans leur éveil ;\ndans leurs joies et dans leurs peines ;\ndans leur vie et dans leur mort.\nEnfin, par ta grâce,\nconduis-les, et nous tous avec eux, à la table\noù tes saints festoient pour toujours dans ta demeure céleste.'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Par ton Fils Jésus-Christ,\navec le Saint-Esprit, dans ta sainte Église,\nà toi, Père tout-puissant (Dieu),\ntout honneur et toute gloire,\nmaintenant et pour toujours.'),
+      TextBlock.leader(
+          'Par ton Fils Jésus-Christ,\navec le Saint-Esprit, dans ta sainte Église,\nà toi, Père tout-puissant (Dieu),\ntout honneur et toute gloire,\nmaintenant et pour toujours.'),
       TextBlock.people('Amen.'),
       TextBlock.heading('Le Notre Père'),
       TextBlock.note('Le pasteur peut tendre les mains en signe d’invitation.'),
-      TextBlock.leader('Et maintenant, avec la confiance des enfants de Dieu, prions :'),
-      TextBlock.note('Le pasteur peut lever les mains. Tous disent le Notre Père.'),
-      TextBlock.people('Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
+      TextBlock.leader(
+          'Et maintenant, avec la confiance des enfants de Dieu, prions :'),
+      TextBlock.note(
+          'Le pasteur peut lever les mains. Tous disent le Notre Père.'),
+      TextBlock.people(
+          'Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
       TextBlock.heading('La fraction du pain'),
-      TextBlock.note('Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain puis lève la coupe, en silence ou avec des paroles appropriées.'),
+      TextBlock.note(
+          'Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain puis lève la coupe, en silence ou avec des paroles appropriées.'),
       TextBlock.heading('Le don du pain et de la coupe'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres. Le mari et la femme peuvent aider à la distribution.'),
-      TextBlock.leader('Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
-      TextBlock.note('Pendant que le pain et la coupe sont donnés, l’assemblée peut chanter des cantiques, ou l’on peut offrir de la musique vocale ou instrumentale.'),
-      TextBlock.note('Quand tous ont communié, la table du Seigneur est remise en ordre.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres. Le mari et la femme peuvent aider à la distribution.'),
+      TextBlock.leader(
+          'Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
+      TextBlock.note(
+          'Pendant que le pain et la coupe sont donnés, l’assemblée peut chanter des cantiques, ou l’on peut offrir de la musique vocale ou instrumentale.'),
+      TextBlock.note(
+          'Quand tous ont communié, la table du Seigneur est remise en ordre.'),
       TextBlock.note('Le pasteur peut alors dire la prière suivante :'),
-      TextBlock.leader('Dieu éternel, nous te rendons grâce\nde ce que tu as réuni [Nom] et [Nom] [ainsi que leurs familles et leurs amis]\nà la table de ta famille.\nAide-les à grandir dans l’amour et dans l’unité,\nafin qu’ils se réjouissent ensemble tous les jours de leur vie\net au festin des noces du ciel.\nAccorde-nous cela par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu éternel, nous te rendons grâce\nde ce que tu as réuni [Nom] et [Nom] [ainsi que leurs familles et leurs amis]\nà la table de ta famille.\nAide-les à grandir dans l’amour et dans l’unité,\nafin qu’ils se réjouissent ensemble tous les jours de leur vie\net au festin des noces du ciel.\nAccorde-nous cela par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('Envoi'),
       TextBlock.note('On peut ici chanter un cantique ou un psaume.'),
       TextBlock.heading('Envoi avec bénédiction'),
       TextBlock.note('Le pasteur à la femme et au mari :'),
-      TextBlock.leader('Que Dieu, l’Éternel, vous garde amoureux l’un de l’autre,\nafin que la paix du Christ demeure dans votre foyer.\nAllez servir Dieu et votre prochain en tout ce que vous faites.'),
+      TextBlock.leader(
+          'Que Dieu, l’Éternel, vous garde amoureux l’un de l’autre,\nafin que la paix du Christ demeure dans votre foyer.\nAllez servir Dieu et votre prochain en tout ce que vous faites.'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Rendez témoignage à l’amour de Dieu dans ce monde,\nafin que ceux pour qui l’amour est un étranger\ntrouvent en vous des amis généreux.'),
-      TextBlock.leader('Que la grâce du Seigneur Jésus-Christ,\nl’amour de Dieu\net la communion du Saint-Esprit\nsoient avec vous tous. Amen.'),
+      TextBlock.leader(
+          'Rendez témoignage à l’amour de Dieu dans ce monde,\nafin que ceux pour qui l’amour est un étranger\ntrouvent en vous des amis généreux.'),
+      TextBlock.leader(
+          'Que la grâce du Seigneur Jésus-Christ,\nl’amour de Dieu\net la communion du Saint-Esprit\nsoient avec vous tous. Amen.'),
       TextBlock.heading('La paix'),
       TextBlock.leader('Que la paix du Seigneur soit toujours avec vous.'),
       TextBlock.people('Et avec vous.'),
-      TextBlock.note('Le couple peut s’embrasser et être salué par le pasteur, après quoi l’on peut échanger les salutations dans toute l’assemblée.'),
+      TextBlock.note(
+          'Le couple peut s’embrasser et être salué par le pasteur, après quoi l’on peut échanger les salutations dans toute l’assemblée.'),
       TextBlock.heading('Départ'),
-      TextBlock.note('On peut chanter un cantique ou jouer de la musique instrumentale pendant que le couple, le cortège nuptial et l’assemblée sortent.'),
+      TextBlock.note(
+          'On peut chanter un cantique ou jouer de la musique instrumentale pendant que le couple, le cortège nuptial et l’assemblée sortent.'),
     ],
   );
 
@@ -636,85 +896,133 @@ class BookOfWorshipData {
     title: 'Service de mort et de résurrection',
     subtitle: 'Funérailles et services commémoratifs',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Death and Resurrection” Copyright © 1979, 1980, 1985, 1989, 1992 UMPH. “An Order for Holy Communion” Copyright © 1972 The Methodist Publishing House; Copyright © 1979, 1988, 1985, 1987, 1989, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-death-and-resurrection',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Death and Resurrection” Copyright © 1979, 1980, 1985, 1989, 1992 UMPH. “An Order for Holy Communion” Copyright © 1972 The Methodist Publishing House; Copyright © 1979, 1988, 1985, 1987, 1989, 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-death-and-resurrection',
     blocks: [
-      TextBlock.note('Ce service est un culte chrétien adapté aux funérailles et aux services commémoratifs. Il doit se tenir dans l’église dans la mesure du possible, à un moment où les membres de la congrégation peuvent être présents. Si le service doit se tenir dans une église et être dirigé par une personne autre que le pasteur de cette congrégation, cela doit se faire à l’invitation de ce pasteur. Ce service est prévu pour être célébré en présence de la dépouille du défunt, mais il peut être adapté aux services commémoratifs ou à d’autres occasions.'),
-      TextBlock.note('L’emploi du terme « service de mort et de résurrection » n’a pas pour but de décourager l’usage des termes plus familiers : funérailles, mise en terre, service commémoratif. « Funérailles » convient à un service en présence du corps du défunt. « Mise en terre » convient à un service au cours duquel la dépouille est inhumée. « Service commémoratif » convient lorsque le corps du défunt n’est pas présent. « Service de mort et de résurrection » a été choisi parce qu’il convient à toutes les situations très diverses où ce service peut être utilisé. Il exprime clairement la double nature de ce qui est accompli : les réalités de la mort et du deuil sont regardées en face avec sincérité, et l’Évangile de la résurrection est proclamé avec joie.'),
-      TextBlock.note('Lorsque les circonstances rendent le service tel quel inadapté, le pasteur peut y apporter des adaptations, en utilisant les autres actes de culte et les ressources disponibles. Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au service à la discrétion du pasteur. L’organiste ou la personne responsable de la musique doit être consulté(e) et collaborer avec la famille pour tous les choix musicaux.'),
-      TextBlock.note('Traditionnellement, les pasteurs n’acceptent pas d’honoraires pour ce service lorsque le défunt était membre de la congrégation.'),
-      TextBlock.note('Le cercueil peut être recouvert d’un drap mortuaire (un grand tissu orné d’une croix et d’autres symboles chrétiens), geste dont la signification est exprimée par ces paroles : « Comme au baptême [Nom] a revêtu le Christ, qu’en Christ [Nom] soit revêtu de gloire. » Le même drap est utilisé dans une congrégation pour tous les services funèbres ; il témoigne que tous sont égaux devant la table du Seigneur. Pour chaque service, le drap doit être propre et sans plis, et l’on ne doit jamais déposer de fleurs dessus. On peut aussi recouvrir le cercueil d’un drapeau ou y déposer des fleurs.'),
-      TextBlock.note('Le service lui-même doit être considéré comme une partie du ministère plus large de l’Église face à la mort. À plusieurs moments de ce ministère, des actes de culte sont particulièrement appropriés.'),
-      TextBlock.note('1) Dans l’accompagnement des mourants, les prières et autres actes de culte sont essentiels.'),
-      TextBlock.note('2) Le pasteur doit être averti immédiatement du décès d’un membre ou d’une personne rattachée à la congrégation. La prière et d’autres actes de culte sont essentiels auprès des endeuillés au moment du décès. Le pasteur peut avoir un rôle important pour annoncer le décès à d’autres.'),
-      TextBlock.note('3) La préparation du service et de tous les autres ministères qui suivent un décès doit se faire en concertation avec la famille et sous réserve de l’approbation du pasteur. Si la famille demande que des rites militaires, fraternels ou autres s’ajoutent au service de mort et de résurrection, le pasteur doit planifier soigneusement l’enchaînement et le lien entre ces services, afin que le service ne soit pas interrompu par d’autres rites et que son intégrité soit soutenue et non compromise.'),
-      TextBlock.note('4) Faire face au corps du défunt et fermer le cercueil font prendre conscience aux endeuillés de la réalité de la mort ; ce sont des moments où le soutien du pasteur et de la communauté chrétienne est important. Divers ministères de soutien, assurés par l’Église, la famille, les amis et d’autres organisations, peuvent avoir lieu entre le décès et le service. Les enfants devraient être invités à assister à tous ces moments.'),
-      TextBlock.note('5) Le service de mort et de résurrection lui-même, communément appelé funérailles ou service commémoratif, rassemble tout le ministère de l’Église face à la mort. Il suppose que la rencontre avec le corps du défunt et la fermeture du cercueil ont déjà eu lieu ; c’est pourquoi le cercueil reste fermé pendant tout le service et après.'),
-      TextBlock.note('6) Le service de mise en terre suit le service de mort et de résurrection. La mise en terre peut avoir lieu immédiatement après les funérailles, ou faire l’objet d’un service distinct, à un autre moment et dans un autre lieu.'),
-      TextBlock.note('7) Le retour des proches les plus touchés à la vie de la communauté, après le service, prend du temps et peut être facilité par le ministère de soutien de l’Église. Si le service lui-même ne comprend pas la Sainte Cène, il est parfois utile que le pasteur porte la communion à la famille, par exemple lors de la première visite qui suit le service.'),
-      TextBlock.note('8) Le soutien continu de représentants de la communauté, avec des ministères de prière et de culte lorsqu’ils conviennent, est essentiel dans le long cheminement par lequel ceux qui sont en deuil trouvent la guérison.'),
-      TextBlock.note('9) Les actes et services commémoratifs récurrents sont des occasions à la fois de guérison et de célébration. Les endeuillés sont particulièrement ouverts à un ministère de soutien lors d’occasions comme Noël, les fêtes, les anniversaires, les anniversaires de mariage ou de décès. La célébration de la Toussaint et d’autres services commémoratifs annuels peuvent aussi être particulièrement utiles.'),
-      TextBlock.note('10) Il est essentiel que toute la vie de la congrégation soit centrée sur l’Évangile chrétien, qui est un message de mort et de résurrection. La manière dont chacun vit toute mort (passée, présente et à venir) dépendra de la place centrale que cet Évangile aura prise dans sa vie.'),
+      TextBlock.note(
+          'Ce service est un culte chrétien adapté aux funérailles et aux services commémoratifs. Il doit se tenir dans l’église dans la mesure du possible, à un moment où les membres de la congrégation peuvent être présents. Si le service doit se tenir dans une église et être dirigé par une personne autre que le pasteur de cette congrégation, cela doit se faire à l’invitation de ce pasteur. Ce service est prévu pour être célébré en présence de la dépouille du défunt, mais il peut être adapté aux services commémoratifs ou à d’autres occasions.'),
+      TextBlock.note(
+          'L’emploi du terme « service de mort et de résurrection » n’a pas pour but de décourager l’usage des termes plus familiers : funérailles, mise en terre, service commémoratif. « Funérailles » convient à un service en présence du corps du défunt. « Mise en terre » convient à un service au cours duquel la dépouille est inhumée. « Service commémoratif » convient lorsque le corps du défunt n’est pas présent. « Service de mort et de résurrection » a été choisi parce qu’il convient à toutes les situations très diverses où ce service peut être utilisé. Il exprime clairement la double nature de ce qui est accompli : les réalités de la mort et du deuil sont regardées en face avec sincérité, et l’Évangile de la résurrection est proclamé avec joie.'),
+      TextBlock.note(
+          'Lorsque les circonstances rendent le service tel quel inadapté, le pasteur peut y apporter des adaptations, en utilisant les autres actes de culte et les ressources disponibles. Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au service à la discrétion du pasteur. L’organiste ou la personne responsable de la musique doit être consulté(e) et collaborer avec la famille pour tous les choix musicaux.'),
+      TextBlock.note(
+          'Traditionnellement, les pasteurs n’acceptent pas d’honoraires pour ce service lorsque le défunt était membre de la congrégation.'),
+      TextBlock.note(
+          'Le cercueil peut être recouvert d’un drap mortuaire (un grand tissu orné d’une croix et d’autres symboles chrétiens), geste dont la signification est exprimée par ces paroles : « Comme au baptême [Nom] a revêtu le Christ, qu’en Christ [Nom] soit revêtu de gloire. » Le même drap est utilisé dans une congrégation pour tous les services funèbres ; il témoigne que tous sont égaux devant la table du Seigneur. Pour chaque service, le drap doit être propre et sans plis, et l’on ne doit jamais déposer de fleurs dessus. On peut aussi recouvrir le cercueil d’un drapeau ou y déposer des fleurs.'),
+      TextBlock.note(
+          'Le service lui-même doit être considéré comme une partie du ministère plus large de l’Église face à la mort. À plusieurs moments de ce ministère, des actes de culte sont particulièrement appropriés.'),
+      TextBlock.note(
+          '1) Dans l’accompagnement des mourants, les prières et autres actes de culte sont essentiels.'),
+      TextBlock.note(
+          '2) Le pasteur doit être averti immédiatement du décès d’un membre ou d’une personne rattachée à la congrégation. La prière et d’autres actes de culte sont essentiels auprès des endeuillés au moment du décès. Le pasteur peut avoir un rôle important pour annoncer le décès à d’autres.'),
+      TextBlock.note(
+          '3) La préparation du service et de tous les autres ministères qui suivent un décès doit se faire en concertation avec la famille et sous réserve de l’approbation du pasteur. Si la famille demande que des rites militaires, fraternels ou autres s’ajoutent au service de mort et de résurrection, le pasteur doit planifier soigneusement l’enchaînement et le lien entre ces services, afin que le service ne soit pas interrompu par d’autres rites et que son intégrité soit soutenue et non compromise.'),
+      TextBlock.note(
+          '4) Faire face au corps du défunt et fermer le cercueil font prendre conscience aux endeuillés de la réalité de la mort ; ce sont des moments où le soutien du pasteur et de la communauté chrétienne est important. Divers ministères de soutien, assurés par l’Église, la famille, les amis et d’autres organisations, peuvent avoir lieu entre le décès et le service. Les enfants devraient être invités à assister à tous ces moments.'),
+      TextBlock.note(
+          '5) Le service de mort et de résurrection lui-même, communément appelé funérailles ou service commémoratif, rassemble tout le ministère de l’Église face à la mort. Il suppose que la rencontre avec le corps du défunt et la fermeture du cercueil ont déjà eu lieu ; c’est pourquoi le cercueil reste fermé pendant tout le service et après.'),
+      TextBlock.note(
+          '6) Le service de mise en terre suit le service de mort et de résurrection. La mise en terre peut avoir lieu immédiatement après les funérailles, ou faire l’objet d’un service distinct, à un autre moment et dans un autre lieu.'),
+      TextBlock.note(
+          '7) Le retour des proches les plus touchés à la vie de la communauté, après le service, prend du temps et peut être facilité par le ministère de soutien de l’Église. Si le service lui-même ne comprend pas la Sainte Cène, il est parfois utile que le pasteur porte la communion à la famille, par exemple lors de la première visite qui suit le service.'),
+      TextBlock.note(
+          '8) Le soutien continu de représentants de la communauté, avec des ministères de prière et de culte lorsqu’ils conviennent, est essentiel dans le long cheminement par lequel ceux qui sont en deuil trouvent la guérison.'),
+      TextBlock.note(
+          '9) Les actes et services commémoratifs récurrents sont des occasions à la fois de guérison et de célébration. Les endeuillés sont particulièrement ouverts à un ministère de soutien lors d’occasions comme Noël, les fêtes, les anniversaires, les anniversaires de mariage ou de décès. La célébration de la Toussaint et d’autres services commémoratifs annuels peuvent aussi être particulièrement utiles.'),
+      TextBlock.note(
+          '10) Il est essentiel que toute la vie de la congrégation soit centrée sur l’Évangile chrétien, qui est un message de mort et de résurrection. La manière dont chacun vit toute mort (passée, présente et à venir) dépendra de la place centrale que cet Évangile aura prise dans sa vie.'),
       TextBlock.heading('Entrée'),
       TextBlock.heading('Rassemblement'),
       TextBlock.note('Le pasteur peut saluer la famille.'),
-      TextBlock.note('On peut offrir de la musique pour le culte pendant que l’assemblée se rassemble.'),
-      TextBlock.note('Le cercueil ou l’urne peut être porté en procession dans le lieu de culte ; dans ce cas, on peut déposer le drap mortuaire dessus à l’extérieur du lieu de culte, en disant ces paroles :'),
-      TextBlock.leader('En mourant, le Christ a détruit notre mort.\nEn ressuscitant, le Christ nous a rendu la vie.\nLe Christ reviendra dans la gloire.\nComme au baptême [Nom] a revêtu le Christ,\nqu’en Christ [Nom] soit revêtu de gloire.\nBien-aimés, nous sommes maintenant enfants de Dieu,\net ce que nous serons n’a pas encore été manifesté ;\nmais nous savons que, lorsque cela sera manifesté,\nnous serons semblables à lui, parce que nous le verrons tel qu’il est.\nQuiconque a cette espérance en lui se purifie, comme lui-même est pur.'),
+      TextBlock.note(
+          'On peut offrir de la musique pour le culte pendant que l’assemblée se rassemble.'),
+      TextBlock.note(
+          'Le cercueil ou l’urne peut être porté en procession dans le lieu de culte ; dans ce cas, on peut déposer le drap mortuaire dessus à l’extérieur du lieu de culte, en disant ces paroles :'),
+      TextBlock.leader(
+          'En mourant, le Christ a détruit notre mort.\nEn ressuscitant, le Christ nous a rendu la vie.\nLe Christ reviendra dans la gloire.\nComme au baptême [Nom] a revêtu le Christ,\nqu’en Christ [Nom] soit revêtu de gloire.\nBien-aimés, nous sommes maintenant enfants de Dieu,\net ce que nous serons n’a pas encore été manifesté ;\nmais nous savons que, lorsque cela sera manifesté,\nnous serons semblables à lui, parce que nous le verrons tel qu’il est.\nQuiconque a cette espérance en lui se purifie, comme lui-même est pur.'),
       TextBlock.heading('La parole de grâce'),
-      TextBlock.note('Si le cercueil ou l’urne est porté en procession dans le lieu de culte, le pasteur peut le précéder en disant ces paroles, l’assemblée se tenant debout. Si le cercueil ou l’urne est déjà en place, le pasteur dit ces paroles, ou d’autres, devant l’assemblée.'),
-      TextBlock.leader('Jésus a dit : « Je suis la résurrection et la vie. Celui qui croit en moi vivra, quand même il serait mort ; et quiconque vit et croit en moi ne mourra jamais.\nJe suis l’alpha et l’oméga, le premier et le dernier, le commencement et la fin.\nJ’étais mort ; et voici, je suis vivant aux siècles des siècles.\nJe tiens les clefs de la mort et du séjour des morts.\nParce que je vis, vous vivrez aussi. »'),
+      TextBlock.note(
+          'Si le cercueil ou l’urne est porté en procession dans le lieu de culte, le pasteur peut le précéder en disant ces paroles, l’assemblée se tenant debout. Si le cercueil ou l’urne est déjà en place, le pasteur dit ces paroles, ou d’autres, devant l’assemblée.'),
+      TextBlock.leader(
+          'Jésus a dit : « Je suis la résurrection et la vie. Celui qui croit en moi vivra, quand même il serait mort ; et quiconque vit et croit en moi ne mourra jamais.\nJe suis l’alpha et l’oméga, le premier et le dernier, le commencement et la fin.\nJ’étais mort ; et voici, je suis vivant aux siècles des siècles.\nJe tiens les clefs de la mort et du séjour des morts.\nParce que je vis, vous vivrez aussi. »'),
       TextBlock.heading('Salutation'),
-      TextBlock.leader('Chers amis, nous nous sommes rassemblés ici pour louer Dieu\net témoigner de notre foi en célébrant la vie de [Nom].\nNous nous réunissons dans le deuil, reconnaissant notre perte humaine.\nQue Dieu nous accorde sa grâce, afin que dans la douleur nous trouvions la consolation,\ndans la tristesse l’espérance, dans la mort la résurrection.'),
-      TextBlock.note('S’il n’y a pas eu de procession, le drap mortuaire peut être déposé à ce moment.'),
-      TextBlock.note('Que le drap soit déposé ou non à ce moment, les paroles données plus haut, au Rassemblement, peuvent être employées ici si elles ne l’ont pas été auparavant.'),
+      TextBlock.leader(
+          'Chers amis, nous nous sommes rassemblés ici pour louer Dieu\net témoigner de notre foi en célébrant la vie de [Nom].\nNous nous réunissons dans le deuil, reconnaissant notre perte humaine.\nQue Dieu nous accorde sa grâce, afin que dans la douleur nous trouvions la consolation,\ndans la tristesse l’espérance, dans la mort la résurrection.'),
+      TextBlock.note(
+          'S’il n’y a pas eu de procession, le drap mortuaire peut être déposé à ce moment.'),
+      TextBlock.note(
+          'Que le drap soit déposé ou non à ce moment, les paroles données plus haut, au Rassemblement, peuvent être employées ici si elles ne l’ont pas été auparavant.'),
       TextBlock.heading('Cantique ou chant'),
       TextBlock.heading('Prière'),
-      TextBlock.note('On peut dire une ou plusieurs des prières suivantes, ou d’autres prières, à l’unisson si on le souhaite. La demande du secours de Dieu, l’action de grâce pour la communion des saints, la confession du péché et l’assurance du pardon conviennent ici.'),
+      TextBlock.note(
+          'On peut dire une ou plusieurs des prières suivantes, ou d’autres prières, à l’unisson si on le souhaite. La demande du secours de Dieu, l’action de grâce pour la communion des saints, la confession du péché et l’assurance du pardon conviennent ici.'),
       TextBlock.leader('Que le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous.'),
       TextBlock.leader('Prions.'),
-      TextBlock.people('Ô Dieu, qui nous as donné la vie,\ntu es toujours plus prêt à écouter\nque nous ne le sommes à prier.\nTu connais nos besoins avant que nous les exprimions,\net notre ignorance quand nous les exprimons.\nAccorde-nous maintenant ta grâce,\nafin que, devant le mystère de la mort qui nous fait reculer,\nnous voyions la lumière de l’éternité.\nParle-nous une fois encore\nde ton message solennel sur la vie et sur la mort.\nAide-nous à vivre comme ceux qui sont prêts à mourir.\nEt quand nos jours ici-bas seront accomplis,\ndonne-nous de mourir comme ceux qui s’en vont pour vivre,\nafin que, dans la vie comme dans la mort, notre vie soit en toi,\net que rien, ni dans la vie ni dans la mort, ne puisse nous séparer\nde ton grand amour en Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.people(
+          'Ô Dieu, qui nous as donné la vie,\ntu es toujours plus prêt à écouter\nque nous ne le sommes à prier.\nTu connais nos besoins avant que nous les exprimions,\net notre ignorance quand nous les exprimons.\nAccorde-nous maintenant ta grâce,\nafin que, devant le mystère de la mort qui nous fait reculer,\nnous voyions la lumière de l’éternité.\nParle-nous une fois encore\nde ton message solennel sur la vie et sur la mort.\nAide-nous à vivre comme ceux qui sont prêts à mourir.\nEt quand nos jours ici-bas seront accomplis,\ndonne-nous de mourir comme ceux qui s’en vont pour vivre,\nafin que, dans la vie comme dans la mort, notre vie soit en toi,\net que rien, ni dans la vie ni dans la mort, ne puisse nous séparer\nde ton grand amour en Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('On peut aussi employer la prière suivante :'),
-      TextBlock.people('Dieu éternel,\nnous te louons pour la grande assemblée de tous ceux\nqui ont achevé leur course dans la foi\net se reposent maintenant de leurs travaux.\nNous te louons pour ceux qui nous sont chers\net dont nous prononçons les noms dans notre cœur devant toi.\nNous te louons tout particulièrement pour [Nom],\nque tu as accueilli avec bonté en ta présence.\nÀ tous ceux-là, accorde ta paix.\nQue la lumière éternelle brille sur eux ;\net aide-nous à croire sans avoir vu,\nafin que ta présence nous conduise tout au long de nos années\net nous amène enfin, avec eux,\ndans la joie de ta demeure\nnon faite de main d’homme, mais éternelle dans les cieux ;\npar Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('On peut aussi employer la prière de confession et de pardon suivante :'),
-      TextBlock.people('Dieu saint, devant toi nos cœurs sont ouverts,\net rien ne t’est caché.\nNous t’apportons maintenant\nnotre honte et notre chagrin pour nos péchés.\nNous avons oublié\nque notre vie vient de toi et va vers toi.\nNous n’avons ni cherché ni accompli ta volonté.\nNous n’avons pas été sincères dans nos cœurs,\ndans nos paroles, dans nos vies.\nNous n’avons pas aimé comme nous aurions dû aimer.\nAide-nous et guéris-nous,\nen nous relevant de nos péchés pour une vie meilleure,\nafin que nous terminions nos jours en paix,\nnous confiant en ta bonté jusqu’à la fin ;\npar Jésus-Christ notre Seigneur,\nqui vit et règne avec toi\ndans l’unité du Saint-Esprit,\nun seul Dieu, maintenant et pour toujours. Amen.'),
-      TextBlock.leader('Qui est en mesure de condamner ?\nSeulement le Christ, le Christ qui est mort pour nous, qui est ressuscité pour nous,\nqui règne à la droite de Dieu et qui intercède pour nous.\nRendons grâce à Dieu, qui nous donne la victoire\npar notre Seigneur Jésus-Christ.'),
+      TextBlock.people(
+          'Dieu éternel,\nnous te louons pour la grande assemblée de tous ceux\nqui ont achevé leur course dans la foi\net se reposent maintenant de leurs travaux.\nNous te louons pour ceux qui nous sont chers\net dont nous prononçons les noms dans notre cœur devant toi.\nNous te louons tout particulièrement pour [Nom],\nque tu as accueilli avec bonté en ta présence.\nÀ tous ceux-là, accorde ta paix.\nQue la lumière éternelle brille sur eux ;\net aide-nous à croire sans avoir vu,\nafin que ta présence nous conduise tout au long de nos années\net nous amène enfin, avec eux,\ndans la joie de ta demeure\nnon faite de main d’homme, mais éternelle dans les cieux ;\npar Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On peut aussi employer la prière de confession et de pardon suivante :'),
+      TextBlock.people(
+          'Dieu saint, devant toi nos cœurs sont ouverts,\net rien ne t’est caché.\nNous t’apportons maintenant\nnotre honte et notre chagrin pour nos péchés.\nNous avons oublié\nque notre vie vient de toi et va vers toi.\nNous n’avons ni cherché ni accompli ta volonté.\nNous n’avons pas été sincères dans nos cœurs,\ndans nos paroles, dans nos vies.\nNous n’avons pas aimé comme nous aurions dû aimer.\nAide-nous et guéris-nous,\nen nous relevant de nos péchés pour une vie meilleure,\nafin que nous terminions nos jours en paix,\nnous confiant en ta bonté jusqu’à la fin ;\npar Jésus-Christ notre Seigneur,\nqui vit et règne avec toi\ndans l’unité du Saint-Esprit,\nun seul Dieu, maintenant et pour toujours. Amen.'),
+      TextBlock.leader(
+          'Qui est en mesure de condamner ?\nSeulement le Christ, le Christ qui est mort pour nous, qui est ressuscité pour nous,\nqui règne à la droite de Dieu et qui intercède pour nous.\nRendons grâce à Dieu, qui nous donne la victoire\npar notre Seigneur Jésus-Christ.'),
       TextBlock.heading('Psaumes 130'),
-      TextBlock.note('On peut chanter ou dire ce psaume ou une autre version du Psaumes 130 :'),
-      TextBlock.p('Du fond de l\'abîme je t\'invoque, ô Éternel !\nSeigneur, écoute ma voix ! Que tes oreilles soient attentives A la voix de mes supplications !\nSi tu gardais le souvenir des iniquités, Éternel, Seigneur, qui pourrait subsister ?\nMais le pardon se trouve auprès de toi, Afin qu\'on te craigne.\nJ\'espère en l\'Éternel, mon âme espère, Et j\'attends sa promesse.\nMon âme compte sur le Seigneur, Plus que les gardes ne comptent sur le matin, Que les gardes ne comptent sur le matin.\nIsraël, mets ton espoir en l\'Éternel ! Car la miséricorde est auprès de l\'Éternel, Et la rédemption est auprès de lui en abondance.\nC\'est lui qui rachètera Israël De toutes ses iniquités.'),
+      TextBlock.note(
+          'On peut chanter ou dire ce psaume ou une autre version du Psaumes 130 :'),
+      TextBlock.p(
+          'Du fond de l\'abîme je t\'invoque, ô Éternel !\nSeigneur, écoute ma voix ! Que tes oreilles soient attentives A la voix de mes supplications !\nSi tu gardais le souvenir des iniquités, Éternel, Seigneur, qui pourrait subsister ?\nMais le pardon se trouve auprès de toi, Afin qu\'on te craigne.\nJ\'espère en l\'Éternel, mon âme espère, Et j\'attends sa promesse.\nMon âme compte sur le Seigneur, Plus que les gardes ne comptent sur le matin, Que les gardes ne comptent sur le matin.\nIsraël, mets ton espoir en l\'Éternel ! Car la miséricorde est auprès de l\'Éternel, Et la rédemption est auprès de lui en abondance.\nC\'est lui qui rachètera Israël De toutes ses iniquités.'),
       TextBlock.note('Psaumes 130, Louis Segond 1910.'),
       TextBlock.heading('Proclamation et réponse'),
       TextBlock.heading('Lecture de l’Ancien Testament'),
-      TextBlock.note('On peut lire l’un des textes suivants, ou les deux, ou un autre texte :'),
-      TextBlock.p('Consolez, consolez mon peuple, Dit votre Dieu.\nParlez au coeur de Jérusalem, et criez lui Que sa servitude est finie, Que son iniquité est expiée, Qu\'elle a reçu de la main de l\'Éternel Au double de tous ses péchés.\nUne voix crie : Préparez au désert le chemin de l\'Éternel, Aplanissez dans les lieux arides Une route pour notre Dieu.\nQue toute vallée soit exhaussée, Que toute montagne et toute colline soient abaissées ! Que les coteaux se changent en plaines, Et les défilés étroits en vallons !\nAlors la gloire de l\'Éternel sera révélée, Et au même instant toute chair la verra ; Car la bouche de l\'Éternel a parlé.\nUne voix dit : Crie ! -Et il répond : Que crierai-je ? Toute chair est comme l\'herbe, Et tout son éclat comme la fleur des champs.\nL\'herbe sèche, la fleur tombe, Quand le vent de l\'Éternel souffle dessus. -Certainement le peuple est comme l\'herbe :\nL\'herbe sèche, la fleur tombe ; Mais la parole de notre Dieu subsiste éternellement.'),
+      TextBlock.note(
+          'On peut lire l’un des textes suivants, ou les deux, ou un autre texte :'),
+      TextBlock.p(
+          'Consolez, consolez mon peuple, Dit votre Dieu.\nParlez au coeur de Jérusalem, et criez lui Que sa servitude est finie, Que son iniquité est expiée, Qu\'elle a reçu de la main de l\'Éternel Au double de tous ses péchés.\nUne voix crie : Préparez au désert le chemin de l\'Éternel, Aplanissez dans les lieux arides Une route pour notre Dieu.\nQue toute vallée soit exhaussée, Que toute montagne et toute colline soient abaissées ! Que les coteaux se changent en plaines, Et les défilés étroits en vallons !\nAlors la gloire de l\'Éternel sera révélée, Et au même instant toute chair la verra ; Car la bouche de l\'Éternel a parlé.\nUne voix dit : Crie ! -Et il répond : Que crierai-je ? Toute chair est comme l\'herbe, Et tout son éclat comme la fleur des champs.\nL\'herbe sèche, la fleur tombe, Quand le vent de l\'Éternel souffle dessus. -Certainement le peuple est comme l\'herbe :\nL\'herbe sèche, la fleur tombe ; Mais la parole de notre Dieu subsiste éternellement.'),
       TextBlock.note('Esaïe 40.1-8, Louis Segond 1910.'),
-      TextBlock.p('Ne le sais-tu pas ? ne l\'as-tu pas appris ? C\'est le Dieu d\'éternité, l\'Éternel, Qui a créé les extrémités de la terre ; Il ne se fatigue point, il ne se lasse point ; On ne peut sonder son intelligence.\nIl donne de la force à celui qui est fatigué, Et il augmente la vigueur de celui qui tombe en défaillance.\nLes adolescents se fatiguent et se lassent, Et les jeunes hommes chancellent ;\nMais ceux qui se confient en l\'Éternel renouvellent leur force. Ils prennent le vol comme les aigles ; Ils courent, et ne se lassent point, Ils marchent, et ne se fatiguent point.'),
+      TextBlock.p(
+          'Ne le sais-tu pas ? ne l\'as-tu pas appris ? C\'est le Dieu d\'éternité, l\'Éternel, Qui a créé les extrémités de la terre ; Il ne se fatigue point, il ne se lasse point ; On ne peut sonder son intelligence.\nIl donne de la force à celui qui est fatigué, Et il augmente la vigueur de celui qui tombe en défaillance.\nLes adolescents se fatiguent et se lassent, Et les jeunes hommes chancellent ;\nMais ceux qui se confient en l\'Éternel renouvellent leur force. Ils prennent le vol comme les aigles ; Ils courent, et ne se lassent point, Ils marchent, et ne se fatiguent point.'),
       TextBlock.note('Esaïe 40.28-31, Louis Segond 1910.'),
       TextBlock.note('Autres lectures bibliques suggérées'),
       TextBlock.item('Exode 14.5-14, 19-31 — La délivrance d’Israël'),
-      TextBlock.item('Esaïe 43.1-3a, 5-7, 13, 15, 18-19, 25 ; 44.6, 8a — Dieu délivrera.'),
+      TextBlock.item(
+          'Esaïe 43.1-3a, 5-7, 13, 15, 18-19, 25 ; 44.6, 8a — Dieu délivrera.'),
       TextBlock.item('Esaïe 55.1-3, 6-13 — Un chant de joie'),
       TextBlock.heading('Psaumes 23'),
-      TextBlock.note('On peut chanter ou dire ce psaume ou une autre version du Psaumes 23 :'),
-      TextBlock.p('L\'Éternel est mon berger : je ne manquerai de rien.\nIl me fait reposer dans de verts pâturages, Il me dirige près des eaux paisibles.\nIl restaure mon âme, Il me conduit dans les sentiers de la justice, A cause de son nom.\nQuand je marche dans la vallée de l\'ombre de la mort, Je ne crains aucun mal, car tu es avec moi : Ta houlette et ton bâton me rassurent.\nTu dresses devant moi une table, En face de mes adversaires ; Tu oins d\'huile ma tête, Et ma coupe déborde.\nOui, le bonheur et la grâce m\'accompagneront Tous les jours de ma vie, Et j\'habiterai dans la maison de l\'Éternel Jusqu\'à la fin de mes jours.'),
+      TextBlock.note(
+          'On peut chanter ou dire ce psaume ou une autre version du Psaumes 23 :'),
+      TextBlock.p(
+          'L\'Éternel est mon berger : je ne manquerai de rien.\nIl me fait reposer dans de verts pâturages, Il me dirige près des eaux paisibles.\nIl restaure mon âme, Il me conduit dans les sentiers de la justice, A cause de son nom.\nQuand je marche dans la vallée de l\'ombre de la mort, Je ne crains aucun mal, car tu es avec moi : Ta houlette et ton bâton me rassurent.\nTu dresses devant moi une table, En face de mes adversaires ; Tu oins d\'huile ma tête, Et ma coupe déborde.\nOui, le bonheur et la grâce m\'accompagneront Tous les jours de ma vie, Et j\'habiterai dans la maison de l\'Éternel Jusqu\'à la fin de mes jours.'),
       TextBlock.note('Psaumes 23, Louis Segond 1910.'),
       TextBlock.heading('Lecture du Nouveau Testament'),
-      TextBlock.note('On peut lire l’un des textes suivants, ou un autre texte :'),
-      TextBlock.p('Je vous rappelle, frères, l\'Évangile que je vous ai annoncé, que vous avez reçu, dans lequel vous avez persévéré,\net par lequel vous êtes sauvés, si vous le retenez tel que je vous l\'ai annoncé ; autrement, vous auriez cru en vain.\nOr, si l\'on prêche que Christ est ressuscité des morts, comment quelques-uns parmi vous disent-ils qu\'il n\'y a point de résurrection des morts ?\nCar si les morts ne ressuscitent point, Christ non plus n\'est pas ressuscité.\nEt si Christ n\'est pas ressuscité, votre foi est vaine, vous êtes encore dans vos péchés,\net par conséquent aussi ceux qui sont morts en Christ sont perdus.\nMais maintenant, Christ est ressuscité des morts, il est les prémices de ceux qui sont morts.\nMais quelqu\'un dira : Comment les morts ressuscitent-ils, et avec quel corps reviennent-ils ?\nInsensé ! ce que tu sèmes ne reprend point vie, s\'il ne meurt.\nEt ce que tu sèmes, ce n\'est pas le corps qui naîtra ; c\'est un simple grain, de blé peut-être, ou de quelque autre semence ;\npuis Dieu lui donne un corps comme il lui plaît, et à chaque semence il donne un corps qui lui est propre.\nAinsi en est-il de la résurrection des morts. Le corps est semé corruptible ; il ressuscite incorruptible ;\nil est semé méprisable, il ressuscite glorieux ; il est semé infirme, il ressuscite plein de force ;\nil est semé corps animal, il ressuscite corps spirituel. S\'il y a un corps animal, il y a aussi un corps spirituel.\nLorsque ce corps corruptible aura revêtu l\'incorruptibilité, et que ce corps mortel aura revêtu l\'immortalité, alors s\'accomplira la parole qui est écrite : La mort a été engloutie dans la victoire.\nO mort, où est ta victoire ? O mort, où est ton aiguillon ?\nMais grâces soient rendues à Dieu, qui nous donne la victoire par notre Seigneur Jésus Christ !'),
-      TextBlock.note('1 Corinthiens 15.1-2, 12, 16-18, 20, 35-38, 42-44, 54-55, 57, Louis Segond 1910.'),
-      TextBlock.p('Puis je vis un nouveau ciel et une nouvelle terre ; car le premier ciel et la première terre avaient disparu, et la mer n\'était plus.\nEt je vis descendre du ciel, d\'auprès de Dieu, la ville sainte, la nouvelle Jérusalem, préparée comme une épouse qui s\'est parée pour son époux.\nEt j\'entendis du trône une forte voix qui disait : Voici le tabernacle de Dieu avec les hommes ! Il habitera avec eux, et ils seront son peuple, et Dieu lui-même sera avec eux.\nIl essuiera toute larme de leurs yeux, et la mort ne sera plus, et il n\'y aura plus ni deuil, ni cri, ni douleur, car les premières choses ont disparu.\nEt celui qui était assis sur le trône dit : Voici, je fais toutes choses nouvelles. Et il dit : Écris ; car ces paroles sont certaines et véritables.\nEt il me dit : C\'est fait ! Je suis l\'alpha et l\'oméga, le commencement et la fin. A celui qui a soif je donnerai de la source de l\'eau de la vie, gratuitement.\nCelui qui vaincra héritera ces choses ; je serai son Dieu, et il sera mon fils.'),
+      TextBlock.note(
+          'On peut lire l’un des textes suivants, ou un autre texte :'),
+      TextBlock.p(
+          'Je vous rappelle, frères, l\'Évangile que je vous ai annoncé, que vous avez reçu, dans lequel vous avez persévéré,\net par lequel vous êtes sauvés, si vous le retenez tel que je vous l\'ai annoncé ; autrement, vous auriez cru en vain.\nOr, si l\'on prêche que Christ est ressuscité des morts, comment quelques-uns parmi vous disent-ils qu\'il n\'y a point de résurrection des morts ?\nCar si les morts ne ressuscitent point, Christ non plus n\'est pas ressuscité.\nEt si Christ n\'est pas ressuscité, votre foi est vaine, vous êtes encore dans vos péchés,\net par conséquent aussi ceux qui sont morts en Christ sont perdus.\nMais maintenant, Christ est ressuscité des morts, il est les prémices de ceux qui sont morts.\nMais quelqu\'un dira : Comment les morts ressuscitent-ils, et avec quel corps reviennent-ils ?\nInsensé ! ce que tu sèmes ne reprend point vie, s\'il ne meurt.\nEt ce que tu sèmes, ce n\'est pas le corps qui naîtra ; c\'est un simple grain, de blé peut-être, ou de quelque autre semence ;\npuis Dieu lui donne un corps comme il lui plaît, et à chaque semence il donne un corps qui lui est propre.\nAinsi en est-il de la résurrection des morts. Le corps est semé corruptible ; il ressuscite incorruptible ;\nil est semé méprisable, il ressuscite glorieux ; il est semé infirme, il ressuscite plein de force ;\nil est semé corps animal, il ressuscite corps spirituel. S\'il y a un corps animal, il y a aussi un corps spirituel.\nLorsque ce corps corruptible aura revêtu l\'incorruptibilité, et que ce corps mortel aura revêtu l\'immortalité, alors s\'accomplira la parole qui est écrite : La mort a été engloutie dans la victoire.\nO mort, où est ta victoire ? O mort, où est ton aiguillon ?\nMais grâces soient rendues à Dieu, qui nous donne la victoire par notre Seigneur Jésus Christ !'),
+      TextBlock.note(
+          '1 Corinthiens 15.1-2, 12, 16-18, 20, 35-38, 42-44, 54-55, 57, Louis Segond 1910.'),
+      TextBlock.p(
+          'Puis je vis un nouveau ciel et une nouvelle terre ; car le premier ciel et la première terre avaient disparu, et la mer n\'était plus.\nEt je vis descendre du ciel, d\'auprès de Dieu, la ville sainte, la nouvelle Jérusalem, préparée comme une épouse qui s\'est parée pour son époux.\nEt j\'entendis du trône une forte voix qui disait : Voici le tabernacle de Dieu avec les hommes ! Il habitera avec eux, et ils seront son peuple, et Dieu lui-même sera avec eux.\nIl essuiera toute larme de leurs yeux, et la mort ne sera plus, et il n\'y aura plus ni deuil, ni cri, ni douleur, car les premières choses ont disparu.\nEt celui qui était assis sur le trône dit : Voici, je fais toutes choses nouvelles. Et il dit : Écris ; car ces paroles sont certaines et véritables.\nEt il me dit : C\'est fait ! Je suis l\'alpha et l\'oméga, le commencement et la fin. A celui qui a soif je donnerai de la source de l\'eau de la vie, gratuitement.\nCelui qui vaincra héritera ces choses ; je serai son Dieu, et il sera mon fils.'),
       TextBlock.note('Révélation 21.1-7, Louis Segond 1910.'),
-      TextBlock.p('Il n\'y a donc maintenant aucune condamnation pour ceux qui sont en Jésus Christ.\nEn effet, la loi de l\'esprit de vie en Jésus Christ m\'a affranchi de la loi du péché et de la mort.\nEt si l\'Esprit de celui qui a ressuscité Jésus d\'entre les morts habite en vous, celui qui a ressuscité Christ d\'entre les morts rendra aussi la vie à vos corps mortels par son Esprit qui habite en vous.\ncar tous ceux qui sont conduits par l\'Esprit de Dieu sont fils de Dieu.\nOr, si nous sommes enfants, nous sommes aussi héritiers : héritiers de Dieu, et cohéritiers de Christ, si toutefois nous souffrons avec lui, afin d\'être glorifiés avec lui.\nJ\'estime que les souffrances du temps présent ne sauraient être comparées à la gloire à venir qui sera révélée pour nous.\nNous savons, du reste, que toutes choses concourent au bien de ceux qui aiment Dieu, de ceux qui sont appelés selon son dessein.\nQue dirons-nous donc à l\'égard de ces choses ? Si Dieu est pour nous, qui sera contre nous ?\nLui, qui n\'a point épargné son propre Fils, mais qui l\'a livré pour nous tous, comment ne nous donnera-t-il pas aussi toutes choses avec lui ?\nQui nous séparera de l\'amour de Christ ? Sera-ce la tribulation, ou l\'angoisse, ou la persécution, ou la faim, ou la nudité, ou le péril, ou l\'épée ?\nselon qu\'il est écrit : C\'est à cause de toi qu\'on nous met à mort tout le jour, Qu\'on nous regarde comme des brebis destinées à la boucherie.\nMais dans toutes ces choses nous sommes plus que vainqueurs par celui qui nous a aimés.\nCar j\'ai l\'assurance que ni la mort ni la vie, ni les anges ni les dominations, ni les choses présentes ni les choses à venir,\nni les puissances, ni la hauteur, ni la profondeur, ni aucune autre créature ne pourra nous séparer de l\'amour de Dieu manifesté en Jésus Christ notre Seigneur.'),
-      TextBlock.note('Romains 8.1-2, 11, 14, 17-18, 28, 31-32, 35-39, Louis Segond 1910.'),
+      TextBlock.p(
+          'Il n\'y a donc maintenant aucune condamnation pour ceux qui sont en Jésus Christ.\nEn effet, la loi de l\'esprit de vie en Jésus Christ m\'a affranchi de la loi du péché et de la mort.\nEt si l\'Esprit de celui qui a ressuscité Jésus d\'entre les morts habite en vous, celui qui a ressuscité Christ d\'entre les morts rendra aussi la vie à vos corps mortels par son Esprit qui habite en vous.\ncar tous ceux qui sont conduits par l\'Esprit de Dieu sont fils de Dieu.\nOr, si nous sommes enfants, nous sommes aussi héritiers : héritiers de Dieu, et cohéritiers de Christ, si toutefois nous souffrons avec lui, afin d\'être glorifiés avec lui.\nJ\'estime que les souffrances du temps présent ne sauraient être comparées à la gloire à venir qui sera révélée pour nous.\nNous savons, du reste, que toutes choses concourent au bien de ceux qui aiment Dieu, de ceux qui sont appelés selon son dessein.\nQue dirons-nous donc à l\'égard de ces choses ? Si Dieu est pour nous, qui sera contre nous ?\nLui, qui n\'a point épargné son propre Fils, mais qui l\'a livré pour nous tous, comment ne nous donnera-t-il pas aussi toutes choses avec lui ?\nQui nous séparera de l\'amour de Christ ? Sera-ce la tribulation, ou l\'angoisse, ou la persécution, ou la faim, ou la nudité, ou le péril, ou l\'épée ?\nselon qu\'il est écrit : C\'est à cause de toi qu\'on nous met à mort tout le jour, Qu\'on nous regarde comme des brebis destinées à la boucherie.\nMais dans toutes ces choses nous sommes plus que vainqueurs par celui qui nous a aimés.\nCar j\'ai l\'assurance que ni la mort ni la vie, ni les anges ni les dominations, ni les choses présentes ni les choses à venir,\nni les puissances, ni la hauteur, ni la profondeur, ni aucune autre créature ne pourra nous séparer de l\'amour de Dieu manifesté en Jésus Christ notre Seigneur.'),
+      TextBlock.note(
+          'Romains 8.1-2, 11, 14, 17-18, 28, 31-32, 35-39, Louis Segond 1910.'),
       TextBlock.note('Autres lectures bibliques suggérées'),
       TextBlock.item('2 Corinthiens 4.5-18 — La gloire en Dieu'),
       TextBlock.item('Ephésiens 1.15-23 ; 2.1-10 — Vivants en Christ'),
       TextBlock.item('1 Pierre 1.3-9, 13, 21-25 — Bénis de Dieu'),
       TextBlock.item('Révélation 7.2-3, 9-17 — La multitude des rachetés'),
       TextBlock.heading('Psaume, cantique ou chant'),
-      TextBlock.note('Recommandé, ici ou après la lecture de l’Ancien Testament :'),
-      TextBlock.item('Psaumes 42 — Comme une biche soupire après des courants d’eau'),
+      TextBlock.note(
+          'Recommandé, ici ou après la lecture de l’Ancien Testament :'),
+      TextBlock.item(
+          'Psaumes 42 — Comme une biche soupire après des courants d’eau'),
       TextBlock.item('Psaumes 43 — Tu es le Dieu qui est mon refuge.'),
       TextBlock.item('Psaumes 46 — Dieu est notre refuge et notre force.'),
       TextBlock.item('Psaumes 90 — D’éternité en éternité'),
@@ -723,53 +1031,77 @@ class BookOfWorshipData {
       TextBlock.item('Psaumes 116 — Je lèverai la coupe du salut.'),
       TextBlock.item('Psaumes 121 — Je lève mes yeux vers les montagnes.'),
       TextBlock.item('Psaumes 139 — Seigneur, tu m’as sondé.'),
-      TextBlock.item('Psaumes 145 — Le Seigneur est miséricordieux et plein de bonté.'),
+      TextBlock.item(
+          'Psaumes 145 — Le Seigneur est miséricordieux et plein de bonté.'),
       TextBlock.item('Psaumes 146 — Mon âme, loue le Seigneur.'),
       TextBlock.heading('Lecture de l’Évangile'),
       TextBlock.note('On peut lire le texte suivant, ou un autre :'),
-      TextBlock.p('Que votre coeur ne se trouble point. Croyez en Dieu, et croyez en moi.\nIl y a plusieurs demeures dans la maison de mon Père. Si cela n\'était pas, je vous l\'aurais dit. Je vais vous préparer une place.\nEt, lorsque je m\'en serai allé, et que je vous aurai préparé une place, je reviendrai, et je vous prendrai avec moi, afin que là où je suis vous y soyez aussi.\nVous savez où je vais, et vous en savez le chemin.\nJe ne vous laisserai pas orphelins, je viendrai à vous.\nEncore un peu de temps, et le monde ne me verra plus ; mais vous, vous me verrez, car je vis, et vous vivrez aussi.\nJe vous ai dit ces choses pendant que je demeure avec vous.\nMais le consolateur, l\'Esprit Saint, que le Père enverra en mon nom, vous enseignera toutes choses, et vous rappellera tout ce que je vous ai dit.\nJe vous laisse la paix, je vous donne ma paix. Je ne vous donne pas comme le monde donne. Que votre coeur ne se trouble point, et ne s\'alarme point.'),
+      TextBlock.p(
+          'Que votre coeur ne se trouble point. Croyez en Dieu, et croyez en moi.\nIl y a plusieurs demeures dans la maison de mon Père. Si cela n\'était pas, je vous l\'aurais dit. Je vais vous préparer une place.\nEt, lorsque je m\'en serai allé, et que je vous aurai préparé une place, je reviendrai, et je vous prendrai avec moi, afin que là où je suis vous y soyez aussi.\nVous savez où je vais, et vous en savez le chemin.\nJe ne vous laisserai pas orphelins, je viendrai à vous.\nEncore un peu de temps, et le monde ne me verra plus ; mais vous, vous me verrez, car je vis, et vous vivrez aussi.\nJe vous ai dit ces choses pendant que je demeure avec vous.\nMais le consolateur, l\'Esprit Saint, que le Père enverra en mon nom, vous enseignera toutes choses, et vous rappellera tout ce que je vous ai dit.\nJe vous laisse la paix, je vous donne ma paix. Je ne vous donne pas comme le monde donne. Que votre coeur ne se trouble point, et ne s\'alarme point.'),
       TextBlock.note('Jean 14.1-4, 18-19, 25-27, Louis Segond 1910.'),
       TextBlock.note('Autres lectures bibliques suggérées'),
       TextBlock.item('Luc 24.13-35 — Jésus à Emmaüs'),
-      TextBlock.item('Jean 11.1-4, 20-27, 32-35, 38-44 — La résurrection de Lazare'),
+      TextBlock.item(
+          'Jean 11.1-4, 20-27, 32-35, 38-44 — La résurrection de Lazare'),
       TextBlock.heading('Prédication'),
-      TextBlock.note('On peut prononcer une prédication qui proclame l’Évangile face à la mort. Elle peut conduire aux actes d’évocation et de témoignage suivants, ou les inclure.'),
+      TextBlock.note(
+          'On peut prononcer une prédication qui proclame l’Évangile face à la mort. Elle peut conduire aux actes d’évocation et de témoignage suivants, ou les inclure.'),
       TextBlock.heading('Évocation du défunt'),
-      TextBlock.note('La vie et la mort du défunt peuvent être évoquées, par le pasteur ou par d’autres, par la lecture d’un hommage ou d’une déclaration appropriée, ou d’une autre manière.'),
+      TextBlock.note(
+          'La vie et la mort du défunt peuvent être évoquées, par le pasteur ou par d’autres, par la lecture d’un hommage ou d’une déclaration appropriée, ou d’une autre manière.'),
       TextBlock.heading('Témoignage'),
-      TextBlock.note('Le pasteur, la famille, les amis et les membres de la congrégation peuvent exprimer brièvement leur reconnaissance à Dieu pour la grâce reçue dans la vie du défunt, et pour sa foi et sa joie chrétiennes.'),
-      TextBlock.note('On peut lire un poème ou un autre texte comme témoignage. On peut échanger des signes de foi, d’espérance et d’amour.'),
+      TextBlock.note(
+          'Le pasteur, la famille, les amis et les membres de la congrégation peuvent exprimer brièvement leur reconnaissance à Dieu pour la grâce reçue dans la vie du défunt, et pour sa foi et sa joie chrétiennes.'),
+      TextBlock.note(
+          'On peut lire un poème ou un autre texte comme témoignage. On peut échanger des signes de foi, d’espérance et d’amour.'),
       TextBlock.heading('Cantique ou chant'),
       TextBlock.heading('Symbole ou affirmation de foi'),
       TextBlock.heading('Remise à Dieu'),
-      TextBlock.note('Si la mise en terre doit conclure ce service, elle peut être abrégée et remplacer la remise à Dieu.'),
+      TextBlock.note(
+          'Si la mise en terre doit conclure ce service, elle peut être abrégée et remplacer la remise à Dieu.'),
       TextBlock.heading('Prières'),
-      TextBlock.note('On peut dire une ou plusieurs des prières suivantes, ou d’autres. Elles peuvent prendre la forme d’une prière pastorale, d’une suite de prières plus courtes ou d’une litanie. L’intercession, la remise de la vie à Dieu et l’action de grâce conviennent ici.'),
-      TextBlock.leader('Dieu de nous tous, ton amour ne finit jamais.\nQuand tout le reste fait défaut, tu restes Dieu.\nNous prions pour les uns et les autres dans notre détresse,\net pour tous ceux qui, où qu’ils soient, pleurent avec nous aujourd’hui.\nÀ ceux qui doutent, donne la lumière ;\nà ceux qui sont faibles, la force ;\nà tous ceux qui ont péché, la miséricorde ;\nà tous ceux qui sont dans la peine, ta paix.\nGarde vivant en nous\nl’amour qui nous unit les uns aux autres.\nEn tout ce que nous faisons, nous nous confions en toi.\nEt à toi,\navec ton Église sur la terre et dans le ciel,\nnous rendons honneur et gloire, maintenant et pour toujours. Amen.'),
-      TextBlock.leader('Ô Dieu, tout ce que tu nous as donné est à toi.\nComme tu nous as d’abord donné [Nom],\nnous te rendons maintenant [Nom].'),
-      TextBlock.note('Ici, le pasteur, avec d’autres, se tenant près du cercueil ou de l’urne, peut poser les mains dessus, et poursuivre :'),
-      TextBlock.leader('Accueille [Nom] dans les bras de ta miséricorde.\nRelève [Nom] avec tout ton peuple.\nAccueille-nous aussi et relève-nous vers une vie nouvelle.\nAide-nous à t’aimer et à te servir en ce monde\nafin que nous entrions dans ta joie dans le monde à venir. Amen.'),
-      TextBlock.leader('Entre tes mains, Sauveur miséricordieux,\nnous remettons ton serviteur [Nom].\nReconnais-le, nous t’en supplions humblement,\ncomme une brebis de ton bercail,\ncomme un agneau de ton troupeau,\ncomme un pécheur que tu as racheté.\nAccueille [Nom] dans les bras de ta miséricorde,\ndans le repos bienheureux de la paix éternelle\net dans la glorieuse compagnie des saints dans la lumière. Amen.'),
-      TextBlock.note('Le pasteur peut donner la Sainte Cène à tous les présents qui souhaitent partager la table du Seigneur, selon l’ordre de la Sainte Cène donné plus bas. Sinon, le service se poursuit ainsi :'),
+      TextBlock.note(
+          'On peut dire une ou plusieurs des prières suivantes, ou d’autres. Elles peuvent prendre la forme d’une prière pastorale, d’une suite de prières plus courtes ou d’une litanie. L’intercession, la remise de la vie à Dieu et l’action de grâce conviennent ici.'),
+      TextBlock.leader(
+          'Dieu de nous tous, ton amour ne finit jamais.\nQuand tout le reste fait défaut, tu restes Dieu.\nNous prions pour les uns et les autres dans notre détresse,\net pour tous ceux qui, où qu’ils soient, pleurent avec nous aujourd’hui.\nÀ ceux qui doutent, donne la lumière ;\nà ceux qui sont faibles, la force ;\nà tous ceux qui ont péché, la miséricorde ;\nà tous ceux qui sont dans la peine, ta paix.\nGarde vivant en nous\nl’amour qui nous unit les uns aux autres.\nEn tout ce que nous faisons, nous nous confions en toi.\nEt à toi,\navec ton Église sur la terre et dans le ciel,\nnous rendons honneur et gloire, maintenant et pour toujours. Amen.'),
+      TextBlock.leader(
+          'Ô Dieu, tout ce que tu nous as donné est à toi.\nComme tu nous as d’abord donné [Nom],\nnous te rendons maintenant [Nom].'),
+      TextBlock.note(
+          'Ici, le pasteur, avec d’autres, se tenant près du cercueil ou de l’urne, peut poser les mains dessus, et poursuivre :'),
+      TextBlock.leader(
+          'Accueille [Nom] dans les bras de ta miséricorde.\nRelève [Nom] avec tout ton peuple.\nAccueille-nous aussi et relève-nous vers une vie nouvelle.\nAide-nous à t’aimer et à te servir en ce monde\nafin que nous entrions dans ta joie dans le monde à venir. Amen.'),
+      TextBlock.leader(
+          'Entre tes mains, Sauveur miséricordieux,\nnous remettons ton serviteur [Nom].\nReconnais-le, nous t’en supplions humblement,\ncomme une brebis de ton bercail,\ncomme un agneau de ton troupeau,\ncomme un pécheur que tu as racheté.\nAccueille [Nom] dans les bras de ta miséricorde,\ndans le repos bienheureux de la paix éternelle\net dans la glorieuse compagnie des saints dans la lumière. Amen.'),
+      TextBlock.note(
+          'Le pasteur peut donner la Sainte Cène à tous les présents qui souhaitent partager la table du Seigneur, selon l’ordre de la Sainte Cène donné plus bas. Sinon, le service se poursuit ainsi :'),
       TextBlock.heading('Prière d’action de grâce'),
-      TextBlock.leader('Dieu d’amour, nous te rendons grâce\npour tout ce dont tu nous as comblés\njusqu’à ce jour :\npour le don de la joie aux jours de santé et de force,\net pour les dons de ta présence qui demeure et de ta promesse\naux jours de souffrance et de peine.\nNous te louons pour notre foyer et nos amis,\net pour notre baptême et notre place dans ton Église\navec tous ceux qui ont vécu et sont morts dans la fidélité.\nPar-dessus tout, nous te rendons grâce pour Jésus,\nqui a connu nos peines,\nqui est mort notre mort et ressuscité pour nous,\net qui vit et prie pour nous.\nEt comme il nous l’a enseigné, nous prions maintenant.'),
+      TextBlock.leader(
+          'Dieu d’amour, nous te rendons grâce\npour tout ce dont tu nous as comblés\njusqu’à ce jour :\npour le don de la joie aux jours de santé et de force,\net pour les dons de ta présence qui demeure et de ta promesse\naux jours de souffrance et de peine.\nNous te louons pour notre foyer et nos amis,\net pour notre baptême et notre place dans ton Église\navec tous ceux qui ont vécu et sont morts dans la fidélité.\nPar-dessus tout, nous te rendons grâce pour Jésus,\nqui a connu nos peines,\nqui est mort notre mort et ressuscité pour nous,\net qui vit et prie pour nous.\nEt comme il nous l’a enseigné, nous prions maintenant.'),
       TextBlock.heading('Le Notre Père'),
       TextBlock.note('Tous disent le Notre Père.'),
-      TextBlock.people('Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
+      TextBlock.people(
+          'Notre Père qui es aux cieux !\nQue ton nom soit sanctifié ;\nque ton règne vienne ;\nque ta volonté soit faite sur la terre comme au ciel.\nDonne-nous aujourd’hui notre pain quotidien ;\npardonne-nous nos offenses,\ncomme nous aussi nous pardonnons à ceux qui nous ont offensés ;\nne nous induis pas en tentation,\nmais délivre-nous du malin.\nCar c’est à toi qu’appartiennent le règne, la puissance et la gloire,\naux siècles des siècles. Amen !'),
       TextBlock.heading('Cantique'),
       TextBlock.note('Ce peut être un cantique de sortie.'),
       TextBlock.heading('Envoi avec bénédiction'),
-      TextBlock.note('Le pasteur, face à l’assemblée, peut donner l’une ou plusieurs des bénédictions suivantes, ou une autre :'),
-      TextBlock.leader('Que le Dieu de la paix,\nqui a ramené d’entre les morts notre Seigneur Jésus,\nle grand berger des brebis,\npar le sang d’une alliance éternelle,\nvous rende parfaits en tout ce qui est bon\nafin que vous fassiez sa volonté,\net accomplisse en nous ce qui lui est agréable,\npar Jésus-Christ,\nà qui soit la gloire aux siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Le pasteur, face à l’assemblée, peut donner l’une ou plusieurs des bénédictions suivantes, ou une autre :'),
+      TextBlock.leader(
+          'Que le Dieu de la paix,\nqui a ramené d’entre les morts notre Seigneur Jésus,\nle grand berger des brebis,\npar le sang d’une alliance éternelle,\nvous rende parfaits en tout ce qui est bon\nafin que vous fassiez sa volonté,\net accomplisse en nous ce qui lui est agréable,\npar Jésus-Christ,\nà qui soit la gloire aux siècles des siècles. Amen.'),
       TextBlock.note('Hébreux 13.20-21'),
-      TextBlock.leader('Que la paix de Dieu, qui surpasse toute intelligence,\ngarde vos cœurs et vos pensées dans la connaissance et l’amour de Dieu\net de son Fils Jésus-Christ notre Seigneur.\nEt que la bénédiction de Dieu tout-puissant,\nle Père, le Fils et le Saint-Esprit,\nsoit sur vous et demeure avec vous toujours. Amen.'),
-      TextBlock.leader('Que le Père,\nde qui toute famille dans les cieux et sur la terre tire son nom,\nselon les richesses de sa gloire,\nvous accorde d’être puissamment fortifiés\npar son Esprit dans l’homme intérieur,\nafin que le Christ habite dans vos cœurs par la foi ;\nafin que, enracinés et fondés dans l’amour,\nvous puissiez comprendre, avec tous les saints,\nquelle est la largeur, la longueur, la profondeur et la hauteur,\net connaître l’amour du Christ, qui surpasse toute connaissance,\nafin que vous soyez remplis de toute la plénitude de Dieu. Amen.'),
+      TextBlock.leader(
+          'Que la paix de Dieu, qui surpasse toute intelligence,\ngarde vos cœurs et vos pensées dans la connaissance et l’amour de Dieu\net de son Fils Jésus-Christ notre Seigneur.\nEt que la bénédiction de Dieu tout-puissant,\nle Père, le Fils et le Saint-Esprit,\nsoit sur vous et demeure avec vous toujours. Amen.'),
+      TextBlock.leader(
+          'Que le Père,\nde qui toute famille dans les cieux et sur la terre tire son nom,\nselon les richesses de sa gloire,\nvous accorde d’être puissamment fortifiés\npar son Esprit dans l’homme intérieur,\nafin que le Christ habite dans vos cœurs par la foi ;\nafin que, enracinés et fondés dans l’amour,\nvous puissiez comprendre, avec tous les saints,\nquelle est la largeur, la longueur, la profondeur et la hauteur,\net connaître l’amour du Christ, qui surpasse toute connaissance,\nafin que vous soyez remplis de toute la plénitude de Dieu. Amen.'),
       TextBlock.note('Ephésiens 3.14-19, paraphrase.'),
-      TextBlock.note('Un service de mise en terre suit au lieu du dernier repos.'),
+      TextBlock.note(
+          'Un service de mise en terre suit au lieu du dernier repos.'),
       TextBlock.heading('Ordre de la Sainte Cène'),
-      TextBlock.note('Cet ordre peut être inclus dans le service de mort et de résurrection à l’endroit indiqué, ou avant un repas pris en commun après le service, ou avec la famille à un moment qui suit le service. Notre tradition est d’inviter tous les chrétiens à la table du Seigneur, et l’invitation doit être adressée à tous les présents ; mais il ne doit y avoir aucune pression qui mettrait mal à l’aise ceux qui, pour quelque raison que ce soit, choisissent de ne pas communier.'),
+      TextBlock.note(
+          'Cet ordre peut être inclus dans le service de mort et de résurrection à l’endroit indiqué, ou avant un repas pris en commun après le service, ou avec la famille à un moment qui suit le service. Notre tradition est d’inviter tous les chrétiens à la table du Seigneur, et l’invitation doit être adressée à tous les présents ; mais il ne doit y avoir aucune pression qui mettrait mal à l’aise ceux qui, pour quelque raison que ce soit, choisissent de ne pas communier.'),
       TextBlock.heading('Prendre le pain et la coupe'),
-      TextBlock.note('Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, de ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
+      TextBlock.note(
+          'Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée, de ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas.'),
       TextBlock.heading('La grande action de grâce'),
       TextBlock.leader('Que le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous.'),
@@ -778,235 +1110,393 @@ class BookOfWorshipData {
       TextBlock.people('Nous les élevons vers le Seigneur.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Il est juste de lui rendre grâce et de le louer.'),
-      TextBlock.leader('Il est juste\nque nous te rendions grâce toujours et partout,\nPère tout-puissant (Dieu tout-puissant), créateur du ciel et de la terre,\npar Jésus-Christ notre Seigneur,\nqui est ressuscité victorieux d’entre les morts\net nous console par la bienheureuse espérance de la vie éternelle.'),
-      TextBlock.leader('C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
+      TextBlock.leader(
+          'Il est juste\nque nous te rendions grâce toujours et partout,\nPère tout-puissant (Dieu tout-puissant), créateur du ciel et de la terre,\npar Jésus-Christ notre Seigneur,\nqui est ressuscité victorieux d’entre les morts\net nous console par la bienheureuse espérance de la vie éternelle.'),
+      TextBlock.leader(
+          'C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel,\nnous louons ton nom et nous nous joignons à leur cantique sans fin :'),
       TextBlock.note('Le pasteur peut baisser les mains.'),
-      TextBlock.people('Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux !\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux !'),
+      TextBlock.people(
+          'Saint, saint, saint, Seigneur, Dieu de puissance et de force,\nle ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux !\nBéni soit celui qui vient au nom du Seigneur.\nHosanna au plus haut des cieux !'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance par l’eau et l’Esprit.\nLorsque le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous\npar la puissance de ta Parole et de ton Esprit saint.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
-      TextBlock.leader('La nuit où il s’est livré pour nous, il prit du pain,\nte rendit grâce, le rompit, le donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
-      TextBlock.leader('Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ; ceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude pour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ.\nPar le baptême de sa souffrance, de sa mort et de sa résurrection\ntu as donné naissance à ton Église,\ntu nous as délivrés de l’esclavage du péché et de la mort,\net tu as fait avec nous une nouvelle alliance par l’eau et l’Esprit.\nLorsque le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous\npar la puissance de ta Parole et de ton Esprit saint.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain, ou toucher le pain, ou le soulever.'),
+      TextBlock.leader(
+          'La nuit où il s’est livré pour nous, il prit du pain,\nte rendit grâce, le rompit, le donna à ses disciples et dit :\n« Prenez, mangez ; ceci est mon corps, donné pour vous.\nFaites cela en mémoire de moi. »'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus de la coupe, ou toucher la coupe, ou la soulever.'),
+      TextBlock.leader(
+          'Le repas terminé, il prit la coupe,\nte rendit grâce, la donna à ses disciples et dit :\n« Buvez-en tous ; ceci est mon sang, le sang de la nouvelle alliance,\nversé pour vous et pour la multitude pour le pardon des péchés.\nFaites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce\ncomme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi :'),
-      TextBlock.people('Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
-      TextBlock.note('Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ, rachetés par son sang.'),
+      TextBlock.leader(
+          'C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ,\nnous nous offrons à toi en louange et en action de grâce\ncomme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous,\ntandis que nous proclamons le mystère de la foi :'),
+      TextBlock.people(
+          'Le Christ est mort ; le Christ est ressuscité ; le Christ reviendra.'),
+      TextBlock.note(
+          'Le pasteur peut tenir les mains, paumes vers le bas, au-dessus du pain et de la coupe.'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici,\net sur ces dons de pain et de vin.\nFais qu’ils soient pour nous le corps et le sang du Christ,\nafin que nous soyons pour le monde le corps du Christ, rachetés par son sang.'),
       TextBlock.note('Le pasteur peut lever les mains.'),
-      TextBlock.leader('Par ton Esprit, fais de nous un seul avec le Christ,\nun seul les uns avec les autres, et un seul en communion avec tous tes saints,\nen particulier [Nom] et tous ceux qui nous sont les plus chers,\nque nous évoquons maintenant dans le silence de nos cœurs.'),
+      TextBlock.leader(
+          'Par ton Esprit, fais de nous un seul avec le Christ,\nun seul les uns avec les autres, et un seul en communion avec tous tes saints,\nen particulier [Nom] et tous ceux qui nous sont les plus chers,\nque nous évoquons maintenant dans le silence de nos cœurs.'),
       TextBlock.note('Un temps de silence pour le souvenir.'),
-      TextBlock.leader('Enfin, par ta grâce, conduis-les, et nous tous avec eux, à cette table\noù tes saints festoient pour toujours dans ta demeure céleste.\nPar ton Fils Jésus-Christ, avec le Saint-Esprit dans ta sainte Église,\nà toi, Père tout-puissant (Dieu), tout honneur et toute gloire, maintenant et pour toujours.'),
+      TextBlock.leader(
+          'Enfin, par ta grâce, conduis-les, et nous tous avec eux, à cette table\noù tes saints festoient pour toujours dans ta demeure céleste.\nPar ton Fils Jésus-Christ, avec le Saint-Esprit dans ta sainte Église,\nà toi, Père tout-puissant (Dieu), tout honneur et toute gloire, maintenant et pour toujours.'),
       TextBlock.people('Amen.'),
       TextBlock.heading('Le Notre Père'),
       TextBlock.note('Le pasteur peut tendre les mains en signe d’invitation.'),
-      TextBlock.leader('Et maintenant, avec la confiance des enfants de Dieu, prions :'),
-      TextBlock.note('Le pasteur peut lever les mains. Tous disent le Notre Père.'),
+      TextBlock.leader(
+          'Et maintenant, avec la confiance des enfants de Dieu, prions :'),
+      TextBlock.note(
+          'Le pasteur peut lever les mains. Tous disent le Notre Père.'),
       TextBlock.heading('La fraction du pain'),
-      TextBlock.note('Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain puis lève la coupe, en silence ou avec des paroles appropriées.'),
+      TextBlock.note(
+          'Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain puis lève la coupe, en silence ou avec des paroles appropriées.'),
       TextBlock.heading('Le don du pain et de la coupe'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
-      TextBlock.leader('Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
-      TextBlock.note('Pendant que le pain et la coupe sont donnés, l’assemblée peut chanter des cantiques, ou l’on peut offrir de la musique vocale ou instrumentale. Il est particulièrement beau que l’assemblée puisse chanter de mémoire pendant la communion.'),
-      TextBlock.note('Quand tous ont communié, la table du Seigneur est remise en ordre.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
+      TextBlock.leader(
+          'Le corps du Christ, donné pour vous. Amen.\nLe sang du Christ, versé pour vous. Amen.'),
+      TextBlock.note(
+          'Pendant que le pain et la coupe sont donnés, l’assemblée peut chanter des cantiques, ou l’on peut offrir de la musique vocale ou instrumentale. Il est particulièrement beau que l’assemblée puisse chanter de mémoire pendant la communion.'),
+      TextBlock.note(
+          'Quand tous ont communié, la table du Seigneur est remise en ordre.'),
       TextBlock.heading('Envoi avec bénédiction'),
-      TextBlock.note('Le pasteur, face à l’assemblée, peut donner l’une ou plusieurs des bénédictions données plus haut, ou une autre.'),
-      TextBlock.note('Un service de mise en terre suit au lieu du dernier repos.'),
+      TextBlock.note(
+          'Le pasteur, face à l’assemblée, peut donner l’une ou plusieurs des bénédictions données plus haut, ou une autre.'),
+      TextBlock.note(
+          'Un service de mise en terre suit au lieu du dernier repos.'),
     ],
   );
 
   static const sundayOrder = ChurchText(
     id: 'bow_sunday_order',
     title: 'Ordre du culte dominical (guide)',
-    subtitle: 'Guide détaillé de chaque moment du culte du dimanche, avec ou sans Sainte-Cène',
+    subtitle:
+        'Guide détaillé de chaque moment du culte du dimanche, avec ou sans Sainte-Cène',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Worship Using the Basic Pattern” Copyright © 1985, 1989, 1992 by The United Methodist Publishing House. Used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-sunday-worship-using-the-basic-pattern',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Worship Using the Basic Pattern” Copyright © 1985, 1989, 1992 by The United Methodist Publishing House. Used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-of-sunday-worship-using-the-basic-pattern',
     blocks: [
-      TextBlock.leader('Bien que la liberté et la diversité du culte méthodiste uni soient plus grandes que ne peut le refléter un seul ordre de culte, les méthodistes unis reconnaissent aussi l’importance d’un héritage d’ordre ainsi que celle des orientations et des modèles précis qu’un ordre de culte apporte.'),
-      TextBlock.leader('Cet ordre de culte développe le Modèle de base du culte en illustrant une partie de la variété qu’il permet. Il part du principe que les responsables du culte et l’assemblée sont en prière constante. Le culte est un moment sacré où le peuple est conduit par le Saint-Esprit à prier (Romains 8.22-26) et à adorer Dieu (1 Corinthiens 14.25). Comme le Modèle de base, il est un guide destiné à aider ceux qui préparent le culte à saisir la structure et le déroulement de nos offices. L’assemblée peut être guidée tout au long de l’office par un bulletin ou par des annonces, que la Sainte-Cène soit célébrée ou non. Cet ordre repose sur les mêmes fondements bibliques que le Modèle de base et intègre l’expérience et les traditions des chrétiens à travers les siècles, avec un soin particulier pour ce qui caractérise notre héritage méthodiste uni. Des actes de culte reflétant les coutumes et les héritages raciaux, ethniques, régionaux et locaux peuvent être utilisés de manière appropriée tout au long de cet ordre.'),
-      TextBlock.leader('Comme Jésus a invité les enfants à venir à lui, le culte méthodiste uni doit accueillir les enfants et les jeunes comme une partie intégrante de la communauté, à la fois participants et acteurs du culte. Les cultes de l’assemblée devraient comporter des récits, des chants et d’autres musiques, ainsi que des gestes adaptés aux enfants et aux jeunes de tous âges et de toutes capacités.'),
+      TextBlock.leader(
+          'Bien que la liberté et la diversité du culte méthodiste uni soient plus grandes que ne peut le refléter un seul ordre de culte, les méthodistes unis reconnaissent aussi l’importance d’un héritage d’ordre ainsi que celle des orientations et des modèles précis qu’un ordre de culte apporte.'),
+      TextBlock.leader(
+          'Cet ordre de culte développe le Modèle de base du culte en illustrant une partie de la variété qu’il permet. Il part du principe que les responsables du culte et l’assemblée sont en prière constante. Le culte est un moment sacré où le peuple est conduit par le Saint-Esprit à prier (Romains 8.22-26) et à adorer Dieu (1 Corinthiens 14.25). Comme le Modèle de base, il est un guide destiné à aider ceux qui préparent le culte à saisir la structure et le déroulement de nos offices. L’assemblée peut être guidée tout au long de l’office par un bulletin ou par des annonces, que la Sainte-Cène soit célébrée ou non. Cet ordre repose sur les mêmes fondements bibliques que le Modèle de base et intègre l’expérience et les traditions des chrétiens à travers les siècles, avec un soin particulier pour ce qui caractérise notre héritage méthodiste uni. Des actes de culte reflétant les coutumes et les héritages raciaux, ethniques, régionaux et locaux peuvent être utilisés de manière appropriée tout au long de cet ordre.'),
+      TextBlock.leader(
+          'Comme Jésus a invité les enfants à venir à lui, le culte méthodiste uni doit accueillir les enfants et les jeunes comme une partie intégrante de la communauté, à la fois participants et acteurs du culte. Les cultes de l’assemblée devraient comporter des récits, des chants et d’autres musiques, ainsi que des gestes adaptés aux enfants et aux jeunes de tous âges et de toutes capacités.'),
       TextBlock.heading('ENTRÉE'),
       TextBlock.heading('RASSEMBLEMENT'),
       TextBlock.leader('Le peuple se rassemble au nom du Seigneur.'),
-      TextBlock.leader('Une ou plusieurs cloches d’église, ou de la musique amplifiée, peuvent appeler les fidèles au culte.'),
-      TextBlock.leader('Le culte commence dès que les fidèles commencent à se rassembler. Ce qui se passe pendant le Rassemblement comprend à la fois ce que font les fidèles en entrant dans le lieu de culte et ce qui se passe une fois qu’ils sont installés. Cela doit exprimer leur venue ensemble au nom du Dieu qui nous a été révélé en Jésus-Christ. Ce moment est à la fois un rassemblement extérieur et visible du peuple et un rassemblement intérieur et spirituel : une prise de conscience qu’il forme un peuple réuni en présence du Dieu que nous connaissons par Jésus-Christ, dans la puissance du Saint-Esprit. Même lorsque le culte suit immédiatement une autre activité, comme l’école du dimanche dans la même salle, et que certaines personnes qui y ont participé restent simplement assises pour le culte qui suit, le Rassemblement demeure une partie essentielle du culte.'),
-      TextBlock.leader('Pendant le rassemblement, l’un ou plusieurs des éléments suivants peuvent avoir lieu :'),
-      TextBlock.leader('Des salutations informelles, des conversations et des moments de communion fraternelle devraient avoir leur place pendant le Rassemblement. Ce renouvellement de la communauté fait partie de notre entrée dans le culte communautaire et ne devrait pas être découragé.'),
-      TextBlock.leader('Les annonces et l’accueil des visiteurs peuvent avoir lieu pendant le Rassemblement ou à un autre moment au début du culte, par exemple à la fin de l’Entrée. L’accueil peut comprendre un rite d’amitié, au moyen de carnets ou de fiches de présence, en invitant chacun à se présenter à ceux qui l’entourent.'),
-      TextBlock.leader('On peut inclure la répétition de cantiques peu connus et d’autres chants et actes de culte de l’assemblée.'),
-      TextBlock.leader('La prière informelle, le chant et le témoignage peuvent avoir lieu pendant que les fidèles se rassemblent, ou avec un groupe, comme les responsables du culte et la chorale, réuni dans une salle séparée.'),
-      TextBlock.leader('La méditation silencieuse et la prière personnelle peuvent être encouragées pendant que l’orgue ou d’autres instruments ou voix se font entendre, ou dans une salle de prière ou une chapelle à part.'),
-      TextBlock.leader('La musique d’orgue ou toute autre musique instrumentale ou vocale fait partie du culte : c’est une offrande que le ou les musiciens présentent à Dieu au nom de toute l’assemblée, et non un simple prélude au culte.'),
-      TextBlock.leader('Les six actes suggérés ci-dessus pour le Rassemblement peuvent être combinés de diverses manières : (1) peut être encouragé avant que (5) et (6) ne commencent, ou avant que les fidèles n’entrent dans le lieu de culte ; (2), (3) ou (4) peuvent aussi précéder (5) et (6) ; (4) peut avoir lieu pendant (5) et (6), mais dans une autre salle. Aucune de ces combinaisons n’est en soi plus valable qu’une autre, mais l’une peut être bien plus appropriée qu’une autre selon l’assemblée et les circonstances.'),
-      TextBlock.leader('D’autres actes peuvent aussi convenir pendant le Rassemblement. Si des bougies sont utilisées, elles peuvent être allumées par des acolytes. S’il n’y a pas de cantique de procession, les responsables du culte et la ou les chorales peuvent entrer et prendre place.'),
+      TextBlock.leader(
+          'Une ou plusieurs cloches d’église, ou de la musique amplifiée, peuvent appeler les fidèles au culte.'),
+      TextBlock.leader(
+          'Le culte commence dès que les fidèles commencent à se rassembler. Ce qui se passe pendant le Rassemblement comprend à la fois ce que font les fidèles en entrant dans le lieu de culte et ce qui se passe une fois qu’ils sont installés. Cela doit exprimer leur venue ensemble au nom du Dieu qui nous a été révélé en Jésus-Christ. Ce moment est à la fois un rassemblement extérieur et visible du peuple et un rassemblement intérieur et spirituel : une prise de conscience qu’il forme un peuple réuni en présence du Dieu que nous connaissons par Jésus-Christ, dans la puissance du Saint-Esprit. Même lorsque le culte suit immédiatement une autre activité, comme l’école du dimanche dans la même salle, et que certaines personnes qui y ont participé restent simplement assises pour le culte qui suit, le Rassemblement demeure une partie essentielle du culte.'),
+      TextBlock.leader(
+          'Pendant le rassemblement, l’un ou plusieurs des éléments suivants peuvent avoir lieu :'),
+      TextBlock.leader(
+          'Des salutations informelles, des conversations et des moments de communion fraternelle devraient avoir leur place pendant le Rassemblement. Ce renouvellement de la communauté fait partie de notre entrée dans le culte communautaire et ne devrait pas être découragé.'),
+      TextBlock.leader(
+          'Les annonces et l’accueil des visiteurs peuvent avoir lieu pendant le Rassemblement ou à un autre moment au début du culte, par exemple à la fin de l’Entrée. L’accueil peut comprendre un rite d’amitié, au moyen de carnets ou de fiches de présence, en invitant chacun à se présenter à ceux qui l’entourent.'),
+      TextBlock.leader(
+          'On peut inclure la répétition de cantiques peu connus et d’autres chants et actes de culte de l’assemblée.'),
+      TextBlock.leader(
+          'La prière informelle, le chant et le témoignage peuvent avoir lieu pendant que les fidèles se rassemblent, ou avec un groupe, comme les responsables du culte et la chorale, réuni dans une salle séparée.'),
+      TextBlock.leader(
+          'La méditation silencieuse et la prière personnelle peuvent être encouragées pendant que l’orgue ou d’autres instruments ou voix se font entendre, ou dans une salle de prière ou une chapelle à part.'),
+      TextBlock.leader(
+          'La musique d’orgue ou toute autre musique instrumentale ou vocale fait partie du culte : c’est une offrande que le ou les musiciens présentent à Dieu au nom de toute l’assemblée, et non un simple prélude au culte.'),
+      TextBlock.leader(
+          'Les six actes suggérés ci-dessus pour le Rassemblement peuvent être combinés de diverses manières : (1) peut être encouragé avant que (5) et (6) ne commencent, ou avant que les fidèles n’entrent dans le lieu de culte ; (2), (3) ou (4) peuvent aussi précéder (5) et (6) ; (4) peut avoir lieu pendant (5) et (6), mais dans une autre salle. Aucune de ces combinaisons n’est en soi plus valable qu’une autre, mais l’une peut être bien plus appropriée qu’une autre selon l’assemblée et les circonstances.'),
+      TextBlock.leader(
+          'D’autres actes peuvent aussi convenir pendant le Rassemblement. Si des bougies sont utilisées, elles peuvent être allumées par des acolytes. S’il n’y a pas de cantique de procession, les responsables du culte et la ou les chorales peuvent entrer et prendre place.'),
       TextBlock.heading('SALUTATION ET CANTIQUE'),
-      TextBlock.leader('Face au peuple, le responsable le salue au nom du Seigneur. La Salutation doit être explicitement chrétienne, déclarant que le Seigneur est présent et rend puissant notre culte.'),
-      TextBlock.leader('La Salutation peut être une phrase de l’Écriture, comme :'),
-      TextBlock.leader('Voici le jour que l’Éternel a fait : / réjouissons-nous et soyons dans l’allégresse. (PSAUME 118.24)'),
-      TextBlock.leader('Ou bien un échange responsorial entre le responsable et l’assemblée, comme :\nResponsable : Que la grâce du Seigneur Jésus-Christ soit avec vous.'),
+      TextBlock.leader(
+          'Face au peuple, le responsable le salue au nom du Seigneur. La Salutation doit être explicitement chrétienne, déclarant que le Seigneur est présent et rend puissant notre culte.'),
+      TextBlock.leader(
+          'La Salutation peut être une phrase de l’Écriture, comme :'),
+      TextBlock.leader(
+          'Voici le jour que l’Éternel a fait : / réjouissons-nous et soyons dans l’allégresse. (PSAUME 118.24)'),
+      TextBlock.leader(
+          'Ou bien un échange responsorial entre le responsable et l’assemblée, comme :\nResponsable : Que la grâce du Seigneur Jésus-Christ soit avec vous.'),
       TextBlock.people('Assemblée : Et avec vous aussi.'),
       TextBlock.leader('Responsable : Le Christ ressuscité est avec nous.'),
       TextBlock.people('Assemblée : Louez le Seigneur !'),
-      TextBlock.leader('La chorale peut aussi chanter une salutation chrétienne à l’assemblée, parfois appelée Introït, mais celle-ci ne doit pas remplacer la salutation du responsable.'),
-      TextBlock.leader('Le cantique peut précéder ou suivre la Salutation. Le peuple, ayant été salué au nom du Seigneur, peut rendre la salutation à Dieu par un cantique de louange. En revanche, lorsque l’architecture du lieu de culte ou la nature de l’occasion appelle une entrée solennelle de la chorale et des responsables du culte, un cantique de procession ou un chant d’entrée doit précéder la Salutation, afin que celle-ci soit prononcée par le responsable face au peuple. Le rythme d’un cantique de procession doit convenir à la marche et être assez long pour que la procession s’achève.'),
-      TextBlock.leader('Ce cantique est le plus souvent une louange commune à Dieu, centrée sur les attributs et les actes de Dieu qui suscitent reconnaissance et louange. Il peut aussi exprimer les salutations que les fidèles s’adressent les uns aux autres au nom du Seigneur, ainsi que des exhortations à la louange. Il devrait normalement être connu, entraînant et affirmatif.'),
-      TextBlock.leader('Ce cantique, comme d’autres cantiques et chants du culte, peut se rapporter à la joie du Jour du Seigneur, ou au jour ou à la saison de l’année chrétienne.'),
-      TextBlock.leader('Une doxologie, une strophe, un refrain, une acclamation ou un cantique biblique peut aussi être chanté à ce moment, éventuellement repris chaque dimanche, au moins pendant une saison, afin que l’assemblée le sache par cœur. Certaines assemblées ont leur propre chant emblématique, qui peut être chanté chaque dimanche ici ou plus tard dans le culte. Un cantique d’appel à la louange peut être chanté. Chacun de ces éléments peut précéder immédiatement un cantique d’ouverture de louange.'),
-      TextBlock.leader('Il convient de se tenir debout pendant ce cantique et de le rester pour la Salutation si elle le suit.'),
+      TextBlock.leader(
+          'La chorale peut aussi chanter une salutation chrétienne à l’assemblée, parfois appelée Introït, mais celle-ci ne doit pas remplacer la salutation du responsable.'),
+      TextBlock.leader(
+          'Le cantique peut précéder ou suivre la Salutation. Le peuple, ayant été salué au nom du Seigneur, peut rendre la salutation à Dieu par un cantique de louange. En revanche, lorsque l’architecture du lieu de culte ou la nature de l’occasion appelle une entrée solennelle de la chorale et des responsables du culte, un cantique de procession ou un chant d’entrée doit précéder la Salutation, afin que celle-ci soit prononcée par le responsable face au peuple. Le rythme d’un cantique de procession doit convenir à la marche et être assez long pour que la procession s’achève.'),
+      TextBlock.leader(
+          'Ce cantique est le plus souvent une louange commune à Dieu, centrée sur les attributs et les actes de Dieu qui suscitent reconnaissance et louange. Il peut aussi exprimer les salutations que les fidèles s’adressent les uns aux autres au nom du Seigneur, ainsi que des exhortations à la louange. Il devrait normalement être connu, entraînant et affirmatif.'),
+      TextBlock.leader(
+          'Ce cantique, comme d’autres cantiques et chants du culte, peut se rapporter à la joie du Jour du Seigneur, ou au jour ou à la saison de l’année chrétienne.'),
+      TextBlock.leader(
+          'Une doxologie, une strophe, un refrain, une acclamation ou un cantique biblique peut aussi être chanté à ce moment, éventuellement repris chaque dimanche, au moins pendant une saison, afin que l’assemblée le sache par cœur. Certaines assemblées ont leur propre chant emblématique, qui peut être chanté chaque dimanche ici ou plus tard dans le culte. Un cantique d’appel à la louange peut être chanté. Chacun de ces éléments peut précéder immédiatement un cantique d’ouverture de louange.'),
+      TextBlock.leader(
+          'Il convient de se tenir debout pendant ce cantique et de le rester pour la Salutation si elle le suit.'),
       TextBlock.heading('PRIÈRES D’OUVERTURE ET LOUANGE'),
-      TextBlock.leader('Les prières d’ouverture, avec les cantiques d’ouverture, établissent que notre culte est communion avec Dieu autant qu’entre nous. Elles comportent la reconnaissance de ce que nous sommes devant Dieu, en se centrant sur la nature et les dons de Dieu.'),
-      TextBlock.leader('Ici comme ailleurs dans le culte, la posture de prière peut varier selon la coutume locale et les circonstances. La tradition biblique de prier debout convient toujours, surtout lorsque l’assemblée se tient debout pour la louange juste avant ou après la prière. S’agenouiller pour prier convient aussi, en particulier pour la confession. Prier assis et la tête inclinée est acceptable, surtout si l’autre possibilité est de laisser les gens debout ou à genoux pendant un temps pénible.'),
-      TextBlock.leader('Ici ou ailleurs dans le culte, lorsqu’une personne dirige la prière, l’Amen doit être dit ou chanté par toute l’assemblée.'),
-      TextBlock.leader('La ou les prières d’ouverture peuvent prendre plusieurs formes :'),
-      TextBlock.leader('1) Une prière du jour peut être une prière écrite, comme l’une des collectes classiques, ou une prière spontanée. Elle peut être dite à l’unisson ou conduite par une seule personne. Elle peut être précédée ou suivie de silence. Ce peut être une prière adaptée à toute circonstance ou à tout jour du Seigneur ; ou elle peut s’adresser à Dieu à la lumière du thème du jour ou du temps de l’année chrétienne.'),
-      TextBlock.leader('2) Une prière de confession et un acte de pardon peuvent suivre cet enchaînement :\na) Un appel à la confession, formel ou informel, par le responsable\nb) Une prière de confession dite à l’unisson par l’assemblée\nc) Un temps de silence\nd) Des paroles d’assurance ou une déclaration de pardon par le responsable\ne) Une réponse de l’assemblée'),
-      TextBlock.leader('La prière de confession et la déclaration de pardon vont ensemble ; l’une ne doit pas être employée sans l’autre. Le responsable peut être un laïc chargé de la liturgie. Après la prière de confession, il peut y avoir une réponse chantée. Après les paroles d’assurance ou la déclaration de pardon, il peut y avoir une réponse chantée, comme le refrain d’un cantique sur la grâce.'),
-      TextBlock.leader('La confession et le pardon peuvent avoir lieu à ce moment du culte ou plus tard, en réponse à la proclamation de la Parole. Dans une prière d’ouverture de confession, l’assemblée confesse le péché dont elle a déjà conscience, puis aborde la proclamation de la Parole dans l’assurance de la grâce pardonnante de Dieu. Reconnaître que nous sommes des pécheurs sauvés par grâce convient aussi dans les prières d’ouverture du jour ou dans les litanies. La confession en réponse à la Parole comporte la prise de conscience accrue du péché personnel et collectif à laquelle la proclamation de la Parole conduit.'),
-      TextBlock.leader('3) S’il s’agit d’une litanie, ou prière responsoriale entre le responsable et l’assemblée, l’assemblée doit avoir une réponse unique et répétée, dite ou chantée, simple et facile à retenir, comme : Seigneur, aie pitié.'),
-      TextBlock.leader('Après la ou les prières d’ouverture, si l’on souhaite un acte de louange, l’un ou plusieurs des éléments suivants peuvent être dits ou chantés, avec la participation active de toute l’assemblée si possible :'),
+      TextBlock.leader(
+          'Les prières d’ouverture, avec les cantiques d’ouverture, établissent que notre culte est communion avec Dieu autant qu’entre nous. Elles comportent la reconnaissance de ce que nous sommes devant Dieu, en se centrant sur la nature et les dons de Dieu.'),
+      TextBlock.leader(
+          'Ici comme ailleurs dans le culte, la posture de prière peut varier selon la coutume locale et les circonstances. La tradition biblique de prier debout convient toujours, surtout lorsque l’assemblée se tient debout pour la louange juste avant ou après la prière. S’agenouiller pour prier convient aussi, en particulier pour la confession. Prier assis et la tête inclinée est acceptable, surtout si l’autre possibilité est de laisser les gens debout ou à genoux pendant un temps pénible.'),
+      TextBlock.leader(
+          'Ici ou ailleurs dans le culte, lorsqu’une personne dirige la prière, l’Amen doit être dit ou chanté par toute l’assemblée.'),
+      TextBlock.leader(
+          'La ou les prières d’ouverture peuvent prendre plusieurs formes :'),
+      TextBlock.leader(
+          '1) Une prière du jour peut être une prière écrite, comme l’une des collectes classiques, ou une prière spontanée. Elle peut être dite à l’unisson ou conduite par une seule personne. Elle peut être précédée ou suivie de silence. Ce peut être une prière adaptée à toute circonstance ou à tout jour du Seigneur ; ou elle peut s’adresser à Dieu à la lumière du thème du jour ou du temps de l’année chrétienne.'),
+      TextBlock.leader(
+          '2) Une prière de confession et un acte de pardon peuvent suivre cet enchaînement :\na) Un appel à la confession, formel ou informel, par le responsable\nb) Une prière de confession dite à l’unisson par l’assemblée\nc) Un temps de silence\nd) Des paroles d’assurance ou une déclaration de pardon par le responsable\ne) Une réponse de l’assemblée'),
+      TextBlock.leader(
+          'La prière de confession et la déclaration de pardon vont ensemble ; l’une ne doit pas être employée sans l’autre. Le responsable peut être un laïc chargé de la liturgie. Après la prière de confession, il peut y avoir une réponse chantée. Après les paroles d’assurance ou la déclaration de pardon, il peut y avoir une réponse chantée, comme le refrain d’un cantique sur la grâce.'),
+      TextBlock.leader(
+          'La confession et le pardon peuvent avoir lieu à ce moment du culte ou plus tard, en réponse à la proclamation de la Parole. Dans une prière d’ouverture de confession, l’assemblée confesse le péché dont elle a déjà conscience, puis aborde la proclamation de la Parole dans l’assurance de la grâce pardonnante de Dieu. Reconnaître que nous sommes des pécheurs sauvés par grâce convient aussi dans les prières d’ouverture du jour ou dans les litanies. La confession en réponse à la Parole comporte la prise de conscience accrue du péché personnel et collectif à laquelle la proclamation de la Parole conduit.'),
+      TextBlock.leader(
+          '3) S’il s’agit d’une litanie, ou prière responsoriale entre le responsable et l’assemblée, l’assemblée doit avoir une réponse unique et répétée, dite ou chantée, simple et facile à retenir, comme : Seigneur, aie pitié.'),
+      TextBlock.leader(
+          'Après la ou les prières d’ouverture, si l’on souhaite un acte de louange, l’un ou plusieurs des éléments suivants peuvent être dits ou chantés, avec la participation active de toute l’assemblée si possible :'),
       TextBlock.leader('1) Cantique de la gloire de Dieu'),
-      TextBlock.leader('3) Le Gloria Patri ou la Gloire à Dieu au plus haut des cieux'),
-      TextBlock.leader('4) Seigneur, aie pitié (Kyrie eleison), sous forme triple'),
+      TextBlock.leader(
+          '3) Le Gloria Patri ou la Gloire à Dieu au plus haut des cieux'),
+      TextBlock.leader(
+          '4) Seigneur, aie pitié (Kyrie eleison), sous forme triple'),
       TextBlock.leader('5) Un chant de chorale'),
-      TextBlock.leader('Les chorales peuvent chanter à divers moments du culte, par exemple ici, entre les lectures ou pendant l’offrande. Partout où un chant de chorale est exécuté, il doit convenir à sa place dans le culte. Les chants qui donnent à toute l’assemblée une partie connue ou facile à apprendre sont de plus en plus courants et particulièrement recommandés. L’assemblée peut participer activement à tout chant de chorale en disant Amen à la fin.'),
-      TextBlock.leader('Parmi les autres possibilités d’acte de louange à ce moment : un cantique, une strophe, un refrain, une doxologie ou une litanie de louange dite.'),
-      TextBlock.leader('Si les annonces et l’accueil ne sont pas placés dans le Rassemblement, ils peuvent suivre les prières d’ouverture et la louange.'),
+      TextBlock.leader(
+          'Les chorales peuvent chanter à divers moments du culte, par exemple ici, entre les lectures ou pendant l’offrande. Partout où un chant de chorale est exécuté, il doit convenir à sa place dans le culte. Les chants qui donnent à toute l’assemblée une partie connue ou facile à apprendre sont de plus en plus courants et particulièrement recommandés. L’assemblée peut participer activement à tout chant de chorale en disant Amen à la fin.'),
+      TextBlock.leader(
+          'Parmi les autres possibilités d’acte de louange à ce moment : un cantique, une strophe, un refrain, une doxologie ou une litanie de louange dite.'),
+      TextBlock.leader(
+          'Si les annonces et l’accueil ne sont pas placés dans le Rassemblement, ils peuvent suivre les prières d’ouverture et la louange.'),
       TextBlock.heading('PROCLAMATION ET RÉPONSE'),
       TextBlock.heading('PRIÈRE POUR L’ILLUMINATION'),
-      TextBlock.leader('La bénédiction du Saint-Esprit est invoquée sur la lecture, la prédication, l’écoute et la mise en pratique de la Parole. L’adaptation suivante du Psaumes 19.15 peut être utilisée :'),
-      TextBlock.leader('Que les paroles de notre bouche et la méditation de notre cœur / te soient agréables, / Seigneur, notre rocher et notre libérateur. Amen.'),
-      TextBlock.leader('Cette prière peut être dite par l’assemblée à l’unisson, par une autre personne que le prédicateur, ou par le prédicateur.'),
-      TextBlock.leader('Si les prières d’ouverture ne sont pas suivies d’un acte de louange, la prière pour l’illumination peut être jointe aux prières d’ouverture, ou une seule prière peut servir aux deux fins. De nombreuses collectes traditionnelles peuvent remplir cette double fonction et permettre de passer directement de la prière d’ouverture à la lecture des Écritures.'),
+      TextBlock.leader(
+          'La bénédiction du Saint-Esprit est invoquée sur la lecture, la prédication, l’écoute et la mise en pratique de la Parole. L’adaptation suivante du Psaumes 19.15 peut être utilisée :'),
+      TextBlock.leader(
+          'Que les paroles de notre bouche et la méditation de notre cœur / te soient agréables, / Seigneur, notre rocher et notre libérateur. Amen.'),
+      TextBlock.leader(
+          'Cette prière peut être dite par l’assemblée à l’unisson, par une autre personne que le prédicateur, ou par le prédicateur.'),
+      TextBlock.leader(
+          'Si les prières d’ouverture ne sont pas suivies d’un acte de louange, la prière pour l’illumination peut être jointe aux prières d’ouverture, ou une seule prière peut servir aux deux fins. De nombreuses collectes traditionnelles peuvent remplir cette double fonction et permettre de passer directement de la prière d’ouverture à la lecture des Écritures.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.leader('On devrait prévoir deux ou trois lectures bibliques. L’ordre des lectures peut être établi de façon que la prédication soit immédiatement précédée du texte principal sur lequel elle porte.'),
-      TextBlock.leader('Première lecture (généralement tirée de l’Ancien Testament) ; psaume ; deuxième lecture (tirée du Nouveau Testament, mais non des Évangiles) ; cantique, chant ou alléluia ; Évangile (lecture de Matthieu, Marc, Luc ou Jean)'),
-      TextBlock.leader('Si chaque culte ne comporte pas de lectures de l’Ancien Testament, des Épîtres et des Évangiles, on veillera à ce que, sur une certaine période, l’assemblée entende des lectures représentatives de chacune de ces parties.'),
-      TextBlock.leader('Lorsque des laïcs, y compris des enfants plus âgés et des jeunes, sont choisis pour lire les Écritures pendant le culte, on leur laissera le temps et la possibilité de se préparer.'),
-      TextBlock.leader('Chaque lecture peut être introduite ainsi : « Lecture (ou : Écoutez la Parole de Dieu) du livre de --------, chapitre ----, à partir du verset ----. » À la fin de la lecture, le lecteur peut dire : « Parole du Seigneur », et l’assemblée peut répondre : Nous rendons grâce à Dieu. Ou bien le lecteur peut dire : « Amen », et l’assemblée répond : Amen.'),
-      TextBlock.leader('Après la première lecture, un psaume ou des extraits de psaume peuvent être chantés ou dits comme acte de louange, l’assemblée se tenant debout. Un chant de chorale inspiré du psaume convient aussi.'),
-      TextBlock.leader('Avant la dernière lecture, on peut chanter un cantique ou un chant en rapport avec les Écritures du jour, ou un alléluia.'),
-      TextBlock.leader('Comme, dans la lecture des quatre Évangiles, les paroles du Christ s’adressent directement à nous et que nous le vivons comme une rencontre avec le Christ vivant, beaucoup de chrétiens préfèrent se lever et accueillir le Christ par un Alléluia ! (sauf pendant le Carême) et rester debout pendant la lecture de l’Évangile, en signe de respect envers le Christ qui nous parle.'),
+      TextBlock.leader(
+          'On devrait prévoir deux ou trois lectures bibliques. L’ordre des lectures peut être établi de façon que la prédication soit immédiatement précédée du texte principal sur lequel elle porte.'),
+      TextBlock.leader(
+          'Première lecture (généralement tirée de l’Ancien Testament) ; psaume ; deuxième lecture (tirée du Nouveau Testament, mais non des Évangiles) ; cantique, chant ou alléluia ; Évangile (lecture de Matthieu, Marc, Luc ou Jean)'),
+      TextBlock.leader(
+          'Si chaque culte ne comporte pas de lectures de l’Ancien Testament, des Épîtres et des Évangiles, on veillera à ce que, sur une certaine période, l’assemblée entende des lectures représentatives de chacune de ces parties.'),
+      TextBlock.leader(
+          'Lorsque des laïcs, y compris des enfants plus âgés et des jeunes, sont choisis pour lire les Écritures pendant le culte, on leur laissera le temps et la possibilité de se préparer.'),
+      TextBlock.leader(
+          'Chaque lecture peut être introduite ainsi : « Lecture (ou : Écoutez la Parole de Dieu) du livre de --------, chapitre ----, à partir du verset ----. » À la fin de la lecture, le lecteur peut dire : « Parole du Seigneur », et l’assemblée peut répondre : Nous rendons grâce à Dieu. Ou bien le lecteur peut dire : « Amen », et l’assemblée répond : Amen.'),
+      TextBlock.leader(
+          'Après la première lecture, un psaume ou des extraits de psaume peuvent être chantés ou dits comme acte de louange, l’assemblée se tenant debout. Un chant de chorale inspiré du psaume convient aussi.'),
+      TextBlock.leader(
+          'Avant la dernière lecture, on peut chanter un cantique ou un chant en rapport avec les Écritures du jour, ou un alléluia.'),
+      TextBlock.leader(
+          'Comme, dans la lecture des quatre Évangiles, les paroles du Christ s’adressent directement à nous et que nous le vivons comme une rencontre avec le Christ vivant, beaucoup de chrétiens préfèrent se lever et accueillir le Christ par un Alléluia ! (sauf pendant le Carême) et rester debout pendant la lecture de l’Évangile, en signe de respect envers le Christ qui nous parle.'),
       TextBlock.heading('PRÉDICATION'),
-      TextBlock.leader('Une ou plusieurs des lectures bibliques sont expliquées et proclamées.'),
-      TextBlock.leader('Les enfants, les jeunes et les adultes doivent entendre la proclamation de la Parole et y répondre. La prédication doit s’adresser efficacement à un éventail aussi large que possible d’âges et d’étapes de développement de la foi. Au besoin, le partage de la Parole avec les enfants peut être placé plus tôt dans le culte, en réponse à la lecture de l’un des textes bibliques. Ce partage doit porter sur la Parole du jour et prendre des formes adaptées au niveau de développement des enfants présents. Les histoires et récits précis et concrets sont particulièrement encouragés.'),
+      TextBlock.leader(
+          'Une ou plusieurs des lectures bibliques sont expliquées et proclamées.'),
+      TextBlock.leader(
+          'Les enfants, les jeunes et les adultes doivent entendre la proclamation de la Parole et y répondre. La prédication doit s’adresser efficacement à un éventail aussi large que possible d’âges et d’étapes de développement de la foi. Au besoin, le partage de la Parole avec les enfants peut être placé plus tôt dans le culte, en réponse à la lecture de l’un des textes bibliques. Ce partage doit porter sur la Parole du jour et prendre des formes adaptées au niveau de développement des enfants présents. Les histoires et récits précis et concrets sont particulièrement encouragés.'),
       TextBlock.heading('RÉPONSE À LA PAROLE'),
       TextBlock.leader('Les réponses peuvent aussi comprendre :'),
-      TextBlock.leader('1) Un premier engagement envers le Christ, qui peut être suivi, le cas échéant, de l’inscription à un groupe de préparation au baptême ou à la confirmation'),
+      TextBlock.leader(
+          '1) Un premier engagement envers le Christ, qui peut être suivi, le cas échéant, de l’inscription à un groupe de préparation au baptême ou à la confirmation'),
       TextBlock.leader('2) La réaffirmation de la foi'),
-      TextBlock.leader('3) Des parties appropriées de l’Alliance baptismale :\na) Le saint baptême\nb) La confirmation\nc) La réaffirmation de l’Alliance baptismale par l’assemblée\nd) L’accueil dans l’Église méthodiste unie de personnes qui n’en font pas encore partie\ne) L’accueil dans l’assemblée locale'),
-      TextBlock.leader('4) Des services d’installation et de reconnaissance de responsables d’Église, de collaborateurs ou de groupes'),
-      TextBlock.leader('5) D’autres actes de culte, comme des services de guérison, qui constituent des réponses appropriées à la proclamation de la Parole'),
-      TextBlock.leader('6) Des services de consécration ou de dédicace relatifs à l’édifice de l’église ou à son mobilier'),
-      TextBlock.leader('7) Un engagement de l’assemblée ou de personnes dans des actions précises, comme la mission ou la réconciliation'),
-      TextBlock.leader('8) Un temps de recueillement silencieux ou d’expressions spontanées de l’assemblée'),
-      TextBlock.leader('9) Le Symbole des apôtres ou un autre symbole de foi, sauf s’il a déjà été employé dans l’Alliance baptismale'),
+      TextBlock.leader(
+          '3) Des parties appropriées de l’Alliance baptismale :\na) Le saint baptême\nb) La confirmation\nc) La réaffirmation de l’Alliance baptismale par l’assemblée\nd) L’accueil dans l’Église méthodiste unie de personnes qui n’en font pas encore partie\ne) L’accueil dans l’assemblée locale'),
+      TextBlock.leader(
+          '4) Des services d’installation et de reconnaissance de responsables d’Église, de collaborateurs ou de groupes'),
+      TextBlock.leader(
+          '5) D’autres actes de culte, comme des services de guérison, qui constituent des réponses appropriées à la proclamation de la Parole'),
+      TextBlock.leader(
+          '6) Des services de consécration ou de dédicace relatifs à l’édifice de l’église ou à son mobilier'),
+      TextBlock.leader(
+          '7) Un engagement de l’assemblée ou de personnes dans des actions précises, comme la mission ou la réconciliation'),
+      TextBlock.leader(
+          '8) Un temps de recueillement silencieux ou d’expressions spontanées de l’assemblée'),
+      TextBlock.leader(
+          '9) Le Symbole des apôtres ou un autre symbole de foi, sauf s’il a déjà été employé dans l’Alliance baptismale'),
       TextBlock.heading('PRÉOCCUPATIONS ET PRIÈRES'),
-      TextBlock.leader('Les joies et les préoccupations à inclure dans les prières peuvent être exprimées. La prière peut prendre une ou plusieurs des formes suivantes :\n1) De brèves intercessions, demandes et actions de grâce peuvent être dites par le responsable ou par des membres de l’assemblée.'),
+      TextBlock.leader(
+          'Les joies et les préoccupations à inclure dans les prières peuvent être exprimées. La prière peut prendre une ou plusieurs des formes suivantes :\n1) De brèves intercessions, demandes et actions de grâce peuvent être dites par le responsable ou par des membres de l’assemblée.'),
       TextBlock.leader('2) Une litanie d’intercession et de supplication.'),
-      TextBlock.leader('3) Une prière d’invitation ou de demande. Elle peut aussi comprendre des bénédictions pour des personnes et des prières pour des dimanches particuliers ou des jours du calendrier civil et confessionnel.'),
-      TextBlock.leader('4) La prière pastorale, dans laquelle le pasteur compose et présente une prière rassemblant les préoccupations de l’Église et du monde. La participation de l’assemblée à la prière s’exprime par un Amen, chanté ou dit à l’unisson, à la fin. Pour que l’assemblée sache quand chanter ou dire son Amen, le pasteur peut conclure régulièrement la prière par des mots tels que : « par (au nom de) Jésus-Christ notre Seigneur ».'),
-      TextBlock.leader('Avant les prières, les sujets de prière ou demandes peuvent être recueillis auprès de l’assemblée, oralement ou par écrit.'),
-      TextBlock.leader('Pendant ce temps, les personnes peuvent être invitées à s’agenouiller à la table de communion.'),
-      TextBlock.leader('Les assemblées qui ne souhaitent pas placer les préoccupations et prières ni l’offrande après la proclamation de la Parole peuvent les placer aux prières d’ouverture et à la louange. Les prières d’ouverture peuvent alors être élargies pour inclure les préoccupations et prières, l’offrande venant ensuite, accompagnée d’un acte de louange ou d’une pièce d’orgue ou d’un autre instrument.'),
+      TextBlock.leader(
+          '3) Une prière d’invitation ou de demande. Elle peut aussi comprendre des bénédictions pour des personnes et des prières pour des dimanches particuliers ou des jours du calendrier civil et confessionnel.'),
+      TextBlock.leader(
+          '4) La prière pastorale, dans laquelle le pasteur compose et présente une prière rassemblant les préoccupations de l’Église et du monde. La participation de l’assemblée à la prière s’exprime par un Amen, chanté ou dit à l’unisson, à la fin. Pour que l’assemblée sache quand chanter ou dire son Amen, le pasteur peut conclure régulièrement la prière par des mots tels que : « par (au nom de) Jésus-Christ notre Seigneur ».'),
+      TextBlock.leader(
+          'Avant les prières, les sujets de prière ou demandes peuvent être recueillis auprès de l’assemblée, oralement ou par écrit.'),
+      TextBlock.leader(
+          'Pendant ce temps, les personnes peuvent être invitées à s’agenouiller à la table de communion.'),
+      TextBlock.leader(
+          'Les assemblées qui ne souhaitent pas placer les préoccupations et prières ni l’offrande après la proclamation de la Parole peuvent les placer aux prières d’ouverture et à la louange. Les prières d’ouverture peuvent alors être élargies pour inclure les préoccupations et prières, l’offrande venant ensuite, accompagnée d’un acte de louange ou d’une pièce d’orgue ou d’un autre instrument.'),
       TextBlock.heading('CONFESSION, PARDON ET PAIX'),
-      TextBlock.leader('Voici un exemple de l’enchaînement confession-pardon utilisé ici ou pendant l’Entrée :'),
-      TextBlock.leader('Confessons notre péché envers Dieu et envers notre prochain.'),
-      TextBlock.people('Dieu de toute miséricorde, nous confessons que nous avons péché contre toi / en pensée, en parole et en action, / par ce que nous avons fait et par ce que nous n’avons pas fait. Nous ne t’avons pas aimé de tout notre cœur ; / nous n’avons pas aimé notre prochain comme nous-mêmes. Nous le regrettons sincèrement et nous nous repentons humblement. Pour l’amour de ton Fils Jésus-Christ, aie pitié de nous et pardonne-nous, / afin que nous trouvions notre joie dans ta volonté, que nous marchions dans tes voies, / à la gloire de ton nom. Amen.'),
+      TextBlock.leader(
+          'Voici un exemple de l’enchaînement confession-pardon utilisé ici ou pendant l’Entrée :'),
+      TextBlock.leader(
+          'Confessons notre péché envers Dieu et envers notre prochain.'),
+      TextBlock.people(
+          'Dieu de toute miséricorde, nous confessons que nous avons péché contre toi / en pensée, en parole et en action, / par ce que nous avons fait et par ce que nous n’avons pas fait. Nous ne t’avons pas aimé de tout notre cœur ; / nous n’avons pas aimé notre prochain comme nous-mêmes. Nous le regrettons sincèrement et nous nous repentons humblement. Pour l’amour de ton Fils Jésus-Christ, aie pitié de nous et pardonne-nous, / afin que nous trouvions notre joie dans ta volonté, que nous marchions dans tes voies, / à la gloire de ton nom. Amen.'),
       TextBlock.note('Tous font en silence la prière de confession.'),
-      TextBlock.leader('Que Dieu Tout-Puissant ait pitié de vous, / vous pardonne tous vos péchés par notre Seigneur Jésus-Christ, / vous fortifie dans toute bonté / et, par la puissance du Saint-Esprit, vous garde dans la vie éternelle. Amen.'),
-      TextBlock.leader('Les fidèles peuvent se donner des signes de réconciliation et d’amour, particulièrement quand la Sainte-Cène est célébrée. La Paix est un acte de réconciliation et de bénédiction, fondé sur la pratique chrétienne du Nouveau Testament (Romains 16.16 ; 1 Corinthiens 16.20 ; 2 Corinthiens 13.12 ; 1 Thessaloniciens 5.26 ; 1 Pierre 5.14). Sa place immédiatement avant l’offrande rappelle Matthieu 5.23-24. Ce n’est pas simplement notre paix que nous offrons, mais la paix du Christ. Les gestes et les paroles peuvent beaucoup varier selon le tempérament et les coutumes de l’assemblée et la nature de l’occasion. Par exemple, on peut serrer la main de l’autre et dire : « La paix du Christ soit avec toi », et l’autre répond : « Et avec toi aussi. » La Paix ne doit pas être confondue avec le rite d’amitié ou d’accueil des visiteurs. Si la confession et le pardon sont placés plus tôt dans le culte, la Paix peut tout de même être échangée à ce moment.'),
+      TextBlock.leader(
+          'Que Dieu Tout-Puissant ait pitié de vous, / vous pardonne tous vos péchés par notre Seigneur Jésus-Christ, / vous fortifie dans toute bonté / et, par la puissance du Saint-Esprit, vous garde dans la vie éternelle. Amen.'),
+      TextBlock.leader(
+          'Les fidèles peuvent se donner des signes de réconciliation et d’amour, particulièrement quand la Sainte-Cène est célébrée. La Paix est un acte de réconciliation et de bénédiction, fondé sur la pratique chrétienne du Nouveau Testament (Romains 16.16 ; 1 Corinthiens 16.20 ; 2 Corinthiens 13.12 ; 1 Thessaloniciens 5.26 ; 1 Pierre 5.14). Sa place immédiatement avant l’offrande rappelle Matthieu 5.23-24. Ce n’est pas simplement notre paix que nous offrons, mais la paix du Christ. Les gestes et les paroles peuvent beaucoup varier selon le tempérament et les coutumes de l’assemblée et la nature de l’occasion. Par exemple, on peut serrer la main de l’autre et dire : « La paix du Christ soit avec toi », et l’autre répond : « Et avec toi aussi. » La Paix ne doit pas être confondue avec le rite d’amitié ou d’accueil des visiteurs. Si la confession et le pardon sont placés plus tôt dans le culte, la Paix peut tout de même être échangée à ce moment.'),
       TextBlock.heading('OFFRANDE'),
       TextBlock.leader('Une offrande peut comprendre :'),
       TextBlock.leader('1) Des dons d’argent ou des produits du travail'),
-      TextBlock.leader('2) D’autres dons appropriés, comme des dons à la mémoire de quelqu’un ou d’autres objets à consacrer'),
-      TextBlock.leader('3) Le pain et la coupe, apportés par des représentants de l’assemblée à la table du Seigneur avec les autres dons, ou découverts s’ils s’y trouvent déjà, si la Sainte-Cène doit suivre'),
-      TextBlock.leader('Pendant que les dons sont reçus et présentés, on peut aussi offrir :\n1) Un cantique\n2) Un psaume\n3) Un chant de chorale\n4) De la musique instrumentale'),
+      TextBlock.leader(
+          '2) D’autres dons appropriés, comme des dons à la mémoire de quelqu’un ou d’autres objets à consacrer'),
+      TextBlock.leader(
+          '3) Le pain et la coupe, apportés par des représentants de l’assemblée à la table du Seigneur avec les autres dons, ou découverts s’ils s’y trouvent déjà, si la Sainte-Cène doit suivre'),
+      TextBlock.leader(
+          'Pendant que les dons sont reçus et présentés, on peut aussi offrir :\n1) Un cantique\n2) Un psaume\n3) Un chant de chorale\n4) De la musique instrumentale'),
       TextBlock.heading('ACTION DE GRÂCE (SANS SAINTE-CÈNE)'),
-      TextBlock.leader('La prière d’action de grâce suivante, ou une autre, est dite après la présentation des dons :'),
-      TextBlock.leader('Tout vient de toi, ô Dieu, / et c’est avec louange et reconnaissance que nous te rendons ce qui t’appartient. Tu as créé tout ce qui existe, et dans ton amour tu nous as façonnés à ton image. Quand notre amour a failli, ton amour est resté fidèle. Tu as donné ton Fils unique, Jésus-Christ, pour être notre Sauveur, / afin que nous ayons la vie en abondance et la vie éternelle. Tout ce que nous sommes et tout ce que nous avons nous est confié par toi. Aussi, en reconnaissance de tout ce que tu as fait, / nous t’offrons nos personnes et tout ce que nous avons, / en union avec l’offrande du Christ pour nous. Par ton Saint-Esprit, fais de nous un avec le Christ, un les uns avec les autres, / et un dans le service de tout le monde ; / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'La prière d’action de grâce suivante, ou une autre, est dite après la présentation des dons :'),
+      TextBlock.leader(
+          'Tout vient de toi, ô Dieu, / et c’est avec louange et reconnaissance que nous te rendons ce qui t’appartient. Tu as créé tout ce qui existe, et dans ton amour tu nous as façonnés à ton image. Quand notre amour a failli, ton amour est resté fidèle. Tu as donné ton Fils unique, Jésus-Christ, pour être notre Sauveur, / afin que nous ayons la vie en abondance et la vie éternelle. Tout ce que nous sommes et tout ce que nous avons nous est confié par toi. Aussi, en reconnaissance de tout ce que tu as fait, / nous t’offrons nos personnes et tout ce que nous avons, / en union avec l’offrande du Christ pour nous. Par ton Saint-Esprit, fais de nous un avec le Christ, un les uns avec les autres, / et un dans le service de tout le monde ; / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
-      TextBlock.leader('Un temps de silence peut suivre la prière du Seigneur.'),
-      TextBlock.leader('Si la Sainte-Cène n’est pas célébrée, le culte s’achève par l’Envoi.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.leader(
+          'Un temps de silence peut suivre la prière du Seigneur.'),
+      TextBlock.leader(
+          'Si la Sainte-Cène n’est pas célébrée, le culte s’achève par l’Envoi.'),
       TextBlock.heading('ACTION DE GRÂCE (AVEC SAINTE-CÈNE)'),
       TextBlock.heading('PRENDRE LE PAIN ET LA COUPE'),
-      TextBlock.leader('C’est la première des quatre actions de la Sainte-Cène, fondées sur les gestes de Jésus dans la chambre haute.'),
-      TextBlock.leader('Le pasteur, debout derrière la table du Seigneur, prend le pain et la coupe, qui ont été posés sur la table, et les prépare pour le repas. Si une table d’autel est fixée contre le mur, le pasteur peut se tenir à côté, ou bien une table du Seigneur indépendante peut être placée devant elle. Il est traditionnel qu’une nappe de lin blanc recouvre le dessus de la table du Seigneur sous le pain et la coupe ; il ne faut pas la confondre avec les parements qui pendent du haut de la table et montrent la couleur du jour ou du temps liturgique. Il est aussi traditionnel que le pain et la coupe soient recouverts d’une serviette de lin blanc, d’un carton couvert de lin blanc posé sur la coupe, ou de couvercles métalliques.'),
-      TextBlock.leader('Le pain peut être levé ou sans levain. L’usage d’un grand pain entier, qui sera rompu plus tard dans le culte et distribué à l’assemblée, suit la pratique rapportée par Paul en 1 Corinthiens 10.16-17 et symbolise le fait que l’Église est un seul corps en Christ. Ce pain peut être cuit par un membre de l’assemblée. Le pain pita convient particulièrement quand les fidèles communient par intinction (en trempant le pain dans la coupe). Si le pain est encore emballé ou couvert, le pasteur doit le déballer ou le découvrir avant de commencer la Grande Action de grâce, mais sans le couper ni le rompre. Si l’on utilise des hosties ou des cubes de pain, le pasteur retire le ou les couvercles ou la couverture.'),
-      TextBlock.leader('Une grande coupe, appelée communément calice, est aussi un symbole d’unité en Christ. Si la coupe n’a pas encore été remplie, le pasteur doit le faire à ce moment. Si l’on utilise des coupes individuelles, le pasteur en retire alors le ou les couvercles. Bien que la pratique chrétienne historique et œcuménique ait été d’utiliser du vin, l’emploi de jus de raisin non fermenté par l’Église méthodiste unie et ses prédécesseurs depuis la fin du XIXe siècle exprime la sollicitude pastorale envers les personnes en voie de guérison de l’alcoolisme, permet la participation des enfants et des jeunes, et soutient le témoignage d’abstinence de l’Église.'),
+      TextBlock.leader(
+          'C’est la première des quatre actions de la Sainte-Cène, fondées sur les gestes de Jésus dans la chambre haute.'),
+      TextBlock.leader(
+          'Le pasteur, debout derrière la table du Seigneur, prend le pain et la coupe, qui ont été posés sur la table, et les prépare pour le repas. Si une table d’autel est fixée contre le mur, le pasteur peut se tenir à côté, ou bien une table du Seigneur indépendante peut être placée devant elle. Il est traditionnel qu’une nappe de lin blanc recouvre le dessus de la table du Seigneur sous le pain et la coupe ; il ne faut pas la confondre avec les parements qui pendent du haut de la table et montrent la couleur du jour ou du temps liturgique. Il est aussi traditionnel que le pain et la coupe soient recouverts d’une serviette de lin blanc, d’un carton couvert de lin blanc posé sur la coupe, ou de couvercles métalliques.'),
+      TextBlock.leader(
+          'Le pain peut être levé ou sans levain. L’usage d’un grand pain entier, qui sera rompu plus tard dans le culte et distribué à l’assemblée, suit la pratique rapportée par Paul en 1 Corinthiens 10.16-17 et symbolise le fait que l’Église est un seul corps en Christ. Ce pain peut être cuit par un membre de l’assemblée. Le pain pita convient particulièrement quand les fidèles communient par intinction (en trempant le pain dans la coupe). Si le pain est encore emballé ou couvert, le pasteur doit le déballer ou le découvrir avant de commencer la Grande Action de grâce, mais sans le couper ni le rompre. Si l’on utilise des hosties ou des cubes de pain, le pasteur retire le ou les couvercles ou la couverture.'),
+      TextBlock.leader(
+          'Une grande coupe, appelée communément calice, est aussi un symbole d’unité en Christ. Si la coupe n’a pas encore été remplie, le pasteur doit le faire à ce moment. Si l’on utilise des coupes individuelles, le pasteur en retire alors le ou les couvercles. Bien que la pratique chrétienne historique et œcuménique ait été d’utiliser du vin, l’emploi de jus de raisin non fermenté par l’Église méthodiste unie et ses prédécesseurs depuis la fin du XIXe siècle exprime la sollicitude pastorale envers les personnes en voie de guérison de l’alcoolisme, permet la participation des enfants et des jeunes, et soutient le témoignage d’abstinence de l’Église.'),
       TextBlock.heading('LA GRANDE ACTION DE GRÂCE'),
-      TextBlock.leader('Comme Jésus a rendu grâce sur (béni) le pain et la coupe, ainsi font le pasteur et l’assemblée. Cette prière est dirigée par le pasteur affecté à cette assemblée et autorisé par l’évêque à y administrer les sacrements, ou par un autre ancien ordonné. Si ni le pasteur ni aucune autre personne ordonnée n’est présent, on célébrera un repas d’amour (agape) plutôt que la Sainte-Cène. Le pasteur se tient debout derrière la table du Seigneur, l’assemblée étant aussi debout. Après un dialogue d’introduction entre le pasteur et l’assemblée, le pasteur rend grâce de façon adaptée à l’occasion, en rappelant les actes de salut de Dieu et l’institution de la Cène, et invoque l’œuvre présente du Saint-Esprit, pour conclure par la louange à la Trinité. Les réponses d’adoration et d’acclamation de l’assemblée s’intercalent, et la prière se termine par l’Amen de l’assemblée.'),
+      TextBlock.leader(
+          'Comme Jésus a rendu grâce sur (béni) le pain et la coupe, ainsi font le pasteur et l’assemblée. Cette prière est dirigée par le pasteur affecté à cette assemblée et autorisé par l’évêque à y administrer les sacrements, ou par un autre ancien ordonné. Si ni le pasteur ni aucune autre personne ordonnée n’est présent, on célébrera un repas d’amour (agape) plutôt que la Sainte-Cène. Le pasteur se tient debout derrière la table du Seigneur, l’assemblée étant aussi debout. Après un dialogue d’introduction entre le pasteur et l’assemblée, le pasteur rend grâce de façon adaptée à l’occasion, en rappelant les actes de salut de Dieu et l’institution de la Cène, et invoque l’œuvre présente du Saint-Esprit, pour conclure par la louange à la Trinité. Les réponses d’adoration et d’acclamation de l’assemblée s’intercalent, et la prière se termine par l’Amen de l’assemblée.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.leader('Elle fait le lien entre la première des deux actions de la Sainte-Cène (l’action de grâce) et la seconde (la communion). Elle est à la fois le sommet sublime de notre action de grâce à Dieu et l’entrée, par la parole, dans une communion avec Dieu qui est sainte au-delà des mots.'),
-      TextBlock.leader('L’assemblée peut être invitée à dire la prière du Seigneur par cette invitation : « Et maintenant, avec la confiance des enfants de Dieu, prions : … »'),
+      TextBlock.leader(
+          'Elle fait le lien entre la première des deux actions de la Sainte-Cène (l’action de grâce) et la seconde (la communion). Elle est à la fois le sommet sublime de notre action de grâce à Dieu et l’entrée, par la parole, dans une communion avec Dieu qui est sainte au-delà des mots.'),
+      TextBlock.leader(
+          'L’assemblée peut être invitée à dire la prière du Seigneur par cette invitation : « Et maintenant, avec la confiance des enfants de Dieu, prions : … »'),
       TextBlock.heading('LA FRACTION DU PAIN'),
-      TextBlock.leader('La troisième des quatre actions de la Sainte-Cène est, comme la première, brève et prépare l’acte qui la suit immédiatement. C’est une suite de gestes qui invitent l’assemblée à venir au repas. Le pasteur, toujours debout derrière la table du Seigneur, élève le pain entier, non coupé, à la vue de l’assemblée et le rompt de ses mains, en silence ou avec des paroles appropriées. Si l’on utilise des hosties individuelles ou des cubes de pain, on rompt l’une des hosties (de préférence une plus grande) ou un gros morceau du pain dans lequel les cubes ont été coupés. Le pasteur élève ensuite la coupe, ou l’une des coupes, en silence ou avec des paroles appropriées.'),
-      TextBlock.leader('Après la fraction du pain, le pasteur peut annoncer que la table est prête et que l’on peut venir se faire servir, par une phrase comme : « Venez, la table est prête. »'),
+      TextBlock.leader(
+          'La troisième des quatre actions de la Sainte-Cène est, comme la première, brève et prépare l’acte qui la suit immédiatement. C’est une suite de gestes qui invitent l’assemblée à venir au repas. Le pasteur, toujours debout derrière la table du Seigneur, élève le pain entier, non coupé, à la vue de l’assemblée et le rompt de ses mains, en silence ou avec des paroles appropriées. Si l’on utilise des hosties individuelles ou des cubes de pain, on rompt l’une des hosties (de préférence une plus grande) ou un gros morceau du pain dans lequel les cubes ont été coupés. Le pasteur élève ensuite la coupe, ou l’une des coupes, en silence ou avec des paroles appropriées.'),
+      TextBlock.leader(
+          'Après la fraction du pain, le pasteur peut annoncer que la table est prête et que l’on peut venir se faire servir, par une phrase comme : « Venez, la table est prête. »'),
       TextBlock.heading('LA DISTRIBUTION DU PAIN ET DE LA COUPE'),
-      TextBlock.leader('Dans la quatrième et dernière action de la Sainte-Cène, le pain et la coupe sont donnés à l’assemblée comme Jésus les a donnés à ses disciples. Des laïcs comme d’autres membres du clergé peuvent aider le pasteur à distribuer le pain et la coupe. Tous ceux qui ont l’intention de mener une vie chrétienne, ainsi que leurs enfants, sont invités à recevoir le pain et la coupe. Nous n’avons pas pour tradition d’écarter qui que ce soit se présentant avec le désir de recevoir. Chacun peut les recevoir debout, à genoux ou assis. Notre coutume est de servir chaque personne individuellement, en échangeant ces paroles ou d’autres :'),
-      TextBlock.leader('[Prénom,] le corps du Christ, donné pour toi. Amen.\n[Prénom,] le sang du Christ, versé pour toi. Amen.'),
-      TextBlock.leader('Le corps du Christ, le pain du ciel. Amen.\nLe sang du Christ, la coupe du salut. Amen.'),
-      TextBlock.leader('Jésus-Christ, le pain du ciel. Amen.\nJésus-Christ, la coupe du salut. Amen.'),
-      TextBlock.leader('On fera tout pour que chacun, et surtout les enfants, se sente le bienvenu à la table. Il est particulièrement efficace de regarder droit dans les yeux la personne à qui l’on s’adresse, de lui toucher la main en lui donnant le pain et la coupe et, si possible, de l’appeler par son prénom.'),
-      TextBlock.leader('Se servir les uns les autres met en acte notre foi que le Christ est celui qui donne ce repas saint et que nous sommes les bénéficiaires de sa grâce. Il est traditionnel que le pasteur reçoive le pain et la coupe en premier, puis serve ceux qui l’aident à les distribuer ; mais, si on le souhaite, le pasteur et ses aides peuvent communier en dernier. L’un des aides peut servir le pasteur.'),
-      TextBlock.leader('L’assemblée peut chanter des cantiques pendant la distribution du pain et de la coupe. Le jour ou le temps de l’année chrétienne, ainsi que la connaissance et l’amour que les fidèles ont de certains cantiques, sont des éléments importants dans le choix des cantiques appropriés. Il est particulièrement efficace que les fidèles puissent chanter de mémoire.'),
-      TextBlock.leader('Une fois que l’assemblée a été servie, la table du Seigneur est remise en ordre.'),
-      TextBlock.leader('Ce que l’on fait du pain et du vin restants doit exprimer notre responsabilité à l’égard des dons de Dieu et notre respect pour le saint usage auquel ils ont servi.'),
-      TextBlock.leader('1) On peut les mettre de côté pour les distribuer aux malades et à d’autres qui désirent communier mais ne peuvent venir.'),
-      TextBlock.leader('2) Ils peuvent être consommés avec respect par le pasteur et d’autres pendant que la table est remise en ordre ou après le culte.'),
-      TextBlock.leader('3) Ils peuvent être rendus à la terre : le pain peut être enterré ou répandu sur le sol, et le vin versé avec respect sur le sol — geste biblique d’adoration (2 Samuel 23.16) et symbole écologique aujourd’hui.'),
-      TextBlock.leader('Une brève prière d’action de grâce, dite par le pasteur ou à l’unisson, peut conclure la distribution du pain et de la coupe une fois l’assemblée servie. Parfois, le cantique final peut remplir cette fonction. Les premières strophes de certains cantiques peuvent être chantées pendant que les fidèles sont servis, la ou les dernières strophes étant chantées après le service.'),
+      TextBlock.leader(
+          'Dans la quatrième et dernière action de la Sainte-Cène, le pain et la coupe sont donnés à l’assemblée comme Jésus les a donnés à ses disciples. Des laïcs comme d’autres membres du clergé peuvent aider le pasteur à distribuer le pain et la coupe. Tous ceux qui ont l’intention de mener une vie chrétienne, ainsi que leurs enfants, sont invités à recevoir le pain et la coupe. Nous n’avons pas pour tradition d’écarter qui que ce soit se présentant avec le désir de recevoir. Chacun peut les recevoir debout, à genoux ou assis. Notre coutume est de servir chaque personne individuellement, en échangeant ces paroles ou d’autres :'),
+      TextBlock.leader(
+          '[Prénom,] le corps du Christ, donné pour toi. Amen.\n[Prénom,] le sang du Christ, versé pour toi. Amen.'),
+      TextBlock.leader(
+          'Le corps du Christ, le pain du ciel. Amen.\nLe sang du Christ, la coupe du salut. Amen.'),
+      TextBlock.leader(
+          'Jésus-Christ, le pain du ciel. Amen.\nJésus-Christ, la coupe du salut. Amen.'),
+      TextBlock.leader(
+          'On fera tout pour que chacun, et surtout les enfants, se sente le bienvenu à la table. Il est particulièrement efficace de regarder droit dans les yeux la personne à qui l’on s’adresse, de lui toucher la main en lui donnant le pain et la coupe et, si possible, de l’appeler par son prénom.'),
+      TextBlock.leader(
+          'Se servir les uns les autres met en acte notre foi que le Christ est celui qui donne ce repas saint et que nous sommes les bénéficiaires de sa grâce. Il est traditionnel que le pasteur reçoive le pain et la coupe en premier, puis serve ceux qui l’aident à les distribuer ; mais, si on le souhaite, le pasteur et ses aides peuvent communier en dernier. L’un des aides peut servir le pasteur.'),
+      TextBlock.leader(
+          'L’assemblée peut chanter des cantiques pendant la distribution du pain et de la coupe. Le jour ou le temps de l’année chrétienne, ainsi que la connaissance et l’amour que les fidèles ont de certains cantiques, sont des éléments importants dans le choix des cantiques appropriés. Il est particulièrement efficace que les fidèles puissent chanter de mémoire.'),
+      TextBlock.leader(
+          'Une fois que l’assemblée a été servie, la table du Seigneur est remise en ordre.'),
+      TextBlock.leader(
+          'Ce que l’on fait du pain et du vin restants doit exprimer notre responsabilité à l’égard des dons de Dieu et notre respect pour le saint usage auquel ils ont servi.'),
+      TextBlock.leader(
+          '1) On peut les mettre de côté pour les distribuer aux malades et à d’autres qui désirent communier mais ne peuvent venir.'),
+      TextBlock.leader(
+          '2) Ils peuvent être consommés avec respect par le pasteur et d’autres pendant que la table est remise en ordre ou après le culte.'),
+      TextBlock.leader(
+          '3) Ils peuvent être rendus à la terre : le pain peut être enterré ou répandu sur le sol, et le vin versé avec respect sur le sol — geste biblique d’adoration (2 Samuel 23.16) et symbole écologique aujourd’hui.'),
+      TextBlock.leader(
+          'Une brève prière d’action de grâce, dite par le pasteur ou à l’unisson, peut conclure la distribution du pain et de la coupe une fois l’assemblée servie. Parfois, le cantique final peut remplir cette fonction. Les premières strophes de certains cantiques peuvent être chantées pendant que les fidèles sont servis, la ou les dernières strophes étant chantées après le service.'),
       TextBlock.heading('ENVOI'),
       TextBlock.heading('CANTIQUE OU CHANT ET CONGÉ AVEC BÉNÉDICTION'),
-      TextBlock.leader('Que la Sainte-Cène ait été célébrée ou non, le culte s’achève par une suite d’actes au cours desquels l’assemblée se lève et est envoyée vers un ministère actif dans le monde.'),
-      TextBlock.leader('Le cantique ou chant final d’envoi peut être un cantique entier, ou simplement une ou plusieurs strophes. Ce peut être :'),
-      TextBlock.leader('1) Un cantique d’action de grâce et de louange, ou une doxologie'),
+      TextBlock.leader(
+          'Que la Sainte-Cène ait été célébrée ou non, le culte s’achève par une suite d’actes au cours desquels l’assemblée se lève et est envoyée vers un ministère actif dans le monde.'),
+      TextBlock.leader(
+          'Le cantique ou chant final d’envoi peut être un cantique entier, ou simplement une ou plusieurs strophes. Ce peut être :'),
+      TextBlock.leader(
+          '1) Un cantique d’action de grâce et de louange, ou une doxologie'),
       TextBlock.leader('2) Une consécration au service dans le monde'),
       TextBlock.leader('3) Un chant de sortie'),
       TextBlock.leader('4) Un cantique d’action de grâce après la Sainte-Cène'),
-      TextBlock.leader('5) Un cantique préféré ou chant emblématique, chanté chaque semaine'),
-      TextBlock.leader('Le congé avec bénédiction, souvent appelé bénédiction, est prononcé par le pasteur, face à l’assemblée. Il s’adresse à l’assemblée et non à Dieu, et il convient que le pasteur et l’assemblée se regardent pendant qu’il est donné. C’est pourquoi il doit être donné depuis l’avant, et non l’arrière, du sanctuaire.'),
-      TextBlock.leader('Si le cantique ou chant final est un chant de sortie auquel le pasteur se joint, il doit suivre le congé avec bénédiction ; sinon, il le précède.'),
+      TextBlock.leader(
+          '5) Un cantique préféré ou chant emblématique, chanté chaque semaine'),
+      TextBlock.leader(
+          'Le congé avec bénédiction, souvent appelé bénédiction, est prononcé par le pasteur, face à l’assemblée. Il s’adresse à l’assemblée et non à Dieu, et il convient que le pasteur et l’assemblée se regardent pendant qu’il est donné. C’est pourquoi il doit être donné depuis l’avant, et non l’arrière, du sanctuaire.'),
+      TextBlock.leader(
+          'Si le cantique ou chant final est un chant de sortie auquel le pasteur se joint, il doit suivre le congé avec bénédiction ; sinon, il le précède.'),
       TextBlock.heading('SORTIE'),
-      TextBlock.leader('Comme le Rassemblement, la Sortie est un acte de culte communautaire tant que les fidèles sont encore ensemble dans le lieu de culte. Un ou plusieurs des éléments suivants peuvent être inclus :'),
-      TextBlock.leader('1) Une pièce d’orgue ou d’un autre instrument, pendant laquelle chacun est libre de sortir, de rester debout en silence pour écouter, ou de s’asseoir pour écouter'),
-      TextBlock.leader('2) Un temps de silence avant que l’assemblée ne se disperse'),
-      TextBlock.leader('3) L’extinction des bougies et le portement de la lumière dehors (pour symboliser la lumière du Christ qui nous conduit dans le monde), si cela n’a pas été fait pendant la sortie'),
-      TextBlock.leader('4) Des salutations informelles, des conversations et des moments de communion fraternelle'),
+      TextBlock.leader(
+          'Comme le Rassemblement, la Sortie est un acte de culte communautaire tant que les fidèles sont encore ensemble dans le lieu de culte. Un ou plusieurs des éléments suivants peuvent être inclus :'),
+      TextBlock.leader(
+          '1) Une pièce d’orgue ou d’un autre instrument, pendant laquelle chacun est libre de sortir, de rester debout en silence pour écouter, ou de s’asseoir pour écouter'),
+      TextBlock.leader(
+          '2) Un temps de silence avant que l’assemblée ne se disperse'),
+      TextBlock.leader(
+          '3) L’extinction des bougies et le portement de la lumière dehors (pour symboliser la lumière du Christ qui nous conduit dans le monde), si cela n’a pas été fait pendant la sortie'),
+      TextBlock.leader(
+          '4) Des salutations informelles, des conversations et des moments de communion fraternelle'),
     ],
   );
 
   static const loveFeast = ChurchText(
     id: 'bow_love_feast',
     title: 'Le repas d’amour (agape)',
-    subtitle: 'Un repas de fraternité méthodiste : témoignages, prière, partage du pain',
+    subtitle:
+        'Un repas de fraternité méthodiste : témoignages, prière, partage du pain',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Love Feast” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Love Feast” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
     sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/the-love-feast',
     blocks: [
-      TextBlock.note('Le repas d’amour (agape, en anglais Love Feast) est un repas de fraternité chrétienne qui rappelle les repas que Jésus a partagés avec ses disciples pendant son ministère et qui exprime la koinonia (communauté, partage, communion fraternelle) dont jouit la famille du Christ.'),
-      TextBlock.note('Bien que ses origines dans l’Église primitive soient étroitement liées à celles de la Cène, les deux célébrations sont devenues tout à fait distinctes et ne doivent pas être confondues. Alors que la Cène a été pratiquement universelle chez les chrétiens tout au long de l’histoire de l’Église, le repas d’amour n’est apparu qu’à certaines époques et dans certaines confessions.'),
-      TextBlock.note('L’histoire moderne du repas d’amour a commencé lorsque le comte Zinzendorf et les Frères moraves, en Allemagne, ont instauré en 1727 un culte de partage de nourriture, de prière, de conversation spirituelle et de cantiques. John Wesley en fit l’expérience pour la première fois chez les Moraves, à Savannah, en Géorgie, dix ans plus tard. Son journal note : « Après les prières du soir, nous nous sommes joints aux Allemands pour l’un de leurs repas d’amour. Il a commencé et s’est terminé par l’action de grâce et la prière, et il a été célébré d’une manière si digne et si solennelle qu’un chrétien de l’âge apostolique l’aurait jugé digne du Christ. »'),
-      TextBlock.note('Il est vite devenu un trait du Réveil évangélique et une partie régulière des réunions des sociétés méthodistes en Grande-Bretagne et dans tout le monde anglophone. Lorsque les méthodistes ont émigré en Amérique du Nord, ils ont fait des repas d’amour une part importante du méthodisme américain des débuts.'),
-      TextBlock.note('Si les repas d’amour sont devenus moins fréquents dans les années qui ont suivi, on en a continué la pratique en certains lieux, et ces dernières années le repas d’amour a été remis à l’honneur. On en a souvent tenu lors des Conférences annuelles et des Conférences de circonscription, où chacun peut raconter ce que Dieu a fait dans sa vie et l’espérance et la confiance qu’il place en Dieu pour l’avenir. Le repas d’amour est aussi une part importante de la pratique des groupes d’alliance de disciples. Noël, le réveillon ou le jour de l’An, les jours de la Semaine sainte et le jour de la Pentecôte sont aussi des occasions qui s’y prêtent. Un repas d’amour peut également avoir lieu pendant un repas communautaire.'),
-      TextBlock.note('On a souvent tenu le repas d’amour dans des circonstances où la célébration de la Cène ne conviendrait pas : lorsque personne n’est présent qui soit autorisé à administrer le sacrement, lorsque sont présentes des personnes de confessions différentes qui ne se sentent pas libres de communier ensemble, lorsqu’on désire un culte plus informel et plus spontané que le rite de la communion, ou lors d’un repas complet ou dans un autre cadre auquel il serait difficile d’adapter la Cène.'),
-      TextBlock.note('Le repas d’amour se tient le plus naturellement autour d’une table ou avec les participants assis en cercle ; mais on peut aussi le tenir avec des personnes assises en rangées. Le sanctuaire d’une église, une salle communautaire ou une maison sont des lieux appropriés.'),
-      TextBlock.note('L’un des avantages du repas d’amour est que tout chrétien peut le diriger. La participation et la direction de l’assemblée y sont habituellement larges et importantes, en particulier avec les enfants.'),
-      TextBlock.note('Les témoignages et la louange sont le point central de la plupart des repas d’amour. Les témoignages peuvent être un témoignage personnel de la grâce de Dieu ou le récit de ce que Dieu fait dans la vie d’autres personnes. La louange peut prendre la forme de cantiques, de chants, de refrains ou d’exclamations, et aller de la relative solennité d’un cantique d’ouverture et de clôture à des demandes lancées spontanément et à des chants selon que l’Esprit conduit. Parfois le responsable guide l’assemblée en alternant chants spontanés et partage dans une conversation libre et familière, aussi longtemps que l’Esprit conduit. Wesley recommandait que tout cela se fasse avec dignité et dans l’ordre.'),
-      TextBlock.leader('La prière est essentielle dans un repas d’amour. On peut employer une forme de prière fixe, en particulier le Notre Père ou une prière de table connue de tous. Des demandes de prière et des prières spontanées peuvent venir de l’assemblée.'),
-      TextBlock.note('L’Écriture est aussi importante. Il peut y avoir des lectures bibliques, ou chacun peut citer spontanément l’Écriture selon que l’Esprit conduit. Il peut y avoir une prédication, une exhortation ou une allocution, mais elle doit rester informelle et consister, de la part du responsable, en un témoignage personnel qui s’ajoute à ce qui vient spontanément de l’assemblée.'),
-      TextBlock.note('La plupart des repas d’amour comprennent un partage de nourriture. Il est d’usage de ne pas utiliser le pain, le vin ni le jus de raisin de la communion, afin de ne pas confondre le repas d’amour avec la Cène. Le pain peut être un pain ordinaire, des biscuits secs, des petits pains ou un pain sucré préparé pour l’occasion. S’il s’agit d’un pain entier, on peut le rompre en deux ou plusieurs morceaux, puis le faire passer de main en main, chacun en détachant un morceau. Les biscuits, les petits pains ou les tranches de pain peuvent être passés dans une corbeille. La boisson a généralement été de l’eau, mais d’autres boissons comme la limonade, le thé ou le café ont été utilisées. Les premiers méthodistes faisaient volontiers passer de personne en personne une coupe d’amitié à deux anses ; plus tard, l’eau a été servie dans des verres individuels. La nourriture est servie en silence, sans interrompre le culte.'),
-      TextBlock.note('Le repas d’amour peut aussi être suivi d’un repas complet ; dans ce cas, des personnes ou des familles peuvent apporter des plats à partager avec tous. Pendant le repas, il peut y avoir une conversation informelle dans la communion fraternelle, ou bien le responsable peut orienter l’échange en proposant des sujets d’intérêt commun, ou encore témoignages et louange peuvent jaillir spontanément. S’il reste de la nourriture, on peut l’emporter, en signe d’amour, à des personnes absentes.'),
+      TextBlock.note(
+          'Le repas d’amour (agape, en anglais Love Feast) est un repas de fraternité chrétienne qui rappelle les repas que Jésus a partagés avec ses disciples pendant son ministère et qui exprime la koinonia (communauté, partage, communion fraternelle) dont jouit la famille du Christ.'),
+      TextBlock.note(
+          'Bien que ses origines dans l’Église primitive soient étroitement liées à celles de la Cène, les deux célébrations sont devenues tout à fait distinctes et ne doivent pas être confondues. Alors que la Cène a été pratiquement universelle chez les chrétiens tout au long de l’histoire de l’Église, le repas d’amour n’est apparu qu’à certaines époques et dans certaines confessions.'),
+      TextBlock.note(
+          'L’histoire moderne du repas d’amour a commencé lorsque le comte Zinzendorf et les Frères moraves, en Allemagne, ont instauré en 1727 un culte de partage de nourriture, de prière, de conversation spirituelle et de cantiques. John Wesley en fit l’expérience pour la première fois chez les Moraves, à Savannah, en Géorgie, dix ans plus tard. Son journal note : « Après les prières du soir, nous nous sommes joints aux Allemands pour l’un de leurs repas d’amour. Il a commencé et s’est terminé par l’action de grâce et la prière, et il a été célébré d’une manière si digne et si solennelle qu’un chrétien de l’âge apostolique l’aurait jugé digne du Christ. »'),
+      TextBlock.note(
+          'Il est vite devenu un trait du Réveil évangélique et une partie régulière des réunions des sociétés méthodistes en Grande-Bretagne et dans tout le monde anglophone. Lorsque les méthodistes ont émigré en Amérique du Nord, ils ont fait des repas d’amour une part importante du méthodisme américain des débuts.'),
+      TextBlock.note(
+          'Si les repas d’amour sont devenus moins fréquents dans les années qui ont suivi, on en a continué la pratique en certains lieux, et ces dernières années le repas d’amour a été remis à l’honneur. On en a souvent tenu lors des Conférences annuelles et des Conférences de circonscription, où chacun peut raconter ce que Dieu a fait dans sa vie et l’espérance et la confiance qu’il place en Dieu pour l’avenir. Le repas d’amour est aussi une part importante de la pratique des groupes d’alliance de disciples. Noël, le réveillon ou le jour de l’An, les jours de la Semaine sainte et le jour de la Pentecôte sont aussi des occasions qui s’y prêtent. Un repas d’amour peut également avoir lieu pendant un repas communautaire.'),
+      TextBlock.note(
+          'On a souvent tenu le repas d’amour dans des circonstances où la célébration de la Cène ne conviendrait pas : lorsque personne n’est présent qui soit autorisé à administrer le sacrement, lorsque sont présentes des personnes de confessions différentes qui ne se sentent pas libres de communier ensemble, lorsqu’on désire un culte plus informel et plus spontané que le rite de la communion, ou lors d’un repas complet ou dans un autre cadre auquel il serait difficile d’adapter la Cène.'),
+      TextBlock.note(
+          'Le repas d’amour se tient le plus naturellement autour d’une table ou avec les participants assis en cercle ; mais on peut aussi le tenir avec des personnes assises en rangées. Le sanctuaire d’une église, une salle communautaire ou une maison sont des lieux appropriés.'),
+      TextBlock.note(
+          'L’un des avantages du repas d’amour est que tout chrétien peut le diriger. La participation et la direction de l’assemblée y sont habituellement larges et importantes, en particulier avec les enfants.'),
+      TextBlock.note(
+          'Les témoignages et la louange sont le point central de la plupart des repas d’amour. Les témoignages peuvent être un témoignage personnel de la grâce de Dieu ou le récit de ce que Dieu fait dans la vie d’autres personnes. La louange peut prendre la forme de cantiques, de chants, de refrains ou d’exclamations, et aller de la relative solennité d’un cantique d’ouverture et de clôture à des demandes lancées spontanément et à des chants selon que l’Esprit conduit. Parfois le responsable guide l’assemblée en alternant chants spontanés et partage dans une conversation libre et familière, aussi longtemps que l’Esprit conduit. Wesley recommandait que tout cela se fasse avec dignité et dans l’ordre.'),
+      TextBlock.leader(
+          'La prière est essentielle dans un repas d’amour. On peut employer une forme de prière fixe, en particulier le Notre Père ou une prière de table connue de tous. Des demandes de prière et des prières spontanées peuvent venir de l’assemblée.'),
+      TextBlock.note(
+          'L’Écriture est aussi importante. Il peut y avoir des lectures bibliques, ou chacun peut citer spontanément l’Écriture selon que l’Esprit conduit. Il peut y avoir une prédication, une exhortation ou une allocution, mais elle doit rester informelle et consister, de la part du responsable, en un témoignage personnel qui s’ajoute à ce qui vient spontanément de l’assemblée.'),
+      TextBlock.note(
+          'La plupart des repas d’amour comprennent un partage de nourriture. Il est d’usage de ne pas utiliser le pain, le vin ni le jus de raisin de la communion, afin de ne pas confondre le repas d’amour avec la Cène. Le pain peut être un pain ordinaire, des biscuits secs, des petits pains ou un pain sucré préparé pour l’occasion. S’il s’agit d’un pain entier, on peut le rompre en deux ou plusieurs morceaux, puis le faire passer de main en main, chacun en détachant un morceau. Les biscuits, les petits pains ou les tranches de pain peuvent être passés dans une corbeille. La boisson a généralement été de l’eau, mais d’autres boissons comme la limonade, le thé ou le café ont été utilisées. Les premiers méthodistes faisaient volontiers passer de personne en personne une coupe d’amitié à deux anses ; plus tard, l’eau a été servie dans des verres individuels. La nourriture est servie en silence, sans interrompre le culte.'),
+      TextBlock.note(
+          'Le repas d’amour peut aussi être suivi d’un repas complet ; dans ce cas, des personnes ou des familles peuvent apporter des plats à partager avec tous. Pendant le repas, il peut y avoir une conversation informelle dans la communion fraternelle, ou bien le responsable peut orienter l’échange en proposant des sujets d’intérêt commun, ou encore témoignages et louange peuvent jaillir spontanément. S’il reste de la nourriture, on peut l’emporter, en signe d’amour, à des personnes absentes.'),
       TextBlock.heading('CANTIQUE OU REFRAIN D’OUVERTURE'),
       TextBlock.heading('PRIÈRES'),
-      TextBlock.leader('Une ou plusieurs personnes peuvent prier à haute voix, les autres répondant par Amen, Alléluia, Louez le Seigneur ou d’autres réponses selon que l’Esprit conduit ; on peut aussi dire ou chanter une prière ou une prière de table.'),
+      TextBlock.leader(
+          'Une ou plusieurs personnes peuvent prier à haute voix, les autres répondant par Amen, Alléluia, Louez le Seigneur ou d’autres réponses selon que l’Esprit conduit ; on peut aussi dire ou chanter une prière ou une prière de table.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.leader('Lectures suggérées :\nPsaumes 145.8-21 — l’amour débordant de Dieu\n1 Corinthiens 13 — le don de l’amour\n2 Corinthiens 9.6-15 — notre partage généreux glorifie Dieu\nPhilippiens 2.5-11 — Dieu se dépouille en Jésus-Christ\n1 Jean 4.7-21 — Dieu est amour\nMatthieu 22.34-40 — l’amour de Dieu et du prochain\nLuc 9.12-17 — le repas des cinq mille\nLuc 14.16-24 — la parabole du grand festin\nJean 6.25-35 — Jésus, le pain de vie'),
+      TextBlock.leader(
+          'Lectures suggérées :\nPsaumes 145.8-21 — l’amour débordant de Dieu\n1 Corinthiens 13 — le don de l’amour\n2 Corinthiens 9.6-15 — notre partage généreux glorifie Dieu\nPhilippiens 2.5-11 — Dieu se dépouille en Jésus-Christ\n1 Jean 4.7-21 — Dieu est amour\nMatthieu 22.34-40 — l’amour de Dieu et du prochain\nLuc 9.12-17 — le repas des cinq mille\nLuc 14.16-24 — la parabole du grand festin\nJean 6.25-35 — Jésus, le pain de vie'),
       TextBlock.heading('ALLOCUTION OU TÉMOIGNAGE PERSONNEL SUR L’ÉCRITURE'),
-      TextBlock.note('Une ou plusieurs personnes peuvent donner un témoignage personnel sur l’Écriture.'),
+      TextBlock.note(
+          'Une ou plusieurs personnes peuvent donner un témoignage personnel sur l’Écriture.'),
       TextBlock.heading('LE PARTAGE DU PAIN'),
-      TextBlock.note('Le pain passe de personne en personne. Chacun peut être invité, en passant le pain, à citer un verset biblique. Le responsable peut recevoir en dernier et conclure par quelques mots, une brève prière ou une invitation à un engagement nouveau envers le Christ et à une vie sainte.'),
+      TextBlock.note(
+          'Le pain passe de personne en personne. Chacun peut être invité, en passant le pain, à citer un verset biblique. Le responsable peut recevoir en dernier et conclure par quelques mots, une brève prière ou une invitation à un engagement nouveau envers le Christ et à une vie sainte.'),
       TextBlock.heading('[COLLECTE POUR LES PAUVRES]'),
       TextBlock.heading('[CIRCULATION DE LA COUPE D’AMITIÉ]'),
       TextBlock.heading('TÉMOIGNAGES, PRIÈRES, CHANTS'),
@@ -1021,34 +1511,49 @@ class BookOfWorshipData {
     title: 'Louange et prière du matin',
     subtitle: 'Un office bref pour commencer la journée, en groupe',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for Morning Praise and Prayer,” Copyright © 1992 UMPH. Note: an additional petition (for the earth) has been added, 2013, by Discipleship Ministries, in keeping with the Council of Bishops’ 2009 teaching document, “God’s Renewed Creation: Call to Hope and Action.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-morning-praise-and-prayer',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for Morning Praise and Prayer,” Copyright © 1992 UMPH. Note: an additional petition (for the earth) has been added, 2013, by Discipleship Ministries, in keeping with the Council of Bishops’ 2009 teaching document, “God’s Renewed Creation: Call to Hope and Action.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-morning-praise-and-prayer',
     blocks: [
-      TextBlock.note('Ce culte est destiné à des groupes, à l’aube ou au début de leur journée de prière. Il est particulièrement beau lorsque la lumière du matin est visible.'),
-      TextBlock.note('L’assemblée peut être invitée à rester debout pendant tout le culte, sauf pendant la lecture de l’Écriture et le silence, s’il y en a.'),
+      TextBlock.note(
+          'Ce culte est destiné à des groupes, à l’aube ou au début de leur journée de prière. Il est particulièrement beau lorsque la lumière du matin est visible.'),
+      TextBlock.note(
+          'L’assemblée peut être invitée à rester debout pendant tout le culte, sauf pendant la lecture de l’Écriture et le silence, s’il y en a.'),
       TextBlock.heading('APPEL À LA LOUANGE ET À LA PRIÈRE'),
       TextBlock.note('Chanté ou dit :'),
-      TextBlock.leader('Seigneur, ouvre mes lèvres. / Et ma bouche publiera ta louange. (PSAUME 51.17, ADAPTÉ)'),
+      TextBlock.leader(
+          'Seigneur, ouvre mes lèvres. / Et ma bouche publiera ta louange. (PSAUME 51.17, ADAPTÉ)'),
       TextBlock.heading('CANTIQUE DU MATIN'),
       TextBlock.leader('On peut chanter un cantique qui convient au matin.'),
       TextBlock.heading('PRIÈRE D’ACTION DE GRÂCE'),
-      TextBlock.leader('Une prière d’action de grâce pour le jour nouveau peut être dite par le responsable ou par tous ensemble.'),
+      TextBlock.leader(
+          'Une prière d’action de grâce pour le jour nouveau peut être dite par le responsable ou par tous ensemble.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.note('Les lectures suivantes, ou d’autres qui conviennent au matin, au jour ou au temps de l’année chrétienne, ou à la nature de l’occasion, peuvent être utilisées :'),
-      TextBlock.leader('Deutéronome 6.4-7 — le Shema\nEsaïe 55.1-3 — invitation à la vie en abondance\nPsaumes 51 — prière de purification et de pardon\nPsaumes 63 — consolation et assurance\nPsaumes 95 — appel à l’adoration et à l’obéissance\nRomains 12.1-2 — soyez transformés par Dieu\nJean 1.1-5, 9-14 — au commencement était la Parole'),
+      TextBlock.note(
+          'Les lectures suivantes, ou d’autres qui conviennent au matin, au jour ou au temps de l’année chrétienne, ou à la nature de l’occasion, peuvent être utilisées :'),
+      TextBlock.leader(
+          'Deutéronome 6.4-7 — le Shema\nEsaïe 55.1-3 — invitation à la vie en abondance\nPsaumes 51 — prière de purification et de pardon\nPsaumes 63 — consolation et assurance\nPsaumes 95 — appel à l’adoration et à l’obéissance\nRomains 12.1-2 — soyez transformés par Dieu\nJean 1.1-5, 9-14 — au commencement était la Parole'),
       TextBlock.heading('SILENCE'),
-      TextBlock.leader('Méditation silencieuse sur l’Écriture qui vient d’être lue. Elle peut se conclure par une courte prière, comme : Que nos prières te soient agréables, ô Dieu, notre rocher et notre salut. Amen.'),
+      TextBlock.leader(
+          'Méditation silencieuse sur l’Écriture qui vient d’être lue. Elle peut se conclure par une courte prière, comme : Que nos prières te soient agréables, ô Dieu, notre rocher et notre salut. Amen.'),
       TextBlock.heading('CHANT DE LOUANGE'),
-      TextBlock.leader('Le chant de louange traditionnel du matin est le cantique de Zacharie. On peut aussi chanter les psaumes et cantiques suivants, ou d’autres chants bibliques ou cantiques :\nPsaumes 100\nPsaumes 148\nPsaumes 150\nCantique de la lumière et des ténèbres\nCantique de Moïse et de Miriam\nCantique de louange à Dieu\nCantique de la gloire de Dieu\nCantique de la Sainte Trinité'),
+      TextBlock.leader(
+          'Le chant de louange traditionnel du matin est le cantique de Zacharie. On peut aussi chanter les psaumes et cantiques suivants, ou d’autres chants bibliques ou cantiques :\nPsaumes 100\nPsaumes 148\nPsaumes 150\nCantique de la lumière et des ténèbres\nCantique de Moïse et de Miriam\nCantique de louange à Dieu\nCantique de la gloire de Dieu\nCantique de la Sainte Trinité'),
       TextBlock.heading('PRIÈRES DE L’ASSEMBLÉE'),
-      TextBlock.leader('La litanie d’intercession suivante, ou une autre, peut être priée ; chacun peut y ajouter une brève prière d’intercession ou de demande.'),
-      TextBlock.leader('Après chaque prière, le responsable peut conclure : Seigneur, dans ta miséricorde, et tous peuvent répondre : Exauce notre prière.'),
-      TextBlock.leader('Prions ensemble / pour les membres de cette assemblée… / pour ceux qui souffrent et ceux qui sont dans la détresse… / pour les préoccupations de notre communauté locale… / pour le monde, ses peuples et ses dirigeants… / pour la terre que tu as confiée à nos soins… / pour l’Église universelle — ses responsables, ses membres et sa mission… / en communion avec les saints…'),
+      TextBlock.leader(
+          'La litanie d’intercession suivante, ou une autre, peut être priée ; chacun peut y ajouter une brève prière d’intercession ou de demande.'),
+      TextBlock.leader(
+          'Après chaque prière, le responsable peut conclure : Seigneur, dans ta miséricorde, et tous peuvent répondre : Exauce notre prière.'),
+      TextBlock.leader(
+          'Prions ensemble / pour les membres de cette assemblée… / pour ceux qui souffrent et ceux qui sont dans la détresse… / pour les préoccupations de notre communauté locale… / pour le monde, ses peuples et ses dirigeants… / pour la terre que tu as confiée à nos soins… / pour l’Église universelle — ses responsables, ses membres et sa mission… / en communion avec les saints…'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
       TextBlock.note('Chantée ou dite.'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('BÉNÉDICTION'),
-      TextBlock.leader('Que la grâce du Seigneur Jésus-Christ, / l’amour de Dieu / et la communion du Saint-Esprit / soient avec vous tous. Amen.'),
+      TextBlock.leader(
+          'Que la grâce du Seigneur Jésus-Christ, / l’amour de Dieu / et la communion du Saint-Esprit / soient avec vous tous. Amen.'),
       TextBlock.heading('LA PAIX'),
       TextBlock.note('On peut échanger des signes de paix.'),
     ],
@@ -1059,256 +1564,392 @@ class BookOfWorshipData {
     title: 'Louange et prière du soir',
     subtitle: 'Un office bref pour terminer la journée, en groupe',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for Evening Praise and Prayer” Copyright © 1992 UMPH. Note: an additional petition (for the earth) has been added, 2013, by Discipleship Ministries, in keeping with the Council of Bishops’ 2009 teaching document, “God’s Renewed Creation: Call to Hope and Action.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-evening-praise-and-prayer',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for Evening Praise and Prayer” Copyright © 1992 UMPH. Note: an additional petition (for the earth) has been added, 2013, by Discipleship Ministries, in keeping with the Council of Bishops’ 2009 teaching document, “God’s Renewed Creation: Call to Hope and Action.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-evening-praise-and-prayer',
     blocks: [
-      TextBlock.note('Ce culte est destiné à des groupes qui terminent leur journée dans la prière, en particulier avant ou après une réunion du soir.'),
-      TextBlock.note('L’assemblée peut être invitée à rester debout pendant tout le culte, sauf pendant la lecture de l’Écriture et le silence, s’il y en a.'),
+      TextBlock.note(
+          'Ce culte est destiné à des groupes qui terminent leur journée dans la prière, en particulier avant ou après une réunion du soir.'),
+      TextBlock.note(
+          'L’assemblée peut être invitée à rester debout pendant tout le culte, sauf pendant la lecture de l’Écriture et le silence, s’il y en a.'),
       TextBlock.heading('PROCLAMATION DE LA LUMIÈRE'),
-      TextBlock.note('Une grande bougie non décorée peut être allumée et élevée au milieu de la communauté. On peut chanter ou dire :'),
+      TextBlock.note(
+          'Une grande bougie non décorée peut être allumée et élevée au milieu de la communauté. On peut chanter ou dire :'),
       TextBlock.leader('Lumière et paix en Jésus-Christ.'),
       TextBlock.people('Nous rendons grâce à Dieu.'),
       TextBlock.heading('[SERVICE DE L’ENCENS]'),
-      TextBlock.note('Depuis le IVe siècle, dans l’Église primitive, la combustion de l’encens est un signe de dévotion et de prière, fondé sur le Psaumes 141. On peut allumer un bâtonnet d’encens, ou déposer des grains d’encens sur un charbon ardent. Pendant ce temps, on peut lire :'),
-      TextBlock.leader('Éternel, je t’invoque : viens en hâte auprès de moi ! / Prête l’oreille à ma voix, quand je t’invoque ! / Que ma prière soit devant ta face comme l’encens, / et l’élévation de mes mains comme l’offrande du soir ! (PSAUME 141.1-2)'),
+      TextBlock.note(
+          'Depuis le IVe siècle, dans l’Église primitive, la combustion de l’encens est un signe de dévotion et de prière, fondé sur le Psaumes 141. On peut allumer un bâtonnet d’encens, ou déposer des grains d’encens sur un charbon ardent. Pendant ce temps, on peut lire :'),
+      TextBlock.leader(
+          'Éternel, je t’invoque : viens en hâte auprès de moi ! / Prête l’oreille à ma voix, quand je t’invoque ! / Que ma prière soit devant ta face comme l’encens, / et l’élévation de mes mains comme l’offrande du soir ! (PSAUME 141.1-2)'),
       TextBlock.heading('CANTIQUE DU SOIR'),
-      TextBlock.leader('On peut chanter un cantique qui convient au soir. Le cantique d’ouverture traditionnel de la prière du soir est « Ô lumière joyeuse ».'),
+      TextBlock.leader(
+          'On peut chanter un cantique qui convient au soir. Le cantique d’ouverture traditionnel de la prière du soir est « Ô lumière joyeuse ».'),
       TextBlock.heading('PRIÈRE D’ACTION DE GRÂCE'),
-      TextBlock.note('Une prière d’action de grâce peut être dite par le responsable ou par tous ensemble.'),
+      TextBlock.note(
+          'Une prière d’action de grâce peut être dite par le responsable ou par tous ensemble.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.note('Les lectures suivantes, ou d’autres qui conviennent au soir, au jour ou au temps de l’année chrétienne, ou à la nature de l’occasion, peuvent être utilisées :'),
-      TextBlock.leader('Genèse 1.1-5, 14-19 — la création\nExode 13.21-22 — la colonne de nuée et la colonne de feu\nPsaumes 23 — le berger divin\nPsaumes 90 — l’éternité de Dieu et la fragilité humaine\nPsaumes 121 — chant de louange et de prière\nRomains 5.6-11 — le Christ est mort pour des impies\n1 Thessaloniciens 5.2-10 — le jour du Seigneur\nRévélation 22.1-5 — la cité de Dieu\nMatthieu 25.1-13 — la parabole des dix vierges'),
+      TextBlock.note(
+          'Les lectures suivantes, ou d’autres qui conviennent au soir, au jour ou au temps de l’année chrétienne, ou à la nature de l’occasion, peuvent être utilisées :'),
+      TextBlock.leader(
+          'Genèse 1.1-5, 14-19 — la création\nExode 13.21-22 — la colonne de nuée et la colonne de feu\nPsaumes 23 — le berger divin\nPsaumes 90 — l’éternité de Dieu et la fragilité humaine\nPsaumes 121 — chant de louange et de prière\nRomains 5.6-11 — le Christ est mort pour des impies\n1 Thessaloniciens 5.2-10 — le jour du Seigneur\nRévélation 22.1-5 — la cité de Dieu\nMatthieu 25.1-13 — la parabole des dix vierges'),
       TextBlock.heading('SILENCE'),
-      TextBlock.note('Méditation silencieuse sur l’Écriture qui vient d’être lue. Elle peut se conclure par une courte prière.'),
+      TextBlock.note(
+          'Méditation silencieuse sur l’Écriture qui vient d’être lue. Elle peut se conclure par une courte prière.'),
       TextBlock.heading('CHANT DE LOUANGE'),
-      TextBlock.note('Le chant de louange traditionnel du soir est le cantique de Marie. On peut aussi chanter les psaumes et cantiques suivants, ou d’autres chants bibliques ou cantiques :'),
-      TextBlock.leader('Psaumes 134\nCantique de la lumière et des ténèbres\nCantique de l’espérance\nCantique de Siméon\nCantique de la fidélité à l’alliance'),
+      TextBlock.note(
+          'Le chant de louange traditionnel du soir est le cantique de Marie. On peut aussi chanter les psaumes et cantiques suivants, ou d’autres chants bibliques ou cantiques :'),
+      TextBlock.leader(
+          'Psaumes 134\nCantique de la lumière et des ténèbres\nCantique de l’espérance\nCantique de Siméon\nCantique de la fidélité à l’alliance'),
       TextBlock.heading('PRIÈRES DE L’ASSEMBLÉE'),
-      TextBlock.note('La litanie d’intercession suivante, ou une autre, peut être priée ; chacun peut y ajouter une brève prière d’intercession ou de demande.'),
-      TextBlock.leader('Après chaque prière, le responsable peut conclure : Seigneur, dans ta miséricorde, et tous peuvent répondre : Exauce notre prière.'),
-      TextBlock.leader('Prions ensemble / pour les membres de cette assemblée… / pour ceux qui souffrent et ceux qui sont dans la détresse… / pour les préoccupations de notre communauté locale… / pour le monde, ses peuples et ses dirigeants… / pour la terre que tu as confiée à nos soins… / pour l’Église universelle — ses responsables, ses membres et sa mission… / en communion avec les saints…'),
-      TextBlock.note('On peut aussi offrir des prières de confession et des paroles de pardon.'),
+      TextBlock.note(
+          'La litanie d’intercession suivante, ou une autre, peut être priée ; chacun peut y ajouter une brève prière d’intercession ou de demande.'),
+      TextBlock.leader(
+          'Après chaque prière, le responsable peut conclure : Seigneur, dans ta miséricorde, et tous peuvent répondre : Exauce notre prière.'),
+      TextBlock.leader(
+          'Prions ensemble / pour les membres de cette assemblée… / pour ceux qui souffrent et ceux qui sont dans la détresse… / pour les préoccupations de notre communauté locale… / pour le monde, ses peuples et ses dirigeants… / pour la terre que tu as confiée à nos soins… / pour l’Église universelle — ses responsables, ses membres et sa mission… / en communion avec les saints…'),
+      TextBlock.note(
+          'On peut aussi offrir des prières de confession et des paroles de pardon.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
       TextBlock.note('Chantée ou dite.'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('BÉNÉDICTION'),
-      TextBlock.leader('Que la grâce de Jésus-Christ vous enveloppe. / Allez en paix.'),
+      TextBlock.leader(
+          'Que la grâce de Jésus-Christ vous enveloppe. / Allez en paix.'),
       TextBlock.people('Nous rendons grâce à Dieu.'),
       TextBlock.heading('LA PAIX'),
-      TextBlock.note('On peut échanger des signes de paix, ou chacun peut se retirer en silence.'),
+      TextBlock.note(
+          'On peut échanger des signes de paix, ou chacun peut se retirer en silence.'),
     ],
   );
 
   static const ashWednesday = ChurchText(
     id: 'bow_ash_wednesday',
     title: 'Culte du mercredi des Cendres',
-    subtitle: 'Invitation au Carême, imposition des cendres, confession et pardon',
+    subtitle:
+        'Invitation au Carême, imposition des cendres, confession et pardon',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Ash Wednesday” Copyright © 1979, 1986 by Abingdon Press. Renewal Copyright © 1992 UMPH. “Invitation to the Observance of the Lenten Discipline,” “Thanksgiving over the Ashes,” and “Pardon” from The Book of Common Prayer (The Episcopal Church, 1979), 264-269. Public Domain. Note: The instructions regarding the mixing of ashes with olive oil (rather than water) in the introductory materials have been altered, 2013, by Discipleship Ministries. Adding water to ash, as suggested in the original version, can create a caustic mixture which may seriously burn the skin. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-ash-wednesday',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Ash Wednesday” Copyright © 1979, 1986 by Abingdon Press. Renewal Copyright © 1992 UMPH. “Invitation to the Observance of the Lenten Discipline,” “Thanksgiving over the Ashes,” and “Pardon” from The Book of Common Prayer (The Episcopal Church, 1979), 264-269. Public Domain. Note: The instructions regarding the mixing of ashes with olive oil (rather than water) in the introductory materials have been altered, 2013, by Discipleship Ministries. Adding water to ash, as suggested in the original version, can create a caustic mixture which may seriously burn the skin. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-ash-wednesday',
     blocks: [
-      TextBlock.note('Le mercredi des Cendres met l’accent sur une double rencontre : nous faisons face à notre propre mortalité et nous confessons notre péché devant Dieu au sein de la communauté de foi. La forme et le contenu du culte s’articulent autour des deux thèmes du péché et de la mort, à la lumière de l’amour rédempteur de Dieu en Jésus-Christ.'),
-      TextBlock.note('Selon les circonstances, ce culte peut avoir lieu (1) tôt le matin, avant le début de la journée de travail et d’école ; (2) à midi, éventuellement en observant un jeûne par la suppression du repas de midi ; ou (3) en début de soirée, éventuellement après un repas de sacrifice partagé composé de pain et d’eau.'),
-      TextBlock.note('Le cadre visuel doit être solennel et dépouillé. Le violet est la couleur la plus traditionnelle pendant tout le Carême ; mais le mercredi des Cendres, le gris, qui évoque les cendres, convient particulièrement. Les couleurs de terre foncées ou toute teinte sombre conviennent aussi. Des matières rugueuses comme la toile de jute — le sac et la cendre — évoquent le caractère de ce jour et de ce temps.'),
-      TextBlock.note('L’usage des cendres comme signe de mortalité et de repentance a une longue histoire dans le culte juif et chrétien, et l’imposition des cendres peut être une manière non verbale et vécue, puissante, de répondre à l’appel à la repentance et à la réconciliation. Cette pratique est le centre historique de la célébration du mercredi des Cendres et a donné son nom à ce jour. La tradition veut que l’on garde les rameaux du culte de la Passion / des Rameaux de l’année précédente et qu’on les brûle à l’avance pour obtenir les cendres de ce culte. On peut aussi faire distribuer par les huissiers de petites cartes ou des morceaux de papier sur lesquels chacun est invité à écrire un péché particulier ou un trait blessant ou injuste ; les huissiers les apportent ensuite après la prédication et les placent sur une grille, pour être brûlés avec des rameaux et fournir les cendres. Les cendres peuvent être mélangées à un peu d’huile d’olive (et non d’eau !) pour l’imposition. On prévoira une serviette pour essuyer les mains du pasteur.'),
-      TextBlock.note('À la place de l’imposition des cendres, ou en plus, la Sainte-Cène peut être célébrée. Si l’imposition des cendres et la Sainte-Cène figurent toutes deux dans le culte, il faut toujours les séparer, les fidèles s’avançant pour chacune.'),
+      TextBlock.note(
+          'Le mercredi des Cendres met l’accent sur une double rencontre : nous faisons face à notre propre mortalité et nous confessons notre péché devant Dieu au sein de la communauté de foi. La forme et le contenu du culte s’articulent autour des deux thèmes du péché et de la mort, à la lumière de l’amour rédempteur de Dieu en Jésus-Christ.'),
+      TextBlock.note(
+          'Selon les circonstances, ce culte peut avoir lieu (1) tôt le matin, avant le début de la journée de travail et d’école ; (2) à midi, éventuellement en observant un jeûne par la suppression du repas de midi ; ou (3) en début de soirée, éventuellement après un repas de sacrifice partagé composé de pain et d’eau.'),
+      TextBlock.note(
+          'Le cadre visuel doit être solennel et dépouillé. Le violet est la couleur la plus traditionnelle pendant tout le Carême ; mais le mercredi des Cendres, le gris, qui évoque les cendres, convient particulièrement. Les couleurs de terre foncées ou toute teinte sombre conviennent aussi. Des matières rugueuses comme la toile de jute — le sac et la cendre — évoquent le caractère de ce jour et de ce temps.'),
+      TextBlock.note(
+          'L’usage des cendres comme signe de mortalité et de repentance a une longue histoire dans le culte juif et chrétien, et l’imposition des cendres peut être une manière non verbale et vécue, puissante, de répondre à l’appel à la repentance et à la réconciliation. Cette pratique est le centre historique de la célébration du mercredi des Cendres et a donné son nom à ce jour. La tradition veut que l’on garde les rameaux du culte de la Passion / des Rameaux de l’année précédente et qu’on les brûle à l’avance pour obtenir les cendres de ce culte. On peut aussi faire distribuer par les huissiers de petites cartes ou des morceaux de papier sur lesquels chacun est invité à écrire un péché particulier ou un trait blessant ou injuste ; les huissiers les apportent ensuite après la prédication et les placent sur une grille, pour être brûlés avec des rameaux et fournir les cendres. Les cendres peuvent être mélangées à un peu d’huile d’olive (et non d’eau !) pour l’imposition. On prévoira une serviette pour essuyer les mains du pasteur.'),
+      TextBlock.note(
+          'À la place de l’imposition des cendres, ou en plus, la Sainte-Cène peut être célébrée. Si l’imposition des cendres et la Sainte-Cène figurent toutes deux dans le culte, il faut toujours les séparer, les fidèles s’avançant pour chacune.'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('Si une brève explication du culte est nécessaire, elle peut être donnée à voix basse à ce moment, avant de revenir au silence pour la Salutation. Si la chorale doit entrer en procession, elle le fait en silence, juste avant la Salutation.'),
+      TextBlock.note(
+          'Si une brève explication du culte est nécessaire, elle peut être donnée à voix basse à ce moment, avant de revenir au silence pour la Salutation. Si la chorale doit entrer en procession, elle le fait en silence, juste avant la Salutation.'),
       TextBlock.heading('SALUTATION'),
       TextBlock.leader('Que la grâce du Seigneur Jésus-Christ soit avec vous.'),
       TextBlock.people('Et avec vous aussi.'),
       TextBlock.leader('Bénissons le Seigneur qui pardonne tous nos péchés.'),
       TextBlock.people('Sa miséricorde dure à toujours.'),
       TextBlock.heading('LECTURES BIBLIQUES'),
-      TextBlock.leader('Joël 2.1-2, 12-17\n[Psaume] Si le Psaumes 51.1-17 n’est pas employé plus loin comme prière de confession, il peut l’être ici.\n2 Corinthiens 5.20b – 6.10\nÉvangile : Matthieu 6.1-6, 16-21'),
+      TextBlock.leader(
+          'Joël 2.1-2, 12-17\n[Psaume] Si le Psaumes 51.1-17 n’est pas employé plus loin comme prière de confession, il peut l’être ici.\n2 Corinthiens 5.20b – 6.10\nÉvangile : Matthieu 6.1-6, 16-21'),
       TextBlock.heading('PRÉDICATION'),
       TextBlock.heading('INVITATION À OBSERVER LA DISCIPLINE DU CARÊME'),
       TextBlock.note('On peut dire ces paroles ou des paroles semblables :'),
-      TextBlock.leader('Chers frères et sœurs en Christ, / les premiers chrétiens célébraient avec une grande dévotion / les jours de la passion et de la résurrection de notre Seigneur, / et l’Église a pris la coutume de prévoir, avant la célébration de Pâques, / un temps de quarante jours de préparation spirituelle.'),
-      TextBlock.leader('Pendant ce temps, les convertis à la foi étaient préparés au saint baptême. / C’était aussi un temps où ceux qui avaient commis de graves péchés / et s’étaient séparés de la communauté de foi / étaient réconciliés par la repentance et le pardon, / et rétablis dans la vie de l’Église.'),
-      TextBlock.leader('Ainsi toute l’assemblée se rappelait / la miséricorde et le pardon annoncés dans l’Évangile de Jésus-Christ / et le besoin que nous avons tous de renouveler notre foi.'),
-      TextBlock.leader('Je vous invite donc, au nom de l’Église, / à vivre un saint Carême : / par l’examen de conscience et la repentance, / par la prière, le jeûne et le renoncement, / et par la lecture et la méditation de la sainte Parole de Dieu.'),
-      TextBlock.leader('Pour bien commencer notre repentance, / et en signe de notre nature mortelle, / mettons-nous maintenant à genoux (inclinons-nous) devant notre Créateur et Rédempteur.'),
-      TextBlock.note('On observe un bref silence, l’assemblée à genoux ou inclinée. S’il n’y a pas d’imposition des cendres, le culte se poursuit par la confession et le pardon.'),
+      TextBlock.leader(
+          'Chers frères et sœurs en Christ, / les premiers chrétiens célébraient avec une grande dévotion / les jours de la passion et de la résurrection de notre Seigneur, / et l’Église a pris la coutume de prévoir, avant la célébration de Pâques, / un temps de quarante jours de préparation spirituelle.'),
+      TextBlock.leader(
+          'Pendant ce temps, les convertis à la foi étaient préparés au saint baptême. / C’était aussi un temps où ceux qui avaient commis de graves péchés / et s’étaient séparés de la communauté de foi / étaient réconciliés par la repentance et le pardon, / et rétablis dans la vie de l’Église.'),
+      TextBlock.leader(
+          'Ainsi toute l’assemblée se rappelait / la miséricorde et le pardon annoncés dans l’Évangile de Jésus-Christ / et le besoin que nous avons tous de renouveler notre foi.'),
+      TextBlock.leader(
+          'Je vous invite donc, au nom de l’Église, / à vivre un saint Carême : / par l’examen de conscience et la repentance, / par la prière, le jeûne et le renoncement, / et par la lecture et la méditation de la sainte Parole de Dieu.'),
+      TextBlock.leader(
+          'Pour bien commencer notre repentance, / et en signe de notre nature mortelle, / mettons-nous maintenant à genoux (inclinons-nous) devant notre Créateur et Rédempteur.'),
+      TextBlock.note(
+          'On observe un bref silence, l’assemblée à genoux ou inclinée. S’il n’y a pas d’imposition des cendres, le culte se poursuit par la confession et le pardon.'),
       TextBlock.heading('ACTION DE GRÂCE SUR LES CENDRES'),
-      TextBlock.leader('Dieu tout-puissant, tu nous as créés de la poussière de la terre. / Fais que ces cendres soient pour nous un signe de notre mortalité et de notre repentance, / afin que nous nous souvenions que c’est seulement par ton don gracieux / que la vie éternelle nous est donnée, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, tu nous as créés de la poussière de la terre. / Fais que ces cendres soient pour nous un signe de notre mortalité et de notre repentance, / afin que nous nous souvenions que c’est seulement par ton don gracieux / que la vie éternelle nous est donnée, / par Jésus-Christ notre Sauveur. Amen.'),
       TextBlock.heading('IMPOSITION DES CENDRES'),
-      TextBlock.note('Le pasteur et ceux qui l’assistent prennent place devant l’assemblée et, par une parole ou un geste, invitent l’assemblée à s’avancer. Les responsables trempent le pouce dans les cendres et tracent une croix sur le front de chacun.'),
+      TextBlock.note(
+          'Le pasteur et ceux qui l’assistent prennent place devant l’assemblée et, par une parole ou un geste, invitent l’assemblée à s’avancer. Les responsables trempent le pouce dans les cendres et tracent une croix sur le front de chacun.'),
       TextBlock.note('Ils chantent ou disent :'),
-      TextBlock.leader('Souviens-toi que tu es poussière et que tu retourneras à la poussière.'),
+      TextBlock.leader(
+          'Souviens-toi que tu es poussière et que tu retourneras à la poussière.'),
       TextBlock.note('Ou ils disent :'),
       TextBlock.leader('Repens-toi et crois à l’Évangile.'),
-      TextBlock.note('L’imposition peut se faire en silence, ou l’on peut chanter des cantiques.'),
+      TextBlock.note(
+          'L’imposition peut se faire en silence, ou l’on peut chanter des cantiques.'),
       TextBlock.heading('CONFESSION ET PARDON'),
       TextBlock.note('L’assemblée prie le Psaumes 51.1-17.'),
       TextBlock.note('Tous font en silence la prière de confession.'),
       TextBlock.note('Le pasteur dit ensuite :'),
-      TextBlock.leader('Que le Dieu tout-puissant et miséricordieux, / qui ne désire pas la mort du pécheur / mais qu’il se détourne du mal et qu’il vive, / accepte votre repentance, pardonne vos péchés / et vous rende, par le Saint-Esprit, une vie nouvelle. Amen.'),
+      TextBlock.leader(
+          'Que le Dieu tout-puissant et miséricordieux, / qui ne désire pas la mort du pécheur / mais qu’il se détourne du mal et qu’il vive, / accepte votre repentance, pardonne vos péchés / et vous rende, par le Saint-Esprit, une vie nouvelle. Amen.'),
       TextBlock.heading('LA PAIX'),
-      TextBlock.leader('Donnons-nous les uns aux autres des signes de réconciliation et d’amour.'),
-      TextBlock.note('Tous échangent des signes et des paroles de la paix de Dieu.'),
+      TextBlock.leader(
+          'Donnons-nous les uns aux autres des signes de réconciliation et d’amour.'),
+      TextBlock.note(
+          'Tous échangent des signes et des paroles de la paix de Dieu.'),
       TextBlock.heading('OFFRANDE'),
       TextBlock.heading('PRIÈRE D’ACTION DE GRÂCE'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
       TextBlock.heading('SORTIE'),
-      TextBlock.note('Si la chorale doit sortir en procession, elle le fait en silence après le congé avec bénédiction. L’assemblée peut se retirer en silence.'),
+      TextBlock.note(
+          'Si la chorale doit sortir en procession, elle le fait en silence après le congé avec bénédiction. L’assemblée peut se retirer en silence.'),
     ],
   );
 
   static const goodFriday = ChurchText(
     id: 'bow_good_friday',
     title: 'Culte du Vendredi saint',
-    subtitle: 'Passion selon Jean, méditation au pied de la croix, reproches du Christ',
+    subtitle:
+        'Passion selon Jean, méditation au pied de la croix, reproches du Christ',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for Good Friday” and “Acts of Worship for Good Friday,” including Dismissal by Don Saliers, Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Prayer for Holy Saturday alt. from The Book of Common Prayer (The Episcopal Church, 1979), p. 283, Public Domain. Note: Recommendation to use the version of John’s Passion offered in the UMBOW Tenebrae service added 2013 by Discipleship Ministries in compliance with the Resolution “Building New Bridges in Hope” (1996 Book of Resolutions, p. 195). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-for-good-friday',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for Good Friday” and “Acts of Worship for Good Friday,” including Dismissal by Don Saliers, Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Prayer for Holy Saturday alt. from The Book of Common Prayer (The Episcopal Church, 1979), p. 283, Public Domain. Note: Recommendation to use the version of John’s Passion offered in the UMBOW Tenebrae service added 2013 by Discipleship Ministries in compliance with the Resolution “Building New Bridges in Hope” (1996 Book of Resolutions, p. 195). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-for-good-friday',
     blocks: [
-      TextBlock.note('Ce culte peut avoir lieu à midi ou dans la soirée du Vendredi saint. Il est préférable de n’avoir, le Vendredi saint, ni parements, ni bannières, ni fleurs, ni décorations, sauf peut-être des représentations du chemin de croix. La table du Seigneur, la chaire et les autres meubles doivent être dépouillés de tissu, de bougies ou de tout ce qui ne sert pas réellement au culte. La croix reste visible, mais elle, ainsi que toute image fixée à demeure, peut être voilée. En la cachant en partie, le voile attire aussi l’attention sur elle. On suggère la couleur écarlate pour un voile posé sur la croix.'),
+      TextBlock.note(
+          'Ce culte peut avoir lieu à midi ou dans la soirée du Vendredi saint. Il est préférable de n’avoir, le Vendredi saint, ni parements, ni bannières, ni fleurs, ni décorations, sauf peut-être des représentations du chemin de croix. La table du Seigneur, la chaire et les autres meubles doivent être dépouillés de tissu, de bougies ou de tout ce qui ne sert pas réellement au culte. La croix reste visible, mais elle, ainsi que toute image fixée à demeure, peut être voilée. En la cachant en partie, le voile attire aussi l’attention sur elle. On suggère la couleur écarlate pour un voile posé sur la croix.'),
       TextBlock.heading('ENTRÉE'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.leader('On peut jouer une musique appropriée pendant que les fidèles se rassemblent, mais le silence est préférable. Le pasteur, la chorale et les autres responsables du culte entrent en silence.'),
+      TextBlock.leader(
+          'On peut jouer une musique appropriée pendant que les fidèles se rassemblent, mais le silence est préférable. Le pasteur, la chorale et les autres responsables du culte entrent en silence.'),
       TextBlock.heading('SALUTATION'),
       TextBlock.leader('Lui-même a porté nos péchés en son corps sur le bois,'),
-      TextBlock.people('afin que, morts au péché, nous vivions pour la justice.'),
+      TextBlock.people(
+          'afin que, morts au péché, nous vivions pour la justice.'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu tout-puissant, / ton Fils Jésus-Christ a été élevé sur la croix / afin d’attirer à lui le monde entier. / Fais que nous, qui nous glorifions de cette mort pour notre salut, / nous nous glorifiions aussi de son appel à prendre notre croix et à le suivre, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, / ton Fils Jésus-Christ a été élevé sur la croix / afin d’attirer à lui le monde entier. / Fais que nous, qui nous glorifions de cette mort pour notre salut, / nous nous glorifiions aussi de son appel à prendre notre croix et à le suivre, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('PROCLAMATION ET RÉPONSE'),
-      TextBlock.leader('Lecture biblique : Esaïe 52.13 – 53.12\nPsaumes 22\n[Lecture biblique] : Hébreux 10.16-25\nProclamation du récit de la Passion : Jean 18.1 – 19.42'),
-      TextBlock.note('Le récit du Vendredi saint peut être proclamé de plusieurs manières :'),
-      TextBlock.leader('1) La version longue ou courte du récit de la Passion peut être lue de façon dramatisée, comme il est suggéré pour le dimanche de la Passion / des Rameaux, ou bien un seul lecteur peut être préféré. On recommande la version employée dans le culte des Ténèbres, car elle traduit plus fidèlement le texte grec et évite ainsi de rendre tout le peuple juif responsable de la souffrance et de la mort de Jésus, comme certaines traductions peuvent le laisser entendre.'),
-      TextBlock.leader('2) Un chant choral du récit de la Passion peut être exécuté par la chorale.'),
-      TextBlock.leader('3) Des cantiques peuvent être intercalés à intervalles appropriés dans la lecture du récit de la Passion selon Jean, comme le dimanche de la Passion / des Rameaux ou dans le culte des Ténèbres.'),
-      TextBlock.note('Habituellement, la proclamation du récit de la Passion tient lieu de prédication, mais il peut arriver que des circonstances appellent une prédication.'),
+      TextBlock.leader(
+          'Lecture biblique : Esaïe 52.13 – 53.12\nPsaumes 22\n[Lecture biblique] : Hébreux 10.16-25\nProclamation du récit de la Passion : Jean 18.1 – 19.42'),
+      TextBlock.note(
+          'Le récit du Vendredi saint peut être proclamé de plusieurs manières :'),
+      TextBlock.leader(
+          '1) La version longue ou courte du récit de la Passion peut être lue de façon dramatisée, comme il est suggéré pour le dimanche de la Passion / des Rameaux, ou bien un seul lecteur peut être préféré. On recommande la version employée dans le culte des Ténèbres, car elle traduit plus fidèlement le texte grec et évite ainsi de rendre tout le peuple juif responsable de la souffrance et de la mort de Jésus, comme certaines traductions peuvent le laisser entendre.'),
+      TextBlock.leader(
+          '2) Un chant choral du récit de la Passion peut être exécuté par la chorale.'),
+      TextBlock.leader(
+          '3) Des cantiques peuvent être intercalés à intervalles appropriés dans la lecture du récit de la Passion selon Jean, comme le dimanche de la Passion / des Rameaux ou dans le culte des Ténèbres.'),
+      TextBlock.note(
+          'Habituellement, la proclamation du récit de la Passion tient lieu de prédication, mais il peut arriver que des circonstances appellent une prédication.'),
       TextBlock.heading('PRÉOCCUPATIONS ET PRIÈRES'),
       TextBlock.heading('MÉDITATION AU PIED DE LA CROIX'),
-      TextBlock.note('Si on le souhaite, une simple croix de bois peut maintenant être apportée dans l’église et placée sous les yeux de l’assemblée.'),
+      TextBlock.note(
+          'Si on le souhaite, une simple croix de bois peut maintenant être apportée dans l’église et placée sous les yeux de l’assemblée.'),
       TextBlock.heading('MÉDITATION SILENCIEUSE'),
-      TextBlock.note('Pendant la méditation silencieuse et les Reproches, on peut inviter chacun à s’avancer librement pour s’agenouiller un instant devant la croix ou la toucher.'),
-      TextBlock.heading('LES REPROCHES : LA PLAINTE DU CHRIST CONTRE SON ÉGLISE INFIDÈLE'),
-      TextBlock.note('Un ou plusieurs des reproches suivants, ou tous, peuvent être dits ; l’assemblée répond comme indiqué ci-dessous, ou chante après chaque strophe un refrain comme « Jésus, souviens-toi de moi ». On peut garder un temps de silence après chaque strophe.'),
-      TextBlock.leader('1) Ô mon peuple, ô mon Église, / que t’ai-je fait, en quoi t’ai-je offensée ? / Je t’ai fait sortir du pays d’Égypte / et délivrée par les eaux du baptême, / mais tu as préparé une croix pour ton Sauveur.'),
-      TextBlock.people('Dieu saint, / Dieu fort, / Dieu immortel, / aie pitié de nous.'),
-      TextBlock.leader('2) Je t’ai conduite quarante ans dans le désert et nourrie de la manne ; / je t’ai fait traverser des temps de persécution et de renouveau / et je t’ai donné mon corps, le pain du ciel ; / mais tu as préparé une croix pour ton Sauveur.'),
-      TextBlock.leader('3) Je t’ai faite sarment de ma vigne / et je t’ai donné l’eau du salut, / mais quand j’avais soif, tu m’as donné du vinaigre et du fiel / et tu as percé d’une lance le côté de ton Sauveur.'),
-      TextBlock.leader('4) Je marchais devant toi dans une colonne de nuée, / mais tu m’as conduit au prétoire de Pilate. / Je t’ai amenée dans un pays de liberté et de prospérité, / mais tu m’as flagellé, tourné en dérision et battu.'),
-      TextBlock.leader('5) Je t’ai donné un sceptre royal et remis les clés du royaume, / mais tu m’as donné une couronne d’épines. / Je t’ai élevée très haut avec une grande puissance, / mais tu m’as pendu à la croix.'),
-      TextBlock.leader('6) Je t’ai donné ma paix, que le monde ne peut donner, / et je t’ai lavé les pieds comme un serviteur, / mais tu tires l’épée pour frapper en mon nom / et tu cherches les premières places dans mon royaume.'),
-      TextBlock.leader('7) J’ai accepté pour toi la coupe de la souffrance et de la mort, / mais tu te disperses, tu me renies et tu m’abandonnes. / J’ai envoyé l’Esprit de vérité pour te conduire, / mais tu fermes ton cœur à sa direction.'),
-      TextBlock.leader('8) Je t’ai appelée à aller porter du fruit, / mais tu as tiré au sort mes vêtements. / J’ai prié pour que vous soyez tous un, / mais vous continuez à vous quereller et à vous diviser.'),
-      TextBlock.leader('9) Je t’ai greffée sur l’arbre de mon peuple élu, Israël, / mais tu t’es retournée contre lui par la persécution et le massacre. / Je t’ai faite cohéritière avec lui de mes alliances, / mais tu as fait de lui le bouc émissaire de ta propre culpabilité.'),
-      TextBlock.leader('10) Je suis venu à toi comme le plus petit de tes frères et sœurs. / J’avais faim, et tu ne m’as pas donné à manger ; / j’avais soif, et tu ne m’as pas donné à boire ; / j’étais étranger, et tu ne m’as pas accueilli ; / nu, et tu ne m’as pas vêtu ; / malade et en prison, et tu ne m’as pas rendu visite.'),
+      TextBlock.note(
+          'Pendant la méditation silencieuse et les Reproches, on peut inviter chacun à s’avancer librement pour s’agenouiller un instant devant la croix ou la toucher.'),
+      TextBlock.heading(
+          'LES REPROCHES : LA PLAINTE DU CHRIST CONTRE SON ÉGLISE INFIDÈLE'),
+      TextBlock.note(
+          'Un ou plusieurs des reproches suivants, ou tous, peuvent être dits ; l’assemblée répond comme indiqué ci-dessous, ou chante après chaque strophe un refrain comme « Jésus, souviens-toi de moi ». On peut garder un temps de silence après chaque strophe.'),
+      TextBlock.leader(
+          '1) Ô mon peuple, ô mon Église, / que t’ai-je fait, en quoi t’ai-je offensée ? / Je t’ai fait sortir du pays d’Égypte / et délivrée par les eaux du baptême, / mais tu as préparé une croix pour ton Sauveur.'),
+      TextBlock.people(
+          'Dieu saint, / Dieu fort, / Dieu immortel, / aie pitié de nous.'),
+      TextBlock.leader(
+          '2) Je t’ai conduite quarante ans dans le désert et nourrie de la manne ; / je t’ai fait traverser des temps de persécution et de renouveau / et je t’ai donné mon corps, le pain du ciel ; / mais tu as préparé une croix pour ton Sauveur.'),
+      TextBlock.leader(
+          '3) Je t’ai faite sarment de ma vigne / et je t’ai donné l’eau du salut, / mais quand j’avais soif, tu m’as donné du vinaigre et du fiel / et tu as percé d’une lance le côté de ton Sauveur.'),
+      TextBlock.leader(
+          '4) Je marchais devant toi dans une colonne de nuée, / mais tu m’as conduit au prétoire de Pilate. / Je t’ai amenée dans un pays de liberté et de prospérité, / mais tu m’as flagellé, tourné en dérision et battu.'),
+      TextBlock.leader(
+          '5) Je t’ai donné un sceptre royal et remis les clés du royaume, / mais tu m’as donné une couronne d’épines. / Je t’ai élevée très haut avec une grande puissance, / mais tu m’as pendu à la croix.'),
+      TextBlock.leader(
+          '6) Je t’ai donné ma paix, que le monde ne peut donner, / et je t’ai lavé les pieds comme un serviteur, / mais tu tires l’épée pour frapper en mon nom / et tu cherches les premières places dans mon royaume.'),
+      TextBlock.leader(
+          '7) J’ai accepté pour toi la coupe de la souffrance et de la mort, / mais tu te disperses, tu me renies et tu m’abandonnes. / J’ai envoyé l’Esprit de vérité pour te conduire, / mais tu fermes ton cœur à sa direction.'),
+      TextBlock.leader(
+          '8) Je t’ai appelée à aller porter du fruit, / mais tu as tiré au sort mes vêtements. / J’ai prié pour que vous soyez tous un, / mais vous continuez à vous quereller et à vous diviser.'),
+      TextBlock.leader(
+          '9) Je t’ai greffée sur l’arbre de mon peuple élu, Israël, / mais tu t’es retournée contre lui par la persécution et le massacre. / Je t’ai faite cohéritière avec lui de mes alliances, / mais tu as fait de lui le bouc émissaire de ta propre culpabilité.'),
+      TextBlock.leader(
+          '10) Je suis venu à toi comme le plus petit de tes frères et sœurs. / J’avais faim, et tu ne m’as pas donné à manger ; / j’avais soif, et tu ne m’as pas donné à boire ; / j’étais étranger, et tu ne m’as pas accueilli ; / nu, et tu ne m’as pas vêtu ; / malade et en prison, et tu ne m’as pas rendu visite.'),
       TextBlock.note('Un bref silence suit.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
-      TextBlock.note('Le cantique final et le congé peuvent être omis pour signifier que nous attendons la résurrection qui vient et pour montrer l’unité essentielle des cultes des Trois Grands Jours.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Le cantique final et le congé peuvent être omis pour signifier que nous attendons la résurrection qui vient et pour montrer l’unité essentielle des cultes des Trois Grands Jours.'),
       TextBlock.heading('[CONGÉ]'),
-      TextBlock.leader('Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie, maintenant et toujours. Amen.'),
+      TextBlock.leader(
+          'Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie, maintenant et toujours. Amen.'),
       TextBlock.heading('SORTIE'),
-      TextBlock.note('Tous se retirent en silence, sauf ceux qui commencent une veillée de prière.'),
-      TextBlock.heading('ACTES DE CULTE POUR LE VENDREDI SAINT ET LE SAMEDI SAINT'),
+      TextBlock.note(
+          'Tous se retirent en silence, sauf ceux qui commencent une veillée de prière.'),
+      TextBlock.heading(
+          'ACTES DE CULTE POUR LE VENDREDI SAINT ET LE SAMEDI SAINT'),
       TextBlock.heading('LES SEPT DERNIÈRES PAROLES'),
-      TextBlock.note('Les cultes fondés sur les sept dernières paroles de Jésus sur la croix sont traditionnellement élaborés à partir d’une harmonie des récits de la Passion dans les Évangiles. Connu aussi sous le nom de Dévotion des trois heures (de midi à 15 heures le vendredi, pour se souvenir des heures du Christ sur la croix), ce culte a été conduit pour la première fois par un prêtre jésuite au Pérou, au XVIIIe siècle, sous forme de lectures bibliques entrecoupées de prières et de cantiques. Au fil des ans, il est devenu populaire dans les milieux protestants d’Angleterre et d’Amérique du Nord. L’ordre habituel des lectures est présenté ici. On peut employer avec imagination images, musique, théâtre ou danse liturgique.'),
-      TextBlock.leader('1) Luc 23.34 — Père, pardonne-leur.\n2) Luc 23.43 — Aujourd’hui tu seras avec moi dans le paradis.\n3) Jean 19.26-27 — Femme, voilà ton fils.\n4) Marc 15.34 ; Matthieu 27.46 — Mon Dieu, mon Dieu, pourquoi m’as-tu abandonné ?\n5) Jean 19.28 — J’ai soif.\n6) Jean 19.30a — Tout est accompli.\n7) Luc 23.46 — Père, je remets mon esprit entre tes mains.'),
+      TextBlock.note(
+          'Les cultes fondés sur les sept dernières paroles de Jésus sur la croix sont traditionnellement élaborés à partir d’une harmonie des récits de la Passion dans les Évangiles. Connu aussi sous le nom de Dévotion des trois heures (de midi à 15 heures le vendredi, pour se souvenir des heures du Christ sur la croix), ce culte a été conduit pour la première fois par un prêtre jésuite au Pérou, au XVIIIe siècle, sous forme de lectures bibliques entrecoupées de prières et de cantiques. Au fil des ans, il est devenu populaire dans les milieux protestants d’Angleterre et d’Amérique du Nord. L’ordre habituel des lectures est présenté ici. On peut employer avec imagination images, musique, théâtre ou danse liturgique.'),
+      TextBlock.leader(
+          '1) Luc 23.34 — Père, pardonne-leur.\n2) Luc 23.43 — Aujourd’hui tu seras avec moi dans le paradis.\n3) Jean 19.26-27 — Femme, voilà ton fils.\n4) Marc 15.34 ; Matthieu 27.46 — Mon Dieu, mon Dieu, pourquoi m’as-tu abandonné ?\n5) Jean 19.28 — J’ai soif.\n6) Jean 19.30a — Tout est accompli.\n7) Luc 23.46 — Père, je remets mon esprit entre tes mains.'),
       TextBlock.heading('LE CHEMIN DE CROIX'),
-      TextBlock.note('Le chemin de croix (ou les stations) est une manière courante de participer à la passion (aux souffrances) du Christ dans les cultes du Vendredi saint. Le culte peut avoir lieu dans l’église ou en plein air, avec des arrêts (stations) à divers endroits. S’arrêter à chaque station rappelle à chacun différents moments du chemin de passion du Christ et invite à la réflexion et à la contemplation. On peut employer avec imagination images, musique, théâtre ou danse liturgique. Une prière, à genoux, et un cantique peuvent suivre chaque lecture. Cette pratique est née du désir d’imiter les voyages des premiers pèlerins chrétiens en Terre sainte, en particulier vers les lieux des souffrances rédemptrices du Christ. La version proposée ici diffère des versions traditionnelles en ce qu’elle ne comprend que des stations ayant un fondement biblique.'),
-      TextBlock.leader('1) Jésus prie seul — Luc 22.39-44 : Éloigne de moi cette coupe.\n2) Jésus est arrêté — Matthieu 26.47-56 : Vous êtes venus avec des épées…\n3) Le sanhédrin juge Jésus — Marc 14.61-64 : Es-tu le Christ ?\n4) Pilate interroge Jésus — Jean 18.33-37 : Es-tu le roi des Juifs ?\n5) Pilate condamne Jésus — Marc 15.6-15 : Crucifie-le !\n6) Jésus porte la couronne — Jean 19.5 : Voici l’homme.\n7) Jésus porte sa croix — Jean 10.17-18 : Je la donne de moi-même.\n8) Simon porte la croix — Luc 23.26 : Simon de Cyrène.\n9) Jésus parle aux femmes — Luc 23.27-31 : Pleurez sur vous-mêmes.\n10) Jésus est crucifié — Luc 23.33-34 : Jésus sur la croix.\n11) Les malfaiteurs parlent à Jésus — Luc 23.39-43 : Aujourd’hui tu seras avec moi.\n12) Jésus parle à Marie et à Jean — Jean 19.25b-27 : Femme, voilà ton fils.\n13) Jésus meurt sur la croix — Jean 19.28-34 : Tout est accompli.\n14) Jésus est mis au tombeau — Jean 19.38-42 : C’est là qu’ils déposèrent Jésus.'),
+      TextBlock.note(
+          'Le chemin de croix (ou les stations) est une manière courante de participer à la passion (aux souffrances) du Christ dans les cultes du Vendredi saint. Le culte peut avoir lieu dans l’église ou en plein air, avec des arrêts (stations) à divers endroits. S’arrêter à chaque station rappelle à chacun différents moments du chemin de passion du Christ et invite à la réflexion et à la contemplation. On peut employer avec imagination images, musique, théâtre ou danse liturgique. Une prière, à genoux, et un cantique peuvent suivre chaque lecture. Cette pratique est née du désir d’imiter les voyages des premiers pèlerins chrétiens en Terre sainte, en particulier vers les lieux des souffrances rédemptrices du Christ. La version proposée ici diffère des versions traditionnelles en ce qu’elle ne comprend que des stations ayant un fondement biblique.'),
+      TextBlock.leader(
+          '1) Jésus prie seul — Luc 22.39-44 : Éloigne de moi cette coupe.\n2) Jésus est arrêté — Matthieu 26.47-56 : Vous êtes venus avec des épées…\n3) Le sanhédrin juge Jésus — Marc 14.61-64 : Es-tu le Christ ?\n4) Pilate interroge Jésus — Jean 18.33-37 : Es-tu le roi des Juifs ?\n5) Pilate condamne Jésus — Marc 15.6-15 : Crucifie-le !\n6) Jésus porte la couronne — Jean 19.5 : Voici l’homme.\n7) Jésus porte sa croix — Jean 10.17-18 : Je la donne de moi-même.\n8) Simon porte la croix — Luc 23.26 : Simon de Cyrène.\n9) Jésus parle aux femmes — Luc 23.27-31 : Pleurez sur vous-mêmes.\n10) Jésus est crucifié — Luc 23.33-34 : Jésus sur la croix.\n11) Les malfaiteurs parlent à Jésus — Luc 23.39-43 : Aujourd’hui tu seras avec moi.\n12) Jésus parle à Marie et à Jean — Jean 19.25b-27 : Femme, voilà ton fils.\n13) Jésus meurt sur la croix — Jean 19.28-34 : Tout est accompli.\n14) Jésus est mis au tombeau — Jean 19.38-42 : C’est là qu’ils déposèrent Jésus.'),
       TextBlock.heading('LE SAMEDI SAINT'),
-      TextBlock.leader('Dieu de miséricorde, Dieu éternel, Créateur du ciel et de la terre, / le corps crucifié de ton Fils a été déposé dans le tombeau / et s’est reposé en ce jour saint. / Accorde-nous d’attendre avec lui l’aube du troisième jour / et de ressusciter à une vie nouvelle, / par Jésus-Christ notre Rédempteur. Amen.'),
+      TextBlock.leader(
+          'Dieu de miséricorde, Dieu éternel, Créateur du ciel et de la terre, / le corps crucifié de ton Fils a été déposé dans le tombeau / et s’est reposé en ce jour saint. / Accorde-nous d’attendre avec lui l’aube du troisième jour / et de ressusciter à une vie nouvelle, / par Jésus-Christ notre Rédempteur. Amen.'),
     ],
   );
 
   static const healing1 = ChurchText(
     id: 'bow_healing_1',
     title: 'Culte de guérison I',
-    subtitle: 'Prières pour la guérison et la plénitude, avec onction et imposition des mains',
+    subtitle:
+        'Prières pour la guérison et la plénitude, avec onction et imposition des mains',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Healing I” © Copyright 1992 UMPH. Thanksgiving and Communion © 1972 The Methodist Publishing House; © 1980, 1985, 1989, 1992 UMPH. Dismissal with Blessing, alt., from The Book of Offices and Services After the Usage of The Order of Saint Luke, Timothy J. Crouch, O.S.L. ed. and comp. Cleveland (OSL Publications) © 1988. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-healing-i',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Healing I” © Copyright 1992 UMPH. Thanksgiving and Communion © 1972 The Methodist Publishing House; © 1980, 1985, 1989, 1992 UMPH. Dismissal with Blessing, alt., from The Book of Offices and Services After the Usage of The Order of Saint Luke, Timothy J. Crouch, O.S.L. ed. and comp. Cleveland (OSL Publications) © 1988. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-healing-i',
     blocks: [
-      TextBlock.note('Ce culte de l’assemblée est centré sur la guérison. Il est destiné à un autre moment que celui du principal culte hebdomadaire. Il peut être librement adapté pour répondre à des besoins précis.'),
+      TextBlock.note(
+          'Ce culte de l’assemblée est centré sur la guérison. Il est destiné à un autre moment que celui du principal culte hebdomadaire. Il peut être librement adapté pour répondre à des besoins précis.'),
       TextBlock.heading('RASSEMBLEMENT'),
       TextBlock.heading('SALUTATION'),
       TextBlock.note('On peut employer l’une des formes suivantes :'),
-      TextBlock.leader('Quelqu’un parmi vous est-il malade ? / Qu’il appelle les anciens de l’Église, / et que les anciens prient pour lui, / en l’oignant d’huile au nom du Seigneur. / La prière de la foi sauvera le malade, / et le Seigneur le relèvera ; / et s’il a commis des péchés, il lui sera pardonné. / Confessez donc vos péchés les uns aux autres, / et priez les uns pour les autres, / afin que vous soyez guéris. (JACQUES 5.14-16a)'),
-      TextBlock.leader('Que la grâce et la paix vous soient multipliées / par la connaissance de Dieu et de Jésus notre Seigneur. (2 PIERRE 1.2) / Nous sommes venus présenter nos frères et sœurs au Seigneur, / afin qu’ils reçoivent la guérison. / Que ceux qui cherchent la guérison de Dieu / ouvrent leur cœur à l’Esprit du Seigneur.'),
+      TextBlock.leader(
+          'Quelqu’un parmi vous est-il malade ? / Qu’il appelle les anciens de l’Église, / et que les anciens prient pour lui, / en l’oignant d’huile au nom du Seigneur. / La prière de la foi sauvera le malade, / et le Seigneur le relèvera ; / et s’il a commis des péchés, il lui sera pardonné. / Confessez donc vos péchés les uns aux autres, / et priez les uns pour les autres, / afin que vous soyez guéris. (JACQUES 5.14-16a)'),
+      TextBlock.leader(
+          'Que la grâce et la paix vous soient multipliées / par la connaissance de Dieu et de Jésus notre Seigneur. (2 PIERRE 1.2) / Nous sommes venus présenter nos frères et sœurs au Seigneur, / afin qu’ils reçoivent la guérison. / Que ceux qui cherchent la guérison de Dieu / ouvrent leur cœur à l’Esprit du Seigneur.'),
       TextBlock.leader('Mon âme, bénis l’Éternel !'),
       TextBlock.people('Que tout ce qui est en moi bénisse son saint nom !'),
-      TextBlock.leader('Mon âme, bénis l’Éternel, et n’oublie aucun de ses bienfaits !'),
-      TextBlock.people('Il pardonne toutes nos iniquités, il guérit toutes nos maladies ;'),
-      TextBlock.leader('Il délivre notre vie de la fosse, / il nous couronne de bonté et de miséricorde ;'),
-      TextBlock.people('Il rassasie de biens tous nos jours, / et notre jeunesse se renouvelle comme celle de l’aigle.'),
+      TextBlock.leader(
+          'Mon âme, bénis l’Éternel, et n’oublie aucun de ses bienfaits !'),
+      TextBlock.people(
+          'Il pardonne toutes nos iniquités, il guérit toutes nos maladies ;'),
+      TextBlock.leader(
+          'Il délivre notre vie de la fosse, / il nous couronne de bonté et de miséricorde ;'),
+      TextBlock.people(
+          'Il rassasie de biens tous nos jours, / et notre jeunesse se renouvelle comme celle de l’aigle.'),
       TextBlock.heading('CANTIQUE DE LOUANGE'),
-      TextBlock.leader('On peut chanter un cantique d’adoration et de louange, ou l’un des cantiques de guérison.'),
+      TextBlock.leader(
+          'On peut chanter un cantique d’adoration et de louange, ou l’un des cantiques de guérison.'),
       TextBlock.heading('PRIÈRE D’OUVERTURE'),
       TextBlock.note('On peut employer la prière suivante ou une autre.'),
-      TextBlock.leader('Dieu tout-puissant et éternel, / toi qui peux bannir toute affliction de l’âme comme du corps, / manifeste ta puissance à ceux qui sont dans le besoin, / afin que, par ta miséricorde, ils soient rétablis pour te servir à nouveau / dans la sainteté de vie, par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant et éternel, / toi qui peux bannir toute affliction de l’âme comme du corps, / manifeste ta puissance à ceux qui sont dans le besoin, / afin que, par ta miséricorde, ils soient rétablis pour te servir à nouveau / dans la sainteté de vie, par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.leader('Lectures et psaumes suggérés :\nEcclésiaste 3.1-11a — il y a un temps pour toute chose\nEsaïe 26.3-4 — confie-toi en l’Éternel à toujours\nEsaïe 35.1-10 — la restauration de tout ce qui est brisé\nEsaïe 40.28-31 — les faibles reprendront des forces\nEsaïe 43.1-3a, 18-19, 25 — quand tu traverseras les eaux\nEsaïe 53.3-5 — c’est par ses meurtrissures que nous sommes guéris\nEsaïe 61.1-3a — une bonne nouvelle pour les affligés\nPsaumes 13 — prière dans la douleur et la tristesse\nPsaumes 23 — tu oins d’huile ma tête\nPsaumes 27 — l’Éternel est le soutien de ma vie\nPsaumes 30 — guérison d’une grave maladie\nPsaumes 41 — l’assurance du secours de Dieu\nPsaumes 42 — mon âme soupire après toi\nPsaumes 51.1-12, 15-17 — crée en moi un cœur pur\nPsaumes 91 — refuge sous les ailes de Dieu\nPsaumes 103 — Dieu pardonne toutes tes iniquités\nPsaumes 130 — des profondeurs\nPsaumes 138 — achève ton œuvre envers moi\nPsaumes 139 — le Dieu dont on ne peut s’éloigner\nPsaumes 146 — Dieu redresse ceux qui sont courbés\nActes 3.1-10 — Pierre et Jean guérissent un boiteux\nActes 5.12-16 — des guérisons à Jérusalem\nRomains 8 — rien ne peut nous séparer de l’amour de Dieu\nRomains 14.7-12 — nous vivons pour le Seigneur\n2 Corinthiens 1.3-5 — Dieu nous console dans toutes nos afflictions\n2 Corinthiens 4.16-18 — ce qui se voit est passager\nColossiens 1.11-29 — fortifiés par sa puissance\nHébreux 12.1-2 — Jésus, qui rend notre foi parfaite\nJacques 5.13-16 — quelqu’un parmi vous est-il malade ?\n1 Jean 4.16b-19 — il n’y a pas de crainte dans l’amour\n1 Jean 5.13-15 — l’assurance que nous avons en Christ\nRévélation 21.1-4 — un nouveau ciel et une nouvelle terre\nMatthieu 5.1-12 — heureux ceux qui…\nMatthieu 8.1-13 — la guérison d’un lépreux et d’un serviteur\nMatthieu 10.1-8 — Jésus envoie les douze guérir\nMatthieu 11.28-30 — vous tous qui êtes fatigués et chargés\nMatthieu 15.21-28 — la foi de la Cananéenne\nMatthieu 26.36-39 — non pas ce que je veux, mais ce que tu veux\nMarc 1.21-28 — Jésus guérit un homme possédé d’un esprit impur\nMarc 5.1-20 — mon nom est Légion, car nous sommes plusieurs\nMarc 5.21-43 — une jeune fille rendue à la vie, une femme guérie\nMarc 6.7-13 — l’onction d’huile des malades\nMarc 6.53-56 — on apportait les malades à Jésus\nMarc 8.22-26 — un aveugle à Bethsaïda\nMarc 10.46-52 — prends courage, lève-toi, il t’appelle\nLuc 5.17-26 — prends ton lit et marche\nLuc 7.11-17 — Jésus ressuscite le fils de la veuve de Naïn\nLuc 8.43-48 — la femme atteinte d’une perte de sang\nLuc 17.11-19 — l’action de grâce pour la guérison\nJean 3.16-17 — Dieu a tant aimé le monde\nJean 5.2-18 — veux-tu être guéri ?\nJean 9 — la guérison de l’aveugle-né\nJean 11.1-44 — la résurrection de Lazare'),
+      TextBlock.leader(
+          'Lectures et psaumes suggérés :\nEcclésiaste 3.1-11a — il y a un temps pour toute chose\nEsaïe 26.3-4 — confie-toi en l’Éternel à toujours\nEsaïe 35.1-10 — la restauration de tout ce qui est brisé\nEsaïe 40.28-31 — les faibles reprendront des forces\nEsaïe 43.1-3a, 18-19, 25 — quand tu traverseras les eaux\nEsaïe 53.3-5 — c’est par ses meurtrissures que nous sommes guéris\nEsaïe 61.1-3a — une bonne nouvelle pour les affligés\nPsaumes 13 — prière dans la douleur et la tristesse\nPsaumes 23 — tu oins d’huile ma tête\nPsaumes 27 — l’Éternel est le soutien de ma vie\nPsaumes 30 — guérison d’une grave maladie\nPsaumes 41 — l’assurance du secours de Dieu\nPsaumes 42 — mon âme soupire après toi\nPsaumes 51.1-12, 15-17 — crée en moi un cœur pur\nPsaumes 91 — refuge sous les ailes de Dieu\nPsaumes 103 — Dieu pardonne toutes tes iniquités\nPsaumes 130 — des profondeurs\nPsaumes 138 — achève ton œuvre envers moi\nPsaumes 139 — le Dieu dont on ne peut s’éloigner\nPsaumes 146 — Dieu redresse ceux qui sont courbés\nActes 3.1-10 — Pierre et Jean guérissent un boiteux\nActes 5.12-16 — des guérisons à Jérusalem\nRomains 8 — rien ne peut nous séparer de l’amour de Dieu\nRomains 14.7-12 — nous vivons pour le Seigneur\n2 Corinthiens 1.3-5 — Dieu nous console dans toutes nos afflictions\n2 Corinthiens 4.16-18 — ce qui se voit est passager\nColossiens 1.11-29 — fortifiés par sa puissance\nHébreux 12.1-2 — Jésus, qui rend notre foi parfaite\nJacques 5.13-16 — quelqu’un parmi vous est-il malade ?\n1 Jean 4.16b-19 — il n’y a pas de crainte dans l’amour\n1 Jean 5.13-15 — l’assurance que nous avons en Christ\nRévélation 21.1-4 — un nouveau ciel et une nouvelle terre\nMatthieu 5.1-12 — heureux ceux qui…\nMatthieu 8.1-13 — la guérison d’un lépreux et d’un serviteur\nMatthieu 10.1-8 — Jésus envoie les douze guérir\nMatthieu 11.28-30 — vous tous qui êtes fatigués et chargés\nMatthieu 15.21-28 — la foi de la Cananéenne\nMatthieu 26.36-39 — non pas ce que je veux, mais ce que tu veux\nMarc 1.21-28 — Jésus guérit un homme possédé d’un esprit impur\nMarc 5.1-20 — mon nom est Légion, car nous sommes plusieurs\nMarc 5.21-43 — une jeune fille rendue à la vie, une femme guérie\nMarc 6.7-13 — l’onction d’huile des malades\nMarc 6.53-56 — on apportait les malades à Jésus\nMarc 8.22-26 — un aveugle à Bethsaïda\nMarc 10.46-52 — prends courage, lève-toi, il t’appelle\nLuc 5.17-26 — prends ton lit et marche\nLuc 7.11-17 — Jésus ressuscite le fils de la veuve de Naïn\nLuc 8.43-48 — la femme atteinte d’une perte de sang\nLuc 17.11-19 — l’action de grâce pour la guérison\nJean 3.16-17 — Dieu a tant aimé le monde\nJean 5.2-18 — veux-tu être guéri ?\nJean 9 — la guérison de l’aveugle-né\nJean 11.1-44 — la résurrection de Lazare'),
       TextBlock.heading('PRÉDICATION, MÉDITATION OU TÉMOIGNAGE'),
       TextBlock.heading('[AFFIRMATION DE FOI OU AUTRE RÉPONSE À LA PAROLE]'),
       TextBlock.heading('CONFESSION ET PARDON'),
-      TextBlock.note('Si Jacques 5.14-16a n’a pas été lu plus tôt dans le culte, on peut le lire comme appel à la confession.'),
-      TextBlock.note('L’assemblée peut prier une confession ou un psaume approprié (voir plus haut). La confession est suivie de silence, puis de ces paroles de pardon ou d’autres.'),
+      TextBlock.note(
+          'Si Jacques 5.14-16a n’a pas été lu plus tôt dans le culte, on peut le lire comme appel à la confession.'),
+      TextBlock.note(
+          'L’assemblée peut prier une confession ou un psaume approprié (voir plus haut). La confession est suivie de silence, puis de ces paroles de pardon ou d’autres.'),
       TextBlock.note('Le responsable à l’assemblée :'),
-      TextBlock.leader('Écoutez la bonne nouvelle : / le Christ est mort pour nous alors que nous étions encore pécheurs ; / en cela Dieu prouve son amour envers nous. / Au nom de Jésus-Christ, vous êtes pardonnés !'),
+      TextBlock.leader(
+          'Écoutez la bonne nouvelle : / le Christ est mort pour nous alors que nous étions encore pécheurs ; / en cela Dieu prouve son amour envers nous. / Au nom de Jésus-Christ, vous êtes pardonnés !'),
       TextBlock.note('L’assemblée au responsable :'),
       TextBlock.people('Au nom de Jésus-Christ, vous êtes pardonné.'),
       TextBlock.note('Le responsable et l’assemblée :'),
       TextBlock.people('Gloire à Dieu. Amen.'),
-      TextBlock.note('L’assemblée peut alors chanter une réponse de louange et d’action de grâce.'),
+      TextBlock.note(
+          'L’assemblée peut alors chanter une réponse de louange et d’action de grâce.'),
       TextBlock.heading('[LA PAIX]'),
-      TextBlock.leader('Si on le souhaite, la paix, l’offrande et la Sainte-Cène peuvent suivre l’onction et l’imposition des mains.'),
+      TextBlock.leader(
+          'Si on le souhaite, la paix, l’offrande et la Sainte-Cène peuvent suivre l’onction et l’imposition des mains.'),
       TextBlock.heading('[OFFRANDE]'),
       TextBlock.heading('[SAINTE-CÈNE]'),
-      TextBlock.note('Le pasteur peut donner la Sainte-Cène à tous les présents qui désirent participer à la table du Seigneur.'),
-      TextBlock.note('Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée depuis ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas. Le pasteur prie alors :'),
+      TextBlock.note(
+          'Le pasteur peut donner la Sainte-Cène à tous les présents qui désirent participer à la table du Seigneur.'),
+      TextBlock.note(
+          'Le pasteur, debout si possible derrière la table du Seigneur, face à l’assemblée depuis ce moment jusqu’à la fraction du pain, prend le pain et la coupe ; le pain et le vin sont préparés pour le repas. Le pasteur prie alors :'),
       TextBlock.leader('Le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous aussi.'),
       TextBlock.leader('Élevons nos cœurs.'),
       TextBlock.people('Nous les élevons vers le Seigneur.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Cela est digne et juste.'),
-      TextBlock.leader('Il est juste, bon et joyeux / de te rendre grâce toujours et en tout lieu, / Père tout-puissant, créateur du ciel et de la terre. / Au commencement, quand les ténèbres couvraient la face de la terre / et que tout n’était que chaos, / ton Esprit planait sur les eaux. / Tu as dit une seule parole, et la lumière fut séparée des ténèbres.'),
-      TextBlock.leader('C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, / nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.people('Saint, saint, saint est le Seigneur, Dieu de l’univers ! / Le ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux ! / Béni soit celui qui vient au nom du Seigneur. Hosanna au plus haut des cieux !'),
-      TextBlock.leader('Tu es saint, et béni est ton Fils Jésus-Christ : / lui qui a vécu parmi nous et connu la douleur et la souffrance des humains ; / lui qui a appelé tous ceux qui étaient fatigués et chargés et leur a donné le repos ; / lui qui a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs ; / lui qui a chassé les démons et nous a montré par la foi le chemin qui mène à toi ; / lui qui a pris sur lui nos souffrances, / afin que nous soyons purifiés de nos péchés et que nous recevions la vie éternelle. / Par le baptême de sa souffrance, de sa mort et de sa résurrection, / tu as fait naître ton Église, / tu nous as délivrés de l’esclavage du péché et de la mort / et tu as conclu avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
-      TextBlock.leader('La nuit précédant sa mort, / Jésus prit du pain, te rendit grâce, le rompit, / le donna à ses disciples et dit : / « Prenez, mangez ; ceci est mon corps, donné pour vous. / Faites cela en mémoire de moi. »'),
-      TextBlock.leader('Le repas terminé, Jésus prit la coupe, / te rendit grâce, la donna à ses disciples et dit : / « Buvez-en tous ; / ceci est mon sang, le sang de la nouvelle alliance, / répandu pour vous et pour la multitude en rémission des péchés. / Faites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
-      TextBlock.leader('C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ, / nous nous offrons à toi en louange et en action de grâce / comme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous, / en proclamant le mystère de la foi :'),
-      TextBlock.people('Christ est mort ; Christ est ressuscité ; Christ reviendra.'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici, / et sur ces dons de pain et de vin. / Fais qu’ils soient pour nous le corps et le sang du Christ, / afin que nous soyons pour le monde le corps du Christ, racheté par son sang.'),
-      TextBlock.leader('Par ce même Esprit, guéris-nous dans notre corps, notre esprit et notre âme, / en purifiant tout ce qui nous séparerait de toi. / Par ton Esprit, fais de nous un avec le Christ, / un les uns avec les autres, et un dans le service de tout le monde, / jusqu’à ce que le Christ vienne dans sa victoire et que nous soyons à son banquet céleste.'),
-      TextBlock.leader('Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, / tout honneur et toute gloire sont à toi, Dieu tout-puissant, maintenant et pour toujours.'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux / de te rendre grâce toujours et en tout lieu, / Père tout-puissant, créateur du ciel et de la terre. / Au commencement, quand les ténèbres couvraient la face de la terre / et que tout n’était que chaos, / ton Esprit planait sur les eaux. / Tu as dit une seule parole, et la lumière fut séparée des ténèbres.'),
+      TextBlock.leader(
+          'C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, / nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.people(
+          'Saint, saint, saint est le Seigneur, Dieu de l’univers ! / Le ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux ! / Béni soit celui qui vient au nom du Seigneur. Hosanna au plus haut des cieux !'),
+      TextBlock.leader(
+          'Tu es saint, et béni est ton Fils Jésus-Christ : / lui qui a vécu parmi nous et connu la douleur et la souffrance des humains ; / lui qui a appelé tous ceux qui étaient fatigués et chargés et leur a donné le repos ; / lui qui a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs ; / lui qui a chassé les démons et nous a montré par la foi le chemin qui mène à toi ; / lui qui a pris sur lui nos souffrances, / afin que nous soyons purifiés de nos péchés et que nous recevions la vie éternelle. / Par le baptême de sa souffrance, de sa mort et de sa résurrection, / tu as fait naître ton Église, / tu nous as délivrés de l’esclavage du péché et de la mort / et tu as conclu avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          'La nuit précédant sa mort, / Jésus prit du pain, te rendit grâce, le rompit, / le donna à ses disciples et dit : / « Prenez, mangez ; ceci est mon corps, donné pour vous. / Faites cela en mémoire de moi. »'),
+      TextBlock.leader(
+          'Le repas terminé, Jésus prit la coupe, / te rendit grâce, la donna à ses disciples et dit : / « Buvez-en tous ; / ceci est mon sang, le sang de la nouvelle alliance, / répandu pour vous et pour la multitude en rémission des péchés. / Faites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
+      TextBlock.leader(
+          'C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ, / nous nous offrons à toi en louange et en action de grâce / comme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous, / en proclamant le mystère de la foi :'),
+      TextBlock.people(
+          'Christ est mort ; Christ est ressuscité ; Christ reviendra.'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici, / et sur ces dons de pain et de vin. / Fais qu’ils soient pour nous le corps et le sang du Christ, / afin que nous soyons pour le monde le corps du Christ, racheté par son sang.'),
+      TextBlock.leader(
+          'Par ce même Esprit, guéris-nous dans notre corps, notre esprit et notre âme, / en purifiant tout ce qui nous séparerait de toi. / Par ton Esprit, fais de nous un avec le Christ, / un les uns avec les autres, et un dans le service de tout le monde, / jusqu’à ce que le Christ vienne dans sa victoire et que nous soyons à son banquet céleste.'),
+      TextBlock.leader(
+          'Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, / tout honneur et toute gloire sont à toi, Dieu tout-puissant, maintenant et pour toujours.'),
       TextBlock.people('Amen.'),
       TextBlock.note('Tous prient le Notre Père.'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
-      TextBlock.note('Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
-      TextBlock.leader('Le corps du Christ, donné pour toi. Amen.\nLe sang du Christ, versé pour toi. Amen.'),
-      TextBlock.note('Quand tous ont communié, la table du Seigneur est remise en ordre.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Le pasteur, toujours debout derrière la table du Seigneur, face à l’assemblée, rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec ces paroles ou d’autres :'),
+      TextBlock.leader(
+          'Le corps du Christ, donné pour toi. Amen.\nLe sang du Christ, versé pour toi. Amen.'),
+      TextBlock.note(
+          'Quand tous ont communié, la table du Seigneur est remise en ordre.'),
       TextBlock.heading('[ACTION DE GRÂCE SUR L’HUILE]'),
-      TextBlock.note('Si on le souhaite, ce geste peut précéder la Sainte-Cène. Si Jacques 5.14-16a n’a pas été lu plus tôt dans le culte, on peut le lire ici en introduction à l’onction.'),
+      TextBlock.note(
+          'Si on le souhaite, ce geste peut précéder la Sainte-Cène. Si Jacques 5.14-16a n’a pas été lu plus tôt dans le culte, on peut le lire ici en introduction à l’onction.'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Ô Dieu, source de santé et de salut, / nous te rendons grâce pour le don de l’huile. / Comme tes saints apôtres ont oint beaucoup de malades et les ont guéris, / répands ton Saint-Esprit sur nous et sur ce don, / afin que ceux qui, dans la foi et la repentance, reçoivent cette onction / soient rendus à la plénitude de la vie, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Ô Dieu, source de santé et de salut, / nous te rendons grâce pour le don de l’huile. / Comme tes saints apôtres ont oint beaucoup de malades et les ont guéris, / répands ton Saint-Esprit sur nous et sur ce don, / afin que ceux qui, dans la foi et la repentance, reçoivent cette onction / soient rendus à la plénitude de la vie, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('[CANTIQUE DE GUÉRISON]'),
-      TextBlock.note('L’assemblée, une chorale ou un soliste peut chanter l’un des cantiques sur la guérison, l’espérance ou le courage, ou un autre cantique approprié.'),
-      TextBlock.heading('PRIÈRES POUR LA GUÉRISON ET LA PLÉNITUDE, AVEC ONCTION ET / OU IMPOSITION DES MAINS'),
-      TextBlock.note('Les personnes peuvent être invitées à s’avancer, une à une ou en groupe, jusqu’à la table de communion ou à un autre lieu de prière désigné, et à exprimer leurs préoccupations particulières. Le pasteur, d’autres personnes désignées ou des équipes de prière de deux ou trois personnes peuvent les accompagner. Tous les membres de l’équipe de prière imposent les mains et participent à la prière silencieuse et à haute voix.'),
-      TextBlock.note('L’assemblée et la chorale peuvent chanter des cantiques.'),
-      TextBlock.note('S’il y a onction d’huile, un responsable trempe le pouce dans l’huile et trace le signe de la croix sur le front de la personne, en silence ou avec ces paroles ou des paroles semblables :'),
-      TextBlock.leader('[Prénom], je t’oins d’huile / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine ; ou : au nom de Jésus, le Christ, ton Sauveur et ton Guérisseur)\n[pour l’intention précisée].'),
-      TextBlock.note('S’il y a imposition des mains, un responsable, que d’autres peuvent rejoindre, pose les mains sur la tête de chaque personne, en silence ou avec ces paroles ou des paroles semblables :'),
-      TextBlock.leader('[Prénom], je pose (nous posons) les mains sur toi / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine ; ou : au nom de Jésus, le Christ, ton Sauveur et ton Guérisseur)\n[pour l’intention précisée].'),
-      TextBlock.leader('Que la puissance de la présence de Dieu en toi te guérisse de toutes maladies — / du corps, de l’esprit, de l’âme et des relations — / afin que tu serves Dieu avec un cœur aimant. Amen.'),
-      TextBlock.heading('PRIÈRE APRÈS L’ONCTION ET / OU L’IMPOSITION DES MAINS'),
-      TextBlock.note('On peut employer la prière suivante, l’une des prières pour des intentions particulières, ou une autre prière appropriée.'),
-      TextBlock.leader('Dieu tout-puissant, / nous te prions : que [Noms] (nos frères et sœurs) / soient consolés dans leur souffrance et rendus à la plénitude. / Quand ils ont peur, donne-leur du courage ; / quand ils se sentent faibles, accorde-leur ta force ; / quand ils sont dans l’épreuve, donne-leur la patience ; / quand ils sont perdus, offre-leur l’espérance ; / quand ils sont seuls, pousse-nous à nous tenir à leurs côtés ; / [quand la mort vient, ouvre tes bras pour l’accueillir]. / Nous prions au nom de Jésus-Christ. Amen.'),
+      TextBlock.note(
+          'L’assemblée, une chorale ou un soliste peut chanter l’un des cantiques sur la guérison, l’espérance ou le courage, ou un autre cantique approprié.'),
+      TextBlock.heading(
+          'PRIÈRES POUR LA GUÉRISON ET LA PLÉNITUDE, AVEC ONCTION ET / OU IMPOSITION DES MAINS'),
+      TextBlock.note(
+          'Les personnes peuvent être invitées à s’avancer, une à une ou en groupe, jusqu’à la table de communion ou à un autre lieu de prière désigné, et à exprimer leurs préoccupations particulières. Le pasteur, d’autres personnes désignées ou des équipes de prière de deux ou trois personnes peuvent les accompagner. Tous les membres de l’équipe de prière imposent les mains et participent à la prière silencieuse et à haute voix.'),
+      TextBlock.note(
+          'L’assemblée et la chorale peuvent chanter des cantiques.'),
+      TextBlock.note(
+          'S’il y a onction d’huile, un responsable trempe le pouce dans l’huile et trace le signe de la croix sur le front de la personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader(
+          '[Prénom], je t’oins d’huile / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine ; ou : au nom de Jésus, le Christ, ton Sauveur et ton Guérisseur)\n[pour l’intention précisée].'),
+      TextBlock.note(
+          'S’il y a imposition des mains, un responsable, que d’autres peuvent rejoindre, pose les mains sur la tête de chaque personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader(
+          '[Prénom], je pose (nous posons) les mains sur toi / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine ; ou : au nom de Jésus, le Christ, ton Sauveur et ton Guérisseur)\n[pour l’intention précisée].'),
+      TextBlock.leader(
+          'Que la puissance de la présence de Dieu en toi te guérisse de toutes maladies — / du corps, de l’esprit, de l’âme et des relations — / afin que tu serves Dieu avec un cœur aimant. Amen.'),
+      TextBlock.heading(
+          'PRIÈRE APRÈS L’ONCTION ET / OU L’IMPOSITION DES MAINS'),
+      TextBlock.note(
+          'On peut employer la prière suivante, l’une des prières pour des intentions particulières, ou une autre prière appropriée.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, / nous te prions : que [Noms] (nos frères et sœurs) / soient consolés dans leur souffrance et rendus à la plénitude. / Quand ils ont peur, donne-leur du courage ; / quand ils se sentent faibles, accorde-leur ta force ; / quand ils sont dans l’épreuve, donne-leur la patience ; / quand ils sont perdus, offre-leur l’espérance ; / quand ils sont seuls, pousse-nous à nous tenir à leurs côtés ; / [quand la mort vient, ouvre tes bras pour l’accueillir]. / Nous prions au nom de Jésus-Christ. Amen.'),
       TextBlock.heading('[PARTAGE D’ACTIONS DE GRÂCE]'),
-      TextBlock.leader('Ceux qui se sentent poussés à le faire peuvent rendre grâce pour une guérison ou pour d’autres bénédictions.'),
+      TextBlock.leader(
+          'Ceux qui se sentent poussés à le faire peuvent rendre grâce pour une guérison ou pour d’autres bénédictions.'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
-      TextBlock.leader('Que le Seigneur, qui guérit toutes tes iniquités, te bénisse et te garde ; / que la face du Seigneur, qui guérit toutes tes afflictions, / resplendisse sur toi et te soit propice ; / que la lumière du visage du Seigneur, qui rachète ta vie, / se lève sur toi et te donne la paix. Amen.'),
+      TextBlock.leader(
+          'Que le Seigneur, qui guérit toutes tes iniquités, te bénisse et te garde ; / que la face du Seigneur, qui guérit toutes tes afflictions, / resplendisse sur toi et te soit propice ; / que la lumière du visage du Seigneur, qui rachète ta vie, / se lève sur toi et te donne la paix. Amen.'),
       TextBlock.heading('SORTIE'),
     ],
   );
@@ -1316,81 +1957,120 @@ class BookOfWorshipData {
   static const ministryDying = ChurchText(
     id: 'bow_ministry_dying',
     title: 'Accompagnement des mourants',
-    subtitle: 'Sainte-Cène, prières de recommandation et paroles à l’heure de la mort',
+    subtitle:
+        'Sainte-Cène, prières de recommandation et paroles à l’heure de la mort',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with the Dying” Prayers 1 and 3 alt. from The Book of Common Prayer (The Episcopal Church, 1979). Public domain. Prayer 2 Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-the-dying',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with the Dying” Prayers 1 and 3 alt. from The Book of Common Prayer (The Episcopal Church, 1979). Public domain. Prayer 2 Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ministry-with-the-dying',
     blocks: [
-      TextBlock.note('Lorsque la mort approche, il faut prévenir le pasteur afin que le ministère de l’Église puisse s’exercer.'),
-      TextBlock.note('La Sainte-Cène peut être donnée, en employant le Culte de la Parole et de la Table V ou en adaptant le Culte de la Parole et de la Table IV.'),
-      TextBlock.note('L’Alliance baptismale peut être réaffirmée, en reprenant les parties appropriées de l’Alliance baptismale I.'),
-      TextBlock.note('Le pasteur, rejoint par d’autres dans la mesure de leurs possibilités, peut prier le Notre Père ou le Psaumes 23.'),
-      TextBlock.note('Voir aussi les ressources pour l’accompagnement des personnes atteintes d’une maladie mettant la vie en danger.'),
-      TextBlock.note('Le pasteur peut prier l’une ou plusieurs des prières suivantes :'),
-      TextBlock.leader('Seigneur Jésus-Christ, délivre ton enfant [Prénom] de tout mal / et libère-le (la) de tout lien, / afin qu’il (elle) repose avec tous tes saints / dans la joie de ta demeure éternelle, pour les siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Lorsque la mort approche, il faut prévenir le pasteur afin que le ministère de l’Église puisse s’exercer.'),
+      TextBlock.note(
+          'La Sainte-Cène peut être donnée, en employant le Culte de la Parole et de la Table V ou en adaptant le Culte de la Parole et de la Table IV.'),
+      TextBlock.note(
+          'L’Alliance baptismale peut être réaffirmée, en reprenant les parties appropriées de l’Alliance baptismale I.'),
+      TextBlock.note(
+          'Le pasteur, rejoint par d’autres dans la mesure de leurs possibilités, peut prier le Notre Père ou le Psaumes 23.'),
+      TextBlock.note(
+          'Voir aussi les ressources pour l’accompagnement des personnes atteintes d’une maladie mettant la vie en danger.'),
+      TextBlock.note(
+          'Le pasteur peut prier l’une ou plusieurs des prières suivantes :'),
+      TextBlock.leader(
+          'Seigneur Jésus-Christ, délivre ton enfant [Prénom] de tout mal / et libère-le (la) de tout lien, / afin qu’il (elle) repose avec tous tes saints / dans la joie de ta demeure éternelle, pour les siècles des siècles. Amen.'),
       TextBlock.note('Lorsqu’on débranche un système de maintien en vie :'),
-      TextBlock.leader('Ô Dieu, tu es l’Alpha et l’Oméga, le commencement et la fin. / Tu as soufflé en nous le souffle de vie / et tu as veillé sur nous tous nos jours. / Maintenant, à l’heure de la mort, nous te rendons [Prénom], / confiants dans ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
-      TextBlock.note('Une recommandation à l’heure de la mort, le pasteur posant la main sur la tête de la personne mourante :'),
-      TextBlock.leader('Pars en paix, frère (sœur) [Prénom] : / au nom de Dieu le Père, qui t’a créé(e) ; / au nom du Christ, qui t’a racheté(e) ; / au nom du Saint-Esprit, qui te sanctifie. / Repose en paix et demeure pour toujours auprès du Seigneur.'),
+      TextBlock.leader(
+          'Ô Dieu, tu es l’Alpha et l’Oméga, le commencement et la fin. / Tu as soufflé en nous le souffle de vie / et tu as veillé sur nous tous nos jours. / Maintenant, à l’heure de la mort, nous te rendons [Prénom], / confiants dans ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note(
+          'Une recommandation à l’heure de la mort, le pasteur posant la main sur la tête de la personne mourante :'),
+      TextBlock.leader(
+          'Pars en paix, frère (sœur) [Prénom] : / au nom de Dieu le Père, qui t’a créé(e) ; / au nom du Christ, qui t’a racheté(e) ; / au nom du Saint-Esprit, qui te sanctifie. / Repose en paix et demeure pour toujours auprès du Seigneur.'),
     ],
   );
 
   static const ministryAfterDeath = ChurchText(
     id: 'bow_ministry_after_death',
     title: 'Accompagnement juste après un décès',
-    subtitle: 'Prières pour les proches endeuillés, y compris après la mort d’un enfant',
+    subtitle:
+        'Prières pour les proches endeuillés, y compris après la mort d’un enfant',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry Immediately Following Death” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-immediately-following-death',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry Immediately Following Death” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ministry-immediately-following-death',
     blocks: [
-      TextBlock.note('Pour accompagner les proches endeuillés immédiatement après un décès, le pasteur peut prier spontanément, prier une ou plusieurs des prières de recommandation, ou prier ainsi :'),
-      TextBlock.leader('Des profondeurs, nous crions vers toi, Seigneur. Écoute notre voix. / Nous t’attendons, ô Dieu. Notre âme t’attend. / Donne-nous maintenant ta parole d’espérance. / Nous savons que ton amour est fidèle, toujours là quand nous en avons besoin. / Fais-nous sentir ta présence maintenant, dans notre tristesse. / Aide-nous à regarder vers demain pour voir une espérance au-delà du chagrin, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Pour accompagner les proches endeuillés immédiatement après un décès, le pasteur peut prier spontanément, prier une ou plusieurs des prières de recommandation, ou prier ainsi :'),
+      TextBlock.leader(
+          'Des profondeurs, nous crions vers toi, Seigneur. Écoute notre voix. / Nous t’attendons, ô Dieu. Notre âme t’attend. / Donne-nous maintenant ta parole d’espérance. / Nous savons que ton amour est fidèle, toujours là quand nous en avons besoin. / Fais-nous sentir ta présence maintenant, dans notre tristesse. / Aide-nous à regarder vers demain pour voir une espérance au-delà du chagrin, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Après la mort d’un enfant :'),
-      TextBlock.leader('Dieu d’amour, comme ton Fils Jésus a pris les enfants dans ses bras / et les a bénis, / donne-nous la grâce de confier [Prénom] à ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
-      TextBlock.note('Après la naissance d’un enfant mort-né ou la mort d’un nouveau-né :'),
-      TextBlock.leader('Dieu de miséricorde, tu nous fortifies par ta puissance et ta sagesse. / Sois favorable à [Prénom] (et à [Prénom]) dans leur (son) deuil, / et entoure-les (la) de ton amour qui ne faiblit pas, / afin qu’ils (elle) ne soient pas accablés par leur (sa) perte, / mais qu’ils (elle) aient confiance en ta bonté / et le courage d’affronter les jours à venir, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Voir aussi le Culte de mort et de résurrection pour un enfant mort-né et les prières du Culte d’espérance après la perte d’une grossesse.'),
+      TextBlock.leader(
+          'Dieu d’amour, comme ton Fils Jésus a pris les enfants dans ses bras / et les a bénis, / donne-nous la grâce de confier [Prénom] à ton amour fidèle, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note(
+          'Après la naissance d’un enfant mort-né ou la mort d’un nouveau-né :'),
+      TextBlock.leader(
+          'Dieu de miséricorde, tu nous fortifies par ta puissance et ta sagesse. / Sois favorable à [Prénom] (et à [Prénom]) dans leur (son) deuil, / et entoure-les (la) de ton amour qui ne faiblit pas, / afin qu’ils (elle) ne soient pas accablés par leur (sa) perte, / mais qu’ils (elle) aient confiance en ta bonté / et le courage d’affronter les jours à venir, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Voir aussi le Culte de mort et de résurrection pour un enfant mort-né et les prières du Culte d’espérance après la perte d’une grossesse.'),
     ],
   );
 
   static const blessingHome = ChurchText(
     id: 'bow_blessing_home',
     title: 'Bénédiction d’une maison',
-    subtitle: 'Consécration d’un foyer ou d’un presbytère, avec gestes symboliques',
+    subtitle:
+        'Consécration d’un foyer ou d’un presbytère, avec gestes symboliques',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for the Blessing of a Home: Copyright © 1984 by Abingdon Press; Copyright © 1992 UMPH. Greeting © 1964, 1965 by Board of Publication of The Methodist Church, Inc.; renewal Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-for-the-blessing-of-a-home',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for the Blessing of a Home: Copyright © 1984 by Abingdon Press; Copyright © 1992 UMPH. Greeting © 1964, 1965 by Board of Publication of The Methodist Church, Inc.; renewal Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-for-the-blessing-of-a-home',
     blocks: [
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('La famille et les amis se rassemblent à l’intérieur ou à l’extérieur de la maison.'),
+      TextBlock.note(
+          'La famille et les amis se rassemblent à l’intérieur ou à l’extérieur de la maison.'),
       TextBlock.heading('SALUTATION'),
       TextBlock.note('Le responsable s’adresse à la famille et aux amis :'),
-      TextBlock.leader('Jésus a dit : « Voici, je me tiens à la porte, et je frappe. / Si quelqu’un entend ma voix et ouvre la porte, j’entrerai chez lui. » (APOCALYPSE 3.20)'),
-      TextBlock.leader('Chers amis, / nous sommes rassemblés pour demander la bénédiction de Dieu sur cette maison, / qui, par la grâce de Dieu et le travail des hommes, a été préparée. / Cette maison n’est pas seulement un logement, / elle est pour nous le symbole de l’amour de Dieu / et de notre vie ensemble comme famille du Christ. / Rendons donc louange et action de grâce / pour la bonté, la miséricorde et notre communion, / en nous offrant comme serviteurs de Dieu / et comme sœurs et frères qui s’aiment les uns les autres.'),
+      TextBlock.leader(
+          'Jésus a dit : « Voici, je me tiens à la porte, et je frappe. / Si quelqu’un entend ma voix et ouvre la porte, j’entrerai chez lui. » (APOCALYPSE 3.20)'),
+      TextBlock.leader(
+          'Chers amis, / nous sommes rassemblés pour demander la bénédiction de Dieu sur cette maison, / qui, par la grâce de Dieu et le travail des hommes, a été préparée. / Cette maison n’est pas seulement un logement, / elle est pour nous le symbole de l’amour de Dieu / et de notre vie ensemble comme famille du Christ. / Rendons donc louange et action de grâce / pour la bonté, la miséricorde et notre communion, / en nous offrant comme serviteurs de Dieu / et comme sœurs et frères qui s’aiment les uns les autres.'),
       TextBlock.heading('PRIÈRE D’OUVERTURE'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu tout-puissant et éternel, / accorde à cette maison la grâce de ta présence, / afin qu’on sache que tu habites cette demeure / et que tu protèges cette famille, / par Jésus-Christ notre Seigneur, qui, avec toi et le Saint-Esprit, / vit et règne, seul Dieu, pour les siècles des siècles. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant et éternel, / accorde à cette maison la grâce de ta présence, / afin qu’on sache que tu habites cette demeure / et que tu protèges cette famille, / par Jésus-Christ notre Seigneur, qui, avec toi et le Saint-Esprit, / vit et règne, seul Dieu, pour les siècles des siècles. Amen.'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.leader('Lectures suggérées :\nJosué 24.14-15 — moi et ma maison, nous servirons l’Éternel\n1 Jean 4.11-21 — celui qui demeure dans l’amour demeure en Dieu\nActes 2.43-47 — jour après jour… ils rompaient le pain dans les maisons\nEphésiens 3.14-21 — toute famille tient son nom de Dieu\nMatthieu 6.25-33 — ne vous inquiétez pas pour votre vie\nMatthieu 7.24-27 — la maison bâtie sur le roc\nJean 14.1-3 — il y a plusieurs demeures dans la maison de mon Père'),
+      TextBlock.leader(
+          'Lectures suggérées :\nJosué 24.14-15 — moi et ma maison, nous servirons l’Éternel\n1 Jean 4.11-21 — celui qui demeure dans l’amour demeure en Dieu\nActes 2.43-47 — jour après jour… ils rompaient le pain dans les maisons\nEphésiens 3.14-21 — toute famille tient son nom de Dieu\nMatthieu 6.25-33 — ne vous inquiétez pas pour votre vie\nMatthieu 7.24-27 — la maison bâtie sur le roc\nJean 14.1-3 — il y a plusieurs demeures dans la maison de mon Père'),
       TextBlock.heading('CONSÉCRATION DE LA MAISON'),
       TextBlock.leader('Au nom du Père, du Fils et du Saint-Esprit'),
       TextBlock.note('(au nom du Dieu saint et trine),'),
-      TextBlock.leader('nous consacrons cette maison, / en confiant à l’amour et aux soins de Dieu tous ceux (celui, celle) qui y habitent (habite).'),
+      TextBlock.leader(
+          'nous consacrons cette maison, / en confiant à l’amour et aux soins de Dieu tous ceux (celui, celle) qui y habitent (habite).'),
       TextBlock.people('Amen.'),
-      TextBlock.leader('Prions. / Dieu éternel, bénis cette maison. / Que ton amour repose sur elle et que ta présence promise s’y manifeste. / Que les membres de cette famille ([Prénoms]) / grandissent dans la grâce et dans la connaissance de notre Seigneur Jésus-Christ. / Apprends-leur (lui, lui) à aimer comme tu nous as aimés, / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
+      TextBlock.leader(
+          'Prions. / Dieu éternel, bénis cette maison. / Que ton amour repose sur elle et que ta présence promise s’y manifeste. / Que les membres de cette famille ([Prénoms]) / grandissent dans la grâce et dans la connaissance de notre Seigneur Jésus-Christ. / Apprends-leur (lui, lui) à aimer comme tu nous as aimés, / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
       TextBlock.heading('CONSÉCRATION D’UN PRESBYTÈRE'),
-      TextBlock.note('Ce texte peut remplacer la Consécration de la maison ci-dessus.'),
+      TextBlock.note(
+          'Ce texte peut remplacer la Consécration de la maison ci-dessus.'),
       TextBlock.leader('Au nom du Père, du Fils et du Saint-Esprit'),
       TextBlock.note('(au nom du Dieu saint et trine),'),
-      TextBlock.leader('nous consacrons cette maison pour les pasteurs (ministres diaconaux) / et leurs familles / de l’Église méthodiste unie de [Nom]. Amen.'),
-      TextBlock.leader('Prions. / Bénis cette maison, pour assurer le confort familial de ceux que Dieu a appelés / et que l’évêque a nommés pour servir cette assemblée. / Que ceux qui y résident / ressentent l’amour et le soutien de cette assemblée / comme des personnes très particulières dans cette famille de Dieu. / Aide-nous à nous aimer les uns les autres comme tu nous as aimés / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur.'),
+      TextBlock.leader(
+          'nous consacrons cette maison pour les pasteurs (ministres diaconaux) / et leurs familles / de l’Église méthodiste unie de [Nom]. Amen.'),
+      TextBlock.leader(
+          'Prions. / Bénis cette maison, pour assurer le confort familial de ceux que Dieu a appelés / et que l’évêque a nommés pour servir cette assemblée. / Que ceux qui y résident / ressentent l’amour et le soutien de cette assemblée / comme des personnes très particulières dans cette famille de Dieu. / Aide-nous à nous aimer les uns les autres comme tu nous as aimés / et aide-nous tous à vivre dans la paix de Jésus-Christ notre Seigneur.'),
       TextBlock.people('Amen.'),
-      TextBlock.note('Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
+      TextBlock.note(
+          'Le culte peut se conclure par le Notre Père et le congé avec bénédiction, ou comme indiqué plus bas.'),
       TextBlock.heading('GESTES SYMBOLIQUES'),
-      TextBlock.note('À ce moment, des gestes symboliques peuvent convenir : la remise d’un cadeau, comme une croix, un tableau ou un autre objet, ou la plantation d’un arbre ou d’un arbuste. Ces gestes peuvent être accompagnés de bénédictions appropriées.'),
+      TextBlock.note(
+          'À ce moment, des gestes symboliques peuvent convenir : la remise d’un cadeau, comme une croix, un tableau ou un autre objet, ou la plantation d’un arbre ou d’un arbuste. Ces gestes peuvent être accompagnés de bénédictions appropriées.'),
       TextBlock.heading('SAINTE-CÈNE'),
-      TextBlock.note('Il convient de réunir l’assemblée pour une célébration de la Sainte-Cène en famille, présidée par le pasteur, en prenant la table à manger comme table du Seigneur, avec peut-être du pain cuit dans le four de la nouvelle maison.'),
+      TextBlock.note(
+          'Il convient de réunir l’assemblée pour une célébration de la Sainte-Cène en famille, présidée par le pasteur, en prenant la table à manger comme table du Seigneur, avec peut-être du pain cuit dans le four de la nouvelle maison.'),
       TextBlock.heading('BÉNÉDICTION'),
     ],
   );
@@ -1398,111 +2078,187 @@ class BookOfWorshipData {
   static const birthThanksgiving = ChurchText(
     id: 'bow_birth_thanksgiving',
     title: 'Action de grâce pour une naissance ou une adoption',
-    subtitle: 'Présentation d’un enfant à l’assemblée, prière pour une naissance heureuse',
+    subtitle:
+        'Présentation d’un enfant à l’assemblée, prière pour une naissance heureuse',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Prayer of Thanksgiving for the Adoption of a Child” Copyright © 1992, UMPH. “For a safe delivery” from The Book of Common Prayer (The Episcopal Church, 1979), alt., Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-thanksgiving-for-the-birth-or-adoption-of-a-child',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Prayer of Thanksgiving for the Adoption of a Child” Copyright © 1992, UMPH. “For a safe delivery” from The Book of Common Prayer (The Episcopal Church, 1979), alt., Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-of-thanksgiving-for-the-birth-or-adoption-of-a-child',
     blocks: [
-      TextBlock.note('Après la naissance ou l’adoption d’un enfant, les parents, avec d’autres membres de la famille, peuvent présenter l’enfant au cours d’un culte, afin qu’il soit accueilli par l’assemblée et que l’on rende grâce à Dieu. Tout ou partie de cet ordre peut être inclus dans n’importe quel culte de l’assemblée.'),
-      TextBlock.note('L’action de grâce pour la naissance ou l’adoption d’un enfant peut aussi être offerte à Dieu à l’hôpital ou à la maison, en employant les parties de cet ordre qui conviennent.'),
-      TextBlock.leader('Il faut bien faire comprendre aux participants que ce geste n’est ni l’équivalent ni le substitut du saint baptême, mais qu’il a une histoire et une signification tout à fait différentes. Ce geste convient (1) avant la présentation de l’enfant pour le baptême, ou (2) si l’enfant a été baptisé ailleurs et est présenté pour la première fois dans l’assemblée où il sera nourri dans la foi.'),
-      TextBlock.note('Bien que cet ordre ne soit pas normalement le thème d’un culte entier, on peut, si on le désire, lire l’une ou plusieurs des Écritures suivantes ou les chanter en acte de louange et d’action de grâce :'),
-      TextBlock.leader('Deutéronome 6.4-9 — enseigne-les avec soin à tes enfants\nDeutéronome 31.12-13 — afin que les enfants entendent et apprennent\n1 Samuel 1.9-11, 19b-20, 26-28 — la naissance de Samuel, prêté à l’Éternel\nPsaumes 8 — Éternel, notre Seigneur, que ton nom est magnifique\nGalates 4.4-7 — nous sommes enfants adoptifs de Dieu\nMatthieu 18.1-5 — les plus grands sont humbles comme des enfants\nMarc 10.13-16 — Jésus bénit les enfants\nLuc 1.47-55 — le cantique de Marie\nLuc 2.22-40 — la présentation de Jésus au temple'),
-      TextBlock.note('En réponse à la Parole, ou à un autre moment approprié dans un culte public, le pasteur invite ceux qui présentent des enfants à s’avancer, puis poursuit ainsi :'),
+      TextBlock.note(
+          'Après la naissance ou l’adoption d’un enfant, les parents, avec d’autres membres de la famille, peuvent présenter l’enfant au cours d’un culte, afin qu’il soit accueilli par l’assemblée et que l’on rende grâce à Dieu. Tout ou partie de cet ordre peut être inclus dans n’importe quel culte de l’assemblée.'),
+      TextBlock.note(
+          'L’action de grâce pour la naissance ou l’adoption d’un enfant peut aussi être offerte à Dieu à l’hôpital ou à la maison, en employant les parties de cet ordre qui conviennent.'),
+      TextBlock.leader(
+          'Il faut bien faire comprendre aux participants que ce geste n’est ni l’équivalent ni le substitut du saint baptême, mais qu’il a une histoire et une signification tout à fait différentes. Ce geste convient (1) avant la présentation de l’enfant pour le baptême, ou (2) si l’enfant a été baptisé ailleurs et est présenté pour la première fois dans l’assemblée où il sera nourri dans la foi.'),
+      TextBlock.note(
+          'Bien que cet ordre ne soit pas normalement le thème d’un culte entier, on peut, si on le désire, lire l’une ou plusieurs des Écritures suivantes ou les chanter en acte de louange et d’action de grâce :'),
+      TextBlock.leader(
+          'Deutéronome 6.4-9 — enseigne-les avec soin à tes enfants\nDeutéronome 31.12-13 — afin que les enfants entendent et apprennent\n1 Samuel 1.9-11, 19b-20, 26-28 — la naissance de Samuel, prêté à l’Éternel\nPsaumes 8 — Éternel, notre Seigneur, que ton nom est magnifique\nGalates 4.4-7 — nous sommes enfants adoptifs de Dieu\nMatthieu 18.1-5 — les plus grands sont humbles comme des enfants\nMarc 10.13-16 — Jésus bénit les enfants\nLuc 1.47-55 — le cantique de Marie\nLuc 2.22-40 — la présentation de Jésus au temple'),
+      TextBlock.note(
+          'En réponse à la Parole, ou à un autre moment approprié dans un culte public, le pasteur invite ceux qui présentent des enfants à s’avancer, puis poursuit ainsi :'),
       TextBlock.heading('PRÉSENTATION ET APPEL À L’ACTION DE GRÂCE'),
-      TextBlock.note('Il peut y avoir des gestes informels et spontanés de présentation et d’action de grâce, et / ou ce qui suit :'),
-      TextBlock.leader('Frères et sœurs en Christ, / la naissance (l’adoption) d’un enfant est un événement joyeux et solennel / dans la vie d’une famille. / C’est aussi une occasion de se réjouir dans la famille de l’Église. / Je vous invite donc à vous joindre à [Prénom du parent] [et à [Prénom du parent]] / pour rendre grâce à Dieu, dont nous sommes tous les enfants, / du don de [Prénom de l’enfant], qui devient leur fils (fille), / et, avec [Prénom(s) du frère ou de la sœur], d’un nouveau frère (d’une nouvelle sœur).'),
+      TextBlock.note(
+          'Il peut y avoir des gestes informels et spontanés de présentation et d’action de grâce, et / ou ce qui suit :'),
+      TextBlock.leader(
+          'Frères et sœurs en Christ, / la naissance (l’adoption) d’un enfant est un événement joyeux et solennel / dans la vie d’une famille. / C’est aussi une occasion de se réjouir dans la famille de l’Église. / Je vous invite donc à vous joindre à [Prénom du parent] [et à [Prénom du parent]] / pour rendre grâce à Dieu, dont nous sommes tous les enfants, / du don de [Prénom de l’enfant], qui devient leur fils (fille), / et, avec [Prénom(s) du frère ou de la sœur], d’un nouveau frère (d’une nouvelle sœur).'),
       TextBlock.heading('PRIÈRE D’ACTION DE GRÂCE ET D’INTERCESSION'),
       TextBlock.note('Pour un accouchement heureux'),
-      TextBlock.leader('Dieu de grâce, nous te rendons humblement et de tout cœur grâce / d’avoir préservé, dans la douleur et l’angoisse de l’accouchement, / ta servante [Prénom de la mère] / et d’avoir soutenu ton serviteur (tes serviteurs) [Prénoms du père ou d’autres membres de la famille]. / Elle désire (ils désirent) maintenant t’offrir / ses (leurs) louanges et ses (leurs) actions de grâce. / Accorde-lui (leur) dans ta miséricorde, avec ton aide, / de vivre fidèlement selon ta volonté dans cette vie / et de participer finalement à la gloire éternelle dans la vie à venir, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('On peut chanter un cantique ou une réponse et donner une bénédiction.'),
+      TextBlock.leader(
+          'Dieu de grâce, nous te rendons humblement et de tout cœur grâce / d’avoir préservé, dans la douleur et l’angoisse de l’accouchement, / ta servante [Prénom de la mère] / et d’avoir soutenu ton serviteur (tes serviteurs) [Prénoms du père ou d’autres membres de la famille]. / Elle désire (ils désirent) maintenant t’offrir / ses (leurs) louanges et ses (leurs) actions de grâce. / Accorde-lui (leur) dans ta miséricorde, avec ton aide, / de vivre fidèlement selon ta volonté dans cette vie / et de participer finalement à la gloire éternelle dans la vie à venir, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On peut chanter un cantique ou une réponse et donner une bénédiction.'),
     ],
   );
 
   static const greetingsPrayers = ChurchText(
     id: 'bow_greetings_prayers',
     title: 'Salutations et prières d’ouverture',
-    subtitle: 'Appels au culte et prières selon les temps de l’année chrétienne',
+    subtitle:
+        'Appels au culte et prières selon les temps de l’année chrétienne',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Items listed from Book of Worship 1965 are Copyright © 1964, 1965 Board of Publications of The Methodist Church, Inc., Renewal © 1992 UMPH. Quotations from scripture, unless otherwise indicated, are adapted from The New Revised Standard Version of the Bible, Copyright © 1989 by Division of Christian Education of the national Council of Churches of Christ in the USA and used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/greetings-and-opening-prayers-for-various-occasions',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Items listed from Book of Worship 1965 are Copyright © 1964, 1965 Board of Publications of The Methodist Church, Inc., Renewal © 1992 UMPH. Quotations from scripture, unless otherwise indicated, are adapted from The New Revised Standard Version of the Bible, Copyright © 1989 by Division of Christian Education of the national Council of Churches of Christ in the USA and used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/greetings-and-opening-prayers-for-various-occasions',
     blocks: [
       TextBlock.heading('AVENT'),
-      TextBlock.leader('Portes, élevez vos linteaux ! / Élevez-vous, portes éternelles ! / Que le roi de gloire fasse son entrée ! (PSAUME 24.7)'),
-      TextBlock.leader('Une voix crie : / « Préparez au désert le chemin de l’Éternel, / aplanissez dans les lieux arides une route pour notre Dieu. » (ÉSAÏE 40.3)'),
-      TextBlock.leader('Pousse des cris de joie et réjouis-toi, fille de Sion ! / Car voici, je viens, et j’habiterai au milieu de toi, dit l’Éternel. / Beaucoup de nations s’attacheront à l’Éternel en ce jour-là, / elles deviendront mon peuple, et j’habiterai au milieu de toi. (ZACHARIE 2.14-15)'),
-      TextBlock.leader('Vous savez en quel temps nous sommes : c’est l’heure de vous réveiller du sommeil. / Car le salut est maintenant plus près de nous que lorsque nous avons cru. / La nuit est avancée, le jour approche. / Rejetons donc les œuvres des ténèbres, et revêtons les armes de la lumière. (ROMAINS 13.11-12)'),
-      TextBlock.leader('Voyez ! Le souverain de la terre va venir, / le Seigneur qui nous déchargera du lourd fardeau de notre exil. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
-      TextBlock.leader('Louange à Dieu ! / Béni soit le Seigneur, le Dieu d’Israël, qui a visité et racheté son peuple. / Béni soit celui qui vient au nom du Seigneur. / Béni soit le nom du Seigneur.'),
-      TextBlock.leader('Dites aux craintifs : prenez courage ! / Le Seigneur notre Dieu va venir ! (LITURGIE MONASTIQUE TRADITIONNELLE)'),
-      TextBlock.leader('Nous attendons la parole du Seigneur comme on attend la pluie, / et notre Dieu descendra sur nous comme une douce rosée. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
-      TextBlock.leader('Les collines et les montagnes chanteront la louange de Dieu. / Tous les arbres de la forêt battront des mains. Le Seigneur viendra et régnera pour toujours. Alléluia. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
+      TextBlock.leader(
+          'Portes, élevez vos linteaux ! / Élevez-vous, portes éternelles ! / Que le roi de gloire fasse son entrée ! (PSAUME 24.7)'),
+      TextBlock.leader(
+          'Une voix crie : / « Préparez au désert le chemin de l’Éternel, / aplanissez dans les lieux arides une route pour notre Dieu. » (ÉSAÏE 40.3)'),
+      TextBlock.leader(
+          'Pousse des cris de joie et réjouis-toi, fille de Sion ! / Car voici, je viens, et j’habiterai au milieu de toi, dit l’Éternel. / Beaucoup de nations s’attacheront à l’Éternel en ce jour-là, / elles deviendront mon peuple, et j’habiterai au milieu de toi. (ZACHARIE 2.14-15)'),
+      TextBlock.leader(
+          'Vous savez en quel temps nous sommes : c’est l’heure de vous réveiller du sommeil. / Car le salut est maintenant plus près de nous que lorsque nous avons cru. / La nuit est avancée, le jour approche. / Rejetons donc les œuvres des ténèbres, et revêtons les armes de la lumière. (ROMAINS 13.11-12)'),
+      TextBlock.leader(
+          'Voyez ! Le souverain de la terre va venir, / le Seigneur qui nous déchargera du lourd fardeau de notre exil. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
+      TextBlock.leader(
+          'Louange à Dieu ! / Béni soit le Seigneur, le Dieu d’Israël, qui a visité et racheté son peuple. / Béni soit celui qui vient au nom du Seigneur. / Béni soit le nom du Seigneur.'),
+      TextBlock.leader(
+          'Dites aux craintifs : prenez courage ! / Le Seigneur notre Dieu va venir ! (LITURGIE MONASTIQUE TRADITIONNELLE)'),
+      TextBlock.leader(
+          'Nous attendons la parole du Seigneur comme on attend la pluie, / et notre Dieu descendra sur nous comme une douce rosée. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
+      TextBlock.leader(
+          'Les collines et les montagnes chanteront la louange de Dieu. / Tous les arbres de la forêt battront des mains. Le Seigneur viendra et régnera pour toujours. Alléluia. (LITURGIE MONASTIQUE TRADITIONNELLE)'),
       TextBlock.note('Prières d’ouverture'),
-      TextBlock.leader('Dieu de miséricorde, tu as envoyé tes messagers, les prophètes, / pour prêcher la repentance et préparer la voie à notre salut. / Donne-nous la grâce d’écouter leurs avertissements et de renoncer à nos péchés, / afin que nous accueillions avec joie la venue de Jésus-Christ, notre Rédempteur, / qui vit et règne avec toi et le Saint-Esprit, / seul Dieu, maintenant et pour toujours. Amen. (LIVRE DE PRIÈRE COMMUNE, ÉTATS-UNIS, XXe SIÈCLE, ADAPTÉ)'),
-      TextBlock.leader('Ô Dieu, tu as tant aimé le monde que tu as donné ton Fils unique, / afin que quiconque croit en lui ne périsse pas, mais ait la vie éternelle. / Accorde-nous le précieux don de la foi, / afin que nous sachions que le Fils de Dieu est venu, / et que nous ayons la force de vaincre le monde / et d’accéder à l’immortalité bienheureuse, / par Jésus-Christ notre Seigneur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Dieu de miséricorde, tu as envoyé tes messagers, les prophètes, / pour prêcher la repentance et préparer la voie à notre salut. / Donne-nous la grâce d’écouter leurs avertissements et de renoncer à nos péchés, / afin que nous accueillions avec joie la venue de Jésus-Christ, notre Rédempteur, / qui vit et règne avec toi et le Saint-Esprit, / seul Dieu, maintenant et pour toujours. Amen. (LIVRE DE PRIÈRE COMMUNE, ÉTATS-UNIS, XXe SIÈCLE, ADAPTÉ)'),
+      TextBlock.leader(
+          'Ô Dieu, tu as tant aimé le monde que tu as donné ton Fils unique, / afin que quiconque croit en lui ne périsse pas, mais ait la vie éternelle. / Accorde-nous le précieux don de la foi, / afin que nous sachions que le Fils de Dieu est venu, / et que nous ayons la force de vaincre le monde / et d’accéder à l’immortalité bienheureuse, / par Jésus-Christ notre Seigneur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
       TextBlock.heading('VEILLE DE NOËL, JOUR DE NOËL OU TEMPS DE NOËL'),
-      TextBlock.leader('N’ayez pas peur ; / car voici, je vous annonce une bonne nouvelle, qui sera pour tout le peuple le sujet d’une grande joie : / aujourd’hui, dans la ville de David, il vous est né un Sauveur, / qui est le Christ, le Seigneur. (LUC 2.10-11)'),
-      TextBlock.leader('Au commencement était la Parole, et la Parole était avec Dieu, et la Parole était Dieu. / Et la Parole a été faite chair, et elle a habité parmi nous, / et nous avons contemplé sa gloire. (JEAN 1.1, 14a)'),
-      TextBlock.leader('La grâce de Dieu, source de salut pour tous les hommes, a été manifestée. (TITE 2.11)'),
-      TextBlock.leader('Christ est né : rendez-lui gloire ! / Christ est descendu du ciel : accueillez-le ! Christ est maintenant sur la terre : exaltez-le ! / Terre entière, chante au Seigneur ! / Nations, louez-le dans la joie, car il a été glorifié ! (PRIÈRE BYZANTINE TRADITIONNELLE DE NOËL, ADAPTÉE)'),
+      TextBlock.leader(
+          'N’ayez pas peur ; / car voici, je vous annonce une bonne nouvelle, qui sera pour tout le peuple le sujet d’une grande joie : / aujourd’hui, dans la ville de David, il vous est né un Sauveur, / qui est le Christ, le Seigneur. (LUC 2.10-11)'),
+      TextBlock.leader(
+          'Au commencement était la Parole, et la Parole était avec Dieu, et la Parole était Dieu. / Et la Parole a été faite chair, et elle a habité parmi nous, / et nous avons contemplé sa gloire. (JEAN 1.1, 14a)'),
+      TextBlock.leader(
+          'La grâce de Dieu, source de salut pour tous les hommes, a été manifestée. (TITE 2.11)'),
+      TextBlock.leader(
+          'Christ est né : rendez-lui gloire ! / Christ est descendu du ciel : accueillez-le ! Christ est maintenant sur la terre : exaltez-le ! / Terre entière, chante au Seigneur ! / Nations, louez-le dans la joie, car il a été glorifié ! (PRIÈRE BYZANTINE TRADITIONNELLE DE NOËL, ADAPTÉE)'),
       TextBlock.note('Prière d’ouverture'),
-      TextBlock.leader('Dieu tout-puissant, par la naissance de ton saint enfant Jésus, / tu as fait lever une grande lumière sur nos ténèbres. / Accorde que dans sa lumière nous voyions la lumière. / Donne-nous le plus beau des dons de Noël : l’amour pour tous les hommes, / afin que l’image de ton Fils se forme en nous / et que nous ayons l’espérance toujours plus vive de la vie éternelle, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Dieu tout-puissant, par la naissance de ton saint enfant Jésus, / tu as fait lever une grande lumière sur nos ténèbres. / Accorde que dans sa lumière nous voyions la lumière. / Donne-nous le plus beau des dons de Noël : l’amour pour tous les hommes, / afin que l’image de ton Fils se forme en nous / et que nous ayons l’espérance toujours plus vive de la vie éternelle, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
       TextBlock.heading('DIMANCHES APRÈS L’ÉPIPHANIE'),
-      TextBlock.leader('L’Éternel a fait connaître son salut, / il a révélé sa justice aux yeux des nations. (PSAUME 98.2)'),
-      TextBlock.leader('Lève-toi, sois éclairée, car ta lumière arrive, / et la gloire de l’Éternel se lève sur toi. (ÉSAÏE 60.1)'),
-      TextBlock.leader('Et la Parole a été faite chair, et elle a habité parmi nous, / et nous avons contemplé sa gloire, / une gloire comme la gloire du Fils unique venu du Père, pleine de grâce et de vérité. (JEAN 1.14)'),
-      TextBlock.leader('Car Dieu, qui a dit : « La lumière brillera du sein des ténèbres ! », / a fait briller la lumière dans nos cœurs, / pour faire resplendir la connaissance de la gloire de Dieu sur la face de Jésus-Christ. (2 CORINTHIENS 4.6)'),
-      TextBlock.leader('Il est venu annoncer la paix à vous qui étiez loin, et la paix à ceux qui étaient près ; / car par lui nous avons les uns et les autres accès auprès du Père, dans un même Esprit. (ÉPHÉSIENS 2.17-18)'),
+      TextBlock.leader(
+          'L’Éternel a fait connaître son salut, / il a révélé sa justice aux yeux des nations. (PSAUME 98.2)'),
+      TextBlock.leader(
+          'Lève-toi, sois éclairée, car ta lumière arrive, / et la gloire de l’Éternel se lève sur toi. (ÉSAÏE 60.1)'),
+      TextBlock.leader(
+          'Et la Parole a été faite chair, et elle a habité parmi nous, / et nous avons contemplé sa gloire, / une gloire comme la gloire du Fils unique venu du Père, pleine de grâce et de vérité. (JEAN 1.14)'),
+      TextBlock.leader(
+          'Car Dieu, qui a dit : « La lumière brillera du sein des ténèbres ! », / a fait briller la lumière dans nos cœurs, / pour faire resplendir la connaissance de la gloire de Dieu sur la face de Jésus-Christ. (2 CORINTHIENS 4.6)'),
+      TextBlock.leader(
+          'Il est venu annoncer la paix à vous qui étiez loin, et la paix à ceux qui étaient près ; / car par lui nous avons les uns et les autres accès auprès du Père, dans un même Esprit. (ÉPHÉSIENS 2.17-18)'),
       TextBlock.heading('PENDANT LE CARÊME'),
-      TextBlock.leader('Venez et plaidons ! dit l’Éternel. / Si vos péchés sont comme le cramoisi, ils deviendront blancs comme la neige ; / s’ils sont rouges comme la pourpre, ils deviendront comme la laine. (ÉSAÏE 1.18)'),
-      TextBlock.leader('Venez, marchons à la lumière de l’Éternel, / afin qu’il nous enseigne ses voies et que nous marchions dans ses sentiers. (ÉSAÏE 2.5, 3)'),
-      TextBlock.leader('C’est en vous convertissant et en restant tranquilles que vous serez sauvés ; / c’est dans le calme et la confiance que sera votre force. (ÉSAÏE 30.15)'),
-      TextBlock.leader('Déchirez vos cœurs et non vos vêtements, et revenez à l’Éternel, votre Dieu ; / car il est compatissant et miséricordieux, lent à la colère et riche en bonté, et il revient de ses menaces. (JOËL 2.13)'),
-      TextBlock.leader('Ainsi, puisque nous avons un grand souverain sacrificateur qui a traversé les cieux, Jésus, le Fils de Dieu, / demeurons fermes dans la foi que nous professons. / Car nous n’avons pas un souverain sacrificateur qui ne puisse compatir à nos faiblesses ; / il a été tenté comme nous à tous égards, sans commettre de péché. / Approchons-nous donc avec assurance du trône de la grâce, / afin d’obtenir miséricorde et de trouver grâce, pour être secourus dans nos besoins. (HÉBREUX 4.14-16)'),
-      TextBlock.leader('Sauveur du monde, toi qui nous as rachetés par ta croix et ton précieux sang, / sauve-nous et viens à notre secours. (LITURGIE DE SARUM, ANGLETERRE, XIIIe SIÈCLE, ADAPTÉE)'),
-      TextBlock.leader('Le Seigneur est miséricordieux et compatissant, lent à la colère et riche en bonté. / Il ne nous traite pas selon nos péchés, il ne nous punit pas selon nos fautes.'),
-      TextBlock.leader('Que rendrai-je à l’Éternel pour tous ses bienfaits envers moi ? / J’élèverai la coupe du salut et j’invoquerai le nom de l’Éternel. (PSAUME 116.12-13)'),
-      TextBlock.leader('Examinons et sondons nos voies, et retournons à l’Éternel ! / Dieu nous a bénis ; que tous les bouts de la terre le craignent !'),
-      TextBlock.leader('Cherchez l’Éternel pendant qu’il se trouve, invoquez-le tandis qu’il est près. / Que le méchant abandonne sa voie, et l’homme injuste ses pensées ; qu’il retourne à l’Éternel. / Les sacrifices qui plaisent à Dieu, c’est un esprit brisé ; / ô Dieu, tu ne dédaignes pas un cœur brisé et contrit. (ÉSAÏE 55.6-7 ; PSAUME 51.19)'),
+      TextBlock.leader(
+          'Venez et plaidons ! dit l’Éternel. / Si vos péchés sont comme le cramoisi, ils deviendront blancs comme la neige ; / s’ils sont rouges comme la pourpre, ils deviendront comme la laine. (ÉSAÏE 1.18)'),
+      TextBlock.leader(
+          'Venez, marchons à la lumière de l’Éternel, / afin qu’il nous enseigne ses voies et que nous marchions dans ses sentiers. (ÉSAÏE 2.5, 3)'),
+      TextBlock.leader(
+          'C’est en vous convertissant et en restant tranquilles que vous serez sauvés ; / c’est dans le calme et la confiance que sera votre force. (ÉSAÏE 30.15)'),
+      TextBlock.leader(
+          'Déchirez vos cœurs et non vos vêtements, et revenez à l’Éternel, votre Dieu ; / car il est compatissant et miséricordieux, lent à la colère et riche en bonté, et il revient de ses menaces. (JOËL 2.13)'),
+      TextBlock.leader(
+          'Ainsi, puisque nous avons un grand souverain sacrificateur qui a traversé les cieux, Jésus, le Fils de Dieu, / demeurons fermes dans la foi que nous professons. / Car nous n’avons pas un souverain sacrificateur qui ne puisse compatir à nos faiblesses ; / il a été tenté comme nous à tous égards, sans commettre de péché. / Approchons-nous donc avec assurance du trône de la grâce, / afin d’obtenir miséricorde et de trouver grâce, pour être secourus dans nos besoins. (HÉBREUX 4.14-16)'),
+      TextBlock.leader(
+          'Sauveur du monde, toi qui nous as rachetés par ta croix et ton précieux sang, / sauve-nous et viens à notre secours. (LITURGIE DE SARUM, ANGLETERRE, XIIIe SIÈCLE, ADAPTÉE)'),
+      TextBlock.leader(
+          'Le Seigneur est miséricordieux et compatissant, lent à la colère et riche en bonté. / Il ne nous traite pas selon nos péchés, il ne nous punit pas selon nos fautes.'),
+      TextBlock.leader(
+          'Que rendrai-je à l’Éternel pour tous ses bienfaits envers moi ? / J’élèverai la coupe du salut et j’invoquerai le nom de l’Éternel. (PSAUME 116.12-13)'),
+      TextBlock.leader(
+          'Examinons et sondons nos voies, et retournons à l’Éternel ! / Dieu nous a bénis ; que tous les bouts de la terre le craignent !'),
+      TextBlock.leader(
+          'Cherchez l’Éternel pendant qu’il se trouve, invoquez-le tandis qu’il est près. / Que le méchant abandonne sa voie, et l’homme injuste ses pensées ; qu’il retourne à l’Éternel. / Les sacrifices qui plaisent à Dieu, c’est un esprit brisé ; / ô Dieu, tu ne dédaignes pas un cœur brisé et contrit. (ÉSAÏE 55.6-7 ; PSAUME 51.19)'),
       TextBlock.heading('TEMPS PASCAL'),
-      TextBlock.leader('Louez l’Éternel ! Louez l’Éternel du haut des cieux, louez-le dans les lieux élevés ! / Qu’ils louent le nom de l’Éternel, car son nom seul est élevé, sa majesté est au-dessus de la terre et des cieux. (PSAUME 148.1, 13)'),
-      TextBlock.leader('Cieux, réjouissez-vous ; terre, sois dans l’allégresse ; / montagnes, éclatez en cris de joie ! / Car l’Éternel console son peuple, il a compassion de ses malheureux. (ÉSAÏE 49.13)'),
-      TextBlock.leader('Éclatez ensemble en cris de joie, ruines de Jérusalem ! / Car l’Éternel console son peuple. (ÉSAÏE 52.9)'),
-      TextBlock.leader('Jésus a dit : « Je suis la résurrection et la vie. / Celui qui croit en moi vivra, même s’il meurt ; et quiconque vit et croit en moi ne mourra jamais. » (JEAN 11.25-26)'),
-      TextBlock.leader('Mais maintenant, Christ est ressuscité des morts, il est les prémices de ceux qui sont morts. (1 CORINTHIENS 15.20)'),
-      TextBlock.leader('Car il faut que ce corps corruptible revête l’incorruptibilité, et que ce corps mortel revête l’immortalité. / Quand ce corps corruptible aura revêtu l’incorruptibilité, et que ce corps mortel aura revêtu l’immortalité, alors s’accomplira cette parole de l’Écriture : « La mort a été engloutie dans la victoire. Ô mort, où est ta victoire ? / Ô mort, où est ton aiguillon ? » (1 CORINTHIENS 15.53-55)'),
-      TextBlock.leader('Rendez à l’Éternel gloire et honneur. / À celui qui est assis sur le trône, et à l’Agneau, soient la louange, l’honneur, la gloire et la force, aux siècles des siècles ! (PSAUME 96.7 ; APOCALYPSE 5.13)'),
+      TextBlock.leader(
+          'Louez l’Éternel ! Louez l’Éternel du haut des cieux, louez-le dans les lieux élevés ! / Qu’ils louent le nom de l’Éternel, car son nom seul est élevé, sa majesté est au-dessus de la terre et des cieux. (PSAUME 148.1, 13)'),
+      TextBlock.leader(
+          'Cieux, réjouissez-vous ; terre, sois dans l’allégresse ; / montagnes, éclatez en cris de joie ! / Car l’Éternel console son peuple, il a compassion de ses malheureux. (ÉSAÏE 49.13)'),
+      TextBlock.leader(
+          'Éclatez ensemble en cris de joie, ruines de Jérusalem ! / Car l’Éternel console son peuple. (ÉSAÏE 52.9)'),
+      TextBlock.leader(
+          'Jésus a dit : « Je suis la résurrection et la vie. / Celui qui croit en moi vivra, même s’il meurt ; et quiconque vit et croit en moi ne mourra jamais. » (JEAN 11.25-26)'),
+      TextBlock.leader(
+          'Mais maintenant, Christ est ressuscité des morts, il est les prémices de ceux qui sont morts. (1 CORINTHIENS 15.20)'),
+      TextBlock.leader(
+          'Car il faut que ce corps corruptible revête l’incorruptibilité, et que ce corps mortel revête l’immortalité. / Quand ce corps corruptible aura revêtu l’incorruptibilité, et que ce corps mortel aura revêtu l’immortalité, alors s’accomplira cette parole de l’Écriture : « La mort a été engloutie dans la victoire. Ô mort, où est ta victoire ? / Ô mort, où est ton aiguillon ? » (1 CORINTHIENS 15.53-55)'),
+      TextBlock.leader(
+          'Rendez à l’Éternel gloire et honneur. / À celui qui est assis sur le trône, et à l’Agneau, soient la louange, l’honneur, la gloire et la force, aux siècles des siècles ! (PSAUME 96.7 ; APOCALYPSE 5.13)'),
       TextBlock.leader('Christ est ressuscité !'),
       TextBlock.people('Il est vraiment ressuscité ! Alléluia !'),
-      TextBlock.leader('Élevons-nous là où le Christ nous a conduits, en suivant notre Chef exalté ; / devenus semblables à lui, nous ressuscitons comme lui : à nous la croix, la tombe, les cieux ! (CHARLES WESLEY, ANGLETERRE, XVIIIe SIÈCLE)'),
-      TextBlock.leader('Car le Lion de Juda brise ses chaînes et écrase la tête du serpent ; / il crie à travers les royaumes de la mort pour réveiller les morts captifs. (HYMNE LATIN, XIe SIÈCLE)'),
-      TextBlock.leader('Par ta croix, tu as détruit la malédiction de l’arbre. / Par ta mise au tombeau, tu as terrassé la domination de la mort. / Par ta résurrection, tu as éclairé le genre humain. / Ô bienfaiteur, Christ notre Dieu, gloire à toi.'),
-      TextBlock.leader('Gloire au Père, qui a tissé les vêtements de gloire de la résurrection. / Adoration au Fils, qui s’en est revêtu en ressuscitant. / Action de grâce à l’Esprit, qui les garde pour tous les saints. (ÉGLISE ORTHODOXE SYRIENNE)'),
+      TextBlock.leader(
+          'Élevons-nous là où le Christ nous a conduits, en suivant notre Chef exalté ; / devenus semblables à lui, nous ressuscitons comme lui : à nous la croix, la tombe, les cieux ! (CHARLES WESLEY, ANGLETERRE, XVIIIe SIÈCLE)'),
+      TextBlock.leader(
+          'Car le Lion de Juda brise ses chaînes et écrase la tête du serpent ; / il crie à travers les royaumes de la mort pour réveiller les morts captifs. (HYMNE LATIN, XIe SIÈCLE)'),
+      TextBlock.leader(
+          'Par ta croix, tu as détruit la malédiction de l’arbre. / Par ta mise au tombeau, tu as terrassé la domination de la mort. / Par ta résurrection, tu as éclairé le genre humain. / Ô bienfaiteur, Christ notre Dieu, gloire à toi.'),
+      TextBlock.leader(
+          'Gloire au Père, qui a tissé les vêtements de gloire de la résurrection. / Adoration au Fils, qui s’en est revêtu en ressuscitant. / Action de grâce à l’Esprit, qui les garde pour tous les saints. (ÉGLISE ORTHODOXE SYRIENNE)'),
       TextBlock.note('Prière d’ouverture'),
-      TextBlock.leader('Dieu tout-puissant, par ton Fils unique tu as vaincu la mort / et tu nous as ouvert la porte de la vie éternelle. / Fais que nous, qui célébrons la résurrection de notre Seigneur, / nous nous relevions, par le renouvellement de ton Esprit, / de la mort du péché à la vie de justice, / par le même Jésus-Christ notre Seigneur. Amen. (SACRAMENTAIRE GÉLASIEN, Ve SIÈCLE, ADAPTÉ)'),
+      TextBlock.leader(
+          'Dieu tout-puissant, par ton Fils unique tu as vaincu la mort / et tu nous as ouvert la porte de la vie éternelle. / Fais que nous, qui célébrons la résurrection de notre Seigneur, / nous nous relevions, par le renouvellement de ton Esprit, / de la mort du péché à la vie de justice, / par le même Jésus-Christ notre Seigneur. Amen. (SACRAMENTAIRE GÉLASIEN, Ve SIÈCLE, ADAPTÉ)'),
       TextBlock.heading('DIMANCHE APRÈS L’ASCENSION'),
-      TextBlock.leader('Ô Dieu, Roi de gloire, tu as élevé ton Fils unique Jésus-Christ / en grand triomphe dans ton royaume céleste. / Ne nous laisse pas sans consolation, / mais envoie-nous ton Saint-Esprit pour nous fortifier / et élève-nous là où notre Sauveur le Christ est allé avant nous, / lui qui vit et règne avec toi et le Saint-Esprit, / seul Dieu, dans la gloire éternelle. Amen. (LIVRE DE PRIÈRE COMMUNE, ÉTATS-UNIS, 1979, p. 226)'),
+      TextBlock.leader(
+          'Ô Dieu, Roi de gloire, tu as élevé ton Fils unique Jésus-Christ / en grand triomphe dans ton royaume céleste. / Ne nous laisse pas sans consolation, / mais envoie-nous ton Saint-Esprit pour nous fortifier / et élève-nous là où notre Sauveur le Christ est allé avant nous, / lui qui vit et règne avec toi et le Saint-Esprit, / seul Dieu, dans la gloire éternelle. Amen. (LIVRE DE PRIÈRE COMMUNE, ÉTATS-UNIS, 1979, p. 226)'),
       TextBlock.heading('JOUR DE LA PENTECÔTE'),
-      TextBlock.leader('Dans les derniers jours, dit Dieu, je répandrai de mon Esprit sur toute chair ; / vos fils et vos filles prophétiseront, vos vieillards auront des songes, et vos jeunes gens des visions.'),
-      TextBlock.leader('Le jour de la Pentecôte, ils étaient tous ensemble dans le même lieu. / Tout à coup il vint du ciel un bruit comme celui d’un vent impétueux, et il remplit toute la maison où ils étaient assis. / Des langues, semblables à des langues de feu, leur apparurent, séparées les unes des autres, et se posèrent sur chacun d’eux. / Ils furent tous remplis du Saint-Esprit. (ACTES 2.1-4 ; LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Dans les derniers jours, dit Dieu, je répandrai de mon Esprit sur toute chair ; / vos fils et vos filles prophétiseront, vos vieillards auront des songes, et vos jeunes gens des visions.'),
+      TextBlock.leader(
+          'Le jour de la Pentecôte, ils étaient tous ensemble dans le même lieu. / Tout à coup il vint du ciel un bruit comme celui d’un vent impétueux, et il remplit toute la maison où ils étaient assis. / Des langues, semblables à des langues de feu, leur apparurent, séparées les unes des autres, et se posèrent sur chacun d’eux. / Ils furent tous remplis du Saint-Esprit. (ACTES 2.1-4 ; LIVRE DE CULTE 1965, ADAPTÉ)'),
       TextBlock.heading('DIMANCHE DE LA TRINITÉ (DIMANCHE APRÈS LA PENTECÔTE)'),
-      TextBlock.leader('Personne n’a jamais vu Dieu ; / si nous nous aimons les uns les autres, / Dieu demeure en nous, et son amour est parfait en nous. (1 JEAN 4.12)'),
+      TextBlock.leader(
+          'Personne n’a jamais vu Dieu ; / si nous nous aimons les uns les autres, / Dieu demeure en nous, et son amour est parfait en nous. (1 JEAN 4.12)'),
       TextBlock.heading('TEMPS APRÈS LA PENTECÔTE OU OCCASIONS GÉNÉRALES'),
       TextBlock.note('Salutations'),
-      TextBlock.leader('Confie-toi en l’Éternel et pratique le bien. / Que l’Éternel donne la force à son peuple !'),
-      TextBlock.leader('Goûtez et voyez combien l’Éternel est bon ! / Dieu est pour nous un refuge et un appui. (LIVRE DE CULTE 1965, ADAPTÉ)'),
-      TextBlock.leader('Voici le jour que l’Éternel a fait : réjouissons-nous et soyons dans l’allégresse. (PSAUME 118.24) / Ce n’est rien d’autre que la maison de Dieu, c’est la porte des cieux. (GENÈSE 28.17)'),
-      TextBlock.leader('L’heure vient, et elle est déjà venue, où les vrais adorateurs adoreront le Père en esprit et en vérité ; / car ce sont là les adorateurs que le Père demande. (JEAN 4.23) / Entrez dans ses portes avec des louanges, dans ses parvis avec des cantiques ! / Célébrez-le, bénissez son nom ! (PSAUME 100.4)'),
-      TextBlock.leader('Au milieu de l’assemblée, je te louerai. / Justes, réjouissez-vous en l’Éternel, et célébrez par vos louanges son saint nom !'),
-      TextBlock.leader('Je t’exalterai, ô mon Dieu, mon roi, et je bénirai ton nom à toujours et à perpétuité. / L’Éternel est grand et très digne de louange, et sa grandeur est insondable. (PSAUME 145.1, 3)'),
-      TextBlock.leader('Que ceux qui aiment ton salut disent sans cesse : « Que l’Éternel soit magnifié ! » / Oui, notre cœur met en lui sa joie, car nous avons confiance en son saint nom.'),
-      TextBlock.leader('Poussons des cris de joie, chantons la louange de Dieu ! / Nous te louons, ô Dieu ; nous te reconnaissons pour le Seigneur.'),
-      TextBlock.leader('Que les vents chauds du ciel soufflent doucement sur notre maison. / Que le Grand Esprit bénisse tous ceux qui entrent ici. (PRIÈRE TRADITIONNELLE DE LA NATION CHEROKEE)'),
+      TextBlock.leader(
+          'Confie-toi en l’Éternel et pratique le bien. / Que l’Éternel donne la force à son peuple !'),
+      TextBlock.leader(
+          'Goûtez et voyez combien l’Éternel est bon ! / Dieu est pour nous un refuge et un appui. (LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Voici le jour que l’Éternel a fait : réjouissons-nous et soyons dans l’allégresse. (PSAUME 118.24) / Ce n’est rien d’autre que la maison de Dieu, c’est la porte des cieux. (GENÈSE 28.17)'),
+      TextBlock.leader(
+          'L’heure vient, et elle est déjà venue, où les vrais adorateurs adoreront le Père en esprit et en vérité ; / car ce sont là les adorateurs que le Père demande. (JEAN 4.23) / Entrez dans ses portes avec des louanges, dans ses parvis avec des cantiques ! / Célébrez-le, bénissez son nom ! (PSAUME 100.4)'),
+      TextBlock.leader(
+          'Au milieu de l’assemblée, je te louerai. / Justes, réjouissez-vous en l’Éternel, et célébrez par vos louanges son saint nom !'),
+      TextBlock.leader(
+          'Je t’exalterai, ô mon Dieu, mon roi, et je bénirai ton nom à toujours et à perpétuité. / L’Éternel est grand et très digne de louange, et sa grandeur est insondable. (PSAUME 145.1, 3)'),
+      TextBlock.leader(
+          'Que ceux qui aiment ton salut disent sans cesse : « Que l’Éternel soit magnifié ! » / Oui, notre cœur met en lui sa joie, car nous avons confiance en son saint nom.'),
+      TextBlock.leader(
+          'Poussons des cris de joie, chantons la louange de Dieu ! / Nous te louons, ô Dieu ; nous te reconnaissons pour le Seigneur.'),
+      TextBlock.leader(
+          'Que les vents chauds du ciel soufflent doucement sur notre maison. / Que le Grand Esprit bénisse tous ceux qui entrent ici. (PRIÈRE TRADITIONNELLE DE LA NATION CHEROKEE)'),
       TextBlock.note('Prières d’ouverture'),
-      TextBlock.leader('Dieu tout-puissant et éternel, en qui nous avons la vie, le mouvement et l’être, / tu nous as créés pour toi, / de sorte que nos cœurs sont inquiets jusqu’à ce qu’ils trouvent leur repos en toi. / Donne-nous une telle piété de cœur et une telle force de volonté / qu’aucune passion égoïste ne nous empêche de connaître ta volonté, / et qu’aucune faiblesse ne nous empêche de l’accomplir. / Dans ta lumière, puissions-nous voir clairement la vie / et trouver à ton service la parfaite liberté, / par Jésus-Christ notre Seigneur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
-      TextBlock.leader('Ô Dieu, notre Guide et notre Gardien, tu nous as conduits loin du monde agité dans le calme de ta maison. / Accorde-nous la grâce de t’adorer en esprit et en vérité, / pour la consolation de nos âmes / et l’affermissement de tout bon projet et de tout saint désir. / Rends-nous capables d’accomplir plus parfaitement l’œuvre à laquelle tu nous as appelés, / afin que nous ne craignions pas la venue de la nuit, / où nous remettrons entre tes mains les tâches que tu nous as confiées. / Ainsi puissions-nous t’adorer, non seulement des lèvres à cette heure, / mais en paroles et en actes tous les jours de notre vie, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
-      TextBlock.leader('Nous croyons, Seigneur, que tu ne nous as pas abandonnés à la faible lumière de notre propre raison / pour nous conduire au bonheur, / mais que tu as révélé dans les saintes Écritures / tout ce qu’il nous est nécessaire de croire et de pratiquer. / Qu’ils sont nobles et excellents, tes préceptes, / qu’elle est sublime et éclairante, ta vérité, / qu’ils sont persuasifs et forts, tes motifs, / qu’il est puissant, le secours de ta sainte religion. / Nos délices seront dans tes lois, et nous n’oublierons pas ta Parole. Amen. (RICHARD ALLEN, ÉVÊQUE DE L’ÉGLISE MÉTHODISTE ÉPISCOPALE AFRICAINE, ÉTATS-UNIS, XIXe SIÈCLE, ADAPTÉ)'),
-      TextBlock.leader('Seigneur notre Dieu, tu es toujours plus prêt à nous accorder tes dons / que nous ne le sommes à les chercher, / et tu veux nous donner plus que nous ne désirons ou ne méritons. / Aide-nous à chercher de telle sorte que nous trouvions vraiment, / à demander de telle sorte que nous recevions avec joie, / à frapper de telle sorte que la porte de ta miséricorde nous soit ouverte, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE PRIÈRE COMMUNE DE L’ÉGLISE D’ANGLETERRE, XXe SIÈCLE, ADAPTÉ)'),
+      TextBlock.leader(
+          'Dieu tout-puissant et éternel, en qui nous avons la vie, le mouvement et l’être, / tu nous as créés pour toi, / de sorte que nos cœurs sont inquiets jusqu’à ce qu’ils trouvent leur repos en toi. / Donne-nous une telle piété de cœur et une telle force de volonté / qu’aucune passion égoïste ne nous empêche de connaître ta volonté, / et qu’aucune faiblesse ne nous empêche de l’accomplir. / Dans ta lumière, puissions-nous voir clairement la vie / et trouver à ton service la parfaite liberté, / par Jésus-Christ notre Seigneur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Ô Dieu, notre Guide et notre Gardien, tu nous as conduits loin du monde agité dans le calme de ta maison. / Accorde-nous la grâce de t’adorer en esprit et en vérité, / pour la consolation de nos âmes / et l’affermissement de tout bon projet et de tout saint désir. / Rends-nous capables d’accomplir plus parfaitement l’œuvre à laquelle tu nous as appelés, / afin que nous ne craignions pas la venue de la nuit, / où nous remettrons entre tes mains les tâches que tu nous as confiées. / Ainsi puissions-nous t’adorer, non seulement des lèvres à cette heure, / mais en paroles et en actes tous les jours de notre vie, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE CULTE 1965, ADAPTÉ)'),
+      TextBlock.leader(
+          'Nous croyons, Seigneur, que tu ne nous as pas abandonnés à la faible lumière de notre propre raison / pour nous conduire au bonheur, / mais que tu as révélé dans les saintes Écritures / tout ce qu’il nous est nécessaire de croire et de pratiquer. / Qu’ils sont nobles et excellents, tes préceptes, / qu’elle est sublime et éclairante, ta vérité, / qu’ils sont persuasifs et forts, tes motifs, / qu’il est puissant, le secours de ta sainte religion. / Nos délices seront dans tes lois, et nous n’oublierons pas ta Parole. Amen. (RICHARD ALLEN, ÉVÊQUE DE L’ÉGLISE MÉTHODISTE ÉPISCOPALE AFRICAINE, ÉTATS-UNIS, XIXe SIÈCLE, ADAPTÉ)'),
+      TextBlock.leader(
+          'Seigneur notre Dieu, tu es toujours plus prêt à nous accorder tes dons / que nous ne le sommes à les chercher, / et tu veux nous donner plus que nous ne désirons ou ne méritons. / Aide-nous à chercher de telle sorte que nous trouvions vraiment, / à demander de telle sorte que nous recevions avec joie, / à frapper de telle sorte que la porte de ta miséricorde nous soit ouverte, / par Jésus-Christ notre Sauveur. Amen. (LIVRE DE PRIÈRE COMMUNE DE L’ÉGLISE D’ANGLETERRE, XXe SIÈCLE, ADAPTÉ)'),
     ],
   );
 
@@ -1511,17 +2267,25 @@ class BookOfWorshipData {
     title: 'Manières de prier',
     subtitle: 'Tongsung Kido (prier à haute voix) et la collecte',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Aucune mention de droit d’auteur n’est indiquée sur la page d’origine (« Copyright: None »). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ways-of-praying',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Aucune mention de droit d’auteur n’est indiquée sur la page d’origine (« Copyright: None »). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ways-of-praying',
     blocks: [
-      TextBlock.note('Par la prière, le Saint-Esprit atteste à notre esprit que nous sommes enfants de Dieu. Le Saint-Esprit rend nos prières possibles. « De même aussi l’Esprit nous aide dans notre faiblesse, car nous ne savons pas ce qu’il nous convient de demander dans nos prières. Mais l’Esprit lui-même intercède par des soupirs inexprimables » (Romains 8.26).'),
-      TextBlock.note('La prière est essentielle à un culte fidèle. La prière publique permet à la communauté rassemblée de parler à Dieu et de l’écouter ensemble. On peut s’agenouiller, se tenir debout ou s’asseoir pour prier, les yeux ouverts ou fermés. Les prières peuvent être dirigées par un laïc — enfant, jeune ou adulte plus âgé — ou par un pasteur. La prière communautaire doit cependant éviter les longs discours. Les prières silencieuses, les prières d’invitation et les prières de demande sont d’excellentes solutions de rechange à la prière pastorale traditionnelle.'),
-      TextBlock.note('On trouve dans notre héritage méthodiste uni de nombreuses manières de prier. Depuis l’époque de John Wesley, nous encourageons à la fois les prières formelles, écrites, et les prières libres, spontanées. Les prières et les actes de culte de cette section témoignent de la grande variété d’une prière efficace ; ils sont destinés à encourager les responsables du culte et les assemblées à trouver leur propre manière de parler à Dieu et de l’écouter. Deux de ces manières sont décrites ci-dessous.'),
+      TextBlock.note(
+          'Par la prière, le Saint-Esprit atteste à notre esprit que nous sommes enfants de Dieu. Le Saint-Esprit rend nos prières possibles. « De même aussi l’Esprit nous aide dans notre faiblesse, car nous ne savons pas ce qu’il nous convient de demander dans nos prières. Mais l’Esprit lui-même intercède par des soupirs inexprimables » (Romains 8.26).'),
+      TextBlock.note(
+          'La prière est essentielle à un culte fidèle. La prière publique permet à la communauté rassemblée de parler à Dieu et de l’écouter ensemble. On peut s’agenouiller, se tenir debout ou s’asseoir pour prier, les yeux ouverts ou fermés. Les prières peuvent être dirigées par un laïc — enfant, jeune ou adulte plus âgé — ou par un pasteur. La prière communautaire doit cependant éviter les longs discours. Les prières silencieuses, les prières d’invitation et les prières de demande sont d’excellentes solutions de rechange à la prière pastorale traditionnelle.'),
+      TextBlock.note(
+          'On trouve dans notre héritage méthodiste uni de nombreuses manières de prier. Depuis l’époque de John Wesley, nous encourageons à la fois les prières formelles, écrites, et les prières libres, spontanées. Les prières et les actes de culte de cette section témoignent de la grande variété d’une prière efficace ; ils sont destinés à encourager les responsables du culte et les assemblées à trouver leur propre manière de parler à Dieu et de l’écouter. Deux de ces manières sont décrites ci-dessous.'),
       TextBlock.heading('TONGSUNG KIDO (PRIER À HAUTE VOIX)'),
-      TextBlock.note('Dans les assemblées coréennes, entre autres, le Tongsung Kido est très répandu et tient une place importante dans la vie de prière. En général, l’assemblée reçoit un temps déterminé, avec un thème commun de demande ou de supplication. Puis tous prient à haute voix en même temps. Les voix des autres ne les gênent pas lorsqu’ils se concentrent sur leur propre prière fervente, dans le désir d’être fortifiés par le Saint-Esprit.'),
+      TextBlock.note(
+          'Dans les assemblées coréennes, entre autres, le Tongsung Kido est très répandu et tient une place importante dans la vie de prière. En général, l’assemblée reçoit un temps déterminé, avec un thème commun de demande ou de supplication. Puis tous prient à haute voix en même temps. Les voix des autres ne les gênent pas lorsqu’ils se concentrent sur leur propre prière fervente, dans le désir d’être fortifiés par le Saint-Esprit.'),
       TextBlock.heading('LA COLLECTE'),
-      TextBlock.note('La collecte, un modèle de prière ancien, est brève et va droit au but, tout en étant riche de contenu. Non seulement de nombreuses collectes figurent dans ce recueil et dans d’autres recueils de prières, mais ceux qui apprennent à prier sous cette forme peuvent composer rapidement et facilement des prières appropriées à toutes sortes d’occasions. Voici les éléments d’une collecte, illustrés par la Collecte de pureté :'),
-      TextBlock.leader('1) Adresse à Dieu : Dieu tout-puissant,\n2) Attribut de Dieu ou action de Dieu sur lesquels repose cette prière : à qui tous les cœurs sont ouverts, tous les désirs connus, et à qui nul secret n’est caché,\n3) La demande elle-même : purifie les pensées de nos cœurs par l’inspiration de ton Saint-Esprit,\n4) Le résultat recherché : afin que nous t’aimions parfaitement et que nous glorifiions dignement ton saint nom,\n5) Doxologie finale : par Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'La collecte, un modèle de prière ancien, est brève et va droit au but, tout en étant riche de contenu. Non seulement de nombreuses collectes figurent dans ce recueil et dans d’autres recueils de prières, mais ceux qui apprennent à prier sous cette forme peuvent composer rapidement et facilement des prières appropriées à toutes sortes d’occasions. Voici les éléments d’une collecte, illustrés par la Collecte de pureté :'),
+      TextBlock.leader(
+          '1) Adresse à Dieu : Dieu tout-puissant,\n2) Attribut de Dieu ou action de Dieu sur lesquels repose cette prière : à qui tous les cœurs sont ouverts, tous les désirs connus, et à qui nul secret n’est caché,\n3) La demande elle-même : purifie les pensées de nos cœurs par l’inspiration de ton Saint-Esprit,\n4) Le résultat recherché : afin que nous t’aimions parfaitement et que nous glorifiions dignement ton saint nom,\n5) Doxologie finale : par Christ notre Seigneur. Amen.'),
     ],
   );
 
@@ -1530,18 +2294,27 @@ class BookOfWorshipData {
     title: 'Remise de Bibles aux enfants',
     subtitle: 'Un court rite à placer en réponse à la Parole',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Presentation of Bibles to Children” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-presentation-of-bibles-to-children',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Presentation of Bibles to Children” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-presentation-of-bibles-to-children',
     blocks: [
-      TextBlock.note('Ce culte peut être employé le dimanche matin, en réponse à la Parole. Une Bible peut être remise à chaque enfant par un pasteur, un parent, un enseignant ou un ami de l’assemblée. Luc 2.41-52 peut être lu avant la remise des Bibles, de préférence par un enfant plus grand.'),
-      TextBlock.note('Le pasteur, les parents, les enseignants et les amis, face aux enfants, disent :'),
-      TextBlock.leader('Recevez la Parole de Dieu. / Apprenez ses histoires et étudiez ses paroles. / Ses histoires nous appartiennent à tous, / et ces paroles s’adressent à tous. / Elles nous disent qui nous sommes. / Elles nous disent que nous nous appartenons les uns aux autres, / car nous sommes le peuple de Dieu.'),
+      TextBlock.note(
+          'Ce culte peut être employé le dimanche matin, en réponse à la Parole. Une Bible peut être remise à chaque enfant par un pasteur, un parent, un enseignant ou un ami de l’assemblée. Luc 2.41-52 peut être lu avant la remise des Bibles, de préférence par un enfant plus grand.'),
+      TextBlock.note(
+          'Le pasteur, les parents, les enseignants et les amis, face aux enfants, disent :'),
+      TextBlock.leader(
+          'Recevez la Parole de Dieu. / Apprenez ses histoires et étudiez ses paroles. / Ses histoires nous appartiennent à tous, / et ces paroles s’adressent à tous. / Elles nous disent qui nous sommes. / Elles nous disent que nous nous appartenons les uns aux autres, / car nous sommes le peuple de Dieu.'),
       TextBlock.note('Les enfants répondent :'),
-      TextBlock.leader('Nous recevons ces Bibles de nos mains, de notre cœur et de notre intelligence. / Merci. / Nous lirons et étudierons la Bible ensemble.'),
-      TextBlock.note('Les enfants et les responsables font face à l’assemblée. L’assemblée aux enfants :'),
-      TextBlock.people('Nous nous réjouissons de cette étape de votre chemin avec Dieu. / Nous prions Dieu de vous guider, vous, votre famille et nous, / pendant que vous utiliserez cette sainte Bible chez vous, / dans vos classes d’école du dimanche et dans notre culte. / Nous apprendrons ensemble et grandirons dans notre amour de la Parole de Dieu.'),
+      TextBlock.leader(
+          'Nous recevons ces Bibles de nos mains, de notre cœur et de notre intelligence. / Merci. / Nous lirons et étudierons la Bible ensemble.'),
+      TextBlock.note(
+          'Les enfants et les responsables font face à l’assemblée. L’assemblée aux enfants :'),
+      TextBlock.people(
+          'Nous nous réjouissons de cette étape de votre chemin avec Dieu. / Nous prions Dieu de vous guider, vous, votre famille et nous, / pendant que vous utiliserez cette sainte Bible chez vous, / dans vos classes d’école du dimanche et dans notre culte. / Nous apprendrons ensemble et grandirons dans notre amour de la Parole de Dieu.'),
       TextBlock.note('Les enfants à l’assemblée :'),
-      TextBlock.leader('Ta parole est une lampe à mes pieds, / et une lumière sur mon sentier. (PSAUME 119.105) / Nous rendons grâce à Dieu.'),
+      TextBlock.leader(
+          'Ta parole est une lampe à mes pieds, / et une lumière sur mon sentier. (PSAUME 119.105) / Nous rendons grâce à Dieu.'),
       TextBlock.note('On peut chanter un cantique.'),
     ],
   );
@@ -1551,75 +2324,122 @@ class BookOfWorshipData {
     title: 'Culte de renouvellement de l’alliance',
     subtitle: 'Le culte de l’Alliance de Wesley et la prière d’alliance',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Covenant Renewal Service” Copyright © 1992 UMPH. Wesley Covenant Service abridged by Ole E. Borgen. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/covenant-renewal-service',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Covenant Renewal Service” Copyright © 1992 UMPH. Wesley Covenant Service abridged by Ole E. Borgen. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/covenant-renewal-service',
     blocks: [
-      TextBlock.note('En 1663, Richard Alleine, un puritain, publia Vindiciae Pietatis, ou « Une défense de la piété dans sa plus grande rigueur et sa plus grande spiritualité ». En 1753, l’ouvrage fut de nouveau publié dans A Christian Library de John Wesley. Wesley en utilisa un chapitre, « L’application de l’ensemble », le lundi 11 août 1755, lors de ce qui fut probablement la première véritable célébration du culte de l’Alliance dans le mouvement méthodiste.'),
-      TextBlock.note('Wesley trouva ce culte riche et plein de sens, comme il l’exprime dans son Journal : « Beaucoup ont pleuré devant Dieu, et beaucoup ont été consolés » (avril 1756) ; « Ce fut, comme à l’ordinaire, un temps de bénédiction remarquable » (octobre 1765) ; « Ce fut l’occasion de toutes sortes d’expériences spirituelles… Je ne sache pas que nous ayons jamais reçu une plus grande bénédiction. Ensuite, beaucoup voulurent rendre grâce, soit pour le sentiment du pardon, soit pour le salut complet, soit pour une manifestation nouvelle de ses grâces, qui guérissait toutes leurs rechutes » (1er janvier 1775). À Londres, ces cultes avaient d’ordinaire lieu le jour de l’An. Dans le pays, le culte de l’Alliance était célébré chaque fois que John Wesley rendait visite aux sociétés méthodistes.'),
-      TextBlock.note('Après l’époque de Wesley, plusieurs versions du culte de l’Alliance ont été élaborées, accordant peu à peu moins de place aux textes de Wesley dans l’ensemble du culte. Le culte actuel suit notre Modèle de base du culte, permet à l’assemblée d’y participer plus pleinement et actualise la langue. Fait plus important encore, la liturgie qui commence avec l’Invitation est reprise directement du culte de Wesley de 1780.'),
-      TextBlock.note('Le cœur du culte, centré sur la prière d’alliance, demande à chacun de s’engager envers Dieu. Cette alliance est sérieuse et suppose une préparation suffisante, ainsi qu’une réponse continue à l’alliance. Les responsables du culte doivent prendre au sérieux la nécessité de préparer l’assemblée à ce culte, éventuellement par des séances d’étude et de prière.'),
-      TextBlock.note('Les responsables doivent aussi assumer la responsabilité d’aider chacun à rester fidèle à l’alliance, éventuellement par des réunions de discipline spirituelle.'),
-      TextBlock.note('Le culte de l’Alliance se tient le plus souvent la veille ou le jour du Nouvel An ; on l’appelle donc parfois culte de la veillée (Watch Night). Historiquement, une veillée durait trois heures ou plus, avec des lectures de l’Écriture et des cantiques. Ce culte de l’Alliance convient aussi à l’un des dimanches après l’Épiphanie, pendant le Carême, lors de l’anniversaire d’une église ou pendant un réveil ou une mission de prédication. Idéalement, il ne devrait être employé qu’une fois par an, le même dimanche. Le rouge est une couleur appropriée pour les parements et les vêtements liturgiques.'),
-      TextBlock.note('Il est recommandé de remettre à chaque participant un exemplaire du culte de l’Alliance, afin qu’il puisse le signer et le conserver comme rappel.'),
+      TextBlock.note(
+          'En 1663, Richard Alleine, un puritain, publia Vindiciae Pietatis, ou « Une défense de la piété dans sa plus grande rigueur et sa plus grande spiritualité ». En 1753, l’ouvrage fut de nouveau publié dans A Christian Library de John Wesley. Wesley en utilisa un chapitre, « L’application de l’ensemble », le lundi 11 août 1755, lors de ce qui fut probablement la première véritable célébration du culte de l’Alliance dans le mouvement méthodiste.'),
+      TextBlock.note(
+          'Wesley trouva ce culte riche et plein de sens, comme il l’exprime dans son Journal : « Beaucoup ont pleuré devant Dieu, et beaucoup ont été consolés » (avril 1756) ; « Ce fut, comme à l’ordinaire, un temps de bénédiction remarquable » (octobre 1765) ; « Ce fut l’occasion de toutes sortes d’expériences spirituelles… Je ne sache pas que nous ayons jamais reçu une plus grande bénédiction. Ensuite, beaucoup voulurent rendre grâce, soit pour le sentiment du pardon, soit pour le salut complet, soit pour une manifestation nouvelle de ses grâces, qui guérissait toutes leurs rechutes » (1er janvier 1775). À Londres, ces cultes avaient d’ordinaire lieu le jour de l’An. Dans le pays, le culte de l’Alliance était célébré chaque fois que John Wesley rendait visite aux sociétés méthodistes.'),
+      TextBlock.note(
+          'Après l’époque de Wesley, plusieurs versions du culte de l’Alliance ont été élaborées, accordant peu à peu moins de place aux textes de Wesley dans l’ensemble du culte. Le culte actuel suit notre Modèle de base du culte, permet à l’assemblée d’y participer plus pleinement et actualise la langue. Fait plus important encore, la liturgie qui commence avec l’Invitation est reprise directement du culte de Wesley de 1780.'),
+      TextBlock.note(
+          'Le cœur du culte, centré sur la prière d’alliance, demande à chacun de s’engager envers Dieu. Cette alliance est sérieuse et suppose une préparation suffisante, ainsi qu’une réponse continue à l’alliance. Les responsables du culte doivent prendre au sérieux la nécessité de préparer l’assemblée à ce culte, éventuellement par des séances d’étude et de prière.'),
+      TextBlock.note(
+          'Les responsables doivent aussi assumer la responsabilité d’aider chacun à rester fidèle à l’alliance, éventuellement par des réunions de discipline spirituelle.'),
+      TextBlock.note(
+          'Le culte de l’Alliance se tient le plus souvent la veille ou le jour du Nouvel An ; on l’appelle donc parfois culte de la veillée (Watch Night). Historiquement, une veillée durait trois heures ou plus, avec des lectures de l’Écriture et des cantiques. Ce culte de l’Alliance convient aussi à l’un des dimanches après l’Épiphanie, pendant le Carême, lors de l’anniversaire d’une église ou pendant un réveil ou une mission de prédication. Idéalement, il ne devrait être employé qu’une fois par an, le même dimanche. Le rouge est une couleur appropriée pour les parements et les vêtements liturgiques.'),
+      TextBlock.note(
+          'Il est recommandé de remettre à chaque participant un exemplaire du culte de l’Alliance, afin qu’il puisse le signer et le conserver comme rappel.'),
       TextBlock.heading('ENTRÉE'),
       TextBlock.heading('RASSEMBLEMENT'),
       TextBlock.heading('SALUTATION'),
       TextBlock.heading('CANTIQUE'),
-      TextBlock.note('Charles Wesley a composé le cantique « Come, Let Us Use the Grace Divine » (UMH 606) tout exprès pour ce culte.'),
+      TextBlock.note(
+          'Charles Wesley a composé le cantique « Come, Let Us Use the Grace Divine » (UMH 606) tout exprès pour ce culte.'),
       TextBlock.heading('PRIÈRE D’OUVERTURE'),
-      TextBlock.people('Ô Dieu, qui sondes tous nos cœurs, / tu as fait de nous un peuple et tu nous as pris pour toi. / Au moment où nous venons reconnaître ta souveraineté et ta grâce / et entrer de nouveau en alliance avec toi, / révèle en nous toute réticence et tout mensonge. / Que ton Esprit imprime ta vérité au plus profond de notre être, / et accueille-nous dans ta miséricorde, à cause de notre Médiateur Jésus-Christ, / qui vit et règne avec toi dans l’unité du Saint-Esprit, / seul Dieu, pour les siècles des siècles. Amen. (DAVID TRIPP, ANGLETERRE, XXe SIÈCLE)'),
+      TextBlock.people(
+          'Ô Dieu, qui sondes tous nos cœurs, / tu as fait de nous un peuple et tu nous as pris pour toi. / Au moment où nous venons reconnaître ta souveraineté et ta grâce / et entrer de nouveau en alliance avec toi, / révèle en nous toute réticence et tout mensonge. / Que ton Esprit imprime ta vérité au plus profond de notre être, / et accueille-nous dans ta miséricorde, à cause de notre Médiateur Jésus-Christ, / qui vit et règne avec toi dans l’unité du Saint-Esprit, / seul Dieu, pour les siècles des siècles. Amen. (DAVID TRIPP, ANGLETERRE, XXe SIÈCLE)'),
       TextBlock.heading('LITANIE D’ACTION DE GRÂCE'),
-      TextBlock.note('On peut employer la litanie d’action de grâce suivante, ou une autre :'),
+      TextBlock.note(
+          'On peut employer la litanie d’action de grâce suivante, ou une autre :'),
       TextBlock.leader('Rendons grâce pour toutes les miséricordes de Dieu.'),
-      TextBlock.leader('Ô Dieu, notre Ami de l’alliance, / tu nous as fait grâce pendant toutes les années de notre vie. / Nous te remercions de ta bienveillance, / qui a rempli nos jours et nous a conduits jusqu’à ce temps et ce lieu.'),
+      TextBlock.leader(
+          'Ô Dieu, notre Ami de l’alliance, / tu nous as fait grâce pendant toutes les années de notre vie. / Nous te remercions de ta bienveillance, / qui a rempli nos jours et nous a conduits jusqu’à ce temps et ce lieu.'),
       TextBlock.people('Nous louons ton saint nom, ô Dieu.'),
-      TextBlock.leader('Tu nous as donné la vie et la raison / et tu nous as placés dans un monde rempli de ta gloire. / Tu nous as consolés par notre famille et nos amis / et tu as pris soin de nous par la main de nos frères et sœurs. R'),
-      TextBlock.leader('Tu as rempli notre cœur d’une faim de toi / et tu nous as donné ta paix. / Tu nous as rachetés et appelés à une haute vocation en Jésus-Christ. / Tu nous as donné une place dans la communion de ton Esprit / et dans le témoignage de ton Église. R'),
-      TextBlock.leader('Tu as été notre lumière dans les ténèbres / et un roc de force dans l’adversité et la tentation. / Tu as été l’Esprit même de la joie dans nos joies / et la récompense qui suffit dans tous nos travaux. R'),
-      TextBlock.leader('Tu t’es souvenu de nous quand nous t’oubliions. / Tu nous as suivis même quand nous cherchions à te fuir. / Tu nous as accueillis avec pardon quand nous sommes revenus à toi. / Pour toute ta patience et ta grâce débordante. R'),
+      TextBlock.leader(
+          'Tu nous as donné la vie et la raison / et tu nous as placés dans un monde rempli de ta gloire. / Tu nous as consolés par notre famille et nos amis / et tu as pris soin de nous par la main de nos frères et sœurs. R'),
+      TextBlock.leader(
+          'Tu as rempli notre cœur d’une faim de toi / et tu nous as donné ta paix. / Tu nous as rachetés et appelés à une haute vocation en Jésus-Christ. / Tu nous as donné une place dans la communion de ton Esprit / et dans le témoignage de ton Église. R'),
+      TextBlock.leader(
+          'Tu as été notre lumière dans les ténèbres / et un roc de force dans l’adversité et la tentation. / Tu as été l’Esprit même de la joie dans nos joies / et la récompense qui suffit dans tous nos travaux. R'),
+      TextBlock.leader(
+          'Tu t’es souvenu de nous quand nous t’oubliions. / Tu nous as suivis même quand nous cherchions à te fuir. / Tu nous as accueillis avec pardon quand nous sommes revenus à toi. / Pour toute ta patience et ta grâce débordante. R'),
       TextBlock.heading('PROCLAMATION'),
       TextBlock.heading('PRIÈRE POUR L’ILLUMINATION'),
       TextBlock.heading('LECTURES BIBLIQUES'),
-      TextBlock.note('Ces lectures peuvent être entrecoupées de cantiques et de psaumes :'),
-      TextBlock.leader('Deutéronome 31.9-13 — renouvellement de l’alliance\n2 Rois 23.1-3 — renouvellement de l’alliance\n2 Chroniques 34.29-33 — renouvellement de l’alliance\nJérémie 31.31-34 — une alliance nouvelle\nPsaumes 50 — le rassemblement des fidèles\n1 Pierre 1 — l’appel à une vie sainte\nMatthieu 25.14-30 — la parabole des talents\nMatthieu 25.31-46 — le jugement des nations\nJean 15.1-8 — Jésus, le vrai cep'),
+      TextBlock.note(
+          'Ces lectures peuvent être entrecoupées de cantiques et de psaumes :'),
+      TextBlock.leader(
+          'Deutéronome 31.9-13 — renouvellement de l’alliance\n2 Rois 23.1-3 — renouvellement de l’alliance\n2 Chroniques 34.29-33 — renouvellement de l’alliance\nJérémie 31.31-34 — une alliance nouvelle\nPsaumes 50 — le rassemblement des fidèles\n1 Pierre 1 — l’appel à une vie sainte\nMatthieu 25.14-30 — la parabole des talents\nMatthieu 25.31-46 — le jugement des nations\nJean 15.1-8 — Jésus, le vrai cep'),
       TextBlock.heading('PRÉDICATION OU HOMÉLIE'),
-      TextBlock.leader('Frères et sœurs en Christ, / la vie chrétienne est rachetée du péché et consacrée à Dieu. / Par le baptême, nous sommes entrés dans cette vie / et avons été admis dans la nouvelle alliance / dont Jésus-Christ est le Médiateur. / Il l’a scellée de son propre sang, afin qu’elle dure toujours. / D’un côté, Dieu promet de nous donner une vie nouvelle en Christ, / l’auteur et le consommateur de notre foi. / De l’autre, nous nous engageons / à ne plus vivre pour nous-mêmes, mais seulement pour Jésus-Christ, / qui nous a aimés et s’est livré pour nous.'),
-      TextBlock.leader('De temps en temps, nous renouvelons notre alliance avec Dieu, / en particulier quand nous réaffirmons l’Alliance baptismale / et nous rassemblons à la table du Seigneur.'),
-      TextBlock.leader('Aujourd’hui, cependant, nous nous réunissons, comme l’ont fait les générations avant nous, / pour renouveler l’alliance qui nous lie à Dieu. / Faisons nôtre cette alliance de Dieu.'),
+      TextBlock.leader(
+          'Frères et sœurs en Christ, / la vie chrétienne est rachetée du péché et consacrée à Dieu. / Par le baptême, nous sommes entrés dans cette vie / et avons été admis dans la nouvelle alliance / dont Jésus-Christ est le Médiateur. / Il l’a scellée de son propre sang, afin qu’elle dure toujours. / D’un côté, Dieu promet de nous donner une vie nouvelle en Christ, / l’auteur et le consommateur de notre foi. / De l’autre, nous nous engageons / à ne plus vivre pour nous-mêmes, mais seulement pour Jésus-Christ, / qui nous a aimés et s’est livré pour nous.'),
+      TextBlock.leader(
+          'De temps en temps, nous renouvelons notre alliance avec Dieu, / en particulier quand nous réaffirmons l’Alliance baptismale / et nous rassemblons à la table du Seigneur.'),
+      TextBlock.leader(
+          'Aujourd’hui, cependant, nous nous réunissons, comme l’ont fait les générations avant nous, / pour renouveler l’alliance qui nous lie à Dieu. / Faisons nôtre cette alliance de Dieu.'),
       TextBlock.heading('LE CULTE DE L’ALLIANCE DE WESLEY'),
       TextBlock.heading('INVITATION'),
-      TextBlock.leader('Engagez-vous envers le Christ comme ses serviteurs. / Donnez-vous à lui, afin de lui appartenir. / Le Christ a beaucoup de services à confier. / Certains sont plus faciles et plus honorables, / d’autres plus difficiles et plus humiliants. / Certains conviennent à nos inclinations et à nos intérêts, / d’autres s’opposent aux uns et aux autres. / Dans certains, nous pouvons plaire au Christ et nous plaire à nous-mêmes. / Mais il y a d’autres œuvres où nous ne pouvons plaire au Christ / qu’en nous renonçant nous-mêmes. / Il est donc nécessaire / de réfléchir à ce que signifie être serviteur du Christ.'),
+      TextBlock.leader(
+          'Engagez-vous envers le Christ comme ses serviteurs. / Donnez-vous à lui, afin de lui appartenir. / Le Christ a beaucoup de services à confier. / Certains sont plus faciles et plus honorables, / d’autres plus difficiles et plus humiliants. / Certains conviennent à nos inclinations et à nos intérêts, / d’autres s’opposent aux uns et aux autres. / Dans certains, nous pouvons plaire au Christ et nous plaire à nous-mêmes. / Mais il y a d’autres œuvres où nous ne pouvons plaire au Christ / qu’en nous renonçant nous-mêmes. / Il est donc nécessaire / de réfléchir à ce que signifie être serviteur du Christ.'),
       TextBlock.leader('Allons donc au Christ et prions :'),
-      TextBlock.people('Que je sois ton serviteur, sous ton commandement. / Je ne m’appartiendrai plus. / Je m’abandonnerai à ta volonté en toutes choses.'),
-      TextBlock.leader('Soyez satisfaits que le Christ vous donne votre place et votre tâche.'),
-      TextBlock.people('Seigneur, fais de moi ce que tu veux. / Je me remets entièrement entre tes mains : / mets-moi à l’œuvre, mets-moi dans la souffrance, / que je sois employé pour toi, ou mis de côté pour toi, / que je sois comblé, que je sois vide, / que j’aie tout, que je n’aie rien. / Librement et d’un cœur consentant, / je remets tout à ton bon plaisir et à ta disposition.'),
-      TextBlock.leader('Le Christ ne sera le Sauveur que de ses serviteurs. / Il est la source de tout salut pour ceux qui obéissent. / Le Christ ne veut de serviteurs que consentants ; / il n’accepte rien d’autre qu’un plein consentement / à tout ce qu’il demande. / Le Christ sera tout en tous, ou il ne sera rien.'),
+      TextBlock.people(
+          'Que je sois ton serviteur, sous ton commandement. / Je ne m’appartiendrai plus. / Je m’abandonnerai à ta volonté en toutes choses.'),
+      TextBlock.leader(
+          'Soyez satisfaits que le Christ vous donne votre place et votre tâche.'),
+      TextBlock.people(
+          'Seigneur, fais de moi ce que tu veux. / Je me remets entièrement entre tes mains : / mets-moi à l’œuvre, mets-moi dans la souffrance, / que je sois employé pour toi, ou mis de côté pour toi, / que je sois comblé, que je sois vide, / que j’aie tout, que je n’aie rien. / Librement et d’un cœur consentant, / je remets tout à ton bon plaisir et à ta disposition.'),
+      TextBlock.leader(
+          'Le Christ ne sera le Sauveur que de ses serviteurs. / Il est la source de tout salut pour ceux qui obéissent. / Le Christ ne veut de serviteurs que consentants ; / il n’accepte rien d’autre qu’un plein consentement / à tout ce qu’il demande. / Le Christ sera tout en tous, ou il ne sera rien.'),
       TextBlock.leader('Confirmez cela par une sainte alliance.'),
-      TextBlock.leader('Pour que cette alliance devienne réalité dans votre vie, écoutez ces recommandations :'),
-      TextBlock.leader('Premièrement, réservez du temps, plus d’une fois, / pour être seuls devant le Seigneur : / pour chercher avec ardeur le secours particulier de Dieu / et qu’il vous accueille avec grâce ; / pour réfléchir soigneusement à toutes les conditions de l’alliance ; / pour sonder votre cœur : / avez-vous déjà donné librement votre vie au Christ ? / Considérez quels sont vos péchés. / Considérez les lois du Christ, combien elles sont saintes, strictes et spirituelles, / et si vous, après y avoir bien réfléchi, / êtes disposés à les choisir toutes. / Soyez sûrs d’y voir clair, veillez à ne pas mentir à Dieu.'),
-      TextBlock.leader('Deuxièmement, soyez sérieux, dans un esprit de sainte crainte et de respect.'),
-      TextBlock.leader('Troisièmement, saisissez l’alliance de Dieu, / appuyez-vous sur la promesse de Dieu de vous donner grâce et force, / afin de pouvoir tenir votre promesse. / Ne vous fiez pas à votre propre force ni à votre propre puissance.'),
-      TextBlock.leader('Quatrièmement, décidez-vous à être fidèles. / Vous avez donné votre cœur au Seigneur, / vous avez ouvert la bouche devant le Seigneur, / et vous vous êtes consacrés à Dieu. / Avec la puissance de Dieu, ne revenez jamais en arrière.'),
-      TextBlock.leader('Enfin, soyez prêts à renouveler votre alliance avec le Seigneur. / Mettez-vous à genoux, levez les mains vers le ciel, / ouvrez votre cœur au Seigneur, pendant que nous prions :'),
+      TextBlock.leader(
+          'Pour que cette alliance devienne réalité dans votre vie, écoutez ces recommandations :'),
+      TextBlock.leader(
+          'Premièrement, réservez du temps, plus d’une fois, / pour être seuls devant le Seigneur : / pour chercher avec ardeur le secours particulier de Dieu / et qu’il vous accueille avec grâce ; / pour réfléchir soigneusement à toutes les conditions de l’alliance ; / pour sonder votre cœur : / avez-vous déjà donné librement votre vie au Christ ? / Considérez quels sont vos péchés. / Considérez les lois du Christ, combien elles sont saintes, strictes et spirituelles, / et si vous, après y avoir bien réfléchi, / êtes disposés à les choisir toutes. / Soyez sûrs d’y voir clair, veillez à ne pas mentir à Dieu.'),
+      TextBlock.leader(
+          'Deuxièmement, soyez sérieux, dans un esprit de sainte crainte et de respect.'),
+      TextBlock.leader(
+          'Troisièmement, saisissez l’alliance de Dieu, / appuyez-vous sur la promesse de Dieu de vous donner grâce et force, / afin de pouvoir tenir votre promesse. / Ne vous fiez pas à votre propre force ni à votre propre puissance.'),
+      TextBlock.leader(
+          'Quatrièmement, décidez-vous à être fidèles. / Vous avez donné votre cœur au Seigneur, / vous avez ouvert la bouche devant le Seigneur, / et vous vous êtes consacrés à Dieu. / Avec la puissance de Dieu, ne revenez jamais en arrière.'),
+      TextBlock.leader(
+          'Enfin, soyez prêts à renouveler votre alliance avec le Seigneur. / Mettez-vous à genoux, levez les mains vers le ciel, / ouvrez votre cœur au Seigneur, pendant que nous prions :'),
       TextBlock.heading('PRIÈRE D’ALLIANCE'),
       TextBlock.note('L’assemblée s’agenouille ou s’incline.'),
-      TextBlock.people('Dieu juste, à cause de ton Fils Jésus-Christ, / regarde-moi qui me prosterne devant toi. / Pardonne mon infidélité, de n’avoir pas fait ta volonté, / car tu m’as promis miséricorde / si je me tourne vers toi de tout mon cœur.'),
+      TextBlock.people(
+          'Dieu juste, à cause de ton Fils Jésus-Christ, / regarde-moi qui me prosterne devant toi. / Pardonne mon infidélité, de n’avoir pas fait ta volonté, / car tu m’as promis miséricorde / si je me tourne vers toi de tout mon cœur.'),
       TextBlock.leader('Dieu exige que vous écartiez toutes vos idoles.'),
-      TextBlock.people('Du fond de mon cœur, je les renie toutes ici, / m’engageant envers toi à ne laisser aucun péché connu dans ma vie. / Contre ta volonté, j’ai tourné mon amour vers le monde. / Par ta puissance, / je veillerai à toutes les tentations qui m’éloigneraient de toi. / Car ma propre justice est criblée de péché, / incapable de tenir devant toi.'),
-      TextBlock.leader('Par le Christ, Dieu a offert d’être de nouveau votre Dieu, / si vous le lui permettez.'),
-      TextBlock.people('Devant tout le ciel et toute la terre, / je te reconnais ici comme mon Seigneur et mon Dieu. / Je te prends, Père, Fils et Saint-Esprit, pour mon partage, / et je fais vœu de me donner moi-même, corps et âme, comme ton serviteur, / pour te servir dans la sainteté et la justice tous les jours de ma vie.'),
-      TextBlock.leader('Dieu a donné le Seigneur Jésus-Christ / comme seule voie et seul moyen d’aller à Dieu.'),
-      TextBlock.people('Jésus, je reçois ici, à genoux, le Christ / comme l’unique Chemin nouveau et vivant, / et je m’unis sincèrement à lui par une alliance. / Ô bienheureux Jésus, je viens à toi, / affamé, pécheur, misérable, aveugle et nu, / indigne même de laver les pieds de tes serviteurs. / Ici, de toutes mes forces, je t’accepte comme mon Seigneur et mon Chef. / Je renonce à ma propre dignité, / et je déclare que tu es le Seigneur, ma justice. / Je renonce à ma propre sagesse, et je te prends pour seul guide. / Je renonce à ma propre volonté, et je prends ta volonté pour loi.'),
-      TextBlock.leader('Le Christ vous a dit que vous devez souffrir avec lui.'),
-      TextBlock.people('Ici, je m’engage envers toi, ô Christ, / à partager ton sort, quel qu’il soit. / Par ta grâce, je promets / que ni la vie ni la mort ne me sépareront de toi.'),
+      TextBlock.people(
+          'Du fond de mon cœur, je les renie toutes ici, / m’engageant envers toi à ne laisser aucun péché connu dans ma vie. / Contre ta volonté, j’ai tourné mon amour vers le monde. / Par ta puissance, / je veillerai à toutes les tentations qui m’éloigneraient de toi. / Car ma propre justice est criblée de péché, / incapable de tenir devant toi.'),
+      TextBlock.leader(
+          'Par le Christ, Dieu a offert d’être de nouveau votre Dieu, / si vous le lui permettez.'),
+      TextBlock.people(
+          'Devant tout le ciel et toute la terre, / je te reconnais ici comme mon Seigneur et mon Dieu. / Je te prends, Père, Fils et Saint-Esprit, pour mon partage, / et je fais vœu de me donner moi-même, corps et âme, comme ton serviteur, / pour te servir dans la sainteté et la justice tous les jours de ma vie.'),
+      TextBlock.leader(
+          'Dieu a donné le Seigneur Jésus-Christ / comme seule voie et seul moyen d’aller à Dieu.'),
+      TextBlock.people(
+          'Jésus, je reçois ici, à genoux, le Christ / comme l’unique Chemin nouveau et vivant, / et je m’unis sincèrement à lui par une alliance. / Ô bienheureux Jésus, je viens à toi, / affamé, pécheur, misérable, aveugle et nu, / indigne même de laver les pieds de tes serviteurs. / Ici, de toutes mes forces, je t’accepte comme mon Seigneur et mon Chef. / Je renonce à ma propre dignité, / et je déclare que tu es le Seigneur, ma justice. / Je renonce à ma propre sagesse, et je te prends pour seul guide. / Je renonce à ma propre volonté, et je prends ta volonté pour loi.'),
+      TextBlock.leader(
+          'Le Christ vous a dit que vous devez souffrir avec lui.'),
+      TextBlock.people(
+          'Ici, je m’engage envers toi, ô Christ, / à partager ton sort, quel qu’il soit. / Par ta grâce, je promets / que ni la vie ni la mort ne me sépareront de toi.'),
       TextBlock.leader('Dieu a donné de saintes lois pour règle de votre vie.'),
-      TextBlock.people('Ici, je mets de bon gré mon cou sous ton joug, pour porter ton fardeau. / Toutes tes lois sont saintes, justes et bonnes. / Je les prends donc pour règle de mes paroles, de mes pensées et de mes actes, / promettant de m’efforcer / d’ordonner toute ma vie selon ta direction, / et de ne pas me permettre de négliger rien de ce que je sais être mon devoir.'),
+      TextBlock.people(
+          'Ici, je mets de bon gré mon cou sous ton joug, pour porter ton fardeau. / Toutes tes lois sont saintes, justes et bonnes. / Je les prends donc pour règle de mes paroles, de mes pensées et de mes actes, / promettant de m’efforcer / d’ordonner toute ma vie selon ta direction, / et de ne pas me permettre de négliger rien de ce que je sais être mon devoir.'),
       TextBlock.leader('Le Dieu tout-puissant sonde et connaît votre cœur.'),
-      TextBlock.people('Ô Dieu, tu sais que je fais cette alliance avec toi aujourd’hui / sans ruse ni réserve. / S’il s’y trouvait quelque fausseté, guide-moi et aide-moi à la redresser. / Et maintenant, gloire à toi, ô Dieu le Père, / que, dès ce jour, je regarderai comme mon Dieu et mon Père. / Gloire à toi, ô Dieu le Fils, / qui m’as aimé et lavé de mes péchés dans ton propre sang, / et qui es maintenant mon Sauveur et mon Rédempteur. / Gloire à toi, ô Dieu le Saint-Esprit, / qui, par ta puissance, as tourné mon cœur du péché vers Dieu.'),
-      TextBlock.people('Dieu puissant, Seigneur tout-puissant, Père, Fils et Saint-Esprit, / tu es maintenant devenu mon Ami de l’alliance. / Et moi, par ta grâce infinie, je suis devenu ton serviteur de l’alliance. / Qu’il en soit ainsi. / Et que l’alliance que j’ai faite sur la terre soit ratifiée dans le ciel. / Amen.'),
-      TextBlock.leader('Il vous est conseillé de faire cette alliance non seulement dans votre cœur, mais de parole ; non seulement de parole, mais par écrit. Présentez donc, en toute révérence, ce culte au Seigneur comme votre acte et votre engagement. Et quand vous l’aurez fait, signez-le. Gardez-le ensuite comme un rappel de l’accord saint entre Dieu et vous, afin de vous en souvenir dans les doutes et les tentations.'),
-      TextBlock.leader('Voir aussi la prière d’alliance dans la tradition wesleyenne (UMH 607).'),
-      TextBlock.note('Le pasteur peut alors célébrer la Sainte-Cène. Sinon, le culte se poursuit par un cantique et le congé avec bénédiction.'),
+      TextBlock.people(
+          'Ô Dieu, tu sais que je fais cette alliance avec toi aujourd’hui / sans ruse ni réserve. / S’il s’y trouvait quelque fausseté, guide-moi et aide-moi à la redresser. / Et maintenant, gloire à toi, ô Dieu le Père, / que, dès ce jour, je regarderai comme mon Dieu et mon Père. / Gloire à toi, ô Dieu le Fils, / qui m’as aimé et lavé de mes péchés dans ton propre sang, / et qui es maintenant mon Sauveur et mon Rédempteur. / Gloire à toi, ô Dieu le Saint-Esprit, / qui, par ta puissance, as tourné mon cœur du péché vers Dieu.'),
+      TextBlock.people(
+          'Dieu puissant, Seigneur tout-puissant, Père, Fils et Saint-Esprit, / tu es maintenant devenu mon Ami de l’alliance. / Et moi, par ta grâce infinie, je suis devenu ton serviteur de l’alliance. / Qu’il en soit ainsi. / Et que l’alliance que j’ai faite sur la terre soit ratifiée dans le ciel. / Amen.'),
+      TextBlock.leader(
+          'Il vous est conseillé de faire cette alliance non seulement dans votre cœur, mais de parole ; non seulement de parole, mais par écrit. Présentez donc, en toute révérence, ce culte au Seigneur comme votre acte et votre engagement. Et quand vous l’aurez fait, signez-le. Gardez-le ensuite comme un rappel de l’accord saint entre Dieu et vous, afin de vous en souvenir dans les doutes et les tentations.'),
+      TextBlock.leader(
+          'Voir aussi la prière d’alliance dans la tradition wesleyenne (UMH 607).'),
+      TextBlock.note(
+          'Le pasteur peut alors célébrer la Sainte-Cène. Sinon, le culte se poursuit par un cantique et le congé avec bénédiction.'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
     ],
   );
@@ -1627,30 +2447,46 @@ class BookOfWorshipData {
   static const leadersInstallation = ChurchText(
     id: 'bow_leaders_installation',
     title: 'Installation de responsables dans l’Église',
-    subtitle: 'Engagements et prière pour des responsables laïcs élus ou nommés',
+    subtitle:
+        'Engagements et prière pour des responsables laïcs élus ou nommés',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Installation or Recognition of Leaders in the Church” Copyright © 1964, 1965 by Board of Publication of The Methodist Church, Inc.; © 1984 by Abingdon Press; Copyright © 1992 UMPH; renewal © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-installation-or-recognition-of-leaders-in-the-church',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Installation or Recognition of Leaders in the Church” Copyright © 1964, 1965 by Board of Publication of The Methodist Church, Inc.; © 1984 by Abingdon Press; Copyright © 1992 UMPH; renewal © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-installation-or-recognition-of-leaders-in-the-church',
     blocks: [
-      TextBlock.note('Ce rite peut être inclus dans un culte lorsque des responsables laïcs élus ou nommés dans l’assemblée doivent être installés ou reconnus.'),
-      TextBlock.note('En réponse à la Parole, ou à un autre moment approprié dans un culte public, le pasteur invite à s’avancer les responsables qu’on reconnaît. Le pasteur les présente à l’assemblée, puis leur dit :'),
-      TextBlock.leader('Chers amis, / vous avez été appelés par Dieu et choisis par le peuple de Dieu / pour exercer des responsabilités dans l’Église. / Ce ministère est une bénédiction et une lourde responsabilité. / Il reconnaît vos dons particuliers / et vous appelle à travailler parmi nous et pour nous. / Nous vous remercions avec amour d’avoir accepté cette charge / et nous vous invitons à offrir le meilleur de vous-mêmes / au Seigneur, à ce peuple et à notre ministère dans le monde. / Vivez une vie en Christ / et faites-le connaître par votre témoignage et votre travail.'),
-      TextBlock.leader('Aujourd’hui, nous installons (reconnaissons) [Noms]. / Reconnaissez-vous aujourd’hui être un fidèle disciple de Jésus-Christ ?'),
+      TextBlock.note(
+          'Ce rite peut être inclus dans un culte lorsque des responsables laïcs élus ou nommés dans l’assemblée doivent être installés ou reconnus.'),
+      TextBlock.note(
+          'En réponse à la Parole, ou à un autre moment approprié dans un culte public, le pasteur invite à s’avancer les responsables qu’on reconnaît. Le pasteur les présente à l’assemblée, puis leur dit :'),
+      TextBlock.leader(
+          'Chers amis, / vous avez été appelés par Dieu et choisis par le peuple de Dieu / pour exercer des responsabilités dans l’Église. / Ce ministère est une bénédiction et une lourde responsabilité. / Il reconnaît vos dons particuliers / et vous appelle à travailler parmi nous et pour nous. / Nous vous remercions avec amour d’avoir accepté cette charge / et nous vous invitons à offrir le meilleur de vous-mêmes / au Seigneur, à ce peuple et à notre ministère dans le monde. / Vivez une vie en Christ / et faites-le connaître par votre témoignage et votre travail.'),
+      TextBlock.leader(
+          'Aujourd’hui, nous installons (reconnaissons) [Noms]. / Reconnaissez-vous aujourd’hui être un fidèle disciple de Jésus-Christ ?'),
       TextBlock.people('Je le reconnais.'),
-      TextBlock.leader('Vous consacrerez-vous au service de Dieu dans le monde ?'),
+      TextBlock.leader(
+          'Vous consacrerez-vous au service de Dieu dans le monde ?'),
       TextBlock.people('Je le ferai.'),
-      TextBlock.leader('Vivrez-vous de telle sorte / que cette Église soit un peuple d’amour et de paix ?'),
+      TextBlock.leader(
+          'Vivrez-vous de telle sorte / que cette Église soit un peuple d’amour et de paix ?'),
       TextBlock.people('Je le ferai.'),
-      TextBlock.leader('Ferez-vous tout ce qui est en votre pouvoir / pour être à la hauteur de la tâche pour laquelle vous avez été choisis ?'),
+      TextBlock.leader(
+          'Ferez-vous tout ce qui est en votre pouvoir / pour être à la hauteur de la tâche pour laquelle vous avez été choisis ?'),
       TextBlock.people('Je le ferai.'),
-      TextBlock.leader('[Nous reconnaissons aussi ceux qui ont été élus à des fonctions / par les Hommes méthodistes unis, les Femmes méthodistes unies / et la Jeunesse méthodiste unie (et d’autres organisations, selon le cas)]'),
+      TextBlock.leader(
+          '[Nous reconnaissons aussi ceux qui ont été élus à des fonctions / par les Hommes méthodistes unis, les Femmes méthodistes unies / et la Jeunesse méthodiste unie (et d’autres organisations, selon le cas)]'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu tout-puissant, répands tes bénédictions sur ces serviteurs / à qui ont été confiés des ministères particuliers dans ton Église. / Accorde-leur la grâce de se donner de tout leur cœur à ton service.'),
-      TextBlock.leader('Garde devant eux l’exemple de notre Seigneur, / qui n’a pas pensé d’abord à lui-même, mais s’est donné pour nous tous.'),
-      TextBlock.leader('Qu’ils partagent son ministère et sa consécration, / afin d’entrer dans sa joie.'),
-      TextBlock.leader('Guide-les dans leur travail. / Récompense leur fidélité en leur faisant savoir / que, par eux, tes desseins s’accomplissent, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, répands tes bénédictions sur ces serviteurs / à qui ont été confiés des ministères particuliers dans ton Église. / Accorde-leur la grâce de se donner de tout leur cœur à ton service.'),
+      TextBlock.leader(
+          'Garde devant eux l’exemple de notre Seigneur, / qui n’a pas pensé d’abord à lui-même, mais s’est donné pour nous tous.'),
+      TextBlock.leader(
+          'Qu’ils partagent son ministère et sa consécration, / afin d’entrer dans sa joie.'),
+      TextBlock.leader(
+          'Guide-les dans leur travail. / Récompense leur fidélité en leur faisant savoir / que, par eux, tes desseins s’accomplissent, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Le pasteur s’adresse à l’assemblée :'),
-      TextBlock.leader('Chers amis, réjouissez-vous : Dieu envoie des ouvriers dans sa vigne. / Ferez-vous tout votre possible pour les aider et les encourager / dans les responsabilités auxquelles ils ont été appelés, / en leur apportant votre collaboration, vos conseils et vos prières ?'),
+      TextBlock.leader(
+          'Chers amis, réjouissez-vous : Dieu envoie des ouvriers dans sa vigne. / Ferez-vous tout votre possible pour les aider et les encourager / dans les responsabilités auxquelles ils ont été appelés, / en leur apportant votre collaboration, vos conseils et vos prières ?'),
       TextBlock.note('L’assemblée répond :'),
       TextBlock.people('Nous le ferons.'),
       TextBlock.note('Le pasteur peut saluer les responsables un à un.'),
@@ -1661,124 +2497,187 @@ class BookOfWorshipData {
   static const classLeaders = ChurchText(
     id: 'bow_class_leaders',
     title: 'Mise en fonction de responsables de classe',
-    subtitle: 'Engagements des responsables de classe et de l’assemblée, prière',
+    subtitle:
+        'Engagements des responsables de classe et de l’assemblée, prière',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Commissioning of Class Leaders” by David Lowes Watson Copyright © 1992 by UMPH. Altered 2013 by the Discipleship Ministries to reflect the possibility of such a service being held at a district, conference, or episcopal area level. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-commissioning-of-class-leaders',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Commissioning of Class Leaders” by David Lowes Watson Copyright © 1992 by UMPH. Altered 2013 by the Discipleship Ministries to reflect the possibility of such a service being held at a district, conference, or episcopal area level. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-commissioning-of-class-leaders',
     blocks: [
-      TextBlock.note('Ce rite est destiné à la mise en fonction publique de responsables de classe, après leur nomination par une conférence de la circonscription ou de l’assemblée. Il peut être dirigé par le pasteur de l’assemblée, par le surintendant de district ou par l’évêque de la région. En réponse à la Parole, ou à un autre moment approprié dans un culte de l’assemblée, le pasteur invite le ou les nouveaux responsables de classe à s’avancer.'),
+      TextBlock.note(
+          'Ce rite est destiné à la mise en fonction publique de responsables de classe, après leur nomination par une conférence de la circonscription ou de l’assemblée. Il peut être dirigé par le pasteur de l’assemblée, par le surintendant de district ou par l’évêque de la région. En réponse à la Parole, ou à un autre moment approprié dans un culte de l’assemblée, le pasteur invite le ou les nouveaux responsables de classe à s’avancer.'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Chers amis, / la charge de responsable de classe est l’une des contributions les plus importantes / que le méthodisme mondial a apportées / à la direction pastorale de la sainte Église du Christ.'),
-      TextBlock.leader('Dans les Règles générales de 1743, / John Wesley décrivait les sociétés méthodistes / comme des groupes d’hommes et de femmes qui, / « ayant la forme de la piété et en recherchant la puissance », / se réunissaient pour prier, / pour recevoir la parole d’exhortation, / et « pour veiller les uns sur les autres dans l’amour, / afin de s’aider mutuellement à travailler à leur salut ». / À cette fin, les sociétés étaient divisées en petits groupes, appelés classes, / chacun avec un responsable désigné / « pour conseiller, reprendre, consoler ou exhorter, selon les besoins ».'),
-      TextBlock.leader('Les responsables de classe d’aujourd’hui poursuivent cette tradition. / Dans la Discipline fondatrice de notre Église, ils sont décrits comme des personnes / « non seulement d’un jugement sûr, mais vraiment dévouées à Dieu », / prêtes à aider les autres membres de l’assemblée / « à grandir dans la connaissance et l’amour de Dieu ».'),
+      TextBlock.leader(
+          'Chers amis, / la charge de responsable de classe est l’une des contributions les plus importantes / que le méthodisme mondial a apportées / à la direction pastorale de la sainte Église du Christ.'),
+      TextBlock.leader(
+          'Dans les Règles générales de 1743, / John Wesley décrivait les sociétés méthodistes / comme des groupes d’hommes et de femmes qui, / « ayant la forme de la piété et en recherchant la puissance », / se réunissaient pour prier, / pour recevoir la parole d’exhortation, / et « pour veiller les uns sur les autres dans l’amour, / afin de s’aider mutuellement à travailler à leur salut ». / À cette fin, les sociétés étaient divisées en petits groupes, appelés classes, / chacun avec un responsable désigné / « pour conseiller, reprendre, consoler ou exhorter, selon les besoins ».'),
+      TextBlock.leader(
+          'Les responsables de classe d’aujourd’hui poursuivent cette tradition. / Dans la Discipline fondatrice de notre Église, ils sont décrits comme des personnes / « non seulement d’un jugement sûr, mais vraiment dévouées à Dieu », / prêtes à aider les autres membres de l’assemblée / « à grandir dans la connaissance et l’amour de Dieu ».'),
       TextBlock.note('Le président aux responsables de classe :'),
-      TextBlock.leader('Acceptez-vous la charge de responsable de classe / dans cette assemblée de l’Église méthodiste unie ?'),
+      TextBlock.leader(
+          'Acceptez-vous la charge de responsable de classe / dans cette assemblée de l’Église méthodiste unie ?'),
       TextBlock.people('Je l’accepte.'),
-      TextBlock.leader('Exercerez-vous cette charge / en aidant les autres membres de l’assemblée / à vivre la règle générale du disciple : / témoigner de Jésus-Christ dans le monde et suivre son enseignement / par des actes de compassion, de justice, de culte et de piété, / sous la conduite du Saint-Esprit ?'),
+      TextBlock.leader(
+          'Exercerez-vous cette charge / en aidant les autres membres de l’assemblée / à vivre la règle générale du disciple : / témoigner de Jésus-Christ dans le monde et suivre son enseignement / par des actes de compassion, de justice, de culte et de piété, / sous la conduite du Saint-Esprit ?'),
       TextBlock.people('Je le ferai.'),
-      TextBlock.leader('Aiderez-vous les autres membres de l’assemblée / à répondre de leur vie de disciples, / non pas en les jugeant, mais en veillant sur eux dans l’amour ?'),
+      TextBlock.leader(
+          'Aiderez-vous les autres membres de l’assemblée / à répondre de leur vie de disciples, / non pas en les jugeant, mais en veillant sur eux dans l’amour ?'),
       TextBlock.people('Je le ferai.'),
-      TextBlock.leader('Vous réunirez-vous chaque semaine, en alliance avec d’autres animés du même esprit / et du même but, / pour répondre de votre propre vie de disciple ?'),
+      TextBlock.leader(
+          'Vous réunirez-vous chaque semaine, en alliance avec d’autres animés du même esprit / et du même but, / pour répondre de votre propre vie de disciple ?'),
       TextBlock.people('Je le ferai.'),
       TextBlock.note('Le président à l’assemblée :'),
-      TextBlock.leader('Confirmez-vous l’appel de ces hommes et de ces femmes comme responsables de classe / dans cette assemblée de l’Église méthodiste unie ?'),
+      TextBlock.leader(
+          'Confirmez-vous l’appel de ces hommes et de ces femmes comme responsables de classe / dans cette assemblée de l’Église méthodiste unie ?'),
       TextBlock.people('Nous le confirmons.'),
-      TextBlock.leader('Les reconnaîtrez-vous comme vos guides dans la vie de disciple / et accueillerez-vous leurs conseils quand ils veillent sur vous dans l’amour ?'),
+      TextBlock.leader(
+          'Les reconnaîtrez-vous comme vos guides dans la vie de disciple / et accueillerez-vous leurs conseils quand ils veillent sur vous dans l’amour ?'),
       TextBlock.people('Nous le ferons.'),
       TextBlock.note('Le président aux responsables de classe :'),
-      TextBlock.leader('Vous êtes ici établis responsables de classe / dans cette assemblée de l’Église méthodiste unie'),
-      TextBlock.leader('(ou, si plusieurs assemblées sont représentées, / dans l’assemblée de l’Église méthodiste unie / dont vous êtes membres professants).'),
+      TextBlock.leader(
+          'Vous êtes ici établis responsables de classe / dans cette assemblée de l’Église méthodiste unie'),
+      TextBlock.leader(
+          '(ou, si plusieurs assemblées sont représentées, / dans l’assemblée de l’Église méthodiste unie / dont vous êtes membres professants).'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu de toute grâce, / bénis ton serviteur (tes serviteurs) / à qui nous confions maintenant la charge de responsable de classe. / Accorde-leur une sagesse tempérée par ton amour, / et un courage tempéré par ta justice, / afin que Jésus-Christ soit honoré et servi / par tous dans cette assemblée, / pour l’avancement de ton règne qui vient, sur la terre comme au ciel, / par le même Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('On peut alors chanter « Forth in Thy Name, O Lord » (UMH 438).'),
+      TextBlock.leader(
+          'Dieu de toute grâce, / bénis ton serviteur (tes serviteurs) / à qui nous confions maintenant la charge de responsable de classe. / Accorde-leur une sagesse tempérée par ton amour, / et un courage tempéré par ta justice, / afin que Jésus-Christ soit honoré et servi / par tous dans cette assemblée, / pour l’avancement de ton règne qui vient, sur la terre comme au ciel, / par le même Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On peut alors chanter « Forth in Thy Name, O Lord » (UMH 438).'),
     ],
   );
 
   static const christianMarriage2 = ChurchText(
     id: 'bow_christian_marriage_2',
     title: 'Culte de mariage chrétien II',
-    subtitle: 'Texte traditionnel des anciennes Églises méthodiste et des Frères évangéliques unis',
+    subtitle:
+        'Texte traditionnel des anciennes Églises méthodiste et des Frères évangéliques unis',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Christian Marriage 2, Copyright © 1964, 1965 Board of Publication of The Methodist Church, Inc.; Copyright © 1992 UMPH; renewal Copyright © 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-christian-marriage-ii',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Christian Marriage 2, Copyright © 1964, 1965 Board of Publication of The Methodist Church, Inc.; Copyright © 1992 UMPH; renewal Copyright © 1992 UMPH. Used by permission.” » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-christian-marriage-ii',
     blocks: [
-      TextBlock.note('Ce culte est un texte traditionnel tiré des rituels des anciennes Églises méthodiste et des Frères évangéliques unis.'),
-      TextBlock.note('La décision de célébrer le mariage relève du droit et de la responsabilité du pasteur, conformément aux lois de l’État et à celles de l’Église méthodiste unie. Tous les projets doivent être approuvés par le pasteur. Les « conseils appropriés aux personnes concernées » que le pasteur doit donner avant le mariage, selon la Discipline de l’Église méthodiste unie, comprennent, en plus de la préparation au mariage, un entretien et une préparation du culte avec les futurs époux, ainsi que l’information sur les règles ou directives établies par l’assemblée en matière de décoration, de photographie et d’enregistrement audio ou vidéo. Tout rôle de direction assumé par un autre ministre doit l’être à l’invitation du pasteur de l’église où le culte a lieu. L’organiste ou la personne responsable de la musique doit être consulté et travailler avec le couple pour tout choix musical.'),
-      TextBlock.note('Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au culte, à la discrétion du pasteur.'),
-      TextBlock.note('Les enfants de l’homme ou de la femme, les autres membres de la famille et les amis peuvent tenir divers rôles dans le culte, selon leur âge et leurs capacités. Ils peuvent faire partie du cortège, chanter ou jouer de la musique, ou apporter un témoignage dans leurs propres mots.'),
-      TextBlock.note('Pour les couples qui ne sont pas membres de l’Église ou ne sont pas prêts à prendre l’engagement chrétien exprimé dans nos cultes, des adaptations peuvent être faites à la discrétion du pasteur.'),
+      TextBlock.note(
+          'Ce culte est un texte traditionnel tiré des rituels des anciennes Églises méthodiste et des Frères évangéliques unis.'),
+      TextBlock.note(
+          'La décision de célébrer le mariage relève du droit et de la responsabilité du pasteur, conformément aux lois de l’État et à celles de l’Église méthodiste unie. Tous les projets doivent être approuvés par le pasteur. Les « conseils appropriés aux personnes concernées » que le pasteur doit donner avant le mariage, selon la Discipline de l’Église méthodiste unie, comprennent, en plus de la préparation au mariage, un entretien et une préparation du culte avec les futurs époux, ainsi que l’information sur les règles ou directives établies par l’assemblée en matière de décoration, de photographie et d’enregistrement audio ou vidéo. Tout rôle de direction assumé par un autre ministre doit l’être à l’invitation du pasteur de l’église où le culte a lieu. L’organiste ou la personne responsable de la musique doit être consulté et travailler avec le couple pour tout choix musical.'),
+      TextBlock.note(
+          'Les traditions ethniques et culturelles sont encouragées et peuvent être intégrées au culte, à la discrétion du pasteur.'),
+      TextBlock.note(
+          'Les enfants de l’homme ou de la femme, les autres membres de la famille et les amis peuvent tenir divers rôles dans le culte, selon leur âge et leurs capacités. Ils peuvent faire partie du cortège, chanter ou jouer de la musique, ou apporter un témoignage dans leurs propres mots.'),
+      TextBlock.note(
+          'Pour les couples qui ne sont pas membres de l’Église ou ne sont pas prêts à prendre l’engagement chrétien exprimé dans nos cultes, des adaptations peuvent être faites à la discrétion du pasteur.'),
       TextBlock.heading('ENTRÉE'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('Pendant que l’assemblée se rassemble, on peut offrir de la musique instrumentale ou vocale. Pendant tout le culte, l’usage d’une musique spécifiquement chrétienne est vivement encouragé.'),
-      TextBlock.note('Pendant l’entrée du cortège, il peut y avoir de la musique instrumentale, ou un cantique, un psaume, un cantique biblique ou un chant de chorale. L’assemblée peut être invitée à se lever.'),
-      TextBlock.note('La femme et l’homme peuvent être accompagnés par des représentants de leurs familles jusqu’à l’avant de l’église, ou jusqu’au moment de la présentation, après quoi leurs accompagnateurs s’assoient.'),
+      TextBlock.note(
+          'Pendant que l’assemblée se rassemble, on peut offrir de la musique instrumentale ou vocale. Pendant tout le culte, l’usage d’une musique spécifiquement chrétienne est vivement encouragé.'),
+      TextBlock.note(
+          'Pendant l’entrée du cortège, il peut y avoir de la musique instrumentale, ou un cantique, un psaume, un cantique biblique ou un chant de chorale. L’assemblée peut être invitée à se lever.'),
+      TextBlock.note(
+          'La femme et l’homme peuvent être accompagnés par des représentants de leurs familles jusqu’à l’avant de l’église, ou jusqu’au moment de la présentation, après quoi leurs accompagnateurs s’assoient.'),
       TextBlock.heading('SALUTATION'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Bien-aimés, / nous sommes ici rassemblés devant Dieu, / en présence de ces témoins, / pour unir cet homme et cette femme ([Nom] et [Nom]) / par le saint mariage, / qui est un état honorable, institué par Dieu, / et qui nous représente / l’union mystique qui existe entre le Christ et son Église ; / cet état saint que le Christ a honoré et embelli / de sa présence aux noces de Cana en Galilée. / On ne doit donc pas y entrer à la légère, / mais avec respect, réflexion et crainte de Dieu. / C’est dans cet état saint que ces deux personnes viennent maintenant s’unir.'),
+      TextBlock.leader(
+          'Bien-aimés, / nous sommes ici rassemblés devant Dieu, / en présence de ces témoins, / pour unir cet homme et cette femme ([Nom] et [Nom]) / par le saint mariage, / qui est un état honorable, institué par Dieu, / et qui nous représente / l’union mystique qui existe entre le Christ et son Église ; / cet état saint que le Christ a honoré et embelli / de sa présence aux noces de Cana en Galilée. / On ne doit donc pas y entrer à la légère, / mais avec respect, réflexion et crainte de Dieu. / C’est dans cet état saint que ces deux personnes viennent maintenant s’unir.'),
       TextBlock.heading('DÉCLARATION D’INTENTION'),
-      TextBlock.note('Le pasteur adresse l’une des exhortations suivantes à ceux qui vont se marier :'),
-      TextBlock.leader('Je vous demande et vous enjoins tous deux, vous qui vous tenez en présence de Dieu, / devant qui les secrets de tous les cœurs sont dévoilés, / qu’après avoir dûment réfléchi à la sainte alliance que vous êtes sur le point de conclure, / vous déclariez maintenant devant cette assemblée votre engagement de foi / l’un envers l’autre. / Soyez bien assurés que si ces vœux solennels sont gardés intacts, / comme la Parole de Dieu l’exige, / et si vous cherchez avec constance à faire la volonté de votre Père céleste, / Dieu bénira votre mariage, / vous y donnera l’épanouissement / et établira votre foyer dans la paix. (LIVRE DE CULTE, 1965)'),
+      TextBlock.note(
+          'Le pasteur adresse l’une des exhortations suivantes à ceux qui vont se marier :'),
+      TextBlock.leader(
+          'Je vous demande et vous enjoins tous deux, vous qui vous tenez en présence de Dieu, / devant qui les secrets de tous les cœurs sont dévoilés, / qu’après avoir dûment réfléchi à la sainte alliance que vous êtes sur le point de conclure, / vous déclariez maintenant devant cette assemblée votre engagement de foi / l’un envers l’autre. / Soyez bien assurés que si ces vœux solennels sont gardés intacts, / comme la Parole de Dieu l’exige, / et si vous cherchez avec constance à faire la volonté de votre Père céleste, / Dieu bénira votre mariage, / vous y donnera l’épanouissement / et établira votre foyer dans la paix. (LIVRE DE CULTE, 1965)'),
       TextBlock.note('Le pasteur à l’homme :'),
-      TextBlock.leader('[Nom], veux-tu prendre cette femme pour épouse, / pour vivre avec elle dans le saint état du mariage ? / Veux-tu l’aimer, la réconforter, l’honorer et la garder, / dans la maladie comme dans la santé, / et, renonçant à toute autre, ne t’attacher qu’à elle / aussi longtemps que vous vivrez tous deux ?'),
+      TextBlock.leader(
+          '[Nom], veux-tu prendre cette femme pour épouse, / pour vivre avec elle dans le saint état du mariage ? / Veux-tu l’aimer, la réconforter, l’honorer et la garder, / dans la maladie comme dans la santé, / et, renonçant à toute autre, ne t’attacher qu’à elle / aussi longtemps que vous vivrez tous deux ?'),
       TextBlock.people('L’homme : Je le veux.'),
       TextBlock.note('Le pasteur à la femme :'),
-      TextBlock.leader('[Nom], veux-tu prendre cet homme pour époux, / pour vivre avec lui dans le saint état du mariage ? / Veux-tu l’aimer, le réconforter, l’honorer et le garder, / dans la maladie comme dans la santé, / et, renonçant à tout autre, ne t’attacher qu’à lui / aussi longtemps que vous vivrez tous deux ?'),
+      TextBlock.leader(
+          '[Nom], veux-tu prendre cet homme pour époux, / pour vivre avec lui dans le saint état du mariage ? / Veux-tu l’aimer, le réconforter, l’honorer et le garder, / dans la maladie comme dans la santé, / et, renonçant à tout autre, ne t’attacher qu’à lui / aussi longtemps que vous vivrez tous deux ?'),
       TextBlock.people('La femme : Je le veux.'),
       TextBlock.heading('PRÉSENTATION'),
-      TextBlock.note('Si la femme est présentée pour le mariage, le pasteur demande à celui ou à ceux qui la présentent :'),
-      TextBlock.leader('Qui présente cette femme pour qu’elle épouse cet homme ?'),
+      TextBlock.note(
+          'Si la femme est présentée pour le mariage, le pasteur demande à celui ou à ceux qui la présentent :'),
+      TextBlock.leader(
+          'Qui présente cette femme pour qu’elle épouse cet homme ?'),
       TextBlock.people('Ceux qui la présentent : Moi (Nous).'),
-      TextBlock.note('Si l’homme est présenté pour le mariage, le pasteur demande à celui ou à ceux qui le présentent :'),
-      TextBlock.leader('Qui présente cet homme pour qu’il épouse cette femme ?'),
+      TextBlock.note(
+          'Si l’homme est présenté pour le mariage, le pasteur demande à celui ou à ceux qui le présentent :'),
+      TextBlock.leader(
+          'Qui présente cet homme pour qu’il épouse cette femme ?'),
       TextBlock.people('Ceux qui le présentent : Moi (Nous).'),
       TextBlock.note('Ceux qui présentent peuvent alors s’asseoir.'),
       TextBlock.heading('LE MARIAGE'),
       TextBlock.heading('ÉCHANGE DES VŒUX'),
-      TextBlock.note('La femme et l’homme se font face en se tenant les mains. Le pasteur peut les guider, ligne par ligne.'),
+      TextBlock.note(
+          'La femme et l’homme se font face en se tenant les mains. Le pasteur peut les guider, ligne par ligne.'),
       TextBlock.note('L’homme à la femme :'),
-      TextBlock.leader('Moi, [Nom], je te prends, [Nom], / pour épouse, / pour t’avoir et te garder, / dès aujourd’hui, / pour le meilleur et pour le pire, / dans la richesse et dans la pauvreté, / dans la maladie et dans la santé, / pour t’aimer et te chérir, / jusqu’à ce que la mort nous sépare, / selon la sainte ordonnance de Dieu ; / et je te donne ma foi.'),
+      TextBlock.leader(
+          'Moi, [Nom], je te prends, [Nom], / pour épouse, / pour t’avoir et te garder, / dès aujourd’hui, / pour le meilleur et pour le pire, / dans la richesse et dans la pauvreté, / dans la maladie et dans la santé, / pour t’aimer et te chérir, / jusqu’à ce que la mort nous sépare, / selon la sainte ordonnance de Dieu ; / et je te donne ma foi.'),
       TextBlock.note('La femme à l’homme :'),
-      TextBlock.leader('Moi, [Nom], je te prends, [Nom], / pour époux, / pour t’avoir et te garder, / dès aujourd’hui, / pour le meilleur et pour le pire, / dans la richesse et dans la pauvreté, / dans la maladie et dans la santé, / pour t’aimer et te chérir, / jusqu’à ce que la mort nous sépare, / selon la sainte ordonnance de Dieu ; / et je te donne ma foi.'),
+      TextBlock.leader(
+          'Moi, [Nom], je te prends, [Nom], / pour époux, / pour t’avoir et te garder, / dès aujourd’hui, / pour le meilleur et pour le pire, / dans la richesse et dans la pauvreté, / dans la maladie et dans la santé, / pour t’aimer et te chérir, / jusqu’à ce que la mort nous sépare, / selon la sainte ordonnance de Dieu ; / et je te donne ma foi.'),
       TextBlock.heading('BÉNÉDICTION ET ÉCHANGE DES ALLIANCES'),
-      TextBlock.note('L’échange des alliances est facultatif. D’autres symboles concrets peuvent être donnés en plus des alliances, ou à leur place.'),
+      TextBlock.note(
+          'L’échange des alliances est facultatif. D’autres symboles concrets peuvent être donnés en plus des alliances, ou à leur place.'),
       TextBlock.note('Le pasteur, prenant les alliances, peut dire :'),
-      TextBlock.leader('L’alliance est le signe extérieur et visible / d’une grâce intérieure et spirituelle, / qui annonce à tous l’union de cet homme et de cette femme dans le saint mariage, / par l’Église de Jésus-Christ notre Seigneur.'),
-      TextBlock.note('Le pasteur peut bénir la remise des alliances ou d’autres symboles du mariage :'),
-      TextBlock.leader('Bénis, Seigneur, la remise de ces alliances, / afin que ceux qui les porteront demeurent dans ta paix / et restent dans ta faveur ; / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('La coutume est que le mari donne à sa femme son alliance avant que la femme donne la sienne à son mari. En plaçant l’alliance au troisième doigt de la main gauche de celui qui la reçoit, celui qui la donne peut dire (guidé, ligne par ligne, par le pasteur) :'),
-      TextBlock.leader('En signe et en gage / de notre foi constante et de notre amour durable, / avec cette alliance je t’épouse, / au nom du Père, / et du Fils, / et du Saint-Esprit. Amen.'),
+      TextBlock.leader(
+          'L’alliance est le signe extérieur et visible / d’une grâce intérieure et spirituelle, / qui annonce à tous l’union de cet homme et de cette femme dans le saint mariage, / par l’Église de Jésus-Christ notre Seigneur.'),
+      TextBlock.note(
+          'Le pasteur peut bénir la remise des alliances ou d’autres symboles du mariage :'),
+      TextBlock.leader(
+          'Bénis, Seigneur, la remise de ces alliances, / afin que ceux qui les porteront demeurent dans ta paix / et restent dans ta faveur ; / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'La coutume est que le mari donne à sa femme son alliance avant que la femme donne la sienne à son mari. En plaçant l’alliance au troisième doigt de la main gauche de celui qui la reçoit, celui qui la donne peut dire (guidé, ligne par ligne, par le pasteur) :'),
+      TextBlock.leader(
+          'En signe et en gage / de notre foi constante et de notre amour durable, / avec cette alliance je t’épouse, / au nom du Père, / et du Fils, / et du Saint-Esprit. Amen.'),
       TextBlock.heading('DÉCLARATION DE MARIAGE'),
-      TextBlock.note('La femme et le mari se tiennent les mains. Le pasteur peut poser une main sur leurs mains jointes ou enrouler une étole autour d’elles. Le couple peut se tourner vers l’assemblée.'),
+      TextBlock.note(
+          'La femme et le mari se tiennent les mains. Le pasteur peut poser une main sur leurs mains jointes ou enrouler une étole autour d’elles. Le couple peut se tourner vers l’assemblée.'),
       TextBlock.note('Le pasteur à l’assemblée :'),
-      TextBlock.leader('Puisque [Nom] et [Nom] ont consenti ensemble au saint mariage, / qu’ils en ont été témoins devant Dieu et cette assemblée, / qu’ils se sont engagés l’un envers l’autre / et qu’ils l’ont déclaré / en joignant leurs mains et en donnant et recevant des alliances, / je déclare qu’ils sont mari et femme, / au nom du Père, / et du Fils, / et du Saint-Esprit. / Que l’homme ne sépare pas ce que Dieu a uni. Amen.'),
-      TextBlock.note('Si l’on utilise une bougie de l’unité, les deux bougies latérales, qui représentent le mari et la femme, sont allumées en premier, et la bougie centrale, qui représente le mariage, est allumée à ce moment ou plus tard dans le culte. Les bougies latérales ne sont pas éteintes, car le mari et la femme gardent chacun leur identité personnelle.'),
-      TextBlock.note('L’assemblée peut être invitée à se lever, et l’on peut chanter une doxologie ou un autre cantique.'),
+      TextBlock.leader(
+          'Puisque [Nom] et [Nom] ont consenti ensemble au saint mariage, / qu’ils en ont été témoins devant Dieu et cette assemblée, / qu’ils se sont engagés l’un envers l’autre / et qu’ils l’ont déclaré / en joignant leurs mains et en donnant et recevant des alliances, / je déclare qu’ils sont mari et femme, / au nom du Père, / et du Fils, / et du Saint-Esprit. / Que l’homme ne sépare pas ce que Dieu a uni. Amen.'),
+      TextBlock.note(
+          'Si l’on utilise une bougie de l’unité, les deux bougies latérales, qui représentent le mari et la femme, sont allumées en premier, et la bougie centrale, qui représente le mariage, est allumée à ce moment ou plus tard dans le culte. Les bougies latérales ne sont pas éteintes, car le mari et la femme gardent chacun leur identité personnelle.'),
+      TextBlock.note(
+          'L’assemblée peut être invitée à se lever, et l’on peut chanter une doxologie ou un autre cantique.'),
       TextBlock.heading('BÉNÉDICTION DU MARIAGE'),
-      TextBlock.note('Le mari et la femme peuvent s’agenouiller pendant que le pasteur prie :'),
-      TextBlock.leader('Ô Dieu éternel, / créateur et protecteur de nous tous, / source de toute grâce spirituelle, / auteur de la vie éternelle, / envoie ta bénédiction sur [Nom] et [Nom], / que nous bénissons en ton nom, / afin qu’ils accomplissent et gardent fidèlement / le vœu et l’alliance faits entre eux, / qu’ils demeurent toujours dans un amour et une paix parfaits / et vivent selon tes lois. / Regarde-les avec bienveillance, / afin qu’ils s’aiment, s’honorent et se chérissent l’un l’autre, / et vivent ainsi ensemble dans la fidélité et la patience, / dans la sagesse et la vraie piété, / afin que leur foyer soit un havre de bénédiction / et un lieu de paix ; / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Si la Sainte-Cène n’est pas célébrée, le culte se poursuit comme indiqué ci-dessous.'),
-      TextBlock.note('Si la Sainte-Cène est célébrée, l’assemblée se reporte au Culte de la Parole et de la Table III, et le pasteur suit le texte ci-dessus, en commençant par la prise du pain et de la coupe et en terminant par le congé avec bénédiction.'),
+      TextBlock.note(
+          'Le mari et la femme peuvent s’agenouiller pendant que le pasteur prie :'),
+      TextBlock.leader(
+          'Ô Dieu éternel, / créateur et protecteur de nous tous, / source de toute grâce spirituelle, / auteur de la vie éternelle, / envoie ta bénédiction sur [Nom] et [Nom], / que nous bénissons en ton nom, / afin qu’ils accomplissent et gardent fidèlement / le vœu et l’alliance faits entre eux, / qu’ils demeurent toujours dans un amour et une paix parfaits / et vivent selon tes lois. / Regarde-les avec bienveillance, / afin qu’ils s’aiment, s’honorent et se chérissent l’un l’autre, / et vivent ainsi ensemble dans la fidélité et la patience, / dans la sagesse et la vraie piété, / afin que leur foyer soit un havre de bénédiction / et un lieu de paix ; / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Si la Sainte-Cène n’est pas célébrée, le culte se poursuit comme indiqué ci-dessous.'),
+      TextBlock.note(
+          'Si la Sainte-Cène est célébrée, l’assemblée se reporte au Culte de la Parole et de la Table III, et le pasteur suit le texte ci-dessus, en commençant par la prise du pain et de la coupe et en terminant par le congé avec bénédiction.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.note('Le mari et la femme peuvent rester à genoux pendant que tous prient le Notre Père.'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Le mari et la femme peuvent rester à genoux pendant que tous prient le Notre Père.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('ENVOI'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
-      TextBlock.leader('Que Dieu le Père, le Fils et le Saint-Esprit / vous bénisse, vous protège et vous garde ; / que le Seigneur vous regarde avec bienveillance / et vous comble de toute bénédiction spirituelle et de tout amour, / afin que vous viviez ensemble dans cette vie de telle sorte / que, dans le monde à venir, vous ayez la vie éternelle. Amen.'),
-      TextBlock.note('Le couple peut s’embrasser et être salué par le pasteur, après quoi les salutations peuvent s’étendre à toute l’assemblée.'),
+      TextBlock.leader(
+          'Que Dieu le Père, le Fils et le Saint-Esprit / vous bénisse, vous protège et vous garde ; / que le Seigneur vous regarde avec bienveillance / et vous comble de toute bénédiction spirituelle et de tout amour, / afin que vous viviez ensemble dans cette vie de telle sorte / que, dans le monde à venir, vous ayez la vie éternelle. Amen.'),
+      TextBlock.note(
+          'Le couple peut s’embrasser et être salué par le pasteur, après quoi les salutations peuvent s’étendre à toute l’assemblée.'),
       TextBlock.heading('SORTIE'),
-      TextBlock.note('On peut chanter un cantique ou jouer de la musique instrumentale pendant que le couple, le cortège et l’assemblée sortent.'),
+      TextBlock.note(
+          'On peut chanter un cantique ou jouer de la musique instrumentale pendant que le couple, le cortège et l’assemblée sortent.'),
     ],
   );
 
   static const greatThanksgivingSeasons = ChurchText(
     id: 'bow_great_thanksgiving_seasons',
     title: 'Grandes actions de grâce selon les temps',
-    subtitle: 'La prière eucharistique pour l’Avent, Noël, le Carême, Pâques, la Pentecôte et d’autres occasions',
+    subtitle:
+        'La prière eucharistique pour l’Avent, Noël, le Carême, Pâques, la Pentecôte et d’autres occasions',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Great Thanksgiving for Advent,” “…for Christmas Eve, Day or Season,” “…for New Year, Epiphany, Baptism of the Lord or Covenant Reaffirmation,” “…for Early in Lent,” “…for Later in Lent,” “…for Holy Thursday Evening,” “…for Easter Day or Season,” “…for the Day of Pentecost,” “…for the Season after Pentecost,” “…for World Communion Sunday,” “…for All Saints and Memorial Occasions”: Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1981, 1985 UMPH; Copyright © 1986 by Abingdon Press; Copyright © 1987, 1989, 1992 UMPH. Used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/the-great-thanksgiving-for-advent',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “The Great Thanksgiving for Advent,” “…for Christmas Eve, Day or Season,” “…for New Year, Epiphany, Baptism of the Lord or Covenant Reaffirmation,” “…for Early in Lent,” “…for Later in Lent,” “…for Holy Thursday Evening,” “…for Easter Day or Season,” “…for the Day of Pentecost,” “…for the Season after Pentecost,” “…for World Communion Sunday,” “…for All Saints and Memorial Occasions”: Copyright © 1972 The Methodist Publishing House; Copyright © 1980, 1981, 1985 UMPH; Copyright © 1986 by Abingdon Press; Copyright © 1987, 1989, 1992 UMPH. Used by permission. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/the-great-thanksgiving-for-advent',
     blocks: [
-      TextBlock.note('Ces textes sont employés par le pasteur pendant que l’assemblée suit le Culte de la Parole et de la Table II ou III, ou l’une des mises en musique. Chaque Grande action de grâce garde le même cadre ; seules changent les parties propres au temps de l’année ou à l’occasion, présentées ci-dessous. Le pasteur se tient derrière la table du Seigneur.'),
+      TextBlock.note(
+          'Ces textes sont employés par le pasteur pendant que l’assemblée suit le Culte de la Parole et de la Table II ou III, ou l’une des mises en musique. Chaque Grande action de grâce garde le même cadre ; seules changent les parties propres au temps de l’année ou à l’occasion, présentées ci-dessous. Le pasteur se tient derrière la table du Seigneur.'),
       TextBlock.heading('CADRE COMMUN À TOUTES LES GRANDES ACTIONS DE GRÂCE'),
       TextBlock.leader('Le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous aussi.'),
@@ -1786,83 +2685,140 @@ class BookOfWorshipData {
       TextBlock.people('Nous les élevons vers le Seigneur.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Cela est digne et juste.'),
-      TextBlock.note('Le pasteur dit alors la préface du temps ou de l’occasion (voir plus bas), qui se termine par :'),
-      TextBlock.leader('C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.people('Saint, saint, saint est le Seigneur, Dieu de l’univers ! / Le ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux ! / Béni soit celui qui vient au nom du Seigneur. Hosanna au plus haut des cieux !'),
-      TextBlock.note('Vient ensuite le paragraphe « Tu es saint… » du temps ou de l’occasion. Puis :'),
-      TextBlock.leader('La nuit précédant sa mort, / Jésus prit du pain, te rendit grâce, le rompit, / le donna à ses disciples et dit : / « Prenez, mangez ; ceci est mon corps, donné pour vous. / Faites cela en mémoire de moi. »'),
-      TextBlock.leader('Le repas terminé, Jésus prit la coupe, / te rendit grâce, la donna à ses disciples et dit : / « Buvez-en tous ; / ceci est mon sang, le sang de la nouvelle alliance, / répandu pour vous et pour la multitude en rémission des péchés. / Faites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
-      TextBlock.leader('C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ, / nous nous offrons à toi en louange et en action de grâce / comme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous, / en proclamant le mystère de la foi :'),
-      TextBlock.people('Christ est mort ; Christ est ressuscité ; Christ reviendra.'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici, / et sur ces dons de pain et de vin. / Fais qu’ils soient pour nous le corps et le sang du Christ, / afin que nous soyons pour le monde le corps du Christ, racheté par son sang.'),
-      TextBlock.leader('Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste.'),
-      TextBlock.leader('Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, tout honneur et toute gloire sont à toi, Père tout-puissant, maintenant et pour toujours.'),
+      TextBlock.note(
+          'Le pasteur dit alors la préface du temps ou de l’occasion (voir plus bas), qui se termine par :'),
+      TextBlock.leader(
+          'C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.people(
+          'Saint, saint, saint est le Seigneur, Dieu de l’univers ! / Le ciel et la terre sont remplis de ta gloire. Hosanna au plus haut des cieux ! / Béni soit celui qui vient au nom du Seigneur. Hosanna au plus haut des cieux !'),
+      TextBlock.note(
+          'Vient ensuite le paragraphe « Tu es saint… » du temps ou de l’occasion. Puis :'),
+      TextBlock.leader(
+          'La nuit précédant sa mort, / Jésus prit du pain, te rendit grâce, le rompit, / le donna à ses disciples et dit : / « Prenez, mangez ; ceci est mon corps, donné pour vous. / Faites cela en mémoire de moi. »'),
+      TextBlock.leader(
+          'Le repas terminé, Jésus prit la coupe, / te rendit grâce, la donna à ses disciples et dit : / « Buvez-en tous ; / ceci est mon sang, le sang de la nouvelle alliance, / répandu pour vous et pour la multitude en rémission des péchés. / Faites cela, chaque fois que vous en boirez, en mémoire de moi. »'),
+      TextBlock.leader(
+          'C’est pourquoi, en souvenir de ces actes puissants que tu as accomplis en Jésus-Christ, / nous nous offrons à toi en louange et en action de grâce / comme un sacrifice saint et vivant, en union avec l’offrande que le Christ a faite pour nous, / en proclamant le mystère de la foi :'),
+      TextBlock.people(
+          'Christ est mort ; Christ est ressuscité ; Christ reviendra.'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici, / et sur ces dons de pain et de vin. / Fais qu’ils soient pour nous le corps et le sang du Christ, / afin que nous soyons pour le monde le corps du Christ, racheté par son sang.'),
+      TextBlock.leader(
+          'Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste.'),
+      TextBlock.leader(
+          'Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, tout honneur et toute gloire sont à toi, Père tout-puissant, maintenant et pour toujours.'),
       TextBlock.people('Amen.'),
       TextBlock.heading('AVENT'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes, qui attendaient le jour où la justice jaillira comme les eaux et la droiture comme un torrent qui ne tarit pas, où une nation ne lèvera plus l’épée contre une autre et où l’on n’apprendra plus la guerre.'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ, que tu as envoyé quand les temps furent accomplis pour être la lumière des nations. Tu disperses les orgueilleux dans les pensées de leur cœur et tu fais miséricorde à ceux qui te craignent, de génération en génération. Tu renverses les puissants de leurs trônes et tu élèves les humbles. Tu combles de biens ceux qui ont faim, et tu renvoies les riches les mains vides. Ton propre Fils est venu parmi nous comme un serviteur, pour être Emmanuel, ta présence avec nous. Il s’est humilié dans l’obéissance à ta volonté et a librement accepté la mort sur une croix. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
-      TextBlock.leader('Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste.'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes, qui attendaient le jour où la justice jaillira comme les eaux et la droiture comme un torrent qui ne tarit pas, où une nation ne lèvera plus l’épée contre une autre et où l’on n’apprendra plus la guerre.'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ, que tu as envoyé quand les temps furent accomplis pour être la lumière des nations. Tu disperses les orgueilleux dans les pensées de leur cœur et tu fais miséricorde à ceux qui te craignent, de génération en génération. Tu renverses les puissants de leurs trônes et tu élèves les humbles. Tu combles de biens ceux qui ont faim, et tu renvoies les riches les mains vides. Ton propre Fils est venu parmi nous comme un serviteur, pour être Emmanuel, ta présence avec nous. Il s’est humilié dans l’obéissance à ta volonté et a librement accepté la mort sur une croix. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          'Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste.'),
       TextBlock.heading('NOËL (VEILLE, JOUR OU TEMPS DE NOËL)'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait sortir la lumière des ténèbres et tu as fait naître la vie sur la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes. Quand les temps furent accomplis, tu as donné ton Fils unique Jésus-Christ pour être notre Sauveur, et à sa naissance les anges ont chanté : gloire à toi dans les lieux très hauts, et paix sur la terre à ton peuple. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Comme Marie et Joseph sont allés de Galilée à Bethléem et n’y ont pas trouvé de place, Jésus est allé de Galilée à Jérusalem et a été méprisé et rejeté. Comme Jésus est né dans la pauvreté d’une étable, par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
-      TextBlock.leader('Comme ta Parole s’est faite chair, née d’une femme, en cette nuit d’il y a longtemps, ainsi, la nuit où il s’est livré pour nous, il prit du pain, te rendit grâce, le rompit, le donna à ses disciples et dit : « Prenez, mangez ; ceci est mon corps, donné pour vous. Faites cela en mémoire de moi. » (à la place de la première parole d’institution du cadre commun)'),
-      TextBlock.heading('NOUVEL AN, ÉPIPHANIE, BAPTÊME DU SEIGNEUR OU RENOUVELLEMENT DE L’ALLIANCE'),
-      TextBlock.note('L’une ou l’autre des parties entre crochets, ou les deux, peuvent être omises, selon l’occasion.'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Avant que les montagnes soient nées et que tu aies formé la terre, d’éternité en éternité, tu es seul Dieu. Tu as fait sortir la lumière des ténèbres et tu as fait naître la vie sur la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ, en qui tu t’es révélé, notre lumière et notre salut.'),
-      TextBlock.leader('[Tu as envoyé une étoile guider des mages jusqu’au lieu où le Christ est né ; et par tes signes et tes témoins, en tout âge et dans le monde entier, tu as conduit ton peuple de pays lointains vers sa lumière.]'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait sortir la lumière des ténèbres et tu as fait naître la vie sur la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes. Quand les temps furent accomplis, tu as donné ton Fils unique Jésus-Christ pour être notre Sauveur, et à sa naissance les anges ont chanté : gloire à toi dans les lieux très hauts, et paix sur la terre à ton peuple. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Comme Marie et Joseph sont allés de Galilée à Bethléem et n’y ont pas trouvé de place, Jésus est allé de Galilée à Jérusalem et a été méprisé et rejeté. Comme Jésus est né dans la pauvreté d’une étable, par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          'Comme ta Parole s’est faite chair, née d’une femme, en cette nuit d’il y a longtemps, ainsi, la nuit où il s’est livré pour nous, il prit du pain, te rendit grâce, le rompit, le donna à ses disciples et dit : « Prenez, mangez ; ceci est mon corps, donné pour vous. Faites cela en mémoire de moi. » (à la place de la première parole d’institution du cadre commun)'),
+      TextBlock.heading(
+          'NOUVEL AN, ÉPIPHANIE, BAPTÊME DU SEIGNEUR OU RENOUVELLEMENT DE L’ALLIANCE'),
+      TextBlock.note(
+          'L’une ou l’autre des parties entre crochets, ou les deux, peuvent être omises, selon l’occasion.'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Avant que les montagnes soient nées et que tu aies formé la terre, d’éternité en éternité, tu es seul Dieu. Tu as fait sortir la lumière des ténèbres et tu as fait naître la vie sur la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ, en qui tu t’es révélé, notre lumière et notre salut.'),
+      TextBlock.leader(
+          '[Tu as envoyé une étoile guider des mages jusqu’au lieu où le Christ est né ; et par tes signes et tes témoins, en tout âge et dans le monde entier, tu as conduit ton peuple de pays lointains vers sa lumière.]'),
       TextBlock.note('ou'),
-      TextBlock.leader('[Dans son baptême et à la table des pécheurs, il a pris place parmi eux. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple.]'),
-      TextBlock.leader('Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          '[Dans son baptême et à la table des pécheurs, il a pris place parmi eux. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple.]'),
+      TextBlock.leader(
+          'Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
       TextBlock.heading('DÉBUT DU CARÊME'),
-      TextBlock.note('Ce texte convient au début du Carême : mercredi des Cendres, premier dimanche de Carême ou premier dimanche de mars (s’il tombe dans le Carême).'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait venir toutes choses à l’existence et tu les as jugées bonnes. De la poussière de la terre tu nous as formés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Quand la pluie est tombée sur la terre quarante jours et quarante nuits, tu as soutenu l’arche sur les eaux, sauvé Noé et sa famille et fait alliance avec tout être vivant sur la terre. Quand tu as conduit ton peuple au mont Sinaï quarante jours et quarante nuits, tu nous as donné tes commandements et fait de nous ton peuple d’alliance. Quand ton peuple a abandonné ton alliance, ton prophète Élie a jeûné quarante jours et quarante nuits, et sur ta montagne sainte il a entendu ta voix douce et subtile. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Quand tu l’as donné pour nous sauver de notre péché, ton Esprit l’a conduit dans le désert, où il a jeûné quarante jours et quarante nuits pour se préparer à son ministère. Quand il a souffert et est mort sur une croix pour notre péché, tu l’as ressuscité, tu l’as présenté vivant aux apôtres pendant quarante jours et tu l’as élevé à ta droite. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Maintenant, alors que nous, ton peuple, nous préparons à la fête annuelle de Pâques, tu nous conduis à la repentance du péché et à la purification de notre cœur, afin que, pendant ces quarante jours de Carême, il nous soit donné et accordé de réaffirmer l’alliance que tu as faite avec nous par le Christ.'),
+      TextBlock.note(
+          'Ce texte convient au début du Carême : mercredi des Cendres, premier dimanche de Carême ou premier dimanche de mars (s’il tombe dans le Carême).'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait venir toutes choses à l’existence et tu les as jugées bonnes. De la poussière de la terre tu nous as formés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Quand la pluie est tombée sur la terre quarante jours et quarante nuits, tu as soutenu l’arche sur les eaux, sauvé Noé et sa famille et fait alliance avec tout être vivant sur la terre. Quand tu as conduit ton peuple au mont Sinaï quarante jours et quarante nuits, tu nous as donné tes commandements et fait de nous ton peuple d’alliance. Quand ton peuple a abandonné ton alliance, ton prophète Élie a jeûné quarante jours et quarante nuits, et sur ta montagne sainte il a entendu ta voix douce et subtile. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Quand tu l’as donné pour nous sauver de notre péché, ton Esprit l’a conduit dans le désert, où il a jeûné quarante jours et quarante nuits pour se préparer à son ministère. Quand il a souffert et est mort sur une croix pour notre péché, tu l’as ressuscité, tu l’as présenté vivant aux apôtres pendant quarante jours et tu l’as élevé à ta droite. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Maintenant, alors que nous, ton peuple, nous préparons à la fête annuelle de Pâques, tu nous conduis à la repentance du péché et à la purification de notre cœur, afin que, pendant ces quarante jours de Carême, il nous soit donné et accordé de réaffirmer l’alliance que tu as faite avec nous par le Christ.'),
       TextBlock.heading('FIN DU CARÊME'),
-      TextBlock.note('Ce texte convient à la fin du Carême : dimanche de la Passion / des Rameaux, premiers jours de la Semaine sainte (avant le jeudi soir) ou premier dimanche d’avril (s’il tombe dans le Carême).'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Dans ton amour tu nous as faits pour toi ; et quand nous étions tombés dans le péché et soumis au mal et à la mort, ton amour est resté fidèle. Tu invites ton peuple fidèle à purifier son cœur et à se préparer dans la joie à la fête de Pâques, afin que, renouvelés par ta Parole et tes sacrements, ardents dans la prière et les œuvres de justice et de miséricorde, nous parvenions à la plénitude de la grâce que tu as préparée pour ceux qui t’aiment. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ, que tu as envoyé quand les temps furent accomplis pour racheter le monde. Il s’est dépouillé lui-même, prenant la condition de serviteur, devenant semblable aux humains. Il s’est humilié et s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix. Il a pris sur lui notre péché et notre mort et s’est offert lui-même, sacrifice parfait pour le péché du monde entier. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.note(
+          'Ce texte convient à la fin du Carême : dimanche de la Passion / des Rameaux, premiers jours de la Semaine sainte (avant le jeudi soir) ou premier dimanche d’avril (s’il tombe dans le Carême).'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Dans ton amour tu nous as faits pour toi ; et quand nous étions tombés dans le péché et soumis au mal et à la mort, ton amour est resté fidèle. Tu invites ton peuple fidèle à purifier son cœur et à se préparer dans la joie à la fête de Pâques, afin que, renouvelés par ta Parole et tes sacrements, ardents dans la prière et les œuvres de justice et de miséricorde, nous parvenions à la plénitude de la grâce que tu as préparée pour ceux qui t’aiment. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ, que tu as envoyé quand les temps furent accomplis pour racheter le monde. Il s’est dépouillé lui-même, prenant la condition de serviteur, devenant semblable aux humains. Il s’est humilié et s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix. Il a pris sur lui notre péché et notre mort et s’est offert lui-même, sacrifice parfait pour le péché du monde entier. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
       TextBlock.heading('JEUDI SAINT (SOIR)'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. De la terre tu fais sortir le pain et tu crées le fruit de la vigne. Tu nous as formés à ton image, délivrés de la captivité et tu as fait alliance pour être notre Dieu souverain. Tu nous as nourris de manne dans le désert et tu nous as donné des raisins en gage de la terre promise. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Quand nous nous sommes écartés de ta voie et avons abusé de tes dons, tu nous as donné en lui ton don suprême. Se dépouillant lui-même pour que notre joie soit complète, il a nourri ceux qui avaient faim, guéri les malades, mangé avec les méprisés et les oubliés, lavé les pieds de ses disciples et donné un repas saint en gage de sa présence qui demeure. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. De la terre tu fais sortir le pain et tu crées le fruit de la vigne. Tu nous as formés à ton image, délivrés de la captivité et tu as fait alliance pour être notre Dieu souverain. Tu nous as nourris de manne dans le désert et tu nous as donné des raisins en gage de la terre promise. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Quand nous nous sommes écartés de ta voie et avons abusé de tes dons, tu nous as donné en lui ton don suprême. Se dépouillant lui-même pour que notre joie soit complète, il a nourri ceux qui avaient faim, guéri les malades, mangé avec les méprisés et les oubliés, lavé les pieds de ses disciples et donné un repas saint en gage de sa présence qui demeure. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
       TextBlock.heading('PÂQUES (JOUR ET TEMPS PASCAL)'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, tu nous as conduits dans un pays où coulent le lait et le miel et tu as mis devant nous le chemin de la vie. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Par ta grande miséricorde, nous sommes nés de nouveau pour une espérance vivante, par la résurrection de ton Fils d’entre les morts, pour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir. Autrefois, nous n’étions pas un peuple, mais maintenant nous sommes ton peuple, annonçant tes merveilles en Christ, qui nous a appelés des ténèbres à son admirable lumière. Quand le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous, par la puissance de ta Parole et de ton Saint-Esprit.'),
-      TextBlock.leader('Le jour où tu l’as ressuscité d’entre les morts, ses disciples l’ont reconnu à la fraction du pain, et, par la puissance de ton Saint-Esprit, ton Église a continué à rompre le pain et à partager la coupe. (à insérer avant « C’est pourquoi, en souvenir… »)'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, tu nous as conduits dans un pays où coulent le lait et le miel et tu as mis devant nous le chemin de la vie. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Par ta grande miséricorde, nous sommes nés de nouveau pour une espérance vivante, par la résurrection de ton Fils d’entre les morts, pour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir. Autrefois, nous n’étions pas un peuple, mais maintenant nous sommes ton peuple, annonçant tes merveilles en Christ, qui nous a appelés des ténèbres à son admirable lumière. Quand le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous, par la puissance de ta Parole et de ton Saint-Esprit.'),
+      TextBlock.leader(
+          'Le jour où tu l’as ressuscité d’entre les morts, ses disciples l’ont reconnu à la fraction du pain, et, par la puissance de ton Saint-Esprit, ton Église a continué à rompre le pain et à partager la coupe. (à insérer avant « C’est pourquoi, en souvenir… »)'),
       TextBlock.heading('PENTECÔTE'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Au commencement, ton Esprit se mouvait au-dessus des eaux. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Ton Esprit est venu sur des prophètes et des maîtres, les oignant pour qu’ils annoncent ta Parole. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. À son baptême dans le Jourdain, ton Esprit est descendu sur lui et l’a déclaré ton Fils bien-aimé. Avec ton Esprit sur lui, il a repoussé les tentations du péché. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple. Il a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Quand le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous, nous baptisant du Saint-Esprit et de feu, comme au jour de la Pentecôte.'),
-      TextBlock.leader('Le jour où tu l’as ressuscité d’entre les morts, ses disciples l’ont reconnu à la fraction du pain, et, par la puissance de ton Saint-Esprit, ton Église a continué à rompre le pain et à partager la coupe. (à insérer avant « C’est pourquoi, en souvenir… »)'),
-      TextBlock.leader('Répands ton Esprit saint sur nous, rassemblés ici, et sur ces dons de pain et de vin. Fais qu’ils soient pour nous le corps et le sang du Christ, afin que nous soyons pour le monde le corps du Christ, racheté par son sang et fortifié par les dons de l’Esprit. (à la place de l’épiclèse du cadre commun)'),
-      TextBlock.leader('Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, en montrant le fruit de l’Esprit jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. (à la place de la prière d’unité du cadre commun)'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Au commencement, ton Esprit se mouvait au-dessus des eaux. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Ton Esprit est venu sur des prophètes et des maîtres, les oignant pour qu’ils annoncent ta Parole. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. À son baptême dans le Jourdain, ton Esprit est descendu sur lui et l’a déclaré ton Fils bien-aimé. Avec ton Esprit sur lui, il a repoussé les tentations du péché. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple. Il a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Quand le Seigneur Jésus est monté au ciel, il a promis d’être toujours avec nous, nous baptisant du Saint-Esprit et de feu, comme au jour de la Pentecôte.'),
+      TextBlock.leader(
+          'Le jour où tu l’as ressuscité d’entre les morts, ses disciples l’ont reconnu à la fraction du pain, et, par la puissance de ton Saint-Esprit, ton Église a continué à rompre le pain et à partager la coupe. (à insérer avant « C’est pourquoi, en souvenir… »)'),
+      TextBlock.leader(
+          'Répands ton Esprit saint sur nous, rassemblés ici, et sur ces dons de pain et de vin. Fais qu’ils soient pour nous le corps et le sang du Christ, afin que nous soyons pour le monde le corps du Christ, racheté par son sang et fortifié par les dons de l’Esprit. (à la place de l’épiclèse du cadre commun)'),
+      TextBlock.leader(
+          'Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, en montrant le fruit de l’Esprit jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. (à la place de la prière d’unité du cadre commun)'),
       TextBlock.heading('TEMPS APRÈS LA PENTECÔTE (TEMPS ORDINAIRE)'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes, qui attendaient le jour où la justice jaillira comme les eaux et la droiture comme un torrent qui ne tarit pas, où une nation ne lèvera plus l’épée contre une autre et où l’on n’apprendra plus la guerre. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple. Il a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. À son ascension tu l’as élevé pour qu’il siège et règne avec toi à ta droite.'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu nous as façonnés à ton image et tu as insufflé en nous le souffle de vie. Quand nous nous sommes détournés de toi et que notre amour a failli, ton amour est resté fidèle. Tu nous as délivrés de la captivité, tu as fait alliance pour être notre Dieu souverain, et tu nous as parlé par tes prophètes, qui attendaient le jour où la justice jaillira comme les eaux et la droiture comme un torrent qui ne tarit pas, où une nation ne lèvera plus l’épée contre une autre et où l’on n’apprendra plus la guerre. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Ton Esprit l’a oint pour annoncer une bonne nouvelle aux pauvres, proclamer aux captifs la délivrance et aux aveugles le retour à la vue, renvoyer libres les opprimés et annoncer que le temps était venu où tu sauverais ton peuple. Il a guéri les malades, nourri ceux qui avaient faim et mangé avec les pécheurs. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. À son ascension tu l’as élevé pour qu’il siège et règne avec toi à ta droite.'),
       TextBlock.heading('DIMANCHE DE LA COMMUNION MONDIALE'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait d’un seul tous les peuples et toutes les nations pour qu’ils habitent sur toute la face de la terre. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Il nous a chargés d’être ses témoins jusqu’aux extrémités de la terre et de faire de toutes les nations des disciples, et aujourd’hui sa famille, dans le monde entier, se joint à sa sainte table.'),
-      TextBlock.leader('Renouvelle notre communion avec ton Église dans le monde entier, et fortifie-la dans toute nation et parmi tout peuple pour qu’elle témoigne fidèlement en ton nom. Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. (à la place de la prière d’unité du cadre commun)'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Tu as fait d’un seul tous les peuples et toutes les nations pour qu’ils habitent sur toute la face de la terre. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit. Il nous a chargés d’être ses témoins jusqu’aux extrémités de la terre et de faire de toutes les nations des disciples, et aujourd’hui sa famille, dans le monde entier, se joint à sa sainte table.'),
+      TextBlock.leader(
+          'Renouvelle notre communion avec ton Église dans le monde entier, et fortifie-la dans toute nation et parmi tout peuple pour qu’elle témoigne fidèlement en ton nom. Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. (à la place de la prière d’unité du cadre commun)'),
       TextBlock.heading('TOUSSAINT ET OCCASIONS DU SOUVENIR'),
-      TextBlock.leader('Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Dieu d’Abraham et de Sara, Dieu de Miriam et de Moïse, Dieu de Josué et de Débora, Dieu de Ruth et de David, Dieu des prêtres et des prophètes, Dieu de Marie et de Joseph, Dieu des apôtres et des martyrs, Dieu de nos mères et de nos pères, Dieu de nos enfants de génération en génération. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
-      TextBlock.leader('Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
-      TextBlock.leader('Renouvelle notre communion avec tous tes saints, en particulier ceux que nous nommons devant toi — [Nom(s)] — (dans nos cœurs).'),
-      TextBlock.note('On peut garder le silence pour faire mémoire de ces noms.'),
-      TextBlock.leader('Puisque nous sommes environnés d’une si grande nuée de témoins, fortifie-nous pour courir avec persévérance l’épreuve qui nous est proposée, les regards sur Jésus, l’auteur et le consommateur de la foi. Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, tout honneur et toute gloire sont à toi, Père tout-puissant, maintenant et pour toujours. (à la place de la prière d’unité et de la doxologie du cadre commun)'),
+      TextBlock.leader(
+          'Il est juste, bon et joyeux de te rendre grâce toujours et en tout lieu, Père tout-puissant, créateur du ciel et de la terre. Dieu d’Abraham et de Sara, Dieu de Miriam et de Moïse, Dieu de Josué et de Débora, Dieu de Ruth et de David, Dieu des prêtres et des prophètes, Dieu de Marie et de Joseph, Dieu des apôtres et des martyrs, Dieu de nos mères et de nos pères, Dieu de nos enfants de génération en génération. C’est pourquoi, avec ton peuple sur la terre et toute l’assemblée du ciel, nous louons ton nom et nous joignons à leur hymne sans fin :'),
+      TextBlock.leader(
+          'Tu es saint, et béni soit ton Fils Jésus-Christ. Par le baptême de sa souffrance, de sa mort et de sa résurrection, tu as donné naissance à ton Église, tu nous as délivrés de l’esclavage du péché et de la mort, et tu as fait avec nous une alliance nouvelle par l’eau et par l’Esprit.'),
+      TextBlock.leader(
+          'Renouvelle notre communion avec tous tes saints, en particulier ceux que nous nommons devant toi — [Nom(s)] — (dans nos cœurs).'),
+      TextBlock.note(
+          'On peut garder le silence pour faire mémoire de ces noms.'),
+      TextBlock.leader(
+          'Puisque nous sommes environnés d’une si grande nuée de témoins, fortifie-nous pour courir avec persévérance l’épreuve qui nous est proposée, les regards sur Jésus, l’auteur et le consommateur de la foi. Par ton Esprit, fais de nous un avec le Christ, un les uns avec les autres, et un dans le service de tout le monde, jusqu’à ce que le Christ vienne dans sa victoire finale et que nous soyons à son banquet céleste. Par ton Fils Jésus-Christ, avec le Saint-Esprit, dans ta sainte Église, tout honneur et toute gloire sont à toi, Père tout-puissant, maintenant et pour toujours. (à la place de la prière d’unité et de la doxologie du cadre commun)'),
     ],
   );
 
   static const holyThursday = ChurchText(
     id: 'bow_holy_thursday',
     title: 'Culte du jeudi saint (soir)',
-    subtitle: 'Confession, lavement des pieds, Sainte-Cène, dépouillement de l’église',
+    subtitle:
+        'Confession, lavement des pieds, Sainte-Cène, dépouillement de l’église',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Holy Thursday Evening” with Dismissal with Blessing by Don Saliers, Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-holy-thursday-evening',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Holy Thursday Evening” with Dismissal with Blessing by Don Saliers, Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-holy-thursday-evening',
     blocks: [
-      TextBlock.note('Cette nuit-là, les chrétiens font mémoire du repas que Jésus a partagé avec ses disciples avant sa crucifixion, lorsqu’il leur lava les pieds (Jean 13.1-17) et institua le sacrement de la Cène (Matthieu 26.26-29 ; Marc 14.22-25 ; Luc 22.13-20 ; 1 Corinthiens 11.23-25).'),
-      TextBlock.note('Six gestes traditionnels de cette nuit figurent dans le culte qui suit : (1) la confession et le pardon, (2) la proclamation de la Parole, (3) le lavement des pieds, (4) la Sainte-Cène, (5) le dépouillement de l’église et (6) les Ténèbres. Parmi eux, (1), (2) et (4) sont essentiels ; (3), (5) et (6) sont facultatifs et sont donc placés entre crochets. Ils demandent une préparation soigneuse lorsqu’on les introduit dans une assemblée.'),
-      TextBlock.note('Le lavement des pieds est une réponse symbolique forte à la Parole : il met en scène la condition de serviteur de Jésus, tant la nuit qui précéda sa mort que dans sa présence continuelle au milieu de nous. Le nom que l’on donne aussi à ce jour, jeudi saint (Maundy Thursday en anglais), rappelle le commandement nouveau (mandatum novum en latin) de Jean 13.34. On peut à bon droit appeler ce culte « jeudi saint » lorsque le lavement des pieds a lieu à l’imitation des gestes de Jésus et en réponse à son commandement nouveau de nous aimer les uns les autres. Une préparation soigneuse et une annonce préalable à l’assemblée sont indispensables. On peut suggérer aux participants de venir sans chaussettes ni bas, et chacun est libre d’observer plutôt que de participer. Des représentants de l’assemblée ou des volontaires peuvent s’avancer vers le ou les endroits où l’on a placé des chaises, une cuvette, un broc d’eau et des serviettes. Le lavement mutuel des pieds entre pasteur(s) et laïcs doit être bien visible, sans être trop théâtral. L’amour et l’attention des uns pour les autres peuvent s’exprimer dans les gestes. Pendant le lavement des pieds, l’assemblée ou la chorale peut chanter, ou on peut le faire en silence.'),
-      TextBlock.leader('L’ancienne pratique de dépouiller la table du Seigneur et le sanctuaire après la communion est une manière vive et saisissante de montrer la désolation et l’abandon de la longue nuit à Gethsémané et de ce qui a suivi. Des personnes désignées retirent les nappes de la table du Seigneur et de la chaire, ainsi que les autres tentures, bannières, chandeliers et décorations, et les emportent en silence hors du sanctuaire. On peut le faire en silence, ou dire le Psaumes 22. L’église reste alors nue jusqu’à la veillée pascale, où le mouvement s’inverse.'),
+      TextBlock.note(
+          'Cette nuit-là, les chrétiens font mémoire du repas que Jésus a partagé avec ses disciples avant sa crucifixion, lorsqu’il leur lava les pieds (Jean 13.1-17) et institua le sacrement de la Cène (Matthieu 26.26-29 ; Marc 14.22-25 ; Luc 22.13-20 ; 1 Corinthiens 11.23-25).'),
+      TextBlock.note(
+          'Six gestes traditionnels de cette nuit figurent dans le culte qui suit : (1) la confession et le pardon, (2) la proclamation de la Parole, (3) le lavement des pieds, (4) la Sainte-Cène, (5) le dépouillement de l’église et (6) les Ténèbres. Parmi eux, (1), (2) et (4) sont essentiels ; (3), (5) et (6) sont facultatifs et sont donc placés entre crochets. Ils demandent une préparation soigneuse lorsqu’on les introduit dans une assemblée.'),
+      TextBlock.note(
+          'Le lavement des pieds est une réponse symbolique forte à la Parole : il met en scène la condition de serviteur de Jésus, tant la nuit qui précéda sa mort que dans sa présence continuelle au milieu de nous. Le nom que l’on donne aussi à ce jour, jeudi saint (Maundy Thursday en anglais), rappelle le commandement nouveau (mandatum novum en latin) de Jean 13.34. On peut à bon droit appeler ce culte « jeudi saint » lorsque le lavement des pieds a lieu à l’imitation des gestes de Jésus et en réponse à son commandement nouveau de nous aimer les uns les autres. Une préparation soigneuse et une annonce préalable à l’assemblée sont indispensables. On peut suggérer aux participants de venir sans chaussettes ni bas, et chacun est libre d’observer plutôt que de participer. Des représentants de l’assemblée ou des volontaires peuvent s’avancer vers le ou les endroits où l’on a placé des chaises, une cuvette, un broc d’eau et des serviettes. Le lavement mutuel des pieds entre pasteur(s) et laïcs doit être bien visible, sans être trop théâtral. L’amour et l’attention des uns pour les autres peuvent s’exprimer dans les gestes. Pendant le lavement des pieds, l’assemblée ou la chorale peut chanter, ou on peut le faire en silence.'),
+      TextBlock.leader(
+          'L’ancienne pratique de dépouiller la table du Seigneur et le sanctuaire après la communion est une manière vive et saisissante de montrer la désolation et l’abandon de la longue nuit à Gethsémané et de ce qui a suivi. Des personnes désignées retirent les nappes de la table du Seigneur et de la chaire, ainsi que les autres tentures, bannières, chandeliers et décorations, et les emportent en silence hors du sanctuaire. On peut le faire en silence, ou dire le Psaumes 22. L’église reste alors nue jusqu’à la veillée pascale, où le mouvement s’inverse.'),
       TextBlock.note('Voir aussi le Culte des Ténèbres (ou culte des Ombres).'),
       TextBlock.heading('ENTRÉE'),
       TextBlock.heading('RASSEMBLEMENT'),
@@ -1872,15 +2828,22 @@ class BookOfWorshipData {
       TextBlock.leader('Goûtez et voyez combien le Seigneur est bon.'),
       TextBlock.people('Le Christ a préparé un festin d’amour.'),
       TextBlock.heading('CONFESSION ET PARDON'),
-      TextBlock.leader('Mes sœurs et mes frères, / le Christ nous montre son amour en se faisant humble serviteur.'),
-      TextBlock.note('Approchons-nous de Dieu et confessons notre péché dans la vérité de l’Esprit de Dieu.'),
-      TextBlock.note('Tous peuvent chanter un cantique comme « Ô Agneau de Dieu ». Un bref silence pour la confession personnelle.'),
-      TextBlock.people('Dieu de toute miséricorde, / nous, ton Église, nous confessons / que souvent notre esprit n’a pas été celui du Christ. / Là où nous n’avons pas su nous aimer les uns les autres comme il nous aime, / là où nous lui avons promis fidélité des lèvres / puis l’avons trahi, abandonné ou renié, / pardonne-nous, nous t’en prions ; / et par ton Esprit rends-nous fidèles dans chaque épreuve, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('Qui est en position de condamner ? Seul le Christ. / Mais le Christ a souffert et est mort pour nous, / il est ressuscité des morts et monté dans les cieux pour nous, / et il continue d’intercéder pour nous. / Croyez la bonne nouvelle : / au nom de Jésus-Christ, vous êtes pardonnés !'),
-      TextBlock.people('Au nom de Jésus-Christ, vous êtes pardonnés ! / Gloire à Dieu. Amen.'),
+      TextBlock.leader(
+          'Mes sœurs et mes frères, / le Christ nous montre son amour en se faisant humble serviteur.'),
+      TextBlock.note(
+          'Approchons-nous de Dieu et confessons notre péché dans la vérité de l’Esprit de Dieu.'),
+      TextBlock.note(
+          'Tous peuvent chanter un cantique comme « Ô Agneau de Dieu ». Un bref silence pour la confession personnelle.'),
+      TextBlock.people(
+          'Dieu de toute miséricorde, / nous, ton Église, nous confessons / que souvent notre esprit n’a pas été celui du Christ. / Là où nous n’avons pas su nous aimer les uns les autres comme il nous aime, / là où nous lui avons promis fidélité des lèvres / puis l’avons trahi, abandonné ou renié, / pardonne-nous, nous t’en prions ; / et par ton Esprit rends-nous fidèles dans chaque épreuve, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Qui est en position de condamner ? Seul le Christ. / Mais le Christ a souffert et est mort pour nous, / il est ressuscité des morts et monté dans les cieux pour nous, / et il continue d’intercéder pour nous. / Croyez la bonne nouvelle : / au nom de Jésus-Christ, vous êtes pardonnés !'),
+      TextBlock.people(
+          'Au nom de Jésus-Christ, vous êtes pardonnés ! / Gloire à Dieu. Amen.'),
       TextBlock.heading('PROCLAMATION ET RÉPONSE'),
       TextBlock.heading('PRIÈRE POUR L’ILLUMINATION'),
-      TextBlock.leader('Lectures bibliques :\nExode 12.1-14\nPsaumes 116.1-2, 12-19\n1 Corinthiens 11.23-26\nÉvangile : Jean 13.1-17, 31b-35'),
+      TextBlock.leader(
+          'Lectures bibliques :\nExode 12.1-14\nPsaumes 116.1-2, 12-19\n1 Corinthiens 11.23-26\nÉvangile : Jean 13.1-17, 31b-35'),
       TextBlock.heading('PRÉDICATION'),
       TextBlock.heading('RÉPONSES À LA PAROLE'),
       TextBlock.leader('[LAVEMENT DES PIEDS] Voir l’introduction.'),
@@ -1889,17 +2852,22 @@ class BookOfWorshipData {
       TextBlock.heading('ACTION DE GRÂCE ET SAINTE-CÈNE'),
       TextBlock.heading('PRISE DU PAIN ET DE LA COUPE'),
       TextBlock.heading('LA GRANDE ACTION DE GRÂCE'),
-      TextBlock.note('L’assemblée se reporte au Culte de la Parole et de la Table III ou à l’une des mises en musique, pendant que le pasteur prie la Grande action de grâce du jeudi saint au soir (voir « Grandes actions de grâce selon les temps »).'),
+      TextBlock.note(
+          'L’assemblée se reporte au Culte de la Parole et de la Table III ou à l’une des mises en musique, pendant que le pasteur prie la Grande action de grâce du jeudi saint au soir (voir « Grandes actions de grâce selon les temps »).'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('LA FRACTION DU PAIN'),
-      TextBlock.note('Le pasteur rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
+      TextBlock.note(
+          'Le pasteur rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
       TextBlock.heading('LA DISTRIBUTION DU PAIN ET DE LA COUPE'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec des paroles appropriées. L’assemblée chante des cantiques de Carême pendant la distribution. Quand tous ont communié, la table du Seigneur est remise en ordre. Le pasteur ou l’assemblée peut rendre grâce après la communion.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec des paroles appropriées. L’assemblée chante des cantiques de Carême pendant la distribution. Quand tous ont communié, la table du Seigneur est remise en ordre. Le pasteur ou l’assemblée peut rendre grâce après la communion.'),
       TextBlock.heading('ENVOI'),
       TextBlock.leader('[DÉPOUILLEMENT DE L’ÉGLISE] Voir l’introduction.'),
       TextBlock.heading('[TÉNÈBRES]'),
-      TextBlock.leader('CONGÉ AVEC BÉNÉDICTION (peut aussi être omis)\nAllez en paix. / Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie cette nuit et pour toujours. Amen.'),
+      TextBlock.leader(
+          'CONGÉ AVEC BÉNÉDICTION (peut aussi être omis)\nAllez en paix. / Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie cette nuit et pour toujours. Amen.'),
       TextBlock.heading('SORTIE'),
     ],
   );
@@ -1909,49 +2877,71 @@ class BookOfWorshipData {
     title: 'Culte du dimanche de la Passion / des Rameaux',
     subtitle: 'Entrée avec les rameaux et proclamation du récit de la Passion',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Passion/Palm Sunday” Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Opening Prayer from The Book of Common Prayer (The Episcopal Church, 1979), p. 271. Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-passion-palm-sunday',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Worship for Passion/Palm Sunday” Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Opening Prayer from The Book of Common Prayer (The Episcopal Church, 1979), p. 271. Public Domain. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-worship-for-passion-palm-sunday',
     blocks: [
-      TextBlock.note('Ce culte porte les contrastes marqués de la Semaine sainte. Dans l’Entrée avec les rameaux, nous vivons la joyeuse manifestation de fidélité à Jésus qui entre à Jérusalem, avec la musique festive du dimanche des Rameaux. Dans la Proclamation et la Réponse, nous nous trouvons devant le récit de la Passion de Jésus et nous y répondons, avec la musique grave du dimanche de la Passion. Il importe de ne pas laisser la célébration des Rameaux étouffer celle de la Passion. Les récits de la Passion dans l’Écriture forment un ensemble très uni et dramatique, et nous devons vivre ce récit dans son entier avant de réfléchir plus longuement à ses diverses parties pendant les jours de la semaine. Rappelons-nous aussi que beaucoup de personnes présentes ce dimanche ne reviendront pas à l’église avant le jour de Pâques. Passer directement de la joie moindre de l’entrée à Jérusalem à la joie de Pâques, sans que la Passion et la croix de notre Seigneur nous aient parlé, fausse l’Évangile. Il n’y a pas de triomphe sans souffrance, pas de couronne sans croix.'),
-      TextBlock.note('Comme ce culte porte tant de choses essentielles, et que ce jour et toute la Semaine sainte préparent la joie suprême de Pâques, ce jour ne convient pas à la célébration du baptême, de la confirmation ou de l’accueil de nouveaux membres. À cette période de l’année, les baptêmes et les confirmations ont mieux leur place pendant le temps pascal — les cinquante jours, de la veillée pascale à la Pentecôte.'),
+      TextBlock.note(
+          'Ce culte porte les contrastes marqués de la Semaine sainte. Dans l’Entrée avec les rameaux, nous vivons la joyeuse manifestation de fidélité à Jésus qui entre à Jérusalem, avec la musique festive du dimanche des Rameaux. Dans la Proclamation et la Réponse, nous nous trouvons devant le récit de la Passion de Jésus et nous y répondons, avec la musique grave du dimanche de la Passion. Il importe de ne pas laisser la célébration des Rameaux étouffer celle de la Passion. Les récits de la Passion dans l’Écriture forment un ensemble très uni et dramatique, et nous devons vivre ce récit dans son entier avant de réfléchir plus longuement à ses diverses parties pendant les jours de la semaine. Rappelons-nous aussi que beaucoup de personnes présentes ce dimanche ne reviendront pas à l’église avant le jour de Pâques. Passer directement de la joie moindre de l’entrée à Jérusalem à la joie de Pâques, sans que la Passion et la croix de notre Seigneur nous aient parlé, fausse l’Évangile. Il n’y a pas de triomphe sans souffrance, pas de couronne sans croix.'),
+      TextBlock.note(
+          'Comme ce culte porte tant de choses essentielles, et que ce jour et toute la Semaine sainte préparent la joie suprême de Pâques, ce jour ne convient pas à la célébration du baptême, de la confirmation ou de l’accueil de nouveaux membres. À cette période de l’année, les baptêmes et les confirmations ont mieux leur place pendant le temps pascal — les cinquante jours, de la veillée pascale à la Pentecôte.'),
       TextBlock.heading('ENTRÉE AVEC LES RAMEAUX'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('Quand les circonstances le permettent, l’assemblée peut se réunir en un lieu désigné à l’extérieur de l’église ou dans une salle autre que le lieu de culte. On peut distribuer les rameaux de palmier, d’olivier ou d’autres arbres ou arbustes qui seront portés en procession, et donner une brève introduction à tout le culte. Les feuilles de palmier peuvent être gardées jusqu’à l’année suivante et brûlées pour fournir les cendres du mercredi des Cendres.'),
+      TextBlock.note(
+          'Quand les circonstances le permettent, l’assemblée peut se réunir en un lieu désigné à l’extérieur de l’église ou dans une salle autre que le lieu de culte. On peut distribuer les rameaux de palmier, d’olivier ou d’autres arbres ou arbustes qui seront portés en procession, et donner une brève introduction à tout le culte. Les feuilles de palmier peuvent être gardées jusqu’à l’année suivante et brûlées pour fournir les cendres du mercredi des Cendres.'),
       TextBlock.heading('PROCLAMATION DE L’ENTRÉE À JÉRUSALEM'),
-      TextBlock.leader('Écoutez l’Évangile selon [N.] : comment notre Seigneur Jésus est entré à Jérusalem.'),
+      TextBlock.leader(
+          'Écoutez l’Évangile selon [N.] : comment notre Seigneur Jésus est entré à Jérusalem.'),
       TextBlock.note('On lit l’un des textes suivants :'),
-      TextBlock.leader('Matthieu 21.1-11 (année A)\nMarc 11.1-11 (année B)\nLuc 19.28-40 (année C)'),
+      TextBlock.leader(
+          'Matthieu 21.1-11 (année A)\nMarc 11.1-11 (année B)\nLuc 19.28-40 (année C)'),
       TextBlock.heading('RÉPONSE DE L’ASSEMBLÉE'),
-      TextBlock.note('Le Psaumes 118.1-2, 19-29 peut être chanté ou dit par le responsable et l’assemblée, ou par le responsable et la chorale si l’assemblée n’a pas de recueil ; ou l’on peut employer l’acclamation suivante :'),
+      TextBlock.note(
+          'Le Psaumes 118.1-2, 19-29 peut être chanté ou dit par le responsable et l’assemblée, ou par le responsable et la chorale si l’assemblée n’a pas de recueil ; ou l’on peut employer l’acclamation suivante :'),
       TextBlock.leader('Hosanna au Fils de David !'),
       TextBlock.people('Hosanna au plus haut des cieux !'),
       TextBlock.leader('Béni soit celui qui vient au nom du Seigneur.'),
       TextBlock.people('Hosanna au plus haut des cieux !'),
       TextBlock.heading('CANTIQUE DE PROCESSION'),
-      TextBlock.leader('L’assemblée, la ou les chorales et les responsables entrent alors en procession dans le lieu de culte. La participation des enfants est particulièrement heureuse et encouragée, même si toute l’assemblée ne défile pas.'),
+      TextBlock.leader(
+          'L’assemblée, la ou les chorales et les responsables entrent alors en procession dans le lieu de culte. La participation des enfants est particulièrement heureuse et encouragée, même si toute l’assemblée ne défile pas.'),
       TextBlock.heading('[PRIÈRE D’OUVERTURE]'),
-      TextBlock.leader('Dieu tout-puissant, / en ce jour ton Fils Jésus-Christ est entré dans la ville sainte de Jérusalem / et a été proclamé roi / par ceux qui étendaient leurs vêtements et des branches de palmier sur son chemin. / Que ces rameaux soient pour nous des signes de sa victoire, / et accorde-nous, à nous qui les portons en son nom, / de le saluer toujours comme notre Seigneur / et de le suivre sur le chemin qui mène à la vie éternelle. / C’est en son nom que nous prions. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, / en ce jour ton Fils Jésus-Christ est entré dans la ville sainte de Jérusalem / et a été proclamé roi / par ceux qui étendaient leurs vêtements et des branches de palmier sur son chemin. / Que ces rameaux soient pour nous des signes de sa victoire, / et accorde-nous, à nous qui les portons en son nom, / de le saluer toujours comme notre Seigneur / et de le suivre sur le chemin qui mène à la vie éternelle. / C’est en son nom que nous prions. Amen.'),
       TextBlock.heading('PROCLAMATION ET RÉPONSE'),
-      TextBlock.leader('Lectures bibliques :\nEsaïe 50.4-9a\nPsaumes 31.1-16\nPhilippiens 2.5-11'),
-      TextBlock.note('Ce texte biblique peut être chanté comme cantique, sans le refrain « alléluia ». S’il est chanté, le psaume qui précède et le cantique qui suit peuvent être omis.'),
+      TextBlock.leader(
+          'Lectures bibliques :\nEsaïe 50.4-9a\nPsaumes 31.1-16\nPhilippiens 2.5-11'),
+      TextBlock.note(
+          'Ce texte biblique peut être chanté comme cantique, sans le refrain « alléluia ». S’il est chanté, le psaume qui précède et le cantique qui suit peuvent être omis.'),
       TextBlock.heading('PROCLAMATION DU RÉCIT DE LA PASSION'),
-      TextBlock.leader('Matthieu 26.14 – 27.66 ou Matthieu 27.11-54 (année A)\nMarc 14.1 – 15.47 ou Marc 15.1-39 [40-47] (année B)\nLuc 22.14 – 23.56 ou Luc 23.1-49 (année C)'),
-      TextBlock.note('Plusieurs possibilités permettent à l’assemblée de vivre tout le récit de la Passion dans ce culte :'),
-      TextBlock.note('1) L’une des versions ci-dessus du récit de la Passion peut être lue de façon dramatisée, des membres de l’assemblée tenant les différents rôles : narrateur, Jésus, Pilate, les apôtres, d’autres personnages et la foule. Trois personnes suffisent si toutes les voix, sauf celles du narrateur et de Jésus, sont dites par une seule personne. Si l’on donne à l’assemblée un texte ou des repères, elle peut tenir le rôle de la foule, ou ce rôle peut revenir à la chorale.'),
-      TextBlock.note('2) Le récit de la Passion peut aussi être chanté par la chorale. Des mises en musique comme celles de Bach seraient beaucoup trop longues, mais il existe de nombreuses mises en musique chorales plus courtes. On peut aussi entrelacer des extraits d’œuvres plus grandes avec des lectures dramatisées. Une préparation à l’avance, des répétitions et le choix d’un niveau de difficulté adapté sont essentiels. Quelque chose de simple, bien fait, vaut mieux que quelque chose qui dépasse les capacités de la chorale.'),
-      TextBlock.note('3) On peut suivre un schéma de lectures et de cantiques semblable à celui des lectures et chants de Noël pour un culte de l’Avent ou de Noël. Des passages de l’Écriture sont lus, plus efficacement par plusieurs lecteurs, entrecoupés de cantiques de la Passion, éventuellement accompagnés de mime. Ce schéma commence par les lectures d’Ésaïe et de Philippiens indiquées plus haut, puis suit le récit de la Passion, divisé en lectures plus courtes comme ci-dessous et entrecoupé de cantiques. Les lectures de l’Évangile de Jean, qui conviennent chaque année, offrent une solution de rechange au récit de la Passion proposé par le lectionnaire de l’année. Si l’on utilise l’Évangile de Jean, aujourd’hui ou le Vendredi saint, on recommande la version du Culte des Ténèbres du Livre de culte, ou la Contemporary English Bible, car l’une et l’autre traduisent plus exactement les références au peuple juif.'),
-      TextBlock.leader('Culte de lectures et de cantiques :\nLa dernière Cène — Matthieu 26.14-29 ; Marc 14.1-25 ; Luc 22.14-23\nGethsémané et l’arrestation — Matthieu 26.30-56 ; Marc 14.26-50 ; Luc 22.31-53\nJésus devant le conseil, et le reniement de Pierre — Matthieu 26.57-75 ; Marc 14.53-72 ; Luc 22.54-62\nJésus devant Pilate — Matthieu 27.1-23, 26-30 ; Marc 15.1-19 ; Luc 22.63 – 23.25\nLa crucifixion — Matthieu 27.31-50 ; Marc 15.20-37 ; Luc 23.26-46\nLa mort et la mise au tombeau — Matthieu 27.51-66 ; Marc 15.38-47 ; Luc 23.47-56'),
+      TextBlock.leader(
+          'Matthieu 26.14 – 27.66 ou Matthieu 27.11-54 (année A)\nMarc 14.1 – 15.47 ou Marc 15.1-39 [40-47] (année B)\nLuc 22.14 – 23.56 ou Luc 23.1-49 (année C)'),
+      TextBlock.note(
+          'Plusieurs possibilités permettent à l’assemblée de vivre tout le récit de la Passion dans ce culte :'),
+      TextBlock.note(
+          '1) L’une des versions ci-dessus du récit de la Passion peut être lue de façon dramatisée, des membres de l’assemblée tenant les différents rôles : narrateur, Jésus, Pilate, les apôtres, d’autres personnages et la foule. Trois personnes suffisent si toutes les voix, sauf celles du narrateur et de Jésus, sont dites par une seule personne. Si l’on donne à l’assemblée un texte ou des repères, elle peut tenir le rôle de la foule, ou ce rôle peut revenir à la chorale.'),
+      TextBlock.note(
+          '2) Le récit de la Passion peut aussi être chanté par la chorale. Des mises en musique comme celles de Bach seraient beaucoup trop longues, mais il existe de nombreuses mises en musique chorales plus courtes. On peut aussi entrelacer des extraits d’œuvres plus grandes avec des lectures dramatisées. Une préparation à l’avance, des répétitions et le choix d’un niveau de difficulté adapté sont essentiels. Quelque chose de simple, bien fait, vaut mieux que quelque chose qui dépasse les capacités de la chorale.'),
+      TextBlock.note(
+          '3) On peut suivre un schéma de lectures et de cantiques semblable à celui des lectures et chants de Noël pour un culte de l’Avent ou de Noël. Des passages de l’Écriture sont lus, plus efficacement par plusieurs lecteurs, entrecoupés de cantiques de la Passion, éventuellement accompagnés de mime. Ce schéma commence par les lectures d’Ésaïe et de Philippiens indiquées plus haut, puis suit le récit de la Passion, divisé en lectures plus courtes comme ci-dessous et entrecoupé de cantiques. Les lectures de l’Évangile de Jean, qui conviennent chaque année, offrent une solution de rechange au récit de la Passion proposé par le lectionnaire de l’année. Si l’on utilise l’Évangile de Jean, aujourd’hui ou le Vendredi saint, on recommande la version du Culte des Ténèbres du Livre de culte, ou la Contemporary English Bible, car l’une et l’autre traduisent plus exactement les références au peuple juif.'),
+      TextBlock.leader(
+          'Culte de lectures et de cantiques :\nLa dernière Cène — Matthieu 26.14-29 ; Marc 14.1-25 ; Luc 22.14-23\nGethsémané et l’arrestation — Matthieu 26.30-56 ; Marc 14.26-50 ; Luc 22.31-53\nJésus devant le conseil, et le reniement de Pierre — Matthieu 26.57-75 ; Marc 14.53-72 ; Luc 22.54-62\nJésus devant Pilate — Matthieu 27.1-23, 26-30 ; Marc 15.1-19 ; Luc 22.63 – 23.25\nLa crucifixion — Matthieu 27.31-50 ; Marc 15.20-37 ; Luc 23.26-46\nLa mort et la mise au tombeau — Matthieu 27.51-66 ; Marc 15.38-47 ; Luc 23.47-56'),
       TextBlock.heading('[PRÉDICATION]'),
-      TextBlock.note('La proclamation du récit de la Passion peut tenir lieu de prédication, mais il peut arriver que les circonstances appellent une prédication et un raccourcissement de la lecture du récit de la Passion au passage sur lequel porte la prédication. Dans ce cas, on recommande vivement de lire les autres parties du récit à un autre moment de la Semaine sainte.'),
+      TextBlock.note(
+          'La proclamation du récit de la Passion peut tenir lieu de prédication, mais il peut arriver que les circonstances appellent une prédication et un raccourcissement de la lecture du récit de la Passion au passage sur lequel porte la prédication. Dans ce cas, on recommande vivement de lire les autres parties du récit à un autre moment de la Semaine sainte.'),
       TextBlock.heading('RÉPONSE À LA PROCLAMATION'),
       TextBlock.heading('PRÉOCCUPATIONS ET PRIÈRES'),
       TextBlock.heading('[CONFESSION ET PARDON]'),
-      TextBlock.note('Si la confession et le pardon n’ont pas été suffisamment exprimés dans les cantiques chantés auparavant, on peut les placer ici.'),
+      TextBlock.note(
+          'Si la confession et le pardon n’ont pas été suffisamment exprimés dans les cantiques chantés auparavant, on peut les placer ici.'),
       TextBlock.heading('LA PAIX'),
       TextBlock.heading('OFFRANDE'),
       TextBlock.heading('ACTION DE GRÂCE ET SAINTE-CÈNE'),
-      TextBlock.note('Si la Sainte-Cène n’est pas célébrée, le culte se poursuit par une prière d’action de grâce et le Notre Père.'),
-      TextBlock.leader('Si la Sainte-Cène est célébrée, on peut inviter l’assemblée, immédiatement après les préoccupations et prières, à se reporter pour la suite du culte au Culte de la Parole et de la Table IV. Ou bien le culte peut se poursuivre comme ci-dessus jusqu’à l’offrande, pendant laquelle le pain et le vin sont apportés à la table du Seigneur par des représentants de l’assemblée avec les autres dons, ou découverts s’ils s’y trouvent déjà. Après l’offrande, l’assemblée peut être invitée à se reporter au Culte de la Parole et de la Table III ou à l’une des mises en musique, le pasteur priant la Grande action de grâce.'),
+      TextBlock.note(
+          'Si la Sainte-Cène n’est pas célébrée, le culte se poursuit par une prière d’action de grâce et le Notre Père.'),
+      TextBlock.leader(
+          'Si la Sainte-Cène est célébrée, on peut inviter l’assemblée, immédiatement après les préoccupations et prières, à se reporter pour la suite du culte au Culte de la Parole et de la Table IV. Ou bien le culte peut se poursuivre comme ci-dessus jusqu’à l’offrande, pendant laquelle le pain et le vin sont apportés à la table du Seigneur par des représentants de l’assemblée avec les autres dons, ou découverts s’ils s’y trouvent déjà. Après l’offrande, l’assemblée peut être invitée à se reporter au Culte de la Parole et de la Table III ou à l’une des mises en musique, le pasteur priant la Grande action de grâce.'),
       TextBlock.note('Dans tous les cas, le culte se termine ainsi :'),
       TextBlock.heading('ENVOI'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
@@ -1962,107 +2952,165 @@ class BookOfWorshipData {
   static const easterVigil = ChurchText(
     id: 'bow_easter_vigil',
     title: 'Veillée pascale (premier culte de Pâques)',
-    subtitle: 'Service de la lumière, de la Parole, de l’Alliance baptismale et de la Table',
+    subtitle:
+        'Service de la lumière, de la Parole, de l’Alliance baptismale et de la Table',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Easter Vigil, or The First Service of Easter,” Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Greeting, Opening Prayer, Introduction to the Service of the Word, collect for The Creation, collect for The Covenant between God and the Earth, and collect for A New Heart and a New Spirit from The Book of Common Prayer (The Episcopal Church, 1979), 285-291 (Citations from the BCP are Public Domain). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/easter-vigil-or-the-first-service-of-easter',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Easter Vigil, or The First Service of Easter,” Copyright © 1979, 1986 by Abingdon Press; Copyright © 1992 UMPH. Greeting, Opening Prayer, Introduction to the Service of the Word, collect for The Creation, collect for The Covenant between God and the Earth, and collect for A New Heart and a New Spirit from The Book of Common Prayer (The Episcopal Church, 1979), 285-291 (Citations from the BCP are Public Domain). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/easter-vigil-or-the-first-service-of-easter',
     blocks: [
-      TextBlock.note('Pendant les Trois Grands Jours, du coucher du soleil du jeudi saint au coucher du soleil du jour de Pâques, nous célébrons les événements de salut que sont la souffrance, la mort et la résurrection de Jésus-Christ. Au fil du développement du culte chrétien, chacun de ces événements en est venu à être rappelé un jour distinct. Mais dans les premiers siècles, ces événements étaient célébrés comme un tout dans une seule liturgie extraordinaire, qui commençait le samedi soir et se prolongeait jusqu’à l’aube du jour de Pâques. On l’appelait la grande veillée pascale. Précédée d’un jour de jeûne, c’était la nuit la plus sainte et la plus joyeuse de toute l’année chrétienne, car elle proclamait et célébrait toute l’histoire du salut et l’œuvre de salut du Christ. C’est le moment le plus approprié pour des baptêmes : les baptisés meurent et ressuscitent symboliquement avec le Christ (Romains 6.3-11). On en est venu aussi à y voir un moment très approprié pour la réaffirmation de l’Alliance baptismale par l’assemblée.'),
-      TextBlock.note('La veillée pascale a des racines à la fois historiques et symboliques dans la Pâque juive. C’est pourquoi tant d’images viennent de l’Ancien Testament et tant de parallèles se réalisent en Christ. Dans ce culte, nous vivons le passage de l’esclavage à la liberté, du péché au salut, de la mort à la vie.'),
-      TextBlock.note('La veillée pascale est le premier culte de Pâques. Le culte qui suit est une adaptation de l’ancienne veillée pascale et comprend quatre parties : (1) le service de la lumière, (2) le service de la Parole, (3) le service de l’Alliance baptismale et (4) le service de la Table. La longueur du culte peut conseiller une prédication brève. Ainsi, nous célébrons l’œuvre de salut de Dieu en Christ par les symboles de la lumière, de la parole, de l’eau et du banquet céleste.'),
-      TextBlock.note('Ce culte peut être célébré de plusieurs manières :\n1) Ce peut être un culte de la veille de Pâques, comparable à un culte de la veille de Noël, qui atteint son sommet après minuit. C’est ce qui se rapproche le plus de la forme ancienne, et on l’appelle à juste titre la veillée pascale.\n2) Ce peut être un culte de Pâques avant l’aube, comme un culte de lever du soleil de Pâques d’aujourd’hui, mais qui commence quand il fait encore nuit, afin de vivre le passage des ténèbres à la lumière. On peut alors l’appeler le premier culte de Pâques, et le faire suivre d’un petit-déjeuner de fête.\n3) Comme le culte est très long, on peut le diviser en deux : un service de la lumière et un service de la Parole avant l’aube ou au lever du soleil, suivis d’un petit-déjeuner de fête, puis d’un service de l’Alliance baptismale et d’un service de la Table. Avec le culte du jour de Pâques, cette suite de trois cultes formerait un tout. Chacun pourrait assister à l’un d’eux, à plusieurs ou à tous.'),
+      TextBlock.note(
+          'Pendant les Trois Grands Jours, du coucher du soleil du jeudi saint au coucher du soleil du jour de Pâques, nous célébrons les événements de salut que sont la souffrance, la mort et la résurrection de Jésus-Christ. Au fil du développement du culte chrétien, chacun de ces événements en est venu à être rappelé un jour distinct. Mais dans les premiers siècles, ces événements étaient célébrés comme un tout dans une seule liturgie extraordinaire, qui commençait le samedi soir et se prolongeait jusqu’à l’aube du jour de Pâques. On l’appelait la grande veillée pascale. Précédée d’un jour de jeûne, c’était la nuit la plus sainte et la plus joyeuse de toute l’année chrétienne, car elle proclamait et célébrait toute l’histoire du salut et l’œuvre de salut du Christ. C’est le moment le plus approprié pour des baptêmes : les baptisés meurent et ressuscitent symboliquement avec le Christ (Romains 6.3-11). On en est venu aussi à y voir un moment très approprié pour la réaffirmation de l’Alliance baptismale par l’assemblée.'),
+      TextBlock.note(
+          'La veillée pascale a des racines à la fois historiques et symboliques dans la Pâque juive. C’est pourquoi tant d’images viennent de l’Ancien Testament et tant de parallèles se réalisent en Christ. Dans ce culte, nous vivons le passage de l’esclavage à la liberté, du péché au salut, de la mort à la vie.'),
+      TextBlock.note(
+          'La veillée pascale est le premier culte de Pâques. Le culte qui suit est une adaptation de l’ancienne veillée pascale et comprend quatre parties : (1) le service de la lumière, (2) le service de la Parole, (3) le service de l’Alliance baptismale et (4) le service de la Table. La longueur du culte peut conseiller une prédication brève. Ainsi, nous célébrons l’œuvre de salut de Dieu en Christ par les symboles de la lumière, de la parole, de l’eau et du banquet céleste.'),
+      TextBlock.note(
+          'Ce culte peut être célébré de plusieurs manières :\n1) Ce peut être un culte de la veille de Pâques, comparable à un culte de la veille de Noël, qui atteint son sommet après minuit. C’est ce qui se rapproche le plus de la forme ancienne, et on l’appelle à juste titre la veillée pascale.\n2) Ce peut être un culte de Pâques avant l’aube, comme un culte de lever du soleil de Pâques d’aujourd’hui, mais qui commence quand il fait encore nuit, afin de vivre le passage des ténèbres à la lumière. On peut alors l’appeler le premier culte de Pâques, et le faire suivre d’un petit-déjeuner de fête.\n3) Comme le culte est très long, on peut le diviser en deux : un service de la lumière et un service de la Parole avant l’aube ou au lever du soleil, suivis d’un petit-déjeuner de fête, puis d’un service de l’Alliance baptismale et d’un service de la Table. Avec le culte du jour de Pâques, cette suite de trois cultes formerait un tout. Chacun pourrait assister à l’un d’eux, à plusieurs ou à tous.'),
       TextBlock.heading('LE SERVICE DE LA LUMIÈRE'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('Le culte commence dans l’obscurité. Si possible, l’assemblée se rassemble à l’extérieur du bâtiment ou dans une salle autre que le sanctuaire, capable d’accueillir toute l’assemblée. Un feu, allumé sur le sol ou dans un grand brasero et symbolisant la résurrection, est allumé pendant que l’assemblée se rassemble. Le signe central est le cierge pascal, un grand cierge blanc sur pied, signe du triomphe de la résurrection sur les ténèbres de la mort. On peut aussi donner une bougie à chacun. Le silence est gardé jusqu’à ce que tous soient rassemblés.'),
+      TextBlock.note(
+          'Le culte commence dans l’obscurité. Si possible, l’assemblée se rassemble à l’extérieur du bâtiment ou dans une salle autre que le sanctuaire, capable d’accueillir toute l’assemblée. Un feu, allumé sur le sol ou dans un grand brasero et symbolisant la résurrection, est allumé pendant que l’assemblée se rassemble. Le signe central est le cierge pascal, un grand cierge blanc sur pied, signe du triomphe de la résurrection sur les ténèbres de la mort. On peut aussi donner une bougie à chacun. Le silence est gardé jusqu’à ce que tous soient rassemblés.'),
       TextBlock.heading('SALUTATION ET INTRODUCTION'),
-      TextBlock.note('Le responsable s’adresse à l’assemblée par ces paroles ou d’autres semblables :'),
-      TextBlock.leader('Grâce et paix à vous de la part de Jésus-Christ notre Seigneur.'),
-      TextBlock.leader('Mes frères et sœurs en Christ, / en cette nuit (ce matin) très sainte / où Jésus-Christ est passé de la mort à la vie, / nous nous rassemblons comme Église pour veiller et prier. / C’est la Pâque du Christ, / où nous partageons la victoire du Christ sur la mort.'),
+      TextBlock.note(
+          'Le responsable s’adresse à l’assemblée par ces paroles ou d’autres semblables :'),
+      TextBlock.leader(
+          'Grâce et paix à vous de la part de Jésus-Christ notre Seigneur.'),
+      TextBlock.leader(
+          'Mes frères et sœurs en Christ, / en cette nuit (ce matin) très sainte / où Jésus-Christ est passé de la mort à la vie, / nous nous rassemblons comme Église pour veiller et prier. / C’est la Pâque du Christ, / où nous partageons la victoire du Christ sur la mort.'),
       TextBlock.heading('PRIÈRE D’OUVERTURE'),
-      TextBlock.leader('Dieu de la vie, / par Jésus-Christ / tu as donné au monde la lumière de la vie. / Sanctifie ce feu nouveau, / et fais que nos cœurs et nos esprits s’embrasent aussi / d’un saint désir de resplendir de l’éclat de la résurrection du Christ, / afin que nous parvenions à la fête de la lumière éternelle, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu de la vie, / par Jésus-Christ / tu as donné au monde la lumière de la vie. / Sanctifie ce feu nouveau, / et fais que nos cœurs et nos esprits s’embrasent aussi / d’un saint désir de resplendir de l’éclat de la résurrection du Christ, / afin que nous parvenions à la fête de la lumière éternelle, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('ALLUMAGE DU CIERGE PASCAL'),
-      TextBlock.note('Le responsable allume le cierge pascal au feu, en disant :'),
-      TextBlock.leader('La lumière du Christ se lève dans la gloire, / triomphant des ténèbres du péché et de la mort.'),
-      TextBlock.note('Le cierge pascal est élevé pour que tous le voient, et le responsable dit :'),
+      TextBlock.note(
+          'Le responsable allume le cierge pascal au feu, en disant :'),
+      TextBlock.leader(
+          'La lumière du Christ se lève dans la gloire, / triomphant des ténèbres du péché et de la mort.'),
+      TextBlock.note(
+          'Le cierge pascal est élevé pour que tous le voient, et le responsable dit :'),
       TextBlock.leader('Le Christ est notre lumière !'),
       TextBlock.note('Une procession se forme alors.'),
       TextBlock.heading('PROCESSION DANS L’ÉGLISE'),
-      TextBlock.note('Si l’on a donné des bougies à des membres de l’assemblée, on peut les allumer à d’autres qui ont été allumées au cierge pascal. À mesure que la salle se remplit, les bougies fixes du sanctuaire peuvent être allumées. Pendant que l’assemblée entre en procession dans le sanctuaire obscur, on peut chanter un cantique approprié.'),
+      TextBlock.note(
+          'Si l’on a donné des bougies à des membres de l’assemblée, on peut les allumer à d’autres qui ont été allumées au cierge pascal. À mesure que la salle se remplit, les bougies fixes du sanctuaire peuvent être allumées. Pendant que l’assemblée entre en procession dans le sanctuaire obscur, on peut chanter un cantique approprié.'),
       TextBlock.heading('ANNONCE PASCALE'),
-      TextBlock.note('Puis le diacre, ou une autre personne désignée, debout près du cierge, chante ou dit l’Exsultet, comme suit (les parties indiquées peuvent être omises) :'),
-      TextBlock.leader('Réjouissez-vous maintenant, armées célestes et chœurs des anges, / et que vos trompettes proclament le salut / pour la victoire de notre puissant Roi.'),
-      TextBlock.leader('Réjouis-toi et chante maintenant, terre entière, / resplendissante d’une gloire éclatante, / car les ténèbres ont été vaincues par notre Roi éternel.'),
-      TextBlock.leader('Réjouis-toi et sois dans l’allégresse, Église notre mère, / et que tes saintes assemblées, dans une lumière rayonnante, / retentissent des louanges de ton peuple.'),
-      TextBlock.leader('Vous tous qui vous tenez près de cette flamme merveilleuse et sainte, / priez avec moi Dieu tout-puissant / de nous accorder la grâce de chanter dignement la louange de cette grande lumière, / par Jésus-Christ notre Seigneur, / qui vit et règne avec lui, / dans l’unité du Saint-Esprit, / seul Dieu, pour les siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Puis le diacre, ou une autre personne désignée, debout près du cierge, chante ou dit l’Exsultet, comme suit (les parties indiquées peuvent être omises) :'),
+      TextBlock.leader(
+          'Réjouissez-vous maintenant, armées célestes et chœurs des anges, / et que vos trompettes proclament le salut / pour la victoire de notre puissant Roi.'),
+      TextBlock.leader(
+          'Réjouis-toi et chante maintenant, terre entière, / resplendissante d’une gloire éclatante, / car les ténèbres ont été vaincues par notre Roi éternel.'),
+      TextBlock.leader(
+          'Réjouis-toi et sois dans l’allégresse, Église notre mère, / et que tes saintes assemblées, dans une lumière rayonnante, / retentissent des louanges de ton peuple.'),
+      TextBlock.leader(
+          'Vous tous qui vous tenez près de cette flamme merveilleuse et sainte, / priez avec moi Dieu tout-puissant / de nous accorder la grâce de chanter dignement la louange de cette grande lumière, / par Jésus-Christ notre Seigneur, / qui vit et règne avec lui, / dans l’unité du Saint-Esprit, / seul Dieu, pour les siècles des siècles. Amen.'),
       TextBlock.leader('Le Seigneur soit avec vous.'),
       TextBlock.people('Et avec vous aussi.'),
       TextBlock.leader('Rendons grâce au Seigneur notre Dieu.'),
       TextBlock.people('Cela est digne et juste.'),
-      TextBlock.leader('Il est vraiment juste et bon, toujours et partout, de tout notre cœur, de toute notre pensée et de toute notre voix, de te louer, toi, Dieu invisible, tout-puissant et éternel, et ton Fils unique, Jésus-Christ notre Seigneur ; car il est le véritable Agneau pascal qui, à la fête de la Pâque, a payé pour nous la dette du péché d’Adam et, par son sang, a délivré ton peuple fidèle.'),
-      TextBlock.leader('Voici la nuit où tu as fait sortir nos pères, les enfants d’Israël, de l’esclavage d’Égypte, et où tu les as fait passer la mer Rouge à pied sec.'),
-      TextBlock.leader('Voici la nuit où tous ceux qui croient au Christ sont délivrés des ténèbres du péché et rendus à la grâce et à la sainteté de vie.'),
-      TextBlock.leader('Voici la nuit où le Christ a brisé les liens de la mort et des enfers et s’est relevé victorieux du tombeau.'),
-      TextBlock.leader('Ô Dieu, qu’elles sont merveilleuses et au-delà de notre connaissance ta miséricorde et ta bonté envers nous : pour racheter un esclave, tu as donné un Fils.'),
-      TextBlock.leader('Qu’elle est sainte, cette nuit où le mal est mis en fuite et le péché lavé. Elle rend l’innocence à ceux qui sont tombés et la joie à ceux qui pleurent. Elle chasse l’orgueil et la haine, et apporte la paix et la concorde.'),
-      TextBlock.leader('Qu’elle est bénie, cette nuit où la terre et le ciel sont unis et où l’homme est réconcilié avec Dieu.'),
-      TextBlock.leader('Père saint, reçois notre sacrifice du soir, l’offrande de ce cierge en ton honneur. Qu’il brille sans cesse pour chasser toutes les ténèbres. Que le Christ, l’Étoile du matin qui ne connaît pas de couchant, le trouve toujours allumé — lui qui donne sa lumière à toute la création, et qui vit et règne pour les siècles des siècles. Amen.'),
-      TextBlock.note('Il est d’usage que le cierge pascal brûle à tous les cultes, du jour de Pâques jusqu’au jour de la Pentecôte. (L’Annonce pascale vient du Livre de prière commune de l’Église épiscopale, 1979, Grande Veillée de Pâques — domaine public ; traduction ÉMU Compagnon, à relire.)'),
+      TextBlock.leader(
+          'Il est vraiment juste et bon, toujours et partout, de tout notre cœur, de toute notre pensée et de toute notre voix, de te louer, toi, Dieu invisible, tout-puissant et éternel, et ton Fils unique, Jésus-Christ notre Seigneur ; car il est le véritable Agneau pascal qui, à la fête de la Pâque, a payé pour nous la dette du péché d’Adam et, par son sang, a délivré ton peuple fidèle.'),
+      TextBlock.leader(
+          'Voici la nuit où tu as fait sortir nos pères, les enfants d’Israël, de l’esclavage d’Égypte, et où tu les as fait passer la mer Rouge à pied sec.'),
+      TextBlock.leader(
+          'Voici la nuit où tous ceux qui croient au Christ sont délivrés des ténèbres du péché et rendus à la grâce et à la sainteté de vie.'),
+      TextBlock.leader(
+          'Voici la nuit où le Christ a brisé les liens de la mort et des enfers et s’est relevé victorieux du tombeau.'),
+      TextBlock.leader(
+          'Ô Dieu, qu’elles sont merveilleuses et au-delà de notre connaissance ta miséricorde et ta bonté envers nous : pour racheter un esclave, tu as donné un Fils.'),
+      TextBlock.leader(
+          'Qu’elle est sainte, cette nuit où le mal est mis en fuite et le péché lavé. Elle rend l’innocence à ceux qui sont tombés et la joie à ceux qui pleurent. Elle chasse l’orgueil et la haine, et apporte la paix et la concorde.'),
+      TextBlock.leader(
+          'Qu’elle est bénie, cette nuit où la terre et le ciel sont unis et où l’homme est réconcilié avec Dieu.'),
+      TextBlock.leader(
+          'Père saint, reçois notre sacrifice du soir, l’offrande de ce cierge en ton honneur. Qu’il brille sans cesse pour chasser toutes les ténèbres. Que le Christ, l’Étoile du matin qui ne connaît pas de couchant, le trouve toujours allumé — lui qui donne sa lumière à toute la création, et qui vit et règne pour les siècles des siècles. Amen.'),
+      TextBlock.note(
+          'Il est d’usage que le cierge pascal brûle à tous les cultes, du jour de Pâques jusqu’au jour de la Pentecôte. (L’Annonce pascale vient du Livre de prière commune de l’Église épiscopale, 1979, Grande Veillée de Pâques — domaine public ; traduction ÉMU Compagnon, à relire.)'),
       TextBlock.heading('LE SERVICE DE LA PAROLE'),
       TextBlock.heading('INTRODUCTION'),
-      TextBlock.leader('Écoutons le récit des actes de salut de Dieu dans l’histoire, / et prions afin que chacun de nous reçoive la plénitude de cette grâce.'),
-      TextBlock.note('Le nombre de lectures peut varier, mais Exode 14 et au moins deux autres lectures de l’Ancien Testament devraient être employés, en plus des lectures du Nouveau Testament. Chaque lecture peut être introduite par les paroles données et suivie d’un silence, d’un psaume ou d’un cantique, puis d’une prière.'),
+      TextBlock.leader(
+          'Écoutons le récit des actes de salut de Dieu dans l’histoire, / et prions afin que chacun de nous reçoive la plénitude de cette grâce.'),
+      TextBlock.note(
+          'Le nombre de lectures peut varier, mais Exode 14 et au moins deux autres lectures de l’Ancien Testament devraient être employés, en plus des lectures du Nouveau Testament. Chaque lecture peut être introduite par les paroles données et suivie d’un silence, d’un psaume ou d’un cantique, puis d’une prière.'),
       TextBlock.heading('LA CRÉATION'),
-      TextBlock.leader('Par sa parole, Dieu fait naître l’ordre du chaos aquatique des origines. / La bonne création de Dieu atteint son sommet dans l’humanité, / qui porte l’image de Dieu.'),
+      TextBlock.leader(
+          'Par sa parole, Dieu fait naître l’ordre du chaos aquatique des origines. / La bonne création de Dieu atteint son sommet dans l’humanité, / qui porte l’image de Dieu.'),
       TextBlock.leader('Genèse 1.1 – 2.4a'),
-      TextBlock.leader('Dieu tout-puissant, tu as créé de façon merveilleuse, et rétabli plus merveilleusement encore, / la dignité de la nature humaine. / Fais que nous partagions la vie divine / de celui qui a partagé notre humanité, / Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, tu as créé de façon merveilleuse, et rétabli plus merveilleusement encore, / la dignité de la nature humaine. / Fais que nous partagions la vie divine / de celui qui a partagé notre humanité, / Jésus-Christ notre Sauveur. Amen.'),
       TextBlock.heading('L’ALLIANCE ENTRE DIEU ET LA TERRE'),
-      TextBlock.leader('Dieu fait que la terre, vaincue par le péché, est engloutie dans un déluge. Pourtant, en Noé et sa famille, Dieu sauve un reste / et les lie tous dans une alliance dont le signe est l’arc-en-ciel.'),
+      TextBlock.leader(
+          'Dieu fait que la terre, vaincue par le péché, est engloutie dans un déluge. Pourtant, en Noé et sa famille, Dieu sauve un reste / et les lie tous dans une alliance dont le signe est l’arc-en-ciel.'),
       TextBlock.leader('Genèse 7.1-5, 11-18 ; 8.6-18 ; 9.8-13'),
-      TextBlock.leader('Dieu tout-puissant du ciel et de la terre, tu as placé dans les nuées un arc-en-ciel / comme signe de ton alliance avec tout être vivant. / Fais que nous soyons de fidèles intendants / de la domination que tu nous as confiée sur la terre, / selon ta grâce qui nous est donnée en Jésus-Christ notre Seigneur. / Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant du ciel et de la terre, tu as placé dans les nuées un arc-en-ciel / comme signe de ton alliance avec tout être vivant. / Fais que nous soyons de fidèles intendants / de la domination que tu nous as confiée sur la terre, / selon ta grâce qui nous est donnée en Jésus-Christ notre Seigneur. / Amen.'),
       TextBlock.heading('LA CONFIANCE D’ABRAHAM EN DIEU'),
-      TextBlock.leader('Abraham est mis à l’épreuve lorsque Dieu lui ordonne de sacrifier son propre fils, / en qui se concentre la promesse de Dieu. / Par la provision de Dieu lui-même sur la montagne, la promesse tient.'),
+      TextBlock.leader(
+          'Abraham est mis à l’épreuve lorsque Dieu lui ordonne de sacrifier son propre fils, / en qui se concentre la promesse de Dieu. / Par la provision de Dieu lui-même sur la montagne, la promesse tient.'),
       TextBlock.leader('Genèse 22.1-18'),
-      TextBlock.leader('Dieu de grâce de tous les croyants, par la confiance d’Abraham en ta promesse / tu as fait connaître ton amour fidèle à une multitude innombrable. / Par la grâce du sacrifice du Christ, / accomplis dans ton Église et dans toute la création / la joie de ta promesse et de ta nouvelle alliance. Amen.'),
+      TextBlock.leader(
+          'Dieu de grâce de tous les croyants, par la confiance d’Abraham en ta promesse / tu as fait connaître ton amour fidèle à une multitude innombrable. / Par la grâce du sacrifice du Christ, / accomplis dans ton Église et dans toute la création / la joie de ta promesse et de ta nouvelle alliance. Amen.'),
       TextBlock.heading('LA DÉLIVRANCE D’ISRAËL À LA MER ROUGE'),
-      TextBlock.leader('Le roi qui tenait en esclavage le peuple de Dieu / le poursuit jusqu’à la mer Rouge tandis qu’il tente de s’échapper. / Malgré une situation sans issue, Dieu délivre son peuple, / le conduisant à pied sec à travers la mer fendue / et refermant les eaux sur ses anciens maîtres. / Miriam chante alors un cantique sur la merveilleuse délivrance de Dieu.'),
-      TextBlock.leader('Exode 14.10-31 (et 15.20-21 si le cantique ne suit pas)'),
-      TextBlock.leader('Dieu notre Sauveur, comme autrefois tu as délivré par la puissance de ton bras fort / ton peuple choisi d’Israël à travers les eaux de la mer, / délivre maintenant ton Église et tous les peuples de la terre / de la servitude et de l’oppression, afin qu’ils se réjouissent et te servent en liberté, / par Jésus-Christ notre Libérateur. Amen.'),
+      TextBlock.leader(
+          'Le roi qui tenait en esclavage le peuple de Dieu / le poursuit jusqu’à la mer Rouge tandis qu’il tente de s’échapper. / Malgré une situation sans issue, Dieu délivre son peuple, / le conduisant à pied sec à travers la mer fendue / et refermant les eaux sur ses anciens maîtres. / Miriam chante alors un cantique sur la merveilleuse délivrance de Dieu.'),
+      TextBlock.leader(
+          'Exode 14.10-31 (et 15.20-21 si le cantique ne suit pas)'),
+      TextBlock.leader(
+          'Dieu notre Sauveur, comme autrefois tu as délivré par la puissance de ton bras fort / ton peuple choisi d’Israël à travers les eaux de la mer, / délivre maintenant ton Église et tous les peuples de la terre / de la servitude et de l’oppression, afin qu’ils se réjouissent et te servent en liberté, / par Jésus-Christ notre Libérateur. Amen.'),
       TextBlock.heading('LE SALUT OFFERT GRATUITEMENT À TOUS'),
-      TextBlock.leader('Le prophète Ésaïe lance une invitation à la vie en abondance / à ceux qui ont faim et soif.'),
+      TextBlock.leader(
+          'Le prophète Ésaïe lance une invitation à la vie en abondance / à ceux qui ont faim et soif.'),
       TextBlock.leader('Esaïe 55.1-11 (ou 1-5 si le cantique suit)'),
-      TextBlock.leader('Créateur de toutes choses, tu offres gratuitement l’eau à ceux qui ont soif et la nourriture à ceux qui ont faim. / Rafraîchis-nous par l’eau du baptême / et nourris-nous du pain et du vin de ta table, / afin que ta Parole porte du fruit dans nos vies / et nous conduise tous à ton banquet céleste, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Créateur de toutes choses, tu offres gratuitement l’eau à ceux qui ont soif et la nourriture à ceux qui ont faim. / Rafraîchis-nous par l’eau du baptême / et nourris-nous du pain et du vin de ta table, / afin que ta Parole porte du fruit dans nos vies / et nous conduise tous à ton banquet céleste, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('UN CŒUR NOUVEAU ET UN ESPRIT NOUVEAU'),
-      TextBlock.leader('Le prophète promet que Dieu renouvellera son peuple. / Dieu remplacera leur cœur de pierre par un cœur nouveau.'),
+      TextBlock.leader(
+          'Le prophète promet que Dieu renouvellera son peuple. / Dieu remplacera leur cœur de pierre par un cœur nouveau.'),
       TextBlock.leader('Ezéchiel 36.24-28'),
-      TextBlock.leader('Dieu de sainteté et de lumière, dans le mystère de mourir et de ressusciter avec le Christ / tu as établi une nouvelle alliance de réconciliation. / Purifie nos cœurs et donne un esprit nouveau à tout ton peuple, / afin que ta grâce qui sauve soit connue du monde entier, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu de sainteté et de lumière, dans le mystère de mourir et de ressusciter avec le Christ / tu as établi une nouvelle alliance de réconciliation. / Purifie nos cœurs et donne un esprit nouveau à tout ton peuple, / afin que ta grâce qui sauve soit connue du monde entier, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.heading('UNE VIE NOUVELLE POUR LE PEUPLE DE DIEU'),
-      TextBlock.leader('Le prophète Ézéchiel a une vision : / Dieu prendra les ossements desséchés de son peuple, / les rassemblera, soufflera en eux et les rendra à la vie.'),
+      TextBlock.leader(
+          'Le prophète Ézéchiel a une vision : / Dieu prendra les ossements desséchés de son peuple, / les rassemblera, soufflera en eux et les rendra à la vie.'),
       TextBlock.leader('Ezéchiel 37.1-14'),
-      TextBlock.leader('Dieu éternel, tu as ressuscité d’entre les morts notre Seigneur Jésus / et, par ton Saint-Esprit, tu as donné vie à ton Église. / Souffle de nouveau sur nous ton Esprit et donne une vie nouvelle à ton peuple, / par le même Jésus-Christ notre Rédempteur. Amen.'),
-      TextBlock.heading('ENSEVELIS ET RESSUSCITÉS AVEC LE CHRIST DANS LE BAPTÊME'),
-      TextBlock.leader('L’apôtre Paul nous rappelle qu’en Christ nous sommes déjà morts, / ensevelis dans le baptême. / Pourtant, nous qui sommes morts, nous sommes ressuscités à une vie nouvelle.'),
+      TextBlock.leader(
+          'Dieu éternel, tu as ressuscité d’entre les morts notre Seigneur Jésus / et, par ton Saint-Esprit, tu as donné vie à ton Église. / Souffle de nouveau sur nous ton Esprit et donne une vie nouvelle à ton peuple, / par le même Jésus-Christ notre Rédempteur. Amen.'),
+      TextBlock.heading(
+          'ENSEVELIS ET RESSUSCITÉS AVEC LE CHRIST DANS LE BAPTÊME'),
+      TextBlock.leader(
+          'L’apôtre Paul nous rappelle qu’en Christ nous sommes déjà morts, / ensevelis dans le baptême. / Pourtant, nous qui sommes morts, nous sommes ressuscités à une vie nouvelle.'),
       TextBlock.leader('Romains 6.3-11'),
-      TextBlock.note('On peut dire le Psaumes 114 et / ou chanter un alléluia.'),
+      TextBlock.note(
+          'On peut dire le Psaumes 114 et / ou chanter un alléluia.'),
       TextBlock.heading('LECTURE DE L’ÉVANGILE'),
-      TextBlock.leader('Matthieu 28.1-10 (année A) — Jésus est ressuscité tandis que les gardes tremblent.\nMarc 16.1-8 (année B) — Qui nous roulera la pierre ?\nLuc 24.1-12 (année C) — Pourquoi cherchez-vous le vivant parmi les morts ?'),
+      TextBlock.leader(
+          'Matthieu 28.1-10 (année A) — Jésus est ressuscité tandis que les gardes tremblent.\nMarc 16.1-8 (année B) — Qui nous roulera la pierre ?\nLuc 24.1-12 (année C) — Pourquoi cherchez-vous le vivant parmi les morts ?'),
       TextBlock.heading('PRÉDICATION'),
       TextBlock.heading('LE SERVICE DE L’ALLIANCE BAPTISMALE'),
-      TextBlock.note('Si des personnes doivent être baptisées, confirmées ou reçues comme membres de l’assemblée locale, ou faire une réaffirmation personnelle de leur foi, on emploie l’Alliance baptismale I, II ou III.'),
-      TextBlock.note('S’il n’y a pas de candidats à l’un de ces actes, l’assemblée peut employer l’Alliance baptismale IV.'),
+      TextBlock.note(
+          'Si des personnes doivent être baptisées, confirmées ou reçues comme membres de l’assemblée locale, ou faire une réaffirmation personnelle de leur foi, on emploie l’Alliance baptismale I, II ou III.'),
+      TextBlock.note(
+          'S’il n’y a pas de candidats à l’un de ces actes, l’assemblée peut employer l’Alliance baptismale IV.'),
       TextBlock.heading('LE SERVICE DE LA TABLE'),
       TextBlock.heading('OFFRANDE'),
       TextBlock.heading('PRISE DU PAIN ET DE LA COUPE'),
       TextBlock.heading('LA GRANDE ACTION DE GRÂCE'),
-      TextBlock.note('L’assemblée se reporte au Culte de la Parole et de la Table III ou à l’une des mises en musique, et le pasteur prie la Grande action de grâce (voir « Grandes actions de grâce selon les temps », Pâques).'),
+      TextBlock.note(
+          'L’assemblée se reporte au Culte de la Parole et de la Table III ou à l’une des mises en musique, et le pasteur prie la Grande action de grâce (voir « Grandes actions de grâce selon les temps », Pâques).'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('LA FRACTION DU PAIN'),
-      TextBlock.note('Le pasteur rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
+      TextBlock.note(
+          'Le pasteur rompt le pain, puis élève la coupe, en silence ou avec des paroles appropriées.'),
       TextBlock.heading('LA DISTRIBUTION DU PAIN ET DE LA COUPE'),
-      TextBlock.note('Le pain et le vin sont donnés à l’assemblée, avec des paroles appropriées. L’assemblée chante des cantiques joyeux de Pâques pendant la distribution du pain et de la coupe. Quand tous ont communié, la table du Seigneur est remise en ordre. Le pasteur ou l’assemblée peut rendre grâce après la communion.'),
+      TextBlock.note(
+          'Le pain et le vin sont donnés à l’assemblée, avec des paroles appropriées. L’assemblée chante des cantiques joyeux de Pâques pendant la distribution du pain et de la coupe. Quand tous ont communié, la table du Seigneur est remise en ordre. Le pasteur ou l’assemblée peut rendre grâce après la communion.'),
       TextBlock.heading('ENVOI'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
-      TextBlock.leader('Nous sommes envoyés dans la puissance de la résurrection du Christ. Alléluia ! / Que la grâce du Seigneur Jésus-Christ, / l’amour de Dieu / et la communion du Saint-Esprit / soient avec vous tous. Amen.'),
+      TextBlock.leader(
+          'Nous sommes envoyés dans la puissance de la résurrection du Christ. Alléluia ! / Que la grâce du Seigneur Jésus-Christ, / l’amour de Dieu / et la communion du Saint-Esprit / soient avec vous tous. Amen.'),
       TextBlock.heading('SORTIE'),
     ],
   );
@@ -2070,105 +3118,152 @@ class BookOfWorshipData {
   static const tenebrae = ChurchText(
     id: 'bow_tenebrae',
     title: 'Culte des Ténèbres',
-    subtitle: 'Méditation sur la Passion selon Jean, avec extinction progressive de quatorze bougies',
+    subtitle:
+        'Méditation sur la Passion selon Jean, avec extinction progressive de quatorze bougies',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Tenebrae (including Dismissal by Don Saliers)” Copyright © 1979, 1986 by Abingdon Press; Copyright 1992 UMPH. English translation of The Passion of Jesus Christ by J. H. Charlesworth, based upon the 2nd Edition of the Revised Standard Version with permission of the Division of Christian Education of the National Council of the Churches in Christ in the United States of America. Used by permission of Dr. Charlesworth, who extends permission to Discipleship Ministries to publish his translation, and to all end users of this version to make copies as necessary for use in worship. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-tenebrae',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service of Tenebrae (including Dismissal by Don Saliers)” Copyright © 1979, 1986 by Abingdon Press; Copyright 1992 UMPH. English translation of The Passion of Jesus Christ by J. H. Charlesworth, based upon the 2nd Edition of the Revised Standard Version with permission of the Division of Christian Education of the National Council of the Churches in Christ in the United States of America. Used by permission of Dr. Charlesworth, who extends permission to Discipleship Ministries to publish his translation, and to all end users of this version to make copies as necessary for use in worship. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-tenebrae',
     blocks: [
-      TextBlock.note('Le culte des Ténèbres, ou « des Ombres », s’inspire d’un culte du XIIe siècle célébré tard dans la nuit ou tôt le matin, et constitue une longue méditation sur la Passion du Christ. On peut l’employer (1) comme culte de clôture après la Sainte-Cène du jeudi saint, ou (2) comme culte du soir du Vendredi saint, en particulier comme début d’une veillée de prière qui se prolonge jusqu’au samedi.'),
-      TextBlock.note('Les lectures données ci-dessous sont de James H. Charlesworth. Il traduit fidèlement Jean 18.1 – 19.42, avec une sensibilité particulière à l’égard des Juifs, du judaïsme, de la judéité de Jésus et des origines juives du christianisme. La traduction française qui suit en suit l’anglais, et non la Louis Segond, afin de garder cette nuance (par exemple « autorités religieuses »).'),
-      TextBlock.note('[RASSEMBLEMENT] Omis si ce culte fait partie du culte du jeudi saint.'),
+      TextBlock.note(
+          'Le culte des Ténèbres, ou « des Ombres », s’inspire d’un culte du XIIe siècle célébré tard dans la nuit ou tôt le matin, et constitue une longue méditation sur la Passion du Christ. On peut l’employer (1) comme culte de clôture après la Sainte-Cène du jeudi saint, ou (2) comme culte du soir du Vendredi saint, en particulier comme début d’une veillée de prière qui se prolonge jusqu’au samedi.'),
+      TextBlock.note(
+          'Les lectures données ci-dessous sont de James H. Charlesworth. Il traduit fidèlement Jean 18.1 – 19.42, avec une sensibilité particulière à l’égard des Juifs, du judaïsme, de la judéité de Jésus et des origines juives du christianisme. La traduction française qui suit en suit l’anglais, et non la Louis Segond, afin de garder cette nuance (par exemple « autorités religieuses »).'),
+      TextBlock.note(
+          '[RASSEMBLEMENT] Omis si ce culte fait partie du culte du jeudi saint.'),
       TextBlock.heading('SALUTATION'),
-      TextBlock.leader('Dieu est lumière, et il n’y a point en lui de ténèbres.'),
+      TextBlock.leader(
+          'Dieu est lumière, et il n’y a point en lui de ténèbres.'),
       TextBlock.people('Jésus-Christ est la lumière du monde.'),
-      TextBlock.leader('Et voici le jugement : la lumière est venue dans le monde,'),
+      TextBlock.leader(
+          'Et voici le jugement : la lumière est venue dans le monde,'),
       TextBlock.people('et nous avons préféré les ténèbres à la lumière.'),
-      TextBlock.note('[CANTIQUE] [PRIÈRE] Si le culte a lieu le Vendredi saint, on prie tous ensemble la prière du Vendredi saint.'),
+      TextBlock.note(
+          '[CANTIQUE] [PRIÈRE] Si le culte a lieu le Vendredi saint, on prie tous ensemble la prière du Vendredi saint.'),
       TextBlock.heading('LA PASSION DE JÉSUS-CHRIST'),
-      TextBlock.note('Quatorze bougies, avec une bougie centrale du Christ, sont allumées à ce moment ou avant le début du culte ; puis on en éteint une à la fin de chaque partie. On peut intercaler des cantiques ou des strophes de cantiques, pourvu qu’il reste assez de lumière pour lire, ou les chanter de mémoire.'),
+      TextBlock.note(
+          'Quatorze bougies, avec une bougie centrale du Christ, sont allumées à ce moment ou avant le début du culte ; puis on en éteint une à la fin de chaque partie. On peut intercaler des cantiques ou des strophes de cantiques, pourvu qu’il reste assez de lumière pour lire, ou les chanter de mémoire.'),
       TextBlock.heading('1'),
-      TextBlock.p('Jésus… se rendit avec ses disciples de l’autre côté du torrent du Cédron, où se trouvait un jardin, dans lequel il entra avec ses disciples. Or, Judas, celui qui le trahissait, connaissait lui aussi cet endroit, car Jésus s’y réunissait souvent avec ses disciples. Judas, ayant pris avec lui une troupe de soldats et des gardes envoyés par les grands prêtres et les pharisiens, s’y rendit avec des lanternes, des torches et des armes. Alors Jésus, sachant tout ce qui allait lui arriver, s’avança et leur dit : « Qui cherchez-vous ? » Ils lui répondirent : « Jésus de Nazareth. » Jésus leur dit : « C’est moi. » Judas, celui qui le trahissait, se tenait avec eux. Quand Jésus leur dit : « C’est moi », ils reculèrent et tombèrent à terre. Il leur demanda de nouveau : « Qui cherchez-vous ? » Ils dirent : « Jésus de Nazareth. » Jésus répondit : « Je vous ai dit que c’est moi ; si donc c’est moi que vous cherchez, laissez partir ceux-ci. » Il fallait que s’accomplisse la parole qu’il avait dite : « Je n’ai perdu aucun de ceux que tu m’as donnés. » Alors Simon Pierre, qui avait une épée, la tira, frappa l’esclave du grand prêtre et lui coupa l’oreille droite. Cet esclave s’appelait Malchus. Jésus dit à Pierre : « Remets ton épée dans son fourreau ; ne boirai-je pas la coupe que le Père m’a donnée ? »'),
+      TextBlock.p(
+          'Jésus… se rendit avec ses disciples de l’autre côté du torrent du Cédron, où se trouvait un jardin, dans lequel il entra avec ses disciples. Or, Judas, celui qui le trahissait, connaissait lui aussi cet endroit, car Jésus s’y réunissait souvent avec ses disciples. Judas, ayant pris avec lui une troupe de soldats et des gardes envoyés par les grands prêtres et les pharisiens, s’y rendit avec des lanternes, des torches et des armes. Alors Jésus, sachant tout ce qui allait lui arriver, s’avança et leur dit : « Qui cherchez-vous ? » Ils lui répondirent : « Jésus de Nazareth. » Jésus leur dit : « C’est moi. » Judas, celui qui le trahissait, se tenait avec eux. Quand Jésus leur dit : « C’est moi », ils reculèrent et tombèrent à terre. Il leur demanda de nouveau : « Qui cherchez-vous ? » Ils dirent : « Jésus de Nazareth. » Jésus répondit : « Je vous ai dit que c’est moi ; si donc c’est moi que vous cherchez, laissez partir ceux-ci. » Il fallait que s’accomplisse la parole qu’il avait dite : « Je n’ai perdu aucun de ceux que tu m’as donnés. » Alors Simon Pierre, qui avait une épée, la tira, frappa l’esclave du grand prêtre et lui coupa l’oreille droite. Cet esclave s’appelait Malchus. Jésus dit à Pierre : « Remets ton épée dans son fourreau ; ne boirai-je pas la coupe que le Père m’a donnée ? »'),
       TextBlock.note('Un lecteur éteint la première bougie.'),
       TextBlock.heading('2'),
-      TextBlock.p('La troupe, avec son commandant, et les gardes des autorités judéennes se saisirent de Jésus et le lièrent. Ils le conduisirent d’abord chez Anne, car il était le beau-père de Caïphe, qui était grand prêtre cette année-là. C’était Caïphe qui avait conseillé aux autorités religieuses qu’il valait mieux qu’un seul homme meure pour le peuple.'),
+      TextBlock.p(
+          'La troupe, avec son commandant, et les gardes des autorités judéennes se saisirent de Jésus et le lièrent. Ils le conduisirent d’abord chez Anne, car il était le beau-père de Caïphe, qui était grand prêtre cette année-là. C’était Caïphe qui avait conseillé aux autorités religieuses qu’il valait mieux qu’un seul homme meure pour le peuple.'),
       TextBlock.note('La deuxième bougie est éteinte.'),
       TextBlock.heading('3'),
-      TextBlock.p('Simon Pierre suivait Jésus, ainsi qu’un autre disciple. Ce disciple était connu du grand prêtre ; il entra avec Jésus dans la cour du grand prêtre, tandis que Pierre restait dehors, près de la porte. L’autre disciple, qui était connu du grand prêtre, sortit donc, parla à la servante qui gardait la porte et fit entrer Pierre. La servante qui gardait la porte dit à Pierre : « N’es-tu pas, toi aussi, l’un des disciples de cet homme ? » Il répondit : « Je ne le suis pas. » Les serviteurs et les gardes avaient allumé un feu de braises, car il faisait froid, et ils se tenaient là pour se réchauffer ; Pierre était avec eux, debout, et se réchauffait aussi.'),
+      TextBlock.p(
+          'Simon Pierre suivait Jésus, ainsi qu’un autre disciple. Ce disciple était connu du grand prêtre ; il entra avec Jésus dans la cour du grand prêtre, tandis que Pierre restait dehors, près de la porte. L’autre disciple, qui était connu du grand prêtre, sortit donc, parla à la servante qui gardait la porte et fit entrer Pierre. La servante qui gardait la porte dit à Pierre : « N’es-tu pas, toi aussi, l’un des disciples de cet homme ? » Il répondit : « Je ne le suis pas. » Les serviteurs et les gardes avaient allumé un feu de braises, car il faisait froid, et ils se tenaient là pour se réchauffer ; Pierre était avec eux, debout, et se réchauffait aussi.'),
       TextBlock.note('La troisième bougie est éteinte.'),
       TextBlock.heading('4'),
-      TextBlock.p('Le grand prêtre interrogea alors Jésus sur ses disciples et sur son enseignement. Jésus lui répondit : « J’ai parlé ouvertement au monde ; j’ai toujours enseigné dans les synagogues et dans le temple, où tous les Juifs se rassemblent ; je n’ai rien dit en secret. Pourquoi m’interroges-tu ? Interroge ceux qui m’ont entendu sur ce que je leur ai dit ; ils savent ce que j’ai dit. » À ces mots, l’un des gardes qui se tenait là donna un soufflet à Jésus en disant : « Est-ce ainsi que tu réponds au grand prêtre ? » Jésus lui répondit : « Si j’ai mal parlé, montre ce que j’ai dit de mal ; mais si j’ai bien parlé, pourquoi me frappes-tu ? » Anne l’envoya alors, lié, à Caïphe, le grand prêtre.'),
+      TextBlock.p(
+          'Le grand prêtre interrogea alors Jésus sur ses disciples et sur son enseignement. Jésus lui répondit : « J’ai parlé ouvertement au monde ; j’ai toujours enseigné dans les synagogues et dans le temple, où tous les Juifs se rassemblent ; je n’ai rien dit en secret. Pourquoi m’interroges-tu ? Interroge ceux qui m’ont entendu sur ce que je leur ai dit ; ils savent ce que j’ai dit. » À ces mots, l’un des gardes qui se tenait là donna un soufflet à Jésus en disant : « Est-ce ainsi que tu réponds au grand prêtre ? » Jésus lui répondit : « Si j’ai mal parlé, montre ce que j’ai dit de mal ; mais si j’ai bien parlé, pourquoi me frappes-tu ? » Anne l’envoya alors, lié, à Caïphe, le grand prêtre.'),
       TextBlock.note('La quatrième bougie est éteinte.'),
       TextBlock.heading('5'),
-      TextBlock.p('Simon Pierre était toujours là, debout, à se réchauffer. On lui dit : « N’es-tu pas, toi aussi, l’un de ses disciples ? » Il le nia et dit : « Je ne le suis pas. » L’un des serviteurs du grand prêtre, parent de celui à qui Pierre avait coupé l’oreille, dit : « Ne t’ai-je pas vu dans le jardin avec lui ? » Pierre le nia de nouveau ; et aussitôt un coq chanta.'),
+      TextBlock.p(
+          'Simon Pierre était toujours là, debout, à se réchauffer. On lui dit : « N’es-tu pas, toi aussi, l’un de ses disciples ? » Il le nia et dit : « Je ne le suis pas. » L’un des serviteurs du grand prêtre, parent de celui à qui Pierre avait coupé l’oreille, dit : « Ne t’ai-je pas vu dans le jardin avec lui ? » Pierre le nia de nouveau ; et aussitôt un coq chanta.'),
       TextBlock.note('La cinquième bougie est éteinte.'),
       TextBlock.heading('6'),
-      TextBlock.p('Ils conduisirent ensuite Jésus de chez Caïphe au prétoire. C’était le matin. Eux-mêmes n’entrèrent pas dans le prétoire, afin de ne pas se souiller et de pouvoir manger la Pâque. Pilate sortit donc vers eux et dit : « Quelle accusation portez-vous contre cet homme ? » Ils lui répondirent : « Si cet homme n’était pas un malfaiteur, nous ne te l’aurions pas livré. » Pilate leur dit : « Prenez-le vous-mêmes et jugez-le selon votre loi. » Les autorités religieuses lui dirent : « Il ne nous est pas permis de mettre quelqu’un à mort. » Il fallait que s’accomplisse la parole que Jésus avait dite pour indiquer de quelle mort il allait mourir.'),
+      TextBlock.p(
+          'Ils conduisirent ensuite Jésus de chez Caïphe au prétoire. C’était le matin. Eux-mêmes n’entrèrent pas dans le prétoire, afin de ne pas se souiller et de pouvoir manger la Pâque. Pilate sortit donc vers eux et dit : « Quelle accusation portez-vous contre cet homme ? » Ils lui répondirent : « Si cet homme n’était pas un malfaiteur, nous ne te l’aurions pas livré. » Pilate leur dit : « Prenez-le vous-mêmes et jugez-le selon votre loi. » Les autorités religieuses lui dirent : « Il ne nous est pas permis de mettre quelqu’un à mort. » Il fallait que s’accomplisse la parole que Jésus avait dite pour indiquer de quelle mort il allait mourir.'),
       TextBlock.note('La sixième bougie est éteinte.'),
       TextBlock.heading('7'),
-      TextBlock.p('Pilate rentra dans le prétoire, appela Jésus et lui dit : « Es-tu le roi des Juifs ? » Jésus répondit : « Dis-tu cela de toi-même, ou d’autres te l’ont-ils dit de moi ? » Pilate répondit : « Suis-je juif, moi ? Ta nation et les grands prêtres t’ont livré à moi ; qu’as-tu fait ? » Jésus répondit : « Mon royaume n’est pas de ce monde ; si mon royaume était de ce monde, mes serviteurs auraient combattu pour que je ne sois pas livré aux autorités religieuses ; mais mon royaume n’est pas d’ici-bas. » Pilate lui dit : « Tu es donc roi ? » Jésus répondit : « Tu le dis, je suis roi. Je suis né, et je suis venu dans le monde pour rendre témoignage à la vérité. Quiconque est de la vérité écoute ma voix. » Pilate lui dit : « Qu’est-ce que la vérité ? »'),
+      TextBlock.p(
+          'Pilate rentra dans le prétoire, appela Jésus et lui dit : « Es-tu le roi des Juifs ? » Jésus répondit : « Dis-tu cela de toi-même, ou d’autres te l’ont-ils dit de moi ? » Pilate répondit : « Suis-je juif, moi ? Ta nation et les grands prêtres t’ont livré à moi ; qu’as-tu fait ? » Jésus répondit : « Mon royaume n’est pas de ce monde ; si mon royaume était de ce monde, mes serviteurs auraient combattu pour que je ne sois pas livré aux autorités religieuses ; mais mon royaume n’est pas d’ici-bas. » Pilate lui dit : « Tu es donc roi ? » Jésus répondit : « Tu le dis, je suis roi. Je suis né, et je suis venu dans le monde pour rendre témoignage à la vérité. Quiconque est de la vérité écoute ma voix. » Pilate lui dit : « Qu’est-ce que la vérité ? »'),
       TextBlock.note('La septième bougie est éteinte.'),
       TextBlock.heading('8'),
-      TextBlock.p('Après avoir dit cela, Pilate sortit de nouveau vers les autorités religieuses et leur dit : « Je ne trouve aucun crime en lui. Mais c’est la coutume que je vous relâche quelqu’un à la Pâque ; voulez-vous que je vous relâche le roi des Juifs ? » Ils crièrent de nouveau : « Pas lui, mais Barabbas ! » Or Barabbas était un brigand.'),
+      TextBlock.p(
+          'Après avoir dit cela, Pilate sortit de nouveau vers les autorités religieuses et leur dit : « Je ne trouve aucun crime en lui. Mais c’est la coutume que je vous relâche quelqu’un à la Pâque ; voulez-vous que je vous relâche le roi des Juifs ? » Ils crièrent de nouveau : « Pas lui, mais Barabbas ! » Or Barabbas était un brigand.'),
       TextBlock.note('La huitième bougie est éteinte.'),
       TextBlock.heading('9'),
-      TextBlock.p('Alors Pilate prit Jésus et le fit flageller. Les soldats tressèrent une couronne d’épines, la lui mirent sur la tête et le revêtirent d’un manteau de pourpre ; ils s’approchaient de lui en disant : « Salut, roi des Juifs ! » et ils le frappaient de leurs mains. Pilate sortit de nouveau et leur dit : « Voici, je vous l’amène dehors, afin que vous sachiez que je ne trouve aucun crime en lui. » Jésus sortit donc, portant la couronne d’épines et le manteau de pourpre. Pilate leur dit : « Voici l’homme ! » Quand les grands prêtres et les gardes le virent, ils crièrent : « Crucifie-le, crucifie-le ! » Pilate leur dit : « Prenez-le vous-mêmes et crucifiez-le, car je ne trouve aucun crime en lui. » Les autorités religieuses lui répondirent : « Nous avons une loi, et selon cette loi il doit mourir, parce qu’il s’est fait Fils de Dieu. » Quand Pilate entendit ces paroles, sa crainte augmenta ; il rentra dans le prétoire et dit à Jésus : « D’où es-tu ? » Mais Jésus ne lui donna aucune réponse. Pilate lui dit donc : « Tu ne me parles pas ? Ne sais-tu pas que j’ai le pouvoir de te relâcher et le pouvoir de te crucifier ? » Jésus lui répondit : « Tu n’aurais aucun pouvoir sur moi s’il ne t’avait été donné d’en haut ; c’est pourquoi celui qui m’a livré à toi a un plus grand péché. »'),
+      TextBlock.p(
+          'Alors Pilate prit Jésus et le fit flageller. Les soldats tressèrent une couronne d’épines, la lui mirent sur la tête et le revêtirent d’un manteau de pourpre ; ils s’approchaient de lui en disant : « Salut, roi des Juifs ! » et ils le frappaient de leurs mains. Pilate sortit de nouveau et leur dit : « Voici, je vous l’amène dehors, afin que vous sachiez que je ne trouve aucun crime en lui. » Jésus sortit donc, portant la couronne d’épines et le manteau de pourpre. Pilate leur dit : « Voici l’homme ! » Quand les grands prêtres et les gardes le virent, ils crièrent : « Crucifie-le, crucifie-le ! » Pilate leur dit : « Prenez-le vous-mêmes et crucifiez-le, car je ne trouve aucun crime en lui. » Les autorités religieuses lui répondirent : « Nous avons une loi, et selon cette loi il doit mourir, parce qu’il s’est fait Fils de Dieu. » Quand Pilate entendit ces paroles, sa crainte augmenta ; il rentra dans le prétoire et dit à Jésus : « D’où es-tu ? » Mais Jésus ne lui donna aucune réponse. Pilate lui dit donc : « Tu ne me parles pas ? Ne sais-tu pas que j’ai le pouvoir de te relâcher et le pouvoir de te crucifier ? » Jésus lui répondit : « Tu n’aurais aucun pouvoir sur moi s’il ne t’avait été donné d’en haut ; c’est pourquoi celui qui m’a livré à toi a un plus grand péché. »'),
       TextBlock.note('La neuvième bougie est éteinte.'),
       TextBlock.heading('10'),
-      TextBlock.p('Dès lors, Pilate cherchait à le relâcher, mais les autorités religieuses crièrent : « Si tu le relâches, tu n’es pas l’ami de César ; quiconque se fait roi se déclare contre César. » Quand Pilate entendit ces paroles, il fit sortir Jésus et s’assit sur le tribunal, à l’endroit appelé le Pavé, et en hébreu Gabbatha. C’était le jour de la Préparation de la Pâque ; il était environ la sixième heure. Il dit aux autorités religieuses : « Voici votre roi ! » Ils crièrent : « À mort, à mort, crucifie-le ! » Pilate leur dit : « Crucifierai-je votre roi ? » Les grands prêtres répondirent : « Nous n’avons pas d’autre roi que César. » Alors il le leur livra pour être crucifié.'),
+      TextBlock.p(
+          'Dès lors, Pilate cherchait à le relâcher, mais les autorités religieuses crièrent : « Si tu le relâches, tu n’es pas l’ami de César ; quiconque se fait roi se déclare contre César. » Quand Pilate entendit ces paroles, il fit sortir Jésus et s’assit sur le tribunal, à l’endroit appelé le Pavé, et en hébreu Gabbatha. C’était le jour de la Préparation de la Pâque ; il était environ la sixième heure. Il dit aux autorités religieuses : « Voici votre roi ! » Ils crièrent : « À mort, à mort, crucifie-le ! » Pilate leur dit : « Crucifierai-je votre roi ? » Les grands prêtres répondirent : « Nous n’avons pas d’autre roi que César. » Alors il le leur livra pour être crucifié.'),
       TextBlock.note('La dixième bougie est éteinte.'),
       TextBlock.heading('11'),
-      TextBlock.p('Ils prirent donc Jésus, et il sortit, portant lui-même sa croix, vers le lieu appelé le lieu du crâne, qui se nomme en hébreu Golgotha. Là ils le crucifièrent, et avec lui deux autres, un de chaque côté, et Jésus au milieu. Pilate fit aussi une inscription et la plaça sur la croix ; on y lisait : « Jésus de Nazareth, le roi des Juifs. » Beaucoup de Judéens lurent cette inscription, car le lieu où Jésus fut crucifié était près de la ville ; elle était écrite en hébreu, en latin et en grec. Les grands prêtres juifs dirent alors à Pilate : « N’écris pas : “Le roi des Juifs”, mais : “Cet homme a dit : Je suis le roi des Juifs.” » Pilate répondit : « Ce que j’ai écrit, je l’ai écrit. »'),
+      TextBlock.p(
+          'Ils prirent donc Jésus, et il sortit, portant lui-même sa croix, vers le lieu appelé le lieu du crâne, qui se nomme en hébreu Golgotha. Là ils le crucifièrent, et avec lui deux autres, un de chaque côté, et Jésus au milieu. Pilate fit aussi une inscription et la plaça sur la croix ; on y lisait : « Jésus de Nazareth, le roi des Juifs. » Beaucoup de Judéens lurent cette inscription, car le lieu où Jésus fut crucifié était près de la ville ; elle était écrite en hébreu, en latin et en grec. Les grands prêtres juifs dirent alors à Pilate : « N’écris pas : “Le roi des Juifs”, mais : “Cet homme a dit : Je suis le roi des Juifs.” » Pilate répondit : « Ce que j’ai écrit, je l’ai écrit. »'),
       TextBlock.note('La onzième bougie est éteinte.'),
       TextBlock.heading('12'),
-      TextBlock.p('Quand les soldats eurent crucifié Jésus, ils prirent ses vêtements et en firent quatre parts, une pour chaque soldat ; ils prirent aussi la tunique. Mais la tunique était sans couture, tissée d’une seule pièce depuis le haut ; ils se dirent donc les uns aux autres : « Ne la déchirons pas, mais tirons au sort à qui elle sera. » Il fallait que s’accomplisse l’Écriture : « Ils se sont partagé mes vêtements, et ils ont tiré au sort ma tunique. »'),
+      TextBlock.p(
+          'Quand les soldats eurent crucifié Jésus, ils prirent ses vêtements et en firent quatre parts, une pour chaque soldat ; ils prirent aussi la tunique. Mais la tunique était sans couture, tissée d’une seule pièce depuis le haut ; ils se dirent donc les uns aux autres : « Ne la déchirons pas, mais tirons au sort à qui elle sera. » Il fallait que s’accomplisse l’Écriture : « Ils se sont partagé mes vêtements, et ils ont tiré au sort ma tunique. »'),
       TextBlock.note('La douzième bougie est éteinte.'),
       TextBlock.heading('13'),
-      TextBlock.p('Voilà ce que firent les soldats. Près de la croix de Jésus se tenaient sa mère, la sœur de sa mère, Marie, femme de Clopas, et Marie de Magdala. Quand Jésus vit sa mère et, près d’elle, le disciple qu’il aimait, il dit à sa mère : « Femme, voici ton fils. » Puis il dit au disciple : « Voici ta mère. » Et dès cette heure-là, le disciple la prit chez lui.'),
+      TextBlock.p(
+          'Voilà ce que firent les soldats. Près de la croix de Jésus se tenaient sa mère, la sœur de sa mère, Marie, femme de Clopas, et Marie de Magdala. Quand Jésus vit sa mère et, près d’elle, le disciple qu’il aimait, il dit à sa mère : « Femme, voici ton fils. » Puis il dit au disciple : « Voici ta mère. » Et dès cette heure-là, le disciple la prit chez lui.'),
       TextBlock.note('La treizième bougie est éteinte.'),
       TextBlock.heading('14'),
-      TextBlock.p('Après cela, Jésus, sachant que tout était désormais accompli, dit (afin que l’Écriture s’accomplisse) : « J’ai soif. » Il y avait là un vase plein de vinaigre ; on fixa donc à une branche d’hysope une éponge imbibée de vinaigre et on la lui approcha de la bouche. Quand Jésus eut pris le vinaigre, il dit : « Tout est accompli. » Puis, baissant la tête, il rendit l’esprit.'),
+      TextBlock.p(
+          'Après cela, Jésus, sachant que tout était désormais accompli, dit (afin que l’Écriture s’accomplisse) : « J’ai soif. » Il y avait là un vase plein de vinaigre ; on fixa donc à une branche d’hysope une éponge imbibée de vinaigre et on la lui approcha de la bouche. Quand Jésus eut pris le vinaigre, il dit : « Tout est accompli. » Puis, baissant la tête, il rendit l’esprit.'),
       TextBlock.note('La quatorzième bougie est éteinte.'),
       TextBlock.heading('15'),
-      TextBlock.p('Comme c’était le jour de la Préparation, et afin que les corps ne restent pas sur la croix pendant le sabbat (car ce sabbat était un grand jour), les autorités religieuses demandèrent à Pilate qu’on leur brise les jambes et qu’on les enlève. Les soldats vinrent donc et brisèrent les jambes du premier, puis de l’autre qui avait été crucifié avec lui ; mais quand ils arrivèrent à Jésus et virent qu’il était déjà mort, ils ne lui brisèrent pas les jambes. Mais l’un des soldats lui perça le côté avec une lance, et aussitôt il en sortit du sang et de l’eau. Celui qui l’a vu en a rendu témoignage — son témoignage est vrai, et il sait qu’il dit vrai — afin que vous aussi vous croyiez. Car ces choses sont arrivées afin que l’Écriture s’accomplisse : « Aucun de ses os ne sera brisé. » Et une autre Écriture dit encore : « Ils verront celui qu’ils ont transpercé. »'),
-      TextBlock.note('On retire ou on éteint la bougie du Christ. On fait un grand bruit avec une cymbale ou autrement. La dernière partie est lue dans l’obscurité.'),
+      TextBlock.p(
+          'Comme c’était le jour de la Préparation, et afin que les corps ne restent pas sur la croix pendant le sabbat (car ce sabbat était un grand jour), les autorités religieuses demandèrent à Pilate qu’on leur brise les jambes et qu’on les enlève. Les soldats vinrent donc et brisèrent les jambes du premier, puis de l’autre qui avait été crucifié avec lui ; mais quand ils arrivèrent à Jésus et virent qu’il était déjà mort, ils ne lui brisèrent pas les jambes. Mais l’un des soldats lui perça le côté avec une lance, et aussitôt il en sortit du sang et de l’eau. Celui qui l’a vu en a rendu témoignage — son témoignage est vrai, et il sait qu’il dit vrai — afin que vous aussi vous croyiez. Car ces choses sont arrivées afin que l’Écriture s’accomplisse : « Aucun de ses os ne sera brisé. » Et une autre Écriture dit encore : « Ils verront celui qu’ils ont transpercé. »'),
+      TextBlock.note(
+          'On retire ou on éteint la bougie du Christ. On fait un grand bruit avec une cymbale ou autrement. La dernière partie est lue dans l’obscurité.'),
       TextBlock.heading('16'),
-      TextBlock.p('Après cela, Joseph d’Arimathée, qui était disciple de Jésus, mais en secret, par crainte des autorités religieuses, demanda à Pilate la permission d’enlever le corps de Jésus, et Pilate le lui permit. Il vint donc et enleva son corps. Nicodème, qui était venu la première fois à Jésus de nuit, vint aussi, apportant un mélange de myrrhe et d’aloès, d’environ cent livres. Ils prirent le corps de Jésus et l’enveloppèrent de linges avec les aromates, selon la manière d’ensevelir des Juifs. Or, à l’endroit où il avait été crucifié, il y avait un jardin, et dans ce jardin un tombeau neuf, où personne n’avait encore été mis. À cause de la Préparation des Juifs, et parce que le tombeau était proche, ils y déposèrent Jésus. (JEAN 18.1 – 19.42)'),
-      TextBlock.note('Silence. La salle reste dans l’obscurité, avec seulement l’éclairage nécessaire à la sécurité. Elle reste ensuite nue jusqu’à la veillée pascale. Le cantique final et le congé peuvent être omis, en signe d’attente de la résurrection qui vient et pour montrer l’unité essentielle des cultes des Trois Grands Jours.'),
+      TextBlock.p(
+          'Après cela, Joseph d’Arimathée, qui était disciple de Jésus, mais en secret, par crainte des autorités religieuses, demanda à Pilate la permission d’enlever le corps de Jésus, et Pilate le lui permit. Il vint donc et enleva son corps. Nicodème, qui était venu la première fois à Jésus de nuit, vint aussi, apportant un mélange de myrrhe et d’aloès, d’environ cent livres. Ils prirent le corps de Jésus et l’enveloppèrent de linges avec les aromates, selon la manière d’ensevelir des Juifs. Or, à l’endroit où il avait été crucifié, il y avait un jardin, et dans ce jardin un tombeau neuf, où personne n’avait encore été mis. À cause de la Préparation des Juifs, et parce que le tombeau était proche, ils y déposèrent Jésus. (JEAN 18.1 – 19.42)'),
+      TextBlock.note(
+          'Silence. La salle reste dans l’obscurité, avec seulement l’éclairage nécessaire à la sécurité. Elle reste ensuite nue jusqu’à la veillée pascale. Le cantique final et le congé peuvent être omis, en signe d’attente de la résurrection qui vient et pour montrer l’unité essentielle des cultes des Trois Grands Jours.'),
       TextBlock.heading('[CONGÉ]'),
-      TextBlock.leader('Allez en paix. / Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie cette nuit et pour toujours. Amen.'),
+      TextBlock.leader(
+          'Allez en paix. / Que Jésus-Christ, / qui pour nous s’est fait obéissant jusqu’à la mort, même jusqu’à la mort sur une croix, / vous garde et vous fortifie cette nuit et pour toujours. Amen.'),
       TextBlock.heading('SORTIE'),
-      TextBlock.note('Tous se retirent en silence, sauf ceux qui commencent une veillée de prière.'),
+      TextBlock.note(
+          'Tous se retirent en silence, sauf ceux qui commencent une veillée de prière.'),
     ],
   );
 
   static const healing2 = ChurchText(
     id: 'bow_healing_2',
     title: 'Culte de guérison II',
-    subtitle: 'Une forme brève, pour la maison, l’hôpital ou un groupe de prière',
+    subtitle:
+        'Une forme brève, pour la maison, l’hôpital ou un groupe de prière',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « A Service of Healing II © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-of-healing-ii',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « A Service of Healing II © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-of-healing-ii',
     blocks: [
-      TextBlock.note('Ce culte peut être employé en privé ou dans un culte communautaire. Il peut avoir lieu dans une église, à la maison, à l’hôpital ou à une réunion d’un groupe de prière. On peut l’adapter à des besoins particuliers en choisissant les parties appropriées, ici et dans les ressources complémentaires. Les cantiques proposés dans le Culte de guérison I conviennent aussi.'),
+      TextBlock.note(
+          'Ce culte peut être employé en privé ou dans un culte communautaire. Il peut avoir lieu dans une église, à la maison, à l’hôpital ou à une réunion d’un groupe de prière. On peut l’adapter à des besoins particuliers en choisissant les parties appropriées, ici et dans les ressources complémentaires. Les cantiques proposés dans le Culte de guérison I conviennent aussi.'),
       TextBlock.heading('SALUTATION ET PRÉPARATION'),
       TextBlock.heading('LECTURE DES ÉCRITURES'),
-      TextBlock.note('Voir les lectures suggérées dans le Culte de guérison I. On peut ajouter des commentaires sur les lectures, au besoin.'),
+      TextBlock.note(
+          'Voir les lectures suggérées dans le Culte de guérison I. On peut ajouter des commentaires sur les lectures, au besoin.'),
       TextBlock.heading('CONFESSION ET PARDON'),
-      TextBlock.note('Si cela paraît approprié, on peut inviter les personnes présentes à partager tout ce qui les gêne dans leur relation avec Dieu, par l’une des invitations suivantes ou une autre invitation appropriée :'),
-      TextBlock.leader('[Prénom], l’Écriture nous dit de porter les fardeaux les uns des autres / et d’accomplir ainsi la loi du Christ. / En tant que ta sœur (ton frère) en Christ, je te demande maintenant : / es-tu en paix avec Dieu, / ou y a-t-il quelque chose dans ta vie / qui te donne le sentiment d’être séparé(e) de Dieu / et de ne pas être pleinement la personne que Dieu t’appelle à être ?'),
-      TextBlock.leader('[Prénom], l’Écriture nous dit de ne pas nous inquiéter pour notre vie / ni pour demain. / Y a-t-il des inquiétudes qui te donnent le sentiment d’être éloigné(e) / de la paix que Dieu promet ?'),
-      TextBlock.note('Il peut y avoir du silence, de la réflexion ou un partage personnel. On peut employer une confession et un pardon, ou un psaume approprié.'),
+      TextBlock.note(
+          'Si cela paraît approprié, on peut inviter les personnes présentes à partager tout ce qui les gêne dans leur relation avec Dieu, par l’une des invitations suivantes ou une autre invitation appropriée :'),
+      TextBlock.leader(
+          '[Prénom], l’Écriture nous dit de porter les fardeaux les uns des autres / et d’accomplir ainsi la loi du Christ. / En tant que ta sœur (ton frère) en Christ, je te demande maintenant : / es-tu en paix avec Dieu, / ou y a-t-il quelque chose dans ta vie / qui te donne le sentiment d’être séparé(e) de Dieu / et de ne pas être pleinement la personne que Dieu t’appelle à être ?'),
+      TextBlock.leader(
+          '[Prénom], l’Écriture nous dit de ne pas nous inquiéter pour notre vie / ni pour demain. / Y a-t-il des inquiétudes qui te donnent le sentiment d’être éloigné(e) / de la paix que Dieu promet ?'),
+      TextBlock.note(
+          'Il peut y avoir du silence, de la réflexion ou un partage personnel. On peut employer une confession et un pardon, ou un psaume approprié.'),
       TextBlock.heading('[SAINTE-CÈNE]'),
-      TextBlock.note('Le pasteur peut donner la Sainte-Cène en employant le Culte de la Parole et de la Table V.'),
-      TextBlock.heading('PRIÈRES POUR LA GUÉRISON ET LA PLÉNITUDE, AVEC ONCTION ET / OU IMPOSITION DES MAINS'),
-      TextBlock.note('S’il y a onction d’huile, un responsable trempe le pouce dans l’huile et trace le signe de la croix sur le front de la personne, en silence ou avec ces paroles ou des paroles semblables :'),
-      TextBlock.leader('[Prénom], je t’oins d’huile / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
-      TextBlock.note('S’il y a imposition des mains, un responsable, que d’autres peuvent rejoindre, pose les mains sur la tête de chaque personne, en silence ou avec ces paroles ou des paroles semblables :'),
-      TextBlock.leader('[Prénom], je pose (nous posons) les mains sur toi / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
+      TextBlock.note(
+          'Le pasteur peut donner la Sainte-Cène en employant le Culte de la Parole et de la Table V.'),
+      TextBlock.heading(
+          'PRIÈRES POUR LA GUÉRISON ET LA PLÉNITUDE, AVEC ONCTION ET / OU IMPOSITION DES MAINS'),
+      TextBlock.note(
+          'S’il y a onction d’huile, un responsable trempe le pouce dans l’huile et trace le signe de la croix sur le front de la personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader(
+          '[Prénom], je t’oins d’huile / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
+      TextBlock.note(
+          'S’il y a imposition des mains, un responsable, que d’autres peuvent rejoindre, pose les mains sur la tête de chaque personne, en silence ou avec ces paroles ou des paroles semblables :'),
+      TextBlock.leader(
+          '[Prénom], je pose (nous posons) les mains sur toi / au nom du Père, du Fils et du Saint-Esprit\n(ou : au nom du Dieu saint et trine)\n[pour l’intention précisée].'),
       TextBlock.heading('PRIÈRES D’INTERCESSION'),
-      TextBlock.note('L’une des prières pour des intentions particulières, ou une autre prière appropriée.'),
+      TextBlock.note(
+          'L’une des prières pour des intentions particulières, ou une autre prière appropriée.'),
       TextBlock.heading('LA PRIÈRE DU SEIGNEUR'),
-      TextBlock.people('Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
+      TextBlock.people(
+          'Notre Père, qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, que ta volonté soit faite sur la terre comme au ciel. Donne-nous aujourd’hui notre pain de ce jour. Pardonne-nous nos offenses, comme nous aussi nous pardonnons à ceux qui nous ont offensés. Ne nous laisse pas entrer en tentation, mais délivre-nous du mal. Car c’est à toi qu’appartiennent le règne, la puissance et la gloire, aux siècles des siècles. Amen.'),
       TextBlock.heading('BÉNÉDICTION'),
     ],
   );
@@ -2178,15 +3273,21 @@ class BookOfWorshipData {
     title: 'Accompagnement des personnes gravement malades',
     subtitle: 'Prière et lectures pour une maladie mettant la vie en danger',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons with Life-threatening Illness” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-with-life-threatening-illness',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons with Life-threatening Illness” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-with-life-threatening-illness',
     blocks: [
       TextBlock.heading('PRIÈRE'),
-      TextBlock.leader('Seigneur Jésus-Christ, / nous venons à toi en partageant la souffrance que tu as endurée. / Donne-nous la patience en ce temps, / afin que, pendant que nous et [Prénom] vivons dans la douleur, la déception et la frustration, / nous comprenions que la souffrance fait partie de la vie, / une part de la vie que tu connais intimement. / Touche [Prénom] dans son épreuve, / tiens-le (la) tendrement dans tes bras pleins d’amour, / et fais-lui savoir que tu prends soin de lui (d’elle). / Renouvelle notre esprit, / même quand notre corps n’est pas renouvelé, / afin que nous soyons toujours prêts à demeurer dans ta maison éternelle, / par notre foi en toi, Seigneur Jésus, / toi qui es mort et qui es vivant pour les siècles des siècles. Amen.'),
+      TextBlock.leader(
+          'Seigneur Jésus-Christ, / nous venons à toi en partageant la souffrance que tu as endurée. / Donne-nous la patience en ce temps, / afin que, pendant que nous et [Prénom] vivons dans la douleur, la déception et la frustration, / nous comprenions que la souffrance fait partie de la vie, / une part de la vie que tu connais intimement. / Touche [Prénom] dans son épreuve, / tiens-le (la) tendrement dans tes bras pleins d’amour, / et fais-lui savoir que tu prends soin de lui (d’elle). / Renouvelle notre esprit, / même quand notre corps n’est pas renouvelé, / afin que nous soyons toujours prêts à demeurer dans ta maison éternelle, / par notre foi en toi, Seigneur Jésus, / toi qui es mort et qui es vivant pour les siècles des siècles. Amen.'),
       TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
-      TextBlock.leader('Ecclésiaste 3.1-11a — il y a un temps pour toute chose\nEsaïe 25.6-10 — Dieu engloutira la mort\nPsaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
-      TextBlock.note('On peut chanter des cantiques connus et aimés, ou ceux qui sont proposés sous « Cantique de guérison », pour ou avec des personnes atteintes d’une maladie mettant leur vie en danger.'),
-      TextBlock.note('Voir aussi les ressources de l’accompagnement des mourants.'),
+      TextBlock.leader(
+          'Ecclésiaste 3.1-11a — il y a un temps pour toute chose\nEsaïe 25.6-10 — Dieu engloutira la mort\nPsaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
+      TextBlock.note(
+          'On peut chanter des cantiques connus et aimés, ou ceux qui sont proposés sous « Cantique de guérison », pour ou avec des personnes atteintes d’une maladie mettant leur vie en danger.'),
+      TextBlock.note(
+          'Voir aussi les ressources de l’accompagnement des mourants.'),
     ],
   );
 
@@ -2195,12 +3296,16 @@ class BookOfWorshipData {
     title: 'Accompagnement des personnes dans le coma',
     subtitle: 'Lectures et cantiques pour celles qui ne peuvent communiquer',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Ministry with Persons in Coma or Unable to Communicate Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-in-coma-or-unable-to-communicate',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « Ministry with Persons in Coma or Unable to Communicate Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-in-coma-or-unable-to-communicate',
     blocks: [
       TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
-      TextBlock.leader('Psaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nEsaïe 61.1-3 — l’Esprit du Seigneur\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
-      TextBlock.note('On peut lire l’Écriture et chanter des cantiques connus et aimés à des personnes dans le coma ou incapables de communiquer. Certaines familles trouveront aussi réconfortant d’organiser le temps passé auprès d’un proche qui ne peut communiquer autour d’un simple office de prière du matin ou du soir.'),
+      TextBlock.leader(
+          'Psaumes 23 — l’Éternel est mon berger\nPsaumes 42 — mon âme soupire après toi\nEsaïe 61.1-3 — l’Esprit du Seigneur\nRomains 8.18-25 — les souffrances présentes et la gloire à venir\nRomains 14.7-9 — nous appartenons au Seigneur'),
+      TextBlock.note(
+          'On peut lire l’Écriture et chanter des cantiques connus et aimés à des personnes dans le coma ou incapables de communiquer. Certaines familles trouveront aussi réconfortant d’organiser le temps passé auprès d’un proche qui ne peut communiquer autour d’un simple office de prière du matin ou du soir.'),
     ],
   );
 
@@ -2209,14 +3314,19 @@ class BookOfWorshipData {
     title: 'Accompagnement des personnes qui divorcent',
     subtitle: 'Prière et lectures pour la fin d’un mariage',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons Going through Divorce” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-going-through-divorce',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “Ministry with Persons Going through Divorce” Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/ministry-with-persons-going-through-divorce',
     blocks: [
       TextBlock.heading('PRIÈRE'),
-      TextBlock.leader('Dieu d’amour et de compréhension infinis, / répands ton Esprit guérisseur sur [Prénom], / pendant qu’il (elle) réfléchit à l’échec (la fin) de son mariage / et prend un nouveau départ. / Là où il y a blessure ou amertume, / accorde la guérison des souvenirs / et la capacité de laisser derrière lui (elle) ce qui est passé. / Là où des sentiments de désespoir ou d’inutilité l’envahissent, / nourris l’esprit d’espérance et de confiance : / par ta grâce, demain peut être meilleur qu’hier. / Là où il (elle) regarde en lui-même (elle-même) et découvre des fautes / qui ont contribué à la destruction du mariage / et ont blessé d’autres personnes, / accorde le pardon pour ce qui est passé / et la croissance dans tout ce qui fait la vie nouvelle. / [Guéris [prénoms des enfants], et aide-nous à leur apporter ta guérison.] / Nous prions pour [les autres membres de] la famille et les amis, / pour la guérison de leurs blessures et l’acceptation des réalités nouvelles. / Tout cela, nous te le demandons au nom de celui / qui nous libère de l’esclavage du passé et fait toutes choses nouvelles, / Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.leader(
+          'Dieu d’amour et de compréhension infinis, / répands ton Esprit guérisseur sur [Prénom], / pendant qu’il (elle) réfléchit à l’échec (la fin) de son mariage / et prend un nouveau départ. / Là où il y a blessure ou amertume, / accorde la guérison des souvenirs / et la capacité de laisser derrière lui (elle) ce qui est passé. / Là où des sentiments de désespoir ou d’inutilité l’envahissent, / nourris l’esprit d’espérance et de confiance : / par ta grâce, demain peut être meilleur qu’hier. / Là où il (elle) regarde en lui-même (elle-même) et découvre des fautes / qui ont contribué à la destruction du mariage / et ont blessé d’autres personnes, / accorde le pardon pour ce qui est passé / et la croissance dans tout ce qui fait la vie nouvelle. / [Guéris [prénoms des enfants], et aide-nous à leur apporter ta guérison.] / Nous prions pour [les autres membres de] la famille et les amis, / pour la guérison de leurs blessures et l’acceptation des réalités nouvelles. / Tout cela, nous te le demandons au nom de celui / qui nous libère de l’esclavage du passé et fait toutes choses nouvelles, / Jésus-Christ notre Sauveur. Amen.'),
       TextBlock.heading('LECTURES BIBLIQUES SUGGÉRÉES'),
-      TextBlock.leader('Philippiens 3.12-16 — je cours vers le but\nLuc 7.36-50 — Jésus pardonne à une femme de la ville\nLuc 13.10-17 — Jésus guérit une femme courbée\nLuc 18.35-43 — Jésus guérit un mendiant aveugle'),
-      TextBlock.note('Les cantiques proposés sous « Cantique de guérison » conviennent.'),
+      TextBlock.leader(
+          'Philippiens 3.12-16 — je cours vers le but\nLuc 7.36-50 — Jésus pardonne à une femme de la ville\nLuc 13.10-17 — Jésus guérit une femme courbée\nLuc 18.35-43 — Jésus guérit un mendiant aveugle'),
+      TextBlock.note(
+          'Les cantiques proposés sous « Cantique de guérison » conviennent.'),
     ],
   );
 
@@ -2225,17 +3335,26 @@ class BookOfWorshipData {
     title: 'Adieu à un pasteur ou à un diacre',
     subtitle: 'Rite de départ ou de retraite : remerciements, pardon et prière',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to a Pastor or Deacon,” Copyright © 1992 UMPH, alt. 2015 (to include deacon in full connection) by Discipleship Ministries. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-a-pastor-or-deacon',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to a Pastor or Deacon,” Copyright © 1992 UMPH, alt. 2015 (to include deacon in full connection) by Discipleship Ministries. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-a-pastor-or-deacon',
     blocks: [
-      TextBlock.note('Ce rite peut être employé dans un culte, le dernier dimanche avant qu’un pasteur ou un diacre rejoigne une autre assemblée ou prenne sa retraite, ou lors d’un culte spécial. Il peut être adapté en un rite d’adieu à un membre du personnel de l’église autre que le pasteur.'),
-      TextBlock.note('En réponse à la Parole, le responsable laïc ou un autre responsable désigné s’avance et annonce que le moment est venu de dire adieu au pasteur ou au diacre. Une ou plusieurs personnes peuvent rappeler avec reconnaissance son ministère. On peut offrir un cadeau ou un symbole, avec des paroles de remerciement appropriées. Une étole peut être laissée pour être revêtue par le prochain pasteur ou diacre (voir « Rite de célébration d’une nomination »). Le pasteur et l’assemblée peuvent se libérer mutuellement par ces paroles ou d’autres semblables.'),
-      TextBlock.leader('Je vous remercie, membres et amis de l’Église méthodiste unie de [Nom], / de l’amour et du soutien que vous m’avez montrés / pendant que j’ai exercé mon ministère parmi vous. / Je suis reconnaissant de la manière dont ma direction a été accueillie. / Je demande pardon pour les erreurs que j’ai commises. / En partant, j’emporte avec moi tout ce que j’ai appris ici.'),
-      TextBlock.people('Nous recevons votre reconnaissance, nous vous offrons notre pardon / et nous acceptons que vous partiez maintenant exercer votre ministère ailleurs (prendre votre retraite). / Nous vous exprimons notre gratitude pour le temps passé parmi nous. / Nous vous demandons pardon pour nos erreurs. / Votre influence sur notre foi et notre fidélité / ne partira pas avec vous.'),
-      TextBlock.leader('J’accepte votre reconnaissance et votre pardon, et je vous pardonne, / confiant que notre temps ensemble et notre séparation / sont agréables à Dieu. / Je vous libère de vous tourner vers moi et de dépendre de moi. / Je vous encourage à poursuivre le ministère ici / et je prierai pour vous et pour votre nouveau pasteur (diacre).'),
-      TextBlock.note('Le pasteur peut prier spontanément, ou le pasteur et l’assemblée peuvent dire ensemble la prière suivante :'),
+      TextBlock.note(
+          'Ce rite peut être employé dans un culte, le dernier dimanche avant qu’un pasteur ou un diacre rejoigne une autre assemblée ou prenne sa retraite, ou lors d’un culte spécial. Il peut être adapté en un rite d’adieu à un membre du personnel de l’église autre que le pasteur.'),
+      TextBlock.note(
+          'En réponse à la Parole, le responsable laïc ou un autre responsable désigné s’avance et annonce que le moment est venu de dire adieu au pasteur ou au diacre. Une ou plusieurs personnes peuvent rappeler avec reconnaissance son ministère. On peut offrir un cadeau ou un symbole, avec des paroles de remerciement appropriées. Une étole peut être laissée pour être revêtue par le prochain pasteur ou diacre (voir « Rite de célébration d’une nomination »). Le pasteur et l’assemblée peuvent se libérer mutuellement par ces paroles ou d’autres semblables.'),
+      TextBlock.leader(
+          'Je vous remercie, membres et amis de l’Église méthodiste unie de [Nom], / de l’amour et du soutien que vous m’avez montrés / pendant que j’ai exercé mon ministère parmi vous. / Je suis reconnaissant de la manière dont ma direction a été accueillie. / Je demande pardon pour les erreurs que j’ai commises. / En partant, j’emporte avec moi tout ce que j’ai appris ici.'),
+      TextBlock.people(
+          'Nous recevons votre reconnaissance, nous vous offrons notre pardon / et nous acceptons que vous partiez maintenant exercer votre ministère ailleurs (prendre votre retraite). / Nous vous exprimons notre gratitude pour le temps passé parmi nous. / Nous vous demandons pardon pour nos erreurs. / Votre influence sur notre foi et notre fidélité / ne partira pas avec vous.'),
+      TextBlock.leader(
+          'J’accepte votre reconnaissance et votre pardon, et je vous pardonne, / confiant que notre temps ensemble et notre séparation / sont agréables à Dieu. / Je vous libère de vous tourner vers moi et de dépendre de moi. / Je vous encourage à poursuivre le ministère ici / et je prierai pour vous et pour votre nouveau pasteur (diacre).'),
+      TextBlock.note(
+          'Le pasteur peut prier spontanément, ou le pasteur et l’assemblée peuvent dire ensemble la prière suivante :'),
       TextBlock.leader('Prions.'),
-      TextBlock.people('Dieu éternel, dont l’amour fidèle pour nous va d’éternité en éternité, / nous te rendons grâce pour les souvenirs précieux / et nous nous confions les uns les autres à tes soins en prenant de nouvelles directions. / Garde-nous un dans ton amour pour toujours, par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.people(
+          'Dieu éternel, dont l’amour fidèle pour nous va d’éternité en éternité, / nous te rendons grâce pour les souvenirs précieux / et nous nous confions les uns les autres à tes soins en prenant de nouvelles directions. / Garde-nous un dans ton amour pour toujours, par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('On peut chanter un cantique.'),
     ],
   );
@@ -2245,22 +3364,33 @@ class BookOfWorshipData {
     title: 'Adieu à des membres de l’église',
     subtitle: 'Rite pour une personne ou une famille qui déménage',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to Church Members.” Copyright © 1992 UMPH. Prayer by E. Hawkins (England, 1789). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-church-members',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order of Farewell to Church Members.” Copyright © 1992 UMPH. Prayer by E. Hawkins (England, 1789). » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-of-farewell-to-church-members',
     blocks: [
-      TextBlock.note('Ce rite est un adieu public à un membre ou à une famille de l’église qui déménage dans une autre localité.'),
-      TextBlock.note('Dans tout culte de l’assemblée, en réponse à la Parole ou à un autre moment convenable, le pasteur invite à s’avancer la ou les personnes qui déménagent, pour les reconnaître. Elles font face à l’assemblée. Le pasteur peut brièvement rappeler ce que ces personnes ont apporté à l’assemblée, puis poursuivre ce rite.'),
+      TextBlock.note(
+          'Ce rite est un adieu public à un membre ou à une famille de l’église qui déménage dans une autre localité.'),
+      TextBlock.note(
+          'Dans tout culte de l’assemblée, en réponse à la Parole ou à un autre moment convenable, le pasteur invite à s’avancer la ou les personnes qui déménagent, pour les reconnaître. Elles font face à l’assemblée. Le pasteur peut brièvement rappeler ce que ces personnes ont apporté à l’assemblée, puis poursuivre ce rite.'),
       TextBlock.note('Le pasteur :'),
-      TextBlock.leader('L’Église est une famille. / Unis par la reconnaissance commune de Jésus-Christ comme notre Sauveur, / nous sommes tous frères et sœurs. / Et, pour un temps, [nom de l’assemblée] est notre maison.'),
-      TextBlock.leader('Comme toute famille humaine, / notre famille d’Église se forme et se reforme avec le temps : / des membres naissent, d’autres meurent, / des membres sont adoptés dans notre famille, / et d’autres quittent notre assemblée pour une nouvelle maison, dans un autre lieu.'),
-      TextBlock.leader('Pendant un temps, [Prénom(s)] a (ont) vécu avec nous. / Nous avons partagé les bons et les mauvais moments, / nous avons partagé nos joies et nos peines, / nous avons allégé les lourds fardeaux les uns des autres. / Ensemble nous avons ri et pleuré, / ensemble nous avons adoré et loué Dieu, / ensemble nous avons vécu.'),
+      TextBlock.leader(
+          'L’Église est une famille. / Unis par la reconnaissance commune de Jésus-Christ comme notre Sauveur, / nous sommes tous frères et sœurs. / Et, pour un temps, [nom de l’assemblée] est notre maison.'),
+      TextBlock.leader(
+          'Comme toute famille humaine, / notre famille d’Église se forme et se reforme avec le temps : / des membres naissent, d’autres meurent, / des membres sont adoptés dans notre famille, / et d’autres quittent notre assemblée pour une nouvelle maison, dans un autre lieu.'),
+      TextBlock.leader(
+          'Pendant un temps, [Prénom(s)] a (ont) vécu avec nous. / Nous avons partagé les bons et les mauvais moments, / nous avons partagé nos joies et nos peines, / nous avons allégé les lourds fardeaux les uns des autres. / Ensemble nous avons ri et pleuré, / ensemble nous avons adoré et loué Dieu, / ensemble nous avons vécu.'),
       TextBlock.note('L’assemblée :'),
-      TextBlock.people('Nous sommes tristes de votre départ, / mais nous nous réjouissons avec vous à l’approche de cette nouvelle étape de votre vie. / Votre amour et votre soutien nous manqueront, / mais nous savons que vous apporterez beaucoup à la vie / de ceux qui seront votre nouvelle famille d’Église, / comme vous avez beaucoup apporté à la nôtre.'),
+      TextBlock.people(
+          'Nous sommes tristes de votre départ, / mais nous nous réjouissons avec vous à l’approche de cette nouvelle étape de votre vie. / Votre amour et votre soutien nous manqueront, / mais nous savons que vous apporterez beaucoup à la vie / de ceux qui seront votre nouvelle famille d’Église, / comme vous avez beaucoup apporté à la nôtre.'),
       TextBlock.note('L’assemblée et le pasteur :'),
-      TextBlock.people('Nous prierons pour vous et pour toute la famille de Dieu.'),
+      TextBlock.people(
+          'Nous prierons pour vous et pour toute la famille de Dieu.'),
       TextBlock.note('Le pasteur :'),
-      TextBlock.leader('Prions. / Ô Dieu, tu es la force et le protecteur de ton peuple. / Nous remettons humblement entre tes mains [Prénom(s)] de cette assemblée, / qui est (sont) sur le point de nous quitter. / Garde et protège-le (la, les), Seigneur, / en pleine santé et en sécurité, de corps et d’âme, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('Allez dans la paix du Christ. Nos prières vous accompagnent. Amen.'),
+      TextBlock.leader(
+          'Prions. / Ô Dieu, tu es la force et le protecteur de ton peuple. / Nous remettons humblement entre tes mains [Prénom(s)] de cette assemblée, / qui est (sont) sur le point de nous quitter. / Garde et protège-le (la, les), Seigneur, / en pleine santé et en sécurité, de corps et d’âme, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Allez dans la paix du Christ. Nos prières vous accompagnent. Amen.'),
       TextBlock.note('On peut chanter un cantique ou une réponse.'),
     ],
   );
@@ -2268,60 +3398,96 @@ class BookOfWorshipData {
   static const appointment = ChurchText(
     id: 'bow_appointment',
     title: 'Célébration d’une nomination pastorale',
-    subtitle: 'Accueil d’un pasteur ou d’un diacre nommé ou reconduit : engagements, présentations, prière',
+    subtitle:
+        'Accueil d’un pasteur ou d’un diacre nommé ou reconduit : engagements, présentations, prière',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Celebration of an Appointment,” alt. from The Book of Common Prayer, The Episcopal Church, 1979. Public domain. Prayer “Almighty God, you still call us” by Ole Borgen, Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-celebration-of-an-appointment',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order for the Celebration of an Appointment,” alt. from The Book of Common Prayer, The Episcopal Church, 1979. Public domain. Prayer “Almighty God, you still call us” by Ole Borgen, Copyright © 1992 UMPH. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-for-the-celebration-of-an-appointment',
     blocks: [
-      TextBlock.note('Ce rite est destiné à être employé dans un culte, dans une assemblée dont le pasteur vient d’être nommé ou reconduit par l’évêque selon l’organisation de l’Église méthodiste unie. Il peut être dirigé par le président du comité des relations entre le pasteur et l’assemblée, ou par un autre responsable désigné dans l’assemblée. On peut l’adapter selon les besoins lorsque des anciens ordonnés, des diacres ou des pasteurs locaux sont nommés, reconduits ou affectés à un ministère dans une assemblée particulière.'),
-      TextBlock.note('Avant la lecture des textes bibliques, le pasteur et les autres membres du personnel nommés viennent devant la table du Seigneur, et la personne qui préside dit à l’assemblée :'),
-      TextBlock.leader('Chers amis, / nous accueillons aujourd’hui [Nom(s)], / qui a été nommé(e) (renommé[e]) (qui ont été nommés) pour servir comme notre (nos) pasteur(s). / Nous croyons qu’il (elle) est (qu’ils sont) bien qualifié(e)(s) / et qu’il (elle) a (qu’ils ont) été nommé(e)(s) dans la prière par notre évêque, [Nom].'),
+      TextBlock.note(
+          'Ce rite est destiné à être employé dans un culte, dans une assemblée dont le pasteur vient d’être nommé ou reconduit par l’évêque selon l’organisation de l’Église méthodiste unie. Il peut être dirigé par le président du comité des relations entre le pasteur et l’assemblée, ou par un autre responsable désigné dans l’assemblée. On peut l’adapter selon les besoins lorsque des anciens ordonnés, des diacres ou des pasteurs locaux sont nommés, reconduits ou affectés à un ministère dans une assemblée particulière.'),
+      TextBlock.note(
+          'Avant la lecture des textes bibliques, le pasteur et les autres membres du personnel nommés viennent devant la table du Seigneur, et la personne qui préside dit à l’assemblée :'),
+      TextBlock.leader(
+          'Chers amis, / nous accueillons aujourd’hui [Nom(s)], / qui a été nommé(e) (renommé[e]) (qui ont été nommés) pour servir comme notre (nos) pasteur(s). / Nous croyons qu’il (elle) est (qu’ils sont) bien qualifié(e)(s) / et qu’il (elle) a (qu’ils ont) été nommé(e)(s) dans la prière par notre évêque, [Nom].'),
       TextBlock.note('Le responsable aux anciens ou aux pasteurs locaux :'),
-      TextBlock.leader('[Nom(s)], vous avez été envoyés vivre parmi nous / comme porteurs de la Parole de Dieu, / ministres des sacrements, / et soutiens de l’amour, de l’ordre, du service et de la vie de disciple du peuple de Dieu.'),
+      TextBlock.leader(
+          '[Nom(s)], vous avez été envoyés vivre parmi nous / comme porteurs de la Parole de Dieu, / ministres des sacrements, / et soutiens de l’amour, de l’ordre, du service et de la vie de disciple du peuple de Dieu.'),
       TextBlock.note('Le responsable au(x) diacre(s) :'),
-      TextBlock.leader('[Nom], vous êtes appelé à représenter le ministère du service, / à proclamer la Parole de Dieu, / et à équiper tous les chrétiens pour des ministères / de compassion et de justice au service de la communauté.'),
+      TextBlock.leader(
+          '[Nom], vous êtes appelé à représenter le ministère du service, / à proclamer la Parole de Dieu, / et à équiper tous les chrétiens pour des ministères / de compassion et de justice au service de la communauté.'),
       TextBlock.note('Le pasteur (et les autres membres du personnel) :'),
-      TextBlock.people('Aujourd’hui je réaffirme (nous réaffirmons) cet engagement en présence de cette assemblée.'),
+      TextBlock.people(
+          'Aujourd’hui je réaffirme (nous réaffirmons) cet engagement en présence de cette assemblée.'),
       TextBlock.note('Le responsable à l’assemblée :'),
-      TextBlock.leader('Frères et sœurs en Christ, / en tant que peuple engagé à prendre part aux ministères de l’Église / par vos prières, votre présence, vos dons et votre service, / vous qui célébrez ce nouveau commencement, / soutiendrez-vous [Nom(s)] dans ces ministères ?'),
+      TextBlock.leader(
+          'Frères et sœurs en Christ, / en tant que peuple engagé à prendre part aux ministères de l’Église / par vos prières, votre présence, vos dons et votre service, / vous qui célébrez ce nouveau commencement, / soutiendrez-vous [Nom(s)] dans ces ministères ?'),
       TextBlock.note('L’assemblée :'),
-      TextBlock.people('Nous réaffirmons notre engagement à vous soutenir / par nos prières, notre présence, nos dons, notre service et notre témoignage.'),
+      TextBlock.people(
+          'Nous réaffirmons notre engagement à vous soutenir / par nos prières, notre présence, nos dons, notre service et notre témoignage.'),
       TextBlock.note('Le responsable :'),
-      TextBlock.leader('Qu’ils sont beaux, sur les montagnes, les pieds du messager'),
+      TextBlock.leader(
+          'Qu’ils sont beaux, sur les montagnes, les pieds du messager'),
       TextBlock.note('L’assemblée :'),
-      TextBlock.people('qui annonce la paix, qui apporte la bonne nouvelle, qui annonce le salut. (ÉSAÏE 52.7)'),
-      TextBlock.note('On peut chanter une doxologie ou un autre cantique. Le responsable poursuit par l’une des prières suivantes.'),
+      TextBlock.people(
+          'qui annonce la paix, qui apporte la bonne nouvelle, qui annonce le salut. (ÉSAÏE 52.7)'),
+      TextBlock.note(
+          'On peut chanter une doxologie ou un autre cantique. Le responsable poursuit par l’une des prières suivantes.'),
       TextBlock.leader('Prions.'),
-      TextBlock.leader('Dieu éternel, fortifie-nous et soutiens-nous dans nos ministères ensemble, / avec [Nom(s)] comme notre (nos) pasteur(s) [et [Nom] comme notre diacre]. / Donne-lui (lui, leur) et à nous la patience, le courage et la sagesse / pour prendre soin les uns des autres et nous interpeller les uns les autres, / afin que nous suivions ensemble Jésus-Christ, / vivant ensemble dans l’amour, / et offrant nos dons et nos talents à ton service, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('Dieu tout-puissant, tu nous appelles encore à entrer à ton service / et à répandre le message du salut de ton Fils. / Bénis richement, nous t’en prions, l’entrée de ton serviteur (tes serviteurs) [Nom(s)] dans notre communauté. / Remplis-le (la, les) de la puissance de ton Saint-Esprit / et fais qu’il (elle, ils) trouve(nt) chez nous une porte ouverte à la Parole. / Nous prions aussi pour ton Église sur la terre. / Donne-nous à tous un esprit de bonne volonté, / afin que nous puissions, avec courage, rendre témoignage de toi / par la confession de nos lèvres et par notre manière de vivre. / Accorde-nous à tous de participer à ta force et à ta joie, / afin que nous entrions dans l’angoisse et la souffrance du monde, / pour rayonner et faire vivre l’espérance que donne le Christ. / Tout cela, nous osons te le demander ; / car tu es pour nous le Père de miséricorde et le Dieu de toute grâce ; / tu es le Fils, le Sauveur et le Rédempteur ; / tu es le Saint-Esprit, le Seigneur, le Défenseur et celui qui donne la vie. / Béni sois-tu. Amen.'),
-      TextBlock.note('On peut chanter « Jesus, We Are Here » ou un autre cantique approprié.'),
-      TextBlock.note('S’il s’agit d’une reconduction, le culte se poursuit par la prière de l’assemblée ci-dessous.'),
+      TextBlock.leader(
+          'Dieu éternel, fortifie-nous et soutiens-nous dans nos ministères ensemble, / avec [Nom(s)] comme notre (nos) pasteur(s) [et [Nom] comme notre diacre]. / Donne-lui (lui, leur) et à nous la patience, le courage et la sagesse / pour prendre soin les uns des autres et nous interpeller les uns les autres, / afin que nous suivions ensemble Jésus-Christ, / vivant ensemble dans l’amour, / et offrant nos dons et nos talents à ton service, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Dieu tout-puissant, tu nous appelles encore à entrer à ton service / et à répandre le message du salut de ton Fils. / Bénis richement, nous t’en prions, l’entrée de ton serviteur (tes serviteurs) [Nom(s)] dans notre communauté. / Remplis-le (la, les) de la puissance de ton Saint-Esprit / et fais qu’il (elle, ils) trouve(nt) chez nous une porte ouverte à la Parole. / Nous prions aussi pour ton Église sur la terre. / Donne-nous à tous un esprit de bonne volonté, / afin que nous puissions, avec courage, rendre témoignage de toi / par la confession de nos lèvres et par notre manière de vivre. / Accorde-nous à tous de participer à ta force et à ta joie, / afin que nous entrions dans l’angoisse et la souffrance du monde, / pour rayonner et faire vivre l’espérance que donne le Christ. / Tout cela, nous osons te le demander ; / car tu es pour nous le Père de miséricorde et le Dieu de toute grâce ; / tu es le Fils, le Sauveur et le Rédempteur ; / tu es le Saint-Esprit, le Seigneur, le Défenseur et celui qui donne la vie. / Béni sois-tu. Amen.'),
+      TextBlock.note(
+          'On peut chanter « Jesus, We Are Here » ou un autre cantique approprié.'),
+      TextBlock.note(
+          'S’il s’agit d’une reconduction, le culte se poursuit par la prière de l’assemblée ci-dessous.'),
       TextBlock.heading('PRÉSENTATIONS'),
-      TextBlock.note('Lorsqu’un pasteur, un pasteur associé ou un diacre est nommé pour la première fois dans une assemblée, des représentants de l’assemblée peuvent faire tout ou partie des présentations suivantes, ou d’autres jugées appropriées. Après chaque présentation, la personne nouvellement nommée répond Amen et pose l’objet sur une table.'),
+      TextBlock.note(
+          'Lorsqu’un pasteur, un pasteur associé ou un diacre est nommé pour la première fois dans une assemblée, des représentants de l’assemblée peuvent faire tout ou partie des présentations suivantes, ou d’autres jugées appropriées. Après chaque présentation, la personne nouvellement nommée répond Amen et pose l’objet sur une table.'),
       TextBlock.note('Le présentateur au pasteur :'),
-      TextBlock.leader('[Nom], reçois cette Bible, / et sois parmi nous celui qui proclame la Parole. Amen.'),
-      TextBlock.leader('[Nom], prends cette eau, / et baptise de nouveaux chrétiens en ce lieu. Amen.'),
-      TextBlock.leader('[Nom], prends ce pain et cette coupe, / et maintiens-nous en communion avec le Christ et son Église. Amen.'),
+      TextBlock.leader(
+          '[Nom], reçois cette Bible, / et sois parmi nous celui qui proclame la Parole. Amen.'),
+      TextBlock.leader(
+          '[Nom], prends cette eau, / et baptise de nouveaux chrétiens en ce lieu. Amen.'),
+      TextBlock.leader(
+          '[Nom], prends ce pain et cette coupe, / et maintiens-nous en communion avec le Christ et son Église. Amen.'),
       TextBlock.note('Le présentateur au diacre :'),
-      TextBlock.leader('[Nom], reçois cette Bible, / et sois parmi nous celui qui proclame la Parole. Amen.'),
-      TextBlock.leader('[Nom], prends cette serviette et cette cuvette, / et conduis-nous à être les serviteurs de tous. Amen.'),
-      TextBlock.leader('[Nom], prends ce fil à plomb, / et appelle-nous fidèlement à des ministères de compassion et de justice.'),
+      TextBlock.leader(
+          '[Nom], reçois cette Bible, / et sois parmi nous celui qui proclame la Parole. Amen.'),
+      TextBlock.leader(
+          '[Nom], prends cette serviette et cette cuvette, / et conduis-nous à être les serviteurs de tous. Amen.'),
+      TextBlock.leader(
+          '[Nom], prends ce fil à plomb, / et appelle-nous fidèlement à des ministères de compassion et de justice.'),
       TextBlock.note('Le présentateur au pasteur ou au diacre :'),
-      TextBlock.leader('[Nom], sers-toi de ce recueil de cantiques et de ce livre de culte / pour nous guider dans la prière et dans la louange. Amen.'),
-      TextBlock.leader('[Nom], reçois ce Livre de la Discipline, / et aide-nous à garder l’alliance / qui renforce nos liens comme méthodistes unis. Amen.'),
-      TextBlock.leader('[Nom], reçois ce globe, / et conduis-nous dans notre mission auprès de cette communauté et du monde entier. Amen.'),
+      TextBlock.leader(
+          '[Nom], sers-toi de ce recueil de cantiques et de ce livre de culte / pour nous guider dans la prière et dans la louange. Amen.'),
+      TextBlock.leader(
+          '[Nom], reçois ce Livre de la Discipline, / et aide-nous à garder l’alliance / qui renforce nos liens comme méthodistes unis. Amen.'),
+      TextBlock.leader(
+          '[Nom], reçois ce globe, / et conduis-nous dans notre mission auprès de cette communauté et du monde entier. Amen.'),
       TextBlock.note('Le présentateur au pasteur :'),
-      TextBlock.leader('[Nom], reçois cette étole, signe de ton ordination, / et sois notre berger comme notre pasteur. Amen.'),
+      TextBlock.leader(
+          '[Nom], reçois cette étole, signe de ton ordination, / et sois notre berger comme notre pasteur. Amen.'),
       TextBlock.note('Le présentateur au diacre :'),
-      TextBlock.leader('[Nom], reçois cette étole, signe de ton ordination, / et équipe-nous pour nos ministères dans le monde. Amen.'),
-      TextBlock.note('Puis le pasteur ou le diacre peut prendre sur la table du Seigneur l’étole laissée par son prédécesseur, la revêtir et dire :'),
-      TextBlock.leader('Ce joug a été posé sur moi, et je le prends volontiers sur moi.'),
+      TextBlock.leader(
+          '[Nom], reçois cette étole, signe de ton ordination, / et équipe-nous pour nos ministères dans le monde. Amen.'),
+      TextBlock.note(
+          'Puis le pasteur ou le diacre peut prendre sur la table du Seigneur l’étole laissée par son prédécesseur, la revêtir et dire :'),
+      TextBlock.leader(
+          'Ce joug a été posé sur moi, et je le prends volontiers sur moi.'),
       TextBlock.heading('PRIÈRE DE L’ASSEMBLÉE'),
       TextBlock.leader('Pasteur : Prions.'),
-      TextBlock.people('Seigneur Dieu, bénis les ministères de ton Église. / Nous te rendons grâce pour la diversité des dons que tu nous as accordés. / Rassemble-nous dans un seul Esprit, / afin que chacun de nous use de ses dons divers comme membre d’un seul corps. / Que ta Parole soit proclamée avec fidélité, / et que nous soyons de ceux qui la mettent en pratique, et pas seulement de ceux qui l’écoutent. / Nous qui sommes morts et ressuscités avec le Christ dans le baptême, / nous nous rassemblons à sa table, puis nous nous dispersons dans le monde : / que nous soyons un dans le service des autres, / au nom de Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Le pasteur ou le diacre peut s’agenouiller, et le responsable et d’autres peuvent lui imposer les mains sur la tête. L’assemblée peut se donner la main et s’unir dans cette bénédiction :'),
-      TextBlock.people('Que le Seigneur te bénisse et te garde ; / que le Seigneur fasse resplendir son visage sur toi et te fasse grâce ; / que le Seigneur tourne vers toi son regard et te donne la paix. Amen.'),
-      TextBlock.leader('Pasteur : Que la paix du Seigneur soit toujours avec vous.'),
+      TextBlock.people(
+          'Seigneur Dieu, bénis les ministères de ton Église. / Nous te rendons grâce pour la diversité des dons que tu nous as accordés. / Rassemble-nous dans un seul Esprit, / afin que chacun de nous use de ses dons divers comme membre d’un seul corps. / Que ta Parole soit proclamée avec fidélité, / et que nous soyons de ceux qui la mettent en pratique, et pas seulement de ceux qui l’écoutent. / Nous qui sommes morts et ressuscités avec le Christ dans le baptême, / nous nous rassemblons à sa table, puis nous nous dispersons dans le monde : / que nous soyons un dans le service des autres, / au nom de Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Le pasteur ou le diacre peut s’agenouiller, et le responsable et d’autres peuvent lui imposer les mains sur la tête. L’assemblée peut se donner la main et s’unir dans cette bénédiction :'),
+      TextBlock.people(
+          'Que le Seigneur te bénisse et te garde ; / que le Seigneur fasse resplendir son visage sur toi et te fasse grâce ; / que le Seigneur tourne vers toi son regard et te donne la paix. Amen.'),
+      TextBlock.leader(
+          'Pasteur : Que la paix du Seigneur soit toujours avec vous.'),
       TextBlock.leader('Assemblée : Et avec vous aussi.'),
       TextBlock.note('On peut chanter un cantique ou un refrain.'),
     ],
@@ -2330,23 +3496,36 @@ class BookOfWorshipData {
   static const recognitionOrdained = ChurchText(
     id: 'bow_recognition_ordained',
     title: 'Reconnaissance d’une personne ordonnée, mandatée ou certifiée',
-    subtitle: 'Rite dans l’assemblée après une ordination ou une certification par la Conférence annuelle',
+    subtitle:
+        'Rite dans l’assemblée après une ordination ou une certification par la Conférence annuelle',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order Recognizing One Who Has Been Ordained or Certified” Copyright © 1992 UMPH. Note: This order has been modified to reflect changes in the 1996 Book of Discipline eliminating the category of diaconal ministry and so the category of “consecration” except for bishop, and adding the newly created status of "commissioned ministers." Another service in the Book of Worship is to be used to celebrate the installation of a newly consecrated or newly received bishop. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/an-order-recognizing-one-who-has-been-ordained-commissioned-or-certified',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “An Order Recognizing One Who Has Been Ordained or Certified” Copyright © 1992 UMPH. Note: This order has been modified to reflect changes in the 1996 Book of Discipline eliminating the category of diaconal ministry and so the category of “consecration” except for bishop, and adding the newly created status of "commissioned ministers." Another service in the Book of Worship is to be used to celebrate the installation of a newly consecrated or newly received bishop. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/an-order-recognizing-one-who-has-been-ordained-commissioned-or-certified',
     blocks: [
-      TextBlock.note('Ce rite peut être employé dans un culte par une assemblée pour reconnaître une personne qui vient d’être ordonnée, mandatée ou certifiée par la Conférence annuelle.'),
-      TextBlock.note('Il convient que la personne reconnue tienne dans le culte un rôle approprié au ministère pour lequel elle a été ordonnée, mandatée ou certifiée. Le rite peut être dirigé par le pasteur ou, si c’est le pasteur qu’on reconnaît, par un autre responsable, comme le membre laïc de la Conférence annuelle.'),
-      TextBlock.note('Avant la proclamation et la réponse, ou en réponse à la Parole, la personne qui a été ordonnée, mandatée ou certifiée se tient devant l’assemblée, face au responsable.'),
-      TextBlock.note('Le responsable raconte à l’assemblée la cérémonie d’ordination ou de certification, et conclut par ces paroles ou des paroles semblables :'),
-      TextBlock.leader('Aujourd’hui nous sommes heureux de reconnaître [Nom] / et de célébrer son entrée dans ce ministère.'),
+      TextBlock.note(
+          'Ce rite peut être employé dans un culte par une assemblée pour reconnaître une personne qui vient d’être ordonnée, mandatée ou certifiée par la Conférence annuelle.'),
+      TextBlock.note(
+          'Il convient que la personne reconnue tienne dans le culte un rôle approprié au ministère pour lequel elle a été ordonnée, mandatée ou certifiée. Le rite peut être dirigé par le pasteur ou, si c’est le pasteur qu’on reconnaît, par un autre responsable, comme le membre laïc de la Conférence annuelle.'),
+      TextBlock.note(
+          'Avant la proclamation et la réponse, ou en réponse à la Parole, la personne qui a été ordonnée, mandatée ou certifiée se tient devant l’assemblée, face au responsable.'),
+      TextBlock.note(
+          'Le responsable raconte à l’assemblée la cérémonie d’ordination ou de certification, et conclut par ces paroles ou des paroles semblables :'),
+      TextBlock.leader(
+          'Aujourd’hui nous sommes heureux de reconnaître [Nom] / et de célébrer son entrée dans ce ministère.'),
       TextBlock.note('Le responsable à la personne reconnue :'),
-      TextBlock.leader('[Nom], nous nous réjouissons avec toi de ton entrée dans ce ministère. / Dans la poursuite de ce ministère, / nous serons à tes côtés et nous t’offrons tout notre soutien.'),
+      TextBlock.leader(
+          '[Nom], nous nous réjouissons avec toi de ton entrée dans ce ministère. / Dans la poursuite de ce ministère, / nous serons à tes côtés et nous t’offrons tout notre soutien.'),
       TextBlock.note('Le responsable à l’assemblée :'),
-      TextBlock.leader('Je vous invite à vous lever et à vous joindre à moi dans la prière pour [Nom] / et pour son ministère.'),
-      TextBlock.note('Le responsable peut prier spontanément, ou le responsable et l’assemblée peuvent dire ensemble la prière suivante :'),
-      TextBlock.people('Dieu de grâce et de puissance, / répands ton Esprit sur [Nom] dans l’exercice de son ministère [parmi nous]. / Guide-le (la) et fortifie-le (la) pour son ministère / dans tout ce qui l’attend, / afin que nous soyons ensemble un dans le service du monde entier, / par celui en qui nous sommes tous un, / ton Fils Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('On peut remettre un cadeau approprié ou un signe du ministère. Pour une personne ordonnée, ce peut être une étole correspondant à son ordre (diacre ou ancien). Pour une personne mandatée ou certifiée, ce peut être une aube, une croix pectorale, une Bible ou un livre de culte.'),
+      TextBlock.leader(
+          'Je vous invite à vous lever et à vous joindre à moi dans la prière pour [Nom] / et pour son ministère.'),
+      TextBlock.note(
+          'Le responsable peut prier spontanément, ou le responsable et l’assemblée peuvent dire ensemble la prière suivante :'),
+      TextBlock.people(
+          'Dieu de grâce et de puissance, / répands ton Esprit sur [Nom] dans l’exercice de son ministère [parmi nous]. / Guide-le (la) et fortifie-le (la) pour son ministère / dans tout ce qui l’attend, / afin que nous soyons ensemble un dans le service du monde entier, / par celui en qui nous sommes tous un, / ton Fils Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'On peut remettre un cadeau approprié ou un signe du ministère. Pour une personne ordonnée, ce peut être une étole correspondant à son ordre (diacre ou ancien). Pour une personne mandatée ou certifiée, ce peut être une aube, une croix pectorale, une Bible ou un livre de culte.'),
       TextBlock.note('On peut chanter un cantique et donner une bénédiction.'),
     ],
   );
@@ -2354,55 +3533,81 @@ class BookOfWorshipData {
   static const selectedPrayers = ChurchText(
     id: 'bow_selected_prayers',
     title: 'Prières choisies',
-    subtitle: 'Susanna Wesley, saint Thomas d’Aquin, saint Patrick, saint François, prières pour la direction, la sagesse, la sécurité et l’Église',
+    subtitle:
+        'Susanna Wesley, saint Thomas d’Aquin, saint Patrick, saint François, prières pour la direction, la sagesse, la sécurité et l’Église',
     icon: ChurchTextIcon.prayer,
-    source: 'Prières du Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House, pages de umcdiscipleship.org : « A Prayer of Susanna Wesley », « A Prayer of Saint Thomas Aquinas », « A Prayer of Saint Patrick », « For Guidance », « For Wisdom », « For Safety », « For Creation », « For the Church ». Mention de droit d\'auteur des pages : « Public Domain » (prières de Susanna Wesley, Thomas d\'Aquin, Patrick, James Martineau, saint François d\'Assise, Walter Rauschenbusch et du Livre de prière commune, 1928). Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    source:
+        'Prières du Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House, pages de umcdiscipleship.org : « A Prayer of Susanna Wesley », « A Prayer of Saint Thomas Aquinas », « A Prayer of Saint Patrick », « For Guidance », « For Wisdom », « For Safety », « For Creation », « For the Church ». Mention de droit d\'auteur des pages : « Public Domain » (prières de Susanna Wesley, Thomas d\'Aquin, Patrick, James Martineau, saint François d\'Assise, Walter Rauschenbusch et du Livre de prière commune, 1928). Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
     sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/prayers-in-umh',
     blocks: [
-      TextBlock.note('Prières anciennes ou classiques, du domaine public, que le Livre de culte propose à côté de ses services. Les auteurs et les dates sont donnés sous chaque prière.'),
+      TextBlock.note(
+          'Prières anciennes ou classiques, du domaine public, que le Livre de culte propose à côté de ses services. Les auteurs et les dates sont donnés sous chaque prière.'),
       TextBlock.heading('Prière de Susanna Wesley'),
-      TextBlock.p('Toi, Seigneur, tu nous as appelés à veiller et à prier. / C’est pourquoi, quel que soit le péché contre lequel nous prions, / fais que nous veillions soigneusement contre lui, / et que nous ayons ainsi des raisons d’espérer que nos prières seront exaucées. / Pour accomplir ce devoir comme il faut, / accorde-nous la grâce de garder un caractère sobre et égal, / et la sincérité de prier pour demander ton aide. Amen.'),
+      TextBlock.p(
+          'Toi, Seigneur, tu nous as appelés à veiller et à prier. / C’est pourquoi, quel que soit le péché contre lequel nous prions, / fais que nous veillions soigneusement contre lui, / et que nous ayons ainsi des raisons d’espérer que nos prières seront exaucées. / Pour accomplir ce devoir comme il faut, / accorde-nous la grâce de garder un caractère sobre et égal, / et la sincérité de prier pour demander ton aide. Amen.'),
       TextBlock.note('Susanna Wesley (Angleterre, XVIIIe siècle), adaptée.'),
       TextBlock.heading('Prière de saint Thomas d’Aquin'),
-      TextBlock.p('Donne-nous, Seigneur, / des cœurs fermes, qu’aucune pensée indigne ne puisse entraîner vers le bas, / des cœurs invaincus, qu’aucune épreuve ne puisse épuiser, / des cœurs droits, qu’aucun dessein indigne ne puisse détourner. / Accorde-nous aussi, Seigneur notre Dieu, / l’intelligence pour te connaître, le zèle pour te chercher, la sagesse pour te trouver, / et une fidélité qui puisse enfin t’embrasser, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Donne-nous, Seigneur, / des cœurs fermes, qu’aucune pensée indigne ne puisse entraîner vers le bas, / des cœurs invaincus, qu’aucune épreuve ne puisse épuiser, / des cœurs droits, qu’aucun dessein indigne ne puisse détourner. / Accorde-nous aussi, Seigneur notre Dieu, / l’intelligence pour te connaître, le zèle pour te chercher, la sagesse pour te trouver, / et une fidélité qui puisse enfin t’embrasser, / par Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Saint Thomas d’Aquin (Italie, XIIIe siècle), adaptée.'),
       TextBlock.heading('Prière de saint Patrick'),
-      TextBlock.p('Que le Christ soit avec nous, le Christ devant nous, le Christ derrière nous, / le Christ en nous, le Christ sous nous, le Christ au-dessus de nous, / le Christ à notre droite, le Christ à notre gauche, / le Christ là où nous nous couchons, le Christ là où nous nous asseyons, le Christ là où nous nous levons, / le Christ dans le cœur de tous ceux qui pensent à nous, / le Christ dans tous les yeux qui nous voient, / le Christ dans toutes les oreilles qui nous entendent. / Le salut vient du Seigneur, / le salut vient du Christ. / Que ton salut, Seigneur, soit toujours avec nous.'),
+      TextBlock.p(
+          'Que le Christ soit avec nous, le Christ devant nous, le Christ derrière nous, / le Christ en nous, le Christ sous nous, le Christ au-dessus de nous, / le Christ à notre droite, le Christ à notre gauche, / le Christ là où nous nous couchons, le Christ là où nous nous asseyons, le Christ là où nous nous levons, / le Christ dans le cœur de tous ceux qui pensent à nous, / le Christ dans tous les yeux qui nous voient, / le Christ dans toutes les oreilles qui nous entendent. / Le salut vient du Seigneur, / le salut vient du Christ. / Que ton salut, Seigneur, soit toujours avec nous.'),
       TextBlock.note('Saint Patrick (Irlande, Ve siècle), adaptée.'),
       TextBlock.heading('Pour la direction'),
-      TextBlock.p('Dieu éternel, de qui dépend notre vie / et qui nous as confié notre travail, / nous te confions nos soucis. / Nous te rendons grâce d’être tes enfants et de ce que tu nous as assurés / que, tant que nous cherchons ta volonté, tu auras égard à nos besoins. / Remplis-nous de la compassion pour les peines des autres / qui vient de l’oubli des nôtres, / de la charité de ceux qui connaissent leur propre indignité, / et de l’heureuse espérance des enfants de l’éternité. / Et à toi, le Commencement et la Fin, / Seigneur des vivants, Refuge des mourants, / soient rendus grâce et louange pour toujours. Amen.'),
+      TextBlock.p(
+          'Dieu éternel, de qui dépend notre vie / et qui nous as confié notre travail, / nous te confions nos soucis. / Nous te rendons grâce d’être tes enfants et de ce que tu nous as assurés / que, tant que nous cherchons ta volonté, tu auras égard à nos besoins. / Remplis-nous de la compassion pour les peines des autres / qui vient de l’oubli des nôtres, / de la charité de ceux qui connaissent leur propre indignité, / et de l’heureuse espérance des enfants de l’éternité. / Et à toi, le Commencement et la Fin, / Seigneur des vivants, Refuge des mourants, / soient rendus grâce et louange pour toujours. Amen.'),
       TextBlock.note('James Martineau (Angleterre, XIXe siècle), adaptée.'),
       TextBlock.heading('Pour la sagesse'),
-      TextBlock.p('Sagesse d’en haut, / par toi les humbles sont conduits dans le jugement, / et la lumière se lève dans les ténèbres pour les justes. / Accorde-nous, dans tous nos doutes et nos incertitudes, / la grâce de demander ce que tu veux que nous fassions, / afin que nous soyons gardés de tout faux choix, / que dans ta lumière nous voyions la lumière, / et que nous ne trébuchions pas sur ton chemin droit, / par Jésus-Christ notre Sauveur. Amen.'),
-      TextBlock.note('Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 595.'),
+      TextBlock.p(
+          'Sagesse d’en haut, / par toi les humbles sont conduits dans le jugement, / et la lumière se lève dans les ténèbres pour les justes. / Accorde-nous, dans tous nos doutes et nos incertitudes, / la grâce de demander ce que tu veux que nous fassions, / afin que nous soyons gardés de tout faux choix, / que dans ta lumière nous voyions la lumière, / et que nous ne trébuchions pas sur ton chemin droit, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note(
+          'Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 595.'),
       TextBlock.heading('Pour la sécurité'),
-      TextBlock.p('Dieu tout-puissant et miséricordieux, / dans ta bonté généreuse, garde-nous de tout ce qui peut nous nuire, / afin que, prêts de corps et d’âme, / nous accomplissions avec joie ce que tu nous commandes, / par Jésus-Christ notre Sauveur. Amen.'),
-      TextBlock.note('Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 217.'),
+      TextBlock.p(
+          'Dieu tout-puissant et miséricordieux, / dans ta bonté généreuse, garde-nous de tout ce qui peut nous nuire, / afin que, prêts de corps et d’âme, / nous accomplissions avec joie ce que tu nous commandes, / par Jésus-Christ notre Sauveur. Amen.'),
+      TextBlock.note(
+          'Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 217.'),
       TextBlock.heading('Pour la création : cantique des créatures'),
-      TextBlock.note('Prière de saint François d’Assise pour toutes les créatures. L’assemblée peut répondre après chaque strophe : « Loué soit notre Seigneur. »'),
-      TextBlock.leader('Seigneur Dieu très haut, tout-puissant et bon, / à toi appartiennent la louange, la gloire, l’honneur et toute bénédiction. / Pour notre frère le soleil, qui est notre jour et nous apporte la lumière, / qui est beau et rayonnant d’une très grande splendeur :'),
+      TextBlock.note(
+          'Prière de saint François d’Assise pour toutes les créatures. L’assemblée peut répondre après chaque strophe : « Loué soit notre Seigneur. »'),
+      TextBlock.leader(
+          'Seigneur Dieu très haut, tout-puissant et bon, / à toi appartiennent la louange, la gloire, l’honneur et toute bénédiction. / Pour notre frère le soleil, qui est notre jour et nous apporte la lumière, / qui est beau et rayonnant d’une très grande splendeur :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour notre sœur la lune, et pour les étoiles, / que tu as placées, claires et belles, dans le ciel :'),
+      TextBlock.leader(
+          'Pour notre sœur la lune, et pour les étoiles, / que tu as placées, claires et belles, dans le ciel :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour notre frère le vent, / pour l’air et les nuages, le calme et tous les temps :'),
+      TextBlock.leader(
+          'Pour notre frère le vent, / pour l’air et les nuages, le calme et tous les temps :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour notre sœur l’eau, qui nous sert, humble, précieuse et chaste :'),
+      TextBlock.leader(
+          'Pour notre sœur l’eau, qui nous sert, humble, précieuse et chaste :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour notre frère le feu, par qui tu éclaires la nuit, / beau, joyeux, très puissant et fort :'),
+      TextBlock.leader(
+          'Pour notre frère le feu, par qui tu éclaires la nuit, / beau, joyeux, très puissant et fort :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour notre mère la terre, qui nous soutient et nous nourrit, / et produit des fruits variés, / des fleurs de toutes les couleurs, et l’herbe :'),
+      TextBlock.leader(
+          'Pour notre mère la terre, qui nous soutient et nous nourrit, / et produit des fruits variés, / des fleurs de toutes les couleurs, et l’herbe :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Pour tous ceux qui se pardonnent les uns aux autres par amour pour toi, / et qui supportent la faiblesse et l’épreuve :'),
+      TextBlock.leader(
+          'Pour tous ceux qui se pardonnent les uns aux autres par amour pour toi, / et qui supportent la faiblesse et l’épreuve :'),
       TextBlock.people('Loué soit notre Seigneur.'),
-      TextBlock.leader('Heureux ceux qui endureront dans la paix, / marchant selon ta très sainte volonté, / car toi, Très-Haut, tu leur donneras une couronne.'),
-      TextBlock.people('Louez et bénissez le Seigneur, / rendez grâce à Dieu, / et servez Dieu avec une grande humilité. Amen.'),
+      TextBlock.leader(
+          'Heureux ceux qui endureront dans la paix, / marchant selon ta très sainte volonté, / car toi, Très-Haut, tu leur donneras une couronne.'),
+      TextBlock.people(
+          'Louez et bénissez le Seigneur, / rendez grâce à Dieu, / et servez Dieu avec une grande humilité. Amen.'),
       TextBlock.note('Saint François d’Assise (Italie, XIIe siècle), adapté.'),
       TextBlock.heading('Pour l’Église'),
-      TextBlock.p('Dieu de grâce, nous prions pour ta sainte Église universelle : / veuille la remplir de toute vérité, dans toute paix. / Là où elle est corrompue, purifie-la ; / là où elle est dans l’erreur, conduis-la ; / là où quelque chose va mal, réforme-la ; / là où elle est dans le vrai, affermis-la ; / là où elle manque de quelque chose, pourvois-y ; / là où elle est divisée, réunis-la ; / par celui qui est mort et ressuscité, / et qui vit toujours pour intercéder pour nous, / Jésus-Christ, ton Fils, notre Seigneur. Amen.'),
-      TextBlock.note('Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 37.'),
-      TextBlock.p('Père de toute miséricorde, / envoie tes bénédictions célestes sur ton Église, / afin que tous ses membres demeurent ensemble dans l’unité et l’amour. / Éloigne de nous tout entêtement et toute discorde. / Revêts tes pasteurs de justice, / et rends-les capables d’accomplir fidèlement leur ministère, / de ramener les exclus et de chercher ceux qui sont perdus. / Et accorde-nous de recevoir ainsi leur ministère, / et d’user de tes moyens de grâce, / afin que dans toutes nos paroles et tous nos actes / nous cherchions ta gloire et l’avancement de ton règne, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.note('Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 547.'),
-      TextBlock.p('Dieu de tous les temps et de tous les lieux, / nous prions pour ton Église, / qui se trouve aujourd’hui au milieu des perplexités d’un ordre qui change, / face à face avec de nouvelles tâches. / Baptise-la de nouveau dans l’Esprit de Jésus qui donne la vie. / Accorde-lui une grande attention au devoir, / une compassion plus prompte envers la souffrance, / et une loyauté entière à ta volonté. / Aide-la à proclamer avec hardiesse la venue de ton règne. / Mets sur ses lèvres l’ancien évangile de son Seigneur. / Remplis-la du mépris des prophètes pour la tyrannie, / et d’une tendresse semblable à celle du Christ pour les accablés et les opprimés. / Invite-la à cesser de chercher sa propre vie, de peur de la perdre. / Rends-la vaillante pour donner sa vie à l’humanité, / afin que, comme son Seigneur crucifié, / elle monte par le chemin de la croix vers une gloire plus haute, / par le même Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.p(
+          'Dieu de grâce, nous prions pour ta sainte Église universelle : / veuille la remplir de toute vérité, dans toute paix. / Là où elle est corrompue, purifie-la ; / là où elle est dans l’erreur, conduis-la ; / là où quelque chose va mal, réforme-la ; / là où elle est dans le vrai, affermis-la ; / là où elle manque de quelque chose, pourvois-y ; / là où elle est divisée, réunis-la ; / par celui qui est mort et ressuscité, / et qui vit toujours pour intercéder pour nous, / Jésus-Christ, ton Fils, notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 37.'),
+      TextBlock.p(
+          'Père de toute miséricorde, / envoie tes bénédictions célestes sur ton Église, / afin que tous ses membres demeurent ensemble dans l’unité et l’amour. / Éloigne de nous tout entêtement et toute discorde. / Revêts tes pasteurs de justice, / et rends-les capables d’accomplir fidèlement leur ministère, / de ramener les exclus et de chercher ceux qui sont perdus. / Et accorde-nous de recevoir ainsi leur ministère, / et d’user de tes moyens de grâce, / afin que dans toutes nos paroles et tous nos actes / nous cherchions ta gloire et l’avancement de ton règne, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.note(
+          'Livre de prière commune (États-Unis, XXe siècle), adaptée. Livre de prière commune de l’Église épiscopale, 1928, p. 547.'),
+      TextBlock.p(
+          'Dieu de tous les temps et de tous les lieux, / nous prions pour ton Église, / qui se trouve aujourd’hui au milieu des perplexités d’un ordre qui change, / face à face avec de nouvelles tâches. / Baptise-la de nouveau dans l’Esprit de Jésus qui donne la vie. / Accorde-lui une grande attention au devoir, / une compassion plus prompte envers la souffrance, / et une loyauté entière à ta volonté. / Aide-la à proclamer avec hardiesse la venue de ton règne. / Mets sur ses lèvres l’ancien évangile de son Seigneur. / Remplis-la du mépris des prophètes pour la tyrannie, / et d’une tendresse semblable à celle du Christ pour les accablés et les opprimés. / Invite-la à cesser de chercher sa propre vie, de peur de la perdre. / Rends-la vaillante pour donner sa vie à l’humanité, / afin que, comme son Seigneur crucifié, / elle monte par le chemin de la croix vers une gloire plus haute, / par le même Jésus-Christ notre Seigneur. Amen.'),
       TextBlock.note('Walter Rauschenbusch (États-Unis, XXe siècle), adaptée.'),
     ],
   );
@@ -2410,66 +3615,142 @@ class BookOfWorshipData {
   static const consecrationBuilding = ChurchText(
     id: 'bow_consecration_building',
     title: 'Culte de consécration ou de reconsécration d’un édifice d’église',
-    subtitle: 'Consécration de l’édifice, de la chaire, des fonts baptismaux et de la table du Seigneur',
+    subtitle:
+        'Consécration de l’édifice, de la chaire, des fonts baptismaux et de la table du Seigneur',
     icon: ChurchTextIcon.prayer,
-    source: 'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for the Consecration or Reconsecration of a Church Building” Copyright © 1984 by Abingdon Press; Copyright © 1992 UMPH. Altered 2013 by the Discipleship Ministries to reflect UMC commitments to baptismal language in full communion agreements entered since 2008 and the 2012 Book of Discipline. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
-    sourceUrl: 'https://www.umcdiscipleship.org/book-of-worship/a-service-for-the-consecration-or-reconsecration-of-a-church-building',
+    source:
+        'Livre de culte méthodiste uni (The United Methodist Book of Worship, 1992), propriété de The United Methodist Publishing House. Mention de droit d\'auteur de la page d\'origine : « “A Service for the Consecration or Reconsecration of a Church Building” Copyright © 1984 by Abingdon Press; Copyright © 1992 UMPH. Altered 2013 by the Discipleship Ministries to reflect UMC commitments to baptismal language in full communion agreements entered since 2008 and the 2012 Book of Discipline. » Traduction française : ÉMU Compagnon (traduction automatique DeepL corrigée à la main, à relire).',
+    sourceUrl:
+        'https://www.umcdiscipleship.org/book-of-worship/a-service-for-the-consecration-or-reconsecration-of-a-church-building',
     blocks: [
-      TextBlock.note('« Lors de l’acquisition ou de l’achèvement de tout édifice appartenant à l’Église, un culte de consécration peut être célébré » (Livre de la Discipline 2012, ¶ 2545). Le culte suivant s’appuie sur la tradition ancienne selon laquelle la consécration d’un édifice religieux consiste en la proclamation de la Parole et la célébration de la Sainte-Cène, premier acte de culte dans le nouvel édifice.'),
-      TextBlock.note('Ce culte peut aussi être le premier après la rénovation ou la réouverture d’un édifice religieux. Si les coûts de construction ou de rénovation ont été entièrement réglés, on peut remplacer le terme « consécration » par « dédicace » chaque fois qu’il apparaît.'),
+      TextBlock.note(
+          '« Lors de l’acquisition ou de l’achèvement de tout édifice appartenant à l’Église, un culte de consécration peut être célébré » (Livre de la Discipline 2012, ¶ 2545). Le culte suivant s’appuie sur la tradition ancienne selon laquelle la consécration d’un édifice religieux consiste en la proclamation de la Parole et la célébration de la Sainte-Cène, premier acte de culte dans le nouvel édifice.'),
+      TextBlock.note(
+          'Ce culte peut aussi être le premier après la rénovation ou la réouverture d’un édifice religieux. Si les coûts de construction ou de rénovation ont été entièrement réglés, on peut remplacer le terme « consécration » par « dédicace » chaque fois qu’il apparaît.'),
       TextBlock.heading('RASSEMBLEMENT'),
-      TextBlock.note('Il est d’usage, et c’est une ancienne tradition, que l’assemblée et les responsables du culte se rassemblent à un endroit situé à l’extérieur de l’édifice et y entrent en procession pour le culte de consécration. Avant la procession, l’assemblée peut lire ou chanter le Psaume 24.'),
+      TextBlock.note(
+          'Il est d’usage, et c’est une ancienne tradition, que l’assemblée et les responsables du culte se rassemblent à un endroit situé à l’extérieur de l’édifice et y entrent en procession pour le culte de consécration. Avant la procession, l’assemblée peut lire ou chanter le Psaume 24.'),
       TextBlock.heading('CANTIQUE DE PROCESSION'),
-      TextBlock.note('Certains objets qui serviront pendant le culte peuvent être portés en procession : une Bible, de l’eau pour les fonts baptismaux, un plateau pour le pain et la coupe de la communion, une croix, des parements pour la table du Seigneur et d’autres œuvres d’art. Si une chorale ou une équipe de louange conduit la procession, elle peut se rassembler dans l’église et chanter pendant que les fidèles entrent.'),
+      TextBlock.note(
+          'Certains objets qui serviront pendant le culte peuvent être portés en procession : une Bible, de l’eau pour les fonts baptismaux, un plateau pour le pain et la coupe de la communion, une croix, des parements pour la table du Seigneur et d’autres œuvres d’art. Si une chorale ou une équipe de louange conduit la procession, elle peut se rassembler dans l’église et chanter pendant que les fidèles entrent.'),
       TextBlock.heading('PRÉSENTATION DE L’ÉDIFICE'),
-      TextBlock.note('Une ou plusieurs personnes désignées s’avancent et disent :'),
-      TextBlock.leader('Je (nous) présente(ons) cet édifice afin qu’il soit consacré (reconsacré, dédié) / au culte de Dieu et au service de tous.'),
+      TextBlock.note(
+          'Une ou plusieurs personnes désignées s’avancent et disent :'),
+      TextBlock.leader(
+          'Je (nous) présente(ons) cet édifice afin qu’il soit consacré (reconsacré, dédié) / au culte de Dieu et au service de tous.'),
       TextBlock.heading('DÉNOMINATION DE L’ÉDIFICE'),
-      TextBlock.note('L’évêque, le surintendant de district ou leur représentant, ci-après « le ministre célébrant » :'),
+      TextBlock.note(
+          'L’évêque, le surintendant de district ou leur représentant, ci-après « le ministre célébrant » :'),
       TextBlock.leader('Sous quel nom cette maison sera-t-elle connue ?'),
       TextBlock.note('Le pasteur ou un responsable laïc désigné :'),
       TextBlock.leader('Elle s’appellera l’Église méthodiste unie de [Nom].'),
       TextBlock.heading('CONSÉCRATION DE L’ÉDIFICE'),
-      TextBlock.leader('Chers amis, réjouissons-nous que Dieu ait ainsi touché le cœur des gens / pour que cette maison ait été construite pour la louange et la prière. / Consacrons-la maintenant au service et célébrons son usage saint.'),
-      TextBlock.note('Plusieurs personnes peuvent diriger des parties de la prière de consécration suivante, que le ministre célébrant doit commencer et conclure :'),
-      TextBlock.leader('Dieu éternel, puissant en force et d’une majesté incompréhensible, / que les cieux ne peuvent contenir, / encore moins les murs des temples construits de main d’homme, / tu as promis ta présence particulière / chaque fois que deux ou trois sont réunis en ton nom / pour t’offrir louange et prière. / Par la puissance de ton Saint-Esprit, consacre cette maison de ton culte. / Bénis-nous et sanctifie ce que nous faisons ici, / afin que ce lieu soit saint pour nous et une maison de prière pour tous les peuples. / Guide et fortifie en ce lieu, par ce même Esprit, / la proclamation de ta Parole et la célébration de tes sacrements, / l’effusion de la prière et le chant de ta louange, / les professions de foi et les témoignages de ta grâce, / l’union des hommes et des femmes dans le mariage / et la célébration de la mort et de la résurrection. / Garde-nous de cette vue trop courte / qui enfermerait notre culte entre ces murs, / mais envoie-nous d’ici pour être tes serviteurs dans le monde, / partageant les bénédictions du Christ avec le monde qu’il est venu racheter.'),
+      TextBlock.leader(
+          'Chers amis, réjouissons-nous que Dieu ait ainsi touché le cœur des gens / pour que cette maison ait été construite pour la louange et la prière. / Consacrons-la maintenant au service et célébrons son usage saint.'),
+      TextBlock.note(
+          'Plusieurs personnes peuvent diriger des parties de la prière de consécration suivante, que le ministre célébrant doit commencer et conclure :'),
+      TextBlock.leader(
+          'Dieu éternel, puissant en force et d’une majesté incompréhensible, / que les cieux ne peuvent contenir, / encore moins les murs des temples construits de main d’homme, / tu as promis ta présence particulière / chaque fois que deux ou trois sont réunis en ton nom / pour t’offrir louange et prière. / Par la puissance de ton Saint-Esprit, consacre cette maison de ton culte. / Bénis-nous et sanctifie ce que nous faisons ici, / afin que ce lieu soit saint pour nous et une maison de prière pour tous les peuples. / Guide et fortifie en ce lieu, par ce même Esprit, / la proclamation de ta Parole et la célébration de tes sacrements, / l’effusion de la prière et le chant de ta louange, / les professions de foi et les témoignages de ta grâce, / l’union des hommes et des femmes dans le mariage / et la célébration de la mort et de la résurrection. / Garde-nous de cette vue trop courte / qui enfermerait notre culte entre ces murs, / mais envoie-nous d’ici pour être tes serviteurs dans le monde, / partageant les bénédictions du Christ avec le monde qu’il est venu racheter.'),
       TextBlock.note('Le ministre célébrant conclut :'),
-      TextBlock.leader('Maintenant, ô Dieu, sanctifie ce lieu, / car tout ce qui est dans les cieux et sur la terre t’appartient. / À toi, Seigneur, appartiennent la souveraineté, et tu es exalté comme chef au-dessus de tout.'),
+      TextBlock.leader(
+          'Maintenant, ô Dieu, sanctifie ce lieu, / car tout ce qui est dans les cieux et sur la terre t’appartient. / À toi, Seigneur, appartiennent la souveraineté, et tu es exalté comme chef au-dessus de tout.'),
       TextBlock.heading('CHANT DE CHORALE, CANTIQUE OU AUTRE ACTE DE LOUANGE'),
       TextBlock.heading('CONSÉCRATION DE LA CHAIRE'),
-      TextBlock.note('Les responsables du culte et l’assemblée peuvent se rendre en procession à la chaire. Le ministre célébrant pose la main sur la chaire et dit :'),
-      TextBlock.leader('Dieu éternel, nous te rendons grâce de ce que le Christ, ta Parole vivante, / nous parle par les paroles de la sainte Écriture, / écrites autrefois sous l’inspiration de ton Saint-Esprit / et proclamées aujourd’hui par l’onction de ce même Esprit. / Quand ta Parole est lue et prêchée depuis cette chaire, / purifie la vie et les lèvres de ceux qui y parlent, / afin que ta Parole seule soit proclamée / et que ta Parole seule soit entendue et obéie. / Que les paroles de notre bouche et la méditation de notre cœur / te soient agréables, notre Rocher et notre Rédempteur, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('La Parole de Dieu est une lampe à nos pieds et une lumière sur notre sentier. / Nous consacrons cette chaire / au nom du Père, du Fils et du Saint-Esprit / (au nom du Dieu saint et trine). Amen.'),
+      TextBlock.note(
+          'Les responsables du culte et l’assemblée peuvent se rendre en procession à la chaire. Le ministre célébrant pose la main sur la chaire et dit :'),
+      TextBlock.leader(
+          'Dieu éternel, nous te rendons grâce de ce que le Christ, ta Parole vivante, / nous parle par les paroles de la sainte Écriture, / écrites autrefois sous l’inspiration de ton Saint-Esprit / et proclamées aujourd’hui par l’onction de ce même Esprit. / Quand ta Parole est lue et prêchée depuis cette chaire, / purifie la vie et les lèvres de ceux qui y parlent, / afin que ta Parole seule soit proclamée / et que ta Parole seule soit entendue et obéie. / Que les paroles de notre bouche et la méditation de notre cœur / te soient agréables, notre Rocher et notre Rédempteur, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'La Parole de Dieu est une lampe à nos pieds et une lumière sur notre sentier. / Nous consacrons cette chaire / au nom du Père, du Fils et du Saint-Esprit / (au nom du Dieu saint et trine). Amen.'),
       TextBlock.note('On dépose alors une Bible sur la chaire.'),
       TextBlock.heading('LECTURES BIBLIQUES'),
-      TextBlock.leader('Lectures suggérées :\nGenèse 28.10-22 — la maison de Dieu\n1 Rois 8.22-30 — la prière de Salomon pour la dédicace du temple\nEsdras 6.13-22 — la dédicace du second temple'),
+      TextBlock.leader(
+          'Lectures suggérées :\nGenèse 28.10-22 — la maison de Dieu\n1 Rois 8.22-30 — la prière de Salomon pour la dédicace du temple\nEsdras 6.13-22 — la dédicace du second temple'),
       TextBlock.leader('Psaumes 122 ou Psaumes 118'),
-      TextBlock.note('Le Psaume 122 peut être abrégé aux versets 1-2 et 6-9. L’assemblée peut répondre :'),
-      TextBlock.people('« J’ai choisi et sanctifié ce lieu » (2 Chroniques 7.16).'),
-      TextBlock.leader('Autres lectures suggérées :\n1 Corinthiens 3.9-13, 16-17 — Jésus-Christ est le fondement\nHébreux 10.19-25 — l’assurance d’entrer dans le sanctuaire\n1 Pierre 2.4-10 — vous êtes un sacerdoce royal\nApocalypse 21.9-27 — la nouvelle Jérusalem'),
+      TextBlock.note(
+          'Le Psaume 122 peut être abrégé aux versets 1-2 et 6-9. L’assemblée peut répondre :'),
+      TextBlock.people(
+          '« J’ai choisi et sanctifié ce lieu » (2 Chroniques 7.16).'),
+      TextBlock.leader(
+          'Autres lectures suggérées :\n1 Corinthiens 3.9-13, 16-17 — Jésus-Christ est le fondement\nHébreux 10.19-25 — l’assurance d’entrer dans le sanctuaire\n1 Pierre 2.4-10 — vous êtes un sacerdoce royal\nApocalypse 21.9-27 — la nouvelle Jérusalem'),
       TextBlock.heading('CANTIQUE OU CHANT'),
-      TextBlock.leader('Évangile — lectures suggérées :\nMatthieu 7.24-27 — la maison bâtie sur le roc\nMatthieu 16.13-18 — sur ce roc je bâtirai mon Église\nMatthieu 21.12-17 — ma maison sera appelée maison de prière'),
+      TextBlock.leader(
+          'Évangile — lectures suggérées :\nMatthieu 7.24-27 — la maison bâtie sur le roc\nMatthieu 16.13-18 — sur ce roc je bâtirai mon Église\nMatthieu 21.12-17 — ma maison sera appelée maison de prière'),
       TextBlock.heading('PRÉDICATION'),
       TextBlock.heading('CANTIQUE D’INVITATION OU DE RÉPONSE'),
       TextBlock.heading('CONSÉCRATION DES FONTS BAPTISMAUX'),
-      TextBlock.note('Les responsables du culte et l’assemblée peuvent se rendre en procession aux fonts baptismaux. Le ministre célébrant pose la main sur les fonts et dit :'),
-      TextBlock.leader('Dieu de toute grâce, nous te rendons grâce de ce que, par les eaux du baptême, / tu nous as donné une vie nouvelle, tu nous as adoptés comme tes enfants / et tu as fait de nous des membres de ton Église. / Quand nous versons l’eau du baptême, / faisant et renouvelant nos vœux d’alliance, / répands ton Esprit et donne-nous une nouvelle naissance ; / lave le péché et revêts ton peuple de justice, / afin que, mourant et ressuscitant avec le Christ, / nous marchions dans une vie nouvelle et abondante, / par le même Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('Il y a un seul Seigneur, une seule foi, un seul baptême, un seul Dieu et Père de nous tous. / Nous consacrons ces fonts / au nom du Père, du Fils et du Saint-Esprit. Amen.'),
-      TextBlock.note('On verse alors de l’eau dans les fonts. Des personnes peuvent être baptisées selon le texte du baptême proposé dans l’application. On peut chanter un cantique ou une strophe.'),
+      TextBlock.note(
+          'Les responsables du culte et l’assemblée peuvent se rendre en procession aux fonts baptismaux. Le ministre célébrant pose la main sur les fonts et dit :'),
+      TextBlock.leader(
+          'Dieu de toute grâce, nous te rendons grâce de ce que, par les eaux du baptême, / tu nous as donné une vie nouvelle, tu nous as adoptés comme tes enfants / et tu as fait de nous des membres de ton Église. / Quand nous versons l’eau du baptême, / faisant et renouvelant nos vœux d’alliance, / répands ton Esprit et donne-nous une nouvelle naissance ; / lave le péché et revêts ton peuple de justice, / afin que, mourant et ressuscitant avec le Christ, / nous marchions dans une vie nouvelle et abondante, / par le même Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Il y a un seul Seigneur, une seule foi, un seul baptême, un seul Dieu et Père de nous tous. / Nous consacrons ces fonts / au nom du Père, du Fils et du Saint-Esprit. Amen.'),
+      TextBlock.note(
+          'On verse alors de l’eau dans les fonts. Des personnes peuvent être baptisées selon le texte du baptême proposé dans l’application. On peut chanter un cantique ou une strophe.'),
       TextBlock.heading('CONSÉCRATION DE LA TABLE DU SEIGNEUR'),
-      TextBlock.note('Les responsables du culte se rendent en procession à la table du Seigneur. Le ministre célébrant pose la main sur la table et dit :'),
-      TextBlock.leader('Seigneur Dieu, nous te rendons grâce de ce que, quand nous nous rassemblons à la table du Seigneur, / le Christ vivant se fait connaître à nous / dans la fraction du pain et le partage de la coupe, / et nous sommes renouvelés comme son corps, dont la vie est dans son sang. / Quand nous mangeons ce pain et buvons à cette coupe, / ranime tous ceux qui prennent part à cette table sainte. / Rassasie la faim de nos cœurs du pain du ciel, / et étanche notre soif la plus profonde par la coupe du salut. / Fortifie-nous pour ton service dans le monde, / et donne-nous un avant-goût du festin à venir, / par Jésus-Christ notre Seigneur. Amen.'),
-      TextBlock.leader('Jésus a dit : « Celui qui vient à moi n’aura jamais faim, / et celui qui croit en moi n’aura jamais soif. » / Nous consacrons cette table / au nom du Père, du Fils et du Saint-Esprit. Amen.'),
+      TextBlock.note(
+          'Les responsables du culte se rendent en procession à la table du Seigneur. Le ministre célébrant pose la main sur la table et dit :'),
+      TextBlock.leader(
+          'Seigneur Dieu, nous te rendons grâce de ce que, quand nous nous rassemblons à la table du Seigneur, / le Christ vivant se fait connaître à nous / dans la fraction du pain et le partage de la coupe, / et nous sommes renouvelés comme son corps, dont la vie est dans son sang. / Quand nous mangeons ce pain et buvons à cette coupe, / ranime tous ceux qui prennent part à cette table sainte. / Rassasie la faim de nos cœurs du pain du ciel, / et étanche notre soif la plus profonde par la coupe du salut. / Fortifie-nous pour ton service dans le monde, / et donne-nous un avant-goût du festin à venir, / par Jésus-Christ notre Seigneur. Amen.'),
+      TextBlock.leader(
+          'Jésus a dit : « Celui qui vient à moi n’aura jamais faim, / et celui qui croit en moi n’aura jamais soif. » / Nous consacrons cette table / au nom du Père, du Fils et du Saint-Esprit. Amen.'),
       TextBlock.note('On peut chanter une réponse.'),
       TextBlock.heading('OFFRANDE'),
-      TextBlock.note('On peut recueillir une offrande. On peut chanter un cantique pendant que les dons sont apportés à la table du Seigneur. Les vases de la communion, le pain et le vin sont alors posés sur la table. On peut disposer des fleurs près de la table et allumer des bougies.'),
+      TextBlock.note(
+          'On peut recueillir une offrande. On peut chanter un cantique pendant que les dons sont apportés à la table du Seigneur. Les vases de la communion, le pain et le vin sont alors posés sur la table. On peut disposer des fleurs près de la table et allumer des bougies.'),
       TextBlock.heading('SAINTE-CÈNE'),
-      TextBlock.note('On peut célébrer la Sainte-Cène en suivant le Culte de la Parole et de la Table II, III ou IV. L’une des mises en musique peut servir pour la Grande action de grâce.'),
+      TextBlock.note(
+          'On peut célébrer la Sainte-Cène en suivant le Culte de la Parole et de la Table II, III ou IV. L’une des mises en musique peut servir pour la Grande action de grâce.'),
       TextBlock.heading('CANTIQUE OU CHANT'),
       TextBlock.heading('CONGÉ AVEC BÉNÉDICTION'),
       TextBlock.heading('SORTIE'),
     ],
   );
 
-  static const all = <ChurchText>[basicPattern, litanyChurchWorld, tenCommandments, confessionOfSin, briefGreatThanksgiving, blessingsClosing, wordAndTable1, committal, baptismBcp, christianMarriage1, deathAndResurrection, sundayOrder, loveFeast, morningPraise, eveningPraise, ashWednesday, goodFriday, healing1, ministryDying, ministryAfterDeath, blessingHome, birthThanksgiving, greetingsPrayers, waysOfPraying, biblesChildren, covenantRenewal, leadersInstallation, classLeaders, christianMarriage2, greatThanksgivingSeasons, holyThursday, palmSunday, easterVigil, tenebrae, healing2, ministryIllness, ministryComa, ministryDivorce, farewellPastor, farewellMembers, appointment, recognitionOrdained, selectedPrayers, consecrationBuilding];
+  static const all = <ChurchText>[
+    basicPattern,
+    litanyChurchWorld,
+    tenCommandments,
+    confessionOfSin,
+    briefGreatThanksgiving,
+    blessingsClosing,
+    wordAndTable1,
+    committal,
+    baptismBcp,
+    christianMarriage1,
+    deathAndResurrection,
+    sundayOrder,
+    loveFeast,
+    morningPraise,
+    eveningPraise,
+    ashWednesday,
+    goodFriday,
+    healing1,
+    ministryDying,
+    ministryAfterDeath,
+    blessingHome,
+    birthThanksgiving,
+    greetingsPrayers,
+    waysOfPraying,
+    biblesChildren,
+    covenantRenewal,
+    leadersInstallation,
+    classLeaders,
+    christianMarriage2,
+    greatThanksgivingSeasons,
+    holyThursday,
+    palmSunday,
+    easterVigil,
+    tenebrae,
+    healing2,
+    ministryIllness,
+    ministryComa,
+    ministryDivorce,
+    farewellPastor,
+    farewellMembers,
+    appointment,
+    recognitionOrdained,
+    selectedPrayers,
+    consecrationBuilding
+  ];
 }

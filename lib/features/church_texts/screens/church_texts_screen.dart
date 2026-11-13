@@ -26,13 +26,81 @@ IconData churchTextIcon(ChurchTextIcon icon) {
   }
 }
 
+/// Lower-case, no accents: "Bénédiction" matches "benediction".
+String foldForSearch(String text) {
+  const accents = {
+    'à': 'a',
+    'â': 'a',
+    'ä': 'a',
+    'é': 'e',
+    'è': 'e',
+    'ê': 'e',
+    'ë': 'e',
+    'î': 'i',
+    'ï': 'i',
+    'ô': 'o',
+    'ö': 'o',
+    'ù': 'u',
+    'û': 'u',
+    'ü': 'u',
+    'ç': 'c',
+    'œ': 'oe',
+    '’': "'",
+  };
+  final buffer = StringBuffer();
+  for (final char in text.toLowerCase().split('')) {
+    buffer.write(accents[char] ?? char);
+  }
+  return buffer.toString();
+}
+
+/// The texts whose title or subtitle contain every word of [query].
+List<ChurchText> searchChurchTexts(String query) {
+  final words = foldForSearch(query)
+      .split(RegExp(r'\s+'))
+      .where((w) => w.isNotEmpty)
+      .toList();
+  if (words.isEmpty) return const [];
+  return [
+    for (final text in ChurchTextsData.all)
+      if (words.every(
+          (w) => foldForSearch('${text.title} ${text.subtitle}').contains(w)))
+        text,
+  ];
+}
+
 /// "Prières et textes": the prayers, creeds and doctrinal texts of the
-/// Church, grouped by use.
-class ChurchTextsScreen extends StatelessWidget {
+/// Church, grouped by use, with a search box at the top.
+class ChurchTextsScreen extends StatefulWidget {
   const ChurchTextsScreen({super.key});
 
   @override
+  State<ChurchTextsScreen> createState() => _ChurchTextsScreenState();
+}
+
+class _ChurchTextsScreenState extends State<ChurchTextsScreen> {
+  final _controller = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  AppRow _row(BuildContext context, ChurchText text) => AppRow(
+        icon: churchTextIcon(text.icon),
+        title: text.title,
+        subtitle: text.subtitle,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ChurchTextScreen(text: text)),
+        ),
+      );
+
+  @override
   Widget build(BuildContext context) {
+    final searching = _query.trim().isNotEmpty;
+    final found = searching ? searchChurchTexts(_query) : const <ChurchText>[];
     return Scaffold(
       appBar: AppBar(title: const Text('Prières et textes')),
       body: ReadingWidthConstraint(
@@ -40,21 +108,43 @@ class ChurchTextsScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            for (final group in ChurchTextsData.groups) ...[
-              SectionTitle(group.title),
-              AppRowGroup(rows: [
-                for (final text in group.texts)
-                  AppRow(
-                    icon: churchTextIcon(text.icon),
-                    title: text.title,
-                    subtitle: text.subtitle,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => ChurchTextScreen(text: text)),
-                    ),
-                  ),
-              ]),
-              const SizedBox(height: 24),
-            ],
+            TextField(
+              controller: _controller,
+              textInputAction: TextInputAction.search,
+              decoration: InputDecoration(
+                hintText: 'Chercher une prière ou un service',
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: searching
+                    ? IconButton(
+                        tooltip: 'Effacer',
+                        icon: const Icon(Icons.close),
+                        onPressed: () {
+                          _controller.clear();
+                          setState(() => _query = '');
+                        },
+                      )
+                    : null,
+              ),
+              onChanged: (value) => setState(() => _query = value),
+            ),
+            const SizedBox(height: 16),
+            if (searching) ...[
+              if (found.isEmpty)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  child: Center(child: Text('Aucun texte ne correspond.')),
+                )
+              else
+                AppRowGroup(
+                    rows: [for (final text in found) _row(context, text)]),
+            ] else
+              for (final group in ChurchTextsData.groups) ...[
+                SectionTitle(group.title),
+                AppRowGroup(rows: [
+                  for (final text in group.texts) _row(context, text)
+                ]),
+                const SizedBox(height: 24),
+              ],
           ],
         ),
       ),

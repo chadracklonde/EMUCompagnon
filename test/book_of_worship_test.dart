@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:emu_compagnon/features/church_texts/data/book_of_worship_data.dart';
 import 'package:emu_compagnon/features/church_texts/data/church_texts_data.dart';
 import 'package:emu_compagnon/features/church_texts/models/church_text.dart';
+import 'package:emu_compagnon/features/church_texts/screens/church_texts_screen.dart';
 import 'package:emu_compagnon/features/liturgy/data/sacraments_data.dart';
 import 'package:emu_compagnon/features/liturgy/data/worship_order_data.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -69,6 +70,23 @@ void main() {
     final confession = BookOfWorshipData.confessionOfSin;
     expect(confession.localized('fr'), same(confession));
     expect(confession.localized('sw').title, 'Maombi ya toba');
+  });
+
+  test('every Book of Worship text is in exactly one group of the list', () {
+    final inGroups = [
+      for (final g in ChurchTextsData.groups)
+        if (g.title.startsWith('Livre de culte')) ...g.texts,
+    ];
+    expect(inGroups.map((t) => t.id).toSet().length, inGroups.length, reason: 'a text is in two groups');
+    expect(inGroups.map((t) => t.id).toSet(), all.map((t) => t.id).toSet());
+  });
+
+  test('the search finds texts by title, ignoring accents and case', () {
+    expect(searchChurchTexts('MARIAGE').map((t) => t.id), containsAll(['bow_christian_marriage_1', 'bow_christian_marriage_2']));
+    expect(searchChurchTexts('benedictions').map((t) => t.id), contains('bow_blessings_closing'));
+    expect(searchChurchTexts('veillee pascale').map((t) => t.id), contains('bow_easter_vigil'));
+    expect(searchChurchTexts('zzzz'), isEmpty);
+    expect(searchChurchTexts('   '), isEmpty);
   });
 
   test('texts are in the app and their ids are unique', () {

@@ -16,7 +16,8 @@ class ChurchTextPrefs {
     }
   }
 
-  static Future<bool> isPinned(String id) async => (await pinned()).contains(id);
+  static Future<bool> isPinned(String id) async =>
+      (await pinned()).contains(id);
 
   /// Pins or unpins [id]; returns whether it is pinned afterwards.
   static Future<bool> toggle(String id) async {

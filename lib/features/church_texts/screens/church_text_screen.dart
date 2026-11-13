@@ -82,8 +82,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
   ChurchText _localized(BuildContext context) =>
       widget.text.localized(context.read<AppSettings>().locale);
 
-  void _share() =>
-      TextShareService.share(_localized(context).toPlainText(), subject: _localized(context).title);
+  void _share() => TextShareService.share(_localized(context).toPlainText(),
+      subject: _localized(context).title);
 
   Future<void> _togglePin() async {
     final pinned = await ChurchTextPrefs.toggle(widget.text.id);
@@ -134,8 +134,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                 Navigator.of(sheetContext).pop();
                 await Clipboard.setData(ClipboardData(text: content));
                 if (!mounted) return;
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(const SnackBar(content: Text('Passage copié')));
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Passage copié')));
               },
             ),
             const SizedBox(height: 8),
@@ -187,7 +187,9 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
     final body = <Widget>[];
     for (var i = 0; i < text.blocks.length; i++) {
       final block = text.blocks[i];
-      final key = block.kind == TextBlockKind.heading ? _headingKeys[headingIndex++] : null;
+      final key = block.kind == TextBlockKind.heading
+          ? _headingKeys[headingIndex++]
+          : null;
       // The speaker is named once per turn, not on every line.
       final previous = i == 0 ? null : text.blocks[i - 1].kind;
       body.add(_Block(
@@ -199,7 +201,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
       ));
     }
 
-    return KeepAwake(child: Scaffold(
+    return KeepAwake(
+        child: Scaffold(
       appBar: AppBar(
         actions: [
           if (_hasContents)
@@ -209,7 +212,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
               onPressed: _openContents,
             ),
           IconButton(
-            tooltip: _pinned ? "Retirer de l'accueil" : "Épingler sur l'accueil",
+            tooltip:
+                _pinned ? "Retirer de l'accueil" : "Épingler sur l'accueil",
             icon: Icon(
               _pinned ? Icons.push_pin : Icons.push_pin_outlined,
               color: _pinned ? palette.accent : null,
@@ -287,7 +291,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(text.subtitle, style: TextStyle(fontSize: 15, color: palette.muted)),
+              Text(text.subtitle,
+                  style: TextStyle(fontSize: 15, color: palette.muted)),
               const SizedBox(height: 12),
               ...body,
               const SizedBox(height: 28),
@@ -295,7 +300,8 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
               const SizedBox(height: 12),
               LinkedVerseText(
                 text.source,
-                style: TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
+                style:
+                    TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
               ),
               if (text.sourceUrl != null)
                 Align(
@@ -303,14 +309,16 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                   child: TextButton.icon(
                     icon: const Icon(Icons.open_in_new, size: 18),
                     label: const Text("Voir l'original (en anglais)"),
-                    onPressed: () => launchUrl(Uri.parse(text.sourceUrl!), mode: LaunchMode.externalApplication),
+                    onPressed: () => launchUrl(Uri.parse(text.sourceUrl!),
+                        mode: LaunchMode.externalApplication),
                   ),
                 ),
               if (text.headings.isNotEmpty) ...[
                 const SizedBox(height: 10),
                 Text(
                   'Appui long sur un passage pour le partager ou le copier seul.',
-                  style: TextStyle(fontSize: 13, height: 1.4, color: palette.muted),
+                  style: TextStyle(
+                      fontSize: 13, height: 1.4, color: palette.muted),
                 ),
               ],
             ],
@@ -412,7 +420,8 @@ class _Block extends StatelessWidget {
               if (showSpeaker) _speaker(context, 'Assemblée'),
               LinkedVerseText(
                 block.text,
-                style: bodyStyle.copyWith(fontWeight: FontWeight.w700, color: palette.accent),
+                style: bodyStyle.copyWith(
+                    fontWeight: FontWeight.w700, color: palette.accent),
               ),
             ],
           ),
@@ -424,11 +433,13 @@ class _Block extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10 * lineHeight, right: 12, left: 2),
+                padding:
+                    EdgeInsets.only(top: 10 * lineHeight, right: 12, left: 2),
                 child: Container(
                   width: 6,
                   height: 6,
-                  decoration: BoxDecoration(color: palette.accent, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                      color: palette.accent, shape: BoxShape.circle),
                 ),
               ),
               Expanded(child: LinkedVerseText(block.text, style: bodyStyle)),

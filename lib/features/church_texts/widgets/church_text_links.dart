@@ -26,7 +26,8 @@ class ChurchTextLinks extends StatelessWidget {
         children: [
           for (final text in texts)
             ActionChip(
-              avatar: Icon(churchTextIcon(text.icon), size: 18, color: palette.accent),
+              avatar: Icon(churchTextIcon(text.icon),
+                  size: 18, color: palette.accent),
               label: Text(text.title),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => ChurchTextScreen(text: text)),

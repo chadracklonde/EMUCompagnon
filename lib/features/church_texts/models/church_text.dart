@@ -34,7 +34,16 @@ class TextBlock {
 
 /// Icon of a text, mapped to a Material icon by the screens so the data
 /// files stay free of Flutter imports.
-enum ChurchTextIcon { prayer, creed, litany, articles, confession, rules, vows, mission }
+enum ChurchTextIcon {
+  prayer,
+  creed,
+  litany,
+  articles,
+  confession,
+  rules,
+  vows,
+  mission
+}
 
 /// A prayer, creed or doctrinal text of the Church, read as one page.
 class ChurchText {
