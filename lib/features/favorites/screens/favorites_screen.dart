@@ -1,3 +1,4 @@
+import '../../hymns/repository/hymns_repository.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
@@ -56,7 +57,11 @@ class _FavoritesScreenState extends State<FavoritesScreen>
     for (final b in hymnBookmarks) {
       final rows = await db.query('hymns', where: 'id = ?', whereArgs: [b.refId], limit: 1);
       if (rows.isNotEmpty) {
-        hymnFavorites.add(_HymnFavorite(bookmark: b, hymn: Hymn.fromMap(rows.first)));
+        final hymn = Hymn.fromMap(rows.first);
+        // Les favoris du recueil de la langue choisie seulement.
+        if (hymn.hymnal == HymnsRepository.activeHymnal) {
+          hymnFavorites.add(_HymnFavorite(bookmark: b, hymn: hymn));
+        }
       }
     }
 

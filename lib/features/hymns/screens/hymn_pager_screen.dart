@@ -24,12 +24,12 @@ class _HymnPagerScreenState extends State<HymnPagerScreen> {
   @override
   void initState() {
     super.initState();
-    ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title);
+    ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title, hymnal: widget.hymn.hymnal);
     final known = widget.hymns;
     if (known != null) {
       _setHymns(known);
     } else {
-      HymnsRepository().getAll().then((all) {
+      HymnsRepository().getAll(hymnal: widget.hymn.hymnal).then((all) {
         if (mounted) setState(() => _setHymns(all));
       }).catchError((_) {
         // Without the hymnal the hymn is still shown, only without swiping.
@@ -60,7 +60,7 @@ class _HymnPagerScreenState extends State<HymnPagerScreen> {
       controller: _controller,
       itemCount: hymns.length,
       onPageChanged: (i) =>
-          ReadingHistoryService.saveLastHymnRead(hymns[i].number, hymns[i].title),
+          ReadingHistoryService.saveLastHymnRead(hymns[i].number, hymns[i].title, hymnal: hymns[i].hymnal),
       itemBuilder: (context, i) => HymnDetailScreen(
         key: ValueKey(hymns[i].id),
         hymn: hymns[i],

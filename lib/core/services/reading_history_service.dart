@@ -22,16 +22,24 @@ class ReadingHistoryService {
     return (book: book, chapter: chapter);
   }
 
-  static Future<void> saveLastHymnRead(String number, String title) async {
+  // Chaque recueil garde son dernier cantique (le même numéro n'est pas le
+  // même cantique d'un recueil à l'autre). Les Chants de Victoire gardent les
+  // clés d'origine.
+  static String _numberKey(String hymnal) =>
+      hymnal == 'CV' ? _kLastHymnNumber : '$_kLastHymnNumber.$hymnal';
+  static String _titleKey(String hymnal) =>
+      hymnal == 'CV' ? _kLastHymnTitle : '$_kLastHymnTitle.$hymnal';
+
+  static Future<void> saveLastHymnRead(String number, String title, {String hymnal = 'CV'}) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_kLastHymnNumber, number);
-    await prefs.setString(_kLastHymnTitle, title);
+    await prefs.setString(_numberKey(hymnal), number);
+    await prefs.setString(_titleKey(hymnal), title);
   }
 
-  static Future<({String number, String title})?> getLastHymnRead() async {
+  static Future<({String number, String title})?> getLastHymnRead({String hymnal = 'CV'}) async {
     final prefs = await SharedPreferences.getInstance();
-    final number = prefs.getString(_kLastHymnNumber);
-    final title = prefs.getString(_kLastHymnTitle);
+    final number = prefs.getString(_numberKey(hymnal));
+    final title = prefs.getString(_titleKey(hymnal));
     if (number == null || title == null) return null;
     return (number: number, title: title);
   }

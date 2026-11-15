@@ -10,12 +10,21 @@ class HymnList {
   final String name;
   final List<String> numbers;
 
-  const HymnList({required this.id, required this.name, this.numbers = const []});
+  /// Recueil dont les numéros viennent (`CV` ou `NZW`) : le même numéro
+  /// n'est pas le même cantique d'un recueil à l'autre.
+  final String hymnal;
+
+  const HymnList({
+    required this.id,
+    required this.name,
+    this.numbers = const [],
+    this.hymnal = 'CV',
+  });
 
   HymnList copyWith({String? name, List<String>? numbers}) =>
-      HymnList(id: id, name: name ?? this.name, numbers: numbers ?? this.numbers);
+      HymnList(id: id, name: name ?? this.name, numbers: numbers ?? this.numbers, hymnal: hymnal);
 
-  Map<String, dynamic> toJson() => {'id': id, 'name': name, 'numbers': numbers};
+  Map<String, dynamic> toJson() => {'id': id, 'name': name, 'numbers': numbers, 'hymnal': hymnal};
 
   static HymnList? fromJson(dynamic json) {
     if (json is! Map) return null;
@@ -27,6 +36,7 @@ class HymnList {
       id: id,
       name: name,
       numbers: numbers is List ? numbers.whereType<String>().toList() : const [],
+      hymnal: json['hymnal'] is String ? json['hymnal'] as String : 'CV',
     );
   }
 }

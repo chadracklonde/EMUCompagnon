@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../hymns/repository/hymns_repository.dart';
 import '../models/hymn_list.dart';
 
 export '../models/hymn_list.dart';
@@ -11,9 +12,16 @@ export '../models/hymn_list.dart';
 class HymnListService {
   static const storageKey = 'hymnLists.v1';
 
-  static Future<List<HymnList>> getAll() async {
+  /// Toutes les listes, tous recueils confondus (sauvegarde, modifications).
+  static Future<List<HymnList>> _all() async {
     final prefs = await SharedPreferences.getInstance();
     return HymnListCodec.decode(prefs.getString(storageKey));
+  }
+
+  /// Les listes du recueil affiché (celui de la langue choisie).
+  static Future<List<HymnList>> getAll({String? hymnal}) async {
+    final book = hymnal ?? HymnsRepository.activeHymnal;
+    return [for (final list in await _all()) if (list.hymnal == book) list];
   }
 
   static Future<void> _save(List<HymnList> lists) async {
@@ -22,18 +30,19 @@ class HymnListService {
   }
 
   static Future<HymnList?> get(String id) async {
-    for (final list in await getAll()) {
+    for (final list in await _all()) {
       if (list.id == id) return list;
     }
     return null;
   }
 
   static Future<HymnList> create(String name, {List<String> numbers = const []}) async {
-    final lists = await getAll();
+    final lists = await _all();
     final list = HymnList(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
       name: name.trim(),
       numbers: numbers,
+      hymnal: HymnsRepository.activeHymnal,
     );
     // Newest first: the list being prepared is the one opened next.
     await _save([list, ...lists]);
@@ -41,7 +50,7 @@ class HymnListService {
   }
 
   static Future<void> _update(String id, HymnList Function(HymnList) change) async {
-    final lists = await getAll();
+    final lists = await _all();
     await _save([for (final list in lists) list.id == id ? change(list) : list]);
   }
 
@@ -62,7 +71,7 @@ class HymnListService {
   }
 
   static Future<void> delete(String id) async {
-    final lists = await getAll();
+    final lists = await _all();
     await _save(lists.where((list) => list.id != id).toList());
   }
 }

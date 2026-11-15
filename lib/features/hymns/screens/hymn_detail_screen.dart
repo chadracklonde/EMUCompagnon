@@ -51,7 +51,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
   void initState() {
     super.initState();
     if (widget.recordHistory) {
-      ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title);
+      ReadingHistoryService.saveLastHymnRead(widget.hymn.number, widget.hymn.title, hymnal: widget.hymn.hymnal);
     }
     _load();
   }

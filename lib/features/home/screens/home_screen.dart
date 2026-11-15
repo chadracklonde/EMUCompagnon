@@ -1,3 +1,4 @@
+import '../../../core/models/hymnal.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/l10n/app_strings.dart';
@@ -369,7 +370,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: AppTile(
                         icon: Icons.music_note_outlined,
-                        title: 'Chants de Victoire',
+                        title: Hymnals.name(Hymnals.forLocale(locale)),
                         subtitle: t('hymnal_subtitle'),
                         onTap: () => _open(const HymnsScreen()),
                       ),

@@ -299,7 +299,7 @@ class WidgetSyncService {
     });
 
     await _put(out, 'resume_hymn', () async {
-      final last = await ReadingHistoryService.getLastHymnRead();
+      final last = await ReadingHistoryService.getLastHymnRead(hymnal: HymnsRepository.activeHymnal);
       if (last == null) return null;
       return {'t': 'N° ${last.number}', 'b': last.title, 'r': 'hymn:${last.number}'};
     });

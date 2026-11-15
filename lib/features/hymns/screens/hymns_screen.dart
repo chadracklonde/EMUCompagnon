@@ -1,5 +1,9 @@
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/models/hymnal.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../core/models/hymn.dart';
 import '../repository/hymns_repository.dart';
 import 'hymn_detail_screen.dart';
@@ -26,6 +30,27 @@ class _HymnsScreenState extends State<HymnsScreen> {
   ({String number, String title})? _lastRead;
   // Only meaningful in the wide (master-detail) layout.
   Hymn? _selectedHymn;
+  String? _shownHymnal;
+
+  String _t(String key) => AppStrings.t(key, context.read<AppSettings>().locale);
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Le recueil suit la langue : on repart de sa liste complète.
+    final book = Hymnals.forLocale(Provider.of<AppSettings>(context).locale);
+    if (_shownHymnal != null && _shownHymnal != book) {
+      _searchController.clear();
+      _searchSeq++;
+      _isSearching = false;
+      _searchError = null;
+      _selectedHymn = null;
+      _lastRead = null;
+      _loadAll();
+      _loadLastRead();
+    }
+    _shownHymnal = book;
+  }
 
   @override
   void initState() {
@@ -35,7 +60,7 @@ class _HymnsScreenState extends State<HymnsScreen> {
   }
 
   void _loadLastRead() {
-    ReadingHistoryService.getLastHymnRead().then((r) {
+    ReadingHistoryService.getLastHymnRead(hymnal: HymnsRepository.activeHymnal).then((r) {
       if (mounted) setState(() => _lastRead = r);
     });
   }
@@ -127,9 +152,9 @@ class _HymnsScreenState extends State<HymnsScreen> {
           padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
           child: TextField(
             controller: _searchController,
-            decoration: const InputDecoration(
-              hintText: 'Numéro, titre ou parole…',
-              prefixIcon: Icon(Icons.search),
+            decoration: InputDecoration(
+              hintText: _t('hymn_search_hint'),
+              prefixIcon: const Icon(Icons.search),
             ),
             onChanged: _onSearchChanged,
           ),
@@ -143,7 +168,7 @@ class _HymnsScreenState extends State<HymnsScreen> {
                         padding: const EdgeInsets.all(24),
                         child: Text(
                           _searchError == null
-                              ? 'Aucun cantique trouvé.'
+                              ? _t('hymn_none_found')
                               : 'Recherche indisponible : $_searchError',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: palette.muted),
@@ -160,7 +185,7 @@ class _HymnsScreenState extends State<HymnsScreen> {
                             child: AppCard(
                               child: AppRow(
                                 icon: Icons.history,
-                                title: 'Reprendre',
+                                title: _t('hymn_resume'),
                                 subtitle: 'N° ${_lastRead!.number} · ${_lastRead!.title}',
                                 onTap: () => _openLastHymn(isWide),
                               ),
@@ -186,18 +211,18 @@ class _HymnsScreenState extends State<HymnsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chants de Victoire'),
+        title: Text(Hymnals.name(Hymnals.forLocale(context.watch<AppSettings>().locale))),
         actions: [
           IconButton(
             icon: const Icon(Icons.queue_music),
-            tooltip: 'Listes de cantiques',
+            tooltip: _t('hymn_lists'),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => const HymnListsScreen()),
             ),
           ),
           IconButton(
             icon: const Icon(Icons.text_fields),
-            tooltip: 'Taille du texte',
+            tooltip: _t('text_size'),
             onPressed: () => showTextSettingsPopup(context),
           ),
         ],
@@ -212,7 +237,7 @@ class _HymnsScreenState extends State<HymnsScreen> {
                   child: _selectedHymn == null
                       ? Center(
                           child: Text(
-                            'Sélectionnez un cantique',
+                            _t('hymn_select'),
                             style: TextStyle(color: Theme.of(context).colorScheme.outline),
                           ),
                         )

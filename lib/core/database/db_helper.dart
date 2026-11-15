@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
@@ -67,7 +67,7 @@ class DbHelper {
 
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
   /// fixed content/schema that already-installed devices need to receive.
-  static const int _currentContentVersion = 7;
+  static const int _currentContentVersion = 8;
   static const _kLastAppliedVersionPref = 'db.lastAppliedContentVersion';
 
   static bool _factoryInitialized = false;
@@ -224,6 +224,14 @@ class DbHelper {
     if (!hasAudioUrl) {
       await db.execute('ALTER TABLE hymns ADD COLUMN audio_url TEXT');
     }
+    // Recueil du cantique : 'CV' (Chants de Victoire) ou 'NZW' (Nyimbo za
+    // Wokovu). Ajouté APRÈS audio_url, dans le même ordre que la base livrée.
+    final hasHymnal = (await db.rawQuery('PRAGMA table_info(hymns)'))
+        .any((c) => c['name'] == 'hymnal');
+    if (!hasHymnal) {
+      await db.execute('ALTER TABLE hymns ADD COLUMN hymnal TEXT');
+      await db.execute("UPDATE hymns SET hymnal = 'CV' WHERE hymnal IS NULL");
+    }
 
     Future<bool> ftsTableExists(String name) async {
       final rows = await db.rawQuery(
@@ -261,6 +269,26 @@ class DbHelper {
     }
   }
 
+  /// Remplace le contenu de [table] par celui de la même table dans la base
+  /// jointe [schema], en ne copiant que les colonnes que les deux ont : une
+  /// base plus ancienne (sans la colonne `hymnal`, par exemple) ne fait pas
+  /// échouer la copie. Les cantiques sans recueil sont des Chants de Victoire.
+  @visibleForTesting
+  static Future<void> copyTable(DatabaseExecutor txn, String table, String schema) async {
+    final local = (await txn.rawQuery('PRAGMA main.table_info($table)'))
+        .map((c) => c['name'] as String)
+        .toList();
+    final other = (await txn.rawQuery('PRAGMA $schema.table_info($table)'))
+        .map((c) => c['name'] as String)
+        .toSet();
+    final cols = local.where(other.contains).join(', ');
+    await txn.execute('DELETE FROM $table');
+    await txn.execute('INSERT INTO $table($cols) SELECT $cols FROM $schema.$table');
+    if (table == 'hymns') {
+      await txn.execute("UPDATE hymns SET hymnal = 'CV' WHERE hymnal IS NULL");
+    }
+  }
+
   /// Refreshes Bible/hymns/dictionary content (and their search indexes)
   /// from the freshly bundled asset DB, leaving bookmarks/notes/highlights
   /// on the device completely untouched. (Mobile/desktop only.)
@@ -280,8 +308,7 @@ class DbHelper {
           }
         }
         for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
-          await txn.execute('DELETE FROM $table');
-          await txn.execute('INSERT INTO $table SELECT * FROM freshdb.$table');
+          await copyTable(txn, table, 'freshdb');
         }
         if (_fts5Available) {
           await txn.execute('DELETE FROM bible_verses_fts');
@@ -347,8 +374,7 @@ class DbHelper {
           }
         }
         for (final table in ['bible_verses', 'hymns', 'dictionary_entries']) {
-          await txn.execute('DELETE FROM $table');
-          await txn.execute('INSERT INTO $table SELECT * FROM newdb.$table');
+          await copyTable(txn, table, 'newdb');
         }
         if (_fts5Available) {
           await txn.execute('DELETE FROM bible_verses_fts');

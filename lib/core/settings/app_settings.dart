@@ -1,3 +1,5 @@
+import '../../features/hymns/repository/hymns_repository.dart';
+import '../models/hymnal.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -78,7 +80,7 @@ class AppSettings extends ChangeNotifier {
       _locale = 'sw';
       _bibleVersion = 'SCV';
     }
-    BibleRepository.activeVersion = _bibleVersion;
+    _applyLanguage();
     _keepScreenOn = prefs.getBool(_kKeepScreenOn) ?? true;
     notifyListeners();
   }
@@ -121,7 +123,7 @@ class AppSettings extends ChangeNotifier {
   Future<void> setLocale(String value) async {
     _locale = value;
     _bibleVersion = value == 'sw' ? BibleVersions.scv.code : BibleVersions.lsg1910.code;
-    BibleRepository.activeVersion = _bibleVersion;
+    _applyLanguage();
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kLocale, _locale);
@@ -149,11 +151,17 @@ class AppSettings extends ChangeNotifier {
   Future<void> setBibleVersion(String code) async {
     _bibleVersion = code;
     _locale = code == BibleVersions.scv.code ? 'sw' : 'fr';
-    BibleRepository.activeVersion = _bibleVersion;
+    _applyLanguage();
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kBibleVersion, _bibleVersion);
     await prefs.setString(_kLocale, _locale);
+  }
+
+  /// Met la Bible et le recueil de cantiques de la langue en cours.
+  void _applyLanguage() {
+    BibleRepository.activeVersion = _bibleVersion;
+    HymnsRepository.activeHymnal = Hymnals.forLocale(_locale);
   }
 
   Future<void> setKeepScreenOn(bool value) async {
