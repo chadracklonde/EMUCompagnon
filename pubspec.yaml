@@ -32,6 +32,7 @@ dependencies:
   just_audio: ^0.9.42
   wakelock_plus: ^1.5.2
   quick_actions: ^1.1.1
+  package_info_plus: ^9.0.1
 
 dev_dependencies:
   flutter_test:

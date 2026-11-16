@@ -4,6 +4,7 @@ import '../../../core/l10n/app_strings.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/services/app_share_service.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../about/screens/about_screen.dart';
 import '../../backup/screens/backup_screen.dart';
@@ -125,6 +126,15 @@ class MoreScreen extends StatelessWidget {
                 icon: Icons.cloud_sync_outlined,
                 title: t('content_updates'),
                 onTap: () => open(const ContentUpdateScreen()),
+              ),
+              AppRow(
+                icon: Icons.share_outlined,
+                title: t('recommend'),
+                subtitle: t('recommend_subtitle'),
+                trailingIcon: Icons.ios_share,
+                onTap: () => AppShareService.recommend(
+                  context.read<AppSettings>().locale,
+                ),
               ),
               AppRow(
                 icon: Icons.help_outline,
