@@ -1,3 +1,4 @@
+import '../../../shared/services/app_share_service.dart';
 import '../../../core/models/hymnal.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -250,9 +251,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 streakLabel: _streak != null && _streak!.current > 1
                     ? tf('streak_days', {'n': _streak!.current})
                     : null,
+                shareTooltip: t('recommend'),
                 languageTooltip: t('language'),
                 themeTooltip: t('theme_toggle'),
                 settingsTooltip: t('settings'),
+                onShareTap: () => AppShareService.recommend(locale),
                 onLanguageTap: () => _pickLanguage(settings),
                 onThemeTap: () => _toggleTheme(settings),
                 onSettingsTap: () => _open(const SettingsScreen()),
@@ -465,6 +468,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () => _open(const WeeklyChallengeScreen()),
                 ),
               ]),
+              const SizedBox(height: 24),
+              SectionTitle(t('recommend_section')),
+              AppRowGroup(rows: [
+                AppRow(
+                  icon: Icons.share_outlined,
+                  title: t('recommend'),
+                  subtitle: t('recommend_subtitle'),
+                  trailingIcon: Icons.ios_share,
+                  onTap: () => AppShareService.recommend(locale),
+                ),
+              ]),
             ],
           ),
         ),
@@ -477,9 +491,11 @@ class _Header extends StatelessWidget {
   final String greeting;
   final String date;
   final String? streakLabel;
+  final String shareTooltip;
   final String languageTooltip;
   final String themeTooltip;
   final String settingsTooltip;
+  final VoidCallback onShareTap;
   final VoidCallback onLanguageTap;
   final VoidCallback onThemeTap;
   final VoidCallback onSettingsTap;
@@ -488,9 +504,11 @@ class _Header extends StatelessWidget {
     required this.greeting,
     required this.date,
     required this.streakLabel,
+    required this.shareTooltip,
     required this.languageTooltip,
     required this.themeTooltip,
     required this.settingsTooltip,
+    required this.onShareTap,
     required this.onLanguageTap,
     required this.onThemeTap,
     required this.onSettingsTap,
@@ -548,6 +566,12 @@ class _Header extends StatelessWidget {
               ],
             ],
           ),
+        ),
+        IconButton(
+          tooltip: shareTooltip,
+          onPressed: onShareTap,
+          color: scheme.onSurface,
+          icon: const Icon(Icons.share_outlined),
         ),
         IconButton(
           tooltip: languageTooltip,
