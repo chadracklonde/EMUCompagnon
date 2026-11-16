@@ -22,6 +22,14 @@ void main() {
     expect(fr, contains('Je vous recommande'));
     expect(sw, contains('Ninakupendekezea'));
     expect(fr, isNot(contains('{url}')));
+    // Le lien est suivi d'un second paragraphe : l'auteur et ses coordonnées.
+    final parts = fr.split('\n\n');
+    expect(parts.length, 2);
+    expect(parts.first, endsWith(url));
+    expect(parts.last, contains('Chadrack T. Londe'));
+    expect(parts.last, contains('+243814479335 (WhatsApp)'));
+    expect(parts.last, contains('chadracktambwe+dev@gmail.com'));
+    expect(sw.split('\n\n').last, contains('chadracktambwe+dev@gmail.com'));
   });
 
   testWidgets('l\'écran Plus propose de recommander l\'application, dans la langue choisie', (tester) async {

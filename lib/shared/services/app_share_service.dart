@@ -14,8 +14,12 @@ class AppShareService {
       'https://play.google.com/store/apps/details?id=$packageId';
 
   /// Le message partagé, dans la langue de l'application.
+  /// Le message partagé, dans la langue de l'application : l'invitation avec le
+  /// lien, puis, dans un second paragraphe, qui a développé l'application et
+  /// comment lui écrire.
   static String message(String locale, String url) =>
-      AppStrings.tf('recommend_message', locale, {'url': url});
+      '${AppStrings.tf('recommend_message', locale, {'url': url})}\n\n'
+      '${AppStrings.t('recommend_credit', locale)}';
 
   static Future<String> _packageId() async {
     try {
