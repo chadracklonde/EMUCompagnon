@@ -1,3 +1,4 @@
+import '../../../shared/widgets/language_switch.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -148,8 +149,12 @@ class _HymnsScreenState extends State<HymnsScreen> {
 
     return Column(
       children: [
+        const Padding(
+          padding: EdgeInsets.fromLTRB(20, 4, 20, 10),
+          child: LanguageSwitch(options: LanguageSwitch.hymnals),
+        ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(

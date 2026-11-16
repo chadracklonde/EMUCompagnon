@@ -1,3 +1,4 @@
+import '../../../shared/widgets/language_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/bible_version.dart';
@@ -129,6 +130,8 @@ class _BooksScreenState extends State<BooksScreen> {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
+            const LanguageSwitch(options: LanguageSwitch.bibles),
+            const SizedBox(height: 16),
             if (widget.filter == TestamentFilter.all && _lastRead != null) ...[
               AppCard(
                 child: AppRow(

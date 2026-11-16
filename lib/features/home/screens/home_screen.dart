@@ -1,3 +1,4 @@
+import '../../../shared/widgets/language_switch.dart';
 import '../../../shared/services/app_share_service.dart';
 import '../../../core/models/hymnal.dart';
 import 'package:flutter/material.dart';
@@ -289,6 +290,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           text: verse.text,
                         ),
               ),
+              const SizedBox(height: 12),
+              const LanguageSwitch(options: LanguageSwitch.languages, compact: true),
               if (_backupDue) ...[
                 const SizedBox(height: 16),
                 AppCard(
@@ -527,13 +530,20 @@ class _Header extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                greeting,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: -0.2,
-                  color: scheme.onSurface,
+              // Quatre icônes à droite : la salutation rétrécit au lieu de
+              // passer à la ligne ou de déborder (« Habari za jioni »).
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  greeting,
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.2,
+                    color: scheme.onSurface,
+                  ),
                 ),
               ),
               const SizedBox(height: 2),
@@ -571,24 +581,32 @@ class _Header extends StatelessWidget {
           tooltip: shareTooltip,
           onPressed: onShareTap,
           color: scheme.onSurface,
+          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+          padding: EdgeInsets.zero,
           icon: const Icon(Icons.share_outlined),
         ),
         IconButton(
           tooltip: languageTooltip,
           onPressed: onLanguageTap,
           color: scheme.onSurface,
+          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+          padding: EdgeInsets.zero,
           icon: const Icon(Icons.language),
         ),
         IconButton(
           tooltip: themeTooltip,
           onPressed: onThemeTap,
           color: scheme.onSurface,
+          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+          padding: EdgeInsets.zero,
           icon: Icon(isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined),
         ),
         IconButton(
           tooltip: settingsTooltip,
           onPressed: onSettingsTap,
           color: scheme.onSurface,
+          constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+          padding: EdgeInsets.zero,
           icon: const Icon(Icons.settings_outlined),
         ),
       ],

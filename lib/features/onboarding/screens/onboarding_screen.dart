@@ -1,81 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../services/onboarding_service.dart';
 import '../../../navigation/app_shell.dart';
 
-class OnboardingPage {
-  final IconData icon;
-  final String title;
-  final String description;
-  const OnboardingPage({required this.icon, required this.title, required this.description});
-}
-
-const _pages = [
-  OnboardingPage(
-    icon: Icons.church_outlined,
-    title: 'Bienvenue sur ÉMU Compagnon',
-    description:
-        "Votre compagnon de foi au quotidien : Bible, cantiques, "
-        "dictionnaire biblique et liturgie, même sans connexion "
-        "internet. Un tour rapide en quelques écrans avant de "
-        "commencer.",
-  ),
-  OnboardingPage(
-    icon: Icons.home_outlined,
-    title: 'Accueil',
-    description:
-        "Votre page de lancement : le verset du jour, la "
-        "progression de votre plan de lecture, le quiz du jour, et "
-        "un accès rapide à l'Ancien et au Nouveau Testament, aux "
-        "cantiques et à la liturgie.",
-  ),
-  OnboardingPage(
-    icon: Icons.menu_book_outlined,
-    title: 'Bible, Cantiques, Dictionnaire',
-    description:
-        "Pour lire, chercher et approfondir : la Bible complète "
-        "avec concordance et le recueil Chants de Victoire "
-        "(recherche par numéro, titre ou mot) dans leurs onglets, "
-        "et un dictionnaire biblique et méthodiste dans l'onglet "
-        "Plus.",
-  ),
-  OnboardingPage(
-    icon: Icons.calendar_month_outlined,
-    title: 'Liturgie et Favoris',
-    description:
-        "Le calendrier liturgique, l'ordre du culte et les "
-        "sacrements dans l'onglet Liturgie. Touchez un verset pour "
-        "l'ajouter aux favoris, le surligner ou y écrire une note — "
-        "retrouvez le tout dans Plus, rubrique Favoris.",
-  ),
-  OnboardingPage(
-    icon: Icons.self_improvement,
-    title: 'Votre vie spirituelle',
-    description:
-        "Depuis l'accueil, dans « Vie spirituelle » : apprenez des "
-        "versets par cœur avec la Mémorisation, tenez votre Journal "
-        "de prière, faites l'Examen du soir et relevez le Défi de "
-        "la semaine.",
-  ),
-  OnboardingPage(
-    icon: Icons.lock_outline,
-    title: 'Vos données restent chez vous',
-    description:
-        "Favoris, notes, journal et progression sont gardés "
-        "uniquement sur votre téléphone. Pour les conserver ou les "
-        "changer d'appareil, utilisez la sauvegarde dans l'onglet "
-        "Plus. C'est aussi là que vous vérifiez les mises à jour "
-        "du contenu.",
-  ),
-  OnboardingPage(
-    icon: Icons.tune,
-    title: 'À vous de personnaliser',
-    description:
-        "Mode sombre, taille du texte, langue de l'interface, "
-        "rappel de lecture quotidien : tout se règle dans l'onglet "
-        "Plus, rubrique Réglages. Vous pouvez y revoir ce tutoriel "
-        "à tout moment. Bonne lecture !",
-  ),
+/// Les icônes des écrans du tutoriel ; leur texte est dans `AppStrings`
+/// (clés `onb1_title`, `onb1_desc`, …), en français et en swahili.
+const _pageIcons = [
+  Icons.church_outlined,
+  Icons.home_outlined,
+  Icons.menu_book_outlined,
+  Icons.calendar_month_outlined,
+  Icons.self_improvement,
+  Icons.lock_outline,
+  Icons.tune,
 ];
 
 class OnboardingScreen extends StatefulWidget {
@@ -107,7 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _next() {
-    if (_index == _pages.length - 1) {
+    if (_index == _pageIcons.length - 1) {
       _finish();
     } else {
       _controller.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
@@ -122,7 +62,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isLast = _index == _pages.length - 1;
+    final locale = context.watch<AppSettings>().locale;
+    String t(String key) => AppStrings.t(key, locale);
+    final isLast = _index == _pageIcons.length - 1;
     final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
 
@@ -138,16 +80,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 4, right: 8),
-                    child: TextButton(onPressed: _finish, child: const Text('Passer')),
+                    child: TextButton(onPressed: _finish, child: Text(t('onb_skip'))),
                   ),
                 ),
                 Expanded(
                   child: PageView.builder(
                     controller: _controller,
-                    itemCount: _pages.length,
+                    itemCount: _pageIcons.length,
                     onPageChanged: (i) => setState(() => _index = i),
                     itemBuilder: (context, i) {
-                      final page = _pages[i];
                       return Center(
                         child: SingleChildScrollView(
                           padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -161,11 +102,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   color: palette.accentSoft,
                                   borderRadius: BorderRadius.circular(30),
                                 ),
-                                child: Icon(page.icon, color: palette.accent, size: 44),
+                                child: Icon(_pageIcons[i], color: palette.accent, size: 44),
                               ),
                               const SizedBox(height: 32),
                               Text(
-                                page.title,
+                                t('onb${i + 1}_title'),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 24,
@@ -177,7 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                               const SizedBox(height: 14),
                               Text(
-                                page.description,
+                                t('onb${i + 1}_desc'),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 15.5, height: 1.55, color: palette.muted),
                               ),
@@ -189,10 +130,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 Semantics(
-                  label: 'Écran ${_index + 1} sur ${_pages.length}',
+                  label: AppStrings.tf('onb_screen_n', locale, {'i': _index + 1, 'n': _pageIcons.length}),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(_pages.length, (i) {
+                    children: List.generate(_pageIcons.length, (i) {
                       final active = i == _index;
                       return AnimatedContainer(
                         duration: const Duration(milliseconds: 200),
@@ -213,7 +154,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: double.infinity,
                     child: FilledButton(
                       onPressed: _next,
-                      child: Text(isLast ? 'Commencer' : 'Suivant'),
+                      child: Text(t(isLast ? 'onb_start' : 'onb_next')),
                     ),
                   ),
                 ),

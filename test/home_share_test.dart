@@ -21,7 +21,7 @@ void main() {
     expect(find.byIcon(Icons.share_outlined), findsOneWidget);
 
     // La carte est en bas de l'accueil, sous « Faire connaître ».
-    await tester.scrollUntilVisible(find.text('Faire connaître'), 400,
+    await tester.scrollUntilVisible(find.text('Envoyer le lien Play Store à un proche'), 400,
         scrollable: find.byType(Scrollable).first);
     expect(find.text('Faire connaître'), findsOneWidget);
     expect(find.text('Envoyer le lien Play Store à un proche'), findsOneWidget);

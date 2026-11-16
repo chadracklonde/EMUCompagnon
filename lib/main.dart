@@ -4,7 +4,7 @@ import 'core/settings/app_settings.dart';
 import 'core/theme/app_theme.dart';
 import 'navigation/app_shell.dart';
 import 'features/onboarding/services/onboarding_service.dart';
-import 'features/onboarding/screens/onboarding_screen.dart';
+import 'features/onboarding/screens/language_welcome_screen.dart';
 
 void main() {
   runApp(const EmuCompagnonApp());
@@ -70,6 +70,8 @@ class _AppRootState extends State<AppRoot> {
       // device, avoids a flash of the wrong screen.
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    return _hasSeenOnboarding! ? const AppShell() : const OnboardingScreen();
+    // Nouvelle installation : le choix de la langue, puis le tutoriel dans
+    // la langue choisie, puis l'application.
+    return _hasSeenOnboarding! ? const AppShell() : const LanguageWelcomeScreen();
   }
 }
