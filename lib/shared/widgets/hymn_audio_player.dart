@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../../core/l10n/app_strings.dart';
 import '../../core/settings/app_settings.dart';
 import '../../core/theme/app_theme.dart';
+import '../../features/audio_pack/hymn_audio_pack.dart';
+import '../../features/audio_pack/screens/audio_pack_screen.dart';
 
 /// Où se trouvent les enregistrements des cantiques (fichiers du dépôt,
 /// dossier `hymn_audio/`). La base ne garde que le chemin relatif
@@ -50,6 +52,17 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
 
   Future<void> _init() async {
     try {
+      // Un enregistrement téléchargé (pack d'écoute hors ligne) passe avant
+      // tout : il se lit sans connexion.
+      final local = await HymnAudioPack.instance.localPath(widget.audioUrl);
+      if (local != null) {
+        try {
+          await _player.setFilePath(local);
+          return;
+        } catch (_) {
+          // Fichier illisible : on retombe sur l'écoute en ligne.
+        }
+      }
       Object? failure;
       var loaded = false;
       for (final url in HymnAudio.candidates(widget.audioUrl)) {
@@ -67,6 +80,17 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
     } finally {
       if (mounted) setState(() => _loading = false);
     }
+  }
+
+  /// Ouvre l'écran de téléchargement, puis réessaie de charger l'enregistrement.
+  Future<void> _openPack() async {
+    await Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AudioPackScreen()));
+    if (!mounted) return;
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    await _init();
   }
 
   @override
@@ -93,15 +117,29 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
       );
     }
     if (_error != null) {
+      final locale = context.read<AppSettings>().locale;
       return Padding(
         padding: const EdgeInsets.only(bottom: 20),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.error_outline, size: 18, color: scheme.error),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(_error!, style: TextStyle(color: scheme.error, fontSize: 13)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.error_outline, size: 18, color: scheme.error),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(_error!, style: TextStyle(color: scheme.error, fontSize: 13)),
+                ),
+              ],
             ),
+            // Sans connexion : proposer de télécharger les enregistrements.
+            if (HymnAudioPack.instance.supported)
+              TextButton.icon(
+                onPressed: _openPack,
+                icon: const Icon(Icons.download_outlined),
+                label: Text(AppStrings.t('audio_pack_get', locale)),
+              ),
           ],
         ),
       );

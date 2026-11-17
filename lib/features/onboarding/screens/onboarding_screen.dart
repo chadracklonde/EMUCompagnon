@@ -1,3 +1,4 @@
+import '../../audio_pack/screens/audio_pack_offer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/l10n/app_strings.dart';
@@ -40,8 +41,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     } else {
       // Reached as the very first screen on cold start — replace it with
       // the real app, since there's nothing to pop back to.
+      final offer = await AudioPackOffer.shouldShow(context.read<AppSettings>().locale);
+      if (!mounted) return;
       navigator.pushReplacement(
-        MaterialPageRoute(builder: (_) => const AppShell()),
+        MaterialPageRoute(
+          builder: (_) => offer
+              ? AudioPackOfferScreen(next: (_) => const AppShell())
+              : const AppShell(),
+        ),
       );
     }
   }
