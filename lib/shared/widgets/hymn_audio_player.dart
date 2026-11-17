@@ -7,18 +7,24 @@ import '../../core/theme/app_theme.dart';
 
 /// Où se trouvent les enregistrements des cantiques (fichiers du dépôt,
 /// dossier `hymn_audio/`). La base ne garde que le chemin relatif
-/// (`hymn_audio/6.m4a`) : changer [baseUrl] suffit à déplacer les fichiers.
+/// (`hymn_audio/6.m4a`).
+///
+/// Le lecteur essaie d'abord la branche principale (`main`), puis la branche de
+/// travail d'origine : tant que la fusion n'est pas faite, ou si `main` est
+/// injoignable, l'écoute continue de marcher. Une fois la branche de travail
+/// supprimée, seule `main` répond.
 class HymnAudio {
-  /// Adresse du dépôt où sont publiés les fichiers. À passer sur `main`
-  /// quand la branche de travail est fusionnée.
-  static const baseUrl =
+  static const mainUrl =
+      'https://raw.githubusercontent.com/chadracklonde/EMUCompagnon/main/';
+  static const branchUrl =
       'https://raw.githubusercontent.com/chadracklonde/EMUCompagnon/claude/magical-turing-k431w4/';
 
-  /// Adresse complète : une adresse déjà complète est gardée telle quelle.
-  static String resolve(String audioUrl) =>
+  /// Les adresses à essayer, dans l'ordre. Une adresse déjà complète est
+  /// gardée telle quelle.
+  static List<String> candidates(String audioUrl) =>
       audioUrl.startsWith('http://') || audioUrl.startsWith('https://')
-          ? audioUrl
-          : '$baseUrl$audioUrl';
+          ? [audioUrl]
+          : ['$mainUrl$audioUrl', '$branchUrl$audioUrl'];
 }
 
 /// Compact play/pause/progress bar for a hymn's recorded melody.
@@ -44,7 +50,18 @@ class _HymnAudioPlayerState extends State<HymnAudioPlayer> {
 
   Future<void> _init() async {
     try {
-      await _player.setUrl(HymnAudio.resolve(widget.audioUrl));
+      Object? failure;
+      var loaded = false;
+      for (final url in HymnAudio.candidates(widget.audioUrl)) {
+        try {
+          await _player.setUrl(url);
+          loaded = true;
+          break;
+        } catch (e) {
+          failure = e;
+        }
+      }
+      if (!loaded) throw failure ?? StateError('no audio url');
     } catch (e) {
       _error = AppStrings.t('audio_error', context.read<AppSettings>().locale);
     } finally {

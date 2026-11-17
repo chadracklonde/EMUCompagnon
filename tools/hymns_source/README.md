@@ -14,7 +14,7 @@ Scripts : `docx_parse.py` et `hymns.py` (lecture du .docx), `fix.py` (ajout du p
 
 ## Fichiers MIDI (novembre 2026)
 
-`midi/` : les 121 fichiers MIDI fournis (`CV_<numéro>-polyinstru-<titre>.mid`, et `CV_311-mono-piano-…`), conservés tels quels. Ils ont été rendus en audio AAC mono 32 kbit/s avec FluidSynth et la banque de sons FluidR3_GM, puis publiés dans `hymn_audio/<numéro>.m4a`. La base (`hymns.audio_url`) ne garde que le chemin relatif ; l'adresse de base est `HymnAudio.baseUrl` dans `lib/shared/widgets/hymn_audio_player.dart` (à passer sur `main` après la fusion de la PR). Trois fichiers (n° 102, 112 et 45a) avaient une piste de tempo tronquée (octet final manquant) : réparés par `midi_repair.py` avant le rendu.
+`midi/` : les 121 fichiers MIDI fournis (`CV_<numéro>-polyinstru-<titre>.mid`, et `CV_311-mono-piano-…`), conservés tels quels. Ils ont été rendus en audio AAC mono 32 kbit/s avec FluidSynth et la banque de sons FluidR3_GM, puis publiés dans `hymn_audio/<numéro>.m4a`. La base (`hymns.audio_url`) ne garde que le chemin relatif ; l'adresse de base est `HymnAudio` (essaie `main`, puis la branche de travail) dans `lib/shared/widgets/hymn_audio_player.dart` (à passer sur `main` après la fusion de la PR). Trois fichiers (n° 102, 112 et 45a) avaient une piste de tempo tronquée (octet final manquant) : réparés par `midi_repair.py` avant le rendu.
 
 ## Nyimbo za Wokovu (novembre 2026)
 
