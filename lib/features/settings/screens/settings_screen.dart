@@ -1,3 +1,5 @@
+import '../../audio_pack/widgets/audio_pack_card.dart';
+import '../../../core/l10n/app_strings.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -231,6 +233,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 value: settings.keepScreenOn,
                 onChanged: settings.setKeepScreenOn,
               ),
+            ),
+            const SizedBox(height: 24),
+            SectionTitle(AppStrings.t('audio_pack_settings', settings.locale)),
+            const AppCard(
+              child: Padding(padding: EdgeInsets.all(16), child: AudioPackCard()),
             ),
             const SizedBox(height: 24),
             const SectionTitle('Rappel quotidien'),
