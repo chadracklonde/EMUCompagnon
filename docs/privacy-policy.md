@@ -1,6 +1,6 @@
 # Politique de confidentialité — ÉMU Compagnon
 
-*Dernière mise à jour : 30 octobre 2026*
+*Dernière mise à jour : 17 novembre 2026*
 
 ## Résumé en une phrase
 
@@ -36,6 +36,7 @@ développeur :
   quotidien et les défis de la semaine que vous avez marqués comme
   accomplis
 - Vos préférences d'affichage (thème, taille du texte, langue, police)
+  et la langue choisie au premier lancement (Kiswahili ou Français)
 - L'heure choisie pour le rappel de lecture quotidien
 
 Aucune de ces informations n'est envoyée où que ce soit. Si vous
@@ -44,7 +45,7 @@ en avez conservé une sauvegarde vous-même (voir plus bas).
 
 ## L'application communique-t-elle avec un serveur ?
 
-Deux situations impliquent une connexion réseau :
+Trois situations impliquent une connexion réseau, toujours à votre demande :
 
 1. **Vérification des mises à jour de contenu** : à votre demande
    explicite (bouton « Vérifier les mises à jour » de l'écran
@@ -54,11 +55,22 @@ Deux situations impliquent une connexion réseau :
    envoyée lors de cette vérification — l'application se contente de
    télécharger un fichier public. Comme pour toute connexion à
    un site web, GitHub reçoit l'adresse IP de votre connexion.
-2. **Partage** : quand vous utilisez le bouton « Partager » (verset en
-   image, sauvegarde de vos données), l'application ouvre le menu de
-   partage natif de votre téléphone. Ce que vous choisissez de
-   partager, et avec qui, dépend entièrement de vous — l'application
-   elle-même n'envoie rien à un serveur.
+2. **Écoute d'un enregistrement de cantique** : quand vous appuyez sur
+   le bouton de lecture d'un cantique qui porte une note de musique,
+   l'application télécharge le fichier audio correspondant depuis un
+   dépôt public sur GitHub et le lit. Aucune donnée vous concernant
+   n'est envoyée ; comme pour toute connexion à un site web, GitHub
+   reçoit l'adresse IP de votre connexion. Le reste de l'application
+   (Bible, cantiques, dictionnaire, liturgie) fonctionne sans connexion.
+3. **Partage** : quand vous utilisez un bouton de partage (verset en
+   image ou en texte, cantique, sauvegarde de vos données, ou
+   « Recommander l'application »), l'application ouvre le menu de
+   partage natif de votre téléphone. « Recommander l'application »
+   prépare un court message contenant le lien de la fiche Play Store
+   de l'application et les coordonnées de son développeur (pour
+   recevoir vos suggestions) ; vous choisissez à qui l'envoyer. Ce que
+   vous choisissez de partager, et avec qui, dépend entièrement de
+   vous — l'application elle-même n'envoie rien à un serveur.
 
 Les polices de caractères sont intégrées à l'application : aucune
 police n'est téléchargée depuis un service externe.
@@ -85,7 +97,8 @@ désactiver à tout moment dans les réglages.
 - **Notifications** : pour le rappel de lecture quotidien (optionnel,
   désactivable).
 - **Accès à Internet** : uniquement pour la vérification des mises à
-  jour de contenu, à votre demande.
+  jour de contenu et l'écoute des enregistrements de cantiques, à
+  votre demande.
 - **Fichiers** : uniquement pour importer une sauvegarde que vous avez
   vous-même exportée précédemment, ou pour enregistrer les fichiers que
   vous partagez.
@@ -97,8 +110,9 @@ identité n'est demandée.
 
 L'application utilise des composants techniques standards (bibliothèques
 Flutter open source) pour le stockage local, les notifications et le
-partage. Aucun outil publicitaire, aucun
-outil d'analyse d'audience (analytics) n'est intégré.
+partage. Les enregistrements de cantiques sont hébergés sur un dépôt
+public GitHub (voir plus haut). Aucun outil publicitaire, aucun outil
+d'analyse d'audience (analytics) n'est intégré.
 
 ## Enfants
 
