@@ -91,6 +91,12 @@ jobs:
           # corriger — la vraie source du problème était la version du
           # package, pas la configuration.
 
+      - name: Ajouter le widget « Verset du jour » (Android)
+        # Les fichiers natifs du widget sont dans native/android/ : le
+        # dossier android/ est recréé à chaque build. Le script ne fait
+        # jamais échouer le build (il saute le widget en cas de doute).
+        run: bash native/android/install_widget.sh android
+
       - name: Configurer la signature de production (si les secrets existent)
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
@@ -504,6 +510,9 @@ jobs:
           # qu'aucune configuration Gradle de notre côté ne puisse le
           # corriger — la vraie source du problème était la version du
           # package, pas la configuration.
+
+      - name: Ajouter le widget « Verset du jour » (Android)
+        run: bash native/android/install_widget.sh android
 
       - name: Configurer la signature de production (si les secrets existent)
         env:

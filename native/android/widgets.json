@@ -1,0 +1,329 @@
+[
+ {
+  "key": "reading_plan",
+  "cls": "ReadingPlanWidget",
+  "label": "Lecture du jour",
+  "desc": "Le passage à lire aujourd'hui et la progression de votre plan",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "LECTURE DU JOUR",
+   "t": "Plan de lecture",
+   "b": "Ouvrez l'application pour choisir votre plan.",
+   "r": "reading_plan"
+  }
+ },
+ {
+  "key": "season",
+  "cls": "SeasonWidget",
+  "label": "Saison liturgique",
+  "desc": "La saison de l'année chrétienne en cours, avec sa couleur",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "SAISON LITURGIQUE",
+   "t": "Année chrétienne",
+   "b": "Ouvrez l'application pour afficher la saison.",
+   "r": "liturgy"
+  }
+ },
+ {
+  "key": "color",
+  "cls": "ColorWidget",
+  "label": "Couleur du jour",
+  "desc": "La couleur liturgique du moment",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "COULEUR LITURGIQUE",
+   "t": "—",
+   "r": "liturgy",
+   "ts": 24
+  }
+ },
+ {
+  "key": "next_sunday",
+  "cls": "NextSundayWidget",
+  "label": "Prochain dimanche",
+  "desc": "La date, la saison et la couleur du prochain dimanche",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "PROCHAIN DIMANCHE",
+   "t": "Dimanche",
+   "b": "Ouvrez l'application pour préparer le culte.",
+   "r": "worship"
+  }
+ },
+ {
+  "key": "countdown",
+  "cls": "CountdownWidget",
+  "label": "Compte à rebours",
+  "desc": "Les jours qui restent avant le prochain temps fort de l'année chrétienne",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "COMPTE À REBOURS",
+   "t": "—",
+   "r": "calendar",
+   "ts": 26
+  }
+ },
+ {
+  "key": "calendar",
+  "cls": "CalendarWidget",
+  "label": "Calendrier liturgique",
+  "desc": "Les prochains temps forts de l'année chrétienne",
+  "kind": "list",
+  "dark": false,
+  "size": "tall",
+  "defaults": {
+   "l": "PROCHAINS TEMPS FORTS",
+   "r": "calendar",
+   "f": "Ouvrez l'application pour afficher le calendrier."
+  }
+ },
+ {
+  "key": "worship_hymns",
+  "cls": "WorshipHymnsWidget",
+  "label": "Cantiques du culte",
+  "desc": "Les cantiques de la liste choisie pour le culte",
+  "kind": "list",
+  "dark": false,
+  "size": "tall",
+  "defaults": {
+   "l": "CANTIQUES DU CULTE",
+   "r": "worship",
+   "f": "Préparez une liste de cantiques dans l'application."
+  }
+ },
+ {
+  "key": "streak",
+  "cls": "StreakWidget",
+  "label": "Série de jours",
+  "desc": "Le nombre de jours consécutifs où vous avez ouvert l'application",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "SÉRIE DE JOURS",
+   "t": "—",
+   "r": "home",
+   "ts": 28
+  }
+ },
+ {
+  "key": "week",
+  "cls": "WeekWidget",
+  "label": "Semaine de lecture",
+  "desc": "Les jours de la semaine où vous avez ouvert l'application",
+  "kind": "week",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "CETTE SEMAINE",
+   "t": "—",
+   "r": "reading_plan"
+  }
+ },
+ {
+  "key": "memorize",
+  "cls": "MemorizeWidget",
+  "label": "Verset à mémoriser",
+  "desc": "Le verset à réviser aujourd'hui",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "À MÉMORISER",
+   "t": "Aucun verset",
+   "b": "Ajoutez un verset à mémoriser depuis la Bible.",
+   "r": "memorization"
+  }
+ },
+ {
+  "key": "shortcuts",
+  "cls": "ShortcutsWidget",
+  "label": "Raccourcis",
+  "desc": "Rechercher, Bible, Cantiques et Culte en un geste",
+  "kind": "shortcuts",
+  "dark": false,
+  "size": "wide",
+  "defaults": {
+   "r": "home"
+  }
+ },
+ {
+  "key": "pinned_text",
+  "cls": "PinnedTextWidget",
+  "label": "Prière épinglée",
+  "desc": "Le texte que vous avez épinglé (le Notre Père par défaut)",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "PRIÈRE",
+   "t": "Le Notre Père",
+   "r": "texts"
+  }
+ },
+ {
+  "key": "hymn_of_day",
+  "cls": "HymnOfDayWidget",
+  "label": "Cantique du jour",
+  "desc": "Un cantique différent chaque jour",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "CANTIQUE DU JOUR",
+   "t": "—",
+   "r": "hymns"
+  }
+ },
+ {
+  "key": "resume_bible",
+  "cls": "ResumeBibleWidget",
+  "label": "Reprendre la Bible",
+  "desc": "Le dernier chapitre lu, à rouvrir en un geste",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "REPRENDRE LA LECTURE",
+   "t": "Bible",
+   "b": "Aucune lecture en cours.",
+   "r": "bible",
+   "ts": 22
+  }
+ },
+ {
+  "key": "resume_hymn",
+  "cls": "ResumeHymnWidget",
+  "label": "Reprendre le cantique",
+  "desc": "Le dernier cantique ouvert",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "REPRENDRE LE CANTIQUE",
+   "t": "Cantiques",
+   "b": "Aucun cantique ouvert.",
+   "r": "hymns",
+   "ts": 22
+  }
+ },
+ {
+  "key": "favorites",
+  "cls": "FavoritesWidget",
+  "label": "Mes favoris",
+  "desc": "Un de vos versets ou cantiques favoris, différent chaque jour",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "MES FAVORIS",
+   "t": "Aucun favori",
+   "b": "Touchez l'étoile d'un verset ou d'un cantique pour le retrouver ici.",
+   "r": "home"
+  }
+ },
+ {
+  "key": "challenge",
+  "cls": "ChallengeWidget",
+  "label": "Défi de la semaine",
+  "desc": "Le défi spirituel de la semaine",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "DÉFI DE LA SEMAINE",
+   "t": "—",
+   "r": "challenge",
+   "ts": 16
+  }
+ },
+ {
+  "key": "quiz",
+  "cls": "QuizWidget",
+  "label": "Quiz du jour",
+  "desc": "Votre quiz biblique du jour",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "QUIZ DU JOUR",
+   "t": "5 questions",
+   "b": "Testez vos connaissances bibliques.",
+   "r": "quiz",
+   "ts": 22
+  }
+ },
+ {
+  "key": "examen",
+  "cls": "ExamenWidget",
+  "label": "Examen du soir",
+  "desc": "Un rappel pour relire votre journée devant Dieu",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "EXAMEN DU SOIR",
+   "t": "Relire sa journée",
+   "b": "Quelques minutes avec Dieu avant de dormir.",
+   "r": "examen",
+   "ts": 20
+  }
+ },
+ {
+  "key": "journal",
+  "cls": "JournalWidget",
+  "label": "Écrire une prière",
+  "desc": "Ouvre le journal de prière",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "JOURNAL DE PRIÈRE",
+   "t": "Écrire une prière",
+   "b": "Confier la journée à Dieu.",
+   "r": "journal",
+   "ts": 20
+  }
+ },
+ {
+  "key": "word",
+  "cls": "WordWidget",
+  "label": "Mot du jour",
+  "desc": "Un terme du dictionnaire biblique, différent chaque jour",
+  "kind": "card",
+  "dark": false,
+  "size": "medium",
+  "defaults": {
+   "l": "MOT DU JOUR",
+   "t": "—",
+   "r": "home"
+  }
+ },
+ {
+  "key": "search",
+  "cls": "SearchWidget",
+  "label": "Recherche",
+  "desc": "Ouvre la recherche dans toute l'application",
+  "kind": "card",
+  "dark": false,
+  "size": "small",
+  "defaults": {
+   "l": "RECHERCHER",
+   "t": "Un mot, un cantique…",
+   "b": "Bible, cantiques, dictionnaire, liturgie.",
+   "r": "search",
+   "ts": 18
+  }
+ }
+]

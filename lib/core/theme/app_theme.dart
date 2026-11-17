@@ -9,6 +9,10 @@ class UmcColors {
   static const redDark = Color(0xFFAF292E);    // Pantone 1805
   static const burgundy = Color(0xFF7A2426);   // Pantone 1815
 
+  /// The app's own accent, the red of its icon (a little more vivid than the
+  /// official burgundy). Contrast with white is 8.9:1.
+  static const appBurgundy = Color(0xFF8F1D26);
+
   // Neutrals
   static const black = Color(0xFF000000);      // Primary black
   static const grayDark = Color(0xFF575A5D);   // Pantone 425
@@ -29,13 +33,64 @@ class UmcColors {
   static const parchment = Color(0xFFF7F1E1);
 }
 
+/// Neutral surfaces of the "clair et aéré" look (cards on a soft
+/// background), resolved for the current brightness. Brand accents still
+/// come from the [ColorScheme] (`primary`, `onSurface`…).
+class AppPalette {
+  final Color background;
+  final Color card;
+  final Color border;
+  final Color field;
+  final Color muted;
+  final Color accent;
+  final Color accentSoft;
+
+  const AppPalette._({
+    required this.background,
+    required this.card,
+    required this.border,
+    required this.field,
+    required this.muted,
+    required this.accent,
+    required this.accentSoft,
+  });
+
+  /// Filled "hero" card (verse of the day): same burgundy in both modes.
+  static const hero = UmcColors.appBurgundy;
+  static const onHero = Colors.white;
+  static const onHeroMuted = Color(0xFFF3C9CC);
+
+  static const _light = AppPalette._(
+    background: Color(0xFFFAF9F7),
+    card: Colors.white,
+    border: Color(0xFFE8E4E0),
+    field: Color(0xFFF0EEEB),
+    muted: Color(0xFF6B6466),
+    accent: UmcColors.appBurgundy,
+    accentSoft: Color(0xFFF7E9EA),
+  );
+
+  static const _dark = AppPalette._(
+    background: Color(0xFF161213),
+    card: Color(0xFF221D1E),
+    border: Color(0xFF362F31),
+    field: Color(0xFF2A2425),
+    muted: Color(0xFFB9B1B3),
+    accent: Color(0xFFE08A8F),
+    accentSoft: Color(0xFF3A1F22),
+  );
+
+  static AppPalette of(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark ? _dark : _light;
+}
+
 class AppTheme {
   static ThemeData light({String? fontFamily}) {
     final colorScheme = ColorScheme.light(
-      primary: UmcColors.burgundy,
+      primary: UmcColors.appBurgundy,
       onPrimary: Colors.white,
       primaryContainer: UmcColors.redTint,
-      onPrimaryContainer: UmcColors.burgundy,
+      onPrimaryContainer: UmcColors.appBurgundy,
       secondary: UmcColors.redPrimary,
       onSecondary: Colors.white,
       secondaryContainer: UmcColors.redTint,
@@ -51,38 +106,15 @@ class AppTheme {
       onError: Colors.white,
     );
 
-    return ThemeData(
-      useMaterial3: true,
+    return _build(
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: Colors.white,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: UmcColors.burgundy,
-        foregroundColor: Colors.white,
-        elevation: 0,
-      ),
-      navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.white,
-        indicatorColor: UmcColors.redTint,
-        labelTextStyle: WidgetStateProperty.resolveWith((states) {
-          final selected = states.contains(WidgetState.selected);
-          return TextStyle(
-            fontSize: 11,
-            fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
-            color: selected ? UmcColors.burgundy : UmcColors.grayDark,
-          );
-        }),
-        iconTheme: WidgetStateProperty.resolveWith((states) {
-          final selected = states.contains(WidgetState.selected);
-          return IconThemeData(
-            color: selected ? UmcColors.burgundy : UmcColors.grayDark,
-          );
-        }),
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: UmcColors.redPrimary,
-        foregroundColor: Colors.white,
-      ),
+      palette: AppPalette._light,
       fontFamily: fontFamily,
+      navSelected: UmcColors.appBurgundy,
+      navUnselected: UmcColors.grayDark,
+      navIndicator: UmcColors.redTint,
+      fabBackground: UmcColors.appBurgundy,
+      fabForeground: Colors.white,
     );
   }
 
@@ -113,39 +145,154 @@ class AppTheme {
       onError: const Color(0xFF3A0006),
     );
 
+    return _build(
+      colorScheme: colorScheme,
+      palette: AppPalette._dark,
+      fontFamily: fontFamily,
+      navSelected: const Color(0xFFE08A8F),
+      navUnselected: UmcColors.grayLight,
+      navIndicator: const Color(0xFF4A1A1F),
+      fabBackground: const Color(0xFFE08A8F),
+      fabForeground: const Color(0xFF3A0E12),
+    );
+  }
+
+  /// Everything both brightnesses share: the "clair et aéré" look — soft
+  /// background, flat app bars in the page colour, bordered cards, filled
+  /// rounded fields. Only colours differ between light and dark.
+  static ThemeData _build({
+    required ColorScheme colorScheme,
+    required AppPalette palette,
+    required String? fontFamily,
+    required Color navSelected,
+    required Color navUnselected,
+    required Color navIndicator,
+    required Color fabBackground,
+    required Color fabForeground,
+  }) {
+    final fieldBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(14),
+      borderSide: BorderSide.none,
+    );
+    final buttonShape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
+
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.dark,
+      brightness: colorScheme.brightness,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: surfaceDark,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF3A1418),
-        foregroundColor: Colors.white,
+      scaffoldBackgroundColor: palette.background,
+      fontFamily: fontFamily,
+      appBarTheme: AppBarTheme(
+        backgroundColor: palette.background,
+        foregroundColor: colorScheme.onSurface,
+        surfaceTintColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+        titleTextStyle: TextStyle(
+          fontFamily: fontFamily,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          color: colorScheme.onSurface,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: palette.card,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+          side: BorderSide(color: palette.border),
+        ),
+      ),
+      dividerTheme: DividerThemeData(color: palette.border, thickness: 1, space: 1),
+      listTileTheme: ListTileThemeData(iconColor: palette.accent),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: palette.field,
+        hintStyle: TextStyle(color: palette.muted),
+        prefixIconColor: palette.muted,
+        suffixIconColor: palette.muted,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        border: fieldBorder,
+        enabledBorder: fieldBorder,
+        focusedBorder: fieldBorder.copyWith(
+          borderSide: BorderSide(color: palette.accent, width: 1.5),
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(shape: buttonShape, minimumSize: const Size(48, 48)),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: buttonShape,
+          elevation: 0,
+          minimumSize: const Size(48, 48),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          shape: buttonShape,
+          side: BorderSide(color: palette.border),
+          minimumSize: const Size(48, 48),
+        ),
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: palette.card,
+        side: BorderSide(color: palette.border),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(99)),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: palette.card,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: palette.card,
+        surfaceTintColor: Colors.transparent,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+        ),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: surfaceContainerDark,
-        indicatorColor: const Color(0xFF4A1A1F),
+        backgroundColor: palette.card,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        height: 68,
+        indicatorColor: navIndicator,
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
             fontSize: 11,
             fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
-            color: selected ? const Color(0xFFE08A8F) : UmcColors.grayLight,
+            color: selected ? navSelected : navUnselected,
           );
         }),
         iconTheme: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
-          return IconThemeData(
-            color: selected ? const Color(0xFFE08A8F) : UmcColors.grayLight,
-          );
+          return IconThemeData(color: selected ? navSelected : navUnselected);
         }),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: redAccent,
-        foregroundColor: const Color(0xFF3A0006),
+      tabBarTheme: TabBarThemeData(
+        labelColor: palette.accent,
+        unselectedLabelColor: palette.muted,
+        indicatorColor: palette.accent,
+        dividerColor: palette.border,
+        labelStyle: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w700),
+        unselectedLabelStyle: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w500),
       ),
-      fontFamily: fontFamily,
+      navigationRailTheme: NavigationRailThemeData(
+        backgroundColor: palette.card,
+        indicatorColor: navIndicator,
+        selectedIconTheme: IconThemeData(color: navSelected),
+        unselectedIconTheme: IconThemeData(color: navUnselected),
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: fabBackground,
+        foregroundColor: fabForeground,
+        elevation: 2,
+      ),
     );
   }
 }

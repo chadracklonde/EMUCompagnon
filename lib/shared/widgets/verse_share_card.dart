@@ -15,13 +15,7 @@ class VerseShareCard extends StatelessWidget {
       width: 600,
       height: 600,
       padding: const EdgeInsets.all(48),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [UmcColors.burgundy, Color(0xFF4A1015)],
-        ),
-      ),
+      color: AppPalette.hero,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,17 +29,16 @@ class VerseShareCard extends StatelessWidget {
               color: Colors.white,
               fontSize: 28,
               height: 1.4,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'Georgia',
+              fontFamily: 'PlayfairDisplay',
             ),
           ),
           const SizedBox(height: 28),
-          Container(width: 40, height: 3, color: const Color(0xFFD4A017)),
+          Container(width: 40, height: 3, color: AppPalette.onHeroMuted),
           const SizedBox(height: 16),
           Text(
             reference,
             style: const TextStyle(
-              color: Color(0xFFD4A017),
+              color: AppPalette.onHero,
               fontSize: 20,
               fontWeight: FontWeight.bold,
               letterSpacing: 0.5,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../repository/evening_examen_repository.dart';
 
 /// Short end-of-day reflection ("examen"), in the Wesleyan tradition of
@@ -59,39 +61,46 @@ class _EveningExamenScreenState extends State<EveningExamenScreen> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final questions = EveningExamenRepository.questions;
     return Scaffold(
       appBar: AppBar(title: const Text('Examen du soir')),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
-                if (_saved)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: Text(
-                      'Déjà rempli aujourd\'hui — vous pouvez modifier vos réponses.',
-                      style: TextStyle(fontSize: 12, color: scheme.outline),
+          : ReadingWidthConstraint(
+              maxWidth: 640,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+                children: [
+                  InfoNote(
+                    _saved
+                        ? "Déjà rempli aujourd'hui — vous pouvez modifier vos réponses."
+                        : 'Quelques minutes pour relire votre journée. Vos réponses '
+                            'restent sur cet appareil.',
+                  ),
+                  const SizedBox(height: 24),
+                  for (var i = 0; i < questions.length; i++) ...[
+                    Text(
+                      questions[i],
+                      style: TextStyle(
+                        fontSize: 15.5,
+                        height: 1.35,
+                        fontWeight: FontWeight.w600,
+                        color: scheme.onSurface,
+                      ),
                     ),
-                  ),
-                for (var i = 0; i < EveningExamenRepository.questions.length; i++) ...[
-                  Text(
-                    EveningExamenRepository.questions[i],
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                  const SizedBox(height: 8),
-                  TextField(
-                    controller: _controllers[i],
-                    maxLines: 3,
-                    decoration: const InputDecoration(border: OutlineInputBorder()),
-                  ),
-                  const SizedBox(height: 20),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: _controllers[i],
+                      minLines: 3,
+                      maxLines: 6,
+                      textCapitalization: TextCapitalization.sentences,
+                      decoration: const InputDecoration(hintText: 'Votre réponse…'),
+                    ),
+                    const SizedBox(height: 22),
+                  ],
+                  FilledButton(onPressed: _save, child: const Text('Enregistrer')),
                 ],
-                FilledButton(
-                  onPressed: _save,
-                  child: const Text('Enregistrer'),
-                ),
-              ],
+              ),
             ),
     );
   }

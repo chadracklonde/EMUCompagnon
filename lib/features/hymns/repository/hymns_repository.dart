@@ -1,19 +1,29 @@
 import '../../../core/database/db_helper.dart';
 import '../../../core/models/hymn.dart';
+import '../../../core/models/hymnal.dart';
 
 class HymnsRepository {
-  Future<List<Hymn>> getAll() async {
-    final db = await DbHelper.database;
-    final rows = await db.query('hymns', orderBy: 'CAST(number AS INTEGER) ASC, number ASC');
-    return rows.map((r) => Hymn.fromMap(r)).toList();
-  }
+  /// Recueil affiché, choisi avec la langue (voir `AppSettings`). Les
+  /// lectures et recherches qui ne précisent pas de recueil utilisent celui-ci.
+  static String activeHymnal = Hymnals.cv;
 
-  Future<Hymn?> getByNumber(String number) async {
+  Future<List<Hymn>> getAll({String? hymnal}) async {
     final db = await DbHelper.database;
     final rows = await db.query(
       'hymns',
-      where: 'number = ?',
-      whereArgs: [number],
+      where: 'hymnal = ?',
+      whereArgs: [hymnal ?? activeHymnal],
+      orderBy: 'CAST(number AS INTEGER) ASC, number ASC',
+    );
+    return rows.map((r) => Hymn.fromMap(r)).toList();
+  }
+
+  Future<Hymn?> getByNumber(String number, {String? hymnal}) async {
+    final db = await DbHelper.database;
+    final rows = await db.query(
+      'hymns',
+      where: 'number = ? AND hymnal = ?',
+      whereArgs: [number, hymnal ?? activeHymnal],
       limit: 1,
     );
     if (rows.isEmpty) return null;
@@ -40,8 +50,9 @@ class HymnsRepository {
   ///   and lyrics together and sorting by number buried the hymn the user
   ///   named under dozens of hymns that merely mention the word
   ///   ("grand dieu" matched 52 hymns, only 2 of them by title).
-  Future<List<Hymn>> search(String query, {int limit = 100}) async {
+  Future<List<Hymn>> search(String query, {int limit = 100, String? hymnal}) async {
     final db = await DbHelper.database;
+    final book = hymnal ?? activeHymnal;
     final trimmed = query.trim();
     if (trimmed.isEmpty) return [];
 
@@ -52,8 +63,8 @@ class HymnsRepository {
       final results = <Hymn>[];
       final exact = await db.query(
         'hymns',
-        where: 'LOWER(number) = ?',
-        whereArgs: [number],
+        where: 'LOWER(number) = ? AND hymnal = ?',
+        whereArgs: [number, book],
       );
       for (final r in exact) {
         final h = Hymn.fromMap(r);
@@ -63,8 +74,8 @@ class HymnsRepository {
         // Digits only (so safe inside a GLOB pattern): twin hymns "123a", "123b".
         final twins = await db.query(
           'hymns',
-          where: 'number GLOB ?',
-          whereArgs: ['$number[a-zA-Z]'],
+          where: 'number GLOB ? AND hymnal = ?',
+          whereArgs: ['$number[a-zA-Z]', book],
           orderBy: 'number ASC',
         );
         for (final r in twins) {
@@ -82,7 +93,7 @@ class HymnsRepository {
     // ("benis" finds "Bénissons"), every typed word must match.
     final tokens = _normalize(trimmed).split(' ').where((w) => w.isNotEmpty).toList();
     if (tokens.isEmpty) return [];
-    final index = await _loadIndex();
+    final index = await _loadIndex(book);
     final normQuery = tokens.join(' ');
 
     bool matchesAll(String text) => tokens.every(
@@ -121,13 +132,13 @@ class HymnsRepository {
     return results.length > limit ? results.sublist(0, limit) : results;
   }
 
-  static List<_IndexedHymn>? _indexCache;
+  static final Map<String, List<_IndexedHymn>> _indexCache = {};
 
-  Future<List<_IndexedHymn>> _loadIndex() async {
-    final cached = _indexCache;
+  Future<List<_IndexedHymn>> _loadIndex(String book) async {
+    final cached = _indexCache[book];
     if (cached != null) return cached;
-    final all = await getAll();
-    return _indexCache = [
+    final all = await getAll(hymnal: book);
+    return _indexCache[book] = [
       for (final h in all)
         _IndexedHymn(h, _normalize(h.title), _normalize(h.lyrics)),
     ];

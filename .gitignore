@@ -1,0 +1,8 @@
+# Fichiers générés par Flutter (recréés par la CI ou en local)
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+/web/
+/android/
+/ios/
