@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../../../core/theme/app_theme.dart';
@@ -39,14 +40,16 @@ class _HymnListPlayerScreenState extends State<HymnListPlayerScreen> {
         child: SafeArea(
           top: false,
           child: DecoratedBox(
-            decoration: BoxDecoration(border: Border(top: BorderSide(color: palette.border))),
+            decoration: BoxDecoration(
+                border: Border(top: BorderSide(color: palette.border))),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(8, 6, 8, 6),
               child: Row(
                 children: [
                   IconButton(
-                    tooltip: 'Cantique précédent',
-                    onPressed: hasPrevious ? () => setState(() => _index--) : null,
+                    tooltip: context.tr('hl_prev'),
+                    onPressed:
+                        hasPrevious ? () => setState(() => _index--) : null,
                     icon: const Icon(Icons.skip_previous),
                   ),
                   Expanded(
@@ -63,17 +66,19 @@ class _HymnListPlayerScreenState extends State<HymnListPlayerScreen> {
                         ),
                         Text(
                           hasNext
-                              ? 'Ensuite : n° ${hymns[_index + 1].number}'
+                              ? context.trf(
+                                  'hl_next_up', {'n': hymns[_index + 1].number})
                               : widget.listName,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 12.5, color: palette.muted),
+                          style:
+                              TextStyle(fontSize: 12.5, color: palette.muted),
                         ),
                       ],
                     ),
                   ),
                   IconButton(
-                    tooltip: 'Cantique suivant',
+                    tooltip: context.tr('hl_next'),
                     onPressed: hasNext ? () => setState(() => _index++) : null,
                     icon: const Icon(Icons.skip_next),
                   ),

@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
@@ -66,13 +67,15 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
 
   Future<void> _saveOrder(List<Hymn> hymns) async {
     if (mounted) setState(() => _hymns = hymns);
-    await HymnListService.setNumbers(widget.listId, [for (final h in hymns) h.number]);
+    await HymnListService.setNumbers(
+        widget.listId, [for (final h in hymns) h.number]);
   }
 
   Future<void> _addHymns() async {
     final picked = await Navigator.of(context).push<List<String>>(
       MaterialPageRoute(
-        builder: (_) => HymnPickerScreen(alreadyIn: [for (final h in _hymns) h.number]),
+        builder: (_) =>
+            HymnPickerScreen(alreadyIn: [for (final h in _hymns) h.number]),
       ),
     );
     if (picked == null || picked.isEmpty) return;
@@ -90,15 +93,17 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
-        content: Text('N° ${hymn.number} retiré de la liste.'),
-        action: SnackBarAction(label: 'Annuler', onPressed: () => _saveOrder(before)),
+        content: Text(context.trf('hl_removed', {'n': hymn.number})),
+        action: SnackBarAction(
+            label: context.tr('undo'), onPressed: () => _saveOrder(before)),
       ));
   }
 
   Future<void> _rename() async {
     final list = _list;
     if (list == null) return;
-    final name = await askListName(context, title: 'Renommer la liste', initial: list.name);
+    final name = await askListName(context,
+        title: context.tr('hl_rename_title'), initial: list.name);
     if (name == null) return;
     await HymnListService.rename(list.id, name);
     await _load();
@@ -110,21 +115,21 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Supprimer cette liste ?'),
+        title: Text(context.tr('hl_delete_q')),
         content: Text(
-          '« ${list.name} » sera supprimée. Les cantiques eux-mêmes restent dans le recueil.',
+          context.trf('hl_delete_body', {'name': list.name}),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: const Text('Annuler'),
+            child: Text(context.tr('cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
             style: TextButton.styleFrom(
               foregroundColor: Theme.of(dialogContext).colorScheme.error,
             ),
-            child: const Text('Supprimer'),
+            child: Text(context.tr('delete')),
           ),
         ],
       ),
@@ -154,15 +159,17 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(list?.name ?? 'Liste de cantiques'),
+        title: Text(list?.name ?? context.tr('hl_one')),
         actions: [
           if (list != null)
             PopupMenuButton<String>(
-              tooltip: 'Options de la liste',
+              tooltip: context.tr('hl_options'),
               onSelected: (value) => value == 'rename' ? _rename() : _delete(),
-              itemBuilder: (_) => const [
-                PopupMenuItem(value: 'rename', child: Text('Renommer')),
-                PopupMenuItem(value: 'delete', child: Text('Supprimer la liste')),
+              itemBuilder: (_) => [
+                PopupMenuItem(
+                    value: 'rename', child: Text(context.tr('rename'))),
+                PopupMenuItem(
+                    value: 'delete', child: Text(context.tr('hl_delete'))),
               ],
             ),
           const SizedBox(width: 4),
@@ -179,7 +186,7 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                       child: OutlinedButton.icon(
                         onPressed: _addHymns,
                         icon: const Icon(Icons.add),
-                        label: const Text('Ajouter'),
+                        label: Text(context.tr('add')),
                       ),
                     ),
                     if (_hymns.isNotEmpty) ...[
@@ -188,7 +195,7 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                         child: FilledButton.icon(
                           onPressed: () => _play(0),
                           icon: const Icon(Icons.play_arrow),
-                          label: const Text('Commencer'),
+                          label: Text(context.tr('hl_start')),
                         ),
                       ),
                     ],
@@ -199,12 +206,12 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : list == null
-              ? const EmptyState(icon: Icons.error_outline, message: 'Cette liste n\'existe plus.')
+              ? EmptyState(
+                  icon: Icons.error_outline, message: context.tr('hl_gone'))
               : _hymns.isEmpty
-                  ? const EmptyState(
+                  ? EmptyState(
                       icon: Icons.playlist_add,
-                      message: 'Cette liste est vide. Touchez « Ajouter » pour y mettre '
-                          'des cantiques.',
+                      message: context.tr('hl_empty'),
                     )
                   : ReadingWidthConstraint(
                       maxWidth: 640,
@@ -214,16 +221,21 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                         header: Padding(
                           padding: const EdgeInsets.fromLTRB(20, 4, 20, 8),
                           child: Text(
-                            '${hymnCountLabel(_hymns.length)} · faites glisser ≡ pour changer l\'ordre',
-                            style: TextStyle(fontSize: 13, color: palette.muted),
+                            context.trf('hl_drag_hint', {
+                              'count': hymnCountLabel(context, _hymns.length)
+                            }),
+                            style:
+                                TextStyle(fontSize: 13, color: palette.muted),
                           ),
                         ),
                         itemCount: _hymns.length,
                         onReorderItem: (oldIndex, newIndex) {
                           final numbers = [for (final h in _hymns) h.number];
-                          final moved = HymnListCodec.moved(numbers, oldIndex, newIndex);
+                          final moved =
+                              HymnListCodec.moved(numbers, oldIndex, newIndex);
                           _saveOrder([
-                            for (final n in moved) _hymns.firstWhere((h) => h.number == n),
+                            for (final n in moved)
+                              _hymns.firstWhere((h) => h.number == n),
                           ]);
                         },
                         itemBuilder: (context, i) {
@@ -234,7 +246,8 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                             child: InkWell(
                               onTap: () => _play(i),
                               child: Padding(
-                                padding: const EdgeInsets.only(left: 20, right: 4),
+                                padding:
+                                    const EdgeInsets.only(left: 20, right: 4),
                                 child: Row(
                                   children: [
                                     SizedBox(
@@ -252,7 +265,8 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                                     const SizedBox(width: 14),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 14),
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 14),
                                         child: Text(
                                           hymn.title,
                                           style: TextStyle(
@@ -263,10 +277,12 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                                         ),
                                       ),
                                     ),
-                                    if (hymn.audioUrl != null) const HymnAudioMark(),
+                                    if (hymn.audioUrl != null)
+                                      const HymnAudioMark(),
                                     IconButton(
-                                      tooltip: 'Retirer de la liste',
-                                      icon: Icon(Icons.close, color: palette.muted),
+                                      tooltip: context.tr('hl_remove'),
+                                      icon: Icon(Icons.close,
+                                          color: palette.muted),
                                       onPressed: () => _remove(hymn),
                                     ),
                                     ReorderableDragStartListener(
@@ -276,7 +292,7 @@ class _HymnListDetailScreenState extends State<HymnListDetailScreen> {
                                         child: Icon(
                                           Icons.drag_handle,
                                           color: palette.muted,
-                                          semanticLabel: 'Déplacer',
+                                          semanticLabel: context.tr('hl_move'),
                                         ),
                                       ),
                                     ),
