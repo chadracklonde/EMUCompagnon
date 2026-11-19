@@ -1,10 +1,29 @@
+import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/settings/app_settings.dart';
+import '../../../shared/bible_quick_reference.dart';
+import '../../../shared/bible_reference_parser.dart';
+import '../../bible/repository/bible_repository.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/app_cards.dart';
+import '../repository/content_search.dart';
 import '../repository/global_search_repository.dart';
+import '../../church_texts/data/church_texts_data.dart';
+import '../../church_texts/screens/church_text_screen.dart';
+import '../../liturgy/data/sacraments_data.dart';
+import '../../liturgy/screens/liturgical_calendar_screen.dart';
+import '../../liturgy/screens/liturgical_period_detail_screen.dart';
+import '../../liturgy/screens/sacraments_screen.dart';
+import '../../liturgy/screens/worship_order_screen.dart';
+import '../../liturgy/services/liturgical_calendar_service.dart';
 import '../../bible/screens/chapter_screen.dart';
-import '../../hymns/screens/hymn_detail_screen.dart';
+import '../../hymns/screens/hymn_pager_screen.dart';
 import '../../dictionary/screens/dictionary_detail_screen.dart';
 import '../../../core/services/search_history_service.dart';
+import '../../../shared/bible_book_names.dart';
 
 class GlobalSearchScreen extends StatefulWidget {
   const GlobalSearchScreen({super.key});
@@ -20,13 +39,15 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
   late final TabController _tabController;
   Timer? _debounce;
   GlobalSearchResults? _results;
+  // Set when what is typed is itself a Bible reference ("Jean 3.16").
+  BibleReferenceMatch? _reference;
   bool _loading = false;
   List<String> _history = [];
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
     SearchHistoryService.get().then((h) {
       if (mounted) setState(() => _history = h);
     });
@@ -40,7 +61,31 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
     super.dispose();
   }
 
+  /// Offers to jump straight to a passage when the query is a reference
+  /// to a chapter that exists.
+  Future<void> _updateReference(String query) async {
+    final match = BibleQuickReference.parse(query);
+    if (match == null) {
+      if (_reference != null) setState(() => _reference = null);
+      return;
+    }
+    final chapters = await BibleRepository().chapterCount(match.book);
+    if (!mounted || _controller.text != query) return;
+    setState(() => _reference = match.chapter <= chapters ? match : null);
+  }
+
+  void _openReference(BibleReferenceMatch match) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ChapterScreen(
+        book: match.book,
+        chapter: match.chapter,
+        highlightVerse: match.verse,
+      ),
+    ));
+  }
+
   void _onChanged(String query) {
+    _updateReference(query);
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 350), () => _search(query));
   }
@@ -65,6 +110,7 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
 
   void _searchFromHistory(String query) {
     _controller.text = query;
+    _updateReference(query);
     _search(query);
   }
 
@@ -76,44 +122,80 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
   @override
   Widget build(BuildContext context) {
     final r = _results;
+    final reference = _reference;
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          controller: _controller,
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Rechercher dans toute l\'app…',
-            border: InputBorder.none,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: AppBarSearchField(
+            controller: _controller,
+            hint: AppStrings.t('search_hint', context.watch<AppSettings>().locale),
+            onChanged: _onChanged,
           ),
-          onChanged: _onChanged,
         ),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: 'Bible${r != null ? ' (${r.verses.length})' : ''}'),
-            Tab(text: 'Cantiques${r != null ? ' (${r.hymns.length})' : ''}'),
-            Tab(text: 'Dictionnaire${r != null ? ' (${r.dictionaryEntries.length})' : ''}'),
-          ],
-        ),
+        // Tabs only make sense once there are results to split.
+        bottom: r == null || r.isEmpty
+            ? null
+            : TabBar(
+                controller: _tabController,
+                isScrollable: true,
+                tabAlignment: TabAlignment.start,
+                tabs: [
+                  Tab(text: 'Bible (${r.verses.length})'),
+                  Tab(text: 'Cantiques (${r.hymns.length})'),
+                  Tab(text: 'Dictionnaire (${r.dictionaryEntries.length})'),
+                  Tab(text: 'Liturgie et textes (${r.texts.length})'),
+                ],
+              ),
       ),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : r == null
-              ? _HistoryView(
-                  history: _history,
-                  onTap: _searchFromHistory,
-                  onClear: _clearHistory,
-                )
-              : r.isEmpty
-                  ? const Center(child: Text('Aucun résultat'))
-                  : TabBarView(
-                      controller: _tabController,
-                      children: [
-                        _VerseResults(verses: r.verses),
-                        _HymnResults(hymns: r.hymns),
-                        _DictionaryResults(entries: r.dictionaryEntries),
-                      ],
-                    ),
+      body: Column(
+        children: [
+          if (reference != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
+              child: AppCard(
+                child: AppRow(
+                  icon: Icons.menu_book_outlined,
+                  title: AppStrings.tf('go_to', context.read<AppSettings>().locale, {
+                    'ref': '${context.bookName(reference.book)} ${reference.chapter}'
+                        '${reference.verse == null ? '' : '.${reference.verse}'}',
+                  }),
+                  subtitle: AppStrings.t('open_passage', context.read<AppSettings>().locale),
+                  onTap: () => _openReference(reference),
+                ),
+              ),
+            ),
+          Expanded(
+            child: _loading
+                ? const Center(child: CircularProgressIndicator())
+                : r == null
+                    ? _HistoryView(
+                        history: _history,
+                        onTap: _searchFromHistory,
+                        onClear: _clearHistory,
+                      )
+                    : r.isEmpty
+                        // A reference rarely matches as plain text: the card
+                        // above is the answer, so no "no result" message.
+                        ? (reference != null
+                            ? const SizedBox.shrink()
+                            : const EmptyState(
+                                icon: Icons.search_off,
+                                message: 'Aucun résultat.',
+                              ))
+                        : TabBarView(
+                            controller: _tabController,
+                            children: [
+                              _VerseResults(verses: r.verses),
+                              _HymnResults(hymns: r.hymns),
+                              _DictionaryResults(entries: r.dictionaryEntries),
+                              _TextResults(hits: r.texts),
+                            ],
+                          ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -127,30 +209,28 @@ class _HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (history.isEmpty) {
-      return const Center(child: Text('Tapez un mot pour chercher partout'));
+      return const EmptyState(
+        icon: Icons.search,
+        message: 'Tapez un mot pour chercher dans la Bible, les cantiques, le dictionnaire, la liturgie et les textes de l\'Église.',
+      );
     }
-    return Padding(
-      padding: const EdgeInsets.all(16),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Recherches récentes',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
+              const Expanded(child: SectionTitle('Recherches récentes')),
               TextButton(onPressed: onClear, child: const Text('Effacer')),
             ],
           ),
-          const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: history
                 .map((q) => ActionChip(
-                      avatar: const Icon(Icons.history, size: 16),
+                      avatar: Icon(Icons.history, size: 16, color: AppPalette.of(context).muted),
                       label: Text(q),
                       onPressed: () => onTap(q),
                     ))
@@ -162,6 +242,15 @@ class _HistoryView extends StatelessWidget {
   }
 }
 
+Widget _resultList({required int count, required IndexedWidgetBuilder itemBuilder}) {
+  return ListView.separated(
+    padding: const EdgeInsets.only(top: 4, bottom: 24),
+    itemCount: count,
+    separatorBuilder: (_, __) => const Divider(indent: 20, endIndent: 20),
+    itemBuilder: itemBuilder,
+  );
+}
+
 class _VerseResults extends StatelessWidget {
   final List verses;
   const _VerseResults({required this.verses});
@@ -169,16 +258,17 @@ class _VerseResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (verses.isEmpty) {
-      return const Center(child: Text('Aucun verset trouvé'));
+      return const EmptyState(icon: Icons.menu_book_outlined, message: 'Aucun verset trouvé.');
     }
-    return ListView.separated(
-      itemCount: verses.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: verses.length,
       itemBuilder: (context, i) {
         final v = verses[i];
-        return ListTile(
-          title: Text(v.reference, style: const TextStyle(fontWeight: FontWeight.bold)),
-          subtitle: Text(v.text, maxLines: 2, overflow: TextOverflow.ellipsis),
+        return ResultRow(
+          title: context.bookReference(v.reference),
+          subtitle: v.text,
+          subtitleMaxLines: 3,
+          accentTitle: true,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => ChapterScreen(book: v.book, chapter: v.chapter, highlightVerse: v.verse),
           )),
@@ -195,18 +285,18 @@ class _HymnResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (hymns.isEmpty) {
-      return const Center(child: Text('Aucun cantique trouvé'));
+      return const EmptyState(icon: Icons.music_note_outlined, message: 'Aucun cantique trouvé.');
     }
-    return ListView.separated(
-      itemCount: hymns.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: hymns.length,
       itemBuilder: (context, i) {
         final h = hymns[i];
-        return ListTile(
-          leading: CircleAvatar(child: Text(h.number)),
-          title: Text(h.title),
+        return ResultRow(
+          leading: NumberBadge(h.number),
+          title: h.title,
+          trailing: h.audioUrl != null ? const HymnAudioMark() : null,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => HymnDetailScreen(hymn: h),
+            builder: (_) => HymnPagerScreen(hymn: h),
           )),
         );
       },
@@ -221,19 +311,68 @@ class _DictionaryResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (entries.isEmpty) {
-      return const Center(child: Text('Aucune entrée trouvée'));
+      return const EmptyState(icon: Icons.auto_stories_outlined, message: 'Aucune entrée trouvée.');
     }
-    return ListView.separated(
-      itemCount: entries.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+    return _resultList(
+      count: entries.length,
       itemBuilder: (context, i) {
         final e = entries[i];
-        return ListTile(
-          title: Text(e.term, style: const TextStyle(fontWeight: FontWeight.w600)),
-          subtitle: Text(e.definition, maxLines: 1, overflow: TextOverflow.ellipsis),
+        return ResultRow(
+          title: e.term,
+          subtitle: e.definition,
+          subtitleMaxLines: 1,
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => DictionaryDetailScreen(entry: e),
           )),
+        );
+      },
+    );
+  }
+}
+
+class _TextResults extends StatelessWidget {
+  final List<ContentHit> hits;
+  const _TextResults({required this.hits});
+
+  Widget _screenFor(ContentHit hit) {
+    switch (hit.kind) {
+      case ContentHitKind.churchText:
+        final text = ChurchTextsData.byId(hit.id!)!;
+        return ChurchTextScreen(text: text, initialHeading: hit.headingIndex);
+      case ContentHitKind.worshipOrder:
+        return const WorshipOrderScreen();
+      case ContentHitKind.sacrament:
+        return SacramentDetailScreen(sacrament: SacramentsData.byId(hit.id!));
+      case ContentHitKind.liturgicalPeriod:
+        final year = LiturgicalCalendarService.churchYearStartFor(DateTime.now());
+        for (final instance in LiturgicalCalendarService.periodsForChurchYear(year)) {
+          if (instance.period.id == hit.id) {
+            return LiturgicalPeriodDetailScreen(instance: instance);
+          }
+        }
+        return const LiturgicalCalendarScreen();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (hits.isEmpty) {
+      return const EmptyState(
+        icon: Icons.auto_stories_outlined,
+        message: 'Rien trouvé dans la liturgie ni dans les textes.',
+      );
+    }
+    return _resultList(
+      count: hits.length,
+      itemBuilder: (context, i) {
+        final hit = hits[i];
+        return ResultRow(
+          title: hit.title,
+          subtitle: '${hit.location} — ${hit.excerpt}',
+          subtitleMaxLines: 2,
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => _screenFor(hit)),
+          ),
         );
       },
     );

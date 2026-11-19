@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/app_cards.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/dictionary_entry.dart';
 import '../../../core/settings/app_settings.dart';
@@ -20,34 +22,48 @@ class DictionaryDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: showBackButton,
-        title: Text(entry.term),
+        title: const Text('Dictionnaire biblique'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
         child: ReadingWidthConstraint(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                entry.term,
+                style: TextStyle(
+                  fontSize: 26,
+                  height: 1.2,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: -0.2,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+              ),
+              const SizedBox(height: 14),
               // Bible references mentioned inline in the definition (e.g.
               // "Genèse 12") become tappable links straight to that passage.
               LinkedVerseText(
                 entry.definition,
-                style: TextStyle(fontSize: 17, height: 1.6 * lineHeightScale),
+                style: TextStyle(
+                  fontSize: 17,
+                  height: 1.6 * lineHeightScale,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
               if (entry.relatedReferences.isNotEmpty) ...[
                 const SizedBox(height: 24),
-                Text(
-                  'Références bibliques',
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-                const SizedBox(height: 8),
+                const SectionTitle('Références bibliques'),
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
                   children: entry.relatedReferences
                       .map((ref) => ActionChip(
+                            avatar: Icon(
+                              Icons.menu_book_outlined,
+                              size: 16,
+                              color: AppPalette.of(context).accent,
+                            ),
                             label: Text(ref),
                             onPressed: () => _openReference(context, ref),
                           ))

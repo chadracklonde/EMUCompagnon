@@ -9,6 +9,9 @@ class Hymn {
   /// recorded/sourced yet; the player UI only appears when this is set.
   final String? audioUrl;
 
+  /// Recueil auquel appartient le cantique (voir `Hymnals`).
+  final String hymnal;
+
   Hymn({
     required this.id,
     required this.number,
@@ -16,6 +19,7 @@ class Hymn {
     this.key,
     required this.lyrics,
     this.audioUrl,
+    this.hymnal = 'CV',
   });
 
   factory Hymn.fromMap(Map<String, dynamic> map) => Hymn(
@@ -25,5 +29,6 @@ class Hymn {
         key: map['key'] as String?,
         lyrics: map['lyrics'] as String,
         audioUrl: map['audio_url'] as String?,
+        hymnal: (map['hymnal'] as String?) ?? 'CV',
       );
 }

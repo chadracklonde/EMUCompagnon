@@ -52,6 +52,12 @@ class StreakService {
     return StreakInfo(current: current, longest: longest);
   }
 
+  /// The last day the app was opened, if ever.
+  static Future<DateTime?> getLastActive() async {
+    final prefs = await SharedPreferences.getInstance();
+    return DateTime.tryParse(prefs.getString(_kLastActiveDate) ?? '');
+  }
+
   static Future<StreakInfo> getCurrent() async {
     final prefs = await SharedPreferences.getInstance();
     return StreakInfo(

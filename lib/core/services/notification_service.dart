@@ -76,7 +76,16 @@ class NotificationService {
     return granted;
   }
 
-  static Future<void> scheduleDaily({required int hour, required int minute}) async {
+  static const defaultReminderBody =
+      "C'est l'heure de votre lecture — un verset, un chapitre, un instant avec la Parole.";
+
+  /// Schedules (or replaces) the daily reminder. [body] is the text shown;
+  /// it stays the same every day until this is called again.
+  static Future<void> scheduleDaily({
+    required int hour,
+    required int minute,
+    String body = defaultReminderBody,
+  }) async {
     if (kIsWeb) return;
     await init();
 
@@ -91,7 +100,7 @@ class NotificationService {
     await _plugin.zonedSchedule(
       _dailyReminderId,
       'ÉMU Compagnon',
-      "C'est l'heure de votre lecture — un verset, un chapitre, un instant avec la Parole.",
+      body,
       tzScheduled,
       const NotificationDetails(
         android: AndroidNotificationDetails(

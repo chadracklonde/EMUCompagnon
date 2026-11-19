@@ -1,8 +1,14 @@
+import '../../../core/settings/app_settings.dart';
+import '../../../core/l10n/app_strings.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/app_cards.dart';
 import 'dart:async';
 import '../../../core/models/verse.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../../bible/screens/chapter_screen.dart';
+import '../../../shared/bible_book_names.dart';
 
 /// Full-text concordance search across the whole Bible.
 class ConcordanceScreen extends StatefulWidget {
@@ -48,43 +54,65 @@ class _ConcordanceScreenState extends State<ConcordanceScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<AppSettings>().locale;
+    String t(String key) => AppStrings.t(key, locale);
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          controller: _controller,
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Rechercher un mot ou une expression…',
-            border: InputBorder.none,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: AppBarSearchField(
+            controller: _controller,
+            hint: t('concordance_hint'),
+            onChanged: _onChanged,
           ),
-          onChanged: _onChanged,
         ),
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _results.isEmpty
-              ? Center(
-                  child: Text(
-                    _controller.text.isEmpty
-                        ? 'Tapez un mot pour chercher dans toute la Bible'
-                        : 'Aucun résultat',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+              ? EmptyState(
+                  icon: _controller.text.trim().isEmpty ? Icons.manage_search : Icons.search_off,
+                  message: _controller.text.trim().isEmpty
+                      ? t('concordance_empty')
+                      : t('no_results'),
                 )
               : ListView.separated(
-                  itemCount: _results.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  padding: const EdgeInsets.only(top: 4, bottom: 24),
+                  // First item: how many verses matched.
+                  itemCount: _results.length + 1,
+                  separatorBuilder: (_, i) => i == 0
+                      ? const SizedBox.shrink()
+                      : const Divider(indent: 20, endIndent: 20),
                   itemBuilder: (context, index) {
-                    final v = _results[index];
-                    return ListTile(
-                      title: Text(
-                        v.reference,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(v.text, maxLines: 2, overflow: TextOverflow.ellipsis),
+                    if (index == 0) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
+                        child: Text(
+                          _results.length == 1
+                              ? t('verse_one')
+                              : AppStrings.tf('verses_n', context.read<AppSettings>().locale, {'n': _results.length}),
+                          style: TextStyle(
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w600,
+                            color: AppPalette.of(context).muted,
+                          ),
+                        ),
+                      );
+                    }
+                    final v = _results[index - 1];
+                    return ResultRow(
+                      title: context.bookReference(v.reference),
+                      subtitle: v.text,
+                      subtitleMaxLines: 3,
+                      accentTitle: true,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => ChapterScreen(book: v.book, chapter: v.chapter),
+                          builder: (_) => ChapterScreen(
+                            book: v.book,
+                            chapter: v.chapter,
+                            highlightVerse: v.verse,
+                          ),
                         ),
                       ),
                     );

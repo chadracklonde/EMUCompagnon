@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/widgets/app_cards.dart';
 import '../../../core/models/memory_card.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../repository/memory_card_repository.dart';
@@ -24,7 +27,6 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
   bool _reviewing = false;
   int _reviewIndex = 0;
   bool _revealed = false;
-  int _reviewedCount = 0;
 
   @override
   void initState() {
@@ -49,14 +51,12 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
       _reviewing = true;
       _reviewIndex = 0;
       _revealed = false;
-      _reviewedCount = 0;
     });
   }
 
   Future<void> _grade(RecallQuality quality) async {
     final card = _dueToday[_reviewIndex];
     await _repo.grade(card, quality);
-    _reviewedCount++;
     if (_reviewIndex + 1 < _dueToday.length) {
       setState(() {
         _reviewIndex++;
@@ -91,7 +91,8 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
               ValueListenableBuilder<String>(
                 valueListenable: bookNotifier,
                 builder: (_, value, __) => DropdownButtonFormField<String>(
-                  value: value,
+                  key: ValueKey(value),
+                  initialValue: value,
                   isExpanded: true,
                   decoration: const InputDecoration(labelText: 'Livre'),
                   items: BibleRepository.books
@@ -102,6 +103,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                   },
                 ),
               ),
+              const SizedBox(height: 12),
               Row(
                 children: [
                   Expanded(
@@ -124,7 +126,10 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
               if (error != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
-                  child: Text(error!, style: const TextStyle(color: Colors.red, fontSize: 12)),
+                  child: Text(
+                    error!,
+                    style: TextStyle(color: Theme.of(dialogContext).colorScheme.error, fontSize: 12.5),
+                  ),
                 ),
             ],
           ),
@@ -194,161 +199,251 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
   }
 
   Widget _buildOverview() {
+    final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
-    return ListView(
-      padding: const EdgeInsets.all(16),
-      children: [
-        Material(
-          color: scheme.primaryContainer,
-          borderRadius: BorderRadius.circular(14),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _dueToday.isEmpty
-                      ? 'Rien à réviser aujourd\'hui 🎉'
-                      : '${_dueToday.length} verset(s) à réviser aujourd\'hui',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: scheme.onPrimaryContainer,
-                  ),
-                ),
-                if (_dueToday.isNotEmpty) ...[
-                  const SizedBox(height: 12),
-                  FilledButton.icon(
-                    onPressed: _startReview,
-                    icon: const Icon(Icons.play_arrow),
-                    label: const Text('Réviser maintenant'),
-                  ),
-                ],
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        Text('Mon deck (${_all.length})',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
-        const SizedBox(height: 8),
-        if (_all.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Text(
-              'Ajoutez un verset avec le bouton + en haut, ou depuis le menu d\'un verset dans la Bible.',
-              style: TextStyle(color: scheme.outline),
-            ),
-          )
-        else
-          ..._all.map((card) => Card(
-                margin: const EdgeInsets.only(bottom: 8),
-                child: ListTile(
-                  title: Text(card.referenceLabel, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text(
-                    'Prochaine révision : ${card.dueDate}',
-                    style: TextStyle(fontSize: 12, color: scheme.outline),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete_outline),
-                    onPressed: () => _removeCard(card),
-                  ),
-                ),
-              )),
-      ],
-    );
-  }
+    final dueCount = _dueToday.length;
 
-  Widget _buildReview() {
-    final scheme = Theme.of(context).colorScheme;
-    final card = _dueToday[_reviewIndex];
-    final progress = (_reviewIndex) / _dueToday.length;
-
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: LinearProgressIndicator(value: progress, minHeight: 6),
-          ),
-        ),
-        Expanded(
-          child: Center(
+    return ReadingWidthConstraint(
+      maxWidth: 640,
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+        children: [
+          AppCard(
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(16),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    card.referenceLabel,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: scheme.primary,
+                  Row(
+                    children: [
+                      Container(
+                        width: 38,
+                        height: 38,
+                        decoration: BoxDecoration(
+                          color: palette.accentSoft,
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                  ),
-                  const SizedBox(height: 24),
-                  if (!_revealed)
-                    OutlinedButton(
-                      onPressed: () => setState(() => _revealed = true),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                        child: Text('Afficher le texte'),
+                        child: Icon(
+                          dueCount == 0 ? Icons.check : Icons.psychology_outlined,
+                          color: palette.accent,
+                          size: 21,
+                        ),
                       ),
-                    )
-                  else
-                    Text(
-                      card.verseText,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 16, height: 1.5),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          dueCount == 0
+                              ? "Rien à réviser aujourd'hui"
+                              : dueCount == 1
+                                  ? "1 verset à réviser aujourd'hui"
+                                  : "$dueCount versets à réviser aujourd'hui",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: scheme.onSurface,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (dueCount > 0) ...[
+                    const SizedBox(height: 14),
+                    SizedBox(
+                      width: double.infinity,
+                      child: FilledButton.icon(
+                        onPressed: _startReview,
+                        icon: const Icon(Icons.play_arrow),
+                        label: const Text('Réviser maintenant'),
+                      ),
                     ),
+                  ],
                 ],
               ),
             ),
           ),
-        ),
-        if (_revealed)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
-            child: Column(
-              children: [
-                const Text('Comment avez-vous retenu ce verset ?', style: TextStyle(fontSize: 12)),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () => _grade(RecallQuality.again),
-                        child: const Text('Encore', style: TextStyle(fontSize: 12)),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () => _grade(RecallQuality.hard),
-                        child: const Text('Difficile', style: TextStyle(fontSize: 12)),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: FilledButton(
-                        onPressed: () => _grade(RecallQuality.good),
-                        child: const Text('Bien', style: TextStyle(fontSize: 12)),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Expanded(
-                      child: FilledButton.tonal(
-                        onPressed: () => _grade(RecallQuality.easy),
-                        child: const Text('Facile', style: TextStyle(fontSize: 12)),
+          const SizedBox(height: 24),
+          SectionTitle('Mes versets (${_all.length})'),
+          if (_all.isEmpty)
+            const Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: EmptyState(
+                icon: Icons.bookmark_add_outlined,
+                message: "Ajoutez un verset avec le bouton + en haut, ou depuis les "
+                    "actions d'un verset dans la Bible.",
+              ),
+            )
+          else
+            AppCard(
+              child: Column(
+                children: [
+                  for (var i = 0; i < _all.length; i++) ...[
+                    if (i > 0) Divider(indent: 16, color: palette.border),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 4, 8),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _all[i].referenceLabel,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: scheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  'Prochaine révision : ${_all[i].dueDate}',
+                                  style: TextStyle(fontSize: 12.5, color: palette.muted),
+                                ),
+                              ],
+                            ),
+                          ),
+                          IconButton(
+                            tooltip: 'Retirer ce verset',
+                            icon: Icon(Icons.delete_outline, color: palette.muted),
+                            onPressed: () => _removeCard(_all[i]),
+                          ),
+                        ],
                       ),
                     ),
                   ],
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildReview() {
+    final palette = AppPalette.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final card = _dueToday[_reviewIndex];
+    final progress = _reviewIndex / _dueToday.length;
+
+    Widget gradeButton(String label, RecallQuality quality, {bool primary = false}) {
+      final child = Text(label, maxLines: 1, style: const TextStyle(fontSize: 13));
+      final style = ButtonStyle(
+        padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 4)),
+      );
+      return Expanded(
+        child: primary
+            ? FilledButton(onPressed: () => _grade(quality), style: style, child: child)
+            : OutlinedButton(onPressed: () => _grade(quality), style: style, child: child),
+      );
+    }
+
+    return ReadingWidthConstraint(
+      maxWidth: 640,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: LinearProgressIndicator(
+                      value: progress,
+                      minHeight: 6,
+                      backgroundColor: palette.field,
+                      color: palette.accent,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  '${_reviewIndex + 1} / ${_dueToday.length}',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: palette.muted,
+                  ),
                 ),
               ],
             ),
           ),
-      ],
+          Expanded(
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(20),
+                child: AppCard(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            card.referenceLabel,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                              color: palette.accent,
+                            ),
+                          ),
+                          const SizedBox(height: 22),
+                          if (!_revealed)
+                            OutlinedButton.icon(
+                              onPressed: () => setState(() => _revealed = true),
+                              icon: const Icon(Icons.visibility_outlined),
+                              label: const Text('Afficher le texte'),
+                            )
+                          else
+                            Text(
+                              card.verseText,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'PlayfairDisplay',
+                                fontSize: 19,
+                                height: 1.5,
+                                color: scheme.onSurface,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          if (_revealed)
+            SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+                child: Column(
+                  children: [
+                    Text(
+                      'Comment avez-vous retenu ce verset ?',
+                      style: TextStyle(fontSize: 13, color: palette.muted),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        gradeButton('Encore', RecallQuality.again),
+                        const SizedBox(width: 8),
+                        gradeButton('Difficile', RecallQuality.hard),
+                        const SizedBox(width: 8),
+                        gradeButton('Bien', RecallQuality.good, primary: true),
+                        const SizedBox(width: 8),
+                        gradeButton('Facile', RecallQuality.easy),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'church_calendar.dart';
 import '../data/liturgical_calendar_data.dart';
 import '../models/liturgical_period.dart';
 import 'easter_calculator.dart';
@@ -40,15 +41,9 @@ class _ChurchYearDates {
     );
   }
 
-  /// Advent Sunday: the Sunday nearest November 30, i.e. the 4th Sunday
-  /// before Christmas Day.
-  static DateTime _adventStart(int year) {
-    final christmas = DateTime(year, 12, 25);
-    final daysBack = christmas.weekday % 7; // Dart: Mon=1..Sun=7, so Sun%7=0
-    final sundayOnOrBeforeChristmas =
-        christmas.subtract(Duration(days: daysBack));
-    return sundayOnOrBeforeChristmas.subtract(const Duration(days: 21));
-  }
+  /// First Sunday of Advent: the fourth Sunday before Christmas Day (so
+  /// between 27 November and 3 December). Computed by [ChurchCalendar].
+  static DateTime _adventStart(int year) => ChurchCalendar.advent1(year);
 }
 
 class LiturgicalCalendarService {
