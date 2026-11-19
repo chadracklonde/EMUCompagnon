@@ -7,9 +7,13 @@ import '../../features/hymns/utils/hymn_stanza_parser.dart';
 class TextShareService {
   static const _signature = 'ÉMU Compagnon';
 
-  /// A verse, followed by its reference.
+  /// Fiche de l'application sur le Play Store, ajoutée aux versets partagés.
+  static const playStoreUrl =
+      'https://play.google.com/store/apps/details?id=com.emucompagnon.emu_compagnon';
+
+  /// A verse, followed by its reference, then the app's name and Play Store link.
   static String verseText({required String reference, required String text}) =>
-      '${text.trim()}\n— $reference\n\n$_signature';
+      '${text.trim()}\n— $reference\n\n$_signature\n$playStoreUrl';
 
   /// A whole hymn: number and title, then each stanza under its label,
   /// the refrain named as such.
