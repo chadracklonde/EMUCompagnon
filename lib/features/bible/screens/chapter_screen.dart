@@ -14,6 +14,7 @@ import '../../highlights/repository/highlight_repository.dart';
 import '../../notes/screens/notes_sheet.dart';
 import '../../../shared/services/image_share_service.dart';
 import '../../../shared/services/text_share_service.dart';
+import '../../../shared/widgets/verse_share_card.dart';
 import '../../../shared/widgets/text_settings_popup.dart';
 import '../../../shared/widgets/highlight_color_picker.dart';
 import '../../../core/services/reading_history_service.dart';
@@ -212,7 +213,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
   }
 
   Future<void> _shareAsImage(Verse v) async {
-    await ImageShareService.shareVerse(context, reference: _ref(v), text: v.text);
+    await ImageShareService.shareVerse(
+      context,
+      reference: _ref(v),
+      text: v.text,
+      source: VerseShareCard.sourceForBible(v.version),
+    );
   }
 
   Future<void> _pickHighlight(Verse v) async {

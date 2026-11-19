@@ -11,6 +11,7 @@ import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/services/image_share_service.dart';
+import '../../../shared/widgets/verse_share_card.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../bible/repository/bible_repository.dart';
 import '../../bible/screens/books_screen.dart';
@@ -288,6 +289,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           reference: context.bookReference(verse.reference),
                           text: verse.text,
+                          label: t('verse_of_the_day'),
+                          source: VerseShareCard.sourceForBible(verse.version),
                         ),
               ),
               const SizedBox(height: 12),
