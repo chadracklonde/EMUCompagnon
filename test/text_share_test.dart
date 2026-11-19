@@ -3,10 +3,11 @@ import 'package:emu_compagnon/shared/services/text_share_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('a verse is followed by its reference', () {
+  test('a verse is followed by its reference and the Play Store link', () {
     expect(
       TextShareService.verseText(reference: 'Jean 11.35', text: ' Jésus pleura. '),
-      'Jésus pleura.\n— Jean 11.35\n\nÉMU Compagnon',
+      'Jésus pleura.\n— Jean 11.35\n\nÉMU Compagnon\n'
+      'https://play.google.com/store/apps/details?id=com.emucompagnon.emu_compagnon',
     );
   });
 

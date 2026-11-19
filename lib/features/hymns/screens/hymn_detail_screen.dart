@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/hymn.dart';
 import '../../../core/models/bookmark.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/models/hymnal.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../favorites/repository/bookmark_repository.dart';
 import '../../notes/screens/notes_sheet.dart';
@@ -132,6 +134,8 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                     context,
                     reference: '${hymn.number} — ${hymn.title}',
                     text: stanzas.isNotEmpty ? stanzas.first.body : hymn.title,
+                    label: AppStrings.t('share_label_hymn', context.read<AppSettings>().locale),
+                    source: Hymnals.name(hymn.hymnal),
                   );
               }
             },
