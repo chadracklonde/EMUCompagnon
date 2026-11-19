@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -38,9 +39,9 @@ class _HymnListsScreenState extends State<HymnListsScreen> {
   Future<void> _create() async {
     final name = await askListName(
       context,
-      title: 'Nouvelle liste',
-      initial: suggestedListName(),
-      confirmLabel: 'Créer',
+      title: context.tr('hl_new'),
+      initial: suggestedListName(null, context.lang),
+      confirmLabel: context.tr('create'),
     );
     if (name == null) return;
     final list = await HymnListService.create(name);
@@ -52,19 +53,18 @@ class _HymnListsScreenState extends State<HymnListsScreen> {
     final palette = AppPalette.of(context);
     final lists = _lists;
     return Scaffold(
-      appBar: AppBar(title: const Text('Listes de cantiques')),
+      appBar: AppBar(title: Text(context.tr('hl_title'))),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _create,
         icon: const Icon(Icons.add),
-        label: const Text('Nouvelle liste'),
+        label: Text(context.tr('hl_new')),
       ),
       body: lists == null
           ? const Center(child: CircularProgressIndicator())
           : lists.isEmpty
-              ? const EmptyState(
+              ? EmptyState(
                   icon: Icons.queue_music,
-                  message: 'Préparez les chants d\'un culte ou d\'une répétition : créez une '
-                      'liste, ajoutez-y des cantiques, puis enchaînez-les dans l\'ordre.',
+                  message: context.tr('hl_intro'),
                 )
               : ReadingWidthConstraint(
                   maxWidth: 640,
@@ -75,11 +75,13 @@ class _HymnListsScreenState extends State<HymnListsScreen> {
                         child: Column(
                           children: [
                             for (var i = 0; i < lists.length; i++) ...[
-                              if (i > 0) Divider(indent: 64, color: palette.border),
+                              if (i > 0)
+                                Divider(indent: 64, color: palette.border),
                               AppRow(
                                 icon: Icons.queue_music,
                                 title: lists[i].name,
-                                subtitle: hymnCountLabel(lists[i].numbers.length),
+                                subtitle: hymnCountLabel(
+                                    context, lists[i].numbers.length),
                                 onTap: () => _open(lists[i]),
                               ),
                             ],

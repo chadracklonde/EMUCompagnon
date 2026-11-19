@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/hymn.dart';
 import '../../../core/theme/app_theme.dart';
@@ -39,7 +40,9 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
     final seq = ++_searchSeq;
     List<Hymn> hymns;
     try {
-      hymns = query.trim().isEmpty ? await _repo.getAll() : await _repo.search(query);
+      hymns = query.trim().isEmpty
+          ? await _repo.getAll()
+          : await _repo.search(query);
     } catch (_) {
       hymns = [];
     }
@@ -52,7 +55,9 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
   }
 
   void _toggle(String number) {
-    setState(() => _picked.contains(number) ? _picked.remove(number) : _picked.add(number));
+    setState(() => _picked.contains(number)
+        ? _picked.remove(number)
+        : _picked.add(number));
   }
 
   @override
@@ -60,18 +65,19 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
     final palette = AppPalette.of(context);
     final count = _picked.length;
     return Scaffold(
-      appBar: AppBar(title: const Text('Ajouter des cantiques')),
+      appBar: AppBar(title: Text(context.tr('hl_add_hymns'))),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
           child: FilledButton(
-            onPressed: count == 0 ? null : () => Navigator.pop(context, _picked),
+            onPressed:
+                count == 0 ? null : () => Navigator.pop(context, _picked),
             child: Text(
               count == 0
-                  ? 'Cochez des cantiques'
+                  ? context.tr('hl_pick')
                   : count == 1
-                      ? 'Ajouter 1 cantique'
-                      : 'Ajouter $count cantiques',
+                      ? context.tr('hl_add_1')
+                      : context.trf('hl_add_n', {'n': count}),
             ),
           ),
         ),
@@ -82,8 +88,8 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
             padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
             child: TextField(
               controller: _controller,
-              decoration: const InputDecoration(
-                hintText: 'Numéro, titre ou parole…',
+              decoration: InputDecoration(
+                hintText: context.tr('hl_search'),
                 prefixIcon: Icon(Icons.search),
               ),
               onChanged: _search,
@@ -93,18 +99,21 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
             child: _loading
                 ? const Center(child: CircularProgressIndicator())
                 : _hymns.isEmpty
-                    ? const EmptyState(icon: Icons.search_off, message: 'Aucun cantique trouvé.')
+                    ? EmptyState(
+                        icon: Icons.search_off,
+                        message: context.tr('hl_none_found'))
                     : ListView.builder(
                         padding: const EdgeInsets.only(bottom: 16),
                         itemCount: _hymns.length,
                         itemBuilder: (context, i) {
                           final hymn = _hymns[i];
-                          final already = widget.alreadyIn.contains(hymn.number);
+                          final already =
+                              widget.alreadyIn.contains(hymn.number);
                           final picked = _picked.contains(hymn.number);
                           return ResultRow(
                             leading: NumberBadge(hymn.number),
                             title: hymn.title,
-                            subtitle: already ? 'Déjà dans la liste' : null,
+                            subtitle: already ? context.tr('hl_already') : null,
                             selected: picked,
                             trailing: Padding(
                               padding: const EdgeInsets.only(right: 4),
@@ -117,7 +126,8 @@ class _HymnPickerScreenState extends State<HymnPickerScreen> {
                                     : picked
                                         ? palette.accent
                                         : palette.muted,
-                                semanticLabel: picked ? 'Coché' : null,
+                                semanticLabel:
+                                    picked ? context.tr('hl_picked') : null,
                               ),
                             ),
                             onTap: already ? () {} : () => _toggle(hymn.number),

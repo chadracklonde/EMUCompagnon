@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/l10n/tr.dart';
 import '../../../core/theme/app_theme.dart';
 import '../services/hymn_list_service.dart';
 
-const _months = [
-  '', 'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-  'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
-];
-
 /// "Culte du 15 novembre" — the coming Sunday (today if it is Sunday),
 /// the most likely thing a new list is for.
-String suggestedListName([DateTime? now]) {
+String suggestedListName([DateTime? now, String locale = 'fr']) {
   final today = now ?? DateTime.now();
-  final sunday = today.add(Duration(days: (DateTime.sunday - today.weekday) % 7));
-  final day = sunday.day == 1 ? '1er' : '${sunday.day}';
-  return 'Culte du $day ${_months[sunday.month]}';
+  final sunday =
+      today.add(Duration(days: (DateTime.sunday - today.weekday) % 7));
+  final day = locale == 'fr' && sunday.day == 1 ? '1er' : '${sunday.day}';
+  final date = '$day ${AppStrings.monthName(sunday.month, locale)}';
+  return AppStrings.tf('hl_default_name', locale, {'date': date});
 }
 
 /// Asks for a list name. Returns null when cancelled.
@@ -21,7 +20,7 @@ Future<String?> askListName(
   BuildContext context, {
   required String title,
   required String initial,
-  String confirmLabel = 'Enregistrer',
+  String? confirmLabel,
 }) {
   final controller = TextEditingController(text: initial)
     ..selection = TextSelection(baseOffset: 0, extentOffset: initial.length);
@@ -41,16 +40,19 @@ Future<String?> askListName(
             autofocus: true,
             maxLength: 60,
             textCapitalization: TextCapitalization.sentences,
-            decoration: const InputDecoration(hintText: 'Nom de la liste', counterText: ''),
+            decoration: InputDecoration(
+                hintText: dialogContext.tr('hl_name'), counterText: ''),
             onChanged: (_) => setDialogState(() {}),
             onSubmitted: (_) => submit(),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
-              child: const Text('Annuler'),
+              child: Text(dialogContext.tr('cancel')),
             ),
-            FilledButton(onPressed: name.isEmpty ? null : submit, child: Text(confirmLabel)),
+            FilledButton(
+                onPressed: name.isEmpty ? null : submit,
+                child: Text(confirmLabel ?? dialogContext.tr('save'))),
           ],
         );
       },
@@ -58,8 +60,11 @@ Future<String?> askListName(
   );
 }
 
-String hymnCountLabel(int count) =>
-    count == 0 ? 'Aucun cantique' : count == 1 ? '1 cantique' : '$count cantiques';
+String hymnCountLabel(BuildContext context, int count) => count == 0
+    ? context.tr('hl_count_0')
+    : count == 1
+        ? context.tr('hl_count_1')
+        : context.trf('hl_count_n', {'n': count});
 
 /// Bottom sheet shown from a hymn: pick the list to add it to, or create
 /// one. Returns the name of the list it was added to, or null.
@@ -69,6 +74,9 @@ Future<void> showAddToListSheet(
   required String title,
 }) async {
   final messenger = ScaffoldMessenger.of(context);
+  final addedText = context.trf('hl_added', {'n': number, 'name': '{name}'});
+  final alreadyText =
+      context.trf('hl_already_in', {'n': number, 'name': '{name}'});
   final result = await showModalBottomSheet<({String name, bool added})>(
     context: context,
     isScrollControlled: true,
@@ -80,9 +88,8 @@ Future<void> showAddToListSheet(
     ..showSnackBar(SnackBar(
       duration: const Duration(seconds: 2),
       content: Text(
-        result.added
-            ? 'N° $number ajouté à « ${result.name} ».'
-            : 'N° $number est déjà dans « ${result.name} ».',
+        (result.added ? addedText : alreadyText)
+            .replaceAll('{name}', result.name),
       ),
     ));
 }
@@ -114,9 +121,9 @@ class _AddToListSheetState extends State<_AddToListSheet> {
   Future<void> _createAndAdd() async {
     final name = await askListName(
       context,
-      title: 'Nouvelle liste',
-      initial: suggestedListName(),
-      confirmLabel: 'Créer',
+      title: context.tr('hl_new'),
+      initial: suggestedListName(null, context.lang),
+      confirmLabel: context.tr('create'),
     );
     if (name == null) return;
     final list = await HymnListService.create(name, numbers: [widget.number]);
@@ -130,7 +137,8 @@ class _AddToListSheetState extends State<_AddToListSheet> {
     final lists = _lists;
     return SafeArea(
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.7),
+        constraints:
+            BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.7),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +146,7 @@ class _AddToListSheetState extends State<_AddToListSheet> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
               child: Text(
-                'Ajouter le n° ${widget.number} à une liste',
+                context.trf('hl_add_to', {'n': widget.number}),
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -158,7 +166,8 @@ class _AddToListSheetState extends State<_AddToListSheet> {
                   children: [
                     for (final list in lists)
                       ListTile(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 20),
                         leading: Icon(
                           list.numbers.contains(widget.number)
                               ? Icons.check_circle
@@ -167,16 +176,18 @@ class _AddToListSheetState extends State<_AddToListSheet> {
                         title: Text(list.name),
                         subtitle: Text(
                           list.numbers.contains(widget.number)
-                              ? 'Déjà dans cette liste'
-                              : hymnCountLabel(list.numbers.length),
-                          style: TextStyle(fontSize: 12.5, color: palette.muted),
+                              ? context.tr('hl_already_this')
+                              : hymnCountLabel(context, list.numbers.length),
+                          style:
+                              TextStyle(fontSize: 12.5, color: palette.muted),
                         ),
                         onTap: () => _addTo(list),
                       ),
                     ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 20),
                       leading: const Icon(Icons.add),
-                      title: const Text('Nouvelle liste…'),
+                      title: Text(context.tr('hl_new_dots')),
                       onTap: _createAndAdd,
                     ),
                     const SizedBox(height: 8),
