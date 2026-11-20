@@ -95,3 +95,12 @@ class ChapterNotes {
     return null;
   }
 }
+
+
+/// Une introduction de livre (ou une étude qui l'accompagne).
+class BookIntro {
+  final String id;
+  final String title;
+  final String html;
+  const BookIntro({required this.id, required this.title, required this.html});
+}
