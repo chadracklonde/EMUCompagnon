@@ -122,7 +122,13 @@ class AppSettings extends ChangeNotifier {
   /// l'interface, les noms de livres et le texte biblique.
   Future<void> setLocale(String value) async {
     _locale = value;
-    _bibleVersion = value == 'sw' ? BibleVersions.scv.code : BibleVersions.lsg1910.code;
+    // Français : on garde la version française déjà choisie (Louis Segond ou
+    // la Bible annotée) ; on ne revient à Louis Segond que depuis le swahili.
+    _bibleVersion = value == 'sw'
+        ? BibleVersions.scv.code
+        : (_bibleVersion == BibleVersions.scv.code
+            ? BibleVersions.lsg1910.code
+            : _bibleVersion);
     _applyLanguage();
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();

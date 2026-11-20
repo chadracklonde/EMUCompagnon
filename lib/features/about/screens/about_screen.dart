@@ -149,6 +149,17 @@ class AboutScreen extends StatelessWidget {
               ),
             ]),
             const SizedBox(height: 24),
+            SectionTitle(context.tr('ab_credits')),
+            AppRowGroup(rows: [
+              AppRow(
+                icon: Icons.menu_book_outlined,
+                title: 'ThéoTeX — La Bible annotée',
+                subtitle: context.tr('ab_theotex_sub'),
+                trailingIcon: Icons.open_in_new,
+                onTap: () => _open('https://theotex.org'),
+              ),
+            ]),
+            const SizedBox(height: 24),
             Center(
               child: Text(
                 context.tr('ab_footer'),

@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/verse.dart';
+import '../../../core/models/bible_version.dart';
+import '../notes/bible_note.dart';
+import '../notes/bible_notes_repository.dart';
+import '../notes/notes_mode.dart';
+import '../notes/notes_widgets.dart';
 import '../../../core/models/bookmark.dart';
 import '../../../core/models/highlight.dart';
 import '../../../core/settings/app_settings.dart';
@@ -71,6 +76,10 @@ class _ChapterScreenState extends State<ChapterScreen> {
   bool _isRead = false;
   int? _flashedVerseNumber;
   String? _shownVersion;
+  // Notes de commentaire (Bible annotée) : vides pour les autres versions.
+  ChapterNotes _notes = ChapterNotes.empty;
+  NotesMode _notesMode = NotesMode.text;
+  bool get _hasNotes => !_notes.isEmpty;
 
   String get _ver => widget.version ?? BibleRepository.activeVersion;
   String _t(String key, [Map<String, Object> values = const {}]) =>
@@ -96,7 +105,25 @@ class _ChapterScreenState extends State<ChapterScreen> {
     super.initState();
     _chapter = widget.chapter;
     _flashedVerseNumber = widget.highlightVerse;
+    NotesMode.load().then((m) {
+      if (mounted) setState(() => _notesMode = m);
+    });
     _load();
+  }
+
+  void _setNotesMode(NotesMode mode) {
+    setState(() => _notesMode = mode);
+    mode.save();
+  }
+
+  /// Depuis le mode Notes : revient au texte, au verset demandé.
+  void _showVerseInText(int verse) {
+    setState(() {
+      _notesMode = NotesMode.text;
+      _flashedVerseNumber = verse;
+    });
+    NotesMode.text.save();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToFlashed());
   }
 
   @override
@@ -111,6 +138,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final bookmarks = await _bookmarkRepo.listByType(BookmarkType.verse);
     final bookmarkedIds = bookmarks.map((b) => b.refId).toSet();
     final highlightColors = await _highlightRepo.getAllColorsFor(BookmarkType.verse);
+    final notes = BibleVersions.byCode(_ver).hasNotes
+        ? await BibleNotesRepository.forChapter(_ver, widget.book, _chapter, verses.length)
+        : ChapterNotes.empty;
     final chapterCount =
         _chapterCount ?? await _repo.chapterCount(widget.book, version: _ver);
     int? planIndex;
@@ -133,6 +163,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
         _bookmarkedVerseIds =
             verses.where((v) => bookmarkedIds.contains(v.id)).map((v) => v.id).toSet();
         _highlightColors = highlightColors;
+        _notes = notes;
         _chapterCount = chapterCount;
         _planIndex = planIndex;
         _isRead = isRead;
@@ -381,6 +412,21 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final scheme = Theme.of(context).colorScheme;
     final hasPrevious = _chapter > 1;
     final hasNext = _chapterCount != null && _chapter < _chapterCount!;
+    Widget nav() => Column(children: [
+          VersionCredit(version: BibleVersions.byCode(_ver)),
+          _ChapterNav(
+            isRead: _isRead,
+            onToggleRead: _planIndex == null ? null : _toggleRead,
+            onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
+            onNext: hasNext ? () => _goToChapter(1) : null,
+          ),
+        ]);
+    // Mode Étude : les notes viennent s'intercaler après leur dernier verset.
+    final study = _hasNotes && _notesMode == NotesMode.study;
+    final entries = <Object>[
+      if (study) ..._notes.intros,
+      for (final v in _verses) ...[v, if (study) ..._notes.endingAt(v.verse)],
+    ];
 
     return KeepAwake(child: Scaffold(
       appBar: AppBar(
@@ -407,7 +453,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : GestureDetector(
+          : Column(children: [
+              if (_hasNotes) NotesModeBar(mode: _notesMode, onChanged: _setNotesMode),
+              Expanded(child: GestureDetector(
               onHorizontalDragEnd: (details) {
                 final velocity = details.primaryVelocity ?? 0;
                 if (velocity < -250) {
@@ -417,21 +465,29 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 }
               },
               child: ReadingWidthConstraint(
-                child: ListView.builder(
+                child: _hasNotes && _notesMode == NotesMode.notes
+                    ? BibleNotesView(
+                        notes: _notes,
+                        verses: _verses,
+                        titleFor: (range) =>
+                            '${context.bookName(widget.book, version: _ver)} $_chapter.$range',
+                        onShowVerse: _showVerseInText,
+                        footer: nav(),
+                      )
+                    : ListView.builder(
                   controller: _scrollController,
                   padding: const EdgeInsets.fromLTRB(12, 4, 12, 32),
                   // One extra item: the previous/next chapter buttons.
-                  itemCount: _verses.length + 1,
+                  itemCount: entries.length + 1,
                   itemBuilder: (context, index) {
-                    if (index == _verses.length) {
-                      return _ChapterNav(
-                        isRead: _isRead,
-                        onToggleRead: _planIndex == null ? null : _toggleRead,
-                        onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
-                        onNext: hasNext ? () => _goToChapter(1) : null,
-                      );
+                    if (index == entries.length) return nav();
+                    final entry = entries[index];
+                    if (entry is String) return StudyNoteCard(html: entry);
+                    if (entry is NoteGroup) {
+                      return StudyNoteCard(
+                          key: ValueKey('note-${entry.start}-${entry.end}'), html: entry.html);
                     }
-                    final v = _verses[index];
+                    final v = entry as Verse;
                     final isBookmarked = _bookmarkedVerseIds.contains(v.id);
                     final isFlashed = _flashedVerseNumber == v.verse;
                     final highlightHex = _highlightColors[v.id];
@@ -518,7 +574,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   },
                 ),
               ),
-            ),
+            )),
+            ]),
     ));
   }
 }

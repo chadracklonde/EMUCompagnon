@@ -67,10 +67,18 @@ class DbHelper {
 
   /// Bump this whenever assets/db/app_data.db is regenerated with new or
   /// fixed content/schema that already-installed devices need to receive.
-  static const int _currentContentVersion = 8;
+  static const int _currentContentVersion = 9;
   static const _kLastAppliedVersionPref = 'db.lastAppliedContentVersion';
 
   static bool _factoryInitialized = false;
+
+  /// Choisit le moteur SQLite de la plateforme, une seule fois. Utile à ceux
+  /// qui ouvrent leur propre fichier de base (par exemple les notes).
+  static Future<void> ensureFactory() async {
+    if (_factoryInitialized) return;
+    await platform.initializeDatabaseFactory();
+    _factoryInitialized = true;
+  }
 
   static Future<Database> get database {
     return _dbFuture ??= _initDb().catchError((Object e, StackTrace s) {
