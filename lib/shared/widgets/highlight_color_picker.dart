@@ -1,3 +1,4 @@
+import '../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../core/models/highlight.dart';
 
@@ -14,7 +15,7 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Surligner', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            Text(context.tr('hi_title'), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
             const SizedBox(height: 16),
             Wrap(
               spacing: 16,
@@ -25,7 +26,7 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
                 return Semantics(
                   button: true,
                   selected: isSelected,
-                  label: 'Surligner en ${entry.key}',
+                  label: context.trf('hi_in', {'color': context.tr('hi_c_${entry.key}')}),
                   excludeSemantics: true,
                   onTap: () => Navigator.pop(context, hex),
                   child: GestureDetector(
@@ -47,7 +48,7 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
                             : null,
                       ),
                       const SizedBox(height: 4),
-                      Text(entry.key, style: const TextStyle(fontSize: 11)),
+                      Text(context.tr('hi_c_${entry.key}'), style: const TextStyle(fontSize: 11)),
                     ],
                   ),
                 ),
@@ -58,7 +59,7 @@ Future<String?> showHighlightColorPicker(BuildContext context, {String? current}
               const SizedBox(height: 12),
               TextButton.icon(
                 icon: const Icon(Icons.close),
-                label: const Text('Retirer le surlignage'),
+                label: Text(context.tr('hi_remove')),
                 onPressed: () => Navigator.pop(context, 'remove'),
               ),
             ],

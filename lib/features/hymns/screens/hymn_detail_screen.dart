@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -94,7 +95,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.text_fields),
-            tooltip: 'Taille du texte',
+            tooltip: context.tr('st_text_size'),
             onPressed: () => showTextSettingsPopup(context),
           ),
           if (!_loading)
@@ -103,12 +104,12 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                 _isBookmarked ? Icons.star : Icons.star_outline,
                 color: _isBookmarked ? AppPalette.of(context).accent : null,
               ),
-              tooltip: _isBookmarked ? 'Retirer des favoris' : 'Ajouter aux favoris',
+              tooltip: context.tr(_isBookmarked ? 'hd_unfav' : 'hd_fav'),
               onPressed: _toggle,
             ),
           // Less frequent actions, kept out of the bar so it stays readable.
           PopupMenuButton<String>(
-            tooltip: 'Plus d\'actions',
+            tooltip: context.tr('more_actions'),
             onSelected: (value) {
               switch (value) {
                 case 'list':
@@ -139,37 +140,37 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                   );
               }
             },
-            itemBuilder: (_) => const [
+            itemBuilder: (_) => [
               PopupMenuItem(
                 value: 'list',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.playlist_add),
-                  title: Text('Ajouter à une liste'),
+                  leading: const Icon(Icons.playlist_add),
+                  title: Text(context.tr('hd_add_list')),
                 ),
               ),
               PopupMenuItem(
                 value: 'notes',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.sticky_note_2_outlined),
-                  title: Text('Notes'),
+                  leading: const Icon(Icons.sticky_note_2_outlined),
+                  title: Text(context.tr('hd_notes')),
                 ),
               ),
               PopupMenuItem(
                 value: 'share_text',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.share_outlined),
-                  title: Text('Partager le texte'),
+                  leading: const Icon(Icons.share_outlined),
+                  title: Text(context.tr('hd_share_text')),
                 ),
               ),
               PopupMenuItem(
                 value: 'share',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.image_outlined),
-                  title: Text('Partager comme image'),
+                  leading: const Icon(Icons.image_outlined),
+                  title: Text(context.tr('hd_share_image')),
                 ),
               ),
             ],
@@ -202,7 +203,7 @@ class _HymnDetailScreenState extends State<HymnDetailScreen> {
                     borderRadius: BorderRadius.circular(99),
                   ),
                   child: Text(
-                    'Tonalité : ${hymn.key}',
+                    context.trf('hd_key', {'key': '${hymn.key}'}),
                     style: TextStyle(
                       fontSize: 12.5,
                       fontWeight: FontWeight.w600,

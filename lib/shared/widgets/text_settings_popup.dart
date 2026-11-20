@@ -1,3 +1,4 @@
+import '../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/settings/app_settings.dart';
@@ -47,7 +48,7 @@ class _TextSettingsPopup extends StatelessWidget {
             children: [
               Icon(Icons.text_fields, size: 18, color: Theme.of(context).colorScheme.primary),
               const SizedBox(width: 8),
-              const Text('Taille du texte', style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(context.tr('st_text_size'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
           Row(
@@ -71,7 +72,7 @@ class _TextSettingsPopup extends StatelessWidget {
             children: [
               Icon(Icons.format_line_spacing, size: 18, color: Theme.of(context).colorScheme.primary),
               const SizedBox(width: 8),
-              const Text('Interligne', style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(context.tr('st_line'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
           Slider(

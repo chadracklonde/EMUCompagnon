@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -92,7 +93,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
-        content: Text(pinned ? "Épinglé sur l'accueil" : "Retiré de l'accueil"),
+        content: Text(context.tr(pinned ? 'ct_pinned' : 'ct_unpinned')),
       ));
   }
 
@@ -121,7 +122,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.share_outlined),
-              title: const Text('Partager ce passage'),
+              title: Text(context.tr('ct_share_passage')),
               onTap: () {
                 Navigator.of(sheetContext).pop();
                 TextShareService.share(content, subject: title);
@@ -129,13 +130,13 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.copy_outlined),
-              title: const Text('Copier ce passage'),
+              title: Text(context.tr('ct_copy_passage')),
               onTap: () async {
                 Navigator.of(sheetContext).pop();
                 await Clipboard.setData(ClipboardData(text: content));
                 if (!mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Passage copié')));
+                    SnackBar(content: Text(context.tr('ct_copied'))));
               },
             ),
             const SizedBox(height: 8),
@@ -207,13 +208,12 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
         actions: [
           if (_hasContents)
             IconButton(
-              tooltip: 'Sommaire',
+              tooltip: context.tr('ct_contents'),
               icon: const Icon(Icons.format_list_bulleted),
               onPressed: _openContents,
             ),
           IconButton(
-            tooltip:
-                _pinned ? "Retirer de l'accueil" : "Épingler sur l'accueil",
+            tooltip: context.tr(_pinned ? 'ct_unpin' : 'ct_pin'),
             icon: Icon(
               _pinned ? Icons.push_pin : Icons.push_pin_outlined,
               color: _pinned ? palette.accent : null,
@@ -221,7 +221,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
             onPressed: _togglePin,
           ),
           PopupMenuButton<String>(
-            tooltip: "Plus d'actions",
+            tooltip: context.tr('more_actions'),
             onSelected: (value) {
               switch (value) {
                 case 'size':
@@ -230,21 +230,21 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                   _share();
               }
             },
-            itemBuilder: (_) => const [
+            itemBuilder: (_) => [
               PopupMenuItem(
                 value: 'size',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.text_fields),
-                  title: Text('Taille du texte'),
+                  leading: const Icon(Icons.text_fields),
+                  title: Text(context.tr('st_text_size')),
                 ),
               ),
               PopupMenuItem(
                 value: 'share',
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.share_outlined),
-                  title: Text('Partager tout le texte'),
+                  leading: const Icon(Icons.share_outlined),
+                  title: Text(context.tr('ct_share_all')),
                 ),
               ),
             ],
@@ -254,7 +254,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
       ),
       floatingActionButton: _showToTop
           ? FloatingActionButton.small(
-              tooltip: 'Revenir en haut',
+              tooltip: context.tr('to_top'),
               onPressed: () => _scroll.animateTo(
                 0,
                 duration: const Duration(milliseconds: 300),
@@ -308,7 +308,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
                   alignment: Alignment.centerLeft,
                   child: TextButton.icon(
                     icon: const Icon(Icons.open_in_new, size: 18),
-                    label: const Text("Voir l'original (en anglais)"),
+                    label: Text(context.tr('ct_original')),
                     onPressed: () => launchUrl(Uri.parse(text.sourceUrl!),
                         mode: LaunchMode.externalApplication),
                   ),
@@ -316,7 +316,7 @@ class _ChurchTextScreenState extends State<ChurchTextScreen> {
               if (text.headings.isNotEmpty) ...[
                 const SizedBox(height: 10),
                 Text(
-                  'Appui long sur un passage pour le partager ou le copier seul.',
+                  context.tr('ct_long_press'),
                   style: TextStyle(
                       fontSize: 13, height: 1.4, color: palette.muted),
                 ),
@@ -347,7 +347,7 @@ class _Block extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      onLongPressHint: 'partager ou copier ce passage',
+      onLongPressHint: context.tr('ct_long_press_hint'),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onLongPress: onLongPress,
@@ -406,7 +406,7 @@ class _Block extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (showSpeaker) _speaker(context, 'Officiant'),
+              if (showSpeaker) _speaker(context, context.tr('ct_leader')),
               LinkedVerseText(block.text, style: bodyStyle),
             ],
           ),
@@ -417,7 +417,7 @@ class _Block extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (showSpeaker) _speaker(context, 'Assemblée'),
+              if (showSpeaker) _speaker(context, context.tr('ct_people')),
               LinkedVerseText(
                 block.text,
                 style: bodyStyle.copyWith(

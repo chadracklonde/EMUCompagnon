@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -102,7 +103,7 @@ class _ChurchTextsScreenState extends State<ChurchTextsScreen> {
     final searching = _query.trim().isNotEmpty;
     final found = searching ? searchChurchTexts(_query) : const <ChurchText>[];
     return Scaffold(
-      appBar: AppBar(title: const Text('Prières et textes')),
+      appBar: AppBar(title: Text(context.tr('ctl_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
@@ -112,11 +113,11 @@ class _ChurchTextsScreenState extends State<ChurchTextsScreen> {
               controller: _controller,
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
-                hintText: 'Chercher une prière ou un service',
+                hintText: context.tr('ctl_search'),
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: searching
                     ? IconButton(
-                        tooltip: 'Effacer',
+                        tooltip: context.tr('clear'),
                         icon: const Icon(Icons.close),
                         onPressed: () {
                           _controller.clear();
@@ -130,9 +131,9 @@ class _ChurchTextsScreenState extends State<ChurchTextsScreen> {
             const SizedBox(height: 16),
             if (searching) ...[
               if (found.isEmpty)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 32),
-                  child: Center(child: Text('Aucun texte ne correspond.')),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 32),
+                  child: Center(child: Text(context.tr('ctl_none'))),
                 )
               else
                 AppRowGroup(
