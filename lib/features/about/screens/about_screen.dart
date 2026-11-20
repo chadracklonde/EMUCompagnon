@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/theme/app_theme.dart';
@@ -29,7 +30,7 @@ class AboutScreen extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('À propos')),
+      appBar: AppBar(title: Text(context.tr('ab_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
@@ -52,7 +53,7 @@ class AboutScreen extends StatelessWidget {
                         child: Image.asset(
                           'assets/images/chadrack_londe.jpg',
                           fit: BoxFit.cover,
-                          semanticLabel: 'Photo de Chadrack Londe',
+                          semanticLabel: context.tr('ab_photo'),
                         ),
                       ),
                     ),
@@ -67,21 +68,12 @@ class AboutScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      'Fidèle méthodiste uni',
+                      context.tr('ab_role'),
                       style: TextStyle(fontSize: 14.5, color: palette.muted),
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      "Chadrack Londe coordonne le contenu francophone pour l'Afrique "
-                      "au sein de United Methodist Communications (UMCom) et est "
-                      "correspondant de UM News, le canal officiel d'information de "
-                      "l'Église Méthodiste Unie dans le monde. Basé en République "
-                      "Démocratique du Congo, il dirige aussi Radio Maniema Libertés "
-                      "à Kindu et met ses compétences techniques au service de "
-                      "l'Église et de sa communauté à travers des projets comme "
-                      "celui-ci. Fidèle méthodiste uni, il croit au pouvoir de la "
-                      "communication pour rapprocher les fidèles de la Parole de "
-                      "Dieu.",
+                      context.tr('ab_bio'),
                       style: TextStyle(fontSize: 15.5, height: 1.55, color: scheme.onSurface),
                     ),
                   ],
@@ -89,7 +81,7 @@ class AboutScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            const SectionTitle('Contact'),
+            SectionTitle(context.tr('ab_contact')),
             AppRowGroup(rows: [
               AppRow(
                 icon: Icons.phone_outlined,
@@ -118,7 +110,7 @@ class AboutScreen extends StatelessWidget {
               ),
             ]),
             const SizedBox(height: 24),
-            const SectionTitle('Ressources officielles UMC'),
+            SectionTitle(context.tr('ab_resources')),
             AppRowGroup(rows: [
               AppRow(
                 icon: Icons.newspaper,
@@ -137,21 +129,21 @@ class AboutScreen extends StatelessWidget {
               AppRow(
                 icon: Icons.menu_book_outlined,
                 title: 'ResourceUMC',
-                subtitle: 'Ressources pastorales et ministérielles',
+                subtitle: context.tr('ab_resourceumc'),
                 trailingIcon: Icons.open_in_new,
                 onTap: () => _open('https://resourceumc.org'),
               ),
               AppRow(
                 icon: Icons.facebook,
                 title: 'Facebook — The United Methodist Church',
-                subtitle: 'Page officielle',
+                subtitle: context.tr('ab_official_page'),
                 trailingIcon: Icons.open_in_new,
                 onTap: () => _open('https://facebook.com/unitedmethodistchurch'),
               ),
               AppRow(
                 icon: Icons.play_circle_outline,
                 title: 'YouTube — United Methodist Videos',
-                subtitle: 'Chaîne officielle (UMCom)',
+                subtitle: context.tr('ab_official_channel'),
                 trailingIcon: Icons.open_in_new,
                 onTap: () => _open('https://youtube.com/@UMCVideos'),
               ),
@@ -159,7 +151,7 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 24),
             Center(
               child: Text(
-                "ÉMU Compagnon — développé avec foi pour l'Église Méthodiste Unie",
+                context.tr('ab_footer'),
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 12.5, color: palette.muted),
               ),

@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../audio_pack/widgets/audio_pack_card.dart';
 import '../../../core/l10n/app_strings.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!granted) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Permission de notification refusée')),
+            SnackBar(content: Text(context.tr('st_perm_denied'))),
           );
         }
         return;
@@ -71,20 +72,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Réglages')),
+      appBar: AppBar(title: Text(context.tr('st_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            const SectionTitle('Apparence'),
+            SectionTitle(context.tr('st_appearance')),
             group([
-              label("Langue de l'interface"),
-              hint(
-                'Traduit les menus et boutons. La Bible, les cantiques et le '
-                'dictionnaire restent en français (traduction du contenu non '
-                'encore disponible).',
-              ),
+              label(context.tr('st_lang')),
+              hint(context.tr('st_lang_hint')),
               SizedBox(
                 width: double.infinity,
                 child: SegmentedButton<String>(
@@ -97,27 +94,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               const SizedBox(height: 22),
-              label('Thème'),
+              label(context.tr('st_theme')),
               const SizedBox(height: 6),
               SizedBox(
                 width: double.infinity,
                 child: SegmentedButton<ThemeMode>(
                   showSelectedIcon: false,
-                  segments: const [
+                  segments: [
                     ButtonSegment(
                       value: ThemeMode.system,
-                      icon: Icon(Icons.brightness_auto_outlined),
-                      label: Text('Système'),
+                      icon: const Icon(Icons.brightness_auto_outlined),
+                      label: Text(context.tr('st_system')),
                     ),
                     ButtonSegment(
                       value: ThemeMode.light,
-                      icon: Icon(Icons.light_mode_outlined),
-                      label: Text('Clair'),
+                      icon: const Icon(Icons.light_mode_outlined),
+                      label: Text(context.tr('st_light')),
                     ),
                     ButtonSegment(
                       value: ThemeMode.dark,
-                      icon: Icon(Icons.dark_mode_outlined),
-                      label: Text('Sombre'),
+                      icon: const Icon(Icons.dark_mode_outlined),
+                      label: Text(context.tr('st_dark')),
                     ),
                   ],
                   selected: {settings.themeMode},
@@ -126,10 +123,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ]),
             const SizedBox(height: 24),
-            const SectionTitle('Lecture'),
+            SectionTitle(context.tr('st_reading')),
             group([
-              label('Taille du texte'),
-              hint('Ajuste la taille des versets, cantiques et définitions.'),
+              label(context.tr('st_text_size')),
+              hint(context.tr('st_text_size_hint')),
               Row(
                 children: [
                   const Text('A', style: TextStyle(fontSize: 14)),
@@ -147,8 +144,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               const SizedBox(height: 14),
-              label('Interligne'),
-              hint('Espace vertical entre les lignes.'),
+              label(context.tr('st_line')),
+              hint(context.tr('st_line_hint')),
               Row(
                 children: [
                   Icon(Icons.format_line_spacing, size: 18, color: palette.muted),
@@ -165,14 +162,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               const SizedBox(height: 14),
-              label('Police'),
+              label(context.tr('st_font')),
               const SizedBox(height: 6),
               SizedBox(
                 width: double.infinity,
                 child: SegmentedButton<String>(
                   showSelectedIcon: false,
-                  segments: const [
-                    ButtonSegment(value: 'system', label: Text('Système')),
+                  segments: [
+                    ButtonSegment(value: 'system', label: Text(context.tr('st_system'))),
                     ButtonSegment(value: 'serif', label: Text('Serif')),
                     ButtonSegment(value: 'sansSerif', label: Text('Sans-serif')),
                   ],
@@ -202,9 +199,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ),
                       TextSpan(
-                        text: "Car Dieu a tant aimé le monde qu'il a donné son "
-                            'Fils unique, afin que quiconque croit en lui ne '
-                            "périsse point, mais qu'il ait la vie éternelle.",
+                        text: context.tr('st_preview'),
                         style: TextStyle(
                           fontFamily: settings.resolvedFontFamily,
                           fontSize: 17.5,
@@ -221,13 +216,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             AppCard(
               child: SwitchListTile(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                title: const Text(
-                  "Garder l'écran allumé",
+                title: Text(
+                  context.tr('st_awake'),
                   style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600),
                 ),
                 subtitle: Text(
-                  "Le téléphone ne se met pas en veille pendant la lecture d'un "
-                  "cantique, d'un chapitre ou d'une liturgie.",
+                  context.tr('st_awake_hint'),
                   style: TextStyle(fontSize: 13, color: palette.muted),
                 ),
                 value: settings.keepScreenOn,
@@ -240,19 +234,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Padding(padding: EdgeInsets.all(16), child: AudioPackCard()),
             ),
             const SizedBox(height: 24),
-            const SectionTitle('Rappel quotidien'),
+            SectionTitle(context.tr('st_reminder')),
             AppCard(
               child: Column(
                 children: [
                   SwitchListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                    title: const Text(
-                      'Activer le rappel',
+                    title: Text(
+                      context.tr('st_reminder_on'),
                       style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text(
-                      "Une notification à l'heure choisie, qui annonce la lecture du jour "
-                      'de votre plan.',
+                      context.tr('st_reminder_hint'),
                       style: TextStyle(fontSize: 13, color: palette.muted),
                     ),
                     value: settings.notificationsEnabled,
@@ -263,7 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                       leading: const Icon(Icons.access_time),
-                      title: const Text('Heure du rappel', style: TextStyle(fontSize: 14.5)),
+                      title: Text(context.tr('st_reminder_time'), style: const TextStyle(fontSize: 14.5)),
                       trailing: Text(
                         '${settings.notificationHour.toString().padLeft(2, '0')}:'
                         '${settings.notificationMinute.toString().padLeft(2, '0')}',
@@ -283,7 +276,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Center(
               child: TextButton.icon(
                 icon: const Icon(Icons.restart_alt),
-                label: const Text("Réinitialiser l'apparence et la lecture"),
+                label: Text(context.tr('st_reset')),
                 onPressed: () => settings.resetToDefaults(),
               ),
             ),
