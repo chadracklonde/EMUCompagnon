@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -28,19 +29,19 @@ class _BackupScreenState extends State<BackupScreen> {
     }).catchError((_) {});
   }
 
-  String get _lastExportLabel {
+  String _lastExportLabel(BuildContext context) {
     final last = _lastExport;
-    if (last == null) return "Vous n'avez encore jamais exporté vos données depuis cet appareil.";
+    if (last == null) return context.tr('bk_never');
     final days = DateTime.now().difference(last).inDays;
-    if (days <= 0) return "Dernière exportation : aujourd'hui.";
-    if (days == 1) return 'Dernière exportation : hier.';
-    return 'Dernière exportation : il y a $days jours.';
+    if (days <= 0) return context.tr('bk_today');
+    if (days == 1) return context.tr('bk_yesterday');
+    return context.trf('bk_days_ago', {'n': days});
   }
 
   Future<void> _export() async {
     setState(() => _busy = true);
     try {
-      await _service.exportAndShare();
+      await _service.exportAndShare(context.lang);
       _loadLastExport();
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -54,20 +55,22 @@ class _BackupScreenState extends State<BackupScreen> {
       if (summary != null && mounted) {
         showDialog(
           context: context,
-          builder: (_) => AlertDialog(
-            title: const Text('Importation terminée'),
+          builder: (dialogContext) => AlertDialog(
+            title: Text(dialogContext.tr('bk_done')),
             content: Text(
-              '${summary.bookmarks} favori(s), ${summary.notes} note(s), '
-              '${summary.highlights} surlignage(s), '
-              '${summary.memoryCards} verset(s) à mémoriser, '
-              '${summary.journalEntries} page(s) de journal et '
-              '${summary.examenEntries} examen(s) du soir importé(s).\n\n'
-              'Votre progression (plan de lecture, série de jours, quiz, défis) '
-              'a été fusionnée sans rien diminuer. Les éléments déjà présents '
-              'n\'ont pas été dupliqués.',
+              dialogContext.trf('bk_done_body', {
+                'b': summary.bookmarks,
+                'n': summary.notes,
+                'h': summary.highlights,
+                'm': summary.memoryCards,
+                'j': summary.journalEntries,
+                'e': summary.examenEntries,
+              }),
             ),
             actions: [
-              TextButton(onPressed: () => Navigator.pop(context), child: const Text('OK')),
+              TextButton(
+                  onPressed: () => Navigator.pop(dialogContext),
+                  child: Text(dialogContext.tr('ok'))),
             ],
           ),
         );
@@ -75,7 +78,7 @@ class _BackupScreenState extends State<BackupScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Échec de l\'importation : fichier invalide')),
+          SnackBar(content: Text(context.tr('bk_fail'))),
         );
       }
     } finally {
@@ -86,40 +89,30 @@ class _BackupScreenState extends State<BackupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sauvegarde de mes données')),
+      appBar: AppBar(title: Text(context.tr('bk_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            const InfoNote(
-              'Vos favoris, notes, surlignages, versets à mémoriser, journal '
-              'de prière, examens du soir et votre progression ne sont '
-              'enregistrés que sur cet appareil. Exportez-les régulièrement '
-              'pour ne rien perdre en cas de changement de téléphone ou de '
-              'réinstallation — aucun compte requis, aucune donnée '
-              'envoyée à un serveur.',
-            ),
+            InfoNote(context.tr('bk_info')),
             const SizedBox(height: 12),
-            const InfoNote(
-              'Attention : le fichier exporté contient votre journal personnel. '
-              'Ne le partagez qu’avec des personnes de confiance.',
-            ),
+            InfoNote(context.tr('bk_warn')),
             const SizedBox(height: 16),
             Text(
-              _lastExportLabel,
+              _lastExportLabel(context),
               style: TextStyle(fontSize: 14, color: AppPalette.of(context).muted),
             ),
             const SizedBox(height: 16),
             FilledButton.icon(
               icon: const Icon(Icons.upload_outlined),
-              label: const Text('Exporter mes données'),
+              label: Text(context.tr('bk_export')),
               onPressed: _busy ? null : _export,
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
               icon: const Icon(Icons.download_outlined),
-              label: const Text('Importer une sauvegarde'),
+              label: Text(context.tr('bk_import')),
               onPressed: _busy ? null : _import,
             ),
             if (_busy) ...[

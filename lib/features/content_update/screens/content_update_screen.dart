@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -37,7 +38,7 @@ class _ContentUpdateScreenState extends State<ContentUpdateScreen> {
       _checking = true;
       _resultMessage = null;
     });
-    final result = await ContentUpdateService.checkAndApplyUpdate();
+    final result = await ContentUpdateService.checkAndApplyUpdate(context.lang);
     await _load();
     if (mounted) {
       setState(() {
@@ -74,28 +75,23 @@ class _ContentUpdateScreenState extends State<ContentUpdateScreen> {
         );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Mises à jour du contenu')),
+      appBar: AppBar(title: Text(context.tr('cu_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            const InfoNote(
-              'Permet de recevoir des corrections ou des ajouts au contenu '
-              '(Bible, cantiques, dictionnaire) sans attendre une mise à jour '
-              "complète de l'application. Vos favoris, notes et surlignages ne "
-              'sont jamais affectés.',
-            ),
+            InfoNote(context.tr('cu_info')),
             const SizedBox(height: 20),
             AppCard(
               child: Column(
                 children: [
-                  infoLine(Icons.info_outline, 'Version du contenu actuel', '$_localVersion'),
+                  infoLine(Icons.info_outline, context.tr('cu_version'), '$_localVersion'),
                   if (_lastChecked != null) ...[
                     Divider(indent: 16, color: palette.border),
                     infoLine(
                       Icons.access_time,
-                      'Dernière vérification',
+                      context.tr('cu_last'),
                       '${_lastChecked!.day}/${_lastChecked!.month}/${_lastChecked!.year}',
                     ),
                   ],
@@ -111,7 +107,7 @@ class _ContentUpdateScreenState extends State<ContentUpdateScreen> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.cloud_sync_outlined),
-              label: Text(_checking ? 'Vérification…' : 'Vérifier les mises à jour'),
+              label: Text(context.tr(_checking ? 'cu_checking' : 'cu_check')),
               onPressed: _checking ? null : _check,
             ),
             if (_resultMessage != null) ...[

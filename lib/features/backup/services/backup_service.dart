@@ -1,3 +1,4 @@
+import '../../../core/l10n/app_strings.dart';
 import '../../hymn_lists/services/hymn_list_service.dart';
 import '../../church_texts/services/church_text_prefs.dart';
 import '../../worship/services/worship_service.dart';
@@ -107,7 +108,7 @@ class BackupService {
   /// Builds the backup in memory and opens the native share sheet so the
   /// user can save it to Drive, Files, WhatsApp, email, etc. (or, on the
   /// web, trigger a browser download).
-  Future<void> exportAndShare() async {
+  Future<void> exportAndShare([String locale = 'fr']) async {
     final data = await _buildExportMap();
     final prefs = await SharedPreferences.getInstance();
     final jsonStr = const JsonEncoder.withIndent('  ').convert(data);
@@ -120,7 +121,7 @@ class BackupService {
     await SharePlus.instance.share(
       ShareParams(
         files: [file],
-        text: 'Sauvegarde ÉMU Compagnon ($stamp)',
+        text: AppStrings.tf('bk_share_text', locale, {'stamp': stamp}),
         sharePositionOrigin: const Rect.fromLTWH(0, 0, 1, 1),
       ),
     );

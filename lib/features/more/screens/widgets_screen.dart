@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../../core/services/widget_catalog.dart';
@@ -26,10 +27,7 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
         duration: const Duration(seconds: 6),
-        content: Text(placed
-            ? "Confirmez l'ajout dans la fenêtre du téléphone."
-            : "Votre téléphone ne permet pas l'ajout direct. Appuyez longuement sur "
-                "l'écran d'accueil, choisissez « Widgets », puis ÉMU Compagnon."),
+        content: Text(context.tr(placed ? 'wg_confirm' : 'wg_manual')),
       ));
   }
 
@@ -37,14 +35,14 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
   Widget build(BuildContext context) {
     final palette = AppPalette.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text("Widgets de l'écran d'accueil")),
+      appBar: AppBar(title: Text(context.tr('wg_title'))),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
             if (!_isAndroid)
-              const InfoNote("Les widgets sont disponibles sur les téléphones Android.")
+              InfoNote(context.tr('wg_android'))
             else ...[
               FutureBuilder<int?>(
                 future: _count,
@@ -54,17 +52,12 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
                   }
                   final count = snapshot.data;
                   return InfoNote(count == null || count == 0
-                      ? "Cette version de l'application ne contient pas les widgets. "
-                          "Installez la dernière version pour les obtenir."
-                      : '$count widgets sont disponibles dans cette version.');
+                      ? context.tr('wg_none')
+                      : context.trf('wg_count', {'n': count}));
                 },
               ),
               const SizedBox(height: 12),
-              const InfoNote(
-                "Touchez « Ajouter » pour placer un widget sur l'écran d'accueil. "
-                "Vous pouvez aussi appuyer longuement sur l'écran d'accueil, choisir "
-                "« Widgets », puis ÉMU Compagnon.",
-              ),
+              InfoNote(context.tr('wg_how')),
               const SizedBox(height: 24),
               for (final family in WidgetCatalog.families) ...[
                 SectionTitle(family),
@@ -84,7 +77,7 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
                           ),
                           trailing: TextButton(
                             onPressed: () => _add(WidgetCatalog.inFamily(family)[i]),
-                            child: const Text('Ajouter'),
+                            child: Text(context.tr('add')),
                           ),
                         ),
                       ],
