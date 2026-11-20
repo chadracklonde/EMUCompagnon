@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/models/bookmark.dart';
 import '../../../core/models/note.dart';
@@ -101,7 +102,7 @@ class _NotesSheetState extends State<_NotesSheet> {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  'Notes — ${widget.label}',
+                  context.trf('nt_title', {'label': widget.label}),
                   style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -114,7 +115,7 @@ class _NotesSheetState extends State<_NotesSheet> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
-                'Aucune note pour l\'instant.',
+                context.tr('nt_none'),
                 style: TextStyle(color: Theme.of(context).colorScheme.outline),
               ),
             )
@@ -135,12 +136,12 @@ class _NotesSheetState extends State<_NotesSheet> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          tooltip: 'Modifier la note',
+                          tooltip: context.tr('nt_edit'),
                           icon: const Icon(Icons.edit_outlined, size: 18),
                           onPressed: () => _startEdit(n),
                         ),
                         IconButton(
-                          tooltip: 'Supprimer la note',
+                          tooltip: context.tr('nt_delete'),
                           icon: const Icon(Icons.delete_outline, size: 18),
                           onPressed: () => _delete(n),
                         ),
@@ -156,8 +157,8 @@ class _NotesSheetState extends State<_NotesSheet> {
             maxLines: 3,
             decoration: InputDecoration(
               hintText: _editingId != null
-                  ? 'Modifier la note…'
-                  : 'Écrire une note personnelle…',
+                  ? context.tr('nt_hint_edit')
+                  : context.tr('nt_hint_new'),
               isDense: true,
             ),
           ),
@@ -166,7 +167,7 @@ class _NotesSheetState extends State<_NotesSheet> {
             alignment: Alignment.centerRight,
             child: FilledButton.icon(
               icon: Icon(_editingId != null ? Icons.check : Icons.add),
-              label: Text(_editingId != null ? 'Mettre à jour' : 'Ajouter'),
+              label: Text(context.tr(_editingId != null ? 'nt_update' : 'add')),
               onPressed: _save,
             ),
           ),
@@ -178,7 +179,8 @@ class _NotesSheetState extends State<_NotesSheet> {
   String _formatDate(DateTime d) {
     final now = DateTime.now();
     if (d.year == now.year && d.month == now.month && d.day == now.day) {
-      return "Aujourd'hui à ${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}";
+      final time = '${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
+      return context.trf('nt_today', {'time': time});
     }
     return '${d.day}/${d.month}/${d.year}';
   }
