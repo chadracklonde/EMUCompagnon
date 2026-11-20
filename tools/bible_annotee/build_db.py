@@ -17,6 +17,7 @@ VERSION = 'BA'
 
 verses = json.load(open(os.path.join(HERE, 'ba_versets.json'), encoding='utf8'))
 notes = json.load(open(os.path.join(HERE, 'ba_notes.json'), encoding='utf8'))
+intros = json.load(open(os.path.join(HERE, 'ba_intros.json'), encoding='utf8'))
 
 # --- 1. Texte
 db = sqlite3.connect(APP_DB)
@@ -48,9 +49,23 @@ nd.executemany(
     'INSERT INTO bible_notes VALUES (?,?,?,?,?,?)',
     [(VERSION, x['book'], x['chapter'], x['verse'], i, x['html']) for i, x in enumerate(notes)],
 )
-nd.execute('PRAGMA user_version = 1')
+# Introductions de livres : une ligne par livre et par texte (un texte commun à deux livres,
+# comme celui de Samuel, est donc répété une fois, ce qui garde la lecture simple).
+nd.execute('''CREATE TABLE book_intros (
+    version TEXT NOT NULL, book TEXT NOT NULL, position INTEGER NOT NULL,
+    intro_id TEXT NOT NULL, title TEXT NOT NULL, html TEXT NOT NULL)''')
+nd.execute('CREATE INDEX book_intros_book ON book_intros(version, book)')
+by_id = {i['id']: i for i in intros['intros']}
+nd.executemany(
+    'INSERT INTO book_intros VALUES (?,?,?,?,?,?)',
+    [(VERSION, l['book'], l['position'], l['intro_id'], by_id[l['intro_id']]['title'], by_id[l['intro_id']]['html'])
+     for l in intros['books']],
+)
+nd.execute('PRAGMA user_version = 2')
 nd.commit()
 m = nd.execute('SELECT COUNT(*) FROM bible_notes').fetchone()[0]
+k = nd.execute('SELECT COUNT(*) FROM book_intros').fetchone()[0]
 nd.execute('VACUUM')
 nd.close()
+print(f'{k} introductions de livres')
 print(f'{m} notes dans {os.path.relpath(NOTES_DB, ROOT)} ({os.path.getsize(NOTES_DB) / 1e6:.1f} Mo)')

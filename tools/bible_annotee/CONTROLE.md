@@ -17,7 +17,7 @@ Les écarts viennent de la numérotation des versets (titres de psaumes comptés
 - 669 notes d'introduction de chapitre ou de section (verset 0).
 - Balises conservées : `p`, `i` (italique), `b` (mot commenté), `h` (titre), `ref` (référence biblique), `ul`, `li`, `br`.
 - Poids : 18 Mo en JSON, environ 5,7 Mo compressé : à proposer comme **pack à télécharger** plutôt que dans l'application.
-- Les introductions de livres (page « Introductions » de ThéoTeX) ne sont pas encore extraites.
+- Les introductions de livres sont extraites (`ba_intros.json`, voir README). Un « & » égaré dans la source (Romains, avant « Schurer ») est remplacé par une espace ; les guillemets `<< >>` de la source deviennent « ».
 
 ### Défauts de la source repérés (à corriger à la main avant import)
 

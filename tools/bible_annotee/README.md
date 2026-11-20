@@ -29,8 +29,15 @@
 | `parse_notes.py` | Extraction des notes de l'Ancien et du Nouveau Testament. |
 
 Les pages HTML brutes ne sont pas dans le dépôt. Les archives de l'auteur contiennent aussi les
-introductions de livres (`intros_ba`, `intros_nta`), les cartes et les tableaux : non extraits pour
-l'instant.
+cartes et les tableaux : non extraits.
+
+Les introductions de livres (`intros_ba`, `intros_nta` des archives de l'auteur, autorisées par lui le
+20 novembre 2026) sont extraites par `parse_intros.py` dans `ba_intros.json` : 66 textes (introductions,
+introductions de groupes de livres, et trois études : la Création de F. Godet, Job, le Cantique),
+reliés à 71 emplacements livre → texte. Les textes communs à deux livres (Samuel, Rois, Chroniques,
+Esdras-Néhémie, 2e et 3e Jean) sont rattachés aux deux. Les appels de note deviennent des exposants
+(¹ ²) et les notes sont rassemblées sous un intertitre « Notes ». `build_db.py` les range dans la
+table `book_intros` de `assets/db/bible_notes.db`.
 
 ## Points à régler avant l'import
 

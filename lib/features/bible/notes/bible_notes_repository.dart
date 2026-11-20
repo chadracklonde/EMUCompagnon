@@ -43,7 +43,7 @@ class BibleNotesRepository {
 
   /// À augmenter quand `assets/db/bible_notes.db` change : les appareils
   /// déjà installés reçoivent alors la nouvelle copie.
-  static const _assetVersion = 1;
+  static const _assetVersion = 2;
   static const _kAssetVersionPref = 'bibleNotes.assetVersion';
 
   static Future<Database> _openFile() async {
@@ -75,6 +75,42 @@ class BibleNotesRepository {
       )''');
     await db.execute(
         'CREATE INDEX bible_notes_chapter ON bible_notes(version, book, chapter)');
+    await db.execute('''
+      CREATE TABLE book_intros (
+        version TEXT NOT NULL,
+        book TEXT NOT NULL,
+        position INTEGER NOT NULL,
+        intro_id TEXT NOT NULL,
+        title TEXT NOT NULL,
+        html TEXT NOT NULL
+      )''');
+    await db.execute(
+        'CREATE INDEX book_intros_book ON book_intros(version, book)');
+  }
+
+  /// Les introductions d'un livre, dans l'ordre de lecture (vide si la
+  /// version n'en a pas ou si la base ne les contient pas).
+  static Future<List<BookIntro>> introsForBook(String version, String book) async {
+    try {
+      if (!await isInstalled(version)) return const [];
+      final db = await _open();
+      final rows = await db.query(
+        'book_intros',
+        where: 'version = ? AND book = ?',
+        whereArgs: [version, book],
+        orderBy: 'position',
+      );
+      return [
+        for (final r in rows)
+          BookIntro(
+            id: r['intro_id'] as String,
+            title: r['title'] as String,
+            html: r['html'] as String,
+          ),
+      ];
+    } catch (_) {
+      return const [];
+    }
   }
 
   /// Vrai quand un pack de notes est installé pour [version].
@@ -150,6 +186,9 @@ class BibleNotesRepository {
   static Future<void> remove(String version) async {
     final db = await _open();
     await db.delete('bible_notes', where: 'version = ?', whereArgs: [version]);
+    try {
+      await db.delete('book_intros', where: 'version = ?', whereArgs: [version]);
+    } catch (_) {}
     _installed[version] = false;
   }
 }

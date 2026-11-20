@@ -4,6 +4,7 @@ import '../../../core/l10n/app_strings.dart';
 import '../../../core/settings/app_settings.dart';
 import '../repository/bible_repository.dart';
 import 'chapter_screen.dart';
+import '../notes/book_intro_screen.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/responsive.dart';
 import '../../../shared/bible_book_names.dart';
@@ -66,9 +67,15 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   }
 
   Widget _buildGrid(bool isWide) {
-    return _chapterCount == null
-        ? const Center(child: CircularProgressIndicator())
-        : GridView.builder(
+    if (_chapterCount == null) return const Center(child: CircularProgressIndicator());
+    return Column(children: [
+      BookIntroEntry(book: widget.book, version: _ver),
+      Expanded(child: _gridOnly(isWide)),
+    ]);
+  }
+
+  Widget _gridOnly(bool isWide) {
+    return GridView.builder(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: isWide ? 4 : 5,
