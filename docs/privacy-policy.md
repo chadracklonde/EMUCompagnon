@@ -1,6 +1,6 @@
 # Politique de confidentialité — ÉMU Compagnon
 
-*Dernière mise à jour : 17 novembre 2026*
+*Dernière mise à jour : 20 novembre 2026*
 
 ## Résumé en une phrase
 
@@ -58,8 +58,11 @@ Trois situations impliquent une connexion réseau, toujours à votre demande :
 2. **Écoute d'un enregistrement de cantique** : quand vous appuyez sur
    le bouton de lecture d'un cantique qui porte une note de musique,
    l'application télécharge le fichier audio correspondant depuis un
-   dépôt public sur GitHub et le lit. Aucune donnée vous concernant
-   n'est envoyée ; comme pour toute connexion à un site web, GitHub
+   dépôt public sur GitHub et le lit. Si vous l'acceptez (proposition
+   faite une seule fois au démarrage, ou bloc « Écouter sans connexion »
+   des Réglages), elle télécharge d'un coup les 121 enregistrements
+   (environ 83 Mo) pour que vous les écoutiez sans connexion. Aucune
+   donnée vous concernant n'est envoyée ; comme pour toute connexion à un site web, GitHub
    reçoit l'adresse IP de votre connexion. Le reste de l'application
    (Bible, cantiques, dictionnaire, liturgie) fonctionne sans connexion.
 3. **Partage** : quand vous utilisez un bouton de partage (verset en
