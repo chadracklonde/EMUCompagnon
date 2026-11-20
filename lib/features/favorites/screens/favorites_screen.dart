@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../hymns/repository/hymns_repository.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
@@ -104,13 +105,13 @@ class _FavoritesScreenState extends State<FavoritesScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favoris'),
+        title: Text(context.tr('fv_title')),
         bottom: TabBar(
           controller: _tabController,
           tabs: [
-            Tab(text: 'Versets (${_verseFavorites.length})'),
-            Tab(text: 'Cantiques (${_hymnFavorites.length})'),
-            Tab(text: 'Notes (${_verseNotes.length})'),
+            Tab(text: context.trf('fv_verses', {'n': _verseFavorites.length})),
+            Tab(text: context.trf('fv_hymns', {'n': _hymnFavorites.length})),
+            Tab(text: context.trf('fv_notes', {'n': _verseNotes.length})),
           ],
         ),
       ),
@@ -120,10 +121,9 @@ class _FavoritesScreenState extends State<FavoritesScreen>
               controller: _tabController,
               children: [
                 _verseFavorites.isEmpty
-                    ? const EmptyState(
+                    ? EmptyState(
                         icon: Icons.menu_book_outlined,
-                        message: 'Aucun verset en favori.\nTouchez un verset dans la Bible, '
-                            'puis « Ajouter aux favoris ».',
+                        message: context.tr('fv_none_verse'),
                       )
                     : _list(
                         count: _verseFavorites.length,
@@ -148,10 +148,9 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         },
                       ),
                 _hymnFavorites.isEmpty
-                    ? const EmptyState(
+                    ? EmptyState(
                         icon: Icons.music_note_outlined,
-                        message: "Aucun cantique en favori.\nTouchez l'étoile en haut d'un "
-                            "cantique pour l'ajouter.",
+                        message: context.tr('fv_none_hymn'),
                       )
                     : _list(
                         count: _hymnFavorites.length,
@@ -171,10 +170,9 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         },
                       ),
                 _verseNotes.isEmpty
-                    ? const EmptyState(
+                    ? EmptyState(
                         icon: Icons.sticky_note_2_outlined,
-                        message: "Aucune note pour l'instant.\nTouchez un verset dans la Bible, "
-                            'puis « Ajouter une note ».',
+                        message: context.tr('fv_none_note'),
                       )
                     : _list(
                         count: _verseNotes.length,
@@ -215,7 +213,7 @@ class _FavoritesScreenState extends State<FavoritesScreen>
 
   Widget _removeButton(BuildContext context, VoidCallback onPressed) {
     return IconButton(
-      tooltip: 'Retirer des favoris',
+      tooltip: context.tr('hd_unfav'),
       icon: Icon(Icons.star, color: AppPalette.of(context).accent),
       onPressed: onPressed,
     );

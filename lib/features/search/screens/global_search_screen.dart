@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -142,10 +143,10 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
                 tabs: [
-                  Tab(text: 'Bible (${r.verses.length})'),
-                  Tab(text: 'Cantiques (${r.hymns.length})'),
-                  Tab(text: 'Dictionnaire (${r.dictionaryEntries.length})'),
-                  Tab(text: 'Liturgie et textes (${r.texts.length})'),
+                  Tab(text: context.trf('gs_bible', {'n': r.verses.length})),
+                  Tab(text: context.trf('gs_hymns', {'n': r.hymns.length})),
+                  Tab(text: context.trf('gs_dict', {'n': r.dictionaryEntries.length})),
+                  Tab(text: context.trf('gs_lit', {'n': r.texts.length})),
                 ],
               ),
       ),
@@ -180,9 +181,9 @@ class _GlobalSearchScreenState extends State<GlobalSearchScreen>
                         // above is the answer, so no "no result" message.
                         ? (reference != null
                             ? const SizedBox.shrink()
-                            : const EmptyState(
+                            : EmptyState(
                                 icon: Icons.search_off,
-                                message: 'Aucun résultat.',
+                                message: context.tr('gs_none'),
                               ))
                         : TabBarView(
                             controller: _tabController,
@@ -209,9 +210,9 @@ class _HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (history.isEmpty) {
-      return const EmptyState(
+      return EmptyState(
         icon: Icons.search,
-        message: 'Tapez un mot pour chercher dans la Bible, les cantiques, le dictionnaire, la liturgie et les textes de l\'Église.',
+        message: context.tr('gs_hint'),
       );
     }
     return SingleChildScrollView(
@@ -221,8 +222,8 @@ class _HistoryView extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Expanded(child: SectionTitle('Recherches récentes')),
-              TextButton(onPressed: onClear, child: const Text('Effacer')),
+              Expanded(child: SectionTitle(context.tr('gs_recent'))),
+              TextButton(onPressed: onClear, child: Text(context.tr('clear'))),
             ],
           ),
           Wrap(
@@ -357,9 +358,9 @@ class _TextResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (hits.isEmpty) {
-      return const EmptyState(
+      return EmptyState(
         icon: Icons.auto_stories_outlined,
-        message: 'Rien trouvé dans la liturgie ni dans les textes.',
+        message: context.tr('gs_none_lit'),
       );
     }
     return _resultList(

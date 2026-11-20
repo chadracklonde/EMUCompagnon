@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../worship/screens/worship_screen.dart';
 import 'package:provider/provider.dart';
@@ -39,36 +40,36 @@ class LiturgyScreen extends StatelessWidget {
             AppCard(
               child: AppRow(
                 icon: Icons.church_outlined,
-                title: 'Culte du dimanche',
-                subtitle: 'Cantiques, prières et déroulement du culte',
+                title: context.tr('lg_worship'),
+                subtitle: context.tr('lg_worship_sub'),
                 onTap: () => open(const WorshipScreen()),
               ),
             ),
             const SizedBox(height: 24),
-            const SectionTitle('Explorer'),
+            SectionTitle(context.tr('lg_explore')),
             AppRowGroup(rows: [
               AppRow(
                 icon: Icons.calendar_month_outlined,
-                title: 'Calendrier liturgique',
-                subtitle: "Les saisons et jours saints de l'année",
+                title: context.tr('lg_cal'),
+                subtitle: context.tr('lg_cal_sub'),
                 onTap: () => open(const LiturgicalCalendarScreen()),
               ),
               AppRow(
                 icon: Icons.checklist_rtl,
-                title: 'Ordre du culte',
-                subtitle: "Déroulement habituel d'un service dominical",
+                title: context.tr('lg_order'),
+                subtitle: context.tr('lg_order_sub'),
                 onTap: () => open(const WorshipOrderScreen()),
               ),
               AppRow(
                 icon: Icons.water_drop_outlined,
-                title: 'Sacrements et rites',
-                subtitle: 'Baptême, Sainte-Cène, mariage, funérailles…',
+                title: context.tr('lg_sacr'),
+                subtitle: context.tr('lg_sacr_sub'),
                 onTap: () => open(const SacramentsScreen()),
               ),
               AppRow(
                 icon: Icons.auto_stories_outlined,
-                title: 'Prières et textes',
-                subtitle: 'Notre Père, Credo social, Articles de religion…',
+                title: context.tr('ctl_title'),
+                subtitle: context.tr('lg_texts_sub'),
                 onTap: () => open(const ChurchTextsScreen()),
               ),
             ]),

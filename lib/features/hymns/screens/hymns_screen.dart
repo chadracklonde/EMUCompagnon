@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/language_switch.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
@@ -308,7 +309,7 @@ class _HymnRow extends StatelessWidget {
                       if (hymn.key != null) ...[
                         const SizedBox(height: 2),
                         Text(
-                          'Tonalité : ${hymn.key}',
+                          context.trf('hd_key', {'key': '${hymn.key}'}),
                           style: TextStyle(fontSize: 12.5, color: palette.muted),
                         ),
                       ],
