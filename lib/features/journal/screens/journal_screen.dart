@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -51,7 +52,7 @@ class _JournalScreenState extends State<JournalScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              existing == null ? 'Nouvelle entrée' : 'Modifier l\'entrée',
+              context.tr(existing == null ? 'jr_new' : 'jr_edit'),
               style: Theme.of(sheetContext).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
@@ -59,9 +60,8 @@ class _JournalScreenState extends State<JournalScreen> {
               controller: controller,
               autofocus: true,
               maxLines: 6,
-              decoration: const InputDecoration(
-                hintText: 'Pour quoi êtes-vous reconnaissant aujourd\'hui ? '
-                    'Quelle est votre prière ?',
+              decoration: InputDecoration(
+                hintText: context.tr('jr_hint'),
               ),
             ),
             const SizedBox(height: 12),
@@ -69,7 +69,7 @@ class _JournalScreenState extends State<JournalScreen> {
               width: double.infinity,
               child: FilledButton(
                 onPressed: () => Navigator.pop(sheetContext, true),
-                child: const Text('Enregistrer'),
+                child: Text(context.tr('save')),
               ),
             ),
           ],
@@ -92,19 +92,19 @@ class _JournalScreenState extends State<JournalScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Supprimer cette entrée ?'),
-        content: const Text('Elle sera définitivement effacée de votre journal.'),
+        title: Text(context.tr('jr_delete_q')),
+        content: Text(context.tr('jr_delete_body')),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: const Text('Annuler'),
+            child: Text(context.tr('cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
             style: TextButton.styleFrom(
               foregroundColor: Theme.of(dialogContext).colorScheme.error,
             ),
-            child: const Text('Supprimer'),
+            child: Text(context.tr('delete')),
           ),
         ],
       ),
@@ -119,19 +119,18 @@ class _JournalScreenState extends State<JournalScreen> {
     final palette = AppPalette.of(context);
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Journal de prière')),
+      appBar: AppBar(title: Text(context.tr('jr_title'))),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _openEditor(),
         icon: const Icon(Icons.edit_outlined),
-        label: const Text('Nouvelle entrée'),
+        label: Text(context.tr('jr_new')),
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _entries.isEmpty
-              ? const EmptyState(
+              ? EmptyState(
                   icon: Icons.edit_note_outlined,
-                  message: "Aucune entrée pour l'instant. Notez une prière ou un "
-                      'motif de reconnaissance avec « Nouvelle entrée ».',
+                  message: context.tr('jr_empty'),
                 )
               : ReadingWidthConstraint(
                   maxWidth: 640,
@@ -161,7 +160,7 @@ class _JournalScreenState extends State<JournalScreen> {
                                     ),
                                   ),
                                   IconButton(
-                                    tooltip: 'Supprimer',
+                                    tooltip: context.tr('delete'),
                                     icon: Icon(Icons.delete_outline, color: palette.muted),
                                     onPressed: () => _delete(entry),
                                   ),

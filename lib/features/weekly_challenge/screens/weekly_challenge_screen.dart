@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -44,7 +45,7 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
     final challenge = WeeklyChallengeService.getCurrentChallenge();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Défi de la semaine')),
+      appBar: AppBar(title: Text(context.tr('wc_title'))),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ReadingWidthConstraint(
@@ -63,9 +64,9 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
                       children: [
                         const Icon(Icons.flag_outlined, color: AppPalette.onHero, size: 28),
                         const SizedBox(height: 14),
-                        const Text(
-                          'CETTE SEMAINE',
-                          style: TextStyle(
+                        Text(
+                          context.tr('wc_this_week'),
+                          style: const TextStyle(
                             fontSize: 11.5,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1,
@@ -100,7 +101,7 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
                           const SizedBox(width: 4),
                           Expanded(
                             child: Text(
-                              "J'ai relevé ce défi cette semaine",
+                              context.tr('wc_done'),
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -114,7 +115,7 @@ class _WeeklyChallengeScreenState extends State<WeeklyChallengeScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Un nouveau défi arrive chaque semaine.',
+                    context.tr('wc_new'),
                     style: TextStyle(fontSize: 13, color: palette.muted),
                   ),
                 ],

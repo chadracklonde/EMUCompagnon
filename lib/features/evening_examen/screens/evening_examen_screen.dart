@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -46,7 +47,7 @@ class _EveningExamenScreenState extends State<EveningExamenScreen> {
     if (!mounted) return;
     setState(() => _saved = true);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Examen du soir enregistré.')),
+      SnackBar(content: Text(context.tr('ex_saved'))),
     );
   }
 
@@ -63,7 +64,7 @@ class _EveningExamenScreenState extends State<EveningExamenScreen> {
     final scheme = Theme.of(context).colorScheme;
     final questions = EveningExamenRepository.questions;
     return Scaffold(
-      appBar: AppBar(title: const Text('Examen du soir')),
+      appBar: AppBar(title: Text(context.tr('ex_title'))),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ReadingWidthConstraint(
@@ -73,9 +74,8 @@ class _EveningExamenScreenState extends State<EveningExamenScreen> {
                 children: [
                   InfoNote(
                     _saved
-                        ? "Déjà rempli aujourd'hui — vous pouvez modifier vos réponses."
-                        : 'Quelques minutes pour relire votre journée. Vos réponses '
-                            'restent sur cet appareil.',
+                        ? context.tr('ex_filled')
+                        : context.tr('ex_intro'),
                   ),
                   const SizedBox(height: 24),
                   for (var i = 0; i < questions.length; i++) ...[
@@ -94,11 +94,11 @@ class _EveningExamenScreenState extends State<EveningExamenScreen> {
                       minLines: 3,
                       maxLines: 6,
                       textCapitalization: TextCapitalization.sentences,
-                      decoration: const InputDecoration(hintText: 'Votre réponse…'),
+                      decoration: InputDecoration(hintText: context.tr('ex_answer')),
                     ),
                     const SizedBox(height: 22),
                   ],
-                  FilledButton(onPressed: _save, child: const Text('Enregistrer')),
+                  FilledButton(onPressed: _save, child: Text(context.tr('save'))),
                 ],
               ),
             ),
