@@ -51,9 +51,11 @@ class VerseShareCard extends StatelessWidget {
 
   /// La source à indiquer pour une version de la Bible. La Biblia Takatifu Wazi
   /// porte sa mention de licence (CC BY-SA 4.0), qui doit suivre le texte.
-  static String sourceForBible(String versionCode) => versionCode == 'SCV'
-      ? 'Biblia Takatifu Wazi © Biblica, 2018 · CC BY-SA 4.0'
-      : 'Louis Segond 1910';
+  static String sourceForBible(String versionCode) => switch (versionCode) {
+        'SCV' => 'Biblia Takatifu Wazi © Biblica, 2018 · CC BY-SA 4.0',
+        'BA' => 'La Bible annotée · theotex.org',
+        _ => 'Louis Segond 1910',
+      };
 
   @override
   Widget build(BuildContext context) {

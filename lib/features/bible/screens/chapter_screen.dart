@@ -412,12 +412,15 @@ class _ChapterScreenState extends State<ChapterScreen> {
     final scheme = Theme.of(context).colorScheme;
     final hasPrevious = _chapter > 1;
     final hasNext = _chapterCount != null && _chapter < _chapterCount!;
-    Widget nav() => _ChapterNav(
-          isRead: _isRead,
-          onToggleRead: _planIndex == null ? null : _toggleRead,
-          onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
-          onNext: hasNext ? () => _goToChapter(1) : null,
-        );
+    Widget nav() => Column(children: [
+          VersionCredit(version: BibleVersions.byCode(_ver)),
+          _ChapterNav(
+            isRead: _isRead,
+            onToggleRead: _planIndex == null ? null : _toggleRead,
+            onPrevious: hasPrevious ? () => _goToChapter(-1) : null,
+            onNext: hasNext ? () => _goToChapter(1) : null,
+          ),
+        ]);
     // Mode Étude : les notes viennent s'intercaler après leur dernier verset.
     final study = _hasNotes && _notesMode == NotesMode.study;
     final entries = <Object>[

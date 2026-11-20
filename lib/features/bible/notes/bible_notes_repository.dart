@@ -1,4 +1,8 @@
+import '../../../core/database/db_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart' show compute, visibleForTesting;
 import 'package:sqflite/sqflite.dart';
@@ -8,10 +12,9 @@ import 'bible_note.dart';
 
 /// Les notes de commentaire (par exemple celles de la Bible annotée).
 ///
-/// Elles ne sont pas dans la base livrée avec l'application : elles
-/// viennent d'un « pack » installé à part, dans leur propre fichier. Sans
-/// pack, [forChapter] ne renvoie rien et l'écran de lecture reste celui des
-/// autres versions.
+/// Elles vivent dans leur propre base, `assets/db/bible_notes.db`, copiée sur
+/// l'appareil au premier usage. Sans notes pour une version, [forChapter] ne
+/// renvoie rien et l'écran de lecture reste celui des autres versions.
 class BibleNotesRepository {
   static const _fileName = 'bible_notes.db';
   static Future<Database>? _db;
@@ -20,6 +23,13 @@ class BibleNotesRepository {
   /// Pour les tests : ouvre une base en mémoire au lieu du fichier.
   @visibleForTesting
   static Future<Database> Function()? opener;
+
+  /// Pour les tests de la copie depuis les ressources : où écrire le fichier,
+  /// et d'où lire la base livrée.
+  @visibleForTesting
+  static Future<String> Function(String fileName)? pathFor;
+  @visibleForTesting
+  static Future<ByteData> Function(String key)? assetLoader;
 
   @visibleForTesting
   static Future<void> resetForTests() async {
@@ -31,9 +41,25 @@ class BibleNotesRepository {
 
   static Future<Database> _open() => _db ??= (opener ?? _openFile)();
 
+  /// À augmenter quand `assets/db/bible_notes.db` change : les appareils
+  /// déjà installés reçoivent alors la nouvelle copie.
+  static const _assetVersion = 1;
+  static const _kAssetVersionPref = 'bibleNotes.assetVersion';
+
   static Future<Database> _openFile() async {
-    final path = await platform.getDatabasePath(_fileName);
-    return openDatabase(path, version: 1, onCreate: createSchema);
+    // Choisit le moteur SQLite de la plateforme avant tout accès au fichier.
+    await DbHelper.ensureFactory();
+    final path = await (pathFor ?? platform.getDatabasePath)(_fileName);
+    final prefs = await SharedPreferences.getInstance();
+    final exists = await databaseFactory.databaseExists(path);
+    if (!exists || (prefs.getInt(_kAssetVersionPref) ?? 0) < _assetVersion) {
+      final data = await (assetLoader ?? rootBundle.load)('assets/db/$_fileName');
+      if (exists) await databaseFactory.deleteDatabase(path);
+      await databaseFactory.writeDatabaseBytes(
+          path, data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
+      await prefs.setInt(_kAssetVersionPref, _assetVersion);
+    }
+    return databaseFactory.openDatabase(path);
   }
 
   @visibleForTesting

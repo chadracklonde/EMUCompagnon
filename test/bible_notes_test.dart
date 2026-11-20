@@ -155,9 +155,14 @@ void main() {
   });
 
   group('version et mode', () {
-    test('la Bible annotée est reconnue mais pas encore dans le choix de version', () {
-      expect(BibleVersions.byCode('BA').hasNotes, isTrue);
-      expect(BibleVersions.all.map((v) => v.code), isNot(contains('BA')));
+    test('la Bible annotée est dans le choix de version, avec notes et crédit vers theotex.org', () {
+      final ba = BibleVersions.byCode('BA');
+      expect(ba.hasNotes, isTrue);
+      expect(ba.available, isTrue);
+      expect(BibleVersions.availableVersions, contains(ba));
+      expect(ba.creditUrl, 'https://theotex.org');
+      expect(ba.creditLine, contains('ThéoTeX'));
+      expect(BibleVersions.byCode('LSG1910').creditUrl, isNull);
       expect(BibleVersions.byCode('LSG1910').hasNotes, isFalse);
       expect(BibleVersions.byCode('SCV').hasNotes, isFalse);
     });

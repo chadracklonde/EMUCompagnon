@@ -1,3 +1,5 @@
+import '../../../core/models/bible_version.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -54,6 +56,54 @@ TextStyle _noteStyle(BuildContext context) {
     height: 1.6 * settings.lineHeightScale,
     color: Theme.of(context).colorScheme.onSurface,
   );
+}
+
+/// Le crédit d'une version qui en demande un (la Bible annotée) : une ligne
+/// sous le texte, qui ouvre le site de l'auteur de la numérisation.
+class VersionCredit extends StatelessWidget {
+  final BibleVersion version;
+  const VersionCredit({super.key, required this.version});
+
+  @override
+  Widget build(BuildContext context) {
+    final line = version.creditLine;
+    final url = version.creditUrl;
+    if (line == null) return const SizedBox.shrink();
+    final palette = AppPalette.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Semantics(
+        link: url != null,
+        hint: context.tr('bn_credit_open'),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10),
+          onTap: url == null
+              ? null
+              : () => launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+            child: Text.rich(
+              TextSpan(
+                style: TextStyle(fontSize: 12.5, height: 1.45, color: palette.muted),
+                children: [
+                  TextSpan(text: '$line — '),
+                  if (url != null)
+                    TextSpan(
+                      text: url.replaceFirst('https://', ''),
+                      style: TextStyle(
+                          color: palette.accent,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.underline),
+                    ),
+                ],
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 /// Mode Étude : le début de la note sous son dernier verset. « Lire la
