@@ -1,3 +1,5 @@
+import '../../../core/l10n/app_strings.dart';
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/hymn_audio_mark.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,22 +39,6 @@ class WorshipScreen extends StatefulWidget {
 }
 
 class _WorshipScreenState extends State<WorshipScreen> {
-  static const _months = [
-    '',
-    'janvier',
-    'février',
-    'mars',
-    'avril',
-    'mai',
-    'juin',
-    'juillet',
-    'août',
-    'septembre',
-    'octobre',
-    'novembre',
-    'décembre',
-  ];
-
   final _repo = HymnsRepository();
   late final DateTime _day = WorshipService.serviceDay(DateTime.now());
   LiturgicalPeriodInstance? _season;
@@ -137,10 +123,10 @@ class _WorshipScreenState extends State<WorshipScreen> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            const ListTile(
+            ListTile(
               title: Text(
-                'Cantiques du culte',
-                style: TextStyle(fontWeight: FontWeight.w700),
+                sheetContext.tr('wo_hymns'),
+                style: const TextStyle(fontWeight: FontWeight.w700),
               ),
             ),
             for (final list in _lists)
@@ -151,12 +137,12 @@ class _WorshipScreenState extends State<WorshipScreen> {
                       : Icons.radio_button_unchecked,
                 ),
                 title: Text(list.name),
-                subtitle: Text('${list.numbers.length} cantique(s)'),
+                subtitle: Text(sheetContext.trf('wo_n_hymns', {'n': list.numbers.length})),
                 onTap: () => Navigator.of(sheetContext).pop(list.id),
               ),
             ListTile(
               leading: const Icon(Icons.playlist_add),
-              title: const Text('Gérer mes listes'),
+              title: Text(sheetContext.tr('wo_manage')),
               onTap: () => Navigator.of(sheetContext).pop('manage'),
             ),
           ],
@@ -193,21 +179,25 @@ class _WorshipScreenState extends State<WorshipScreen> {
 
     return KeepAwake(
       child: Scaffold(
-        appBar: AppBar(title: const Text('Culte du dimanche')),
+        appBar: AppBar(title: Text(context.tr('lg_worship'))),
         body: ReadingWidthConstraint(
           maxWidth: 640,
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
             children: [
               Text(
-                isToday ? "Aujourd'hui" : 'Dimanche prochain',
+                context.tr(isToday ? 'wo_today' : 'wo_next'),
                 style: TextStyle(fontSize: 13.5, color: palette.muted),
               ),
               const SizedBox(height: 2),
               Semantics(
                 header: true,
                 child: Text(
-                  'Dimanche ${_day.day} ${_months[_day.month]} ${_day.year}',
+                  context.trf('wo_date', {
+                    'd': _day.day,
+                    'm': AppStrings.monthName(_day.month, context.lang),
+                    'y': _day.year,
+                  }),
                   style: TextStyle(
                     fontSize: 24,
                     height: 1.2,
@@ -229,7 +219,7 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 for (final special in _sundayEntries.where((e) => e.isSpecial))
                   Padding(
                     padding: const EdgeInsets.only(top: 2),
-                    child: Text('Dimanche spécial : ${special.name}',
+                    child: Text(context.trf('wo_special', {'name': special.name}),
                         style: TextStyle(fontSize: 13.5, color: palette.muted)),
                   ),
               ],
@@ -244,10 +234,10 @@ class _WorshipScreenState extends State<WorshipScreen> {
               const SizedBox(height: 24),
               Row(
                 children: [
-                  const Expanded(child: SectionTitle('Cantiques du culte')),
+                  Expanded(child: SectionTitle(context.tr('wo_hymns'))),
                   if (_lists.isNotEmpty)
                     TextButton(
-                        onPressed: _chooseList, child: const Text('Changer')),
+                        onPressed: _chooseList, child: Text(context.tr('rp_change'))),
                 ],
               ),
               if (_loading)
@@ -260,11 +250,11 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   child: AppRow(
                     icon: Icons.queue_music_outlined,
                     title: _lists.isEmpty
-                        ? 'Préparer une liste de cantiques'
-                        : 'Choisir la liste du culte',
+                        ? context.tr('wo_prepare')
+                        : context.tr('wo_choose'),
                     subtitle: _lists.isEmpty
-                        ? 'Rangez les cantiques du culte dans l\'ordre où ils seront chantés'
-                        : '${_lists.length} listes disponibles',
+                        ? context.tr('wo_prepare_sub')
+                        : context.trf('wo_lists_avail', {'n': _lists.length}),
                     onTap: _chooseList,
                   ),
                 )
@@ -273,7 +263,7 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   child: AppRow(
                     icon: Icons.queue_music_outlined,
                     title: list.name,
-                    subtitle: 'Cette liste est vide — ajoutez-y des cantiques',
+                    subtitle: context.tr('wo_empty_list'),
                     onTap: () => _open(const HymnListsScreen()),
                   ),
                 )
@@ -308,12 +298,12 @@ class _WorshipScreenState extends State<WorshipScreen> {
                 const SizedBox(height: 12),
                 FilledButton.icon(
                   icon: const Icon(Icons.play_arrow),
-                  label: const Text('Commencer par le premier cantique'),
+                  label: Text(context.tr('wo_start')),
                   onPressed: () => _sing(0),
                 ),
               ],
               const SizedBox(height: 24),
-              const SectionTitle('Prières dites ensemble'),
+              SectionTitle(context.tr('wo_prayers')),
               AppRowGroup(rows: [
                 for (final text in _prayers)
                   AppRow(
@@ -324,12 +314,12 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   ),
                 AppRow(
                   icon: Icons.auto_stories_outlined,
-                  title: 'Toutes les prières et tous les textes',
+                  title: context.tr('wo_all_texts'),
                   onTap: () => _open(const ChurchTextsScreen()),
                 ),
               ]),
               const SizedBox(height: 24),
-              const SectionTitle('Pour préparer le culte'),
+              SectionTitle(context.tr('wo_prepare_service')),
               AppRowGroup(rows: [
                 for (final text in [
                   BookOfWorshipData.sundayOrder,
@@ -346,7 +336,7 @@ class _WorshipScreenState extends State<WorshipScreen> {
                   ),
               ]),
               const SizedBox(height: 24),
-              const SectionTitle('Déroulement du culte'),
+              SectionTitle(context.tr('wo_flow')),
               AppCard(
                 child: Theme(
                   // No divider lines around the expanded step.

@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import '../../church_texts/widgets/church_text_links.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class SacramentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sacrements et rites')),
+      appBar: AppBar(title: Text(context.tr('lg_sacr'))),
       body: ReadingWidthConstraint(
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
@@ -64,7 +65,7 @@ class SacramentDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final lineHeightScale = context.watch<AppSettings>().lineHeightScale;
     return KeepAwake(child: Scaffold(
-      appBar: AppBar(title: const Text('Sacrements et rites')),
+      appBar: AppBar(title: Text(context.tr('lg_sacr'))),
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
         child: ReadingWidthConstraint(
@@ -107,7 +108,7 @@ class SacramentDetailScreen extends StatelessWidget {
               ),
               if (sacrament.textIds.isNotEmpty) ...[
                 const SizedBox(height: 20),
-                Text('Textes du Livre de culte',
+                Text(context.tr('lg_bow_texts'),
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,

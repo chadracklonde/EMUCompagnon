@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class WorshipOrderScreen extends StatelessWidget {
     final steps = WorshipOrderData.steps;
 
     return KeepAwake(child: Scaffold(
-      appBar: AppBar(title: const Text('Ordre du culte')),
+      appBar: AppBar(title: Text(context.tr('lg_order'))),
       body: ReadingWidthConstraint(
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
@@ -33,7 +34,7 @@ class WorshipOrderScreen extends StatelessWidget {
               child: AppRow(
                 icon: churchTextIcon(BookOfWorshipData.basicPattern.icon),
                 title: BookOfWorshipData.basicPattern.title,
-                subtitle: 'Les quatre mouvements du culte, selon le Livre de culte',
+                subtitle: context.tr('lg_order_basic_sub'),
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => ChurchTextScreen(text: BookOfWorshipData.basicPattern)),
                 ),
@@ -119,7 +120,7 @@ class WorshipOrderScreen extends StatelessWidget {
                 ),
               ),
             const SizedBox(height: 12),
-            const SectionTitle('Textes du Livre de culte'),
+            SectionTitle(context.tr('lg_bow_texts')),
             AppRowGroup(rows: [
               for (final text in BookOfWorshipData.all)
                 AppRow(
