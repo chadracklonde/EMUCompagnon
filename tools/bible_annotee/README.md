@@ -1,11 +1,10 @@
 # La Bible annotée : texte de la traduction et notes
 
-> **STATUT : EN ATTENTE D'AUTORISATION. Ne pas importer dans l'application, ne pas publier,
-> ne pas fusionner dans `main` avant la réponse écrite de Claude Royère (ThéoTeX).**
-> Un message de demande lui a été envoyé (français et anglais) ; il porte sur le **texte de la
-> traduction seulement**. **Les notes demandent une seconde autorisation**, à demander après la
-> réponse au premier message. Tant que les réponses ne sont pas arrivées, ces fichiers servent
-> seulement à préparer l'import.
+> **STATUT : AUTORISÉ.** Claude Royère (ThéoTeX) a répondu par écrit le 20 novembre 2026 : il
+> autorise l'usage de la Bible annotée dans l'application, texte de la traduction **et notes**, et
+> a envoyé lui-même ses fichiers `ba.zip` (Ancien Testament) et `nta.zip` (Nouveau Testament), qui
+> se sont révélés identiques, octet pour octet, aux pages de son site lues par les scripts ci-dessous.
+> **Crédit demandé : un lien vers theotex.org**, pour que les lecteurs y trouvent de la lecture gratuite.
 
 ## Source
 
@@ -14,21 +13,24 @@
   Bonnet (Ostervald remanié, 1846-1892), notes numérisées par Yves Petrakian.
 - Le texte original de 1879-1900 est dans le domaine public ; cette saisie numérique a ses propres
   conditions, d'où la demande d'autorisation.
-- Mention de crédit proposée à l'auteur : « La Bible annotée, numérisation ThéoTeX (Claude Royère),
-  Nouveau Testament : notes numérisées par Yves Petrakian » avec un lien vers theotex.org.
+- Crédit demandé par l'auteur : un lien vers theotex.org. Nous y ajoutons le nom de l'œuvre et des
+  numériseurs : « La Bible annotée, numérisation ThéoTeX (Claude Royère), Nouveau Testament : notes
+  numérisées par Yves Petrakian — theotex.org ».
 
 ## Contenu du dossier
 
 | Fichier | Rôle |
 |---|---|
 | `ba_versets.json` | 31 173 versets, un objet par verset : `book`, `book_num`, `chapter`, `verse`, `text`. Noms de livres et ordre identiques à Louis Segond dans l'application. |
-| `ba_notes.json` | 23 299 notes (18 Mo) : `book`, `book_num`, `chapter`, `verse` (0 = introduction de chapitre ou de section), `source` (AT/NT), `html` (balises simplifiées). **Ne pas importer sans la seconde autorisation.** |
+| `ba_notes.json` | 23 299 notes (18 Mo) : `book`, `book_num`, `chapter`, `verse` (0 = introduction de chapitre ou de section), `source` (AT/NT), `html` (balises simplifiées).  |
 | `CONTROLE.md` | Comparaison avec Louis Segond (chapitres de longueur différente, erreurs de la source). |
 | `fetch_ot.py`, `fetch_ot_notes.py`, `fetch_nt.py` | Lecture lente du site (une page par seconde environ, identification claire). Seules les pages de traduction sont lues pour l'Ancien Testament ; le Nouveau Testament sert le texte et les notes dans la même page, les notes sont écartées à l'analyse. |
 | `parse_ot.py`, `parse_nt.py` | Extraction des versets (texte seulement). |
 | `parse_notes.py` | Extraction des notes de l'Ancien et du Nouveau Testament. |
 
-Les pages HTML brutes ne sont pas dans le dépôt.
+Les pages HTML brutes ne sont pas dans le dépôt. Les archives de l'auteur contiennent aussi les
+introductions de livres (`intros_ba`, `intros_nta`), les cartes et les tableaux : non extraits pour
+l'instant.
 
 ## Points à régler avant l'import
 
