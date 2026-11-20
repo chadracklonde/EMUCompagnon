@@ -10,12 +10,17 @@ class BibleVersion {
   final bool available;
   final String? note;
 
+  /// True quand la version a des notes de commentaire (la Bible annotée) :
+  /// l'écran de lecture propose alors les modes Texte, Étude et Notes.
+  final bool hasNotes;
+
   const BibleVersion({
     required this.code,
     required this.name,
     required this.language,
     required this.available,
     this.note,
+    this.hasNotes = false,
   });
 }
 
@@ -40,7 +45,20 @@ class BibleVersions {
     name: 'Biblia Takatifu Wazi (Swahili Contemporary Version)',
     language: 'Kiswahili',
     available: true,
-    note: 'CC BY-SA 4.0, © Biblica, Inc., 2018 ; édition Aionian (AionianBible.org)',
+    note:
+        'CC BY-SA 4.0, © Biblica, Inc., 2018 ; édition Aionian (AionianBible.org)',
+  );
+
+  /// La Bible annotée (traduction et notes). Elle n'est volontairement pas
+  /// dans [all] : elle n'apparaît dans le choix de version qu'une fois le
+  /// texte importé et autorisé. Son code est déjà reconnu par [byCode].
+  static const annotee = BibleVersion(
+    code: 'BA',
+    name: 'La Bible annotée',
+    language: 'Français',
+    available: false,
+    note: 'Traduction et notes de la Bible annotée',
+    hasNotes: true,
   );
 
   /// All versions the app knows about, available or not. The UI filters
@@ -49,6 +67,6 @@ class BibleVersions {
 
   static const availableVersions = [lsg1910, scv];
 
-  static BibleVersion byCode(String code) =>
-      all.firstWhere((v) => v.code == code, orElse: () => lsg1910);
+  static BibleVersion byCode(String code) => [...all, annotee]
+      .firstWhere((v) => v.code == code, orElse: () => lsg1910);
 }
