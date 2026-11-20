@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/theme/app_theme.dart';
@@ -16,7 +17,8 @@ String formatReadingTime(int verses) {
   return m == 0 ? '$h h' : '$h h ${m.toString().padLeft(2, '0')}';
 }
 
-String _daysLabel(int days) => days == 1 ? '1 jour' : '$days jours';
+String _daysLabel(BuildContext context, int days) =>
+    days == 1 ? context.tr('rp_days_1') : context.trf('rp_days_n', {'n': days});
 
 class ReadingPlanScreen extends StatefulWidget {
   const ReadingPlanScreen({super.key});
@@ -99,22 +101,19 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Réinitialiser le plan ?'),
-        content: const Text(
-          'Toute la progression sera effacée. La durée choisie est conservée '
-          'et repart du début de la Bible.',
-        ),
+        title: Text(context.tr('rp_reset_q')),
+        content: Text(context.tr('rp_reset_body')),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: const Text('Annuler'),
+            child: Text(context.tr('cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
             style: TextButton.styleFrom(
               foregroundColor: Theme.of(dialogContext).colorScheme.error,
             ),
-            child: const Text('Réinitialiser'),
+            child: Text(context.tr('rp_reset')),
           ),
         ],
       ),
@@ -151,11 +150,11 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plan de lecture'),
+        title: Text(context.tr('rp_title')),
         actions: [
           IconButton(
             icon: const Icon(Icons.restart_alt),
-            tooltip: 'Réinitialiser',
+            tooltip: context.tr('rp_reset'),
             onPressed: plan == null ? null : _resetConfirm,
           ),
           const SizedBox(width: 4),
@@ -218,7 +217,7 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Plan sur ${_daysLabel(plan.days.length)}',
+                                          context.trf('rp_plan_on', {'days': _daysLabel(context, plan.days.length)}),
                                           style: TextStyle(
                                             fontSize: 14.5,
                                             fontWeight: FontWeight.w600,
@@ -227,8 +226,10 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
                                         ),
                                         const SizedBox(height: 2),
                                         Text(
-                                          'Environ ${plan.averageVersesPerDay} versets par jour '
-                                          '(${formatReadingTime(plan.averageVersesPerDay)})',
+                                          context.trf('rp_avg', {
+                                            'n': plan.averageVersesPerDay,
+                                            'time': formatReadingTime(plan.averageVersesPerDay),
+                                          }),
                                           style: TextStyle(fontSize: 12.5, color: palette.muted),
                                         ),
                                       ],
@@ -237,7 +238,7 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
                                   const SizedBox(width: 8),
                                   OutlinedButton(
                                     onPressed: _changeDuration,
-                                    child: const Text('Changer'),
+                                    child: Text(context.tr('rp_change')),
                                   ),
                                 ],
                               ),
@@ -250,7 +251,7 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
                                   },
                                   icon: const Icon(Icons.menu_book_outlined),
                                   label: Text(
-                                    'Jour ${nextDay.number} — ${nextDay.label}',
+                                    context.trf('rp_next', {'n': nextDay.number, 'label': nextDay.label}),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -262,7 +263,7 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
                                   Icon(Icons.check_circle, color: palette.accent),
                                   const SizedBox(width: 8),
                                   Text(
-                                    'Plan terminé — bravo !',
+                                    context.tr('rp_done'),
                                     style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       color: palette.accent,
@@ -330,7 +331,7 @@ class _DayRow extends StatelessWidget {
                 value: isDone,
                 onChanged: (_) => onToggle(),
                 shape: const CircleBorder(),
-                semanticLabel: 'Jour ${day.number} lu',
+                semanticLabel: context.trf('rp_day_read', {'n': day.number}),
               ),
               const SizedBox(width: 4),
               Expanded(
@@ -339,7 +340,7 @@ class _DayRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Jour ${day.number} · ${day.verses} versets',
+                      context.trf('rp_day_line', {'n': day.number, 'v': day.verses}),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 12, color: palette.muted),
@@ -414,7 +415,7 @@ class _DaySheetState extends State<_DaySheet> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Jour ${day.number}',
+                    context.trf('rp_day', {'n': day.number}),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
@@ -423,8 +424,11 @@ class _DaySheetState extends State<_DaySheet> {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    '${day.chapters.length} chapitres · ${day.verses} versets · '
-                    'environ ${formatReadingTime(day.verses)}',
+                    context.trf('rp_day_detail', {
+                      'c': day.chapters.length,
+                      'v': day.verses,
+                      'time': formatReadingTime(day.verses),
+                    }),
                     style: TextStyle(fontSize: 13, color: palette.muted),
                   ),
                 ],
@@ -502,11 +506,11 @@ class _DurationSheet extends StatefulWidget {
 
 class _DurationSheetState extends State<_DurationSheet> {
   static const _presets = [
-    (7, '1 semaine'),
-    (30, '1 mois'),
-    (90, '3 mois'),
-    (180, '6 mois'),
-    (365, '1 an'),
+    (7, 'rp_week'),
+    (30, 'rp_month1'),
+    (90, 'rp_months3'),
+    (180, 'rp_months6'),
+    (365, 'rp_year'),
   ];
 
   late final TextEditingController _controller;
@@ -546,15 +550,14 @@ class _DurationSheetState extends State<_DurationSheet> {
     Widget preview;
     if (days == null) {
       preview = Text(
-        'Choisissez une durée ou saisissez un nombre de jours.',
+        context.tr('rp_pick'),
         style: TextStyle(fontSize: 13.5, color: palette.muted),
       );
     } else if (!_valid) {
       preview = Text(
         days < 1
-            ? 'Saisissez au moins 1 jour.'
-            : 'Au maximum ${_daysLabel(_maxDays)} : il reste $_maxDays chapitres, '
-                'soit un chapitre par jour.',
+            ? context.tr('rp_min1')
+            : context.trf('rp_max', {'days': _daysLabel(context, _maxDays), 'n': _maxDays}),
         style: TextStyle(fontSize: 13.5, color: scheme.error),
       );
     } else {
@@ -564,7 +567,7 @@ class _DurationSheetState extends State<_DurationSheet> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Environ $perDay versets par jour',
+            context.trf('rp_per_day', {'n': perDay}),
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -573,12 +576,12 @@ class _DurationSheetState extends State<_DurationSheet> {
           ),
           const SizedBox(height: 2),
           Text(
-            'Soit environ ${formatReadingTime(perDay)} de lecture par jour.',
+            context.trf('rp_read_time', {'time': formatReadingTime(perDay)}),
             style: TextStyle(fontSize: 13.5, color: palette.muted),
           ),
           const SizedBox(height: 8),
           Text(
-            'Jour 1 : ${plan.first.label}',
+            context.trf('rp_day1', {'label': plan.first.label}),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 13.5, color: scheme.onSurface),
@@ -600,7 +603,7 @@ class _DurationSheetState extends State<_DurationSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Durée du plan',
+              context.tr('rp_duration'),
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -610,9 +613,8 @@ class _DurationSheetState extends State<_DurationSheet> {
             const SizedBox(height: 4),
             Text(
               widget.hasProgress
-                  ? 'En combien de jours voulez-vous lire ce qui reste ? '
-                      'Les chapitres déjà lus sont conservés.'
-                  : 'En combien de jours voulez-vous lire toute la Bible ?',
+                  ? context.tr('rp_ask_rest')
+                  : context.tr('rp_ask_all'),
               style: TextStyle(fontSize: 13.5, height: 1.4, color: palette.muted),
             ),
             const SizedBox(height: 16),
@@ -623,12 +625,12 @@ class _DurationSheetState extends State<_DurationSheet> {
                 for (final (presetDays, label) in _presets)
                   if (presetDays <= _maxDays)
                     ChoiceChip(
-                      label: Text(label),
+                      label: Text(context.tr(label)),
                       selected: days == presetDays,
                       onSelected: (_) => _select(presetDays),
                     ),
                 ChoiceChip(
-                  label: const Text('1 chapitre par jour'),
+                  label: Text(context.tr('rp_one_chapter')),
                   selected: days == _maxDays,
                   onSelected: (_) => _select(_maxDays),
                 ),
@@ -642,9 +644,9 @@ class _DurationSheetState extends State<_DurationSheet> {
                 FilteringTextInputFormatter.digitsOnly,
                 LengthLimitingTextInputFormatter(4),
               ],
-              decoration: const InputDecoration(
-                hintText: 'Nombre de jours',
-                suffixText: 'jours',
+              decoration: InputDecoration(
+                hintText: context.tr('rp_days_hint'),
+                suffixText: context.tr('rp_days_suffix'),
               ),
               onChanged: (_) => setState(() {}),
             ),
@@ -663,7 +665,7 @@ class _DurationSheetState extends State<_DurationSheet> {
               width: double.infinity,
               child: FilledButton(
                 onPressed: _valid ? () => Navigator.pop(context, _days) : null,
-                child: const Text('Appliquer'),
+                child: Text(context.tr('rp_apply')),
               ),
             ),
           ],

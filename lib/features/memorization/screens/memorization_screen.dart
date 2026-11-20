@@ -1,3 +1,4 @@
+import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -83,7 +84,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
       context: context,
       builder: (dialogContext) => StatefulBuilder(
         builder: (dialogContext, setDialogState) => AlertDialog(
-          title: const Text('Ajouter un verset à mémoriser'),
+          title: Text(dialogContext.tr('mm_add_title')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +95,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                   key: ValueKey(value),
                   initialValue: value,
                   isExpanded: true,
-                  decoration: const InputDecoration(labelText: 'Livre'),
+                  decoration: InputDecoration(labelText: dialogContext.tr('mm_book')),
                   items: BibleRepository.books
                       .map((b) => DropdownMenuItem(value: b, child: Text(b)))
                       .toList(),
@@ -110,7 +111,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                     child: TextField(
                       controller: chapterController,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(labelText: 'Chapitre'),
+                      decoration: InputDecoration(labelText: dialogContext.tr('mm_chapter')),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -118,7 +119,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                     child: TextField(
                       controller: verseController,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(labelText: 'Verset'),
+                      decoration: InputDecoration(labelText: dialogContext.tr('mm_verse')),
                     ),
                   ),
                 ],
@@ -136,25 +137,25 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext, false),
-              child: const Text('Annuler'),
+              child: Text(dialogContext.tr('cancel')),
             ),
             FilledButton(
               onPressed: () async {
                 final chapter = int.tryParse(chapterController.text.trim());
                 final verse = int.tryParse(verseController.text.trim());
                 if (chapter == null || verse == null) {
-                  setDialogState(() => error = 'Chapitre et verset doivent être des nombres.');
+                  setDialogState(() => error = dialogContext.tr('mm_err_num'));
                   return;
                 }
                 final v = await BibleRepository().getVerse(bookNotifier.value, chapter, verse);
                 if (v == null) {
-                  setDialogState(() => error = 'Verset introuvable.');
+                  setDialogState(() => error = dialogContext.tr('mm_err_nf'));
                   return;
                 }
                 final already = await MemoryCardRepository()
                     .isAlreadyAdded(bookNotifier.value, chapter, verse);
                 if (already) {
-                  setDialogState(() => error = 'Ce verset est déjà dans votre deck.');
+                  setDialogState(() => error = dialogContext.tr('mm_err_dup'));
                   return;
                 }
                 await MemoryCardRepository().addCard(
@@ -166,7 +167,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                 );
                 if (dialogContext.mounted) Navigator.pop(dialogContext, true);
               },
-              child: const Text('Ajouter'),
+              child: Text(dialogContext.tr('add')),
             ),
           ],
         ),
@@ -180,12 +181,12 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mémorisation'),
+        title: Text(context.tr('mm_title')),
         actions: [
           if (!_reviewing)
             IconButton(
               icon: const Icon(Icons.add),
-              tooltip: 'Ajouter un verset',
+              tooltip: context.tr('mm_add'),
               onPressed: _addVerseDialog,
             ),
         ],
@@ -233,10 +234,10 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                       Expanded(
                         child: Text(
                           dueCount == 0
-                              ? "Rien à réviser aujourd'hui"
+                              ? context.tr('mm_none_due')
                               : dueCount == 1
-                                  ? "1 verset à réviser aujourd'hui"
-                                  : "$dueCount versets à réviser aujourd'hui",
+                                  ? context.tr('mm_one_due')
+                                  : context.trf('mm_n_due', {'n': dueCount}),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -253,7 +254,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                       child: FilledButton.icon(
                         onPressed: _startReview,
                         icon: const Icon(Icons.play_arrow),
-                        label: const Text('Réviser maintenant'),
+                        label: Text(context.tr('mm_review')),
                       ),
                     ),
                   ],
@@ -262,14 +263,13 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          SectionTitle('Mes versets (${_all.length})'),
+          SectionTitle(context.trf('mm_mine', {'n': _all.length})),
           if (_all.isEmpty)
-            const Padding(
-              padding: EdgeInsets.only(top: 8),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
               child: EmptyState(
                 icon: Icons.bookmark_add_outlined,
-                message: "Ajoutez un verset avec le bouton + en haut, ou depuis les "
-                    "actions d'un verset dans la Bible.",
+                message: context.tr('mm_empty'),
               ),
             )
           else
@@ -296,14 +296,14 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                                 ),
                                 const SizedBox(height: 2),
                                 Text(
-                                  'Prochaine révision : ${_all[i].dueDate}',
+                                  context.trf('mm_next', {'date': _all[i].dueDate}),
                                   style: TextStyle(fontSize: 12.5, color: palette.muted),
                                 ),
                               ],
                             ),
                           ),
                           IconButton(
-                            tooltip: 'Retirer ce verset',
+                            tooltip: context.tr('mm_remove'),
                             icon: Icon(Icons.delete_outline, color: palette.muted),
                             onPressed: () => _removeCard(_all[i]),
                           ),
@@ -394,7 +394,7 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                             OutlinedButton.icon(
                               onPressed: () => setState(() => _revealed = true),
                               icon: const Icon(Icons.visibility_outlined),
-                              label: const Text('Afficher le texte'),
+                              label: Text(context.tr('mm_show')),
                             )
                           else
                             Text(
@@ -423,19 +423,19 @@ class _MemorizationScreenState extends State<MemorizationScreen> {
                 child: Column(
                   children: [
                     Text(
-                      'Comment avez-vous retenu ce verset ?',
+                      context.tr('mm_how'),
                       style: TextStyle(fontSize: 13, color: palette.muted),
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        gradeButton('Encore', RecallQuality.again),
+                        gradeButton(context.tr('mm_again'), RecallQuality.again),
                         const SizedBox(width: 8),
-                        gradeButton('Difficile', RecallQuality.hard),
+                        gradeButton(context.tr('mm_hard'), RecallQuality.hard),
                         const SizedBox(width: 8),
-                        gradeButton('Bien', RecallQuality.good, primary: true),
+                        gradeButton(context.tr('mm_good'), RecallQuality.good, primary: true),
                         const SizedBox(width: 8),
-                        gradeButton('Facile', RecallQuality.easy),
+                        gradeButton(context.tr('mm_easy'), RecallQuality.easy),
                       ],
                     ),
                   ],
