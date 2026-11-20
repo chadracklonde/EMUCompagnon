@@ -1,3 +1,4 @@
+import '../../../core/l10n/app_strings.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -56,29 +57,29 @@ class ContentUpdateService {
 
   /// Checks for an update and, if one is available, downloads and merges
   /// it. Returns a human-readable result message for display.
-  static Future<String> checkAndApplyUpdate() async {
+  static Future<String> checkAndApplyUpdate([String locale = 'fr']) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kLastChecked, DateTime.now().toIso8601String());
 
     final manifest = await _fetchManifest();
     if (manifest == null) {
-      return "Impossible de vérifier les mises à jour (pas de connexion, ou dépôt pas encore public).";
+      return AppStrings.t('cu_no_net', locale);
     }
 
     final remoteVersion = manifest['version'] as int?;
     final dbUrl = manifest['db_url'] as String?;
     if (remoteVersion == null || dbUrl == null) {
-      return "Fichier de version distant invalide.";
+      return AppStrings.t('cu_bad', locale);
     }
 
     final localVersion = await getLocalVersion();
     if (remoteVersion <= localVersion) {
-      return "Contenu déjà à jour (version $localVersion).";
+      return AppStrings.tf('cu_current', locale, {'v': localVersion});
     }
 
     final response = await http.get(Uri.parse(dbUrl)).timeout(const Duration(minutes: 2));
     if (response.statusCode != 200) {
-      return "Échec du téléchargement de la mise à jour.";
+      return AppStrings.t('cu_dl_fail', locale);
     }
 
     final tempPath = await DbHelper.scratchDatabasePath('content_update.db');
@@ -88,6 +89,6 @@ class ContentUpdateService {
     await databaseFactory.deleteDatabase(tempPath);
 
     await prefs.setInt(_kLocalVersion, remoteVersion);
-    return "Contenu mis à jour vers la version $remoteVersion !";
+    return AppStrings.tf('cu_updated', locale, {'v': remoteVersion});
   }
 }
