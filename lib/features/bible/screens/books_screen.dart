@@ -130,7 +130,19 @@ class _BooksScreenState extends State<BooksScreen> {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            const LanguageSwitch(options: LanguageSwitch.bibles),
+            // Le libellé « français » porte le nom de la version française en cours.
+            LanguageSwitch(options: [
+              LanguageOption('fr',
+                  locale == 'fr' ? versionInfo.name : BibleVersions.lsg1910.name, 'Français'),
+              LanguageSwitch.bibles[1],
+            ]),
+            if (locale == 'fr') ...[
+              const SizedBox(height: 10),
+              _FrenchVersionChoice(
+                selected: version,
+                onChanged: (code) => settings.setBibleVersion(code),
+              ),
+            ],
             const SizedBox(height: 16),
             if (widget.filter == TestamentFilter.all && _lastRead != null) ...[
               AppCard(
@@ -158,6 +170,33 @@ class _BooksScreenState extends State<BooksScreen> {
             ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// En français, le choix entre Louis Segond et la Bible annotée (avec notes).
+class _FrenchVersionChoice extends StatelessWidget {
+  final String selected;
+  final ValueChanged<String> onChanged;
+  const _FrenchVersionChoice({required this.selected, required this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: SegmentedButton<String>(
+        showSelectedIcon: false,
+        style: const ButtonStyle(minimumSize: WidgetStatePropertyAll(Size.fromHeight(48))),
+        segments: [
+          for (final v in [BibleVersions.lsg1910, BibleVersions.annotee])
+            ButtonSegment(
+              value: v.code,
+              label: Text(v.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+            ),
+        ],
+        selected: {selected == BibleVersions.annotee.code ? selected : BibleVersions.lsg1910.code},
+        onSelectionChanged: (s) => onChanged(s.first),
       ),
     );
   }
