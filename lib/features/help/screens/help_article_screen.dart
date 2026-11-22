@@ -4,6 +4,7 @@ import '../../../core/l10n/tr.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../data/help_content.dart';
+import 'help_shot_view.dart';
 
 /// Un sujet de l'aide : une phrase d'introduction, des étapes numérotées et,
 /// quand il y en a un, un bouton qui ouvre l'écran concerné.
@@ -54,11 +55,18 @@ class HelpArticleScreen extends StatelessWidget {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(top: 3),
-                        child: Text(article.steps[i].text.of(lang),
-                            style: TextStyle(
-                                fontSize: 16,
-                                height: 1.5,
-                                color: scheme.onSurface)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(article.steps[i].text.of(lang),
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    height: 1.5,
+                                    color: scheme.onSurface)),
+                            if (article.steps[i].shot != null)
+                              HelpShotView(shot: article.steps[i].shot!),
+                          ],
+                        ),
                       ),
                     ),
                   ],

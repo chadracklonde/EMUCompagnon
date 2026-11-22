@@ -16,9 +16,31 @@ class L {
   String of(String locale) => locale == 'sw' ? sw : fr;
 }
 
+/// Une zone touchable sur une capture : son nom, son explication et,
+/// quand c'est possible, l'écran réel qu'elle permet d'ouvrir.
+class HelpHotspot {
+  /// Clé de la zone dans `assets/help/shots.json`.
+  final String key;
+  final L title;
+  final L body;
+  final Widget Function()? open;
+  const HelpHotspot(this.key, this.title, this.body, {this.open});
+}
+
+/// Une capture d'écran (`assets/help/<langue>/<id>.webp`) et ses zones.
+class HelpShot {
+  final String id;
+
+  /// Description de l'image pour les lecteurs d'écran.
+  final L caption;
+  final List<HelpHotspot> hotspots;
+  const HelpShot(this.id, this.caption, {this.hotspots = const []});
+}
+
 class HelpStep {
   final L text;
-  const HelpStep(this.text);
+  final HelpShot? shot;
+  const HelpStep(this.text, {this.shot});
 }
 
 /// Un sujet de l'aide : une explication en étapes.
@@ -59,10 +81,32 @@ class HelpContent {
         'Les premières minutes : choisir sa langue, sa Bible et une taille de texte confortable.',
         'Dakika za kwanza: kuchagua lugha, Biblia na ukubwa wa maandishi unaokufaa.',
       ),
-      steps: const [
+      steps: [
         HelpStep(L(
           'Ouvrez l\'onglet Plus, puis Réglages. Sous « Langue de l\'interface », choisissez Français ou Kiswahili. La Bible et les cantiques suivent la langue.',
           'Fungua kichupo cha Zaidi, kisha Mipangilio. Chini ya « Lugha ya programu », chagua Kifaransa au Kiswahili. Biblia na nyimbo hufuata lugha.',
+        ), shot: HelpShot(
+          'settings_lang',
+          const L('Réglages : langue de l\'interface et taille du texte',
+              'Mipangilio: lugha ya programu na ukubwa wa maandishi'),
+          hotspots: [
+            HelpHotspot(
+              'lang',
+              const L('Langue de l\'interface', 'Lugha ya programu'),
+              const L(
+                  'Choisissez Français ou Kiswahili. La Bible et les cantiques suivent la langue.',
+                  'Chagua Kifaransa au Kiswahili. Biblia na nyimbo hufuata lugha.'),
+              open: () => const SettingsScreen(),
+            ),
+            HelpHotspot(
+              'size',
+              const L('Taille du texte', 'Ukubwa wa maandishi'),
+              const L(
+                  'Faites glisser le curseur pour agrandir ou réduire les versets, les cantiques et les définitions.',
+                  'Buruta kitelezi ili kukuza au kupunguza mistari, nyimbo na maelezo.'),
+              open: () => const SettingsScreen(),
+            ),
+          ],
         )),
         HelpStep(L(
           'Dans Lecture, réglez la taille du texte, l\'interligne et la police jusqu\'à lire sans effort.',
@@ -90,14 +134,40 @@ class HelpContent {
         'La Bible annotée donne le texte avec les commentaires des auteurs de Neuchâtel. Trois façons de la lire.',
         'Biblia yenye maelezo ina maandishi pamoja na tafsiri za waandishi wa Neuchâtel. Njia tatu za kuisoma.',
       ),
-      steps: const [
+      steps: [
         HelpStep(L(
           'Ouvrez l\'onglet Bible. Sous le titre, choisissez « La Bible annotée » (au lieu de Louis Segond).',
           'Fungua kichupo cha Biblia. Chini ya kichwa, chagua « La Bible annotée » badala ya Louis Segond.',
+        ), shot: HelpShot(
+          'bible_versions',
+          const L('Onglet Bible : choix entre Louis Segond et la Bible annotée',
+              'Kichupo cha Biblia: kuchagua kati ya Louis Segond na Biblia yenye maelezo'),
+          hotspots: [
+            HelpHotspot(
+              'version',
+              const L('Choix de la Bible', 'Kuchagua Biblia'),
+              const L(
+                  'Touchez « La Bible annotée » pour lire avec les commentaires, ou Louis Segond pour le texte seul.',
+                  'Gusa « La Bible annotée » kusoma pamoja na maelezo, au Louis Segond kwa maandishi peke yake.'),
+            ),
+          ],
         )),
         HelpStep(L(
           'Ouvrez un chapitre. En haut, trois boutons : Texte (le texte seul), Étude (le début de chaque commentaire sous son verset) et Notes (tous les commentaires du chapitre).',
           'Fungua sura. Juu kuna vitufe vitatu: Maandishi (maandishi peke yake), Funzo (mwanzo wa kila maelezo chini ya mstari wake) na Madokezo (maelezo yote ya sura).',
+        ), shot: HelpShot(
+          'bible_modes',
+          const L('Un chapitre en mode Étude, avec les trois boutons de lecture',
+              'Sura katika hali ya Funzo, na vitufe vitatu vya kusoma'),
+          hotspots: [
+            HelpHotspot(
+              'modes',
+              const L('Texte · Étude · Notes', 'Maandishi · Funzo · Madokezo'),
+              const L(
+                  'Texte : le texte seul. Étude : le début du commentaire sous chaque verset. Notes : tous les commentaires du chapitre. Votre choix est gardé.',
+                  'Maandishi: maandishi peke yake. Funzo: mwanzo wa maelezo chini ya kila mstari. Madokezo: maelezo yote ya sura. Chaguo lako linahifadhiwa.'),
+            ),
+          ],
         )),
         HelpStep(L(
           'En mode Étude, touchez « Lire la suite » pour lire la note en entier, « Réduire » pour la refermer.',
@@ -110,6 +180,19 @@ class HelpContent {
         HelpStep(L(
           'Dans la liste des chapitres d\'un livre, la ligne « Introduction » présente le livre, son auteur et son plan.',
           'Katika orodha ya sura za kitabu, mstari wa « Utangulizi » unaelezea kitabu, mwandishi wake na mpangilio.',
+        ), shot: HelpShot(
+          'chapter_intro',
+          const L('Liste des chapitres d\'un livre, avec la ligne Introduction',
+              'Orodha ya sura za kitabu, na mstari wa Utangulizi'),
+          hotspots: [
+            HelpHotspot(
+              'intro',
+              const L('Introduction', 'Utangulizi'),
+              const L(
+                  'Présente le livre : son auteur, sa date, son plan. Touchez pour la lire ; certains livres ont plusieurs textes.',
+                  'Inaelezea kitabu: mwandishi, tarehe na mpangilio. Gusa kuisoma; vitabu vingine vina maandishi kadhaa.'),
+            ),
+          ],
         )),
       ],
       open: () => const BooksScreen(),
@@ -125,7 +208,7 @@ class HelpContent {
         'Chanter, écouter un enregistrement et préparer ses cantiques pour un culte.',
         'Kuimba, kusikiliza rekodi na kuandaa nyimbo zako kwa ibada.',
       ),
-      steps: const [
+      steps: [
         HelpStep(L(
           'Dans l\'onglet Cantiques, cherchez par numéro ou par mot. Touchez un cantique pour le lire.',
           'Katika kichupo cha Nyimbo, tafuta kwa nambari au kwa neno. Gusa wimbo kuusoma.',
@@ -152,10 +235,22 @@ class HelpContent {
         'Noter ses prières, suivre un plan de lecture et apprendre des versets par cœur.',
         'Kuandika maombi yako, kufuata mpango wa kusoma na kukariri mistari.',
       ),
-      steps: const [
+      steps: [
         HelpStep(L(
           'Plus > Journal de prière : touchez « Nouvelle entrée » pour écrire. Le texte reste sur votre téléphone.',
           'Zaidi > Shajara ya maombi: gusa « Maingizo mapya » ili kuandika. Maandishi yanabaki kwenye simu yako.',
+        ), shot: HelpShot(
+          'journal',
+          const L('Le journal de prière', 'Shajara ya maombi'),
+          hotspots: [
+            HelpHotspot(
+              'new',
+              const L('Nouvelle entrée', 'Maingizo mapya'),
+              const L('Touchez ce bouton pour écrire. Le texte reste sur votre téléphone.',
+                  'Gusa kitufe hiki ili kuandika. Maandishi yanabaki kwenye simu yako.'),
+              open: () => const JournalScreen(),
+            ),
+          ],
         )),
         HelpStep(L(
           'Plus > Plan de lecture : choisissez la durée qui vous convient. L\'application vous indique le passage du jour.',
@@ -179,10 +274,29 @@ class HelpContent {
         'Vos favoris, notes, journal et progression vivent sur votre téléphone. Une sauvegarde les protège.',
         'Vipendwa, maelezo, shajara na maendeleo yako yako kwenye simu yako. Hifadhi inayalinda.',
       ),
-      steps: const [
+      steps: [
         HelpStep(L(
           'Ouvrez Plus > Sauvegarde de mes données, puis touchez « Exporter mes données ».',
           'Fungua Zaidi > Hifadhi ya data yangu, kisha gusa « Hamisha data yangu ».',
+        ), shot: HelpShot(
+          'backup',
+          const L('L\'écran de sauvegarde', 'Skrini ya kuhifadhi'),
+          hotspots: [
+            HelpHotspot(
+              'export',
+              const L('Exporter mes données', 'Hamisha data yangu'),
+              const L('Crée un fichier avec vos favoris, notes, journal et progression.',
+                  'Hutengeneza faili lenye vipendwa, maelezo, shajara na maendeleo yako.'),
+              open: () => const BackupScreen(),
+            ),
+            HelpHotspot(
+              'import',
+              const L('Importer une sauvegarde', 'Leta hifadhi'),
+              const L('Reprend un fichier créé plus tôt, par exemple sur un nouveau téléphone.',
+                  'Hurejesha faili lililotengenezwa awali, kwa mfano kwenye simu mpya.'),
+              open: () => const BackupScreen(),
+            ),
+          ],
         )),
         HelpStep(L(
           'Envoyez le fichier à vous-même (courriel, messagerie ou cloud) pour le garder en lieu sûr.',

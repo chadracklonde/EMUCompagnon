@@ -87,6 +87,8 @@ void main() {
       final a = HelpContent.byId('annotated')!;
       expect(find.text(a.intro.fr), findsOneWidget);
       expect(find.text('1'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('2'), 300,
+          scrollable: find.byType(Scrollable).first);
       expect(find.text('2'), findsOneWidget);
       await tester.scrollUntilVisible(find.text('Ouvrir la Bible'), 300,
           scrollable: find.byType(Scrollable).first);

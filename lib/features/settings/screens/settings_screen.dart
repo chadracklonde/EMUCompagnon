@@ -2,6 +2,8 @@ import '../../../core/l10n/tr.dart';
 import '../../audio_pack/widgets/audio_pack_card.dart';
 import '../../../core/l10n/app_strings.dart';
 import 'package:flutter/material.dart';
+import '../../help/screens/help_button.dart';
+
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/app_cards.dart';
 import 'package:provider/provider.dart';
@@ -72,7 +74,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
 
     return Scaffold(
-      appBar: AppBar(title: Text(context.tr('st_title'))),
+      appBar: AppBar(
+        title: Text(context.tr('st_title')),
+        actions: const [HelpButton('start'), SizedBox(width: 4)],
+      ),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(

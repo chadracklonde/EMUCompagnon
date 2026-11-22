@@ -45,6 +45,9 @@ flutter:
   assets:
     - assets/db/
     - assets/hymn_audio_manifest.json
+    - assets/help/
+    - assets/help/fr/
+    - assets/help/sw/
     - assets/icons/
     - assets/images/
     - assets/fonts/PlayfairDisplay-OFL.txt

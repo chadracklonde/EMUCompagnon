@@ -2,6 +2,7 @@ import '../../../core/l10n/app_strings.dart';
 import '../../../shared/widgets/keep_awake.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../help/screens/help_button.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/verse.dart';
@@ -433,6 +434,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
         automaticallyImplyLeading: widget.showBackButton,
         title: Text('${context.bookName(widget.book, version: _ver)} $_chapter'),
         actions: [
+          if (_hasNotes) const HelpButton('annotated'),
           IconButton(
             icon: const Icon(Icons.text_fields),
             tooltip: _t('text_size'),
