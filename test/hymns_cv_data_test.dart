@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:emu_compagnon/features/hymns/utils/hymn_stanza_parser.dart';
@@ -73,5 +74,25 @@ void main() {
     expect(ly('129'), isNot(contains('\n\nle grand amour')));
     expect(ly('51').contains('\n\nplus de Sauveur'), isFalse);
     expect(ly('174'), contains('Qu\'en moi ton amour rayonne'));
+  });
+
+  test('la mise à jour du contenu : version publiée, adresse du fichier et base cohérentes', () {
+    final m = jsonDecode(File('content_version.json').readAsStringSync()) as Map<String, dynamic>;
+    expect(m['version'], isA<int>());
+    expect(m['version'] as int, greaterThanOrEqualTo(2));
+    expect(m['db_url'], 'https://raw.githubusercontent.com/chadracklonde/EMUCompagnon/main/assets/db/app_data.db');
+  });
+
+  test('les refrains sont écrits en entier dans les données : plus de « Chœur » seul (sauf le 381)', () {
+    final lone = <String>[];
+    for (final h in hymns) {
+      final parts = (h['lyrics'] as String).split('\n\n').map((l) => l.trim()).toList();
+      for (var i = 0; i < parts.length; i++) {
+        final isMarker = RegExp(r'^(Cœur|Chœur|Choeur|Refrain)$', caseSensitive: false).hasMatch(parts[i]);
+        final next = i + 1 < parts.length ? parts[i + 1] : '';
+        if (isMarker && (next.isEmpty || RegExp(r'^\d+\\?\.').hasMatch(next))) lone.add('${h['number']}');
+      }
+    }
+    expect(lone.toSet().toList(), ['381']);
   });
 }
