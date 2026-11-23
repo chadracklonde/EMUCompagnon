@@ -62,5 +62,30 @@ void main() {
       expect(stanzas.map((s) => s.label), ['1', 'Solo', '2']);
       expect(stanzas[1].isRefrain, true);
     });
+
+    test('un « Chœur » seul reprend le dernier refrain écrit', () {
+      const lyrics = '1. Un.\n\nChœur\n\nLe refrain.\n\n2. Deux.\n\nChœur\n\n3. Trois.\n\nChœur';
+      final s = HymnStanzaParser.parse(lyrics);
+      expect(s.map((x) => x.label), ['1', 'Chœur', '2', 'Chœur', '3', 'Chœur']);
+      expect(s.where((x) => x.isRefrain).map((x) => x.body), ['Le refrain.', 'Le refrain.', 'Le refrain.']);
+    });
+
+    test('« Chœur x2 » ne montre plus « x2 » : le texte du refrain commence au premier vers', () {
+      const lyrics = '1. Un.\n\nChœur x2\n\nPremier vers.\n\n2. Deux.\n\nChœur (x3)\n\nSecond vers.\n\n3. Trois.\n\nChœur X2';
+      final s = HymnStanzaParser.parse(lyrics);
+      final choirs = s.where((x) => x.isRefrain).map((x) => x.body).toList();
+      expect(choirs, ['Premier vers.', 'Second vers.', 'Second vers.']);
+    });
+
+    test('des refrains différents à chaque couplet restent différents', () {
+      const lyrics = '1. Un.\n\nChœur\n\nPremier.\n\n2. Deux.\n\nChœur\n\nSecond.';
+      final s = HymnStanzaParser.parse(lyrics);
+      expect(s.where((x) => x.isRefrain).map((x) => x.body), ['Premier.', 'Second.']);
+    });
+
+    test('un « Chœur » seul sans refrain écrit auparavant reste invisible, sans erreur', () {
+      final s = HymnStanzaParser.parse('1. Un.\n\nChœur\n\n2. Deux.');
+      expect(s.map((x) => x.label), ['1', '2']);
+    });
   });
 }
