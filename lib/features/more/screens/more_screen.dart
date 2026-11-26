@@ -10,6 +10,7 @@ import '../../about/screens/about_screen.dart';
 import '../../backup/screens/backup_screen.dart';
 import '../../content_update/screens/content_update_screen.dart';
 import '../../onboarding/screens/onboarding_screen.dart';
+import '../../bible_quiz/screens/bible_quiz_screen.dart';
 import '../../daily_quiz/screens/daily_quiz_screen.dart';
 import '../../dictionary/screens/dictionary_screen.dart';
 import '../../evening_examen/screens/evening_examen_screen.dart';
@@ -80,6 +81,11 @@ class MoreScreen extends StatelessWidget {
                 icon: Icons.quiz_outlined,
                 title: t('daily_quiz'),
                 onTap: () => open(const DailyQuizScreen()),
+              ),
+              AppRow(
+                icon: Icons.help_outline,
+                title: t('bible_quiz'),
+                onTap: () => open(const BibleQuizScreen()),
               ),
               AppRow(
                 icon: Icons.psychology_outlined,
