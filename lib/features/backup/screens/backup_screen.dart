@@ -1,5 +1,7 @@
 import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
+import '../../help/screens/help_button.dart';
+
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -89,7 +91,10 @@ class _BackupScreenState extends State<BackupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.tr('bk_title'))),
+      appBar: AppBar(
+        title: Text(context.tr('bk_title')),
+        actions: const [HelpButton('backup'), SizedBox(width: 4)],
+      ),
       body: ReadingWidthConstraint(
         maxWidth: 640,
         child: ListView(
