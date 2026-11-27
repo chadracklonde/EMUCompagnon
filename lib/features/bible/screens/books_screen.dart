@@ -12,6 +12,7 @@ import '../../../core/services/reading_history_service.dart';
 import '../../../core/l10n/app_strings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/responsive/responsive.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../../shared/widgets/version_picker.dart';
 import '../../../shared/bible_book_names.dart';
@@ -68,6 +69,8 @@ class _BooksScreenState extends State<BooksScreen> {
 
     final oldTestament = allBooks.sublist(0, _ancienTestament);
     final newTestament = allBooks.sublist(_ancienTestament);
+
+    final wideBoth = Responsive.isWide(context) && widget.filter == TestamentFilter.all;
 
     final appBarTitle = switch (widget.filter) {
       TestamentFilter.oldTestament => t('old_testament'),
@@ -126,23 +129,13 @@ class _BooksScreenState extends State<BooksScreen> {
         ],
       ),
       body: ReadingWidthConstraint(
-        maxWidth: 640,
+        // Sur un grand écran (ordinateur), l'Ancien et le Nouveau Testament
+        // sont côte à côte au lieu d'une seule colonne très longue.
+        maxWidth: wideBoth ? 1040 : 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           children: [
-            // Le libellé « français » porte le nom de la version française en cours.
-            LanguageSwitch(options: [
-              LanguageOption('fr',
-                  locale == 'fr' ? versionInfo.name : BibleVersions.lsg1910.name, 'Français'),
-              LanguageSwitch.bibles[1],
-            ]),
-            if (locale == 'fr') ...[
-              const SizedBox(height: 10),
-              _FrenchVersionChoice(
-                selected: version,
-                onChanged: (code) => settings.setBibleVersion(code),
-              ),
-            ],
+            const LanguageSwitch(options: LanguageSwitch.bibles),
             const SizedBox(height: 16),
             if (widget.filter == TestamentFilter.all && _lastRead != null) ...[
               AppCard(
@@ -159,44 +152,38 @@ class _BooksScreenState extends State<BooksScreen> {
               ),
               const SizedBox(height: 24),
             ],
-            if (widget.filter != TestamentFilter.newTestament) ...[
-              if (widget.filter == TestamentFilter.all) SectionTitle(t('old_testament')),
-              bookGroup(oldTestament),
-            ],
-            if (widget.filter == TestamentFilter.all) const SizedBox(height: 24),
-            if (widget.filter != TestamentFilter.oldTestament) ...[
-              if (widget.filter == TestamentFilter.all) SectionTitle(t('new_testament')),
-              bookGroup(newTestament),
+            if (wideBoth)
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [SectionTitle(t('old_testament')), bookGroup(oldTestament)],
+                    ),
+                  ),
+                  const SizedBox(width: 24),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [SectionTitle(t('new_testament')), bookGroup(newTestament)],
+                    ),
+                  ),
+                ],
+              )
+            else ...[
+              if (widget.filter != TestamentFilter.newTestament) ...[
+                if (widget.filter == TestamentFilter.all) SectionTitle(t('old_testament')),
+                bookGroup(oldTestament),
+              ],
+              if (widget.filter == TestamentFilter.all) const SizedBox(height: 24),
+              if (widget.filter != TestamentFilter.oldTestament) ...[
+                if (widget.filter == TestamentFilter.all) SectionTitle(t('new_testament')),
+                bookGroup(newTestament),
+              ],
             ],
           ],
         ),
-      ),
-    );
-  }
-}
-
-/// En français, le choix entre Louis Segond et la Bible annotée (avec notes).
-class _FrenchVersionChoice extends StatelessWidget {
-  final String selected;
-  final ValueChanged<String> onChanged;
-  const _FrenchVersionChoice({required this.selected, required this.onChanged});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: SegmentedButton<String>(
-        showSelectedIcon: false,
-        style: const ButtonStyle(minimumSize: WidgetStatePropertyAll(Size.fromHeight(48))),
-        segments: [
-          for (final v in [BibleVersions.lsg1910, BibleVersions.annotee])
-            ButtonSegment(
-              value: v.code,
-              label: Text(v.name, maxLines: 1, overflow: TextOverflow.ellipsis),
-            ),
-        ],
-        selected: {selected == BibleVersions.annotee.code ? selected : BibleVersions.lsg1910.code},
-        onSelectionChanged: (s) => onChanged(s.first),
       ),
     );
   }
