@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/l10n/tr.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/responsive/responsive.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../data/help_content.dart';
 import 'help_article_screen.dart';
@@ -19,6 +20,8 @@ class HelpScreen extends StatefulWidget {
 class _HelpScreenState extends State<HelpScreen> {
   final _controller = TextEditingController();
   String _query = '';
+  // Sur ordinateur : le sujet affiché à droite de la liste.
+  HelpArticle _selected = HelpContent.articles.first;
 
   @override
   void dispose() {
@@ -26,8 +29,14 @@ class _HelpScreenState extends State<HelpScreen> {
     super.dispose();
   }
 
-  void _open(HelpArticle a) => Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HelpArticleScreen(article: a)));
+  void _open(HelpArticle a) {
+    if (Responsive.isWide(context)) {
+      setState(() => _selected = a);
+      return;
+    }
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => HelpArticleScreen(article: a)));
+  }
 
   AppRow _row(HelpArticle a, String lang) => AppRow(
         icon: a.icon,
@@ -45,63 +54,80 @@ class _HelpScreenState extends State<HelpScreen> {
     final featured = HelpContent.articles.first;
     final others = HelpContent.articles.skip(1).toList();
 
+    final list = ListView(
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+      children: [
+        TextField(
+          controller: _controller,
+          textInputAction: TextInputAction.search,
+          onChanged: (v) => setState(() => _query = v),
+          decoration: InputDecoration(
+            hintText: context.tr('help_search'),
+            prefixIcon: const Icon(Icons.search),
+            suffixIcon: _query.isEmpty
+                ? null
+                : IconButton(
+                    icon: const Icon(Icons.close),
+                    tooltip: context.tr('help_clear'),
+                    onPressed: () {
+                      _controller.clear();
+                      setState(() => _query = '');
+                    },
+                  ),
+            filled: true,
+            fillColor: palette.card,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+              borderSide: BorderSide(color: palette.border),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+              borderSide: BorderSide(color: palette.border),
+            ),
+          ),
+        ),
+        const SizedBox(height: 18),
+        if (searching) ...[
+          if (results.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 28),
+              child: Text(context.tr('help_none'),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: palette.muted)),
+            )
+          else
+            AppRowGroup(rows: [for (final a in results) _row(a, lang)]),
+        ] else ...[
+          _Featured(article: featured, onTap: () => _open(featured)),
+          const SizedBox(height: 24),
+          SectionTitle(context.tr('help_topics')),
+          AppRowGroup(rows: [for (final a in others) _row(a, lang)]),
+        ],
+      ],
+    );
+
     return Scaffold(
       backgroundColor: palette.background,
       appBar: AppBar(title: Text(context.tr('help_title'))),
-      body: ReadingWidthConstraint(
-        maxWidth: 640,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
-          children: [
-            TextField(
-              controller: _controller,
-              textInputAction: TextInputAction.search,
-              onChanged: (v) => setState(() => _query = v),
-              decoration: InputDecoration(
-                hintText: context.tr('help_search'),
-                prefixIcon: const Icon(Icons.search),
-                suffixIcon: _query.isEmpty
-                    ? null
-                    : IconButton(
-                        icon: const Icon(Icons.close),
-                        tooltip: context.tr('help_clear'),
-                        onPressed: () {
-                          _controller.clear();
-                          setState(() => _query = '');
-                        },
-                      ),
-                filled: true,
-                fillColor: palette.card,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: BorderSide(color: palette.border),
+      body: Responsive.isWide(context)
+          ? Row(
+              children: [
+                SizedBox(width: 380, child: list),
+                VerticalDivider(width: 1, color: palette.border),
+                Expanded(
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 720),
+                      child: HelpArticleBody(
+                          key: ValueKey(_selected.id),
+                          article: _selected,
+                          showTitle: true),
+                    ),
+                  ),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: BorderSide(color: palette.border),
-                ),
-              ),
-            ),
-            const SizedBox(height: 18),
-            if (searching) ...[
-              if (results.isEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 28),
-                  child: Text(context.tr('help_none'),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: palette.muted)),
-                )
-              else
-                AppRowGroup(rows: [for (final a in results) _row(a, lang)]),
-            ] else ...[
-              _Featured(article: featured, onTap: () => _open(featured)),
-              const SizedBox(height: 24),
-              SectionTitle(context.tr('help_topics')),
-              AppRowGroup(rows: [for (final a in others) _row(a, lang)]),
-            ],
-          ],
-        ),
-      ),
+              ],
+            )
+          : ReadingWidthConstraint(maxWidth: 640, child: list),
     );
   }
 }

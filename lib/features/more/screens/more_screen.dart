@@ -4,6 +4,7 @@ import '../../../core/l10n/app_strings.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/responsive/responsive.dart';
 import '../../../shared/services/app_share_service.dart';
 import '../../../shared/widgets/app_cards.dart';
 import '../../about/screens/about_screen.dart';
@@ -39,127 +40,156 @@ class MoreScreen extends StatelessWidget {
           MaterialPageRoute(builder: (_) => screen),
         );
 
+    // Les groupes de la page : en une colonne sur téléphone, en deux sur ordinateur.
+    final libraryGroups = <Widget>[
+      SectionTitle(t('section_library')),
+      AppRowGroup(rows: [
+        AppRow(
+          icon: Icons.auto_stories_outlined,
+          title: t('dictionary_full'),
+          onTap: () => open(const DictionaryScreen()),
+        ),
+        AppRow(
+          icon: Icons.queue_music,
+          title: t('hymn_lists'),
+          onTap: () => open(const HymnListsScreen()),
+        ),
+        AppRow(
+          icon: Icons.star_outline,
+          title: t('nav_favorites'),
+          onTap: () => open(const FavoritesScreen()),
+        ),
+        AppRow(
+          icon: Icons.search,
+          title: t('search'),
+          onTap: () => open(const GlobalSearchScreen()),
+        ),
+      ]),
+      const SizedBox(height: 24),
+      SectionTitle(t('section_spiritual_life')),
+      AppRowGroup(rows: [
+        AppRow(
+          icon: Icons.event_note_outlined,
+          title: t('reading_plan'),
+          onTap: () => open(const ReadingPlanScreen()),
+        ),
+        AppRow(
+          icon: Icons.quiz_outlined,
+          title: t('daily_quiz'),
+          onTap: () => open(const DailyQuizScreen()),
+        ),
+        AppRow(
+          icon: Icons.help_outline,
+          title: t('bible_quiz'),
+          onTap: () => open(const BibleQuizScreen()),
+        ),
+        AppRow(
+          icon: Icons.psychology_outlined,
+          title: t('memorization'),
+          onTap: () => open(const MemorizationScreen()),
+        ),
+        AppRow(
+          icon: Icons.edit_note_outlined,
+          title: t('prayer_journal'),
+          onTap: () => open(const JournalScreen()),
+        ),
+        AppRow(
+          icon: Icons.nights_stay_outlined,
+          title: t('evening_examen'),
+          onTap: () => open(const EveningExamenScreen()),
+        ),
+        AppRow(
+          icon: Icons.flag_outlined,
+          title: t('weekly_challenge'),
+          onTap: () => open(const WeeklyChallengeScreen()),
+        ),
+      ]),
+    ];
+    final appGroups = <Widget>[
+      SectionTitle(t('section_app')),
+      AppRowGroup(rows: [
+        AppRow(
+          icon: Icons.settings_outlined,
+          title: t('settings'),
+          onTap: () => open(const SettingsScreen()),
+        ),
+        AppRow(
+          icon: Icons.widgets_outlined,
+          title: t('widgets_title'),
+          subtitle: t('widgets_subtitle'),
+          onTap: () => open(const WidgetsScreen()),
+        ),
+        AppRow(
+          icon: Icons.backup_outlined,
+          title: t('backup'),
+          subtitle: t('backup_subtitle'),
+          onTap: () => open(const BackupScreen()),
+        ),
+        AppRow(
+          icon: Icons.cloud_sync_outlined,
+          title: t('content_updates'),
+          onTap: () => open(const ContentUpdateScreen()),
+        ),
+        AppRow(
+          icon: Icons.share_outlined,
+          title: t('recommend'),
+          subtitle: t('recommend_subtitle'),
+          trailingIcon: Icons.ios_share,
+          onTap: () => AppShareService.recommend(
+            context.read<AppSettings>().locale,
+          ),
+        ),
+        AppRow(
+          icon: Icons.live_help_outlined,
+          title: t('help_title'),
+          subtitle: t('help_subtitle'),
+          onTap: () => open(const HelpScreen()),
+        ),
+        AppRow(
+          icon: Icons.help_outline,
+          title: t('tutorial'),
+          onTap: () => open(const OnboardingScreen()),
+        ),
+        AppRow(
+          icon: Icons.info_outline,
+          title: t('nav_about'),
+          onTap: () => open(const AboutScreen()),
+        ),
+      ]),
+    ];
+
     return Scaffold(
       backgroundColor: AppPalette.of(context).background,
       appBar: AppBar(title: Text(t('nav_more'))),
       body: ReadingWidthConstraint(
-        maxWidth: 640,
+        maxWidth: Responsive.isWide(context) ? 1040 : 640,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
           children: [
-            SectionTitle(t('section_library')),
-            AppRowGroup(rows: [
-              AppRow(
-                icon: Icons.auto_stories_outlined,
-                title: t('dictionary_full'),
-                onTap: () => open(const DictionaryScreen()),
-              ),
-              AppRow(
-                icon: Icons.queue_music,
-                title: t('hymn_lists'),
-                onTap: () => open(const HymnListsScreen()),
-              ),
-              AppRow(
-                icon: Icons.star_outline,
-                title: t('nav_favorites'),
-                onTap: () => open(const FavoritesScreen()),
-              ),
-              AppRow(
-                icon: Icons.search,
-                title: t('search'),
-                onTap: () => open(const GlobalSearchScreen()),
-              ),
-            ]),
-            const SizedBox(height: 24),
-            SectionTitle(t('section_spiritual_life')),
-            AppRowGroup(rows: [
-              AppRow(
-                icon: Icons.event_note_outlined,
-                title: t('reading_plan'),
-                onTap: () => open(const ReadingPlanScreen()),
-              ),
-              AppRow(
-                icon: Icons.quiz_outlined,
-                title: t('daily_quiz'),
-                onTap: () => open(const DailyQuizScreen()),
-              ),
-              AppRow(
-                icon: Icons.help_outline,
-                title: t('bible_quiz'),
-                onTap: () => open(const BibleQuizScreen()),
-              ),
-              AppRow(
-                icon: Icons.psychology_outlined,
-                title: t('memorization'),
-                onTap: () => open(const MemorizationScreen()),
-              ),
-              AppRow(
-                icon: Icons.edit_note_outlined,
-                title: t('prayer_journal'),
-                onTap: () => open(const JournalScreen()),
-              ),
-              AppRow(
-                icon: Icons.nights_stay_outlined,
-                title: t('evening_examen'),
-                onTap: () => open(const EveningExamenScreen()),
-              ),
-              AppRow(
-                icon: Icons.flag_outlined,
-                title: t('weekly_challenge'),
-                onTap: () => open(const WeeklyChallengeScreen()),
-              ),
-            ]),
-            const SizedBox(height: 24),
-            SectionTitle(t('section_app')),
-            AppRowGroup(rows: [
-              AppRow(
-                icon: Icons.settings_outlined,
-                title: t('settings'),
-                onTap: () => open(const SettingsScreen()),
-              ),
-              AppRow(
-                icon: Icons.widgets_outlined,
-                title: t('widgets_title'),
-                subtitle: t('widgets_subtitle'),
-                onTap: () => open(const WidgetsScreen()),
-              ),
-              AppRow(
-                icon: Icons.backup_outlined,
-                title: t('backup'),
-                subtitle: t('backup_subtitle'),
-                onTap: () => open(const BackupScreen()),
-              ),
-              AppRow(
-                icon: Icons.cloud_sync_outlined,
-                title: t('content_updates'),
-                onTap: () => open(const ContentUpdateScreen()),
-              ),
-              AppRow(
-                icon: Icons.share_outlined,
-                title: t('recommend'),
-                subtitle: t('recommend_subtitle'),
-                trailingIcon: Icons.ios_share,
-                onTap: () => AppShareService.recommend(
-                  context.read<AppSettings>().locale,
-                ),
-              ),
-              AppRow(
-                icon: Icons.live_help_outlined,
-                title: t('help_title'),
-                subtitle: t('help_subtitle'),
-                onTap: () => open(const HelpScreen()),
-              ),
-              AppRow(
-                icon: Icons.help_outline,
-                title: t('tutorial'),
-                onTap: () => open(const OnboardingScreen()),
-              ),
-              AppRow(
-                icon: Icons.info_outline,
-                title: t('nav_about'),
-                onTap: () => open(const AboutScreen()),
-              ),
-            ]),
+            if (Responsive.isWide(context))
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: libraryGroups,
+                    ),
+                  ),
+                  const SizedBox(width: 24),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: appGroups,
+                    ),
+                  ),
+                ],
+              )
+            else ...[
+              ...libraryGroups,
+              const SizedBox(height: 24),
+              ...appGroups,
+            ],
           ],
         ),
       ),

@@ -10,6 +10,7 @@ import '../../../core/services/streak_service.dart';
 import '../../../core/settings/app_settings.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
+import '../../../shared/responsive/responsive.dart';
 import '../../../shared/services/image_share_service.dart';
 import '../../../shared/widgets/verse_share_card.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -239,11 +240,44 @@ class _HomeScreenState extends State<HomeScreen> {
               })}';
     }
 
+    // Quatre accès : 2 × 2 sur téléphone, sur une seule rangée sur ordinateur.
+    final readTiles = <Widget>[
+      AppTile(
+            icon: Icons.menu_book_outlined,
+            title: t('old_testament'),
+            subtitle: tf('books_count', {'n': 39}),
+            onTap: () => _open(
+              const BooksScreen(filter: TestamentFilter.oldTestament),
+            ),
+          ),
+      AppTile(
+            icon: Icons.menu_book_outlined,
+            title: t('new_testament'),
+            subtitle: tf('books_count', {'n': 27}),
+            onTap: () => _open(
+              const BooksScreen(filter: TestamentFilter.newTestament),
+            ),
+          ),
+      AppTile(
+            icon: Icons.music_note_outlined,
+            title: Hymnals.name(Hymnals.forLocale(locale)),
+            subtitle: t('hymnal_subtitle'),
+            onTap: () => _open(const HymnsScreen()),
+          ),
+      AppTile(
+            icon: Icons.calendar_month_outlined,
+            title: t('nav_liturgy'),
+            subtitle: season?.period.name ?? t('liturgy_subtitle'),
+            subtitleDot: season == null ? null : Color(season.period.colorHex),
+            onTap: () => _open(const LiturgyScreen()),
+          ),
+    ];
+
     return Scaffold(
       backgroundColor: palette.background,
       body: SafeArea(
         child: ReadingWidthConstraint(
-          maxWidth: 640,
+          maxWidth: Responsive.isWide(context) ? 860 : 640,
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
             children: [
@@ -343,60 +377,41 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
               const SizedBox(height: 24),
               SectionTitle(t('section_read_sing')),
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: AppTile(
-                        icon: Icons.menu_book_outlined,
-                        title: t('old_testament'),
-                        subtitle: tf('books_count', {'n': 39}),
-                        onTap: () => _open(
-                          const BooksScreen(filter: TestamentFilter.oldTestament),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: AppTile(
-                        icon: Icons.menu_book_outlined,
-                        title: t('new_testament'),
-                        subtitle: tf('books_count', {'n': 27}),
-                        onTap: () => _open(
-                          const BooksScreen(filter: TestamentFilter.newTestament),
-                        ),
-                      ),
-                    ),
-                  ],
+              if (Responsive.isWide(context))
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      for (var i = 0; i < readTiles.length; i++) ...[
+                        if (i > 0) const SizedBox(width: 12),
+                        Expanded(child: readTiles[i]),
+                      ],
+                    ],
+                  ),
+                )
+              else ...[
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(child: readTiles[0]),
+                      const SizedBox(width: 12),
+                      Expanded(child: readTiles[1]),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: AppTile(
-                        icon: Icons.music_note_outlined,
-                        title: Hymnals.name(Hymnals.forLocale(locale)),
-                        subtitle: t('hymnal_subtitle'),
-                        onTap: () => _open(const HymnsScreen()),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: AppTile(
-                        icon: Icons.calendar_month_outlined,
-                        title: t('nav_liturgy'),
-                        subtitle: season?.period.name ?? t('liturgy_subtitle'),
-                        subtitleDot: season == null ? null : Color(season.period.colorHex),
-                        onTap: () => _open(const LiturgyScreen()),
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 12),
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(child: readTiles[2]),
+                      const SizedBox(width: 12),
+                      Expanded(child: readTiles[3]),
+                    ],
+                  ),
                 ),
-              ),
+              ],
               const SizedBox(height: 12),
               AppCard(
                 child: AppRow(
