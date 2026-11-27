@@ -29,8 +29,9 @@ couleur de marque. Le verset du jour est la seule carte pleine (bordeaux,
 texte en Playfair Display), avec favori et partage. Viennent ensuite :
 « Lire et chanter » (Ancien/Nouveau Testament, Chants de Victoire,
 Liturgie avec la saison en cours), « Aujourd'hui » (progression du plan
-de lecture, quiz du jour) et « Vie spirituelle » (mémorisation, journal
-de prière, examen du soir, défi de la semaine).
+de lecture, quiz du jour) et « Vie spirituelle » (quiz biblique de
+3 327 questions, mémorisation, journal de prière, examen du soir, défi de
+la semaine). Voir `docs/quiz-biblique.md`.
 
 Le **plan de lecture** a une durée au choix : une semaine, un mois, trois
 mois, six mois, un an, ou un nombre de jours libre. L'application répartit
