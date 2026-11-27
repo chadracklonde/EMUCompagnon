@@ -14,6 +14,7 @@ import '../../daily_quiz/screens/daily_quiz_screen.dart';
 import '../../dictionary/screens/dictionary_screen.dart';
 import '../../evening_examen/screens/evening_examen_screen.dart';
 import '../../favorites/screens/favorites_screen.dart';
+import '../../help/screens/help_screen.dart';
 import '../../hymn_lists/screens/hymn_lists_screen.dart';
 import '../../journal/screens/journal_screen.dart';
 import '../../memorization/screens/memorization_screen.dart';
@@ -135,6 +136,12 @@ class MoreScreen extends StatelessWidget {
                 onTap: () => AppShareService.recommend(
                   context.read<AppSettings>().locale,
                 ),
+              ),
+              AppRow(
+                icon: Icons.live_help_outlined,
+                title: t('help_title'),
+                subtitle: t('help_subtitle'),
+                onTap: () => open(const HelpScreen()),
               ),
               AppRow(
                 icon: Icons.help_outline,
