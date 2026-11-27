@@ -42,12 +42,12 @@ void main() {
     });
     tearDownAll(() => db.close());
 
-    test('444 Chants de Victoire et 360 Nyimbo za Wokovu, numérotés de 1 à 360', () async {
+    test('448 Chants de Victoire et 360 Nyimbo za Wokovu, numérotés de 1 à 360', () async {
       final counts = {
         for (final r in await db.rawQuery('SELECT hymnal, COUNT(*) c FROM hymns GROUP BY hymnal'))
           r['hymnal']: r['c']
       };
-      expect(counts, {'CV': 444, 'NZW': 360});
+      expect(counts, {'CV': 448, 'NZW': 360});
       final numbers = (await db.rawQuery("SELECT number FROM hymns WHERE hymnal = 'NZW'"))
           .map((r) => int.parse(r['number'] as String))
           .toSet();

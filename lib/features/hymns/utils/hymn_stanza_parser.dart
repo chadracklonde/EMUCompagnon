@@ -20,6 +20,10 @@ class HymnStanzaParser {
       RegExp(r'^(Cœur|Choeur|Chœur|Refrain|Solo|Kiitikio)\s*:?\s*(.*)$', caseSensitive: false);
   static final RegExp _keyLine = RegExp(r'^\(.+\)$');
 
+  // « x2 », « (x3) », « {x2} », « bis » : une indication de reprise, pas des paroles.
+  static final RegExp _repeatMark =
+      RegExp(r'^[\(\{\[]?\s*(x\s?\d|\d\s?x|bis)\s*[\)\}\]]?$', caseSensitive: false);
+
   static List<HymnStanza> parse(String lyrics) {
     final rawLines = lyrics
         .split('\n\n')
@@ -31,8 +35,19 @@ class HymnStanzaParser {
     String? currentLabel;
     bool currentIsRefrain = false;
     final currentBody = StringBuffer();
+    // Le dernier refrain écrit en entier : un « Chœur » seul, plus loin dans
+    // le cantique, veut dire « on le reprend ».
+    String? lastRefrain;
 
     void flush() {
+      if (currentLabel != null && currentIsRefrain) {
+        final text = currentBody.toString().trim();
+        if (text.isNotEmpty) {
+          lastRefrain = text;
+        } else if (lastRefrain != null) {
+          currentBody.write(lastRefrain);
+        }
+      }
       if (currentLabel != null && currentBody.isNotEmpty) {
         stanzas.add(HymnStanza(
           label: currentLabel,
@@ -64,7 +79,9 @@ class HymnStanzaParser {
         currentLabel = _capitalize(refMatch.group(1)!);
         currentIsRefrain = true;
         final rest = refMatch.group(2) ?? '';
-        if (rest.isNotEmpty) currentBody.writeln(rest);
+        if (rest.isNotEmpty && !_repeatMark.hasMatch(rest.trim())) {
+          currentBody.writeln(rest);
+        }
       } else {
         if (currentLabel == null) {
           // No marker seen yet — start an unlabeled first stanza so no
