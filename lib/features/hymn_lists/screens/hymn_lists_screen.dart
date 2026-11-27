@@ -1,5 +1,7 @@
 import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
+import '../../help/screens/help_button.dart';
+
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
 import '../../../shared/widgets/app_cards.dart';
@@ -53,7 +55,10 @@ class _HymnListsScreenState extends State<HymnListsScreen> {
     final palette = AppPalette.of(context);
     final lists = _lists;
     return Scaffold(
-      appBar: AppBar(title: Text(context.tr('hl_title'))),
+      appBar: AppBar(
+        title: Text(context.tr('hl_title')),
+        actions: const [HelpButton('hymns'), SizedBox(width: 4)],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _create,
         icon: const Icon(Icons.add),

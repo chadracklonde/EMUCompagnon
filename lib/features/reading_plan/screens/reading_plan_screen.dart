@@ -1,5 +1,7 @@
 import '../../../core/l10n/tr.dart';
 import 'package:flutter/material.dart';
+import '../../help/screens/help_button.dart';
+
 import 'package:flutter/services.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/responsive/reading_width_constraint.dart';
@@ -152,6 +154,7 @@ class _ReadingPlanScreenState extends State<ReadingPlanScreen> {
       appBar: AppBar(
         title: Text(context.tr('rp_title')),
         actions: [
+          const HelpButton('journal'),
           IconButton(
             icon: const Icon(Icons.restart_alt),
             tooltip: context.tr('rp_reset'),

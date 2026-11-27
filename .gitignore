@@ -6,3 +6,6 @@ build/
 /web/
 /android/
 /ios/
+
+# Captures brutes de l'aide (PNG), reconstruites par tools/help/capture.js
+tools/help/out/*.png
